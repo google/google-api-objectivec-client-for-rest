@@ -34,26 +34,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/plus.login"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlusLogin;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlusLogin;
 /**
  *  Authorization scope: Associate you with your personal info on Google
  *
  *  Value "https://www.googleapis.com/auth/plus.me"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlusMe;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlusMe;
 /**
  *  Authorization scope: View your email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlusUserinfoEmail;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlusUserinfoEmail;
 /**
  *  Authorization scope: See your personal info, including any personal info
  *  you've made publicly available
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePlusUserinfoProfile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePlusUserinfoProfile;
 
 // ----------------------------------------------------------------------------
 //   GTLRPlusService

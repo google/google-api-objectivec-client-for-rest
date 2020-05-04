@@ -34,32 +34,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeStorageCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeStorageCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeStorageCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeStorageCloudPlatformReadOnly;
 /**
  *  Authorization scope: Manage your data and permissions in Google Cloud
  *  Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.full_control"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeStorageDevstorageFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeStorageDevstorageFullControl;
 /**
  *  Authorization scope: View your data in Google Cloud Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeStorageDevstorageReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeStorageDevstorageReadOnly;
 /**
  *  Authorization scope: Manage your data in Google Cloud Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeStorageDevstorageReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeStorageDevstorageReadWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRStorageService

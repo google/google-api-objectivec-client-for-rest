@@ -631,8647 +631,8647 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCompute_AcceleratorTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AcceleratorTypeList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AcceleratorTypesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AccessConfig.networkTier
 
 /** Value: "PREMIUM" */
-GTLR_EXTERN NSString * const kGTLRCompute_AccessConfig_NetworkTier_Premium;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AccessConfig_NetworkTier_Premium;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AccessConfig_NetworkTier_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AccessConfig_NetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AccessConfig.type
 
 /** Value: "ONE_TO_ONE_NAT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AccessConfig_Type_OneToOneNat;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AccessConfig_Type_OneToOneNat;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Address.addressType
 
 /** Value: "EXTERNAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_AddressType_External;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_AddressType_External;
 /** Value: "INTERNAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_AddressType_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_AddressType_Internal;
 /** Value: "UNSPECIFIED_TYPE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_AddressType_UnspecifiedType;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_AddressType_UnspecifiedType;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Address.ipVersion
 
 /** Value: "IPV4" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_IpVersion_Ipv4;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_IpVersion_Ipv4;
 /** Value: "IPV6" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_IpVersion_Ipv6;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_IpVersion_Ipv6;
 /** Value: "UNSPECIFIED_VERSION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_IpVersion_UnspecifiedVersion;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_IpVersion_UnspecifiedVersion;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Address.networkTier
 
 /** Value: "PREMIUM" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Premium;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Premium;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_NetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Address.purpose
 
 /** Value: "DNS_RESOLVER" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_DnsResolver;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_DnsResolver;
 /** Value: "GCE_ENDPOINT" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_GceEndpoint;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_GceEndpoint;
 /** Value: "NAT_AUTO" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_NatAuto;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_NatAuto;
 /** Value: "VPC_PEERING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Purpose_VpcPeering;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_VpcPeering;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Address.status
 
 /** Value: "IN_USE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Status_InUse;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Status_InUse;
 /** Value: "RESERVED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Status_Reserved;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Status_Reserved;
 /** Value: "RESERVING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Address_Status_Reserving;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Status_Reserving;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AddressAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AddressesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AddressList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.interface
 
 /** Value: "NVME" */
-GTLR_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Nvme;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Nvme;
 /** Value: "SCSI" */
-GTLR_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Scsi;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Scsi;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.interface
 
 /** Value: "NVME" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Interface_Nvme;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Interface_Nvme;
 /** Value: "SCSI" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Interface_Scsi;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Interface_Scsi;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.mode
 
 /** Value: "READ_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadOnly;
 /** Value: "READ_WRITE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Mode_ReadWrite;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.type
 
 /** Value: "PERSISTENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Persistent;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Persistent;
 /** Value: "SCRATCH" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Scratch;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDisk_Type_Scratch;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDiskInitializeParams.onUpdateAction
 
 /** Value: "RECREATE_DISK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_OnUpdateAction_RecreateDisk;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_OnUpdateAction_RecreateDisk;
 /** Value: "RECREATE_DISK_IF_SOURCE_CHANGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_OnUpdateAction_RecreateDiskIfSourceChanged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_OnUpdateAction_RecreateDiskIfSourceChanged;
 /** Value: "USE_EXISTING_DISK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_OnUpdateAction_UseExistingDisk;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AttachedDiskInitializeParams_OnUpdateAction_UseExistingDisk;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AuditLogConfig.logType
 
 /** Value: "ADMIN_READ" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_AdminRead;
 /** Value: "DATA_READ" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_DataRead;
 /** Value: "DATA_WRITE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_DataWrite;
 /** Value: "LOG_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AuthorizationLoggingOptions.permissionType
 
 /** Value: "ADMIN_READ" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminRead;
 /** Value: "ADMIN_WRITE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminWrite;
 /** Value: "DATA_READ" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataRead;
 /** Value: "DATA_WRITE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataWrite;
 /** Value: "PERMISSION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Autoscaler.status
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Active;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Deleting;
 /** Value: "ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Error;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Autoscaler_Status_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalerAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalerList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalerStatusDetails.type
 
 /** Value: "ALL_INSTANCES_UNHEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_AllInstancesUnhealthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_AllInstancesUnhealthy;
 /** Value: "BACKEND_SERVICE_DOES_NOT_EXIST" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_BackendServiceDoesNotExist;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_BackendServiceDoesNotExist;
 /** Value: "CAPPED_AT_MAX_NUM_REPLICAS" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CappedAtMaxNumReplicas;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CappedAtMaxNumReplicas;
 /** Value: "CUSTOM_METRIC_DATA_POINTS_TOO_SPARSE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricDataPointsTooSparse;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricDataPointsTooSparse;
 /** Value: "CUSTOM_METRIC_INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_CustomMetricInvalid;
 /** Value: "MIN_EQUALS_MAX" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MinEqualsMax;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MinEqualsMax;
 /** Value: "MISSING_CUSTOM_METRIC_DATA_POINTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingCustomMetricDataPoints;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingCustomMetricDataPoints;
 /** Value: "MISSING_LOAD_BALANCING_DATA_POINTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MissingLoadBalancingDataPoints;
 /** Value: "MODE_OFF" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ModeOff;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ModeOff;
 /** Value: "MODE_ONLY_UP" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ModeOnlyUp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ModeOnlyUp;
 /** Value: "MORE_THAN_ONE_BACKEND_SERVICE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_MoreThanOneBackendService;
 /** Value: "NOT_ENOUGH_QUOTA_AVAILABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_NotEnoughQuotaAvailable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_NotEnoughQuotaAvailable;
 /** Value: "REGION_RESOURCE_STOCKOUT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_RegionResourceStockout;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_RegionResourceStockout;
 /** Value: "SCALING_TARGET_DOES_NOT_EXIST" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ScalingTargetDoesNotExist;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ScalingTargetDoesNotExist;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_Unknown;
 /** Value: "UNSUPPORTED_MAX_RATE_LOAD_BALANCING_CONFIGURATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_UnsupportedMaxRateLoadBalancingConfiguration;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_UnsupportedMaxRateLoadBalancingConfiguration;
 /** Value: "ZONE_RESOURCE_STOCKOUT" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ZoneResourceStockout;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerStatusDetails_Type_ZoneResourceStockout;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalingPolicy.mode
 
 /** Value: "OFF" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_Off;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_Off;
 /** Value: "ON" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_On;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_On;
 /** Value: "ONLY_UP" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_OnlyUp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_OnlyUp;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
 
 /** Value: "DELTA_PER_MINUTE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerMinute;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerMinute;
 /** Value: "DELTA_PER_SECOND" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerSecond;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerSecond;
 /** Value: "GAUGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_Gauge;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Backend.balancingMode
 
 /** Value: "CONNECTION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Connection;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Connection;
 /** Value: "RATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Rate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Rate;
 /** Value: "UTILIZATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Utilization;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Utilization;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendBucketList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.loadBalancingScheme
 
 /** Value: "EXTERNAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External;
 /** Value: "INTERNAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_Internal;
 /** Value: "INTERNAL_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalManaged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalManaged;
 /** Value: "INTERNAL_SELF_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalSelfManaged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalSelfManaged;
 /** Value: "INVALID_LOAD_BALANCING_SCHEME" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InvalidLoadBalancingScheme;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InvalidLoadBalancingScheme;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.localityLbPolicy
 
 /** Value: "INVALID_LB_POLICY" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_InvalidLbPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_InvalidLbPolicy;
 /** Value: "LEAST_REQUEST" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_LeastRequest;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_LeastRequest;
 /** Value: "MAGLEV" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Maglev;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Maglev;
 /** Value: "ORIGINAL_DESTINATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_OriginalDestination;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_OriginalDestination;
 /** Value: "RANDOM" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Random;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Random;
 /** Value: "RING_HASH" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RingHash;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RingHash;
 /** Value: "ROUND_ROBIN" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RoundRobin;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RoundRobin;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.protocol
 
 /** Value: "HTTP" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http;
 /** Value: "HTTP2" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http2;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http2;
 /** Value: "HTTPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Https;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Https;
 /** Value: "SSL" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Ssl;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Ssl;
 /** Value: "TCP" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Tcp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Tcp;
 /** Value: "UDP" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Udp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Udp;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.sessionAffinity
 
 /** Value: "CLIENT_IP" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIp;
 /** Value: "CLIENT_IP_PORT_PROTO" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpPortProto;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpPortProto;
 /** Value: "CLIENT_IP_PROTO" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpProto;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpProto;
 /** Value: "GENERATED_COOKIE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie;
 /** Value: "HEADER_FIELD" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_HeaderField;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_HeaderField;
 /** Value: "HTTP_COOKIE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_HttpCookie;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_HttpCookie;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendServiceAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendServiceList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendServicesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Commitment.plan
 
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Plan_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Plan_Invalid;
 /** Value: "THIRTY_SIX_MONTH" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Plan_ThirtySixMonth;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Plan_ThirtySixMonth;
 /** Value: "TWELVE_MONTH" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Plan_TwelveMonth;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Plan_TwelveMonth;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Commitment.status
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Active;
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Creating;
 /** Value: "EXPIRED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Expired;
 /** Value: "NOT_YET_ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Commitment_Status_NotYetActive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_NotYetActive;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_CommitmentAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_CommitmentList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_CommitmentsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Condition.iam
 
 /** Value: "APPROVER" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_Approver;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_Approver;
 /** Value: "ATTRIBUTION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_Attribution;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_Attribution;
 /** Value: "AUTHORITY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_Authority;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_Authority;
 /** Value: "CREDENTIALS_TYPE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_CredentialsType;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_CredentialsType;
 /** Value: "JUSTIFICATION_TYPE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_JustificationType;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_JustificationType;
 /** Value: "NO_ATTR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_NoAttr;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_NoAttr;
 /** Value: "SECURITY_REALM" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Iam_SecurityRealm;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_SecurityRealm;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Condition.op
 
 /** Value: "DISCHARGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_Discharged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Op_Discharged;
 /** Value: "EQUALS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_Equals;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Op_Equals;
 /** Value: "IN" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_In;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Op_In;
 /** Value: "NO_OP" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_NoOp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Op_NoOp;
 /** Value: "NOT_EQUALS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_NotEquals;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Op_NotEquals;
 /** Value: "NOT_IN" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Op_NotIn;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Op_NotIn;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Condition.sys
 
 /** Value: "IP" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Ip;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Sys_Ip;
 /** Value: "NAME" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Name;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Sys_Name;
 /** Value: "NO_ATTR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_NoAttr;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Sys_NoAttr;
 /** Value: "REGION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Region;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Sys_Region;
 /** Value: "SERVICE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Condition_Sys_Service;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Sys_Service;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DeprecationStatus.state
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Active;
 /** Value: "DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deleted;
 /** Value: "DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Deprecated;
 /** Value: "OBSOLETE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Obsolete;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DeprecationStatus_State_Obsolete;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Disk.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Status_Deleting;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Status_Failed;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Status_Ready;
 /** Value: "RESTORING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Disk_Status_Restoring;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Disk_Status_Restoring;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DiskAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DiskInstantiationConfig.instantiateFrom
 
 /** Value: "ATTACH_READ_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_AttachReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_AttachReadOnly;
 /** Value: "BLANK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_Blank;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_Blank;
 /** Value: "CUSTOM_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_CustomImage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_CustomImage;
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_Default;
 /** Value: "DO_NOT_INCLUDE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_DoNotInclude;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_DoNotInclude;
 /** Value: "SOURCE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_SourceImage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_SourceImage;
 /** Value: "SOURCE_IMAGE_FAMILY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_SourceImageFamily;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskInstantiationConfig_InstantiateFrom_SourceImageFamily;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DiskList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DisksScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DiskTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DiskTypeList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_DiskTypesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ExchangedPeeringRoute.type
 
 /** Value: "DYNAMIC_PEERING_ROUTE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_DynamicPeeringRoute;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_DynamicPeeringRoute;
 /** Value: "STATIC_PEERING_ROUTE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_StaticPeeringRoute;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_StaticPeeringRoute;
 /** Value: "SUBNET_PEERING_ROUTE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_SubnetPeeringRoute;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_SubnetPeeringRoute;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ExchangedPeeringRoutesList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ExternalVpnGateway.redundancyType
 
 /** Value: "FOUR_IPS_REDUNDANCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_FourIpsRedundancy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_FourIpsRedundancy;
 /** Value: "SINGLE_IP_INTERNALLY_REDUNDANT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_SingleIpInternallyRedundant;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_SingleIpInternallyRedundant;
 /** Value: "TWO_IPS_REDUNDANCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_TwoIpsRedundancy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGateway_RedundancyType_TwoIpsRedundancy;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ExternalVpnGatewayList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_FileContentBuffer.fileType
 
 /** Value: "BIN" */
-GTLR_EXTERN NSString * const kGTLRCompute_FileContentBuffer_FileType_Bin;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FileContentBuffer_FileType_Bin;
 /** Value: "UNDEFINED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FileContentBuffer_FileType_Undefined;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FileContentBuffer_FileType_Undefined;
 /** Value: "X509" */
-GTLR_EXTERN NSString * const kGTLRCompute_FileContentBuffer_FileType_X509;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FileContentBuffer_FileType_X509;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Firewall.direction
 
 /** Value: "EGRESS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Egress;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Egress;
 /** Value: "INGRESS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Ingress;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Firewall_Direction_Ingress;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_FirewallList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.IPProtocol
 
 /** Value: "AH" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Ah;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Ah;
 /** Value: "ESP" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Esp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Esp;
 /** Value: "ICMP" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Icmp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Icmp;
 /** Value: "SCTP" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Sctp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Sctp;
 /** Value: "TCP" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Tcp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Tcp;
 /** Value: "UDP" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Udp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Udp;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.ipVersion
 
 /** Value: "IPV4" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_Ipv4;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_Ipv4;
 /** Value: "IPV6" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_Ipv6;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_Ipv6;
 /** Value: "UNSPECIFIED_VERSION" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_UnspecifiedVersion;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_UnspecifiedVersion;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.loadBalancingScheme
 
 /** Value: "EXTERNAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External;
 /** Value: "INTERNAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal;
 /** Value: "INTERNAL_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged;
 /** Value: "INTERNAL_SELF_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalSelfManaged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalSelfManaged;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Invalid;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.networkTier
 
 /** Value: "PREMIUM" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Premium;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Premium;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRuleAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRuleList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRulesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_GuestOsFeature.type
 
 /** Value: "FEATURE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified;
 /** Value: "MULTI_IP_SUBNET" */
-GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet;
 /** Value: "SECURE_BOOT" */
-GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_SecureBoot;
 /** Value: "UEFI_COMPATIBLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible;
 /** Value: "VIRTIO_SCSI_MULTIQUEUE" */
-GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue;
 /** Value: "WINDOWS" */
-GTLR_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthCheck.type
 
 /** Value: "HTTP" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http;
 /** Value: "HTTP2" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http2;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http2;
 /** Value: "HTTPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Https;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Https;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Invalid;
 /** Value: "SSL" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Ssl;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Ssl;
 /** Value: "TCP" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Tcp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Tcp;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthCheckList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthChecksAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthChecksScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthStatus.healthState
 
 /** Value: "HEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy;
 /** Value: "UNHEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthStatusForNetworkEndpoint.healthState
 
 /** Value: "DRAINING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Draining;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Draining;
 /** Value: "HEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Healthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Healthy;
 /** Value: "UNHEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unhealthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unhealthy;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTP2HealthCheck.portSpecification
 
 /** Value: "USE_FIXED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseFixedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseFixedPort;
 /** Value: "USE_NAMED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseNamedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseNamedPort;
 /** Value: "USE_SERVING_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseServingPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseServingPort;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTP2HealthCheck.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTP2HealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTPHealthCheck.portSpecification
 
 /** Value: "USE_FIXED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseFixedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseFixedPort;
 /** Value: "USE_NAMED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseNamedPort;
 /** Value: "USE_SERVING_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseServingPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_PortSpecification_UseServingPort;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTPHealthCheck.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HttpHealthCheckList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HttpRedirectAction.redirectResponseCode
 
 /** Value: "FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_Found;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_Found;
 /** Value: "MOVED_PERMANENTLY_DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_MovedPermanentlyDefault;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_MovedPermanentlyDefault;
 /** Value: "PERMANENT_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_PermanentRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_PermanentRedirect;
 /** Value: "SEE_OTHER" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_SeeOther;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_SeeOther;
 /** Value: "TEMPORARY_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_TemporaryRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpRedirectAction_RedirectResponseCode_TemporaryRedirect;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTPSHealthCheck.portSpecification
 
 /** Value: "USE_FIXED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseFixedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseFixedPort;
 /** Value: "USE_NAMED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseNamedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseNamedPort;
 /** Value: "USE_SERVING_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseServingPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_PortSpecification_UseServingPort;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HTTPSHealthCheck.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HTTPSHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HttpsHealthCheckList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Image.sourceType
 
 /** Value: "RAW" */
-GTLR_EXTERN NSString * const kGTLRCompute_Image_SourceType_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_SourceType_Raw;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Image.status
 
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Status_Deleting;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Status_Failed;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Status_Pending;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Image_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_Status_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Image_RawDisk.containerType
 
 /** Value: "TAR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Image_RawDisk_ContainerType_Tar;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Image_RawDisk_ContainerType_Tar;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ImageList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Instance.status
 
 /** Value: "DEPROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Deprovisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Deprovisioning;
 /** Value: "PROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Provisioning;
 /** Value: "REPAIRING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Repairing;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Running;
 /** Value: "STAGING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Staging;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Staging;
 /** Value: "STOPPED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Stopped;
 /** Value: "STOPPING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Stopping;
 /** Value: "SUSPENDED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Suspended;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Suspended;
 /** Value: "SUSPENDING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Suspending;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Suspending;
 /** Value: "TERMINATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Instance_Status_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_Status_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.minimalAction
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_None;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh;
 /** Value: "REPLACE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.mostDisruptiveAllowedAction
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh;
 /** Value: "REPLACE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerUpdatePolicy.instanceRedistributionType
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_InstanceRedistributionType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_InstanceRedistributionType_None;
 /** Value: "PROACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_InstanceRedistributionType_Proactive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_InstanceRedistributionType_Proactive;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerUpdatePolicy.minimalAction
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_None;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Refresh;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Refresh;
 /** Value: "REPLACE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Replace;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Replace;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Restart;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_MinimalAction_Restart;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerUpdatePolicy.replacementMethod
 
 /** Value: "RECREATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_ReplacementMethod_Recreate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_ReplacementMethod_Recreate;
 /** Value: "SUBSTITUTE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_ReplacementMethod_Substitute;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_ReplacementMethod_Substitute;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagerUpdatePolicy.type
 
 /** Value: "OPPORTUNISTIC" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_Type_Opportunistic;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_Type_Opportunistic;
 /** Value: "PROACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_Type_Proactive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_Type_Proactive;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupsListInstances_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupsListInstancesRequest.instanceState
 
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_All;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_All;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstancesRequest_InstanceState_Running;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceListReferrers_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails.action
 
 /** Value: "ABANDONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Abandoning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Abandoning;
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Creating;
 /** Value: "CREATING_WITHOUT_RETRIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_CreatingWithoutRetries;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_CreatingWithoutRetries;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Deleting;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_None;
 /** Value: "RECREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Recreating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Recreating;
 /** Value: "REFRESHING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Refreshing;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Refreshing;
 /** Value: "RESTARTING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting;
 /** Value: "VERIFYING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstancesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceTemplateList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceWithNamedPorts.status
 
 /** Value: "DEPROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Deprovisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Deprovisioning;
 /** Value: "PROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Provisioning;
 /** Value: "REPAIRING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Repairing;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Running;
 /** Value: "STAGING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Staging;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Staging;
 /** Value: "STOPPED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Stopped;
 /** Value: "STOPPING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Stopping;
 /** Value: "SUSPENDED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspended;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspended;
 /** Value: "SUSPENDING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspending;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspending;
 /** Value: "TERMINATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Interconnect.interconnectType
 
 /** Value: "DEDICATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_Dedicated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_Dedicated;
 /** Value: "IT_PRIVATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_ItPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_ItPrivate;
 /** Value: "PARTNER" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_Partner;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_InterconnectType_Partner;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Interconnect.linkType
 
 /** Value: "LINK_TYPE_ETHERNET_100G_LR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet100gLr;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet100gLr;
 /** Value: "LINK_TYPE_ETHERNET_10G_LR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Interconnect.operationalStatus
 
 /** Value: "OS_ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsActive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsActive;
 /** Value: "OS_UNPROVISIONED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsUnprovisioned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsUnprovisioned;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Interconnect.state
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_State_Active;
 /** Value: "UNPROVISIONED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Interconnect_State_Unprovisioned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Interconnect_State_Unprovisioned;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachment.bandwidth
 
 /** Value: "BPS_100M" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps100m;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps100m;
 /** Value: "BPS_10G" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps10g;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps10g;
 /** Value: "BPS_1G" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps1g;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps1g;
 /** Value: "BPS_200M" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps200m;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps200m;
 /** Value: "BPS_20G" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps20g;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps20g;
 /** Value: "BPS_2G" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps2g;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps2g;
 /** Value: "BPS_300M" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps300m;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps300m;
 /** Value: "BPS_400M" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps400m;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps400m;
 /** Value: "BPS_500M" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps500m;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps500m;
 /** Value: "BPS_50G" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50g;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50g;
 /** Value: "BPS_50M" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50m;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps50m;
 /** Value: "BPS_5G" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps5g;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps5g;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachment.edgeAvailabilityDomain
 
 /** Value: "AVAILABILITY_DOMAIN_1" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvailabilityDomain_AvailabilityDomain1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvailabilityDomain_AvailabilityDomain1;
 /** Value: "AVAILABILITY_DOMAIN_2" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvailabilityDomain_AvailabilityDomain2;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvailabilityDomain_AvailabilityDomain2;
 /** Value: "AVAILABILITY_DOMAIN_ANY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvailabilityDomain_AvailabilityDomainAny;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_EdgeAvailabilityDomain_AvailabilityDomainAny;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachment.operationalStatus
 
 /** Value: "OS_ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsActive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsActive;
 /** Value: "OS_UNPROVISIONED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsUnprovisioned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsUnprovisioned;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachment.state
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_Active;
 /** Value: "DEFUNCT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_Defunct;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_Defunct;
 /** Value: "PARTNER_REQUEST_RECEIVED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_PartnerRequestReceived;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_PartnerRequestReceived;
 /** Value: "PENDING_CUSTOMER" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_PendingCustomer;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_PendingCustomer;
 /** Value: "PENDING_PARTNER" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_PendingPartner;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_PendingPartner;
 /** Value: "STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_StateUnspecified;
 /** Value: "UNPROVISIONED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_Unprovisioned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_State_Unprovisioned;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachment.type
 
 /** Value: "DEDICATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Type_Dedicated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Type_Dedicated;
 /** Value: "PARTNER" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Type_Partner;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Type_Partner;
 /** Value: "PARTNER_PROVIDER" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Type_PartnerProvider;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Type_PartnerProvider;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachmentAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachmentList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachmentsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectDiagnosticsLinkLACPStatus.state
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Active;
 /** Value: "DETACHED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Detached;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkLACPStatus_State_Detached;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectDiagnosticsLinkOpticalPower.state
 
 /** Value: "HIGH_ALARM" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighAlarm;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighAlarm;
 /** Value: "HIGH_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_HighWarning;
 /** Value: "LOW_ALARM" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowAlarm;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowAlarm;
 /** Value: "LOW_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_LowWarning;
 /** Value: "OK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_Ok;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectLocation.continent
 
 /** Value: "AFRICA" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Africa;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Africa;
 /** Value: "ASIA_PAC" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_AsiaPac;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_AsiaPac;
 /** Value: "C_AFRICA" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CAfrica;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CAfrica;
 /** Value: "C_ASIA_PAC" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CAsiaPac;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CAsiaPac;
 /** Value: "C_EUROPE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CEurope;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CEurope;
 /** Value: "C_NORTH_AMERICA" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CNorthAmerica;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CNorthAmerica;
 /** Value: "C_SOUTH_AMERICA" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CSouthAmerica;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_CSouthAmerica;
 /** Value: "EUROPE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Europe;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_Europe;
 /** Value: "NORTH_AMERICA" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_NorthAmerica;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_NorthAmerica;
 /** Value: "SOUTH_AMERICA" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_SouthAmerica;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Continent_SouthAmerica;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectLocation.status
 
 /** Value: "AVAILABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Status_Available;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Status_Available;
 /** Value: "CLOSED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Status_Closed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocation_Status_Closed;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectLocationList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectLocationRegionInfo.locationPresence
 
 /** Value: "GLOBAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_Global;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_Global;
 /** Value: "LOCAL_REGION" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LocalRegion;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LocalRegion;
 /** Value: "LP_GLOBAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpGlobal;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpGlobal;
 /** Value: "LP_LOCAL_REGION" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpLocalRegion;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationRegionInfo_LocationPresence_LpLocalRegion;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectOutageNotification.issueType
 
 /** Value: "IT_OUTAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_ItOutage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_ItOutage;
 /** Value: "IT_PARTIAL_OUTAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_ItPartialOutage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_ItPartialOutage;
 /** Value: "OUTAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_Outage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_Outage;
 /** Value: "PARTIAL_OUTAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_PartialOutage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_IssueType_PartialOutage;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectOutageNotification.source
 
 /** Value: "GOOGLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_Source_Google;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_Source_Google;
 /** Value: "NSRC_GOOGLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_Source_NsrcGoogle;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_Source_NsrcGoogle;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectOutageNotification.state
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Active;
 /** Value: "CANCELLED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Cancelled;
 /** Value: "COMPLETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_Completed;
 /** Value: "NS_ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsActive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsActive;
 /** Value: "NS_CANCELED" */
-GTLR_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsCanceled;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectOutageNotification_State_NsCanceled;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_LicenseCode.state
 
 /** Value: "DISABLED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Disabled;
 /** Value: "ENABLED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Enabled;
 /** Value: "RESTRICTED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Restricted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Restricted;
 /** Value: "STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicenseCode_State_StateUnspecified;
 /** Value: "TERMINATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicenseCode_State_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_LicensesListResponse_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_LogConfigCloudAuditOptions.logName
 
 /** Value: "ADMIN_ACTIVITY" */
-GTLR_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_AdminActivity;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_AdminActivity;
 /** Value: "DATA_ACCESS" */
-GTLR_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_DataAccess;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_DataAccess;
 /** Value: "UNSPECIFIED_LOG_NAME" */
-GTLR_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_UnspecifiedLogName;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_UnspecifiedLogName;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_LogConfigDataAccessOptions.logMode
 
 /** Value: "LOG_FAIL_CLOSED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogFailClosed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogFailClosed;
 /** Value: "LOG_MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_MachineTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_MachineTypeList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_MachineTypesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ManagedInstance.currentAction
 
 /** Value: "ABANDONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Abandoning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Abandoning;
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Creating;
 /** Value: "CREATING_WITHOUT_RETRIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_CreatingWithoutRetries;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_CreatingWithoutRetries;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Deleting;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_None;
 /** Value: "RECREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Recreating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Recreating;
 /** Value: "REFRESHING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Refreshing;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Refreshing;
 /** Value: "RESTARTING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Restarting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Restarting;
 /** Value: "VERIFYING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Verifying;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Verifying;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ManagedInstance.instanceStatus
 
 /** Value: "DEPROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Deprovisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Deprovisioning;
 /** Value: "PROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Provisioning;
 /** Value: "REPAIRING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Repairing;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Running;
 /** Value: "STAGING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Staging;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Staging;
 /** Value: "STOPPED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Stopped;
 /** Value: "STOPPING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Stopping;
 /** Value: "SUSPENDED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspended;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspended;
 /** Value: "SUSPENDING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspending;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Suspending;
 /** Value: "TERMINATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_InstanceStatus_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ManagedInstanceInstanceHealth.detailedHealthState
 
 /** Value: "DRAINING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Draining;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Draining;
 /** Value: "HEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Healthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Healthy;
 /** Value: "TIMEOUT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Timeout;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Timeout;
 /** Value: "UNHEALTHY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Unhealthy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Unhealthy;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstanceInstanceHealth_DetailedHealthState_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_MetadataFilter.filterMatchCriteria
 
 /** Value: "MATCH_ALL" */
-GTLR_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAll;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAll;
 /** Value: "MATCH_ANY" */
-GTLR_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAny;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_MatchAny;
 /** Value: "NOT_SET" */
-GTLR_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_NotSet;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MetadataFilter_FilterMatchCriteria_NotSet;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroup.networkEndpointType
 
 /** Value: "GCE_VM_IP_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPort;
 /** Value: "INTERNET_FQDN_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetFqdnPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetFqdnPort;
 /** Value: "INTERNET_IP_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetIpPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetIpPort;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupsListEndpointsRequest.healthStatus
 
 /** Value: "SHOW" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListEndpointsRequest_HealthStatus_Show;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListEndpointsRequest_HealthStatus_Show;
 /** Value: "SKIP" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListEndpointsRequest_HealthStatus_Skip;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListEndpointsRequest_HealthStatus_Skip;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkPeering.state
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkPeering_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkPeering_State_Active;
 /** Value: "INACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkPeering_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkPeering_State_Inactive;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkRoutingConfig.routingMode
 
 /** Value: "GLOBAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkRoutingConfig_RoutingMode_Global;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkRoutingConfig_RoutingMode_Global;
 /** Value: "REGIONAL" */
-GTLR_EXTERN NSString * const kGTLRCompute_NetworkRoutingConfig_RoutingMode_Regional;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkRoutingConfig_RoutingMode_Regional;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroup.maintenancePolicy
 
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_Default;
 /** Value: "MAINTENANCE_POLICY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_MaintenancePolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_MaintenancePolicyUnspecified;
 /** Value: "MIGRATE_WITHIN_NODE_GROUP" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_MigrateWithinNodeGroup;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_MigrateWithinNodeGroup;
 /** Value: "RESTART_IN_PLACE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_RestartInPlace;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_RestartInPlace;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroup.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Deleting;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Invalid;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroup_Status_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupAutoscalingPolicy.mode
 
 /** Value: "MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_ModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_ModeUnspecified;
 /** Value: "OFF" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_Off;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_Off;
 /** Value: "ON" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_On;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_On;
 /** Value: "ONLY_SCALE_OUT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_OnlyScaleOut;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_OnlyScaleOut;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupNode.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Deleting;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Invalid;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Ready;
 /** Value: "REPAIRING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_Status_Repairing;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupsListNodes_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTemplate.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Deleting;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Invalid;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_Status_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTemplateAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTemplateList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTemplatesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTypeAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTypeList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTypesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Operation.status
 
 /** Value: "DONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Status_Done;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Status_Done;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Status_Pending;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Status_Running;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Operation_Warnings_Item.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_OperationAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_OperationList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_OperationsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PacketMirroring.enable
 
 /** Value: "FALSE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroring_Enable_False;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroring_Enable_False;
 /** Value: "TRUE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroring_Enable_True;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroring_Enable_True;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PacketMirroringAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PacketMirroringList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PacketMirroringsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Project.defaultNetworkTier
 
 /** Value: "PREMIUM" */
-GTLR_EXTERN NSString * const kGTLRCompute_Project_DefaultNetworkTier_Premium;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_DefaultNetworkTier_Premium;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_Project_DefaultNetworkTier_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_DefaultNetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Project.xpnProjectStatus
 
 /** Value: "HOST" */
-GTLR_EXTERN NSString * const kGTLRCompute_Project_XpnProjectStatus_Host;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_XpnProjectStatus_Host;
 /** Value: "UNSPECIFIED_XPN_PROJECT_STATUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStatus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStatus;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ProjectsSetDefaultNetworkTierRequest.networkTier
 
 /** Value: "PREMIUM" */
-GTLR_EXTERN NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierRequest_NetworkTier_Premium;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierRequest_NetworkTier_Premium;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierRequest_NetworkTier_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierRequest_NetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Quota.metric
 
 /** Value: "AFFINITY_GROUPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_AffinityGroups;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_AffinityGroups;
 /** Value: "AUTOSCALERS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Autoscalers;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Autoscalers;
 /** Value: "BACKEND_BUCKETS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_BackendBuckets;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_BackendBuckets;
 /** Value: "BACKEND_SERVICES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_BackendServices;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_BackendServices;
 /** Value: "C2_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_C2Cpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_C2Cpus;
 /** Value: "COMMITMENTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Commitments;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Commitments;
 /** Value: "COMMITTED_C2_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus;
 /** Value: "COMMITTED_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedCpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedCpus;
 /** Value: "COMMITTED_LICENSES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses;
 /** Value: "COMMITTED_LOCAL_SSD_TOTAL_GB" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb;
 /** Value: "COMMITTED_N2_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus;
 /** Value: "COMMITTED_N2D_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2dCpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2dCpus;
 /** Value: "COMMITTED_NVIDIA_K80_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaK80Gpus;
 /** Value: "COMMITTED_NVIDIA_P100_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus;
 /** Value: "COMMITTED_NVIDIA_P4_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP4Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP4Gpus;
 /** Value: "COMMITTED_NVIDIA_T4_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaT4Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaT4Gpus;
 /** Value: "COMMITTED_NVIDIA_V100_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus;
 /** Value: "CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Cpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Cpus;
 /** Value: "CPUS_ALL_REGIONS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions;
 /** Value: "DISKS_TOTAL_GB" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb;
 /** Value: "EXTERNAL_VPN_GATEWAYS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways;
 /** Value: "FIREWALLS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Firewalls;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Firewalls;
 /** Value: "FORWARDING_RULES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_ForwardingRules;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ForwardingRules;
 /** Value: "GLOBAL_INTERNAL_ADDRESSES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses;
 /** Value: "GPUS_ALL_REGIONS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions;
 /** Value: "HEALTH_CHECKS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_HealthChecks;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_HealthChecks;
 /** Value: "IMAGES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Images;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Images;
 /** Value: "IN_PLACE_SNAPSHOTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InPlaceSnapshots;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InPlaceSnapshots;
 /** Value: "INSTANCE_GROUP_MANAGERS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceGroupManagers;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceGroupManagers;
 /** Value: "INSTANCE_GROUPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceGroups;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceGroups;
 /** Value: "INSTANCES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Instances;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Instances;
 /** Value: "INSTANCE_TEMPLATES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceTemplates;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InstanceTemplates;
 /** Value: "INTERCONNECT_ATTACHMENTS_PER_REGION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsPerRegion;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsPerRegion;
 /** Value: "INTERCONNECT_ATTACHMENTS_TOTAL_MBPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsTotalMbps;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsTotalMbps;
 /** Value: "INTERCONNECTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Interconnects;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Interconnects;
 /** Value: "INTERCONNECT_TOTAL_GBPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectTotalGbps;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectTotalGbps;
 /** Value: "INTERNAL_ADDRESSES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InternalAddresses;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InternalAddresses;
 /** Value: "IN_USE_ADDRESSES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseAddresses;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseAddresses;
 /** Value: "IN_USE_BACKUP_SCHEDULES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseBackupSchedules;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseBackupSchedules;
 /** Value: "IN_USE_SNAPSHOT_SCHEDULES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseSnapshotSchedules;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseSnapshotSchedules;
 /** Value: "LOCAL_SSD_TOTAL_GB" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb;
 /** Value: "MACHINE_IMAGES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_MachineImages;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_MachineImages;
 /** Value: "N2_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2Cpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2Cpus;
 /** Value: "N2D_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2dCpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2dCpus;
 /** Value: "NETWORK_ENDPOINT_GROUPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetworkEndpointGroups;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NetworkEndpointGroups;
 /** Value: "NETWORKS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Networks;
 /** Value: "NODE_GROUPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NodeGroups;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NodeGroups;
 /** Value: "NODE_TEMPLATES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NodeTemplates;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NodeTemplates;
 /** Value: "NVIDIA_K80_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaK80Gpus;
 /** Value: "NVIDIA_P100_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100Gpus;
 /** Value: "NVIDIA_P100_VWS_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100VwsGpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP100VwsGpus;
 /** Value: "NVIDIA_P4_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP4Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP4Gpus;
 /** Value: "NVIDIA_P4_VWS_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP4VwsGpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaP4VwsGpus;
 /** Value: "NVIDIA_T4_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4Gpus;
 /** Value: "NVIDIA_T4_VWS_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus;
 /** Value: "NVIDIA_V100_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaV100Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaV100Gpus;
 /** Value: "PACKET_MIRRORINGS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PacketMirrorings;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PacketMirrorings;
 /** Value: "PREEMPTIBLE_CPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus;
 /** Value: "PREEMPTIBLE_LOCAL_SSD_GB" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleLocalSsdGb;
 /** Value: "PREEMPTIBLE_NVIDIA_K80_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaK80Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P100_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P100_VWS_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100VwsGpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP100VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P4_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_P4_VWS_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4VwsGpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_T4_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus;
 /** Value: "PREEMPTIBLE_NVIDIA_T4_VWS_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_V100_GPUS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
 /** Value: "PUBLIC_ADVERTISED_PREFIXES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes;
 /** Value: "PUBLIC_DELEGATED_PREFIXES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes;
 /** Value: "REGIONAL_AUTOSCALERS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers;
 /** Value: "REGIONAL_INSTANCE_GROUP_MANAGERS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers;
 /** Value: "RESERVATIONS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Reservations;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Reservations;
 /** Value: "RESOURCE_POLICIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_ResourcePolicies;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ResourcePolicies;
 /** Value: "ROUTERS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routers;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routers;
 /** Value: "ROUTES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routes;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Routes;
 /** Value: "SECURITY_POLICIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicies;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicies;
 /** Value: "SECURITY_POLICY_CEVAL_RULES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyCevalRules;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyCevalRules;
 /** Value: "SECURITY_POLICY_RULES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRules;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRules;
 /** Value: "SNAPSHOTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Snapshots;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Snapshots;
 /** Value: "SSD_TOTAL_GB" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb;
 /** Value: "SSL_CERTIFICATES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_SslCertificates;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SslCertificates;
 /** Value: "STATIC_ADDRESSES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticAddresses;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticAddresses;
 /** Value: "STATIC_BYOIP_ADDRESSES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses;
 /** Value: "SUBNETWORKS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_Subnetworks;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Subnetworks;
 /** Value: "TARGET_HTTP_PROXIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetHttpProxies;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetHttpProxies;
 /** Value: "TARGET_HTTPS_PROXIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetHttpsProxies;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetHttpsProxies;
 /** Value: "TARGET_INSTANCES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetInstances;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetInstances;
 /** Value: "TARGET_POOLS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetPools;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetPools;
 /** Value: "TARGET_SSL_PROXIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetSslProxies;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetSslProxies;
 /** Value: "TARGET_TCP_PROXIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetTcpProxies;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetTcpProxies;
 /** Value: "TARGET_VPN_GATEWAYS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetVpnGateways;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetVpnGateways;
 /** Value: "URL_MAPS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_UrlMaps;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_UrlMaps;
 /** Value: "VPN_GATEWAYS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnGateways;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnGateways;
 /** Value: "VPN_TUNNELS" */
-GTLR_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnTunnels;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnTunnels;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Region.status
 
 /** Value: "DOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_Region_Status_Down;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Region_Status_Down;
 /** Value: "UP" */
-GTLR_EXTERN NSString * const kGTLRCompute_Region_Status_Up;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Region_Status_Up;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionAutoscalerList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionDiskTypeList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupManagerList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest.minimalAction
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_None;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Refresh;
 /** Value: "REPLACE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Replace;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MinimalAction_Restart;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest.mostDisruptiveAllowedAction
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_None;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Refresh;
 /** Value: "REPLACE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupsListInstances_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupsListInstancesRequest.instanceState
 
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_All;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_All;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstancesRequest_InstanceState_Running;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Reservation.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Reservation_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Reservation_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Reservation_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Reservation_Status_Deleting;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_Reservation_Status_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Reservation_Status_Invalid;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Reservation_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Reservation_Status_Ready;
 /** Value: "UPDATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Reservation_Status_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Reservation_Status_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ReservationAffinity.consumeReservationType
 
 /** Value: "ANY_RESERVATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_AnyReservation;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_AnyReservation;
 /** Value: "NO_RESERVATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_NoReservation;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_NoReservation;
 /** Value: "SPECIFIC_RESERVATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_SpecificReservation;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_SpecificReservation;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ReservationAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ReservationList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ReservationsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourceCommitment.type
 
 /** Value: "ACCELERATOR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Accelerator;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Accelerator;
 /** Value: "LOCAL_SSD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_LocalSsd;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_LocalSsd;
 /** Value: "MEMORY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Memory;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Memory;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Unspecified;
 /** Value: "VCPU" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Vcpu;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourceCommitment_Type_Vcpu;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePoliciesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePolicy.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Deleting;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Invalid;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicy_Status_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePolicyAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePolicyGroupPlacementPolicy.collocation
 
 /** Value: "COLLOCATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyGroupPlacementPolicy_Collocation_Collocated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyGroupPlacementPolicy_Collocation_Collocated;
 /** Value: "UNSPECIFIED_COLLOCATION" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyGroupPlacementPolicy_Collocation_UnspecifiedCollocation;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyGroupPlacementPolicy_Collocation_UnspecifiedCollocation;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePolicyList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy.onSourceDiskDelete
 
 /** Value: "APPLY_RETENTION_POLICY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy_OnSourceDiskDelete_ApplyRetentionPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy_OnSourceDiskDelete_ApplyRetentionPolicy;
 /** Value: "KEEP_AUTO_SNAPSHOTS" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy_OnSourceDiskDelete_KeepAutoSnapshots;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy_OnSourceDiskDelete_KeepAutoSnapshots;
 /** Value: "UNSPECIFIED_ON_SOURCE_DISK_DELETE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy_OnSourceDiskDelete_UnspecifiedOnSourceDiskDelete;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicySnapshotSchedulePolicyRetentionPolicy_OnSourceDiskDelete_UnspecifiedOnSourceDiskDelete;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek.day
 
 /** Value: "FRIDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Friday;
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Invalid;
 /** Value: "MONDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Monday;
 /** Value: "SATURDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Saturday;
 /** Value: "SUNDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Sunday;
 /** Value: "THURSDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Thursday;
 /** Value: "TUESDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Tuesday;
 /** Value: "WEDNESDAY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Route_Warnings_Item.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouteList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterBgp.advertisedGroups
 
 /** Value: "ALL_SUBNETS" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertisedGroups_AllSubnets;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertisedGroups_AllSubnets;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterBgp.advertiseMode
 
 /** Value: "CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Custom;
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgp_AdvertiseMode_Default;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterBgpPeer.advertisedGroups
 
 /** Value: "ALL_SUBNETS" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertisedGroups_AllSubnets;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertisedGroups_AllSubnets;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterBgpPeer.advertiseMode
 
 /** Value: "CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Custom;
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_AdvertiseMode_Default;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterBgpPeer.managementType
 
 /** Value: "MANAGED_BY_ATTACHMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByAttachment;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByAttachment;
 /** Value: "MANAGED_BY_USER" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByUser;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByUser;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterInterface.managementType
 
 /** Value: "MANAGED_BY_ATTACHMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByAttachment;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByAttachment;
 /** Value: "MANAGED_BY_USER" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByUser;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByUser;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterNat.natIpAllocateOption
 
 /** Value: "AUTO_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_NatIpAllocateOption_AutoOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_NatIpAllocateOption_AutoOnly;
 /** Value: "MANUAL_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_NatIpAllocateOption_ManualOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_NatIpAllocateOption_ManualOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterNat.sourceSubnetworkIpRangesToNat
 
 /** Value: "ALL_SUBNETWORKS_ALL_IP_RANGES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllIpRanges;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllIpRanges;
 /** Value: "ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllPrimaryIpRanges;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllPrimaryIpRanges;
 /** Value: "LIST_OF_SUBNETWORKS" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_ListOfSubnetworks;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_ListOfSubnetworks;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterNatLogConfig.filter
 
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNatLogConfig_Filter_All;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNatLogConfig_Filter_All;
 /** Value: "ERRORS_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNatLogConfig_Filter_ErrorsOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNatLogConfig_Filter_ErrorsOnly;
 /** Value: "TRANSLATIONS_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNatLogConfig_Filter_TranslationsOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNatLogConfig_Filter_TranslationsOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterNatSubnetworkToNat.sourceIpRangesToNat
 
 /** Value: "ALL_IP_RANGES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_AllIpRanges;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_AllIpRanges;
 /** Value: "LIST_OF_SECONDARY_IP_RANGES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_ListOfSecondaryIpRanges;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_ListOfSecondaryIpRanges;
 /** Value: "PRIMARY_IP_RANGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_PrimaryIpRange;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_PrimaryIpRange;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RoutersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouterStatusBgpPeerStatus.status
 
 /** Value: "DOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Down;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown;
 /** Value: "UP" */
-GTLR_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Rule.action
 
 /** Value: "ALLOW" */
-GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_Allow;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Rule_Action_Allow;
 /** Value: "ALLOW_WITH_LOG" */
-GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_AllowWithLog;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Rule_Action_AllowWithLog;
 /** Value: "DENY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Rule_Action_Deny;
 /** Value: "DENY_WITH_LOG" */
-GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_DenyWithLog;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Rule_Action_DenyWithLog;
 /** Value: "LOG" */
-GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_Log;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Rule_Action_Log;
 /** Value: "NO_ACTION" */
-GTLR_EXTERN NSString * const kGTLRCompute_Rule_Action_NoAction;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Rule_Action_NoAction;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Scheduling.onHostMaintenance
 
 /** Value: "MIGRATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Migrate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Migrate;
 /** Value: "TERMINATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Terminate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Terminate;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SchedulingNodeAffinity.operatorProperty
 
 /** Value: "IN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_In;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_In;
 /** Value: "NOT_IN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_NotIn;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_NotIn;
 /** Value: "OPERATOR_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SecurityPolicyList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SecurityPolicyRuleMatcher.versionedExpr
 
 /** Value: "SRC_IPS_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleMatcher_VersionedExpr_SrcIpsV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyRuleMatcher_VersionedExpr_SrcIpsV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ServerBinding.type
 
 /** Value: "RESTART_NODE_ON_ANY_SERVER" */
-GTLR_EXTERN NSString * const kGTLRCompute_ServerBinding_Type_RestartNodeOnAnyServer;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServerBinding_Type_RestartNodeOnAnyServer;
 /** Value: "RESTART_NODE_ON_MINIMAL_SERVERS" */
-GTLR_EXTERN NSString * const kGTLRCompute_ServerBinding_Type_RestartNodeOnMinimalServers;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServerBinding_Type_RestartNodeOnMinimalServers;
 /** Value: "SERVER_BINDING_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ServerBinding_Type_ServerBindingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ServerBinding_Type_ServerBindingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Snapshot.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Deleting;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Failed;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Ready;
 /** Value: "UPLOADING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Uploading;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_Status_Uploading;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Snapshot.storageBytesStatus
 
 /** Value: "UPDATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_Updating;
 /** Value: "UP_TO_DATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_UpToDate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Snapshot_StorageBytesStatus_UpToDate;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SnapshotList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificate.type
 
 /** Value: "MANAGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_Managed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_Managed;
 /** Value: "SELF_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_SelfManaged;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_SelfManaged;
 /** Value: "TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificate_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificateAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificateList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificateManagedSslCertificate.status
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Active;
 /** Value: "MANAGED_CERTIFICATE_STATUS_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ManagedCertificateStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ManagedCertificateStatusUnspecified;
 /** Value: "PROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_Provisioning;
 /** Value: "PROVISIONING_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailed;
 /** Value: "PROVISIONING_FAILED_PERMANENTLY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailedPermanently;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_ProvisioningFailedPermanently;
 /** Value: "RENEWAL_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_RenewalFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_Status_RenewalFailed;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificateManagedSslCertificate_DomainStatus.domainStatu
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Active;
 /** Value: "DOMAIN_STATUS_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_DomainStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_DomainStatusUnspecified;
 /** Value: "FAILED_CAA_CHECKING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaChecking;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaChecking;
 /** Value: "FAILED_CAA_FORBIDDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaForbidden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedCaaForbidden;
 /** Value: "FAILED_NOT_VISIBLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedNotVisible;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedNotVisible;
 /** Value: "FAILED_RATE_LIMITED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedRateLimited;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_FailedRateLimited;
 /** Value: "PROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateManagedSslCertificate_DomainStatus_DomainStatu_Provisioning;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslCertificatesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SSLHealthCheck.portSpecification
 
 /** Value: "USE_FIXED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseFixedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseFixedPort;
 /** Value: "USE_NAMED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseNamedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseNamedPort;
 /** Value: "USE_SERVING_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseServingPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_PortSpecification_UseServingPort;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SSLHealthCheck.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SSLHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslPoliciesList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslPolicy.minTlsVersion
 
 /** Value: "TLS_1_0" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls10;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls10;
 /** Value: "TLS_1_1" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls11;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls11;
 /** Value: "TLS_1_2" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls12;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_MinTlsVersion_Tls12;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslPolicy.profile
 
 /** Value: "COMPATIBLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Compatible;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Compatible;
 /** Value: "CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Custom;
 /** Value: "MODERN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Modern;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Modern;
 /** Value: "RESTRICTED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Restricted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Profile_Restricted;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SslPolicy_Warnings_Item.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Subnetwork.purpose
 
 /** Value: "INTERNAL_HTTPS_LOAD_BALANCER" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer;
 /** Value: "PRIVATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_Private;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_Private;
 /** Value: "PRIVATE_RFC_1918" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Subnetwork.role
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Role_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Role_Active;
 /** Value: "BACKUP" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_Role_Backup;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_Role_Backup;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Subnetwork.state
 
 /** Value: "DRAINING" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_State_Draining;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_State_Draining;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_Subnetwork_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_State_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworkAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworkList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworkLogConfig.aggregationInterval
 
 /** Value: "INTERVAL_10_MIN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval10Min;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval10Min;
 /** Value: "INTERVAL_15_MIN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval15Min;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval15Min;
 /** Value: "INTERVAL_1_MIN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval1Min;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval1Min;
 /** Value: "INTERVAL_30_SEC" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval30Sec;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval30Sec;
 /** Value: "INTERVAL_5_MIN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Min;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Min;
 /** Value: "INTERVAL_5_SEC" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Sec;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_AggregationInterval_Interval5Sec;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworkLogConfig.metadata
 
 /** Value: "CUSTOM_METADATA" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_CustomMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_CustomMetadata;
 /** Value: "EXCLUDE_ALL_METADATA" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_ExcludeAllMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_ExcludeAllMetadata;
 /** Value: "INCLUDE_ALL_METADATA" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_IncludeAllMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkLogConfig_Metadata_IncludeAllMetadata;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_SubnetworksScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpProxiesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpProxyList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxiesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest.quicOverride
 
 /** Value: "DISABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverride_Disable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverride_Disable;
 /** Value: "ENABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverride_Enable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverride_Enable;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverride_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverride_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxy.quicOverride
 
 /** Value: "DISABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Disable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Disable;
 /** Value: "ENABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Enable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Enable;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxyAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpsProxyList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetInstance.natPolicy
 
 /** Value: "NO_NAT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstance_NatPolicy_NoNat;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstance_NatPolicy_NoNat;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetInstanceAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetInstanceList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetInstancesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetPool.sessionAffinity
 
 /** Value: "CLIENT_IP" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIp;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIp;
 /** Value: "CLIENT_IP_PORT_PROTO" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpPortProto;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpPortProto;
 /** Value: "CLIENT_IP_PROTO" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto;
 /** Value: "GENERATED_COOKIE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie;
 /** Value: "HEADER_FIELD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_HeaderField;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_HeaderField;
 /** Value: "HTTP_COOKIE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_HttpCookie;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_HttpCookie;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetPoolAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetPoolList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetPoolsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetSslProxiesSetProxyHeaderRequest.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetSslProxy.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxy_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetSslProxyList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetTcpProxiesSetProxyHeaderRequest.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxiesSetProxyHeaderRequest_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetTcpProxy.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxy_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetTcpProxyList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetVpnGateway.status
 
 /** Value: "CREATING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Creating;
 /** Value: "DELETING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Deleting;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Failed;
 /** Value: "READY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGateway_Status_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetVpnGatewayAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetVpnGatewayList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetVpnGatewaysScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TCPHealthCheck.portSpecification
 
 /** Value: "USE_FIXED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseFixedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseFixedPort;
 /** Value: "USE_NAMED_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseNamedPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseNamedPort;
 /** Value: "USE_SERVING_PORT" */
-GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseServingPort;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseServingPort;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TCPHealthCheck.proxyHeader
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None;
 /** Value: "PROXY_V1" */
-GTLR_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_UrlMapList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_UrlMapsAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_UrlMapsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_UsableSubnetworksAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VmEndpointNatMappingsList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnGatewayAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnGatewayList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnGatewaysScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState.state
 
 /** Value: "CONNECTION_REDUNDANCY_MET" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyMet;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyMet;
 /** Value: "CONNECTION_REDUNDANCY_NOT_MET" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyNotMet;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_State_ConnectionRedundancyNotMet;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState.unsatisfiedReason
 
 /** Value: "INCOMPLETE_TUNNELS_COVERAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_UnsatisfiedReason_IncompleteTunnelsCoverage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayStatusHighAvailabilityRequirementState_UnsatisfiedReason_IncompleteTunnelsCoverage;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnel.status
 
 /** Value: "ALLOCATING_RESOURCES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_AllocatingResources;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_AllocatingResources;
 /** Value: "AUTHORIZATION_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_AuthorizationError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_AuthorizationError;
 /** Value: "DEPROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Deprovisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Deprovisioning;
 /** Value: "ESTABLISHED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Established;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Established;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Failed;
 /** Value: "FIRST_HANDSHAKE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_FirstHandshake;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_FirstHandshake;
 /** Value: "NEGOTIATION_FAILURE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_NegotiationFailure;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_NegotiationFailure;
 /** Value: "NETWORK_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_NetworkError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_NetworkError;
 /** Value: "NO_INCOMING_PACKETS" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_NoIncomingPackets;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_NoIncomingPackets;
 /** Value: "PROVISIONING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Provisioning;
 /** Value: "REJECTED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Rejected;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Rejected;
 /** Value: "STOPPED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_Stopped;
 /** Value: "WAITING_FOR_FULL_CONFIG" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_WaitingForFullConfig;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnel_Status_WaitingForFullConfig;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnelAggregatedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnelList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_VpnTunnelsScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_XpnHostList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_XpnResourceId.type
 
 /** Value: "PROJECT" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnResourceId_Type_Project;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnResourceId_Type_Project;
 /** Value: "XPN_RESOURCE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCompute_XpnResourceId_Type_XpnResourceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnResourceId_Type_XpnResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Zone.status
 
 /** Value: "DOWN" */
-GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Down;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Zone_Status_Down;
 /** Value: "UP" */
-GTLR_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Zone_Status_Up;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ZoneList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_CleanupFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_CleanupFailed;
 /** Value: "DEPRECATED_RESOURCE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DeprecatedResourceUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DeprecatedResourceUsed;
 /** Value: "DEPRECATED_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DeprecatedTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DeprecatedTypeUsed;
 /** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DiskSizeLargerThanImageSize;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_DiskSizeLargerThanImageSize;
 /** Value: "EXPERIMENTAL_TYPE_USED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExperimentalTypeUsed;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExperimentalTypeUsed;
 /** Value: "EXTERNAL_API_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExternalApiWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExternalApiWarning;
 /** Value: "FIELD_VALUE_OVERRIDEN" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_FieldValueOverriden;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_InjectedKernelsDeprecated;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_InjectedKernelsDeprecated;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_MissingTypeDependency;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopAddressNotAssigned;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopAddressNotAssigned;
 /** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopCannotIpForward;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopCannotIpForward;
 /** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopInstanceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopInstanceNotFound;
 /** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopInstanceNotOnNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopInstanceNotOnNetwork;
 /** Value: "NEXT_HOP_NOT_RUNNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopNotRunning;
 /** Value: "NO_RESULTS_ON_PAGE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NoResultsOnPage;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NotCriticalError;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NotCriticalError;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_RequiredTosAgreement;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ResourceInUseByOtherResourceWarning;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ResourceInUseByOtherResourceWarning;
 /** Value: "RESOURCE_NOT_DELETED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ResourceNotDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ResourceNotDeleted;
 /** Value: "SCHEMA_VALIDATION_IGNORED" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_SchemaValidationIgnored;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_SchemaValidationIgnored;
 /** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_SingleInstancePropertyTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_SingleInstancePropertyTemplate;
 /** Value: "UNDECLARED_PROPERTIES" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_UndeclaredProperties;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
-GTLR_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable;
 
 /**
  *  A specification of the type and number of accelerator cards attached to the

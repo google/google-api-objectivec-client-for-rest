@@ -35,26 +35,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/firebase"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseManagement;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseManagement;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseManagementCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseManagementCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseManagementCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseManagementCloudPlatformReadOnly;
 /**
  *  Authorization scope: View all your Firebase data and settings
  *
  *  Value "https://www.googleapis.com/auth/firebase.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFirebaseManagementReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseManagementReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRFirebaseManagementService

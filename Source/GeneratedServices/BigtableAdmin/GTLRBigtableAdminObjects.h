@@ -73,25 +73,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Cluster.defaultStorageType
@@ -101,19 +101,19 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUn
  *
  *  Value: "HDD"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Hdd;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Hdd;
 /**
  *  Flash (SSD) storage should be used.
  *
  *  Value: "SSD"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Ssd;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Ssd;
 /**
  *  The user did not specify a storage type.
  *
  *  Value: "STORAGE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_StorageTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_StorageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Cluster.state
@@ -125,20 +125,20 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Stora
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Creating;
 /**
  *  The cluster has no backing nodes. The data (tables) still
  *  exist, but no operations can be performed on the cluster.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Disabled;
 /**
  *  The cluster has been successfully created and is ready to serve requests.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Ready;
 /**
  *  The cluster is currently being resized, and may revert to its previous
  *  node count if the process encounters an error.
@@ -148,13 +148,13 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Ready;
  *
  *  Value: "RESIZING"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Resizing;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Resizing;
 /**
  *  The state of the cluster could not be determined.
  *
  *  Value: "STATE_NOT_KNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_StateNotKnown;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_StateNotKnown;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_ClusterState.replicationState
@@ -166,14 +166,14 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_StateNotKnown;
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Initializing;
 /**
  *  The table is temporarily unable to serve Data API requests from this
  *  cluster due to planned internal maintenance.
  *
  *  Value: "PLANNED_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_PlannedMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_PlannedMaintenance;
 /**
  *  The table can serve Data API requests from this cluster. Depending on
  *  replication delay, reads may not immediately reflect the state of the
@@ -181,20 +181,20 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Pl
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Ready;
 /**
  *  The replication state of the table is unknown in this cluster.
  *
  *  Value: "STATE_NOT_KNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown;
 /**
  *  The table is temporarily unable to serve Data API requests from this
  *  cluster due to unplanned or emergency maintenance.
  *
  *  Value: "UNPLANNED_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Instance.state
@@ -205,20 +205,20 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Un
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_Creating;
 /**
  *  The instance has been successfully created and can serve requests
  *  to its tables.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_Ready;
 /**
  *  The state of the instance could not be determined.
  *
  *  Value: "STATE_NOT_KNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKnown;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKnown;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Instance.type
@@ -234,14 +234,14 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKnown;
  *
  *  Value: "DEVELOPMENT"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Development;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Development;
 /**
  *  An instance meant for production use. `serve_nodes` must be set
  *  on the cluster.
  *
  *  Value: "PRODUCTION"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Production;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Production;
 /**
  *  The type of the instance is unspecified. If set when creating an
  *  instance, a `PRODUCTION` instance will be created. If set when updating
@@ -249,7 +249,7 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Production;
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Table.granularity
@@ -259,14 +259,14 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified;
  *
  *  Value: "MILLIS"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis;
 /**
  *  The user did not specify a granularity. Should not be returned.
  *  When specified during table creation, MILLIS will be used.
  *
  *  Value: "TIMESTAMP_GRANULARITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_TableProgress.state
@@ -278,27 +278,27 @@ GTLR_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_TimestampGranu
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Cancelled;
 /**
  *  The table has been fully copied to the new cluster.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Completed;
 /**
  *  The table is actively being copied to the new cluster.
  *
  *  Value: "COPYING"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Copying;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Copying;
 /**
  *  The table has not yet begun copying to the new cluster.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_Pending;
 /** Value: "STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified;
 
 /**
  *  A configuration object describing how Cloud Bigtable should treat traffic

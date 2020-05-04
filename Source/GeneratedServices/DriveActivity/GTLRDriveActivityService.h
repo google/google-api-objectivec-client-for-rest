@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/drive.activity"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveActivityDriveActivity;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveActivityDriveActivity;
 /**
  *  Authorization scope: View the activity record of files in your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.activity.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveActivityDriveActivityReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveActivityDriveActivityReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRDriveActivityService

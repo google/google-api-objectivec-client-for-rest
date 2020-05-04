@@ -36,15 +36,15 @@ NS_ASSUME_NONNULL_BEGIN
 // contentType
 
 /** Value: "ACCESS_POLICY" */
-GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeAccessPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeAccessPolicy;
 /** Value: "CONTENT_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified;
 /** Value: "IAM_POLICY" */
-GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeIamPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeIamPolicy;
 /** Value: "ORG_POLICY" */
-GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeOrgPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeOrgPolicy;
 /** Value: "RESOURCE" */
-GTLR_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 // ----------------------------------------------------------------------------
 // Query Classes

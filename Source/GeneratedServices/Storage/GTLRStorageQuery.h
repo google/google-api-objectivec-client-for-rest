@@ -46,68 +46,68 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "authenticatedRead"
  */
-GTLR_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclAuthenticatedRead;
+FOUNDATION_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclAuthenticatedRead;
 /**
  *  Object owner gets OWNER access, and project team owners get OWNER access.
  *
  *  Value: "bucketOwnerFullControl"
  */
-GTLR_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclBucketOwnerFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclBucketOwnerFullControl;
 /**
  *  Object owner gets OWNER access, and project team owners get READER access.
  *
  *  Value: "bucketOwnerRead"
  */
-GTLR_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclBucketOwnerRead;
+FOUNDATION_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclBucketOwnerRead;
 /**
  *  Object owner gets OWNER access.
  *
  *  Value: "private"
  */
-GTLR_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclPrivate;
 /**
  *  Object owner gets OWNER access, and project team members get access
  *  according to their roles.
  *
  *  Value: "projectPrivate"
  */
-GTLR_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclProjectPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclProjectPrivate;
 /**
  *  Object owner gets OWNER access, and allUsers get READER access.
  *
  *  Value: "publicRead"
  */
-GTLR_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclPublicRead;
+FOUNDATION_EXTERN NSString * const kGTLRStorageDestinationPredefinedAclPublicRead;
 
 // ----------------------------------------------------------------------------
 // predefinedAcl
 
 /** Value: "authenticatedRead" */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclAuthenticatedRead;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclAuthenticatedRead;
 /**
  *  Object owner gets OWNER access, and project team owners get OWNER access.
  *
  *  Value: "bucketOwnerFullControl"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclBucketOwnerFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclBucketOwnerFullControl;
 /**
  *  Object owner gets OWNER access, and project team owners get READER access.
  *
  *  Value: "bucketOwnerRead"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclBucketOwnerRead;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclBucketOwnerRead;
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclPrivate;
 /** Value: "projectPrivate" */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclProjectPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclProjectPrivate;
 /** Value: "publicRead" */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclPublicRead;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclPublicRead;
 /**
  *  Project team owners get OWNER access, and allUsers get WRITER access.
  *
  *  Value: "publicReadWrite"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclPublicReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedAclPublicReadWrite;
 
 // ----------------------------------------------------------------------------
 // predefinedDefaultObjectAcl
@@ -117,38 +117,38 @@ GTLR_EXTERN NSString * const kGTLRStoragePredefinedAclPublicReadWrite;
  *
  *  Value: "authenticatedRead"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclAuthenticatedRead;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclAuthenticatedRead;
 /**
  *  Object owner gets OWNER access, and project team owners get OWNER access.
  *
  *  Value: "bucketOwnerFullControl"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclBucketOwnerFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclBucketOwnerFullControl;
 /**
  *  Object owner gets OWNER access, and project team owners get READER access.
  *
  *  Value: "bucketOwnerRead"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclBucketOwnerRead;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclBucketOwnerRead;
 /**
  *  Object owner gets OWNER access.
  *
  *  Value: "private"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclPrivate;
 /**
  *  Object owner gets OWNER access, and project team members get access
  *  according to their roles.
  *
  *  Value: "projectPrivate"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclProjectPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclProjectPrivate;
 /**
  *  Object owner gets OWNER access, and allUsers get READER access.
  *
  *  Value: "publicRead"
  */
-GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclPublicRead;
+FOUNDATION_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclPublicRead;
 
 // ----------------------------------------------------------------------------
 // projection
@@ -158,9 +158,9 @@ GTLR_EXTERN NSString * const kGTLRStoragePredefinedDefaultObjectAclPublicRead;
  *
  *  Value: "full"
  */
-GTLR_EXTERN NSString * const kGTLRStorageProjectionFull;
+FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionFull;
 /** Value: "noAcl" */
-GTLR_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
+FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 // ----------------------------------------------------------------------------
 // Query Classes

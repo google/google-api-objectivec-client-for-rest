@@ -38,32 +38,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "connected"
  */
-GTLR_EXTERN NSString * const kGTLRPlusCollectionConnected;
+FOUNDATION_EXTERN NSString * const kGTLRPlusCollectionConnected;
 /**
  *  List all people who have +1'd this activity.
  *
  *  Value: "plusoners"
  */
-GTLR_EXTERN NSString * const kGTLRPlusCollectionPlusoners;
+FOUNDATION_EXTERN NSString * const kGTLRPlusCollectionPlusoners;
 /**
  *  All public activities created by the specified user.
  *
  *  Value: "public"
  */
-GTLR_EXTERN NSString * const kGTLRPlusCollectionPublic;
+FOUNDATION_EXTERN NSString * const kGTLRPlusCollectionPublic;
 /**
  *  List all people who have reshared this activity.
  *
  *  Value: "resharers"
  */
-GTLR_EXTERN NSString * const kGTLRPlusCollectionResharers;
+FOUNDATION_EXTERN NSString * const kGTLRPlusCollectionResharers;
 /**
  *  The list of people who this user has added to one or more circles, limited
  *  to the circles visible to the requesting application.
  *
  *  Value: "visible"
  */
-GTLR_EXTERN NSString * const kGTLRPlusCollectionVisible;
+FOUNDATION_EXTERN NSString * const kGTLRPlusCollectionVisible;
 
 // ----------------------------------------------------------------------------
 // orderBy
@@ -73,15 +73,15 @@ GTLR_EXTERN NSString * const kGTLRPlusCollectionVisible;
  *
  *  Value: "alphabetical"
  */
-GTLR_EXTERN NSString * const kGTLRPlusOrderByAlphabetical;
+FOUNDATION_EXTERN NSString * const kGTLRPlusOrderByAlphabetical;
 /** Value: "best" */
-GTLR_EXTERN NSString * const kGTLRPlusOrderByBest;
+FOUNDATION_EXTERN NSString * const kGTLRPlusOrderByBest;
 /**
  *  Sort activities by published date, most recent first.
  *
  *  Value: "recent"
  */
-GTLR_EXTERN NSString * const kGTLRPlusOrderByRecent;
+FOUNDATION_EXTERN NSString * const kGTLRPlusOrderByRecent;
 
 // ----------------------------------------------------------------------------
 // sortOrder
@@ -91,13 +91,13 @@ GTLR_EXTERN NSString * const kGTLRPlusOrderByRecent;
  *
  *  Value: "ascending"
  */
-GTLR_EXTERN NSString * const kGTLRPlusSortOrderAscending;
+FOUNDATION_EXTERN NSString * const kGTLRPlusSortOrderAscending;
 /**
  *  Sort newest comments first.
  *
  *  Value: "descending"
  */
-GTLR_EXTERN NSString * const kGTLRPlusSortOrderDescending;
+FOUNDATION_EXTERN NSString * const kGTLRPlusSortOrderDescending;
 
 // ----------------------------------------------------------------------------
 // Query Classes

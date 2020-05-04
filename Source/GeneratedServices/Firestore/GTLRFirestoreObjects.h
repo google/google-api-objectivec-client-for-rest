@@ -88,13 +88,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_And;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_And;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_FieldFilter.op
@@ -104,58 +104,58 @@ GTLR_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUnspecifi
  *
  *  Value: "ARRAY_CONTAINS"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
  *  Contains any. Requires that the field is an array and
  *  `value` is a non-empty ArrayValue with at most 10 values.
  *
  *  Value: "ARRAY_CONTAINS_ANY"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContainsAny;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContainsAny;
 /**
  *  Equal.
  *
  *  Value: "EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_Equal;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_Equal;
 /**
  *  Greater than. Requires that the field come first in `order_by`.
  *
  *  Value: "GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan;
 /**
  *  Greater than or equal. Requires that the field come first in
  *  `order_by`.
  *
  *  Value: "GREATER_THAN_OR_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual;
 /**
  *  In. Requires that `value` is a non-empty ArrayValue with at most 10
  *  values.
  *
  *  Value: "IN"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_In;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_In;
 /**
  *  Less than. Requires that the field come first in `order_by`.
  *
  *  Value: "LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThan;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThan;
 /**
  *  Less than or equal. Requires that the field come first in `order_by`.
  *
  *  Value: "LESS_THAN_OR_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_FieldTransform.setToServerValue
@@ -166,13 +166,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified;
  *
  *  Value: "REQUEST_TIME"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "SERVER_VALUE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata.operationState
@@ -183,50 +183,50 @@ GTLR_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_Serv
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
  *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Cancelling;
 /**
  *  Request has finished being processed, but encountered an error.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Failed;
 /**
  *  Request has been processed and is in its finalization stage.
  *
  *  Value: "FINALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Finalizing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Finalizing;
 /**
  *  Request is being prepared for processing.
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Initializing;
 /**
  *  Unspecified.
  *
  *  Value: "OPERATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_OperationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_OperationStateUnspecified;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Processing;
 /**
  *  Request has completed successfully.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata.state
@@ -237,50 +237,50 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocument
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
  *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Cancelling;
 /**
  *  Request has finished being processed, but encountered an error.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Failed;
 /**
  *  Request has been processed and is in its finalization stage.
  *
  *  Value: "FINALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Finalizing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Finalizing;
 /**
  *  Request is being prepared for processing.
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Initializing;
 /**
  *  Unspecified.
  *
  *  Value: "OPERATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_OperationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_OperationStateUnspecified;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Processing;
 /**
  *  Request has completed successfully.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata.operationState
@@ -291,50 +291,50 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1FieldOperation
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
  *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Cancelling;
 /**
  *  Request has finished being processed, but encountered an error.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Failed;
 /**
  *  Request has been processed and is in its finalization stage.
  *
  *  Value: "FINALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Finalizing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Finalizing;
 /**
  *  Request is being prepared for processing.
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Initializing;
 /**
  *  Unspecified.
  *
  *  Value: "OPERATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_OperationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_OperationStateUnspecified;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Processing;
 /**
  *  Request has completed successfully.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_OperationState_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
@@ -346,7 +346,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocument
  *
  *  Value: "COLLECTION"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection;
 /**
  *  Indexes with a collection group query scope specified allow queries
  *  against all collections that has the collection id specified by the
@@ -354,13 +354,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QuerySco
  *
  *  Value: "COLLECTION_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup;
 /**
  *  The query scope is unspecified. Not a valid option.
  *
  *  Value: "QUERY_SCOPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_QueryScopeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_QueryScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Index.state
@@ -373,7 +373,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QuerySco
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Creating;
 /**
  *  The index was being created, but something went wrong.
  *  There is no active long-running operation for the index,
@@ -386,7 +386,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Cr
  *
  *  Value: "NEEDS_REPAIR"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_NeedsRepair;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_NeedsRepair;
 /**
  *  The index is ready to be used.
  *  The index is updated when writing a document.
@@ -394,13 +394,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Ne
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Ready;
 /**
  *  The state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta.changeType
@@ -410,19 +410,19 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_St
  *
  *  Value: "ADD"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta_ChangeType_Add;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta_ChangeType_Add;
 /**
  *  The type of change is not specified or known.
  *
  *  Value: "CHANGE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta_ChangeType_ChangeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta_ChangeType_ChangeTypeUnspecified;
 /**
  *  The single field index is being removed.
  *
  *  Value: "REMOVE"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta_ChangeType_Remove;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta_ChangeType_Remove;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1IndexField.arrayConfig
@@ -432,13 +432,13 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexConfigDel
  *
  *  Value: "ARRAY_CONFIG_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_ArrayConfig_ArrayConfigUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_ArrayConfig_ArrayConfigUnspecified;
 /**
  *  The index supports array containment queries.
  *
  *  Value: "CONTAINS"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_ArrayConfig_Contains;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_ArrayConfig_Contains;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1IndexField.order
@@ -448,19 +448,19 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Arr
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_Ascending;
 /**
  *  The field is ordered by descending field value.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_Descending;
 /**
  *  The ordering is unspecified. Not a valid option.
  *
  *  Value: "ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_OrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_OrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata.state
@@ -471,50 +471,50 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Ord
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
  *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Cancelling;
 /**
  *  Request has finished being processed, but encountered an error.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Failed;
 /**
  *  Request has been processed and is in its finalization stage.
  *
  *  Value: "FINALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Finalizing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Finalizing;
 /**
  *  Request is being prepared for processing.
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Initializing;
 /**
  *  Unspecified.
  *
  *  Value: "OPERATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_OperationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_OperationStateUnspecified;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Processing;
 /**
  *  Request has completed successfully.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_Order.direction
@@ -524,19 +524,19 @@ GTLR_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1IndexOperation
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Order_Direction_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_Ascending;
 /**
  *  Descending.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Order_Direction_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_Descending;
 /**
  *  Unspecified.
  *
  *  Value: "DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_TargetChange.targetChangeType
@@ -546,7 +546,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified
  *
  *  Value: "ADD"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add;
 /**
  *  The targets reflect all changes committed before the targets were added
  *  to the stream.
@@ -557,19 +557,19 @@ GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add;
  *
  *  Value: "CURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Current;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Current;
 /**
  *  No change has occurred. Used only to send an updated `resume_token`.
  *
  *  Value: "NO_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_NoChange;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_NoChange;
 /**
  *  The targets have been removed.
  *
  *  Value: "REMOVE"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Remove;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Remove;
 /**
  *  The targets have been reset, and a new initial state for the targets
  *  will be returned in subsequent changes.
@@ -578,7 +578,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Remove
  *
  *  Value: "RESET"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Reset;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Reset;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_UnaryFilter.op
@@ -588,19 +588,19 @@ GTLR_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Reset;
  *
  *  Value: "IS_NAN"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNan;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNan;
 /**
  *  Test if an expression evaluates to Null.
  *
  *  Value: "IS_NULL"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNull;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNull;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_Value.nullValue
@@ -610,7 +610,7 @@ GTLR_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified;
  *
  *  Value: "NULL_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  An array value.

@@ -45,15 +45,15 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRBigtableAdminViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewFull;
 /** Value: "NAME_ONLY" */
-GTLR_EXTERN NSString * const kGTLRBigtableAdminViewNameOnly;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewNameOnly;
 /** Value: "REPLICATION_VIEW" */
-GTLR_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
 /** Value: "SCHEMA_VIEW" */
-GTLR_EXTERN NSString * const kGTLRBigtableAdminViewSchemaView;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaView;
 /** Value: "VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

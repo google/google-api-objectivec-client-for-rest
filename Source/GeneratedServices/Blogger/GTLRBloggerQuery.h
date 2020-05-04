@@ -36,63 +36,63 @@ NS_ASSUME_NONNULL_BEGIN
 // orderBy
 
 /** Value: "ORDER_BY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBloggerOrderByOrderByUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerOrderByOrderByUnspecified;
 /** Value: "PUBLISHED" */
-GTLR_EXTERN NSString * const kGTLRBloggerOrderByPublished;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerOrderByPublished;
 /** Value: "UPDATED" */
-GTLR_EXTERN NSString * const kGTLRBloggerOrderByUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerOrderByUpdated;
 
 // ----------------------------------------------------------------------------
 // range
 
 /** Value: "all" */
-GTLR_EXTERN NSString * const kGTLRBloggerRangeAll;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRangeAll;
 /** Value: "30DAYS" */
-GTLR_EXTERN NSString * const kGTLRBloggerRangeX30days;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRangeX30days;
 /** Value: "7DAYS" */
-GTLR_EXTERN NSString * const kGTLRBloggerRangeX7days;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRangeX7days;
 
 // ----------------------------------------------------------------------------
 // role
 
 /** Value: "ADMIN" */
-GTLR_EXTERN NSString * const kGTLRBloggerRoleAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRoleAdmin;
 /** Value: "AUTHOR" */
-GTLR_EXTERN NSString * const kGTLRBloggerRoleAuthor;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRoleAuthor;
 /** Value: "READER" */
-GTLR_EXTERN NSString * const kGTLRBloggerRoleReader;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRoleReader;
 /** Value: "VIEW_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBloggerRoleViewTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerRoleViewTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // status
 
 /** Value: "DELETED" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusDeleted;
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusDraft;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusDraft;
 /** Value: "EMPTIED" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusEmptied;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusEmptied;
 /** Value: "LIVE" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusLive;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusLive;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusPending;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusPending;
 /** Value: "SCHEDULED" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusScheduled;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusScheduled;
 /** Value: "SPAM" */
-GTLR_EXTERN NSString * const kGTLRBloggerStatusSpam;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerStatusSpam;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "ADMIN" */
-GTLR_EXTERN NSString * const kGTLRBloggerViewAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerViewAdmin;
 /** Value: "AUTHOR" */
-GTLR_EXTERN NSString * const kGTLRBloggerViewAuthor;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerViewAuthor;
 /** Value: "READER" */
-GTLR_EXTERN NSString * const kGTLRBloggerViewReader;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerViewReader;
 /** Value: "VIEW_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

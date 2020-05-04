@@ -68,55 +68,55 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Cancelled;
 /**
  *  Build was enqueued for longer than the value of `queue_ttl`.
  *
  *  Value: "EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Expired;
 /**
  *  Build or step failed to complete successfully.
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Failure;
 /**
  *  Build or step failed due to an internal cause.
  *
  *  Value: "INTERNAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_InternalError;
 /**
  *  Build or step is queued; work has not yet begun.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Queued;
 /**
  *  Status of the build is unknown.
  *
  *  Value: "STATUS_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_StatusUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_StatusUnknown;
 /**
  *  Build or step finished successfully.
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Success;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Success;
 /**
  *  Build or step took longer than was allowed.
  *
  *  Value: "TIMEOUT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Timeout;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Timeout;
 /**
  *  Build or step is being executed.
  *
  *  Value: "WORKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.logging
@@ -126,20 +126,20 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
  *
  *  Value: "GCS_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
 /**
  *  Stackdriver logging and Cloud Storage logging are enabled.
  *
  *  Value: "LEGACY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
 /**
  *  The service determines the logging mode. The default is `LEGACY`. Do not
  *  rely on the default logging behavior as it may change in the future.
  *
  *  Value: "LOGGING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.logStreamingOption
@@ -149,20 +149,20 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspeci
  *
  *  Value: "STREAM_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault;
 /**
  *  Build logs should not be streamed to Google Cloud Storage; they will be
  *  written when the build is completed.
  *
  *  Value: "STREAM_OFF"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOff;
 /**
  *  Build logs should be streamed to Google Cloud Storage.
  *
  *  Value: "STREAM_ON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamOn;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.machineType
@@ -172,19 +172,19 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_Str
  *
  *  Value: "N1_HIGHCPU_32"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32;
 /**
  *  Highcpu machine with 8 CPUs.
  *
  *  Value: "N1_HIGHCPU_8"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8;
 /**
  *  Standard machine type.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.requestedVerifyOption
@@ -194,23 +194,23 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_Unspecifie
  *
  *  Value: "NOT_VERIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_NotVerified;
 /**
  *  Verified build.
  *
  *  Value: "VERIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyOption_Verified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.sourceProvenanceHash
 
 /** Value: "MD5" */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None;
 /** Value: "SHA256" */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.substitutionOption
@@ -220,14 +220,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_S
  *
  *  Value: "ALLOW_LOOSE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose;
 /**
  *  Fails the build if error in substitutions checks, like missing
  *  a substitution in the template or in the map.
  *
  *  Value: "MUST_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildStep.status
@@ -237,55 +237,55 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_Mus
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled;
 /**
  *  Build was enqueued for longer than the value of `queue_ttl`.
  *
  *  Value: "EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Expired;
 /**
  *  Build or step failed to complete successfully.
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Failure;
 /**
  *  Build or step failed due to an internal cause.
  *
  *  Value: "INTERNAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_InternalError;
 /**
  *  Build or step is queued; work has not yet begun.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Queued;
 /**
  *  Status of the build is unknown.
  *
  *  Value: "STATUS_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_StatusUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_StatusUnknown;
 /**
  *  Build or step finished successfully.
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Success;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Success;
 /**
  *  Build or step took longer than was allowed.
  *
  *  Value: "TIMEOUT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout;
 /**
  *  Build or step is being executed.
  *
  *  Value: "WORKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Working;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Working;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_Hash.type
@@ -295,19 +295,19 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Working;
  *
  *  Value: "MD5"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Md5;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Md5;
 /**
  *  No hash requested.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_None;
 /**
  *  Use a sha256 hash.
  *
  *  Value: "SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_PullRequestFilter.commentControl
@@ -317,14 +317,14 @@ GTLR_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
  *
  *  Value: "COMMENTS_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled;
 /**
  *  Enforce that repository owners or collaborators must comment on Pull
  *  Requests before builds are triggered.
  *
  *  Value: "COMMENTS_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled;
 
 /**
  *  Files in the workspace to upload to Cloud Storage upon successful

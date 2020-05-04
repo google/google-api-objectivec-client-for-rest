@@ -121,25 +121,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Done;
 /**
  *  The operation has been created.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Pending;
 /**
  *  The operation is running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Running;
 /**
  *  Unused.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterStatus.state
@@ -149,37 +149,37 @@ GTLR_EXTERN NSString * const kGTLRDataproc_ClusterOperationStatus_State_Unknown;
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Creating;
 /**
  *  The cluster is being deleted. It cannot be used.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Deleting;
 /**
  *  The cluster encountered an error. It is not ready for use.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
 /**
  *  The cluster is currently running and healthy. It is ready for use.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Running;
 /**
  *  The cluster state is unknown.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Unknown;
 /**
  *  The cluster is being updated. It continues to accept and process jobs.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterStatus.substate
@@ -190,7 +190,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Updating;
  *
  *  Value: "STALE_STATUS"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus;
 /**
  *  The cluster is known to be in an unhealthy state (for example, critical
  *  daemons are not running or HDFS capacity is exhausted).Applies to RUNNING
@@ -198,13 +198,13 @@ GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus;
  *
  *  Value: "UNHEALTHY"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy;
 /**
  *  The cluster substate is unknown.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_InstanceGroupConfig.preemptibility
@@ -215,21 +215,21 @@ GTLR_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
  *
  *  Value: "NON_PREEMPTIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible;
 /**
  *  Preemptibility is unspecified, the system will choose the appropriate
  *  setting for each instance group.
  *
  *  Value: "PREEMPTIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified;
 /**
  *  Instances are preemptible.This option is allowed only for secondary worker
  *  groups.
  *
  *  Value: "PREEMPTIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Preemptible;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_JobStatus.state
@@ -240,63 +240,63 @@ GTLR_EXTERN NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_Pr
  *
  *  Value: "ATTEMPT_FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_AttemptFailure;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_AttemptFailure;
 /**
  *  The job cancellation was successful.
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Cancelled;
 /**
  *  A CancelJob request has been received, but is pending.
  *
  *  Value: "CANCEL_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_CancelPending;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_CancelPending;
 /**
  *  Transient in-flight resources have been canceled, and the request to cancel
  *  the running job has been issued to the cluster.
  *
  *  Value: "CANCEL_STARTED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_CancelStarted;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_CancelStarted;
 /**
  *  The job has completed successfully.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Done;
 /**
  *  The job has completed, but encountered an error.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Error;
 /**
  *  The job is pending; it has been submitted, but is not yet running.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Pending;
 /**
  *  The job is running on the cluster.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_Running;
 /**
  *  Job has been received by the service and completed initial setup; it will
  *  soon be submitted to the cluster.
  *
  *  Value: "SETUP_DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_SetupDone;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_SetupDone;
 /**
  *  The job state is unknown.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_JobStatus.substate
@@ -308,7 +308,7 @@ GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_State_StateUnspecified;
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Queued;
 /**
  *  The agent-reported status is out of date, which may be caused by a loss of
  *  communication between the agent and Dataproc. If the agent does not send a
@@ -316,41 +316,41 @@ GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Queued;
  *
  *  Value: "STALE_STATUS"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_StaleStatus;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_StaleStatus;
 /**
  *  The Job is submitted to the agent.Applies to RUNNING state.
  *
  *  Value: "SUBMITTED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Submitted;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Submitted;
 /**
  *  The job substate is unknown.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_LoggingConfig_DriverLogLevels.driverLogLevel
 
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_All;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_All;
 /** Value: "DEBUG" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Debug;
 /** Value: "ERROR" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Error;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Error;
 /** Value: "FATAL" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Fatal;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Fatal;
 /** Value: "INFO" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Info;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Info;
 /** Value: "LEVEL_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_LevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_LevelUnspecified;
 /** Value: "OFF" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off;
 /** Value: "TRACE" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace;
 /** Value: "WARN" */
-GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ReservationAffinity.consumeReservationType
@@ -360,40 +360,40 @@ GTLR_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverL
  *
  *  Value: "ANY_RESERVATION"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation;
 /**
  *  Do not consume from any allocated capacity.
  *
  *  Value: "NO_RESERVATION"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoReservation;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoReservation;
 /**
  *  Must consume from a specific reservation. Must specify key value fields for
  *  specifying the reservations.
  *
  *  Value: "SPECIFIC_RESERVATION"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation;
 /** Value: "TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
 
 /** Value: "ANACONDA" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda;
 /** Value: "COMPONENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified;
 /** Value: "HIVE_WEBHCAT" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat;
 /** Value: "JUPYTER" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
 /** Value: "PRESTO" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto;
 /** Value: "ZEPPELIN" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin;
 /** Value: "ZOOKEEPER" */
-GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_WorkflowMetadata.state
@@ -403,25 +403,25 @@ GTLR_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zoo
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Done;
 /**
  *  The operation has been created.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Pending;
 /**
  *  The operation is running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Running;
 /**
  *  Unused.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_WorkflowNode.state
@@ -431,38 +431,38 @@ GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowMetadata_State_Unknown;
  *
  *  Value: "BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Blocked;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Blocked;
 /**
  *  The node completed successfully.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Completed;
 /**
  *  The node failed. A node can be marked FAILED because its ancestor or peer
  *  failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Failed;
 /**
  *  State is unspecified.
  *
  *  Value: "NODE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_NodeStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_NodeStateUnspecified;
 /**
  *  The node is runnable but not running.
  *
  *  Value: "RUNNABLE"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Runnable;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Runnable;
 /**
  *  The node is running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Running;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_YarnApplication.state
@@ -472,55 +472,55 @@ GTLR_EXTERN NSString * const kGTLRDataproc_WorkflowNode_State_Running;
  *
  *  Value: "ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Accepted;
 /**
  *  Status is FAILED.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Failed;
 /**
  *  Status is FINISHED.
  *
  *  Value: "FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Finished;
 /**
  *  Status is KILLED.
  *
  *  Value: "KILLED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Killed;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Killed;
 /**
  *  Status is NEW.
  *
  *  Value: "NEW"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_New;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_New;
 /**
  *  Status is NEW_SAVING.
  *
  *  Value: "NEW_SAVING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_NewSaving;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_NewSaving;
 /**
  *  Status is RUNNING.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Running;
 /**
  *  Status is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_StateUnspecified;
 /**
  *  Status is SUBMITTED.
  *
  *  Value: "SUBMITTED"
  */
-GTLR_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted;
 
 /**
  *  Specifies the type and number of accelerator cards attached to the instances

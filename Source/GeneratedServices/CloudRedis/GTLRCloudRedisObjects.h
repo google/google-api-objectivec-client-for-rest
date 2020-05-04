@@ -55,13 +55,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DATA_PROTECTION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified;
 /**
  *  Instance failover will be performed without data loss control.
  *
  *  Value: "FORCE_DATA_LOSS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss;
 /**
  *  Instance failover will be protected with data loss control. More
  *  specifically, the failover will only be performed if the current
@@ -70,7 +70,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtect
  *
  *  Value: "LIMITED_DATA_LOSS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.connectMode
@@ -80,13 +80,13 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtect
  *
  *  Value: "CONNECT_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified;
 /**
  *  Connect via direct peering to the Memorystore for Redis hosted service.
  *
  *  Value: "DIRECT_PEERING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering;
 /**
  *  Connect your Memorystore for Redis instance using Private Service
  *  Access. Private services access provides an IP address range for multiple
@@ -94,7 +94,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering;
  *
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.state
@@ -104,49 +104,49 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateService
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Creating;
 /**
  *  Redis instance is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Deleting;
 /**
  *  Redis instance is failing over (availability may be affected).
  *
  *  Value: "FAILING_OVER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_FailingOver;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_FailingOver;
 /**
  *  Redis instance is importing data (availability may be affected).
  *
  *  Value: "IMPORTING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Importing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Importing;
 /**
  *  Maintenance is being performed on this Redis instance.
  *
  *  Value: "MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Maintenance;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Maintenance;
 /**
  *  Redis instance has been created and is fully usable.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Ready;
 /**
  *  Redis instance is being repaired and may be unusable.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Repairing;
 /**
  *  Not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_StateUnspecified;
 /**
  *  Redis instance configuration is being updated. Certain kinds of updates
  *  may cause the instance to become unusable while the update is in
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_StateUnspecified;
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.tier
@@ -164,19 +164,19 @@ GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Updating;
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_Basic;
 /**
  *  STANDARD_HA tier: highly available primary/replica instances
  *
  *  Value: "STANDARD_HA"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa;
 /**
  *  Not set.
  *
  *  Value: "TIER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated

@@ -98,19 +98,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AUTH_FAIL_ACTION_REDIRECT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_AuthFailActionRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_AuthFailActionRedirect;
 /**
  *  Rejects request with a 401 HTTP status code and an error message.
  *
  *  Value: "AUTH_FAIL_ACTION_UNAUTHORIZED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_AuthFailActionUnauthorized;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_AuthFailActionUnauthorized;
 /**
  *  Not specified. AUTH_FAIL_ACTION_REDIRECT is assumed.
  *
  *  Value: "AUTH_FAIL_ACTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_AuthFailActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_AuthFailActionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ApiConfigHandler.login
@@ -123,26 +123,26 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_AuthFailAction_Auth
  *
  *  Value: "LOGIN_ADMIN"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginAdmin;
 /**
  *  Does not require that the user is signed in.
  *
  *  Value: "LOGIN_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginOptional;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginOptional;
 /**
  *  If the user has signed in, the handler proceeds normally. Otherwise, the
  *  auth_fail_action is taken.
  *
  *  Value: "LOGIN_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginRequired;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginRequired;
 /**
  *  Not specified. LOGIN_OPTIONAL is assumed.
  *
  *  Value: "LOGIN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ApiConfigHandler.securityLevel
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_Login_LoginUnspecif
  *
  *  Value: "SECURE_ALWAYS"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureAlways;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureAlways;
 /**
  *  Both HTTP and HTTPS requests with URLs that match the handler succeed
  *  without redirects. The application can examine the request to determine
@@ -162,14 +162,14 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_Secur
  *
  *  Value: "SECURE_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureDefault;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureDefault;
 /**
  *  Requests for a URL that match this handler that use HTTPS are automatically
  *  redirected to the HTTP equivalent URL.
  *
  *  Value: "SECURE_NEVER"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureNever;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureNever;
 /**
  *  Both HTTP and HTTPS requests with URLs that match the handler succeed
  *  without redirects. The application can examine the request to determine
@@ -177,13 +177,13 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_Secur
  *
  *  Value: "SECURE_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureOptional;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureOptional;
 /**
  *  Not specified.
  *
  *  Value: "SECURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Application.servingStatus
@@ -193,25 +193,25 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_Secur
  *
  *  Value: "SERVING"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Serving;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Serving;
 /**
  *  Application has been disabled by the system.
  *
  *  Value: "SYSTEM_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_SystemDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_SystemDisabled;
 /**
  *  Serving status is unspecified.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Unspecified;
 /**
  *  Application has been disabled by the user.
  *
  *  Value: "USER_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_EndpointsApiService.rolloutStrategy
@@ -222,19 +222,19 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabl
  *
  *  Value: "FIXED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Fixed;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Fixed;
 /**
  *  Endpoints service configuration ID will be updated with each rollout.
  *
  *  Value: "MANAGED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Managed;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_Managed;
 /**
  *  Not specified. Defaults to FIXED.
  *
  *  Value: "UNSPECIFIED_ROLLOUT_STRATEGY"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_UnspecifiedRolloutStrategy;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_UnspecifiedRolloutStrategy;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ErrorHandler.errorCode
@@ -244,32 +244,32 @@ GTLR_EXTERN NSString * const kGTLRAppengine_EndpointsApiService_RolloutStrategy_
  *
  *  Value: "ERROR_CODE_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeDefault;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeDefault;
 /**
  *  Client blocked by the application's Denial of Service protection
  *  configuration.
  *
  *  Value: "ERROR_CODE_DOS_API_DENIAL"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeDosApiDenial;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeDosApiDenial;
 /**
  *  Application has exceeded a resource quota.
  *
  *  Value: "ERROR_CODE_OVER_QUOTA"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeOverQuota;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeOverQuota;
 /**
  *  Deadline reached before the application responds.
  *
  *  Value: "ERROR_CODE_TIMEOUT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeTimeout;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeTimeout;
 /**
  *  Not specified. ERROR_CODE_DEFAULT is assumed.
  *
  *  Value: "ERROR_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_FirewallRule.action
@@ -279,25 +279,25 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ErrorHandler_ErrorCode_ErrorCodeUnsp
  *
  *  Value: "ALLOW"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_Allow;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_Allow;
 /**
  *  Matching requests are denied.
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_Deny;
 /** Value: "UNSPECIFIED_ACTION" */
-GTLR_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_UnspecifiedAction;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_FirewallRule_Action_UnspecifiedAction;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Instance.availability
 
 /** Value: "DYNAMIC" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Dynamic;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Dynamic;
 /** Value: "RESIDENT" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Resident;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Resident;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ManagedCertificate.status
@@ -308,7 +308,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Unspecified;
  *
  *  Value: "FAILED_PERMANENT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPermanent;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPermanent;
 /**
  *  Most recent renewal failed due to a CAA retrieval failure. This means that
  *  the domain's DNS provider does not properly handle CAA records, failing
@@ -319,7 +319,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPerm
  *
  *  Value: "FAILED_RETRYING_CAA_CHECKING"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking;
 /**
  *  Most recent renewal failed due to an explicit CAA record that does not
  *  include one of the in-use CAs (Google CA and Let's Encrypt). Renewals will
@@ -328,7 +328,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetr
  *
  *  Value: "FAILED_RETRYING_CAA_FORBIDDEN"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaForbidden;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaForbidden;
 /**
  *  Most recent renewal failed due to an invalid DNS setup and will be retried.
  *  Renewal attempts will continue to fail until the certificate domain's DNS
@@ -337,21 +337,21 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetr
  *
  *  Value: "FAILED_RETRYING_NOT_VISIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingNotVisible;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingNotVisible;
 /** Value: "MANAGEMENT_STATUS_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspecified;
 /**
  *  Certificate was successfully obtained and inserted into the serving system.
  *
  *  Value: "OK"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok;
 /**
  *  Certificate is under active attempts to acquire or renew.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ResourceRecord.type
@@ -361,25 +361,25 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending;
  *
  *  Value: "A"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_A;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_A;
 /**
  *  An AAAA resource record. Data is an IPv6 address.
  *
  *  Value: "AAAA"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_Aaaa;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_Aaaa;
 /**
  *  A CNAME resource record. Data is a domain name to be aliased.
  *
  *  Value: "CNAME"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_Cname;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_Cname;
 /**
  *  An unknown resource record.
  *
  *  Value: "RECORD_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_SslSettings.sslManagementType
@@ -390,7 +390,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_ResourceRecord_Type_RecordTypeUnspec
  *
  *  Value: "AUTOMATIC"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Automatic;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Automatic;
 /**
  *  SSL support for this domain is configured manually by the user. Either the
  *  domain has no SSL support or a user-obtained SSL certificate has been
@@ -398,13 +398,13 @@ GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Automa
  *
  *  Value: "MANUAL"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Manual;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_Manual;
 /**
  *  Defaults to AUTOMATIC.
  *
  *  Value: "SSL_MANAGEMENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_TrafficSplit.shardBy
@@ -415,14 +415,14 @@ GTLR_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_SslMan
  *
  *  Value: "COOKIE"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Cookie;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Cookie;
 /**
  *  Diversion based on applying the modulus operation to a fingerprint of the IP
  *  address.
  *
  *  Value: "IP"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Ip;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Ip;
 /**
  *  Diversion based on weighted random assignment. An incoming request is
  *  randomly routed to a version in the traffic split, with probability
@@ -430,13 +430,13 @@ GTLR_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Ip;
  *
  *  Value: "RANDOM"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Random;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Random;
 /**
  *  Diversion method unspecified.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_UrlMap.authFailAction
@@ -447,19 +447,19 @@ GTLR_EXTERN NSString * const kGTLRAppengine_TrafficSplit_ShardBy_Unspecified;
  *
  *  Value: "AUTH_FAIL_ACTION_REDIRECT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailActionRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailActionRedirect;
 /**
  *  Rejects request with a 401 HTTP status code and an error message.
  *
  *  Value: "AUTH_FAIL_ACTION_UNAUTHORIZED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailActionUnauthorized;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailActionUnauthorized;
 /**
  *  Not specified. AUTH_FAIL_ACTION_REDIRECT is assumed.
  *
  *  Value: "AUTH_FAIL_ACTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailActionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_UrlMap.login
@@ -472,26 +472,26 @@ GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_AuthFailAction_AuthFailAction
  *
  *  Value: "LOGIN_ADMIN"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginAdmin;
 /**
  *  Does not require that the user is signed in.
  *
  *  Value: "LOGIN_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginOptional;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginOptional;
 /**
  *  If the user has signed in, the handler proceeds normally. Otherwise, the
  *  auth_fail_action is taken.
  *
  *  Value: "LOGIN_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginRequired;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginRequired;
 /**
  *  Not specified. LOGIN_OPTIONAL is assumed.
  *
  *  Value: "LOGIN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_UrlMap.redirectHttpResponseCode
@@ -501,31 +501,31 @@ GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_Login_LoginUnspecified;
  *
  *  Value: "REDIRECT_HTTP_RESPONSE_CODE_301"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode301;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode301;
 /**
  *  302 Moved Temporarily code.
  *
  *  Value: "REDIRECT_HTTP_RESPONSE_CODE_302"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode302;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode302;
 /**
  *  303 See Other code.
  *
  *  Value: "REDIRECT_HTTP_RESPONSE_CODE_303"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode303;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode303;
 /**
  *  307 Temporary Redirect code.
  *
  *  Value: "REDIRECT_HTTP_RESPONSE_CODE_307"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode307;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCode307;
 /**
  *  Not specified. 302 is assumed.
  *
  *  Value: "REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_RedirectHttpResponseCodeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_UrlMap.securityLevel
@@ -537,7 +537,7 @@ GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_RedirectHttpResponseCode_Redi
  *
  *  Value: "SECURE_ALWAYS"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureAlways;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureAlways;
 /**
  *  Both HTTP and HTTPS requests with URLs that match the handler succeed
  *  without redirects. The application can examine the request to determine
@@ -545,14 +545,14 @@ GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureAlways;
  *
  *  Value: "SECURE_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureDefault;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureDefault;
 /**
  *  Requests for a URL that match this handler that use HTTPS are automatically
  *  redirected to the HTTP equivalent URL.
  *
  *  Value: "SECURE_NEVER"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureNever;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureNever;
 /**
  *  Both HTTP and HTTPS requests with URLs that match the handler succeed
  *  without redirects. The application can examine the request to determine
@@ -560,35 +560,35 @@ GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureNever;
  *
  *  Value: "SECURE_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureOptional;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureOptional;
 /**
  *  Not specified.
  *
  *  Value: "SECURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Version.inboundServices
 
 /** Value: "INBOUND_SERVICE_CHANNEL_PRESENCE" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceChannelPresence;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceChannelPresence;
 /** Value: "INBOUND_SERVICE_MAIL" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMail;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMail;
 /** Value: "INBOUND_SERVICE_MAIL_BOUNCE" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMailBounce;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMailBounce;
 /** Value: "INBOUND_SERVICE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceUnspecified;
 /** Value: "INBOUND_SERVICE_WARMUP" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceWarmup;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceWarmup;
 /** Value: "INBOUND_SERVICE_XMPP_ERROR" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppError;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppError;
 /** Value: "INBOUND_SERVICE_XMPP_MESSAGE" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppMessage;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppMessage;
 /** Value: "INBOUND_SERVICE_XMPP_PRESENCE" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppPresence;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppPresence;
 /** Value: "INBOUND_SERVICE_XMPP_SUBSCRIBE" */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppSubscribe;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppSubscribe;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Version.servingStatus
@@ -599,20 +599,20 @@ GTLR_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServi
  *
  *  Value: "SERVING"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Serving;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Serving;
 /**
  *  Not specified.
  *
  *  Value: "SERVING_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_ServingStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_ServingStatusUnspecified;
 /**
  *  Disabled. No instances will be created and the scaling settings are ignored
  *  until the state of the version changes to SERVING.
  *
  *  Value: "STOPPED"
  */
-GTLR_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  Google Cloud Endpoints

@@ -57,20 +57,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "FIREBASE_RULES_EXECUTABLE_V1"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV1;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV1;
 /**
  *  CEL-based executable for use with C++ clients.
  *
  *  Value: "FIREBASE_RULES_EXECUTABLE_V2"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV2;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV2;
 /**
  *  Executable format unspecified.
  *  Defaults to FIREBASE_RULES_EXECUTABLE_V1
  *
  *  Value: "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_ReleaseExecutableVersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_ReleaseExecutableVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_GetReleaseExecutableResponse.language
@@ -80,19 +80,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Exe
  *
  *  Value: "EVENT_FLOW_TRIGGERS"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Language_EventFlowTriggers;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Language_EventFlowTriggers;
 /**
  *  Firebase Rules language.
  *
  *  Value: "FIREBASE_RULES"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Language_FirebaseRules;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Language_FirebaseRules;
 /**
  *  Language unspecified. Defaults to FIREBASE_RULES.
  *
  *  Value: "LANGUAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Language_LanguageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Language_LanguageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_Issue.severity
@@ -103,25 +103,25 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_Lan
  *
  *  Value: "DEPRECATION"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Deprecation;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Deprecation;
 /**
  *  Errors such as: unmatched curly braces or variable redefinition.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Error;
 /**
  *  An unspecified severity.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_SeverityUnspecified;
 /**
  *  Warnings such as: unused variables.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestCase.expectation
@@ -131,19 +131,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_Issue_Severity_Warning;
  *
  *  Value: "ALLOW"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Allow;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Allow;
 /**
  *  Expect a denied result.
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Deny;
 /**
  *  Unspecified expectation.
  *
  *  Value: "EXPECTATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_ExpectationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestCase.expressionReportLevel
@@ -153,25 +153,25 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_Expectation_Expectation
  *
  *  Value: "FULL"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Full;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Full;
 /**
  *  No level has been specified. Defaults to "NONE" behavior.
  *
  *  Value: "LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_LevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_LevelUnspecified;
 /**
  *  Do not include any additional information.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_None;
 /**
  *  Only include the expressions that were visited during evaluation.
  *
  *  Value: "VISITED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Visited;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_Visited;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestCase.pathEncoding
@@ -181,20 +181,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_ExpressionReportLevel_V
  *
  *  Value: "ENCODING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_EncodingUnspecified;
 /**
  *  Treats total path as non-URL encoded e.g. raw.
  *
  *  Value: "PLAIN"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Plain;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Plain;
 /**
  *  Treats path segments as URL encoded but with non-encoded separators
  *  ("/"). This is the default behavior.
  *
  *  Value: "URL_ENCODED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseRules_TestResult.state
@@ -204,19 +204,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Failure;
 /**
  *  Test state is not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_StateUnspecified;
 /**
  *  Test is a success.
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 /**
  *  Arg matchers for the mock function.

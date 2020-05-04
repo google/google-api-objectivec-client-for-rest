@@ -34,20 +34,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/appengine.admin"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppengineAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAppengineAdmin;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppengineCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAppengineCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAppengineCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAppengineCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRAppengineService

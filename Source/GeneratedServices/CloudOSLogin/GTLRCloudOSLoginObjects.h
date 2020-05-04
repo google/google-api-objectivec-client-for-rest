@@ -41,20 +41,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Linux;
 /**
  *  The operating system type associated with the user account information is
  *  unspecified.
  *
  *  Value: "OPERATING_SYSTEM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_OperatingSystemTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_OperatingSystemTypeUnspecified;
 /**
  *  Windows user account information.
  *
  *  Value: "WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated

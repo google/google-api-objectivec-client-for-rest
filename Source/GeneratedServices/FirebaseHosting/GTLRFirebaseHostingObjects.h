@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DOMAIN_ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainActive;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainActive;
 /**
  *  An external operation is in progress on the domain association and no
  *  further operations can be performed until it is complete. Formerly used for
@@ -70,27 +70,27 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainActive;
  *
  *  Value: "DOMAIN_CHANGE_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainChangePending;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainChangePending;
 /**
  *  Unspecified domain association status.
  *
  *  Value: "DOMAIN_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainStatusUnspecified;
 /**
  *  The domain verification has been lost and the domain is in the grace period
  *  before being removed from the Firebase Hosting site.
  *
  *  Value: "DOMAIN_VERIFICATION_LOST"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainVerificationLost;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainVerificationLost;
 /**
  *  The domain was previously verified in the legacy system. User must
  *  reverify the domain through the ownership service.
  *
  *  Value: "DOMAIN_VERIFICATION_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainVerificationRequired;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainVerificationRequired;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_DomainProvisioning.certStatus
@@ -100,43 +100,43 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Domain_Status_DomainVerificati
  *
  *  Value: "CERT_ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertActive;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertActive;
 /**
  *  Certificate provisioning failed in a non-recoverable manner.
  *
  *  Value: "CERT_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertError;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertError;
 /**
  *  Waiting for certificate challenge to be met.
  *
  *  Value: "CERT_MISSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertMissing;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertMissing;
 /**
  *  Waiting for certificate challenge to be created.
  *
  *  Value: "CERT_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertPending;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertPending;
 /**
  *  Certificate challenge met; attempting to acquire/propagate certificate.
  *
  *  Value: "CERT_PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertProcessing;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertProcessing;
 /**
  *  Certificate obtained; propagating to the CDN.
  *
  *  Value: "CERT_PROPAGATING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertPropagating;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertPropagating;
 /**
  *  Unspecified certificate provisioning status.
  *
  *  Value: "CERT_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_CertStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_DomainProvisioning.dnsStatus
@@ -147,39 +147,39 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_CertStatus_
  *
  *  Value: "DNS_EXTRANEOUS_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsExtraneousMatch;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsExtraneousMatch;
 /**
  *  All required DNS records were detected. No extra (non-required) DNS records
  *  were detected.
  *
  *  Value: "DNS_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsMatch;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsMatch;
 /**
  *  None of the required DNS records have been detected on the domain.
  *
  *  Value: "DNS_MISSING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsMissing;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsMissing;
 /**
  *  Some of the required DNS records were detected, but not all of them. No
  *  extra (non-required) DNS records were detected.
  *
  *  Value: "DNS_PARTIAL_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsPartialMatch;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsPartialMatch;
 /**
  *  No DNS records have been specified for this domain yet.
  *
  *  Value: "DNS_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsPending;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsPending;
 /**
  *  Unspecified DNS status.
  *
  *  Value: "DNS_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_DnsStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_DomainRedirect.type
@@ -190,13 +190,13 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainProvisioning_DnsStatus_D
  *
  *  Value: "MOVED_PERMANENTLY"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainRedirect_Type_MovedPermanently;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainRedirect_Type_MovedPermanently;
 /**
  *  The default redirect type; should not be intentionlly used.
  *
  *  Value: "REDIRECT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainRedirect_Type_RedirectTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_DomainRedirect_Type_RedirectTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_Release.type
@@ -206,20 +206,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_DomainRedirect_Type_RedirectTy
  *
  *  Value: "DEPLOY"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_Deploy;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_Deploy;
 /**
  *  The release points back to a previously deployed version.
  *
  *  Value: "ROLLBACK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_Rollback;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_Rollback;
 /**
  *  The release prevents the site from serving content. Firebase Hosting acts
  *  as if the site never existed.
  *
  *  Value: "SITE_DISABLE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_SiteDisable;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_SiteDisable;
 /**
  *  An unspecified type. Indicates that a version was released.
  *  <br>This is the default value when no other `type` is explicitly
@@ -227,7 +227,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_SiteDisable;
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_ServingConfig.appAssociation
@@ -238,14 +238,14 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Release_Type_TypeUnspecified;
  *
  *  Value: "AUTO"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_AppAssociation_Auto;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_AppAssociation_Auto;
 /**
  *  No special handling of the app association files will occur, these paths
  *  will result in a 404 unless caught with a Rewrite.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_AppAssociation_None;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_AppAssociation_None;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_ServingConfig.trailingSlashBehavior
@@ -256,14 +256,14 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_AppAssociation_N
  *
  *  Value: "ADD"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_Add;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_Add;
 /**
  *  Trailing slashes are _removed_ from directory indexes as well as from any
  *  URL path not ending in a file extension.
  *
  *  Value: "REMOVE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_Remove;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_Remove;
 /**
  *  No behavior is specified.
  *  <br>Files are served at their exact location only, and trailing slashes
@@ -271,7 +271,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBeh
  *
  *  Value: "TRAILING_SLASH_BEHAVIOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_TrailingSlashBehaviorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_TrailingSlashBehaviorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_Version.status
@@ -282,47 +282,47 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBeh
  *
  *  Value: "ABANDONED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Abandoned;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Abandoned;
 /**
  *  The version is being cloned from another version. All content is still
  *  being copied over.
  *
  *  Value: "CLONING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Cloning;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Cloning;
 /**
  *  The version has been created, and content is currently being added to the
  *  version.
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Created;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Created;
 /**
  *  The version has been deleted.
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Deleted;
 /**
  *  The version is outside the site-configured limit for the number of
  *  retained versions, so the version's content is scheduled for deletion.
  *
  *  Value: "EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Expired;
 /**
  *  All content has been added to the version, and the version can no longer be
  *  changed.
  *
  *  Value: "FINALIZED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Finalized;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Finalized;
 /**
  *  The default status; should not be intentionally used.
  *
  *  Value: "VERSION_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_VersionStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_VersionStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseHosting_VersionFile.status
@@ -332,20 +332,20 @@ GTLR_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_VersionStatusUn
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Active;
 /**
  *  The file has been included in the version and is expected to be uploaded
  *  in the near future.
  *
  *  Value: "EXPECTED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Expected;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Expected;
 /**
  *  The default status; should not be intentionally used.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified;
 
 /**
  *  Contains metadata about the user who performed an action, such as creating

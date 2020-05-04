@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudLifeSciencesCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudLifeSciencesCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudLifeSciencesService

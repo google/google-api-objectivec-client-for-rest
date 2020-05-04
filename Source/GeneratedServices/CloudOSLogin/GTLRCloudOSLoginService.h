@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform;
 /**
  *  Authorization scope: View and manage your Google Compute Engine resources
  *
  *  Value "https://www.googleapis.com/auth/compute"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCompute;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCompute;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudOSLoginService

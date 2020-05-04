@@ -64,25 +64,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ALERT_FEEDBACK_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_AlertFeedbackTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_AlertFeedbackTypeUnspecified;
 /**
  *  The alert report is not useful.
  *
  *  Value: "NOT_USEFUL"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful;
 /**
  *  The alert report is somewhat useful.
  *
  *  Value: "SOMEWHAT_USEFUL"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful;
 /**
  *  The alert report is very useful.
  *
  *  Value: "VERY_USEFUL"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_CloudPubsubTopic.payloadFormat
@@ -92,13 +92,13 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
  *
  *  Value: "JSON"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json;
 /**
  *  Payload format is not specified (will use JSON as default).
  *
  *  Value: "PAYLOAD_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_MailPhishing.systemActionType
@@ -108,19 +108,19 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Pay
  *
  *  Value: "NO_OPERATION"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation;
 /**
  *  Messages were removed from the inbox.
  *
  *  Value: "REMOVED_FROM_INBOX"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox;
 /**
  *  System action is unspecified.
  *
  *  Value: "SYSTEM_ACTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.dataSource
@@ -130,25 +130,25 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_Syst
  *
  *  Value: "DATA_SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified;
 /**
  *  Drive data source.
  *
  *  Value: "DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
 
 /** Value: "ACTION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified;
 /** Value: "ALERT" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
 /** Value: "DRIVE_BLOCK_EXTERNAL_SHARING" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing;
 /** Value: "DRIVE_WARN_ON_EXTERNAL_SHARING" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.trigger
@@ -158,25 +158,25 @@ GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedAction
  *
  *  Value: "DRIVE_SHARE"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare;
 /**
  *  Trigger is unspecified.
  *
  *  Value: "TRIGGER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.triggeredActionTypes
 
 /** Value: "ACTION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified;
 /** Value: "ALERT" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
 /** Value: "DRIVE_BLOCK_EXTERNAL_SHARING" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing;
 /** Value: "DRIVE_WARN_ON_EXTERNAL_SHARING" */
-GTLR_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing;
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing;
 
 /**
  *  Alerts for user account warning events.

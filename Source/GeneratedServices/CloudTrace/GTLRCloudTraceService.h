@@ -38,13 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTraceCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudTraceCloudPlatform;
 /**
  *  Authorization scope: Write Trace data for a project or application
  *
  *  Value "https://www.googleapis.com/auth/trace.append"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTraceTraceAppend;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudTraceTraceAppend;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudTraceService

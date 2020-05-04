@@ -169,19 +169,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "EMU"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_Emu;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_Emu;
 /**
  *  A point, 1/72 of an inch.
  *
  *  Value: "PT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_Pt;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_Pt;
 /**
  *  The units are unknown.
  *
  *  Value: "UNIT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_AutoText.type
@@ -191,13 +191,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified;
  *
  *  Value: "SLIDE_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_SlideNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_AutoText_Type_SlideNumber;
 /**
  *  An unspecified autotext type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateLineRequest.category
@@ -207,25 +207,25 @@ GTLR_EXTERN NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified;
  *
  *  Value: "BENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Bent;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Bent;
 /**
  *  Curved connectors, including curved connector 2 to 5.
  *
  *  Value: "CURVED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Curved;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Curved;
 /**
  *  Unspecified line category.
  *
  *  Value: "LINE_CATEGORY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_LineCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_LineCategoryUnspecified;
 /**
  *  Straight connectors, including straight connector 1.
  *
  *  Value: "STRAIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Straight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateLineRequest.lineCategory
@@ -235,20 +235,20 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_Category_Straight;
  *
  *  Value: "BENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Bent;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Bent;
 /**
  *  Curved connectors, including curved connector 2 to 5.
  *
  *  Value: "CURVED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Curved;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Curved;
 /**
  *  Straight connectors, including straight connector 1. The is the default
  *  category when one is not specified.
  *
  *  Value: "STRAIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Straight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateParagraphBulletsRequest.bulletPreset
@@ -259,76 +259,76 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_Straight
  *
  *  Value: "BULLET_ARROW3D_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare;
 /**
  *  A bulleted list with a `ARROW`, `DIAMOND` and `DISC` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_ARROW_DIAMOND_DISC"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc;
 /**
  *  A bulleted list with `CHECKBOX` bullet glyphs for all list nesting levels.
  *
  *  Value: "BULLET_CHECKBOX"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletCheckbox;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletCheckbox;
 /**
  *  A bulleted list with a `DIAMOND`, `CIRCLE` and `SQUARE` bullet glyph
  *  for the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMOND_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondCircleSquare;
 /**
  *  A bulleted list with a `DIAMONDX`, `ARROW3D` and `SQUARE` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMONDX_ARROW3D_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxArrow3dSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxArrow3dSquare;
 /**
  *  A bulleted list with a `DIAMONDX`, `HOLLOWDIAMOND` and `SQUARE` bullet
  *  glyph for the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxHollowdiamondSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxHollowdiamondSquare;
 /**
  *  A bulleted list with a `DISC`, `CIRCLE` and `SQUARE` bullet glyph for the
  *  first 3 list nesting levels.
  *
  *  Value: "BULLET_DISC_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiscCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiscCircleSquare;
 /**
  *  A bulleted list with a `LEFTTRIANGLE`, `DIAMOND` and `DISC` bullet glyph
  *  for the first 3 list nesting levels.
  *
  *  Value: "BULLET_LEFTTRIANGLE_DIAMOND_DISC"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc;
 /**
  *  A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_STAR_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare;
 /**
  *  A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_DIGIT_ALPHA_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRoman;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRoman;
 /**
  *  A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by parenthesis.
  *
  *  Value: "NUMBERED_DIGIT_ALPHA_ROMAN_PARENS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRomanParens;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRomanParens;
 /**
  *  A numbered list with `DIGIT` numeric glyphs separated by periods, where
  *  each nesting level uses the previous nesting level's glyph as a prefix.
@@ -336,28 +336,28 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPre
  *
  *  Value: "NUMBERED_DIGIT_NESTED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitNested;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitNested;
 /**
  *  A numbered list with `UPPERALPHA`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_UPPERALPHA_ALPHA_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperalphaAlphaRoman;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperalphaAlphaRoman;
 /**
  *  A numbered list with `UPPERROMAN`, `UPPERALPHA` and `DIGIT` numeric glyphs
  *  for the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_UPPERROMAN_UPPERALPHA_DIGIT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDigit;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDigit;
 /**
  *  A numbered list with `ZERODIGIT`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_ZERODIGIT_ALPHA_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodigitAlphaRoman;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodigitAlphaRoman;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateShapeRequest.shapeType
@@ -367,918 +367,918 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPre
  *
  *  Value: "ARC"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Arc;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Arc;
 /**
  *  East arrow shape.
  *
  *  Value: "ARROW_EAST"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_ArrowEast;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_ArrowEast;
 /**
  *  North arrow shape.
  *
  *  Value: "ARROW_NORTH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_ArrowNorth;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_ArrowNorth;
 /**
  *  Northeast arrow shape.
  *
  *  Value: "ARROW_NORTH_EAST"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_ArrowNorthEast;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_ArrowNorthEast;
 /**
  *  Bent arrow shape. Corresponds to ECMA-376 ST_ShapeType 'bentArrow'
  *
  *  Value: "BENT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BentArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BentArrow;
 /**
  *  Bent up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'bentUpArrow'
  *
  *  Value: "BENT_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BentUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BentUpArrow;
 /**
  *  Bevel shape. Corresponds to ECMA-376 ST_ShapeType 'bevel'
  *
  *  Value: "BEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Bevel;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Bevel;
 /**
  *  Block arc shape. Corresponds to ECMA-376 ST_ShapeType 'blockArc'
  *
  *  Value: "BLOCK_ARC"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BlockArc;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BlockArc;
 /**
  *  Brace pair shape. Corresponds to ECMA-376 ST_ShapeType 'bracePair'
  *
  *  Value: "BRACE_PAIR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BracePair;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BracePair;
 /**
  *  Bracket pair shape. Corresponds to ECMA-376 ST_ShapeType 'bracketPair'
  *
  *  Value: "BRACKET_PAIR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BracketPair;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_BracketPair;
 /**
  *  Can shape. Corresponds to ECMA-376 ST_ShapeType 'can'
  *
  *  Value: "CAN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Can;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Can;
 /**
  *  Chevron shape. Corresponds to ECMA-376 ST_ShapeType 'chevron'
  *
  *  Value: "CHEVRON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Chevron;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Chevron;
 /**
  *  Chord shape. Corresponds to ECMA-376 ST_ShapeType 'chord'
  *
  *  Value: "CHORD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Chord;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Chord;
 /**
  *  Cloud shape. Corresponds to ECMA-376 ST_ShapeType 'cloud'
  *
  *  Value: "CLOUD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Cloud;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Cloud;
 /**
  *  Callout cloud shape. Corresponds to ECMA-376 ST_ShapeType 'cloudCallout'
  *
  *  Value: "CLOUD_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CloudCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CloudCallout;
 /**
  *  Corner shape. Corresponds to ECMA-376 ST_ShapeType 'corner'
  *
  *  Value: "CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Corner;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Corner;
 /**
  *  Cube shape. Corresponds to ECMA-376 ST_ShapeType 'cube'
  *
  *  Value: "CUBE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Cube;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Cube;
 /**
  *  Curved down arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedDownArrow'
  *
  *  Value: "CURVED_DOWN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedDownArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedDownArrow;
 /**
  *  Curved left arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedLeftArrow'
  *
  *  Value: "CURVED_LEFT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedLeftArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedLeftArrow;
 /**
  *  Curved right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedRightArrow'
  *
  *  Value: "CURVED_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedRightArrow;
 /**
  *  Curved up arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedUpArrow'
  *
  *  Value: "CURVED_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedUpArrow;
 /**
  *  Custom shape.
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Custom;
 /**
  *  Decagon shape. Corresponds to ECMA-376 ST_ShapeType 'decagon'
  *
  *  Value: "DECAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Decagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Decagon;
 /**
  *  Diagonal stripe shape. Corresponds to ECMA-376 ST_ShapeType 'diagStripe'
  *
  *  Value: "DIAGONAL_STRIPE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DiagonalStripe;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DiagonalStripe;
 /**
  *  Diamond shape. Corresponds to ECMA-376 ST_ShapeType 'diamond'
  *
  *  Value: "DIAMOND"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Diamond;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Diamond;
 /**
  *  Dodecagon shape. Corresponds to ECMA-376 ST_ShapeType 'dodecagon'
  *
  *  Value: "DODECAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Dodecagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Dodecagon;
 /**
  *  Donut shape. Corresponds to ECMA-376 ST_ShapeType 'donut'
  *
  *  Value: "DONUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Donut;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Donut;
 /**
  *  Double wave shape. Corresponds to ECMA-376 ST_ShapeType 'doubleWave'
  *
  *  Value: "DOUBLE_WAVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DoubleWave;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DoubleWave;
 /**
  *  Down arrow shape. Corresponds to ECMA-376 ST_ShapeType 'downArrow'
  *
  *  Value: "DOWN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DownArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DownArrow;
 /**
  *  Callout down arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'downArrowCallout'
  *
  *  Value: "DOWN_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DownArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_DownArrowCallout;
 /**
  *  Ellipse shape. Corresponds to ECMA-376 ST_ShapeType 'ellipse'
  *
  *  Value: "ELLIPSE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ellipse;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ellipse;
 /**
  *  Ellipse ribbon shape. Corresponds to ECMA-376 ST_ShapeType
  *  'ellipseRibbon'
  *
  *  Value: "ELLIPSE_RIBBON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_EllipseRibbon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_EllipseRibbon;
 /**
  *  Ellipse ribbon 2 shape. Corresponds to ECMA-376 ST_ShapeType
  *  'ellipseRibbon2'
  *
  *  Value: "ELLIPSE_RIBBON_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_EllipseRibbon2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_EllipseRibbon2;
 /**
  *  Alternate process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartAlternateProcess'
  *
  *  Value: "FLOW_CHART_ALTERNATE_PROCESS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartAlternateProcess;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartAlternateProcess;
 /**
  *  Collate flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartCollate'
  *
  *  Value: "FLOW_CHART_COLLATE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartCollate;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartCollate;
 /**
  *  Connector flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartConnector'
  *
  *  Value: "FLOW_CHART_CONNECTOR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartConnector;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartConnector;
 /**
  *  Decision flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartDecision'
  *
  *  Value: "FLOW_CHART_DECISION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDecision;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDecision;
 /**
  *  Delay flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartDelay'
  *
  *  Value: "FLOW_CHART_DELAY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDelay;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDelay;
 /**
  *  Display flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartDisplay'
  *
  *  Value: "FLOW_CHART_DISPLAY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDisplay;
 /**
  *  Document flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartDocument'
  *
  *  Value: "FLOW_CHART_DOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDocument;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDocument;
 /**
  *  Extract flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartExtract'
  *
  *  Value: "FLOW_CHART_EXTRACT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartExtract;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartExtract;
 /**
  *  Input output flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartInputOutput'
  *
  *  Value: "FLOW_CHART_INPUT_OUTPUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartInputOutput;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartInputOutput;
 /**
  *  Internal storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartInternalStorage'
  *
  *  Value: "FLOW_CHART_INTERNAL_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartInternalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartInternalStorage;
 /**
  *  Magnetic disk flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMagneticDisk'
  *
  *  Value: "FLOW_CHART_MAGNETIC_DISK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMagneticDisk;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMagneticDisk;
 /**
  *  Magnetic drum flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMagneticDrum'
  *
  *  Value: "FLOW_CHART_MAGNETIC_DRUM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMagneticDrum;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMagneticDrum;
 /**
  *  Magnetic tape flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMagneticTape'
  *
  *  Value: "FLOW_CHART_MAGNETIC_TAPE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMagneticTape;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMagneticTape;
 /**
  *  Manual input flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartManualInput'
  *
  *  Value: "FLOW_CHART_MANUAL_INPUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartManualInput;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartManualInput;
 /**
  *  Manual operation flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartManualOperation'
  *
  *  Value: "FLOW_CHART_MANUAL_OPERATION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartManualOperation;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartManualOperation;
 /**
  *  Merge flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartMerge'
  *
  *  Value: "FLOW_CHART_MERGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMerge;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMerge;
 /**
  *  Multi-document flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMultidocument'
  *
  *  Value: "FLOW_CHART_MULTIDOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMultidocument;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartMultidocument;
 /**
  *  Offline storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartOfflineStorage'
  *
  *  Value: "FLOW_CHART_OFFLINE_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOfflineStorage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOfflineStorage;
 /**
  *  Off-page connector flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartOffpageConnector'
  *
  *  Value: "FLOW_CHART_OFFPAGE_CONNECTOR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOffpageConnector;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOffpageConnector;
 /**
  *  Online storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartOnlineStorage'
  *
  *  Value: "FLOW_CHART_ONLINE_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOnlineStorage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOnlineStorage;
 /**
  *  Or flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartOr'
  *
  *  Value: "FLOW_CHART_OR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOr;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartOr;
 /**
  *  Predefined process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPredefinedProcess'
  *
  *  Value: "FLOW_CHART_PREDEFINED_PROCESS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPredefinedProcess;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPredefinedProcess;
 /**
  *  Preparation flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPreparation'
  *
  *  Value: "FLOW_CHART_PREPARATION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPreparation;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPreparation;
 /**
  *  Process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartProcess'
  *
  *  Value: "FLOW_CHART_PROCESS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartProcess;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartProcess;
 /**
  *  Punched card flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPunchedCard'
  *
  *  Value: "FLOW_CHART_PUNCHED_CARD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPunchedCard;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPunchedCard;
 /**
  *  Punched tape flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPunchedTape'
  *
  *  Value: "FLOW_CHART_PUNCHED_TAPE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPunchedTape;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPunchedTape;
 /**
  *  Sort flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartSort'
  *
  *  Value: "FLOW_CHART_SORT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartSort;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartSort;
 /**
  *  Summing junction flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartSummingJunction'
  *
  *  Value: "FLOW_CHART_SUMMING_JUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartSummingJunction;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartSummingJunction;
 /**
  *  Terminator flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartTerminator'
  *
  *  Value: "FLOW_CHART_TERMINATOR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartTerminator;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartTerminator;
 /**
  *  Folded corner shape. Corresponds to ECMA-376 ST_ShapeType 'foldedCorner'
  *
  *  Value: "FOLDED_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FoldedCorner;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FoldedCorner;
 /**
  *  Frame shape. Corresponds to ECMA-376 ST_ShapeType 'frame'
  *
  *  Value: "FRAME"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Frame;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Frame;
 /**
  *  Half frame shape. Corresponds to ECMA-376 ST_ShapeType 'halfFrame'
  *
  *  Value: "HALF_FRAME"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_HalfFrame;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_HalfFrame;
 /**
  *  Heart shape. Corresponds to ECMA-376 ST_ShapeType 'heart'
  *
  *  Value: "HEART"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Heart;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Heart;
 /**
  *  Heptagon shape. Corresponds to ECMA-376 ST_ShapeType 'heptagon'
  *
  *  Value: "HEPTAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Heptagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Heptagon;
 /**
  *  Hexagon shape. Corresponds to ECMA-376 ST_ShapeType 'hexagon'
  *
  *  Value: "HEXAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Hexagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Hexagon;
 /**
  *  Home plate shape. Corresponds to ECMA-376 ST_ShapeType 'homePlate'
  *
  *  Value: "HOME_PLATE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_HomePlate;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_HomePlate;
 /**
  *  Horizontal scroll shape. Corresponds to ECMA-376 ST_ShapeType
  *  'horizontalScroll'
  *
  *  Value: "HORIZONTAL_SCROLL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_HorizontalScroll;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_HorizontalScroll;
 /**
  *  Irregular seal 1 shape. Corresponds to ECMA-376 ST_ShapeType
  *  'irregularSeal1'
  *
  *  Value: "IRREGULAR_SEAL_1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_IrregularSeal1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_IrregularSeal1;
 /**
  *  Irregular seal 2 shape. Corresponds to ECMA-376 ST_ShapeType
  *  'irregularSeal2'
  *
  *  Value: "IRREGULAR_SEAL_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_IrregularSeal2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_IrregularSeal2;
 /**
  *  Left arrow shape. Corresponds to ECMA-376 ST_ShapeType 'leftArrow'
  *
  *  Value: "LEFT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftArrow;
 /**
  *  Callout left arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftArrowCallout'
  *
  *  Value: "LEFT_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftArrowCallout;
 /**
  *  Left brace shape. Corresponds to ECMA-376 ST_ShapeType 'leftBrace'
  *
  *  Value: "LEFT_BRACE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftBrace;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftBrace;
 /**
  *  Left bracket shape. Corresponds to ECMA-376 ST_ShapeType 'leftBracket'
  *
  *  Value: "LEFT_BRACKET"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftBracket;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftBracket;
 /**
  *  Left right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftRightArrow'
  *
  *  Value: "LEFT_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightArrow;
 /**
  *  Callout left right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftRightArrowCallout'
  *
  *  Value: "LEFT_RIGHT_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightArrowCallout;
 /**
  *  Left right up arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftRightUpArrow'
  *
  *  Value: "LEFT_RIGHT_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightUpArrow;
 /**
  *  Left up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'leftUpArrow'
  *
  *  Value: "LEFT_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftUpArrow;
 /**
  *  Lightning bolt shape. Corresponds to ECMA-376 ST_ShapeType
  *  'lightningBolt'
  *
  *  Value: "LIGHTNING_BOLT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LightningBolt;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LightningBolt;
 /**
  *  Divide math shape. Corresponds to ECMA-376 ST_ShapeType 'mathDivide'
  *
  *  Value: "MATH_DIVIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathDivide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathDivide;
 /**
  *  Equal math shape. Corresponds to ECMA-376 ST_ShapeType 'mathEqual'
  *
  *  Value: "MATH_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathEqual;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathEqual;
 /**
  *  Minus math shape. Corresponds to ECMA-376 ST_ShapeType 'mathMinus'
  *
  *  Value: "MATH_MINUS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathMinus;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathMinus;
 /**
  *  Multiply math shape. Corresponds to ECMA-376 ST_ShapeType 'mathMultiply'
  *
  *  Value: "MATH_MULTIPLY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathMultiply;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathMultiply;
 /**
  *  Not equal math shape. Corresponds to ECMA-376 ST_ShapeType 'mathNotEqual'
  *
  *  Value: "MATH_NOT_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathNotEqual;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathNotEqual;
 /**
  *  Plus math shape. Corresponds to ECMA-376 ST_ShapeType 'mathPlus'
  *
  *  Value: "MATH_PLUS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathPlus;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_MathPlus;
 /**
  *  Moon shape. Corresponds to ECMA-376 ST_ShapeType 'moon'
  *
  *  Value: "MOON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Moon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Moon;
 /**
  *  No smoking shape. Corresponds to ECMA-376 ST_ShapeType 'noSmoking'
  *
  *  Value: "NO_SMOKING"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_NoSmoking;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_NoSmoking;
 /**
  *  Notched right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'notchedRightArrow'
  *
  *  Value: "NOTCHED_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_NotchedRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_NotchedRightArrow;
 /**
  *  Octagon shape. Corresponds to ECMA-376 ST_ShapeType 'octagon'
  *
  *  Value: "OCTAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Octagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Octagon;
 /**
  *  Parallelogram shape. Corresponds to ECMA-376 ST_ShapeType 'parallelogram'
  *
  *  Value: "PARALLELOGRAM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Parallelogram;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Parallelogram;
 /**
  *  Pentagon shape. Corresponds to ECMA-376 ST_ShapeType 'pentagon'
  *
  *  Value: "PENTAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Pentagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Pentagon;
 /**
  *  Pie shape. Corresponds to ECMA-376 ST_ShapeType 'pie'
  *
  *  Value: "PIE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Pie;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Pie;
 /**
  *  Plaque shape. Corresponds to ECMA-376 ST_ShapeType 'plaque'
  *
  *  Value: "PLAQUE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Plaque;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Plaque;
 /**
  *  Plus shape. Corresponds to ECMA-376 ST_ShapeType 'plus'
  *
  *  Value: "PLUS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Plus;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Plus;
 /**
  *  Quad-arrow shape. Corresponds to ECMA-376 ST_ShapeType 'quadArrow'
  *
  *  Value: "QUAD_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_QuadArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_QuadArrow;
 /**
  *  Callout quad-arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'quadArrowCallout'
  *
  *  Value: "QUAD_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_QuadArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_QuadArrowCallout;
 /**
  *  Rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'rect'.
  *
  *  Value: "RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Rectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Rectangle;
 /**
  *  Ribbon shape. Corresponds to ECMA-376 ST_ShapeType 'ribbon'
  *
  *  Value: "RIBBON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ribbon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ribbon;
 /**
  *  Ribbon 2 shape. Corresponds to ECMA-376 ST_ShapeType 'ribbon2'
  *
  *  Value: "RIBBON_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ribbon2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ribbon2;
 /**
  *  Right arrow shape. Corresponds to ECMA-376 ST_ShapeType 'rightArrow'
  *
  *  Value: "RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightArrow;
 /**
  *  Callout right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'rightArrowCallout'
  *
  *  Value: "RIGHT_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightArrowCallout;
 /**
  *  Right brace shape. Corresponds to ECMA-376 ST_ShapeType 'rightBrace'
  *
  *  Value: "RIGHT_BRACE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightBrace;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightBrace;
 /**
  *  Right bracket shape. Corresponds to ECMA-376 ST_ShapeType 'rightBracket'
  *
  *  Value: "RIGHT_BRACKET"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightBracket;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightBracket;
 /**
  *  Right triangle shape. Corresponds to ECMA-376 ST_ShapeType 'rtTriangle'
  *
  *  Value: "RIGHT_TRIANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightTriangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RightTriangle;
 /**
  *  One round corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'round1Rect'
  *
  *  Value: "ROUND_1_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Round1Rectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Round1Rectangle;
 /**
  *  Two diagonal round corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'round2DiagRect'
  *
  *  Value: "ROUND_2_DIAGONAL_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Round2DiagonalRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Round2DiagonalRectangle;
 /**
  *  Two same-side round corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'round2SameRect'
  *
  *  Value: "ROUND_2_SAME_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Round2SameRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Round2SameRectangle;
 /**
  *  Round corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'roundRect'
  *
  *  Value: "ROUND_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RoundRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_RoundRectangle;
 /**
  *  Smiley face shape. Corresponds to ECMA-376 ST_ShapeType 'smileyFace'
  *
  *  Value: "SMILEY_FACE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_SmileyFace;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_SmileyFace;
 /**
  *  One snip corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'snip1Rect'
  *
  *  Value: "SNIP_1_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Snip1Rectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Snip1Rectangle;
 /**
  *  Two diagonal snip corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'snip2DiagRect'
  *
  *  Value: "SNIP_2_DIAGONAL_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Snip2DiagonalRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Snip2DiagonalRectangle;
 /**
  *  Two same-side snip corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'snip2SameRect'
  *
  *  Value: "SNIP_2_SAME_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Snip2SameRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Snip2SameRectangle;
 /**
  *  One snip one round corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'snipRoundRect'
  *
  *  Value: "SNIP_ROUND_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_SnipRoundRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_SnipRoundRectangle;
 /**
  *  Speech shape.
  *
  *  Value: "SPEECH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Speech;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Speech;
 /**
  *  Ten pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star10'
  *
  *  Value: "STAR_10"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star10;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star10;
 /**
  *  Twelve pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star12'
  *
  *  Value: "STAR_12"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star12;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star12;
 /**
  *  Sixteen pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star16'
  *
  *  Value: "STAR_16"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star16;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star16;
 /**
  *  Twenty four pointed star shape. Corresponds to ECMA-376 ST_ShapeType
  *  'star24'
  *
  *  Value: "STAR_24"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star24;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star24;
 /**
  *  Thirty two pointed star shape. Corresponds to ECMA-376 ST_ShapeType
  *  'star32'
  *
  *  Value: "STAR_32"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star32;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star32;
 /**
  *  Four pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star4'
  *
  *  Value: "STAR_4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star4;
 /**
  *  Five pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star5'
  *
  *  Value: "STAR_5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star5;
 /**
  *  Six pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star6'
  *
  *  Value: "STAR_6"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star6;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star6;
 /**
  *  Seven pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star7'
  *
  *  Value: "STAR_7"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star7;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star7;
 /**
  *  Eight pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star8'
  *
  *  Value: "STAR_8"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star8;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star8;
 /**
  *  Star burst shape.
  *
  *  Value: "STARBURST"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Starburst;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Starburst;
 /**
  *  Striped right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'stripedRightArrow'
  *
  *  Value: "STRIPED_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_StripedRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_StripedRightArrow;
 /**
  *  Sun shape. Corresponds to ECMA-376 ST_ShapeType 'sun'
  *
  *  Value: "SUN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Sun;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Sun;
 /**
  *  Teardrop shape. Corresponds to ECMA-376 ST_ShapeType 'teardrop'
  *
  *  Value: "TEARDROP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Teardrop;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Teardrop;
 /**
  *  Text box shape.
  *
  *  Value: "TEXT_BOX"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_TextBox;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_TextBox;
 /**
  *  Trapezoid shape. Corresponds to ECMA-376 ST_ShapeType 'trapezoid'
  *
  *  Value: "TRAPEZOID"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Trapezoid;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Trapezoid;
 /**
  *  Triangle shape. Corresponds to ECMA-376 ST_ShapeType 'triangle'
  *
  *  Value: "TRIANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Triangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Triangle;
 /**
  *  The shape type that is not predefined.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_TypeUnspecified;
 /**
  *  Up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'upArrow'
  *
  *  Value: "UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpArrow;
 /**
  *  Callout up arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'upArrowCallout'
  *
  *  Value: "UP_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpArrowCallout;
 /**
  *  Up down arrow shape. Corresponds to ECMA-376 ST_ShapeType 'upDownArrow'
  *
  *  Value: "UP_DOWN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpDownArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpDownArrow;
 /**
  *  U-turn arrow shape. Corresponds to ECMA-376 ST_ShapeType 'uturnArrow'
  *
  *  Value: "UTURN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UturnArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UturnArrow;
 /**
  *  Vertical scroll shape. Corresponds to ECMA-376 ST_ShapeType
  *  'verticalScroll'
  *
  *  Value: "VERTICAL_SCROLL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_VerticalScroll;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_VerticalScroll;
 /**
  *  Wave shape. Corresponds to ECMA-376 ST_ShapeType 'wave'
  *
  *  Value: "WAVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Wave;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Wave;
 /**
  *  Callout wedge ellipse shape. Corresponds to ECMA-376 ST_ShapeType
  *  'wedgeEllipseCallout'
  *
  *  Value: "WEDGE_ELLIPSE_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeEllipseCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeEllipseCallout;
 /**
  *  Callout wedge rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'wedgeRectCallout'
  *
  *  Value: "WEDGE_RECTANGLE_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeRectangleCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeRectangleCallout;
 /**
  *  Callout wedge round rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'wedgeRoundRectCallout'
  *
  *  Value: "WEDGE_ROUND_RECTANGLE_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeRoundRectangleCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeRoundRectangleCallout;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateSheetsChartRequest.linkingMode
@@ -1289,14 +1289,14 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_WedgeRound
  *
  *  Value: "LINKED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_Linked;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_Linked;
 /**
  *  The chart is not associated with the source spreadsheet and cannot be
  *  updated. A chart that is not linked will be inserted as an image.
  *
  *  Value: "NOT_LINKED_IMAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_NotLinkedImage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_NotLinkedImage;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_CreateVideoRequest.source
@@ -1306,19 +1306,19 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateSheetsChartRequest_LinkingMode_No
  *
  *  Value: "DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Drive;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Drive;
 /**
  *  The video source is unspecified.
  *
  *  Value: "SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_SourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_SourceUnspecified;
 /**
  *  The video source is YouTube.
  *
  *  Value: "YOUTUBE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Youtube;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Youtube;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Dimension.unit
@@ -1329,19 +1329,19 @@ GTLR_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Youtube;
  *
  *  Value: "EMU"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Dimension_Unit_Emu;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Dimension_Unit_Emu;
 /**
  *  A point, 1/72 of an inch.
  *
  *  Value: "PT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Dimension_Unit_Pt;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Dimension_Unit_Pt;
 /**
  *  The units are unknown.
  *
  *  Value: "UNIT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Dimension_Unit_UnitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Dimension_Unit_UnitUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_LayoutReference.predefinedLayout
@@ -1351,73 +1351,73 @@ GTLR_EXTERN NSString * const kGTLRSlides_Dimension_Unit_UnitUnspecified;
  *
  *  Value: "BIG_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_BigNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_BigNumber;
 /**
  *  Blank layout, with no placeholders.
  *
  *  Value: "BLANK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Blank;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Blank;
 /**
  *  Layout with a caption at the bottom.
  *
  *  Value: "CAPTION_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_CaptionOnly;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_CaptionOnly;
 /**
  *  Layout with a main point.
  *
  *  Value: "MAIN_POINT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_MainPoint;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_MainPoint;
 /**
  *  Layout with one title and one body, arranged in a single column.
  *
  *  Value: "ONE_COLUMN_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_OneColumnText;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_OneColumnText;
 /**
  *  Unspecified layout.
  *
  *  Value: "PREDEFINED_LAYOUT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_PredefinedLayoutUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_PredefinedLayoutUnspecified;
 /**
  *  Layout with a section title.
  *
  *  Value: "SECTION_HEADER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionHeader;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionHeader;
 /**
  *  Layout with a title and subtitle on one side and description on the other.
  *
  *  Value: "SECTION_TITLE_AND_DESCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionTitleAndDescription;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_SectionTitleAndDescription;
 /**
  *  Layout with a title and a subtitle.
  *
  *  Value: "TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Title;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_Title;
 /**
  *  Layout with a title and body.
  *
  *  Value: "TITLE_AND_BODY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndBody;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndBody;
 /**
  *  Layout with a title and two columns.
  *
  *  Value: "TITLE_AND_TWO_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndTwoColumns;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleAndTwoColumns;
 /**
  *  Layout with only a title.
  *
  *  Value: "TITLE_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleOnly;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Line.lineCategory
@@ -1427,25 +1427,25 @@ GTLR_EXTERN NSString * const kGTLRSlides_LayoutReference_PredefinedLayout_TitleO
  *
  *  Value: "BENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Bent;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Bent;
 /**
  *  Curved connectors, including curved connector 2 to 5.
  *
  *  Value: "CURVED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Curved;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Curved;
 /**
  *  Unspecified line category.
  *
  *  Value: "LINE_CATEGORY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_LineCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineCategory_LineCategoryUnspecified;
 /**
  *  Straight connectors, including straight connector 1.
  *
  *  Value: "STRAIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Straight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Line.lineType
@@ -1456,76 +1456,76 @@ GTLR_EXTERN NSString * const kGTLRSlides_Line_LineCategory_Straight;
  *
  *  Value: "BENT_CONNECTOR_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector2;
 /**
  *  Bent connector 3 form. Corresponds to ECMA-376 ST_ShapeType
  *  'bentConnector3'.
  *
  *  Value: "BENT_CONNECTOR_3"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector3;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector3;
 /**
  *  Bent connector 4 form. Corresponds to ECMA-376 ST_ShapeType
  *  'bentConnector4'.
  *
  *  Value: "BENT_CONNECTOR_4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector4;
 /**
  *  Bent connector 5 form. Corresponds to ECMA-376 ST_ShapeType
  *  'bentConnector5'.
  *
  *  Value: "BENT_CONNECTOR_5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_BentConnector5;
 /**
  *  Curved connector 2 form. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedConnector2'.
  *
  *  Value: "CURVED_CONNECTOR_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector2;
 /**
  *  Curved connector 3 form. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedConnector3'.
  *
  *  Value: "CURVED_CONNECTOR_3"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector3;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector3;
 /**
  *  Curved connector 4 form. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedConnector4'.
  *
  *  Value: "CURVED_CONNECTOR_4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector4;
 /**
  *  Curved connector 5 form. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedConnector5'.
  *
  *  Value: "CURVED_CONNECTOR_5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector5;
 /**
  *  Straight connector 1 form. Corresponds to ECMA-376 ST_ShapeType
  *  'straightConnector1'.
  *
  *  Value: "STRAIGHT_CONNECTOR_1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightConnector1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightConnector1;
 /**
  *  Straight line. Corresponds to ECMA-376 ST_ShapeType 'line'. This line
  *  type is not a connector.
  *
  *  Value: "STRAIGHT_LINE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightLine;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightLine;
 /**
  *  An unspecified line type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_LineProperties.dashStyle
@@ -1535,47 +1535,47 @@ GTLR_EXTERN NSString * const kGTLRSlides_Line_LineType_TypeUnspecified;
  *
  *  Value: "DASH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Dash;
 /**
  *  Alternating dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
  *  value 'dashDot'.
  *
  *  Value: "DASH_DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_DashDot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_DashDot;
 /**
  *  Unspecified dash style.
  *
  *  Value: "DASH_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_DashStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_DashStyleUnspecified;
 /**
  *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
  *
  *  Value: "DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Dot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Dot;
 /**
  *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
  *  value 'lgDash'.
  *
  *  Value: "LONG_DASH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_LongDash;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_LongDash;
 /**
  *  Alternating large dashes and dots. Corresponds to ECMA-376
  *  ST_PresetLineDashVal value 'lgDashDot'.
  *
  *  Value: "LONG_DASH_DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_LongDashDot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_LongDashDot;
 /**
  *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
  *  This is the default dash style.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_LineProperties.endArrow
@@ -1585,68 +1585,68 @@ GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Solid;
  *
  *  Value: "ARROW_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_ArrowStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_ArrowStyleUnspecified;
 /**
  *  Filled arrow. Corresponds to ECMA-376 ST_LineEndType value 'triangle'.
  *
  *  Value: "FILL_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillArrow;
 /**
  *  Filled circle. Corresponds to ECMA-376 ST_LineEndType value 'oval'.
  *
  *  Value: "FILL_CIRCLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillCircle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillCircle;
 /**
  *  Filled diamond. Corresponds to ECMA-376 ST_LineEndType value 'diamond'.
  *
  *  Value: "FILL_DIAMOND"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillDiamond;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillDiamond;
 /**
  *  Filled square.
  *
  *  Value: "FILL_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_FillSquare;
 /**
  *  No arrow.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_None;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_None;
 /**
  *  Hollow arrow.
  *
  *  Value: "OPEN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenArrow;
 /**
  *  Hollow circle.
  *
  *  Value: "OPEN_CIRCLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenCircle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenCircle;
 /**
  *  Hollow diamond.
  *
  *  Value: "OPEN_DIAMOND"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenDiamond;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenDiamond;
 /**
  *  Hollow square.
  *
  *  Value: "OPEN_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_OpenSquare;
 /**
  *  Arrow with notched back. Corresponds to ECMA-376 ST_LineEndType value
  *  'stealth'.
  *
  *  Value: "STEALTH_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_StealthArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_StealthArrow;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_LineProperties.startArrow
@@ -1656,68 +1656,68 @@ GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_EndArrow_StealthArrow;
  *
  *  Value: "ARROW_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_ArrowStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_ArrowStyleUnspecified;
 /**
  *  Filled arrow. Corresponds to ECMA-376 ST_LineEndType value 'triangle'.
  *
  *  Value: "FILL_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillArrow;
 /**
  *  Filled circle. Corresponds to ECMA-376 ST_LineEndType value 'oval'.
  *
  *  Value: "FILL_CIRCLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillCircle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillCircle;
 /**
  *  Filled diamond. Corresponds to ECMA-376 ST_LineEndType value 'diamond'.
  *
  *  Value: "FILL_DIAMOND"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillDiamond;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillDiamond;
 /**
  *  Filled square.
  *
  *  Value: "FILL_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_FillSquare;
 /**
  *  No arrow.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_None;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_None;
 /**
  *  Hollow arrow.
  *
  *  Value: "OPEN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenArrow;
 /**
  *  Hollow circle.
  *
  *  Value: "OPEN_CIRCLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenCircle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenCircle;
 /**
  *  Hollow diamond.
  *
  *  Value: "OPEN_DIAMOND"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenDiamond;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenDiamond;
 /**
  *  Hollow square.
  *
  *  Value: "OPEN_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenSquare;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_OpenSquare;
 /**
  *  Arrow with notched back. Corresponds to ECMA-376 ST_LineEndType value
  *  'stealth'.
  *
  *  Value: "STEALTH_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_StealthArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_StealthArrow;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Link.relativeLink
@@ -1727,31 +1727,31 @@ GTLR_EXTERN NSString * const kGTLRSlides_LineProperties_StartArrow_StealthArrow;
  *
  *  Value: "FIRST_SLIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_FirstSlide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_FirstSlide;
 /**
  *  A link to the last slide in the presentation.
  *
  *  Value: "LAST_SLIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_LastSlide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_LastSlide;
 /**
  *  A link to the next slide.
  *
  *  Value: "NEXT_SLIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_NextSlide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_NextSlide;
 /**
  *  A link to the previous slide.
  *
  *  Value: "PREVIOUS_SLIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_PreviousSlide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_PreviousSlide;
 /**
  *  An unspecified relative slide link.
  *
  *  Value: "RELATIVE_SLIDE_LINK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_RelativeSlideLinkUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_RelativeSlideLinkUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_OpaqueColor.themeColor
@@ -1761,103 +1761,103 @@ GTLR_EXTERN NSString * const kGTLRSlides_Link_RelativeLink_RelativeSlideLinkUnsp
  *
  *  Value: "ACCENT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent1;
 /**
  *  Represents the second accent color.
  *
  *  Value: "ACCENT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent2;
 /**
  *  Represents the third accent color.
  *
  *  Value: "ACCENT3"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent3;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent3;
 /**
  *  Represents the fourth accent color.
  *
  *  Value: "ACCENT4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent4;
 /**
  *  Represents the fifth accent color.
  *
  *  Value: "ACCENT5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent5;
 /**
  *  Represents the sixth accent color.
  *
  *  Value: "ACCENT6"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent6;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Accent6;
 /**
  *  Represents the first background color.
  *
  *  Value: "BACKGROUND1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Background1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Background1;
 /**
  *  Represents the second background color.
  *
  *  Value: "BACKGROUND2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Background2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Background2;
 /**
  *  Represents the first dark color.
  *
  *  Value: "DARK1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Dark1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Dark1;
 /**
  *  Represents the second dark color.
  *
  *  Value: "DARK2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Dark2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Dark2;
 /**
  *  Represents the color to use for visited hyperlinks.
  *
  *  Value: "FOLLOWED_HYPERLINK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_FollowedHyperlink;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_FollowedHyperlink;
 /**
  *  Represents the color to use for hyperlinks.
  *
  *  Value: "HYPERLINK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Hyperlink;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Hyperlink;
 /**
  *  Represents the first light color.
  *
  *  Value: "LIGHT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Light1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Light1;
 /**
  *  Represents the second light color.
  *
  *  Value: "LIGHT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Light2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Light2;
 /**
  *  Represents the first text color.
  *
  *  Value: "TEXT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Text1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Text1;
 /**
  *  Represents the second text color.
  *
  *  Value: "TEXT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Text2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_Text2;
 /**
  *  Unspecified theme color. This value should not be used.
  *
  *  Value: "THEME_COLOR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_ThemeColorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Outline.dashStyle
@@ -1867,47 +1867,47 @@ GTLR_EXTERN NSString * const kGTLRSlides_OpaqueColor_ThemeColor_ThemeColorTypeUn
  *
  *  Value: "DASH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Dash;
 /**
  *  Alternating dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
  *  value 'dashDot'.
  *
  *  Value: "DASH_DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_DashDot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_DashDot;
 /**
  *  Unspecified dash style.
  *
  *  Value: "DASH_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_DashStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_DashStyleUnspecified;
 /**
  *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
  *
  *  Value: "DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Dot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Dot;
 /**
  *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
  *  value 'lgDash'.
  *
  *  Value: "LONG_DASH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_LongDash;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_LongDash;
 /**
  *  Alternating large dashes and dots. Corresponds to ECMA-376
  *  ST_PresetLineDashVal value 'lgDashDot'.
  *
  *  Value: "LONG_DASH_DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_LongDashDot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_LongDashDot;
 /**
  *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
  *  This is the default dash style.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Outline.propertyState
@@ -1919,7 +1919,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Solid;
  *
  *  Value: "INHERIT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Inherit;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
  *  corresponding property when rendered on a page. However, the field may
@@ -1928,7 +1928,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Inherit;
  *
  *  Value: "NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_NotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
@@ -1940,7 +1940,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_NotRendered;
  *
  *  Value: "RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Rendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Page.pageType
@@ -1950,31 +1950,31 @@ GTLR_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Rendered;
  *
  *  Value: "LAYOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Layout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Page_PageType_Layout;
 /**
  *  A master slide page.
  *
  *  Value: "MASTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Master;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Page_PageType_Master;
 /**
  *  A notes page.
  *
  *  Value: "NOTES"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Notes;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Page_PageType_Notes;
 /**
  *  A notes master page.
  *
  *  Value: "NOTES_MASTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_NotesMaster;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Page_PageType_NotesMaster;
 /**
  *  A slide page.
  *
  *  Value: "SLIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Slide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Page_PageType_Slide;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_PageBackgroundFill.propertyState
@@ -1986,7 +1986,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Page_PageType_Slide;
  *
  *  Value: "INHERIT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Inherit;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
  *  corresponding property when rendered on a page. However, the field may
@@ -1995,7 +1995,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Inheri
  *
  *  Value: "NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_NotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
@@ -2007,7 +2007,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_NotRen
  *
  *  Value: "RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Rendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ParagraphStyle.alignment
@@ -2017,33 +2017,33 @@ GTLR_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Render
  *
  *  Value: "ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_AlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_AlignmentUnspecified;
 /**
  *  The paragraph is centered.
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Center;
 /**
  *  The paragraph is aligned to the end of the line. Right-aligned for
  *  LTR text, left-aligned otherwise.
  *
  *  Value: "END"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_End;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_End;
 /**
  *  The paragraph is justified.
  *
  *  Value: "JUSTIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Justified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Justified;
 /**
  *  The paragraph is aligned to the start of the line. Left-aligned for
  *  LTR text, right-aligned otherwise.
  *
  *  Value: "START"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Start;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ParagraphStyle.direction
@@ -2053,19 +2053,19 @@ GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Start;
  *
  *  Value: "LEFT_TO_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_LeftToRight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_LeftToRight;
 /**
  *  The text goes from right to left.
  *
  *  Value: "RIGHT_TO_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_RightToLeft;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_RightToLeft;
 /**
  *  The text direction is inherited from the parent.
  *
  *  Value: "TEXT_DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_TextDirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_TextDirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ParagraphStyle.spacingMode
@@ -2075,19 +2075,19 @@ GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Direction_TextDirectionU
  *
  *  Value: "COLLAPSE_LISTS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_CollapseLists;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_CollapseLists;
 /**
  *  Paragraph spacing is always rendered.
  *
  *  Value: "NEVER_COLLAPSE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_NeverCollapse;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_NeverCollapse;
 /**
  *  The spacing mode is inherited from the parent.
  *
  *  Value: "SPACING_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_SpacingModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_SpacingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Placeholder.type
@@ -2097,103 +2097,103 @@ GTLR_EXTERN NSString * const kGTLRSlides_ParagraphStyle_SpacingMode_SpacingModeU
  *
  *  Value: "BODY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Body;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Body;
 /**
  *  Title centered.
  *
  *  Value: "CENTERED_TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_CenteredTitle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_CenteredTitle;
 /**
  *  Chart or graph.
  *
  *  Value: "CHART"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Chart;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Chart;
 /**
  *  Clip art image.
  *
  *  Value: "CLIP_ART"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_ClipArt;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_ClipArt;
 /**
  *  Date and time.
  *
  *  Value: "DATE_AND_TIME"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_DateAndTime;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_DateAndTime;
 /**
  *  Diagram.
  *
  *  Value: "DIAGRAM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Diagram;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Diagram;
 /**
  *  Footer text.
  *
  *  Value: "FOOTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Footer;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Footer;
 /**
  *  Header text.
  *
  *  Value: "HEADER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Header;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Header;
 /**
  *  Multimedia.
  *
  *  Value: "MEDIA"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Media;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Media;
 /**
  *  Default value, signifies it is not a placeholder.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_None;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_None;
 /**
  *  Any content type.
  *
  *  Value: "OBJECT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Object;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Object;
 /**
  *  Picture.
  *
  *  Value: "PICTURE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Picture;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Picture;
 /**
  *  Slide image.
  *
  *  Value: "SLIDE_IMAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_SlideImage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_SlideImage;
 /**
  *  Number of a slide.
  *
  *  Value: "SLIDE_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_SlideNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_SlideNumber;
 /**
  *  Subtitle.
  *
  *  Value: "SUBTITLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Subtitle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Subtitle;
 /**
  *  Table.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Table;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Table;
 /**
  *  Slide title.
  *
  *  Value: "TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Title;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Title;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Range.type
@@ -2205,27 +2205,27 @@ GTLR_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Title;
  *
  *  Value: "ALL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_All;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_All;
 /**
  *  A fixed range. Both the `start_index` and
  *  `end_index` must be specified.
  *
  *  Value: "FIXED_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_FixedRange;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_FixedRange;
 /**
  *  Starts the range at `start_index` and continues until the
  *  end of the collection. The `end_index` must not be specified.
  *
  *  Value: "FROM_START_INDEX"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_FromStartIndex;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_FromStartIndex;
 /**
  *  Unspecified range type. This value must not be used.
  *
  *  Value: "RANGE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_RangeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_RangeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Recolor.name
@@ -2236,171 +2236,171 @@ GTLR_EXTERN NSString * const kGTLRSlides_Range_Type_RangeTypeUnspecified;
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Custom;
 /**
  *  A recolor effect that darkens the image using the page's first available
  *  color from its color scheme.
  *
  *  Value: "DARK1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark1;
 /**
  *  A recolor effect that darkens the image using the page's tenth available
  *  color from its color scheme.
  *
  *  Value: "DARK10"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark10;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark10;
 /**
  *  A recolor effect that darkens the image using the page's second available
  *  color from its color scheme.
  *
  *  Value: "DARK2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark2;
 /**
  *  A recolor effect that darkens the image using the page's third available
  *  color from its color scheme.
  *
  *  Value: "DARK3"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark3;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark3;
 /**
  *  A recolor effect that darkens the image using the page's fourth available
  *  color from its color scheme.
  *
  *  Value: "DARK4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark4;
 /**
  *  A recolor effect that darkens the image using the page's fifth available
  *  color from its color scheme.
  *
  *  Value: "DARK5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark5;
 /**
  *  A recolor effect that darkens the image using the page's sixth available
  *  color from its color scheme.
  *
  *  Value: "DARK6"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark6;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark6;
 /**
  *  A recolor effect that darkens the image using the page's seventh
  *  available color from its color scheme.
  *
  *  Value: "DARK7"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark7;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark7;
 /**
  *  A recolor effect that darkens the image using the page's eighth available
  *  color from its color scheme.
  *
  *  Value: "DARK8"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark8;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark8;
 /**
  *  A recolor effect that darkens the image using the page's ninth available
  *  color from its color scheme.
  *
  *  Value: "DARK9"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark9;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark9;
 /**
  *  A recolor effect that recolors the image to grayscale.
  *
  *  Value: "GRAYSCALE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Grayscale;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Grayscale;
 /**
  *  A recolor effect that lightens the image using the page's first available
  *  color from its color scheme.
  *
  *  Value: "LIGHT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light1;
 /**
  *  A recolor effect that lightens the image using the page's tenth available
  *  color from its color scheme.
  *
  *  Value: "LIGHT10"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light10;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light10;
 /**
  *  A recolor effect that lightens the image using the page's second
  *  available color from its color scheme.
  *
  *  Value: "LIGHT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light2;
 /**
  *  A recolor effect that lightens the image using the page's third available
  *  color from its color scheme.
  *
  *  Value: "LIGHT3"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light3;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light3;
 /**
  *  A recolor effect that lightens the image using the page's forth available
  *  color from its color scheme.
  *
  *  Value: "LIGHT4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light4;
 /**
  *  A recolor effect that lightens the image using the page's fifth available
  *  color from its color scheme.
  *
  *  Value: "LIGHT5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light5;
 /**
  *  A recolor effect that lightens the image using the page's sixth available
  *  color from its color scheme.
  *
  *  Value: "LIGHT6"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light6;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light6;
 /**
  *  A recolor effect that lightens the image using the page's seventh
  *  available color from its color scheme.
  *
  *  Value: "LIGHT7"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light7;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light7;
 /**
  *  A recolor effect that lightens the image using the page's eighth
  *  available color from its color scheme.
  *
  *  Value: "LIGHT8"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light8;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light8;
 /**
  *  A recolor effect that lightens the image using the page's ninth available
  *  color from its color scheme.
  *
  *  Value: "LIGHT9"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light9;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light9;
 /**
  *  A recolor effect that recolors the image to negative grayscale.
  *
  *  Value: "NEGATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Negative;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Negative;
 /**
  *  No recolor effect. The default value.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_None;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_None;
 /**
  *  A recolor effect that recolors the image using the sepia color.
  *
  *  Value: "SEPIA"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Sepia;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Sepia;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ReplaceAllShapesWithImageRequest.imageReplaceMethod
@@ -2412,7 +2412,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Recolor_Name_Sepia;
  *
  *  Value: "CENTER_CROP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop;
 /**
  *  Scales and centers the image to fit within the bounds of the original
  *  shape and maintains the image's aspect ratio. The rendered size of the
@@ -2421,13 +2421,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageR
  *
  *  Value: "CENTER_INSIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterInside;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterInside;
 /**
  *  Unspecified image replace method. This value must not be used.
  *
  *  Value: "IMAGE_REPLACE_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ReplaceAllShapesWithImageRequest.replaceMethod
@@ -2439,7 +2439,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageR
  *
  *  Value: "CENTER_CROP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop;
 /**
  *  Scales and centers the image to fit within the bounds of the original
  *  shape and maintains the image's aspect ratio. The rendered size of the
@@ -2448,7 +2448,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_Replac
  *
  *  Value: "CENTER_INSIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterInside;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterInside;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ReplaceAllShapesWithSheetsChartRequest.linkingMode
@@ -2459,14 +2459,14 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_Replac
  *
  *  Value: "LINKED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked;
 /**
  *  The chart is not associated with the source spreadsheet and cannot be
  *  updated. A chart that is not linked will be inserted as an image.
  *
  *  Value: "NOT_LINKED_IMAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ReplaceImageRequest.imageReplaceMethod
@@ -2478,7 +2478,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_
  *
  *  Value: "CENTER_CROP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
 /**
  *  Scales and centers the image to fit within the bounds of the original
  *  shape and maintains the image's aspect ratio. The rendered size of the
@@ -2487,13 +2487,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_
  *
  *  Value: "CENTER_INSIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterInside;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterInside;
 /**
  *  Unspecified image replace method. This value must not be used.
  *
  *  Value: "IMAGE_REPLACE_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Shadow.alignment
@@ -2503,61 +2503,61 @@ GTLR_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_
  *
  *  Value: "BOTTOM_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_BottomCenter;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_BottomCenter;
 /**
  *  Bottom left.
  *
  *  Value: "BOTTOM_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_BottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_BottomLeft;
 /**
  *  Bottom right.
  *
  *  Value: "BOTTOM_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_BottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_BottomRight;
 /**
  *  Center.
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_Center;
 /**
  *  Left center.
  *
  *  Value: "LEFT_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_LeftCenter;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_LeftCenter;
 /**
  *  Unspecified.
  *
  *  Value: "RECTANGLE_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_RectanglePositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_RectanglePositionUnspecified;
 /**
  *  Right center.
  *
  *  Value: "RIGHT_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_RightCenter;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_RightCenter;
 /**
  *  Top center.
  *
  *  Value: "TOP_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopCenter;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopCenter;
 /**
  *  Top left.
  *
  *  Value: "TOP_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopLeft;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopLeft;
 /**
  *  Top right.
  *
  *  Value: "TOP_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopRight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopRight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Shadow.propertyState
@@ -2569,7 +2569,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopRight;
  *
  *  Value: "INHERIT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Inherit;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
  *  corresponding property when rendered on a page. However, the field may
@@ -2578,7 +2578,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Inherit;
  *
  *  Value: "NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_NotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
@@ -2590,7 +2590,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_NotRendered;
  *
  *  Value: "RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Rendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Shadow.type
@@ -2600,13 +2600,13 @@ GTLR_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Rendered;
  *
  *  Value: "OUTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Type_Outer;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Type_Outer;
 /**
  *  Unspecified shadow type.
  *
  *  Value: "SHADOW_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Type_ShadowTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Type_ShadowTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Shape.shapeType
@@ -2616,918 +2616,918 @@ GTLR_EXTERN NSString * const kGTLRSlides_Shadow_Type_ShadowTypeUnspecified;
  *
  *  Value: "ARC"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Arc;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Arc;
 /**
  *  East arrow shape.
  *
  *  Value: "ARROW_EAST"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_ArrowEast;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_ArrowEast;
 /**
  *  North arrow shape.
  *
  *  Value: "ARROW_NORTH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_ArrowNorth;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_ArrowNorth;
 /**
  *  Northeast arrow shape.
  *
  *  Value: "ARROW_NORTH_EAST"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_ArrowNorthEast;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_ArrowNorthEast;
 /**
  *  Bent arrow shape. Corresponds to ECMA-376 ST_ShapeType 'bentArrow'
  *
  *  Value: "BENT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BentArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BentArrow;
 /**
  *  Bent up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'bentUpArrow'
  *
  *  Value: "BENT_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BentUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BentUpArrow;
 /**
  *  Bevel shape. Corresponds to ECMA-376 ST_ShapeType 'bevel'
  *
  *  Value: "BEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Bevel;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Bevel;
 /**
  *  Block arc shape. Corresponds to ECMA-376 ST_ShapeType 'blockArc'
  *
  *  Value: "BLOCK_ARC"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BlockArc;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BlockArc;
 /**
  *  Brace pair shape. Corresponds to ECMA-376 ST_ShapeType 'bracePair'
  *
  *  Value: "BRACE_PAIR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BracePair;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BracePair;
 /**
  *  Bracket pair shape. Corresponds to ECMA-376 ST_ShapeType 'bracketPair'
  *
  *  Value: "BRACKET_PAIR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BracketPair;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_BracketPair;
 /**
  *  Can shape. Corresponds to ECMA-376 ST_ShapeType 'can'
  *
  *  Value: "CAN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Can;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Can;
 /**
  *  Chevron shape. Corresponds to ECMA-376 ST_ShapeType 'chevron'
  *
  *  Value: "CHEVRON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Chevron;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Chevron;
 /**
  *  Chord shape. Corresponds to ECMA-376 ST_ShapeType 'chord'
  *
  *  Value: "CHORD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Chord;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Chord;
 /**
  *  Cloud shape. Corresponds to ECMA-376 ST_ShapeType 'cloud'
  *
  *  Value: "CLOUD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Cloud;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Cloud;
 /**
  *  Callout cloud shape. Corresponds to ECMA-376 ST_ShapeType 'cloudCallout'
  *
  *  Value: "CLOUD_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CloudCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CloudCallout;
 /**
  *  Corner shape. Corresponds to ECMA-376 ST_ShapeType 'corner'
  *
  *  Value: "CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Corner;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Corner;
 /**
  *  Cube shape. Corresponds to ECMA-376 ST_ShapeType 'cube'
  *
  *  Value: "CUBE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Cube;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Cube;
 /**
  *  Curved down arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedDownArrow'
  *
  *  Value: "CURVED_DOWN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedDownArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedDownArrow;
 /**
  *  Curved left arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedLeftArrow'
  *
  *  Value: "CURVED_LEFT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedLeftArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedLeftArrow;
 /**
  *  Curved right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedRightArrow'
  *
  *  Value: "CURVED_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedRightArrow;
 /**
  *  Curved up arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'curvedUpArrow'
  *
  *  Value: "CURVED_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedUpArrow;
 /**
  *  Custom shape.
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Custom;
 /**
  *  Decagon shape. Corresponds to ECMA-376 ST_ShapeType 'decagon'
  *
  *  Value: "DECAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Decagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Decagon;
 /**
  *  Diagonal stripe shape. Corresponds to ECMA-376 ST_ShapeType 'diagStripe'
  *
  *  Value: "DIAGONAL_STRIPE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DiagonalStripe;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DiagonalStripe;
 /**
  *  Diamond shape. Corresponds to ECMA-376 ST_ShapeType 'diamond'
  *
  *  Value: "DIAMOND"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Diamond;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Diamond;
 /**
  *  Dodecagon shape. Corresponds to ECMA-376 ST_ShapeType 'dodecagon'
  *
  *  Value: "DODECAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Dodecagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Dodecagon;
 /**
  *  Donut shape. Corresponds to ECMA-376 ST_ShapeType 'donut'
  *
  *  Value: "DONUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Donut;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Donut;
 /**
  *  Double wave shape. Corresponds to ECMA-376 ST_ShapeType 'doubleWave'
  *
  *  Value: "DOUBLE_WAVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DoubleWave;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DoubleWave;
 /**
  *  Down arrow shape. Corresponds to ECMA-376 ST_ShapeType 'downArrow'
  *
  *  Value: "DOWN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DownArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DownArrow;
 /**
  *  Callout down arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'downArrowCallout'
  *
  *  Value: "DOWN_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DownArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DownArrowCallout;
 /**
  *  Ellipse shape. Corresponds to ECMA-376 ST_ShapeType 'ellipse'
  *
  *  Value: "ELLIPSE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ellipse;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ellipse;
 /**
  *  Ellipse ribbon shape. Corresponds to ECMA-376 ST_ShapeType
  *  'ellipseRibbon'
  *
  *  Value: "ELLIPSE_RIBBON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_EllipseRibbon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_EllipseRibbon;
 /**
  *  Ellipse ribbon 2 shape. Corresponds to ECMA-376 ST_ShapeType
  *  'ellipseRibbon2'
  *
  *  Value: "ELLIPSE_RIBBON_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_EllipseRibbon2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_EllipseRibbon2;
 /**
  *  Alternate process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartAlternateProcess'
  *
  *  Value: "FLOW_CHART_ALTERNATE_PROCESS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartAlternateProcess;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartAlternateProcess;
 /**
  *  Collate flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartCollate'
  *
  *  Value: "FLOW_CHART_COLLATE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartCollate;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartCollate;
 /**
  *  Connector flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartConnector'
  *
  *  Value: "FLOW_CHART_CONNECTOR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartConnector;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartConnector;
 /**
  *  Decision flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartDecision'
  *
  *  Value: "FLOW_CHART_DECISION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDecision;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDecision;
 /**
  *  Delay flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartDelay'
  *
  *  Value: "FLOW_CHART_DELAY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDelay;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDelay;
 /**
  *  Display flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartDisplay'
  *
  *  Value: "FLOW_CHART_DISPLAY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDisplay;
 /**
  *  Document flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartDocument'
  *
  *  Value: "FLOW_CHART_DOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDocument;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDocument;
 /**
  *  Extract flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartExtract'
  *
  *  Value: "FLOW_CHART_EXTRACT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartExtract;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartExtract;
 /**
  *  Input output flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartInputOutput'
  *
  *  Value: "FLOW_CHART_INPUT_OUTPUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartInputOutput;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartInputOutput;
 /**
  *  Internal storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartInternalStorage'
  *
  *  Value: "FLOW_CHART_INTERNAL_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartInternalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartInternalStorage;
 /**
  *  Magnetic disk flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMagneticDisk'
  *
  *  Value: "FLOW_CHART_MAGNETIC_DISK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMagneticDisk;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMagneticDisk;
 /**
  *  Magnetic drum flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMagneticDrum'
  *
  *  Value: "FLOW_CHART_MAGNETIC_DRUM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMagneticDrum;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMagneticDrum;
 /**
  *  Magnetic tape flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMagneticTape'
  *
  *  Value: "FLOW_CHART_MAGNETIC_TAPE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMagneticTape;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMagneticTape;
 /**
  *  Manual input flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartManualInput'
  *
  *  Value: "FLOW_CHART_MANUAL_INPUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartManualInput;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartManualInput;
 /**
  *  Manual operation flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartManualOperation'
  *
  *  Value: "FLOW_CHART_MANUAL_OPERATION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartManualOperation;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartManualOperation;
 /**
  *  Merge flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartMerge'
  *
  *  Value: "FLOW_CHART_MERGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMerge;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMerge;
 /**
  *  Multi-document flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartMultidocument'
  *
  *  Value: "FLOW_CHART_MULTIDOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMultidocument;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartMultidocument;
 /**
  *  Offline storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartOfflineStorage'
  *
  *  Value: "FLOW_CHART_OFFLINE_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOfflineStorage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOfflineStorage;
 /**
  *  Off-page connector flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartOffpageConnector'
  *
  *  Value: "FLOW_CHART_OFFPAGE_CONNECTOR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOffpageConnector;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOffpageConnector;
 /**
  *  Online storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartOnlineStorage'
  *
  *  Value: "FLOW_CHART_ONLINE_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOnlineStorage;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOnlineStorage;
 /**
  *  Or flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartOr'
  *
  *  Value: "FLOW_CHART_OR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOr;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartOr;
 /**
  *  Predefined process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPredefinedProcess'
  *
  *  Value: "FLOW_CHART_PREDEFINED_PROCESS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPredefinedProcess;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPredefinedProcess;
 /**
  *  Preparation flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPreparation'
  *
  *  Value: "FLOW_CHART_PREPARATION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPreparation;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPreparation;
 /**
  *  Process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartProcess'
  *
  *  Value: "FLOW_CHART_PROCESS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartProcess;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartProcess;
 /**
  *  Punched card flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPunchedCard'
  *
  *  Value: "FLOW_CHART_PUNCHED_CARD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPunchedCard;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPunchedCard;
 /**
  *  Punched tape flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartPunchedTape'
  *
  *  Value: "FLOW_CHART_PUNCHED_TAPE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPunchedTape;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPunchedTape;
 /**
  *  Sort flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartSort'
  *
  *  Value: "FLOW_CHART_SORT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartSort;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartSort;
 /**
  *  Summing junction flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartSummingJunction'
  *
  *  Value: "FLOW_CHART_SUMMING_JUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartSummingJunction;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartSummingJunction;
 /**
  *  Terminator flow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'flowChartTerminator'
  *
  *  Value: "FLOW_CHART_TERMINATOR"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartTerminator;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartTerminator;
 /**
  *  Folded corner shape. Corresponds to ECMA-376 ST_ShapeType 'foldedCorner'
  *
  *  Value: "FOLDED_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FoldedCorner;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FoldedCorner;
 /**
  *  Frame shape. Corresponds to ECMA-376 ST_ShapeType 'frame'
  *
  *  Value: "FRAME"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Frame;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Frame;
 /**
  *  Half frame shape. Corresponds to ECMA-376 ST_ShapeType 'halfFrame'
  *
  *  Value: "HALF_FRAME"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_HalfFrame;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_HalfFrame;
 /**
  *  Heart shape. Corresponds to ECMA-376 ST_ShapeType 'heart'
  *
  *  Value: "HEART"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Heart;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Heart;
 /**
  *  Heptagon shape. Corresponds to ECMA-376 ST_ShapeType 'heptagon'
  *
  *  Value: "HEPTAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Heptagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Heptagon;
 /**
  *  Hexagon shape. Corresponds to ECMA-376 ST_ShapeType 'hexagon'
  *
  *  Value: "HEXAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Hexagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Hexagon;
 /**
  *  Home plate shape. Corresponds to ECMA-376 ST_ShapeType 'homePlate'
  *
  *  Value: "HOME_PLATE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_HomePlate;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_HomePlate;
 /**
  *  Horizontal scroll shape. Corresponds to ECMA-376 ST_ShapeType
  *  'horizontalScroll'
  *
  *  Value: "HORIZONTAL_SCROLL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_HorizontalScroll;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_HorizontalScroll;
 /**
  *  Irregular seal 1 shape. Corresponds to ECMA-376 ST_ShapeType
  *  'irregularSeal1'
  *
  *  Value: "IRREGULAR_SEAL_1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_IrregularSeal1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_IrregularSeal1;
 /**
  *  Irregular seal 2 shape. Corresponds to ECMA-376 ST_ShapeType
  *  'irregularSeal2'
  *
  *  Value: "IRREGULAR_SEAL_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_IrregularSeal2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_IrregularSeal2;
 /**
  *  Left arrow shape. Corresponds to ECMA-376 ST_ShapeType 'leftArrow'
  *
  *  Value: "LEFT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftArrow;
 /**
  *  Callout left arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftArrowCallout'
  *
  *  Value: "LEFT_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftArrowCallout;
 /**
  *  Left brace shape. Corresponds to ECMA-376 ST_ShapeType 'leftBrace'
  *
  *  Value: "LEFT_BRACE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftBrace;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftBrace;
 /**
  *  Left bracket shape. Corresponds to ECMA-376 ST_ShapeType 'leftBracket'
  *
  *  Value: "LEFT_BRACKET"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftBracket;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftBracket;
 /**
  *  Left right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftRightArrow'
  *
  *  Value: "LEFT_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightArrow;
 /**
  *  Callout left right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftRightArrowCallout'
  *
  *  Value: "LEFT_RIGHT_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightArrowCallout;
 /**
  *  Left right up arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'leftRightUpArrow'
  *
  *  Value: "LEFT_RIGHT_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightUpArrow;
 /**
  *  Left up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'leftUpArrow'
  *
  *  Value: "LEFT_UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftUpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftUpArrow;
 /**
  *  Lightning bolt shape. Corresponds to ECMA-376 ST_ShapeType
  *  'lightningBolt'
  *
  *  Value: "LIGHTNING_BOLT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LightningBolt;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LightningBolt;
 /**
  *  Divide math shape. Corresponds to ECMA-376 ST_ShapeType 'mathDivide'
  *
  *  Value: "MATH_DIVIDE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathDivide;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathDivide;
 /**
  *  Equal math shape. Corresponds to ECMA-376 ST_ShapeType 'mathEqual'
  *
  *  Value: "MATH_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathEqual;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathEqual;
 /**
  *  Minus math shape. Corresponds to ECMA-376 ST_ShapeType 'mathMinus'
  *
  *  Value: "MATH_MINUS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathMinus;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathMinus;
 /**
  *  Multiply math shape. Corresponds to ECMA-376 ST_ShapeType 'mathMultiply'
  *
  *  Value: "MATH_MULTIPLY"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathMultiply;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathMultiply;
 /**
  *  Not equal math shape. Corresponds to ECMA-376 ST_ShapeType 'mathNotEqual'
  *
  *  Value: "MATH_NOT_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathNotEqual;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathNotEqual;
 /**
  *  Plus math shape. Corresponds to ECMA-376 ST_ShapeType 'mathPlus'
  *
  *  Value: "MATH_PLUS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathPlus;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_MathPlus;
 /**
  *  Moon shape. Corresponds to ECMA-376 ST_ShapeType 'moon'
  *
  *  Value: "MOON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Moon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Moon;
 /**
  *  No smoking shape. Corresponds to ECMA-376 ST_ShapeType 'noSmoking'
  *
  *  Value: "NO_SMOKING"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_NoSmoking;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_NoSmoking;
 /**
  *  Notched right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'notchedRightArrow'
  *
  *  Value: "NOTCHED_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_NotchedRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_NotchedRightArrow;
 /**
  *  Octagon shape. Corresponds to ECMA-376 ST_ShapeType 'octagon'
  *
  *  Value: "OCTAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Octagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Octagon;
 /**
  *  Parallelogram shape. Corresponds to ECMA-376 ST_ShapeType 'parallelogram'
  *
  *  Value: "PARALLELOGRAM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Parallelogram;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Parallelogram;
 /**
  *  Pentagon shape. Corresponds to ECMA-376 ST_ShapeType 'pentagon'
  *
  *  Value: "PENTAGON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Pentagon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Pentagon;
 /**
  *  Pie shape. Corresponds to ECMA-376 ST_ShapeType 'pie'
  *
  *  Value: "PIE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Pie;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Pie;
 /**
  *  Plaque shape. Corresponds to ECMA-376 ST_ShapeType 'plaque'
  *
  *  Value: "PLAQUE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Plaque;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Plaque;
 /**
  *  Plus shape. Corresponds to ECMA-376 ST_ShapeType 'plus'
  *
  *  Value: "PLUS"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Plus;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Plus;
 /**
  *  Quad-arrow shape. Corresponds to ECMA-376 ST_ShapeType 'quadArrow'
  *
  *  Value: "QUAD_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_QuadArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_QuadArrow;
 /**
  *  Callout quad-arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'quadArrowCallout'
  *
  *  Value: "QUAD_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_QuadArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_QuadArrowCallout;
 /**
  *  Rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'rect'.
  *
  *  Value: "RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Rectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Rectangle;
 /**
  *  Ribbon shape. Corresponds to ECMA-376 ST_ShapeType 'ribbon'
  *
  *  Value: "RIBBON"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ribbon;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ribbon;
 /**
  *  Ribbon 2 shape. Corresponds to ECMA-376 ST_ShapeType 'ribbon2'
  *
  *  Value: "RIBBON_2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ribbon2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ribbon2;
 /**
  *  Right arrow shape. Corresponds to ECMA-376 ST_ShapeType 'rightArrow'
  *
  *  Value: "RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightArrow;
 /**
  *  Callout right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'rightArrowCallout'
  *
  *  Value: "RIGHT_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightArrowCallout;
 /**
  *  Right brace shape. Corresponds to ECMA-376 ST_ShapeType 'rightBrace'
  *
  *  Value: "RIGHT_BRACE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightBrace;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightBrace;
 /**
  *  Right bracket shape. Corresponds to ECMA-376 ST_ShapeType 'rightBracket'
  *
  *  Value: "RIGHT_BRACKET"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightBracket;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightBracket;
 /**
  *  Right triangle shape. Corresponds to ECMA-376 ST_ShapeType 'rtTriangle'
  *
  *  Value: "RIGHT_TRIANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightTriangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RightTriangle;
 /**
  *  One round corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'round1Rect'
  *
  *  Value: "ROUND_1_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Round1Rectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Round1Rectangle;
 /**
  *  Two diagonal round corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'round2DiagRect'
  *
  *  Value: "ROUND_2_DIAGONAL_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Round2DiagonalRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Round2DiagonalRectangle;
 /**
  *  Two same-side round corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'round2SameRect'
  *
  *  Value: "ROUND_2_SAME_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Round2SameRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Round2SameRectangle;
 /**
  *  Round corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'roundRect'
  *
  *  Value: "ROUND_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RoundRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_RoundRectangle;
 /**
  *  Smiley face shape. Corresponds to ECMA-376 ST_ShapeType 'smileyFace'
  *
  *  Value: "SMILEY_FACE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_SmileyFace;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_SmileyFace;
 /**
  *  One snip corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'snip1Rect'
  *
  *  Value: "SNIP_1_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Snip1Rectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Snip1Rectangle;
 /**
  *  Two diagonal snip corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'snip2DiagRect'
  *
  *  Value: "SNIP_2_DIAGONAL_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Snip2DiagonalRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Snip2DiagonalRectangle;
 /**
  *  Two same-side snip corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'snip2SameRect'
  *
  *  Value: "SNIP_2_SAME_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Snip2SameRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Snip2SameRectangle;
 /**
  *  One snip one round corner rectangle shape. Corresponds to ECMA-376
  *  ST_ShapeType 'snipRoundRect'
  *
  *  Value: "SNIP_ROUND_RECTANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_SnipRoundRectangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_SnipRoundRectangle;
 /**
  *  Speech shape.
  *
  *  Value: "SPEECH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Speech;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Speech;
 /**
  *  Ten pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star10'
  *
  *  Value: "STAR_10"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star10;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star10;
 /**
  *  Twelve pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star12'
  *
  *  Value: "STAR_12"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star12;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star12;
 /**
  *  Sixteen pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star16'
  *
  *  Value: "STAR_16"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star16;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star16;
 /**
  *  Twenty four pointed star shape. Corresponds to ECMA-376 ST_ShapeType
  *  'star24'
  *
  *  Value: "STAR_24"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star24;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star24;
 /**
  *  Thirty two pointed star shape. Corresponds to ECMA-376 ST_ShapeType
  *  'star32'
  *
  *  Value: "STAR_32"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star32;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star32;
 /**
  *  Four pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star4'
  *
  *  Value: "STAR_4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star4;
 /**
  *  Five pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star5'
  *
  *  Value: "STAR_5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star5;
 /**
  *  Six pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star6'
  *
  *  Value: "STAR_6"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star6;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star6;
 /**
  *  Seven pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star7'
  *
  *  Value: "STAR_7"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star7;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star7;
 /**
  *  Eight pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star8'
  *
  *  Value: "STAR_8"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star8;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star8;
 /**
  *  Star burst shape.
  *
  *  Value: "STARBURST"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Starburst;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Starburst;
 /**
  *  Striped right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'stripedRightArrow'
  *
  *  Value: "STRIPED_RIGHT_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_StripedRightArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_StripedRightArrow;
 /**
  *  Sun shape. Corresponds to ECMA-376 ST_ShapeType 'sun'
  *
  *  Value: "SUN"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Sun;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Sun;
 /**
  *  Teardrop shape. Corresponds to ECMA-376 ST_ShapeType 'teardrop'
  *
  *  Value: "TEARDROP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Teardrop;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Teardrop;
 /**
  *  Text box shape.
  *
  *  Value: "TEXT_BOX"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_TextBox;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_TextBox;
 /**
  *  Trapezoid shape. Corresponds to ECMA-376 ST_ShapeType 'trapezoid'
  *
  *  Value: "TRAPEZOID"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Trapezoid;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Trapezoid;
 /**
  *  Triangle shape. Corresponds to ECMA-376 ST_ShapeType 'triangle'
  *
  *  Value: "TRIANGLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Triangle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Triangle;
 /**
  *  The shape type that is not predefined.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_TypeUnspecified;
 /**
  *  Up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'upArrow'
  *
  *  Value: "UP_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpArrow;
 /**
  *  Callout up arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *  'upArrowCallout'
  *
  *  Value: "UP_ARROW_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpArrowCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpArrowCallout;
 /**
  *  Up down arrow shape. Corresponds to ECMA-376 ST_ShapeType 'upDownArrow'
  *
  *  Value: "UP_DOWN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpDownArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpDownArrow;
 /**
  *  U-turn arrow shape. Corresponds to ECMA-376 ST_ShapeType 'uturnArrow'
  *
  *  Value: "UTURN_ARROW"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UturnArrow;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UturnArrow;
 /**
  *  Vertical scroll shape. Corresponds to ECMA-376 ST_ShapeType
  *  'verticalScroll'
  *
  *  Value: "VERTICAL_SCROLL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_VerticalScroll;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_VerticalScroll;
 /**
  *  Wave shape. Corresponds to ECMA-376 ST_ShapeType 'wave'
  *
  *  Value: "WAVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Wave;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Wave;
 /**
  *  Callout wedge ellipse shape. Corresponds to ECMA-376 ST_ShapeType
  *  'wedgeEllipseCallout'
  *
  *  Value: "WEDGE_ELLIPSE_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeEllipseCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeEllipseCallout;
 /**
  *  Callout wedge rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'wedgeRectCallout'
  *
  *  Value: "WEDGE_RECTANGLE_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeRectangleCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeRectangleCallout;
 /**
  *  Callout wedge round rectangle shape. Corresponds to ECMA-376 ST_ShapeType
  *  'wedgeRoundRectCallout'
  *
  *  Value: "WEDGE_ROUND_RECTANGLE_CALLOUT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeRoundRectangleCallout;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeRoundRectangleCallout;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ShapeBackgroundFill.propertyState
@@ -3539,7 +3539,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeRoundRectangleCall
  *
  *  Value: "INHERIT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Inherit;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
  *  corresponding property when rendered on a page. However, the field may
@@ -3548,7 +3548,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Inher
  *
  *  Value: "NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
@@ -3560,7 +3560,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRe
  *
  *  Value: "RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Rendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ShapeProperties.contentAlignment
@@ -3571,34 +3571,34 @@ GTLR_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Rende
  *
  *  Value: "BOTTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Bottom;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Bottom;
 /**
  *  An unspecified content alignment. The content alignment is inherited from
  *  the parent if it exists.
  *
  *  Value: "CONTENT_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnspecified;
 /**
  *  An unsupported content alignment.
  *
  *  Value: "CONTENT_ALIGNMENT_UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported;
 /**
  *  An alignment that aligns the content to the middle of the content
  *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
  *
  *  Value: "MIDDLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Middle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Middle;
 /**
  *  An alignment that aligns the content to the top of the content holder.
  *  Corresponds to ECMA-376 ST_TextAnchoringType 't'.
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Top;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_TableBorderProperties.dashStyle
@@ -3608,47 +3608,47 @@ GTLR_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_Top;
  *
  *  Value: "DASH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dash;
 /**
  *  Alternating dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
  *  value 'dashDot'.
  *
  *  Value: "DASH_DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashDot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashDot;
 /**
  *  Unspecified dash style.
  *
  *  Value: "DASH_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_DashStyleUnspecified;
 /**
  *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
  *
  *  Value: "DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dot;
 /**
  *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
  *  value 'lgDash'.
  *
  *  Value: "LONG_DASH"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDash;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDash;
 /**
  *  Alternating large dashes and dots. Corresponds to ECMA-376
  *  ST_PresetLineDashVal value 'lgDashDot'.
  *
  *  Value: "LONG_DASH_DOT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDashDot;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDashDot;
 /**
  *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
  *  This is the default dash style.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_TableCellBackgroundFill.propertyState
@@ -3660,7 +3660,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Solid;
  *
  *  Value: "INHERIT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Inherit;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
  *  corresponding property when rendered on a page. However, the field may
@@ -3669,7 +3669,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_I
  *
  *  Value: "NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_NotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
@@ -3681,7 +3681,7 @@ GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_N
  *
  *  Value: "RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Rendered;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_TableCellProperties.contentAlignment
@@ -3692,34 +3692,34 @@ GTLR_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_R
  *
  *  Value: "BOTTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Bottom;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Bottom;
 /**
  *  An unspecified content alignment. The content alignment is inherited from
  *  the parent if it exists.
  *
  *  Value: "CONTENT_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnspecified;
 /**
  *  An unsupported content alignment.
  *
  *  Value: "CONTENT_ALIGNMENT_UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported;
 /**
  *  An alignment that aligns the content to the middle of the content
  *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
  *
  *  Value: "MIDDLE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Middle;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Middle;
 /**
  *  An alignment that aligns the content to the top of the content holder.
  *  Corresponds to ECMA-376 ST_TextAnchoringType 't'.
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Top;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_TextStyle.baselineOffset
@@ -3729,25 +3729,25 @@ GTLR_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_To
  *
  *  Value: "BASELINE_OFFSET_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_BaselineOffsetUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_BaselineOffsetUnspecified;
 /**
  *  The text is not vertically offset.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_None;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_None;
 /**
  *  The text is vertically offset downwards (subscript).
  *
  *  Value: "SUBSCRIPT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_Subscript;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_Subscript;
 /**
  *  The text is vertically offset upwards (superscript).
  *
  *  Value: "SUPERSCRIPT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_Superscript;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_Superscript;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_ThemeColorPair.type
@@ -3757,103 +3757,103 @@ GTLR_EXTERN NSString * const kGTLRSlides_TextStyle_BaselineOffset_Superscript;
  *
  *  Value: "ACCENT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent1;
 /**
  *  Represents the second accent color.
  *
  *  Value: "ACCENT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent2;
 /**
  *  Represents the third accent color.
  *
  *  Value: "ACCENT3"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent3;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent3;
 /**
  *  Represents the fourth accent color.
  *
  *  Value: "ACCENT4"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent4;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent4;
 /**
  *  Represents the fifth accent color.
  *
  *  Value: "ACCENT5"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent5;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent5;
 /**
  *  Represents the sixth accent color.
  *
  *  Value: "ACCENT6"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent6;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Accent6;
 /**
  *  Represents the first background color.
  *
  *  Value: "BACKGROUND1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Background1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Background1;
 /**
  *  Represents the second background color.
  *
  *  Value: "BACKGROUND2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Background2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Background2;
 /**
  *  Represents the first dark color.
  *
  *  Value: "DARK1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Dark1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Dark1;
 /**
  *  Represents the second dark color.
  *
  *  Value: "DARK2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Dark2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Dark2;
 /**
  *  Represents the color to use for visited hyperlinks.
  *
  *  Value: "FOLLOWED_HYPERLINK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_FollowedHyperlink;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_FollowedHyperlink;
 /**
  *  Represents the color to use for hyperlinks.
  *
  *  Value: "HYPERLINK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Hyperlink;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Hyperlink;
 /**
  *  Represents the first light color.
  *
  *  Value: "LIGHT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Light1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Light1;
 /**
  *  Represents the second light color.
  *
  *  Value: "LIGHT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Light2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Light2;
 /**
  *  Represents the first text color.
  *
  *  Value: "TEXT1"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Text1;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Text1;
 /**
  *  Represents the second text color.
  *
  *  Value: "TEXT2"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Text2;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_Text2;
 /**
  *  Unspecified theme color. This value should not be used.
  *
  *  Value: "THEME_COLOR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_ThemeColorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_UpdateLineCategoryRequest.lineCategory
@@ -3863,25 +3863,25 @@ GTLR_EXTERN NSString * const kGTLRSlides_ThemeColorPair_Type_ThemeColorTypeUnspe
  *
  *  Value: "BENT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Bent;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Bent;
 /**
  *  Curved connectors, including curved connector 2 to 5.
  *
  *  Value: "CURVED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Curved;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Curved;
 /**
  *  Unspecified line category.
  *
  *  Value: "LINE_CATEGORY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_LineCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_LineCategoryUnspecified;
 /**
  *  Straight connectors, including straight connector 1.
  *
  *  Value: "STRAIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Straight;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_Straight;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_UpdatePageElementsZOrderRequest.operation
@@ -3892,32 +3892,32 @@ GTLR_EXTERN NSString * const kGTLRSlides_UpdateLineCategoryRequest_LineCategory_
  *
  *  Value: "BRING_FORWARD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringForward;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringForward;
 /**
  *  Brings the page elements to the front of the page.
  *
  *  Value: "BRING_TO_FRONT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringToFront;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringToFront;
 /**
  *  Sends the page elements backward on the page by one element relative to the
  *  furthest behind one in the specified page elements.
  *
  *  Value: "SEND_BACKWARD"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendBackward;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendBackward;
 /**
  *  Sends the page elements to the back of the page.
  *
  *  Value: "SEND_TO_BACK"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendToBack;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendToBack;
 /**
  *  Unspecified operation.
  *
  *  Value: "Z_ORDER_OPERATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_ZOrderOperationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_ZOrderOperationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_UpdatePageElementTransformRequest.applyMode
@@ -3927,20 +3927,20 @@ GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementsZOrderRequest_Operati
  *
  *  Value: "ABSOLUTE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_Absolute;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_Absolute;
 /**
  *  Unspecified mode.
  *
  *  Value: "APPLY_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_ApplyModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_ApplyModeUnspecified;
 /**
  *  Applies the new AffineTransform matrix to the existing one, and
  *  replaces the existing one with the resulting concatenation.
  *
  *  Value: "RELATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_Relative;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_Relative;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_UpdateTableBorderPropertiesRequest.borderPosition
@@ -3950,55 +3950,55 @@ GTLR_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_Apply
  *
  *  Value: "ALL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_All;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_All;
 /**
  *  Borders at the bottom of the range.
  *
  *  Value: "BOTTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Bottom;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Bottom;
 /**
  *  Borders on the inside of the range.
  *
  *  Value: "INNER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Inner;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Inner;
 /**
  *  Horizontal borders on the inside of the range.
  *
  *  Value: "INNER_HORIZONTAL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerHorizontal;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerHorizontal;
 /**
  *  Vertical borders on the inside of the range.
  *
  *  Value: "INNER_VERTICAL"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerVertical;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_InnerVertical;
 /**
  *  Borders at the left of the range.
  *
  *  Value: "LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Left;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Left;
 /**
  *  Borders along the outside of the range.
  *
  *  Value: "OUTER"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Outer;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Outer;
 /**
  *  Borders at the right of the range.
  *
  *  Value: "RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Right;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Right;
 /**
  *  Borders at the top of the range.
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Top;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_BorderPosition_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_Video.source
@@ -4008,19 +4008,19 @@ GTLR_EXTERN NSString * const kGTLRSlides_UpdateTableBorderPropertiesRequest_Bord
  *
  *  Value: "DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Drive;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Drive;
 /**
  *  The video source is unspecified.
  *
  *  Value: "SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_SourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_SourceUnspecified;
 /**
  *  The video source is YouTube.
  *
  *  Value: "YOUTUBE"
  */
-GTLR_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  AffineTransform uses a 3x3 matrix with an implied last row of [ 0 0 1 ]

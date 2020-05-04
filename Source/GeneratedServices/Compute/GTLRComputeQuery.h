@@ -172,33 +172,33 @@ NS_ASSUME_NONNULL_BEGIN
 // direction
 
 /** Value: "INCOMING" */
-GTLR_EXTERN NSString * const kGTLRComputeDirectionIncoming;
+FOUNDATION_EXTERN NSString * const kGTLRComputeDirectionIncoming;
 /** Value: "OUTGOING" */
-GTLR_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
+FOUNDATION_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 // ----------------------------------------------------------------------------
 // minimalAction
 
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRComputeMinimalActionInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionInvalid;
 /** Value: "NO_EFFECT" */
-GTLR_EXTERN NSString * const kGTLRComputeMinimalActionNoEffect;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionNoEffect;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRComputeMinimalActionRefresh;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionRefresh;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRComputeMinimalActionRestart;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionRestart;
 
 // ----------------------------------------------------------------------------
 // mostDisruptiveAllowedAction
 
 /** Value: "INVALID" */
-GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionInvalid;
 /** Value: "NO_EFFECT" */
-GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionNoEffect;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionNoEffect;
 /** Value: "REFRESH" */
-GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefresh;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefresh;
 /** Value: "RESTART" */
-GTLR_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
+FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 // ----------------------------------------------------------------------------
 // Query Classes

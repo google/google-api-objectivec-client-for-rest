@@ -34,25 +34,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform;
 /**
  *  Authorization scope: Manage your source code repositories
  *
  *  Value "https://www.googleapis.com/auth/source.full_control"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl;
 /**
  *  Authorization scope: View the contents of your source code repositories
  *
  *  Value "https://www.googleapis.com/auth/source.read_only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadOnly;
 /**
  *  Authorization scope: Manage the contents of your source code repositories
  *
  *  Value "https://www.googleapis.com/auth/source.read_write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudSourceRepositoriesService

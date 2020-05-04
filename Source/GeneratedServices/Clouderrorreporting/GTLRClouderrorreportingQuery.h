@@ -37,41 +37,41 @@ NS_ASSUME_NONNULL_BEGIN
 // alignment
 
 /** Value: "ALIGNMENT_EQUAL_AT_END" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualAtEnd;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualAtEnd;
 /** Value: "ALIGNMENT_EQUAL_ROUNDED" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualRounded;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualRounded;
 /** Value: "ERROR_COUNT_ALIGNMENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingAlignmentErrorCountAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentErrorCountAlignmentUnspecified;
 
 // ----------------------------------------------------------------------------
 // order
 
 /** Value: "AFFECTED_USERS_DESC" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingOrderAffectedUsersDesc;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderAffectedUsersDesc;
 /** Value: "COUNT_DESC" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingOrderCountDesc;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderCountDesc;
 /** Value: "CREATED_DESC" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingOrderCreatedDesc;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderCreatedDesc;
 /** Value: "GROUP_ORDER_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingOrderGroupOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderGroupOrderUnspecified;
 /** Value: "LAST_SEEN_DESC" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingOrderLastSeenDesc;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderLastSeenDesc;
 
 // ----------------------------------------------------------------------------
 // timeRangePeriod
 
 /** Value: "PERIOD_1_DAY" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Day;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Day;
 /** Value: "PERIOD_1_HOUR" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour;
 /** Value: "PERIOD_1_WEEK" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Week;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Week;
 /** Value: "PERIOD_30_DAYS" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod30Days;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod30Days;
 /** Value: "PERIOD_6_HOURS" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours;
 /** Value: "PERIOD_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

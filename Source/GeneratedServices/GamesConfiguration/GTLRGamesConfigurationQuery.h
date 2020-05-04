@@ -36,11 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
 // imageType
 
 /** Value: "ACHIEVEMENT_ICON" */
-GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon;
 /** Value: "IMAGE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified;
 /** Value: "LEADERBOARD_ICON" */
-GTLR_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 
 // ----------------------------------------------------------------------------
 // Query Classes

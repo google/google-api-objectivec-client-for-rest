@@ -47,25 +47,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Active;
 /**
  *  The product is disapproved. Please look at the issues.
  *
  *  Value: "DISAPPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Disapproved;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Disapproved;
 /**
  *  The decision is still pending.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Pending;
 /**
  *  Unspecified status, never used.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Image.status
@@ -75,79 +75,79 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_DestinationStatus_Status_Un
  *
  *  Value: "CRAWL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_CrawlError;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_CrawlError;
 /**
  *  The image was manually overridden and will not be crawled.
  *
  *  Value: "CRAWL_SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_CrawlSkipped;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_CrawlSkipped;
 /**
  *  The image cannot be decoded.
  *
  *  Value: "DECODING_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_DecodingError;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_DecodingError;
 /**
  *  The image crawl was postponed to avoid overloading the host.
  *
  *  Value: "HOSTLOADED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Hostloaded;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Hostloaded;
 /**
  *  The image URL returned a "404 Not Found" error.
  *
  *  Value: "HTTP_404"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Http404;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Http404;
 /**
  *  The image was processed and it meets the requirements.
  *
  *  Value: "OK"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Ok;
 /**
  *  The image crawl is still pending.
  *
  *  Value: "PENDING_CRAWL"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_PendingCrawl;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_PendingCrawl;
 /**
  *  The image was uploaded and is being processed.
  *
  *  Value: "PENDING_PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_PendingProcessing;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_PendingProcessing;
 /**
  *  The image cannot be processed.
  *
  *  Value: "PROCESSING_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_ProcessingError;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_ProcessingError;
 /**
  *  The image URL is protected by robots.txt file and cannot be crawled.
  *
  *  Value: "ROBOTED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Roboted;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Roboted;
 /**
  *  The image status is unspecified. Should not be used.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_StatusUnspecified;
 /**
  *  The image is too big.
  *
  *  Value: "TOO_BIG"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_TooBig;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_TooBig;
 /**
  *  The image URL is protected by X-Robots-Tag and cannot be crawled.
  *
  *  Value: "XROBOTED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Xroboted;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Xroboted;
 
 // ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Image.type
@@ -157,19 +157,19 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Status_Xroboted;
  *
  *  Value: "CRAWLED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Crawled;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Crawled;
 /**
  *  Type is unspecified. Should not be used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_TypeUnspecified;
 /**
  *  The image was uploaded.
  *
  *  Value: "UPLOADED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Uploaded;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Uploaded;
 
 // ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Issue.resolution
@@ -181,20 +181,20 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Uploaded;
  *
  *  Value: "PENDING_PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_PendingProcessing;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_PendingProcessing;
 /**
  *  Unspecified resolution, never used.
  *
  *  Value: "RESOLUTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_ResolutionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_ResolutionUnspecified;
 /**
  *  The user who provided the data must act in order to resolve the issue
  *  (for example by correcting some data).
  *
  *  Value: "USER_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_UserAction;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_UserAction;
 
 // ----------------------------------------------------------------------------
 // GTLRManufacturerCenter_Issue.severity
@@ -204,7 +204,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_UserAction
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Error;
 /**
  *  Info severity. The issue is one that doesn't require immediate attention.
  *  It is, for example, used to communicate which attributes are still
@@ -212,13 +212,13 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Error;
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Info;
 /**
  *  Unspecified severity, never used.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_SeverityUnspecified;
 /**
  *  Warning severity. The issue is either one that prevents the usage of the
  *  attribute that triggered it or one that will soon prevent the usage of
@@ -226,7 +226,7 @@ GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_SeverityUnsp
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning;
 
 /**
  *  Attributes of the product. For more information, see

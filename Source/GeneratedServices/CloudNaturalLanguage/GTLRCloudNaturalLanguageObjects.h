@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
@@ -61,7 +61,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
  *
  *  Value: "UTF16"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf16;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-32 encoding of the input. Python is an example of a language
@@ -69,7 +69,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
  *
  *  Value: "UTF32"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf32;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf32;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
@@ -77,7 +77,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
  *
  *  Value: "UTF8"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf8;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest.encodingType
@@ -88,7 +88,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_En
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
@@ -96,7 +96,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentReq
  *
  *  Value: "UTF16"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-32 encoding of the input. Python is an example of a language
@@ -104,7 +104,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentReq
  *
  *  Value: "UTF32"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf32;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf32;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
@@ -112,7 +112,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentReq
  *
  *  Value: "UTF8"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf8;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_AnalyzeSentimentRequest.encodingType
@@ -123,7 +123,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentReq
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
@@ -131,7 +131,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_E
  *
  *  Value: "UTF16"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-32 encoding of the input. Python is an example of a language
@@ -139,7 +139,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_E
  *
  *  Value: "UTF32"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
@@ -147,7 +147,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_E
  *
  *  Value: "UTF8"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf8;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest.encodingType
@@ -158,7 +158,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_E
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
@@ -166,7 +166,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_Enco
  *
  *  Value: "UTF16"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-32 encoding of the input. Python is an example of a language
@@ -174,7 +174,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_Enco
  *
  *  Value: "UTF32"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
@@ -182,7 +182,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_Enco
  *
  *  Value: "UTF8"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf8;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_AnnotateTextRequest.encodingType
@@ -193,7 +193,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_Enco
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_None;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-16 encoding of the input. Java and JavaScript are examples of
@@ -201,7 +201,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_Encod
  *
  *  Value: "UTF16"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf16;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-32 encoding of the input. Python is an example of a language
@@ -209,7 +209,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_Encod
  *
  *  Value: "UTF32"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf32;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf32;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
  *  on the UTF-8 encoding of the input. C++ and Go are examples of languages
@@ -217,7 +217,7 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_Encod
  *
  *  Value: "UTF8"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf8;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf8;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_DependencyEdge.label
@@ -227,499 +227,499 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_Encod
  *
  *  Value: "ABBREV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Abbrev;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Abbrev;
 /**
  *  Adjectival complement
  *
  *  Value: "ACOMP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Acomp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Acomp;
 /**
  *  Adverbial clause modifier
  *
  *  Value: "ADVCL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Advcl;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Advcl;
 /**
  *  Adverbial modifier
  *
  *  Value: "ADVMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Advmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Advmod;
 /**
  *  Adverbial phrase modifier
  *
  *  Value: "ADVPHMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Advphmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Advphmod;
 /**
  *  Adjectival modifier of an NP
  *
  *  Value: "AMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Amod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Amod;
 /**
  *  Appositional modifier of an NP
  *
  *  Value: "APPOS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Appos;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Appos;
 /**
  *  Aspect marker
  *
  *  Value: "ASP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Asp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Asp;
 /**
  *  Attribute dependent of a copular verb
  *
  *  Value: "ATTR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Attr;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Attr;
 /**
  *  Auxiliary (non-main) verb
  *
  *  Value: "AUX"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Aux;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Aux;
 /**
  *  Causative auxiliary
  *
  *  Value: "AUXCAUS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Auxcaus;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Auxcaus;
 /**
  *  Passive auxiliary
  *
  *  Value: "AUXPASS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Auxpass;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Auxpass;
 /**
  *  Helper auxiliary
  *
  *  Value: "AUXVV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Auxvv;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Auxvv;
 /**
  *  Coordinating conjunction
  *
  *  Value: "CC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Cc;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Cc;
 /**
  *  Clausal complement of a verb or adjective
  *
  *  Value: "CCOMP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ccomp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ccomp;
 /**
  *  Conjunct
  *
  *  Value: "CONJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Conj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Conj;
 /**
  *  Copula
  *
  *  Value: "COP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Cop;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Cop;
 /**
  *  Clausal subject
  *
  *  Value: "CSUBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Csubj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Csubj;
 /**
  *  Clausal passive subject
  *
  *  Value: "CSUBJPASS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Csubjpass;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Csubjpass;
 /**
  *  Dependency (unable to determine)
  *
  *  Value: "DEP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dep;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dep;
 /**
  *  Determiner
  *
  *  Value: "DET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Det;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Det;
 /**
  *  Discourse
  *
  *  Value: "DISCOURSE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Discourse;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Discourse;
 /**
  *  Dislocated relation (for fronted/topicalized elements)
  *
  *  Value: "DISLOCATED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dislocated;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dislocated;
 /**
  *  Direct object
  *
  *  Value: "DOBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dobj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dobj;
 /**
  *  Rentaishi (Prenominal modifier)
  *
  *  Value: "DTMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dtmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Dtmod;
 /**
  *  Expletive
  *
  *  Value: "EXPL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Expl;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Expl;
 /**
  *  Foreign words
  *
  *  Value: "FOREIGN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Foreign;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Foreign;
 /**
  *  Genitive modifier
  *
  *  Value: "GMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gmod;
 /**
  *  Genitive object
  *
  *  Value: "GOBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gobj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Gobj;
 /**
  *  Goes with (part of a word in a text not well edited)
  *
  *  Value: "GOESWITH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Goeswith;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Goeswith;
 /**
  *  Infinitival modifier
  *
  *  Value: "INFMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Infmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Infmod;
 /**
  *  Indirect object
  *
  *  Value: "IOBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Iobj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Iobj;
 /**
  *  Keyword
  *
  *  Value: "KW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Kw;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Kw;
 /**
  *  List for chains of comparable items
  *
  *  Value: "LIST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_List;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_List;
 /**
  *  Marker (word introducing a subordinate clause)
  *
  *  Value: "MARK"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mark;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mark;
 /**
  *  Measure
  *
  *  Value: "MES"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mes;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mes;
 /**
  *  Multi-word expression
  *
  *  Value: "MWE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwe;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwe;
 /**
  *  Multi-word verbal expression
  *
  *  Value: "MWV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwv;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Mwv;
 /**
  *  Nominal complement of a noun
  *
  *  Value: "NCOMP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ncomp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ncomp;
 /**
  *  Negation modifier
  *
  *  Value: "NEG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Neg;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Neg;
 /**
  *  Noun compound modifier
  *
  *  Value: "NN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nn;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nn;
 /**
  *  Nominalized clause
  *
  *  Value: "NOMC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nomc;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nomc;
 /**
  *  Nominalized clausal subject
  *
  *  Value: "NOMCSUBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nomcsubj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nomcsubj;
 /**
  *  Nominalized clausal passive
  *
  *  Value: "NOMCSUBJPASS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nomcsubjpass;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nomcsubjpass;
 /**
  *  Noun phrase used as an adverbial modifier
  *
  *  Value: "NPADVMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Npadvmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Npadvmod;
 /**
  *  Nominal subject
  *
  *  Value: "NSUBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nsubj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nsubj;
 /**
  *  Passive nominal subject
  *
  *  Value: "NSUBJPASS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nsubjpass;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Nsubjpass;
 /**
  *  Numeric modifier of a noun
  *
  *  Value: "NUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Num;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Num;
 /**
  *  Element of compound number
  *
  *  Value: "NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Number;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Number;
 /**
  *  Compound of numeric modifier
  *
  *  Value: "NUMC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Numc;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Numc;
 /**
  *  Punctuation mark
  *
  *  Value: "P"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_P;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_P;
 /**
  *  Parataxis relation
  *
  *  Value: "PARATAXIS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Parataxis;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Parataxis;
 /**
  *  Participial modifier
  *
  *  Value: "PARTMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Partmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Partmod;
 /**
  *  The complement of a preposition is a clause
  *
  *  Value: "PCOMP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pcomp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pcomp;
 /**
  *  Object of a preposition
  *
  *  Value: "POBJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pobj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pobj;
 /**
  *  Possession modifier
  *
  *  Value: "POSS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Poss;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Poss;
 /**
  *  Postverbal negative particle
  *
  *  Value: "POSTNEG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Postneg;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Postneg;
 /**
  *  Predicate complement
  *
  *  Value: "PRECOMP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Precomp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Precomp;
 /**
  *  Preconjunt
  *
  *  Value: "PRECONJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Preconj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Preconj;
 /**
  *  Predeterminer
  *
  *  Value: "PREDET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Predet;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Predet;
 /**
  *  Prefix
  *
  *  Value: "PREF"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pref;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pref;
 /**
  *  Prepositional modifier
  *
  *  Value: "PREP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Prep;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Prep;
 /**
  *  The relationship between a verb and verbal morpheme
  *
  *  Value: "PRONL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pronl;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Pronl;
 /**
  *  Particle
  *
  *  Value: "PRT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Prt;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Prt;
 /**
  *  Associative or possessive marker
  *
  *  Value: "PS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ps;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ps;
 /**
  *  Quantifier phrase modifier
  *
  *  Value: "QUANTMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Quantmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Quantmod;
 /**
  *  Relative clause modifier
  *
  *  Value: "RCMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Rcmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Rcmod;
 /**
  *  Complementizer in relative clause
  *
  *  Value: "RCMODREL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Rcmodrel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Rcmodrel;
 /**
  *  Ellipsis without a preceding predicate
  *
  *  Value: "RDROP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Rdrop;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Rdrop;
 /**
  *  Referent
  *
  *  Value: "REF"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ref;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Ref;
 /**
  *  Remnant
  *
  *  Value: "REMNANT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Remnant;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Remnant;
 /**
  *  Reparandum
  *
  *  Value: "REPARANDUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Reparandum;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Reparandum;
 /**
  *  Root
  *
  *  Value: "ROOT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Root;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Root;
 /**
  *  Suffix specifying a unit of number
  *
  *  Value: "SNUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Snum;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Snum;
 /**
  *  Suffix
  *
  *  Value: "SUFF"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Suff;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Suff;
 /**
  *  Name suffix
  *
  *  Value: "SUFFIX"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Suffix;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Suffix;
 /**
  *  Name title
  *
  *  Value: "TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Title;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Title;
 /**
  *  Temporal modifier
  *
  *  Value: "TMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Tmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Tmod;
 /**
  *  Topic marker
  *
  *  Value: "TOPIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Topic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Topic;
 /**
  *  Unknown
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Unknown;
 /**
  *  Clause headed by an infinite form of the verb that modifies a noun
  *
  *  Value: "VMOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Vmod;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Vmod;
 /**
  *  Vocative
  *
  *  Value: "VOCATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Vocative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Vocative;
 /**
  *  Open clausal complement
  *
  *  Value: "XCOMP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Xcomp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Xcomp;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_Document.type
@@ -729,19 +729,19 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_DependencyEdge_Label_Xcom
  *
  *  Value: "HTML"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_Html;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_Html;
 /**
  *  Plain text
  *
  *  Value: "PLAIN_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_PlainText;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_PlainText;
 /**
  *  The content type is not specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_Entity.type
@@ -763,13 +763,13 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeUnspeci
  *
  *  Value: "ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Address;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Address;
 /**
  *  Consumer product
  *
  *  Value: "CONSUMER_GOOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood;
 /**
  *  Date
  *  The metadata identifies the components of the date:
@@ -779,44 +779,44 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood;
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Date;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Date;
 /**
  *  Event
  *
  *  Value: "EVENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Event;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Event;
 /**
  *  Location
  *
  *  Value: "LOCATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Location;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Location;
 /**
  *  Number
  *  The metadata is the number itself.
  *
  *  Value: "NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Number;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Number;
 /**
  *  Organization
  *
  *  Value: "ORGANIZATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Organization;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Organization;
 /**
  *  Other types of entities
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Other;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Other;
 /**
  *  Person
  *
  *  Value: "PERSON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person;
 /**
  *  Phone number
  *  The metadata lists the phone number, formatted according to local
@@ -830,26 +830,26 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person;
  *
  *  Value: "PHONE_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber;
 /**
  *  Price
  *  The metadata identifies the `value` and `currency`.
  *
  *  Value: "PRICE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Price;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Price;
 /**
  *  Unknown
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Unknown;
 /**
  *  Artwork
  *
  *  Value: "WORK_OF_ART"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_EntityMention.type
@@ -859,19 +859,19 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt;
  *
  *  Value: "COMMON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Common;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Common;
 /**
  *  Proper name
  *
  *  Value: "PROPER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Proper;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_Proper;
 /**
  *  Unknown
  *
  *  Value: "TYPE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.aspect
@@ -881,25 +881,25 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_TypeUn
  *
  *  Value: "ASPECT_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_AspectUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_AspectUnknown;
 /**
  *  Imperfective
  *
  *  Value: "IMPERFECTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Imperfective;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Imperfective;
 /**
  *  Perfective
  *
  *  Value: "PERFECTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Perfective;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Perfective;
 /**
  *  Progressive
  *
  *  Value: "PROGRESSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Progressive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Progressive;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.caseProperty
@@ -909,91 +909,91 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Aspect_Progr
  *
  *  Value: "ACCUSATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Accusative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Accusative;
 /**
  *  Adverbial
  *
  *  Value: "ADVERBIAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Adverbial;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Adverbial;
 /**
  *  Case is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "CASE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_CaseUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_CaseUnknown;
 /**
  *  Complementive
  *
  *  Value: "COMPLEMENTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Complementive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Complementive;
 /**
  *  Dative
  *
  *  Value: "DATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Dative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Dative;
 /**
  *  Genitive
  *
  *  Value: "GENITIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Genitive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Genitive;
 /**
  *  Instrumental
  *
  *  Value: "INSTRUMENTAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Instrumental;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Instrumental;
 /**
  *  Locative
  *
  *  Value: "LOCATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Locative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Locative;
 /**
  *  Nominative
  *
  *  Value: "NOMINATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Nominative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Nominative;
 /**
  *  Oblique
  *
  *  Value: "OBLIQUE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Oblique;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Oblique;
 /**
  *  Partitive
  *
  *  Value: "PARTITIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Partitive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Partitive;
 /**
  *  Prepositional
  *
  *  Value: "PREPOSITIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Prepositional;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Prepositional;
 /**
  *  Reflexive
  *
  *  Value: "REFLEXIVE_CASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_ReflexiveCase;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_ReflexiveCase;
 /**
  *  Relative
  *
  *  Value: "RELATIVE_CASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_RelativeCase;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_RelativeCase;
 /**
  *  Vocative
  *
  *  Value: "VOCATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Vocative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty_Vocative;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.form
@@ -1003,73 +1003,73 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_CaseProperty
  *
  *  Value: "ADNOMIAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Adnomial;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Adnomial;
 /**
  *  Auxiliary
  *
  *  Value: "AUXILIARY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Auxiliary;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Auxiliary;
 /**
  *  Complementizer
  *
  *  Value: "COMPLEMENTIZER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Complementizer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Complementizer;
 /**
  *  Final ending
  *
  *  Value: "FINAL_ENDING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FinalEnding;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FinalEnding;
 /**
  *  Form is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "FORM_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FormUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_FormUnknown;
 /**
  *  Gerund
  *
  *  Value: "GERUND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Gerund;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Gerund;
 /**
  *  Irrealis
  *
  *  Value: "IRREALIS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Irrealis;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Irrealis;
 /**
  *  Long form
  *
  *  Value: "LONG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Long;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Long;
 /**
  *  Order form
  *
  *  Value: "ORDER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Order;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Order;
 /**
  *  Realis
  *
  *  Value: "REALIS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Realis;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Realis;
 /**
  *  Short form
  *
  *  Value: "SHORT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Short;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Short;
 /**
  *  Specific form
  *
  *  Value: "SPECIFIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Specific;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Specific;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.gender
@@ -1079,25 +1079,25 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Form_Specifi
  *
  *  Value: "FEMININE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Feminine;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Feminine;
 /**
  *  Gender is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "GENDER_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_GenderUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_GenderUnknown;
 /**
  *  Masculine
  *
  *  Value: "MASCULINE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Masculine;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Masculine;
 /**
  *  Neuter
  *
  *  Value: "NEUTER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Neuter;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Neuter;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.mood
@@ -1107,43 +1107,43 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Gender_Neute
  *
  *  Value: "CONDITIONAL_MOOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_ConditionalMood;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_ConditionalMood;
 /**
  *  Imperative
  *
  *  Value: "IMPERATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Imperative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Imperative;
 /**
  *  Indicative
  *
  *  Value: "INDICATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Indicative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Indicative;
 /**
  *  Interrogative
  *
  *  Value: "INTERROGATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Interrogative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Interrogative;
 /**
  *  Jussive
  *
  *  Value: "JUSSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Jussive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Jussive;
 /**
  *  Mood is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "MOOD_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_MoodUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_MoodUnknown;
 /**
  *  Subjunctive
  *
  *  Value: "SUBJUNCTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Subjunctive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Subjunctive;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.number
@@ -1153,25 +1153,25 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Mood_Subjunc
  *
  *  Value: "DUAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Dual;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Dual;
 /**
  *  Number is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "NUMBER_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_NumberUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_NumberUnknown;
 /**
  *  Plural
  *
  *  Value: "PLURAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Plural;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Plural;
 /**
  *  Singular
  *
  *  Value: "SINGULAR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Singular;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Singular;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.person
@@ -1181,31 +1181,31 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Number_Singu
  *
  *  Value: "FIRST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_First;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_First;
 /**
  *  Person is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "PERSON_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_PersonUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_PersonUnknown;
 /**
  *  Reflexive
  *
  *  Value: "REFLEXIVE_PERSON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_ReflexivePerson;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_ReflexivePerson;
 /**
  *  Second
  *
  *  Value: "SECOND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Second;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Second;
 /**
  *  Third
  *
  *  Value: "THIRD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Third;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Third;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.proper
@@ -1215,19 +1215,19 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Person_Third
  *
  *  Value: "NOT_PROPER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_NotProper;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_NotProper;
 /**
  *  Proper
  *
  *  Value: "PROPER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_Proper;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_Proper;
 /**
  *  Proper is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "PROPER_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_ProperUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_ProperUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.reciprocity
@@ -1237,20 +1237,20 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Proper_Prope
  *
  *  Value: "NON_RECIPROCAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_NonReciprocal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_NonReciprocal;
 /**
  *  Reciprocal
  *
  *  Value: "RECIPROCAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_Reciprocal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_Reciprocal;
 /**
  *  Reciprocity is not applicable in the analyzed language or is not
  *  predicted.
  *
  *  Value: "RECIPROCITY_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_ReciprocityUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_ReciprocityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.tag
@@ -1260,85 +1260,85 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_
  *
  *  Value: "ADJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adj;
 /**
  *  Adposition (preposition and postposition)
  *
  *  Value: "ADP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adp;
 /**
  *  Adverb
  *
  *  Value: "ADV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adv;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Adv;
 /**
  *  Affix
  *
  *  Value: "AFFIX"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Affix;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Affix;
 /**
  *  Conjunction
  *
  *  Value: "CONJ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Conj;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Conj;
 /**
  *  Determiner
  *
  *  Value: "DET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Det;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Det;
 /**
  *  Noun (common and proper)
  *
  *  Value: "NOUN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Noun;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Noun;
 /**
  *  Cardinal number
  *
  *  Value: "NUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Num;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Num;
 /**
  *  Pronoun
  *
  *  Value: "PRON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Pron;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Pron;
 /**
  *  Particle or other function word
  *
  *  Value: "PRT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Prt;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Prt;
 /**
  *  Punctuation
  *
  *  Value: "PUNCT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Punct;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Punct;
 /**
  *  Unknown
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Unknown;
 /**
  *  Verb (all tenses and modes)
  *
  *  Value: "VERB"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Verb;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_Verb;
 /**
  *  Other: foreign words, typos, abbreviations
  *
  *  Value: "X"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.tense
@@ -1348,43 +1348,43 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tag_X;
  *
  *  Value: "CONDITIONAL_TENSE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_ConditionalTense;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_ConditionalTense;
 /**
  *  Future
  *
  *  Value: "FUTURE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Future;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Future;
 /**
  *  Imperfect
  *
  *  Value: "IMPERFECT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Imperfect;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Imperfect;
 /**
  *  Past
  *
  *  Value: "PAST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Past;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Past;
 /**
  *  Pluperfect
  *
  *  Value: "PLUPERFECT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Pluperfect;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Pluperfect;
 /**
  *  Present
  *
  *  Value: "PRESENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Present;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_Present;
 /**
  *  Tense is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "TENSE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_TenseUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_TenseUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_PartOfSpeech.voice
@@ -1394,25 +1394,25 @@ GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Tense_TenseU
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Active;
 /**
  *  Causative
  *
  *  Value: "CAUSATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Causative;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Causative;
 /**
  *  Passive
  *
  *  Value: "PASSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Passive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_Passive;
 /**
  *  Voice is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "VOICE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_VoiceUnknown;
 
 /**
  *  The entity analysis request message.

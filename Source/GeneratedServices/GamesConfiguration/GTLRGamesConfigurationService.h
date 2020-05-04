@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/androidpublisher"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublisher;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesConfigurationAndroidpublisher;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesConfigurationService

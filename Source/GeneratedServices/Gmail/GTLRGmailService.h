@@ -34,90 +34,90 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/gmail.addons.current.action.compose"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentActionCompose;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentActionCompose;
 /**
  *  Authorization scope: View your email messages when you interact with the
  *  add-on
  *
  *  Value "https://www.googleapis.com/auth/gmail.addons.current.message.action"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageAction;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageAction;
 /**
  *  Authorization scope: View your email message metadata when the add-on is
  *  running
  *
  *  Value "https://www.googleapis.com/auth/gmail.addons.current.message.metadata"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageMetadata;
 /**
  *  Authorization scope: View your email messages when the add-on is running
  *
  *  Value "https://www.googleapis.com/auth/gmail.addons.current.message.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageReadonly;
 /**
  *  Authorization scope: Manage drafts and send emails
  *
  *  Value "https://www.googleapis.com/auth/gmail.compose"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailCompose;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailCompose;
 /**
  *  Authorization scope: Insert mail into your mailbox
  *
  *  Value "https://www.googleapis.com/auth/gmail.insert"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailInsert;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailInsert;
 /**
  *  Authorization scope: Manage mailbox labels
  *
  *  Value "https://www.googleapis.com/auth/gmail.labels"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailLabels;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailLabels;
 /**
  *  Authorization scope: Read, compose, send, and permanently delete all your
  *  email from Gmail
  *
  *  Value "https://mail.google.com/"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailMailGoogleCom;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailMailGoogleCom;
 /**
  *  Authorization scope: View your email message metadata such as labels and
  *  headers, but not the email body
  *
  *  Value "https://www.googleapis.com/auth/gmail.metadata"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailMetadata;
 /**
  *  Authorization scope: View and modify but not delete your email
  *
  *  Value "https://www.googleapis.com/auth/gmail.modify"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailModify;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailModify;
 /**
  *  Authorization scope: View your email messages and settings
  *
  *  Value "https://www.googleapis.com/auth/gmail.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailReadonly;
 /**
  *  Authorization scope: Send email on your behalf
  *
  *  Value "https://www.googleapis.com/auth/gmail.send"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailSend;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailSend;
 /**
  *  Authorization scope: Manage your basic mail settings
  *
  *  Value "https://www.googleapis.com/auth/gmail.settings.basic"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailSettingsBasic;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailSettingsBasic;
 /**
  *  Authorization scope: Manage your sensitive mail settings, including who can
  *  manage your mail
  *
  *  Value "https://www.googleapis.com/auth/gmail.settings.sharing"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGmailSettingsSharing;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailSettingsSharing;
 
 // ----------------------------------------------------------------------------
 //   GTLRGmailService

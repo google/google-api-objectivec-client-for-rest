@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudMachineLearningEngineService

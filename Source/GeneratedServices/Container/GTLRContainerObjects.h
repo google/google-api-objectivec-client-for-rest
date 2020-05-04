@@ -100,20 +100,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DEGRADED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Degraded;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Degraded;
 /**
  *  The ERROR state indicates the cluster may be unusable. Details
  *  can be found in the `statusMessage` field.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Error;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Error;
 /**
  *  The PROVISIONING state indicates the cluster is being created.
  *
  *  Value: "PROVISIONING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Provisioning;
 /**
  *  The RECONCILING state indicates that some work is actively being done on
  *  the cluster, such as upgrading the master or node software. Details can
@@ -121,26 +121,26 @@ GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Provisioning;
  *
  *  Value: "RECONCILING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Reconciling;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Reconciling;
 /**
  *  The RUNNING state indicates the cluster has been created and is fully
  *  usable.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Running;
 /**
  *  Not set.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified;
 /**
  *  The STOPPING state indicates the cluster is being deleted.
  *
  *  Value: "STOPPING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.state
@@ -151,19 +151,19 @@ GTLR_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
  *
  *  Value: "DECRYPTED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted;
 /**
  *  Secrets in etcd are encrypted.
  *
  *  Value: "ENCRYPTED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted;
 /**
  *  Should never be set
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkPolicy.provider
@@ -173,13 +173,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
  *
  *  Value: "CALICO"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico;
 /**
  *  Not set
  *
  *  Value: "PROVIDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
@@ -190,13 +190,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspe
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Error;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_Error;
 /**
  *  The PROVISIONING state indicates the node pool is being created.
  *
  *  Value: "PROVISIONING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_Provisioning;
 /**
  *  The RECONCILING state indicates that some work is actively being done on
  *  the node pool, such as upgrading node software. Details can
@@ -204,14 +204,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Provisioning;
  *
  *  Value: "RECONCILING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Reconciling;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_Reconciling;
 /**
  *  The RUNNING state indicates the node pool has been created
  *  and is fully usable.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_Running;
 /**
  *  The RUNNING_WITH_ERROR state indicates the node pool has been created
  *  and is partially usable. Some error state has occurred and some
@@ -220,19 +220,19 @@ GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Running;
  *
  *  Value: "RUNNING_WITH_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_RunningWithError;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_RunningWithError;
 /**
  *  Not set.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_StatusUnspecified;
 /**
  *  The STOPPING state indicates the node pool is being deleted.
  *
  *  Value: "STOPPING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePool_Status_Stopping;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodeTaint.effect
@@ -242,25 +242,25 @@ GTLR_EXTERN NSString * const kGTLRContainer_NodePool_Status_Stopping;
  *
  *  Value: "EFFECT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_EffectUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_EffectUnspecified;
 /**
  *  NoExecute
  *
  *  Value: "NO_EXECUTE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_NoExecute;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_NoExecute;
 /**
  *  NoSchedule
  *
  *  Value: "NO_SCHEDULE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_NoSchedule;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_NoSchedule;
 /**
  *  PreferNoSchedule
  *
  *  Value: "PREFER_NO_SCHEDULE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSchedule;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSchedule;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_Operation.operationType
@@ -270,103 +270,103 @@ GTLR_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSchedule;
  *
  *  Value: "AUTO_REPAIR_NODES"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoRepairNodes;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoRepairNodes;
 /**
  *  Automatic node upgrade.
  *
  *  Value: "AUTO_UPGRADE_NODES"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoUpgradeNodes;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_AutoUpgradeNodes;
 /**
  *  Cluster create.
  *
  *  Value: "CREATE_CLUSTER"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateCluster;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateCluster;
 /**
  *  Node pool create.
  *
  *  Value: "CREATE_NODE_POOL"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateNodePool;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_CreateNodePool;
 /**
  *  Cluster delete.
  *
  *  Value: "DELETE_CLUSTER"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteCluster;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteCluster;
 /**
  *  Node pool delete.
  *
  *  Value: "DELETE_NODE_POOL"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_DeleteNodePool;
 /**
  *  Cluster repair.
  *
  *  Value: "REPAIR_CLUSTER"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_RepairCluster;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_RepairCluster;
 /**
  *  Set labels.
  *
  *  Value: "SET_LABELS"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetLabels;
 /**
  *  Set the maintenance policy.
  *
  *  Value: "SET_MAINTENANCE_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMaintenancePolicy;
 /**
  *  Set/generate master auth materials
  *
  *  Value: "SET_MASTER_AUTH"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetMasterAuth;
 /**
  *  Updates network policy for a cluster.
  *
  *  Value: "SET_NETWORK_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNetworkPolicy;
 /**
  *  Set node pool management.
  *
  *  Value: "SET_NODE_POOL_MANAGEMENT"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolManagement;
 /**
  *  Set node pool size.
  *
  *  Value: "SET_NODE_POOL_SIZE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolSize;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_SetNodePoolSize;
 /**
  *  Not set.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUnspecified;
 /**
  *  Cluster update.
  *
  *  Value: "UPDATE_CLUSTER"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpdateCluster;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpdateCluster;
 /**
  *  A master upgrade.
  *
  *  Value: "UPGRADE_MASTER"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeMaster;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeMaster;
 /**
  *  A node upgrade.
  *
  *  Value: "UPGRADE_NODES"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeNodes;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeNodes;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_Operation.status
@@ -376,31 +376,31 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_OperationType_UpgradeNodes
  *
  *  Value: "ABORTING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Aborting;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_Status_Aborting;
 /**
  *  The operation is done, either cancelled or completed.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Done;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_Status_Done;
 /**
  *  The operation has been created.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_Status_Pending;
 /**
  *  The operation is currently running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_Status_Running;
 /**
  *  Not set.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_OperationProgress.status
@@ -410,31 +410,31 @@ GTLR_EXTERN NSString * const kGTLRContainer_Operation_Status_StatusUnspecified;
  *
  *  Value: "ABORTING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Aborting;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Aborting;
 /**
  *  The operation is done, either cancelled or completed.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Done;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Done;
 /**
  *  The operation has been created.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Pending;
 /**
  *  The operation is currently running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Running;
 /**
  *  Not set.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ReservationAffinity.consumeReservationType
@@ -444,26 +444,26 @@ GTLR_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspe
  *
  *  Value: "ANY_RESERVATION"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation;
 /**
  *  Do not consume from any reserved capacity.
  *
  *  Value: "NO_RESERVATION"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation;
 /**
  *  Must consume from a specific reservation. Must specify key value fields
  *  for specifying the reservations.
  *
  *  Value: "SPECIFIC_RESERVATION"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_SpecificReservation;
 /**
  *  Default value. This should not be used.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_SandboxConfig.type
@@ -473,13 +473,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservati
  *
  *  Value: "GVISOR"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
 /**
  *  Default value. This should not be used.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_SetMasterAuthRequest.action
@@ -489,13 +489,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
  *
  *  Value: "GENERATE_PASSWORD"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_GeneratePassword;
 /**
  *  Set the password to a user generated value.
  *
  *  Value: "SET_PASSWORD"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword;
 /**
  *  Set the username. If an empty username is provided, basic authentication
  *  is disabled for the cluster. If a non-empty username is provided, basic
@@ -504,13 +504,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassw
  *
  *  Value: "SET_USERNAME"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername;
 /**
  *  Operation is unknown and will error out.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_StatusCondition.code
@@ -522,39 +522,39 @@ GTLR_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
  *
  *  Value: "CLOUD_KMS_KEY_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError;
 /**
  *  Google Compute Engine quota was exceeded.
  *
  *  Value: "GCE_QUOTA_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded;
 /**
  *  GCE_STOCKOUT indicates that Google Compute Engine resources are
  *  temporarily unavailable.
  *
  *  Value: "GCE_STOCKOUT"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceStockout;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceStockout;
 /**
  *  GKE_SERVICE_ACCOUNT_DELETED indicates that the user deleted their robot
  *  service account.
  *
  *  Value: "GKE_SERVICE_ACCOUNT_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted;
 /**
  *  Cluster state was manually changed by an SRE due to a system logic error.
  *
  *  Value: "SET_BY_OPERATOR"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator;
 /**
  *  UNKNOWN indicates a generic condition.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_UsableSubnetworkSecondaryRange.status
@@ -565,14 +565,14 @@ GTLR_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
  *
  *  Value: "IN_USE_MANAGED_POD"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod;
 /**
  *  IN_USE_SERVICE denotes that this range is claimed by a cluster for
  *  services. It cannot be used for other clusters.
  *
  *  Value: "IN_USE_SERVICE"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService;
 /**
  *  IN_USE_SHAREABLE_POD denotes this range was created by the network admin
  *  and is currently claimed by a cluster for pods. It can only be used by
@@ -580,19 +580,19 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *
  *  Value: "IN_USE_SHAREABLE_POD"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseShareablePod;
 /**
  *  UNKNOWN is the zero value of the Status enum. It's not a valid status.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unknown;
 /**
  *  UNUSED denotes that this range is unclaimed by any cluster.
  *
  *  Value: "UNUSED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_Unused;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_WorkloadMetadataConfig.mode
@@ -602,7 +602,7 @@ GTLR_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Statu
  *
  *  Value: "GCE_METADATA"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetadata;
 /**
  *  Run the GKE Metadata Server on this node. The GKE Metadata Server exposes
  *  a metadata API to workloads that is compatible with the V1 Compute
@@ -612,13 +612,13 @@ GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetad
  *
  *  Value: "GKE_METADATA"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GkeMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GkeMetadata;
 /**
  *  Not set.
  *
  *  Value: "MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified;
 
 /**
  *  AcceleratorConfig represents a Hardware Accelerator request.

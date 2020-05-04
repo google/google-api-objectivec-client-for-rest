@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/analytics"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsReportingAnalytics;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsReportingAnalytics;
 /**
  *  Authorization scope: View your Google Analytics data
  *
  *  Value "https://www.googleapis.com/auth/analytics.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsReportingAnalyticsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsReportingAnalyticsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRAnalyticsReportingService

@@ -34,26 +34,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDnsCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDnsCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDnsCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDnsCloudPlatformReadOnly;
 /**
  *  Authorization scope: View your DNS records hosted by Google Cloud DNS
  *
  *  Value "https://www.googleapis.com/auth/ndev.clouddns.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDnsNdevClouddnsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDnsNdevClouddnsReadonly;
 /**
  *  Authorization scope: View and manage your DNS records hosted by Google Cloud
  *  DNS
  *
  *  Value "https://www.googleapis.com/auth/ndev.clouddns.readwrite"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRDnsService

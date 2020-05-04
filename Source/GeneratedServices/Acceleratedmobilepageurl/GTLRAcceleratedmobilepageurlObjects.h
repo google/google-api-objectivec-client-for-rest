@@ -41,13 +41,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "APPLICATION_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_ApplicationError;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_ApplicationError;
 /**
  *  Not specified error.
  *
  *  Value: "ERROR_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_ErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_ErrorCodeUnspecified;
 /**
  *  Indicates the requested URL is not found in the index, possibly because
  *  it's unable to be found, not able to be accessed by Googlebot, or some
@@ -55,21 +55,21 @@ GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode
  *
  *  Value: "INPUT_URL_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_InputUrlNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_InputUrlNotFound;
 /**
  *  Indicates no AMP URL has been found that corresponds to the requested
  *  URL.
  *
  *  Value: "NO_AMP_URL"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_NoAmpUrl;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_NoAmpUrl;
 /**
  *  Indicates that an AMP URL has been found that corresponds to the request
  *  URL, but it is not valid AMP HTML.
  *
  *  Value: "URL_IS_INVALID_AMP"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsInvalidAmp;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsInvalidAmp;
 /**
  *  DEPRECATED: Indicates the requested URL is a valid AMP URL. This is a
  *  non-error state, should not be relied upon as a sign of success or
@@ -77,7 +77,7 @@ GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode
  *
  *  Value: "URL_IS_VALID_AMP"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsValidAmp;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsValidAmp;
 
 // ----------------------------------------------------------------------------
 // GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest.lookupStrategy
@@ -92,7 +92,7 @@ GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode
  *
  *  Value: "FETCH_LIVE_DOC"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_FetchLiveDoc;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_FetchLiveDoc;
 /**
  *  IN_INDEX_DOC strategy skips fetching live documents of URL(s) not found
  *  in index. For applications which need low latency use of IN_INDEX_DOC
@@ -100,7 +100,7 @@ GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsReques
  *
  *  Value: "IN_INDEX_DOC"
  */
-GTLR_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_InIndexDoc;
+FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_InIndexDoc;
 
 /**
  *  AMP URL response for a requested URL.

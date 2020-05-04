@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/adsense"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdSense;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdSense;
 /**
  *  Authorization scope: View your AdSense data
  *
  *  Value "https://www.googleapis.com/auth/adsense.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdSenseReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdSenseReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRAdSenseService

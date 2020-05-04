@@ -34,20 +34,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudProfilerCloudPlatform;
 /**
  *  Authorization scope: View and write monitoring data for all of your Google
  *  and third-party Cloud and API projects
  *
  *  Value "https://www.googleapis.com/auth/monitoring"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoring;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoring;
 /**
  *  Authorization scope: Publish metric data to your Google Cloud projects
  *
  *  Value "https://www.googleapis.com/auth/monitoring.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoringWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudProfilerMonitoringWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudProfilerService

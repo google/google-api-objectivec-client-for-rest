@@ -39,27 +39,27 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/monitoring"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeMonitoring;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMonitoring;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeMonitoringCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMonitoringCloudPlatform;
 /**
  *  Authorization scope: View monitoring data for all of your Google Cloud and
  *  third-party projects
  *
  *  Value "https://www.googleapis.com/auth/monitoring.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeMonitoringRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMonitoringRead;
 /**
  *  Authorization scope: Publish metric data to your Google Cloud projects
  *
  *  Value "https://www.googleapis.com/auth/monitoring.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeMonitoringWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMonitoringWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRMonitoringService

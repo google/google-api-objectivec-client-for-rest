@@ -202,2495 +202,2495 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDfareporting_Account.accountProfile
 
 /** Value: "ACCOUNT_PROFILE_BASIC" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_AccountProfile_AccountProfileBasic;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_AccountProfile_AccountProfileBasic;
 /** Value: "ACCOUNT_PROFILE_STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_AccountProfile_AccountProfileStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_AccountProfile_AccountProfileStandard;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Account.activeAdsLimitTier
 
 /** Value: "ACTIVE_ADS_TIER_100K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier100k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier100k;
 /** Value: "ACTIVE_ADS_TIER_1M" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier1m;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier1m;
 /** Value: "ACTIVE_ADS_TIER_200K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier200k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier200k;
 /** Value: "ACTIVE_ADS_TIER_300K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier300k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier300k;
 /** Value: "ACTIVE_ADS_TIER_40K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier40k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier40k;
 /** Value: "ACTIVE_ADS_TIER_500K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier500k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier500k;
 /** Value: "ACTIVE_ADS_TIER_750K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier750k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier750k;
 /** Value: "ACTIVE_ADS_TIER_75K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier75k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Account_ActiveAdsLimitTier_ActiveAdsTier75k;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountActiveAdSummary.activeAdsLimitTier
 
 /** Value: "ACTIVE_ADS_TIER_100K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier100k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier100k;
 /** Value: "ACTIVE_ADS_TIER_1M" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier1m;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier1m;
 /** Value: "ACTIVE_ADS_TIER_200K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier200k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier200k;
 /** Value: "ACTIVE_ADS_TIER_300K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier300k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier300k;
 /** Value: "ACTIVE_ADS_TIER_40K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier40k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier40k;
 /** Value: "ACTIVE_ADS_TIER_500K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier500k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier500k;
 /** Value: "ACTIVE_ADS_TIER_750K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier750k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier750k;
 /** Value: "ACTIVE_ADS_TIER_75K" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier75k;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountActiveAdSummary_ActiveAdsLimitTier_ActiveAdsTier75k;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountPermission.accountProfiles
 
 /** Value: "ACCOUNT_PROFILE_BASIC" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountPermission_AccountProfiles_AccountProfileBasic;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_AccountProfiles_AccountProfileBasic;
 /** Value: "ACCOUNT_PROFILE_STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountPermission_AccountProfiles_AccountProfileStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_AccountProfiles_AccountProfileStandard;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountPermission.level
 
 /** Value: "ADMINISTRATOR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountPermission_Level_Administrator;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_Level_Administrator;
 /** Value: "USER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountPermission_Level_User;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountPermission_Level_User;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountUserProfile.traffickerType
 
 /** Value: "EXTERNAL_TRAFFICKER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_ExternalTrafficker;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_ExternalTrafficker;
 /** Value: "INTERNAL_NON_TRAFFICKER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalNonTrafficker;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalNonTrafficker;
 /** Value: "INTERNAL_TRAFFICKER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalTrafficker;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_TraffickerType_InternalTrafficker;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AccountUserProfile.userAccessType
 
 /** Value: "INTERNAL_ADMINISTRATOR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_InternalAdministrator;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_InternalAdministrator;
 /** Value: "NORMAL_USER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_NormalUser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_NormalUser;
 /** Value: "READ_ONLY_SUPER_USER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_ReadOnlySuperUser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_ReadOnlySuperUser;
 /** Value: "SUPER_USER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_SuperUser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AccountUserProfile_UserAccessType_SuperUser;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Ad.compatibility
 
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_App;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_App;
 /** Value: "APP_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_AppInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_Display;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_DisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_DisplayInterstitial;
 /** Value: "IN_STREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Ad.type
 
 /** Value: "AD_SERVING_CLICK_TRACKER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingClickTracker;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingClickTracker;
 /** Value: "AD_SERVING_DEFAULT_AD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingDefaultAd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingDefaultAd;
 /** Value: "AD_SERVING_STANDARD_AD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingStandardAd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingStandardAd;
 /** Value: "AD_SERVING_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingTracking;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingTracking;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AdSlot.compatibility
 
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_App;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_App;
 /** Value: "APP_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_Display;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial;
 /** Value: "IN_STREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_AdSlot.paymentSourceType
 
 /** Value: "PLANNING_PAYMENT_SOURCE_TYPE_AGENCY_PAID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypeAgencyPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypeAgencyPaid;
 /** Value: "PLANNING_PAYMENT_SOURCE_TYPE_PUBLISHER_PAID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypePublisherPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypePublisherPaid;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Advertiser.status
 
 /** Value: "APPROVED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_Approved;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_Approved;
 /** Value: "ON_HOLD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_OnHold;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_Status_OnHold;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ConversionError.code
 
 /** Value: "INTERNAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_Internal;
 /** Value: "INVALID_ARGUMENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_InvalidArgument;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_InvalidArgument;
 /** Value: "NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_NotFound;
 /** Value: "PERMISSION_DENIED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_PermissionDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.artworkType
 
 /** Value: "ARTWORK_TYPE_FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeFlash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeFlash;
 /** Value: "ARTWORK_TYPE_HTML5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeHtml5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeHtml5;
 /** Value: "ARTWORK_TYPE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeImage;
 /** Value: "ARTWORK_TYPE_MIXED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.authoringSource
 
 /** Value: "CREATIVE_AUTHORING_SOURCE_DBM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm;
 /** Value: "CREATIVE_AUTHORING_SOURCE_DCM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm;
 /** Value: "CREATIVE_AUTHORING_SOURCE_STUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.authoringTool
 
 /** Value: "NINJA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringTool_Ninja;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringTool_Ninja;
 /** Value: "SWIFFY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringTool_Swiffy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringTool_Swiffy;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.backupImageFeatures
 
 /** Value: "APPLICATION_CACHE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_ApplicationCache;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_ApplicationCache;
 /** Value: "AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Audio;
 /** Value: "CANVAS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Canvas;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Canvas;
 /** Value: "CANVAS_TEXT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CanvasText;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CanvasText;
 /** Value: "CSS_ANIMATIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssAnimations;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssAnimations;
 /** Value: "CSS_BACKGROUND_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBackgroundSize;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBackgroundSize;
 /** Value: "CSS_BORDER_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBorderImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBorderImage;
 /** Value: "CSS_BORDER_RADIUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBorderRadius;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBorderRadius;
 /** Value: "CSS_BOX_SHADOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBoxShadow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssBoxShadow;
 /** Value: "CSS_COLUMNS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssColumns;
 /** Value: "CSS_FLEX_BOX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssFlexBox;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssFlexBox;
 /** Value: "CSS_FONT_FACE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssFontFace;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssFontFace;
 /** Value: "CSS_GENERATED_CONTENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssGeneratedContent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssGeneratedContent;
 /** Value: "CSS_GRADIENTS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssGradients;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssGradients;
 /** Value: "CSS_HSLA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssHsla;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssHsla;
 /** Value: "CSS_MULTIPLE_BGS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssMultipleBgs;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssMultipleBgs;
 /** Value: "CSS_OPACITY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssOpacity;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssOpacity;
 /** Value: "CSS_REFLECTIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssReflections;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssReflections;
 /** Value: "CSS_RGBA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssRgba;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssRgba;
 /** Value: "CSS_TEXT_SHADOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTextShadow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTextShadow;
 /** Value: "CSS_TRANSFORMS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTransforms;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTransforms;
 /** Value: "CSS_TRANSFORMS3D" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTransforms3d;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTransforms3d;
 /** Value: "CSS_TRANSITIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTransitions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_CssTransitions;
 /** Value: "DRAG_AND_DROP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_DragAndDrop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_DragAndDrop;
 /** Value: "GEO_LOCATION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_GeoLocation;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_GeoLocation;
 /** Value: "HASH_CHANGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_HashChange;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_HashChange;
 /** Value: "HISTORY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_History;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_History;
 /** Value: "INDEXED_DB" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_IndexedDb;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_IndexedDb;
 /** Value: "INLINE_SVG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InlineSvg;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InlineSvg;
 /** Value: "INPUT_ATTR_AUTOCOMPLETE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrAutocomplete;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrAutocomplete;
 /** Value: "INPUT_ATTR_AUTOFOCUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrAutofocus;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrAutofocus;
 /** Value: "INPUT_ATTR_LIST" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrList;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrList;
 /** Value: "INPUT_ATTR_MAX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrMax;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrMax;
 /** Value: "INPUT_ATTR_MIN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrMin;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrMin;
 /** Value: "INPUT_ATTR_MULTIPLE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrMultiple;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrMultiple;
 /** Value: "INPUT_ATTR_PATTERN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrPattern;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrPattern;
 /** Value: "INPUT_ATTR_PLACEHOLDER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrPlaceholder;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrPlaceholder;
 /** Value: "INPUT_ATTR_REQUIRED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrRequired;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrRequired;
 /** Value: "INPUT_ATTR_STEP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrStep;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputAttrStep;
 /** Value: "INPUT_TYPE_COLOR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeColor;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeColor;
 /** Value: "INPUT_TYPE_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeDate;
 /** Value: "INPUT_TYPE_DATETIME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeDatetime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeDatetime;
 /** Value: "INPUT_TYPE_DATETIME_LOCAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeDatetimeLocal;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeDatetimeLocal;
 /** Value: "INPUT_TYPE_EMAIL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeEmail;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeEmail;
 /** Value: "INPUT_TYPE_MONTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeMonth;
 /** Value: "INPUT_TYPE_NUMBER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeNumber;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeNumber;
 /** Value: "INPUT_TYPE_RANGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeRange;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeRange;
 /** Value: "INPUT_TYPE_SEARCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeSearch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeSearch;
 /** Value: "INPUT_TYPE_TEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeTel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeTel;
 /** Value: "INPUT_TYPE_TIME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeTime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeTime;
 /** Value: "INPUT_TYPE_URL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeUrl;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeUrl;
 /** Value: "INPUT_TYPE_WEEK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeWeek;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_InputTypeWeek;
 /** Value: "LOCAL_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_LocalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_LocalStorage;
 /** Value: "POST_MESSAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_PostMessage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_PostMessage;
 /** Value: "SESSION_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SessionStorage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SessionStorage;
 /** Value: "SMIL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Smil;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Smil;
 /** Value: "SVG_CLIP_PATHS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgClipPaths;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgClipPaths;
 /** Value: "SVG_FE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgFeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgFeImage;
 /** Value: "SVG_FILTERS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgFilters;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgFilters;
 /** Value: "SVG_HREF" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgHref;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_SvgHref;
 /** Value: "TOUCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Touch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Touch;
 /** Value: "VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Video;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Video;
 /** Value: "WEBGL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Webgl;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_Webgl;
 /** Value: "WEB_SOCKETS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_WebSockets;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_WebSockets;
 /** Value: "WEB_SQL_DATABASE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_WebSqlDatabase;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_WebSqlDatabase;
 /** Value: "WEB_WORKERS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_WebWorkers;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_BackupImageFeatures_WebWorkers;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.compatibility
 
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_App;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_App;
 /** Value: "APP_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_AppInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_Display;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_DisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_DisplayInterstitial;
 /** Value: "IN_STREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Compatibility_InStreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.type
 
 /** Value: "BRAND_SAFE_DEFAULT_INSTREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_BrandSafeDefaultInstreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_BrandSafeDefaultInstreamVideo;
 /** Value: "CUSTOM_DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_CustomDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_CustomDisplay;
 /** Value: "CUSTOM_DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_CustomDisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_CustomDisplayInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Display;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Display;
 /** Value: "DISPLAY_IMAGE_GALLERY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_DisplayImageGallery;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_DisplayImageGallery;
 /** Value: "DISPLAY_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_DisplayRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_DisplayRedirect;
 /** Value: "FLASH_INPAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_FlashInpage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_FlashInpage;
 /** Value: "HTML5_BANNER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Html5Banner;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Html5Banner;
 /** Value: "IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Image;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_Image;
 /** Value: "INSTREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamAudio;
 /** Value: "INSTREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamVideo;
 /** Value: "INSTREAM_VIDEO_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamVideoRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InstreamVideoRedirect;
 /** Value: "INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InternalRedirect;
 /** Value: "INTERSTITIAL_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InterstitialInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_InterstitialInternalRedirect;
 /** Value: "RICH_MEDIA_DISPLAY_BANNER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayBanner;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayBanner;
 /** Value: "RICH_MEDIA_DISPLAY_EXPANDING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayExpanding;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayExpanding;
 /** Value: "RICH_MEDIA_DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayInterstitial;
 /** Value: "RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayMultiFloatingInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaDisplayMultiFloatingInterstitial;
 /** Value: "RICH_MEDIA_IM_EXPAND" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaImExpand;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaImExpand;
 /** Value: "RICH_MEDIA_INPAGE_FLOATING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaInpageFloating;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaInpageFloating;
 /** Value: "RICH_MEDIA_MOBILE_IN_APP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaMobileInApp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaMobileInApp;
 /** Value: "RICH_MEDIA_PEEL_DOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaPeelDown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_RichMediaPeelDown;
 /** Value: "TRACKING_TEXT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_TrackingText;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_TrackingText;
 /** Value: "VPAID_LINEAR_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_VpaidLinearVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_VpaidLinearVideo;
 /** Value: "VPAID_NON_LINEAR_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Creative_Type_VpaidNonLinearVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_Type_VpaidNonLinearVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.alignment
 
 /** Value: "ALIGNMENT_BOTTOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentBottom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentBottom;
 /** Value: "ALIGNMENT_LEFT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentLeft;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentLeft;
 /** Value: "ALIGNMENT_RIGHT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentRight;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentRight;
 /** Value: "ALIGNMENT_TOP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentTop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Alignment_AlignmentTop;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.artworkType
 
 /** Value: "ARTWORK_TYPE_FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeFlash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeFlash;
 /** Value: "ARTWORK_TYPE_HTML5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeHtml5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeHtml5;
 /** Value: "ARTWORK_TYPE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeImage;
 /** Value: "ARTWORK_TYPE_MIXED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeMixed;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ArtworkType_ArtworkTypeMixed;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.childAssetType
 
 /** Value: "CHILD_ASSET_TYPE_DATA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeData;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeData;
 /** Value: "CHILD_ASSET_TYPE_FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeFlash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeFlash;
 /** Value: "CHILD_ASSET_TYPE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeImage;
 /** Value: "CHILD_ASSET_TYPE_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_ChildAssetType_ChildAssetTypeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.detectedFeatures
 
 /** Value: "APPLICATION_CACHE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_ApplicationCache;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_ApplicationCache;
 /** Value: "AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Audio;
 /** Value: "CANVAS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Canvas;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Canvas;
 /** Value: "CANVAS_TEXT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CanvasText;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CanvasText;
 /** Value: "CSS_ANIMATIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssAnimations;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssAnimations;
 /** Value: "CSS_BACKGROUND_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBackgroundSize;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBackgroundSize;
 /** Value: "CSS_BORDER_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBorderImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBorderImage;
 /** Value: "CSS_BORDER_RADIUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBorderRadius;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBorderRadius;
 /** Value: "CSS_BOX_SHADOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBoxShadow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssBoxShadow;
 /** Value: "CSS_COLUMNS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssColumns;
 /** Value: "CSS_FLEX_BOX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssFlexBox;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssFlexBox;
 /** Value: "CSS_FONT_FACE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssFontFace;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssFontFace;
 /** Value: "CSS_GENERATED_CONTENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssGeneratedContent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssGeneratedContent;
 /** Value: "CSS_GRADIENTS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssGradients;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssGradients;
 /** Value: "CSS_HSLA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssHsla;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssHsla;
 /** Value: "CSS_MULTIPLE_BGS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssMultipleBgs;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssMultipleBgs;
 /** Value: "CSS_OPACITY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssOpacity;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssOpacity;
 /** Value: "CSS_REFLECTIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssReflections;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssReflections;
 /** Value: "CSS_RGBA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssRgba;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssRgba;
 /** Value: "CSS_TEXT_SHADOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTextShadow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTextShadow;
 /** Value: "CSS_TRANSFORMS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTransforms;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTransforms;
 /** Value: "CSS_TRANSFORMS3D" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTransforms3d;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTransforms3d;
 /** Value: "CSS_TRANSITIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTransitions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_CssTransitions;
 /** Value: "DRAG_AND_DROP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_DragAndDrop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_DragAndDrop;
 /** Value: "GEO_LOCATION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_GeoLocation;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_GeoLocation;
 /** Value: "HASH_CHANGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_HashChange;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_HashChange;
 /** Value: "HISTORY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_History;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_History;
 /** Value: "INDEXED_DB" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_IndexedDb;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_IndexedDb;
 /** Value: "INLINE_SVG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InlineSvg;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InlineSvg;
 /** Value: "INPUT_ATTR_AUTOCOMPLETE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrAutocomplete;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrAutocomplete;
 /** Value: "INPUT_ATTR_AUTOFOCUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrAutofocus;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrAutofocus;
 /** Value: "INPUT_ATTR_LIST" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrList;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrList;
 /** Value: "INPUT_ATTR_MAX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrMax;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrMax;
 /** Value: "INPUT_ATTR_MIN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrMin;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrMin;
 /** Value: "INPUT_ATTR_MULTIPLE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrMultiple;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrMultiple;
 /** Value: "INPUT_ATTR_PATTERN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrPattern;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrPattern;
 /** Value: "INPUT_ATTR_PLACEHOLDER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrPlaceholder;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrPlaceholder;
 /** Value: "INPUT_ATTR_REQUIRED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrRequired;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrRequired;
 /** Value: "INPUT_ATTR_STEP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrStep;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputAttrStep;
 /** Value: "INPUT_TYPE_COLOR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeColor;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeColor;
 /** Value: "INPUT_TYPE_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeDate;
 /** Value: "INPUT_TYPE_DATETIME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeDatetime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeDatetime;
 /** Value: "INPUT_TYPE_DATETIME_LOCAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeDatetimeLocal;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeDatetimeLocal;
 /** Value: "INPUT_TYPE_EMAIL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeEmail;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeEmail;
 /** Value: "INPUT_TYPE_MONTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeMonth;
 /** Value: "INPUT_TYPE_NUMBER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeNumber;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeNumber;
 /** Value: "INPUT_TYPE_RANGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeRange;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeRange;
 /** Value: "INPUT_TYPE_SEARCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeSearch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeSearch;
 /** Value: "INPUT_TYPE_TEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeTel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeTel;
 /** Value: "INPUT_TYPE_TIME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeTime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeTime;
 /** Value: "INPUT_TYPE_URL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeUrl;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeUrl;
 /** Value: "INPUT_TYPE_WEEK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeWeek;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_InputTypeWeek;
 /** Value: "LOCAL_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_LocalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_LocalStorage;
 /** Value: "POST_MESSAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_PostMessage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_PostMessage;
 /** Value: "SESSION_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SessionStorage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SessionStorage;
 /** Value: "SMIL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Smil;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Smil;
 /** Value: "SVG_CLIP_PATHS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgClipPaths;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgClipPaths;
 /** Value: "SVG_FE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgFeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgFeImage;
 /** Value: "SVG_FILTERS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgFilters;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgFilters;
 /** Value: "SVG_HREF" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgHref;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_SvgHref;
 /** Value: "TOUCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Touch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Touch;
 /** Value: "VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Video;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Video;
 /** Value: "WEBGL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Webgl;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_Webgl;
 /** Value: "WEB_SOCKETS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_WebSockets;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_WebSockets;
 /** Value: "WEB_SQL_DATABASE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_WebSqlDatabase;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_WebSqlDatabase;
 /** Value: "WEB_WORKERS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_WebWorkers;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DetectedFeatures_WebWorkers;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.displayType
 
 /** Value: "ASSET_DISPLAY_TYPE_BACKDROP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeBackdrop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeBackdrop;
 /** Value: "ASSET_DISPLAY_TYPE_EXPANDING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeExpanding;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeExpanding;
 /** Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlash;
 /** Value: "ASSET_DISPLAY_TYPE_FLASH_IN_FLASH_EXPANDING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlashExpanding;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFlashInFlashExpanding;
 /** Value: "ASSET_DISPLAY_TYPE_FLOATING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFloating;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeFloating;
 /** Value: "ASSET_DISPLAY_TYPE_INPAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeInpage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeInpage;
 /** Value: "ASSET_DISPLAY_TYPE_OVERLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeOverlay;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeOverlay;
 /** Value: "ASSET_DISPLAY_TYPE_PEEL_DOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypePeelDown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypePeelDown;
 /** Value: "ASSET_DISPLAY_TYPE_VPAID_LINEAR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidLinear;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidLinear;
 /** Value: "ASSET_DISPLAY_TYPE_VPAID_NON_LINEAR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidNonLinear;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DisplayType_AssetDisplayTypeVpaidNonLinear;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.durationType
 
 /** Value: "ASSET_DURATION_TYPE_AUTO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeAuto;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeAuto;
 /** Value: "ASSET_DURATION_TYPE_CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeCustom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeCustom;
 /** Value: "ASSET_DURATION_TYPE_NONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeNone;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_DurationType_AssetDurationTypeNone;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.orientation
 
 /** Value: "LANDSCAPE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Landscape;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Landscape;
 /** Value: "PORTRAIT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Portrait;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Portrait;
 /** Value: "SQUARE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Square;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Orientation_Square;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.positionLeftUnit
 
 /** Value: "OFFSET_UNIT_PERCENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPercent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPercent;
 /** Value: "OFFSET_UNIT_PIXEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixel;
 /** Value: "OFFSET_UNIT_PIXEL_FROM_CENTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixelFromCenter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionLeftUnit_OffsetUnitPixelFromCenter;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.positionTopUnit
 
 /** Value: "OFFSET_UNIT_PERCENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPercent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPercent;
 /** Value: "OFFSET_UNIT_PIXEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixel;
 /** Value: "OFFSET_UNIT_PIXEL_FROM_CENTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixelFromCenter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_PositionTopUnit_OffsetUnitPixelFromCenter;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.role
 
 /** Value: "ADDITIONAL_FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AdditionalFlash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AdditionalFlash;
 /** Value: "ADDITIONAL_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AdditionalImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AdditionalImage;
 /** Value: "ALTERNATE_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AlternateVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_AlternateVideo;
 /** Value: "BACKUP_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_BackupImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_BackupImage;
 /** Value: "OTHER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Other;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Other;
 /** Value: "PARENT_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentAudio;
 /** Value: "PARENT_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_ParentVideo;
 /** Value: "PRIMARY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Primary;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_Primary;
 /** Value: "TRANSCODED_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_TranscodedAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_TranscodedAudio;
 /** Value: "TRANSCODED_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_TranscodedVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_Role_TranscodedVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.startTimeType
 
 /** Value: "ASSET_START_TIME_TYPE_CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeCustom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeCustom;
 /** Value: "ASSET_START_TIME_TYPE_NONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeNone;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_StartTimeType_AssetStartTimeTypeNone;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAsset.windowMode
 
 /** Value: "OPAQUE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Opaque;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Opaque;
 /** Value: "TRANSPARENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Transparent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Transparent;
 /** Value: "WINDOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Window;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAsset_WindowMode_Window;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAssetId.type
 
 /** Value: "AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Audio;
 /** Value: "FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Flash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Flash;
 /** Value: "HTML" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Html;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Html;
 /** Value: "HTML_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_HtmlImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_HtmlImage;
 /** Value: "IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Image;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Image;
 /** Value: "VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Video;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetId_Type_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAssetMetadata.detectedFeatures
 
 /** Value: "APPLICATION_CACHE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_ApplicationCache;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_ApplicationCache;
 /** Value: "AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Audio;
 /** Value: "CANVAS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Canvas;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Canvas;
 /** Value: "CANVAS_TEXT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CanvasText;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CanvasText;
 /** Value: "CSS_ANIMATIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssAnimations;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssAnimations;
 /** Value: "CSS_BACKGROUND_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBackgroundSize;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBackgroundSize;
 /** Value: "CSS_BORDER_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBorderImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBorderImage;
 /** Value: "CSS_BORDER_RADIUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBorderRadius;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBorderRadius;
 /** Value: "CSS_BOX_SHADOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBoxShadow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssBoxShadow;
 /** Value: "CSS_COLUMNS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssColumns;
 /** Value: "CSS_FLEX_BOX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssFlexBox;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssFlexBox;
 /** Value: "CSS_FONT_FACE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssFontFace;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssFontFace;
 /** Value: "CSS_GENERATED_CONTENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssGeneratedContent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssGeneratedContent;
 /** Value: "CSS_GRADIENTS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssGradients;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssGradients;
 /** Value: "CSS_HSLA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssHsla;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssHsla;
 /** Value: "CSS_MULTIPLE_BGS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssMultipleBgs;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssMultipleBgs;
 /** Value: "CSS_OPACITY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssOpacity;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssOpacity;
 /** Value: "CSS_REFLECTIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssReflections;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssReflections;
 /** Value: "CSS_RGBA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssRgba;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssRgba;
 /** Value: "CSS_TEXT_SHADOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTextShadow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTextShadow;
 /** Value: "CSS_TRANSFORMS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTransforms;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTransforms;
 /** Value: "CSS_TRANSFORMS3D" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTransforms3d;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTransforms3d;
 /** Value: "CSS_TRANSITIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTransitions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_CssTransitions;
 /** Value: "DRAG_AND_DROP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_DragAndDrop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_DragAndDrop;
 /** Value: "GEO_LOCATION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_GeoLocation;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_GeoLocation;
 /** Value: "HASH_CHANGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_HashChange;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_HashChange;
 /** Value: "HISTORY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_History;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_History;
 /** Value: "INDEXED_DB" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_IndexedDb;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_IndexedDb;
 /** Value: "INLINE_SVG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InlineSvg;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InlineSvg;
 /** Value: "INPUT_ATTR_AUTOCOMPLETE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrAutocomplete;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrAutocomplete;
 /** Value: "INPUT_ATTR_AUTOFOCUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrAutofocus;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrAutofocus;
 /** Value: "INPUT_ATTR_LIST" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrList;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrList;
 /** Value: "INPUT_ATTR_MAX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrMax;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrMax;
 /** Value: "INPUT_ATTR_MIN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrMin;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrMin;
 /** Value: "INPUT_ATTR_MULTIPLE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrMultiple;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrMultiple;
 /** Value: "INPUT_ATTR_PATTERN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrPattern;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrPattern;
 /** Value: "INPUT_ATTR_PLACEHOLDER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrPlaceholder;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrPlaceholder;
 /** Value: "INPUT_ATTR_REQUIRED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrRequired;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrRequired;
 /** Value: "INPUT_ATTR_STEP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrStep;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputAttrStep;
 /** Value: "INPUT_TYPE_COLOR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeColor;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeColor;
 /** Value: "INPUT_TYPE_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeDate;
 /** Value: "INPUT_TYPE_DATETIME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeDatetime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeDatetime;
 /** Value: "INPUT_TYPE_DATETIME_LOCAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeDatetimeLocal;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeDatetimeLocal;
 /** Value: "INPUT_TYPE_EMAIL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeEmail;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeEmail;
 /** Value: "INPUT_TYPE_MONTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeMonth;
 /** Value: "INPUT_TYPE_NUMBER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeNumber;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeNumber;
 /** Value: "INPUT_TYPE_RANGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeRange;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeRange;
 /** Value: "INPUT_TYPE_SEARCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeSearch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeSearch;
 /** Value: "INPUT_TYPE_TEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeTel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeTel;
 /** Value: "INPUT_TYPE_TIME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeTime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeTime;
 /** Value: "INPUT_TYPE_URL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeUrl;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeUrl;
 /** Value: "INPUT_TYPE_WEEK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeWeek;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_InputTypeWeek;
 /** Value: "LOCAL_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_LocalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_LocalStorage;
 /** Value: "POST_MESSAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_PostMessage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_PostMessage;
 /** Value: "SESSION_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SessionStorage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SessionStorage;
 /** Value: "SMIL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Smil;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Smil;
 /** Value: "SVG_CLIP_PATHS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgClipPaths;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgClipPaths;
 /** Value: "SVG_FE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgFeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgFeImage;
 /** Value: "SVG_FILTERS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgFilters;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgFilters;
 /** Value: "SVG_HREF" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgHref;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_SvgHref;
 /** Value: "TOUCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Touch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Touch;
 /** Value: "VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Video;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Video;
 /** Value: "WEBGL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Webgl;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_Webgl;
 /** Value: "WEB_SOCKETS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_WebSockets;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_WebSockets;
 /** Value: "WEB_SQL_DATABASE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_WebSqlDatabase;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_WebSqlDatabase;
 /** Value: "WEB_WORKERS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_WebWorkers;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_DetectedFeatures_WebWorkers;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeAssetMetadata.warnedValidationRules
 
 /** Value: "ADMOB_REFERENCED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AdmobReferenced;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AdmobReferenced;
 /** Value: "ASSET_FORMAT_UNSUPPORTED_DCM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AssetFormatUnsupportedDcm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AssetFormatUnsupportedDcm;
 /** Value: "ASSET_INVALID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AssetInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_AssetInvalid;
 /** Value: "CLICK_TAG_HARD_CODED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagHardCoded;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagHardCoded;
 /** Value: "CLICK_TAG_IN_GWD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInGwd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInGwd;
 /** Value: "CLICK_TAG_INVALID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInvalid;
 /** Value: "CLICK_TAG_MISSING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagMissing;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagMissing;
 /** Value: "CLICK_TAG_MORE_THAN_ONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagMoreThanOne;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagMoreThanOne;
 /** Value: "CLICK_TAG_NON_TOP_LEVEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagNonTopLevel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagNonTopLevel;
 /** Value: "COMPONENT_UNSUPPORTED_DCM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ComponentUnsupportedDcm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ComponentUnsupportedDcm;
 /** Value: "ENABLER_UNSUPPORTED_METHOD_DCM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_EnablerUnsupportedMethodDcm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_EnablerUnsupportedMethodDcm;
 /** Value: "EXTERNAL_FILE_REFERENCED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ExternalFileReferenced;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ExternalFileReferenced;
 /** Value: "FILE_DETAIL_EMPTY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_FileDetailEmpty;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_FileDetailEmpty;
 /** Value: "FILE_TYPE_INVALID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_FileTypeInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_FileTypeInvalid;
 /** Value: "GWD_PROPERTIES_INVALID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_GwdPropertiesInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_GwdPropertiesInvalid;
 /** Value: "HTML5_FEATURE_UNSUPPORTED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_Html5FeatureUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_Html5FeatureUnsupported;
 /** Value: "LINKED_FILE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_LinkedFileNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_LinkedFileNotFound;
 /** Value: "MAX_FLASH_VERSION_11" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MaxFlashVersion11;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MaxFlashVersion11;
 /** Value: "MRAID_REFERENCED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MraidReferenced;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_MraidReferenced;
 /** Value: "NOT_SSL_COMPLIANT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_NotSslCompliant;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_NotSslCompliant;
 /** Value: "ORPHANED_ASSET" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_OrphanedAsset;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_OrphanedAsset;
 /** Value: "PRIMARY_HTML_MISSING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_PrimaryHtmlMissing;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_PrimaryHtmlMissing;
 /** Value: "SVG_INVALID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_SvgInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_SvgInvalid;
 /** Value: "ZIP_INVALID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ZipInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ZipInvalid;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeCustomEvent.advertiserCustomEventType
 
 /** Value: "ADVERTISER_EVENT_COUNTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_AdvertiserCustomEventType_AdvertiserEventCounter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_AdvertiserCustomEventType_AdvertiserEventCounter;
 /** Value: "ADVERTISER_EVENT_EXIT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_AdvertiserCustomEventType_AdvertiserEventExit;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_AdvertiserCustomEventType_AdvertiserEventExit;
 /** Value: "ADVERTISER_EVENT_TIMER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_AdvertiserCustomEventType_AdvertiserEventTimer;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_AdvertiserCustomEventType_AdvertiserEventTimer;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeCustomEvent.artworkType
 
 /** Value: "ARTWORK_TYPE_FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeFlash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeFlash;
 /** Value: "ARTWORK_TYPE_HTML5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeHtml5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeHtml5;
 /** Value: "ARTWORK_TYPE_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeImage;
 /** Value: "ARTWORK_TYPE_MIXED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeMixed;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_ArtworkType_ArtworkTypeMixed;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeCustomEvent.targetType
 
 /** Value: "TARGET_BLANK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetBlank;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetBlank;
 /** Value: "TARGET_PARENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetParent;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetParent;
 /** Value: "TARGET_POPUP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetPopup;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetPopup;
 /** Value: "TARGET_SELF" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetSelf;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetSelf;
 /** Value: "TARGET_TOP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetTop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeCustomEvent_TargetType_TargetTop;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeGroupAssignment.creativeGroupNumber
 
 /** Value: "CREATIVE_GROUP_ONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeGroupAssignment_CreativeGroupNumber_CreativeGroupOne;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeGroupAssignment_CreativeGroupNumber_CreativeGroupOne;
 /** Value: "CREATIVE_GROUP_TWO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeGroupAssignment_CreativeGroupNumber_CreativeGroupTwo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeGroupAssignment_CreativeGroupNumber_CreativeGroupTwo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeOptimizationConfiguration.optimizationModel
 
 /** Value: "CLICK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_Click;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_Click;
 /** Value: "POST_CLICK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_PostClick;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_PostClick;
 /** Value: "POST_CLICK_AND_IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_PostClickAndImpression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_PostClickAndImpression;
 /** Value: "POST_IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_PostImpression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_PostImpression;
 /** Value: "VIDEO_COMPLETION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_VideoCompletion;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeOptimizationConfiguration_OptimizationModel_VideoCompletion;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeRotation.type
 
 /** Value: "CREATIVE_ROTATION_TYPE_RANDOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeRandom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeRandom;
 /** Value: "CREATIVE_ROTATION_TYPE_SEQUENTIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeSequential;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_Type_CreativeRotationTypeSequential;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CreativeRotation.weightCalculationStrategy
 
 /** Value: "WEIGHT_STRATEGY_CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyCustom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyCustom;
 /** Value: "WEIGHT_STRATEGY_EQUAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyEqual;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyEqual;
 /** Value: "WEIGHT_STRATEGY_HIGHEST_CTR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyHighestCtr;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyHighestCtr;
 /** Value: "WEIGHT_STRATEGY_OPTIMIZED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CustomEvent.eventType
 
 /** Value: "ANNOTATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Annotate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Annotate;
 /** Value: "INSERT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Insert;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Insert;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CustomEventError.code
 
 /** Value: "INTERNAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Internal;
 /** Value: "INVALID_ARGUMENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_InvalidArgument;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_InvalidArgument;
 /** Value: "NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_NotFound;
 /** Value: "PERMISSION_DENIED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_PermissionDenied;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CustomEventInsert.insertEventType
 
 /** Value: "CLICK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Click;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Click;
 /** Value: "IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Impression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Impression;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CustomFloodlightVariable.type
 
 /** Value: "U1" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U1;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U1;
 /** Value: "U10" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U10;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U10;
 /** Value: "U100" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U100;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U100;
 /** Value: "U11" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U11;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U11;
 /** Value: "U12" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U12;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U12;
 /** Value: "U13" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U13;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U13;
 /** Value: "U14" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U14;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U14;
 /** Value: "U15" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U15;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U15;
 /** Value: "U16" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U16;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U16;
 /** Value: "U17" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U17;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U17;
 /** Value: "U18" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U18;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U18;
 /** Value: "U19" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U19;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U19;
 /** Value: "U2" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U2;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U2;
 /** Value: "U20" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U20;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U20;
 /** Value: "U21" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U21;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U21;
 /** Value: "U22" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U22;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U22;
 /** Value: "U23" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U23;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U23;
 /** Value: "U24" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U24;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U24;
 /** Value: "U25" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U25;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U25;
 /** Value: "U26" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U26;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U26;
 /** Value: "U27" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U27;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U27;
 /** Value: "U28" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U28;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U28;
 /** Value: "U29" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U29;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U29;
 /** Value: "U3" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U3;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U3;
 /** Value: "U30" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U30;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U30;
 /** Value: "U31" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U31;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U31;
 /** Value: "U32" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U32;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U32;
 /** Value: "U33" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U33;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U33;
 /** Value: "U34" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U34;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U34;
 /** Value: "U35" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U35;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U35;
 /** Value: "U36" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U36;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U36;
 /** Value: "U37" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U37;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U37;
 /** Value: "U38" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U38;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U38;
 /** Value: "U39" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U39;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U39;
 /** Value: "U4" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U4;
 /** Value: "U40" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U40;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U40;
 /** Value: "U41" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U41;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U41;
 /** Value: "U42" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U42;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U42;
 /** Value: "U43" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U43;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U43;
 /** Value: "U44" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U44;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U44;
 /** Value: "U45" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U45;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U45;
 /** Value: "U46" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U46;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U46;
 /** Value: "U47" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U47;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U47;
 /** Value: "U48" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U48;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U48;
 /** Value: "U49" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U49;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U49;
 /** Value: "U5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U5;
 /** Value: "U50" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U50;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U50;
 /** Value: "U51" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U51;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U51;
 /** Value: "U52" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U52;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U52;
 /** Value: "U53" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U53;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U53;
 /** Value: "U54" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U54;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U54;
 /** Value: "U55" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U55;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U55;
 /** Value: "U56" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U56;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U56;
 /** Value: "U57" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U57;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U57;
 /** Value: "U58" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U58;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U58;
 /** Value: "U59" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U59;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U59;
 /** Value: "U6" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U6;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U6;
 /** Value: "U60" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U60;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U60;
 /** Value: "U61" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U61;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U61;
 /** Value: "U62" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U62;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U62;
 /** Value: "U63" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U63;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U63;
 /** Value: "U64" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U64;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U64;
 /** Value: "U65" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U65;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U65;
 /** Value: "U66" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U66;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U66;
 /** Value: "U67" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U67;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U67;
 /** Value: "U68" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U68;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U68;
 /** Value: "U69" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U69;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U69;
 /** Value: "U7" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U7;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U7;
 /** Value: "U70" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U70;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U70;
 /** Value: "U71" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U71;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U71;
 /** Value: "U72" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U72;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U72;
 /** Value: "U73" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U73;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U73;
 /** Value: "U74" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U74;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U74;
 /** Value: "U75" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U75;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U75;
 /** Value: "U76" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U76;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U76;
 /** Value: "U77" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U77;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U77;
 /** Value: "U78" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U78;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U78;
 /** Value: "U79" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U79;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U79;
 /** Value: "U8" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U8;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U8;
 /** Value: "U80" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U80;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U80;
 /** Value: "U81" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U81;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U81;
 /** Value: "U82" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U82;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U82;
 /** Value: "U83" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U83;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U83;
 /** Value: "U84" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U84;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U84;
 /** Value: "U85" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U85;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U85;
 /** Value: "U86" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U86;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U86;
 /** Value: "U87" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U87;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U87;
 /** Value: "U88" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U88;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U88;
 /** Value: "U89" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U89;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U89;
 /** Value: "U9" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U9;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U9;
 /** Value: "U90" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U90;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U90;
 /** Value: "U91" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U91;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U91;
 /** Value: "U92" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U92;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U92;
 /** Value: "U93" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U93;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U93;
 /** Value: "U94" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U94;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U94;
 /** Value: "U95" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U95;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U95;
 /** Value: "U96" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U96;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U96;
 /** Value: "U97" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U97;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U97;
 /** Value: "U98" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U98;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U98;
 /** Value: "U99" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U99;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomFloodlightVariable_Type_U99;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DateRange.relativeDateRange
 
 /** Value: "LAST_14_DAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last14Days;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last14Days;
 /** Value: "LAST_24_MONTHS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last24Months;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last24Months;
 /** Value: "LAST_30_DAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last30Days;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last30Days;
 /** Value: "LAST_365_DAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last365Days;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last365Days;
 /** Value: "LAST_60_DAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last60Days;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last60Days;
 /** Value: "LAST_7_DAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last7Days;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last7Days;
 /** Value: "LAST_90_DAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last90Days;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Last90Days;
 /** Value: "MONTH_TO_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_MonthToDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_MonthToDate;
 /** Value: "PREVIOUS_MONTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousMonth;
 /** Value: "PREVIOUS_QUARTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousQuarter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousQuarter;
 /** Value: "PREVIOUS_WEEK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousWeek;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousWeek;
 /** Value: "PREVIOUS_YEAR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousYear;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_PreviousYear;
 /** Value: "QUARTER_TO_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_QuarterToDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_QuarterToDate;
 /** Value: "TODAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Today;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Today;
 /** Value: "WEEK_TO_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_WeekToDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_WeekToDate;
 /** Value: "YEAR_TO_DATE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_YearToDate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_YearToDate;
 /** Value: "YESTERDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Yesterday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DateRange_RelativeDateRange_Yesterday;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DayPartTargeting.daysOfWeek
 
 /** Value: "FRIDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Friday;
 /** Value: "MONDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Monday;
 /** Value: "SATURDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Saturday;
 /** Value: "SUNDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Sunday;
 /** Value: "THURSDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Thursday;
 /** Value: "TUESDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Tuesday;
 /** Value: "WEDNESDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DayPartTargeting_DaysOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DeliverySchedule.priority
 
 /** Value: "AD_PRIORITY_01" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority01;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority01;
 /** Value: "AD_PRIORITY_02" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority02;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority02;
 /** Value: "AD_PRIORITY_03" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority03;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority03;
 /** Value: "AD_PRIORITY_04" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority04;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority04;
 /** Value: "AD_PRIORITY_05" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority05;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority05;
 /** Value: "AD_PRIORITY_06" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority06;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority06;
 /** Value: "AD_PRIORITY_07" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority07;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority07;
 /** Value: "AD_PRIORITY_08" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority08;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority08;
 /** Value: "AD_PRIORITY_09" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority09;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority09;
 /** Value: "AD_PRIORITY_10" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority10;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority10;
 /** Value: "AD_PRIORITY_11" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority11;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority11;
 /** Value: "AD_PRIORITY_12" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority12;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority12;
 /** Value: "AD_PRIORITY_13" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority13;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority13;
 /** Value: "AD_PRIORITY_14" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority14;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority14;
 /** Value: "AD_PRIORITY_15" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority15;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority15;
 /** Value: "AD_PRIORITY_16" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority16;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DeliverySchedule_Priority_AdPriority16;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DimensionValue.matchType
 
 /** Value: "BEGINS_WITH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_BeginsWith;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_BeginsWith;
 /** Value: "CONTAINS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_Contains;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_Contains;
 /** Value: "EXACT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_Exact;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_Exact;
 /** Value: "WILDCARD_EXPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_WildcardExpression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DimensionValue_MatchType_WildcardExpression;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DirectorySite.inpageTagFormats
 
 /** Value: "IFRAME_JAVASCRIPT_INPAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_IframeJavascriptInpage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_IframeJavascriptInpage;
 /** Value: "INTERNAL_REDIRECT_INPAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_InternalRedirectInpage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_InternalRedirectInpage;
 /** Value: "JAVASCRIPT_INPAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_JavascriptInpage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_JavascriptInpage;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InpageTagFormats_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DirectorySite.interstitialTagFormats
 
 /** Value: "IFRAME_JAVASCRIPT_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_IframeJavascriptInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_IframeJavascriptInterstitial;
 /** Value: "INTERNAL_REDIRECT_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_InternalRedirectInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_InternalRedirectInterstitial;
 /** Value: "JAVASCRIPT_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_JavascriptInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_JavascriptInterstitial;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_DynamicTargetingKey.objectType
 
 /** Value: "OBJECT_AD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAd;
 /** Value: "OBJECT_ADVERTISER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAdvertiser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAdvertiser;
 /** Value: "OBJECT_CREATIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectCreative;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectCreative;
 /** Value: "OBJECT_PLACEMENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectPlacement;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectPlacement;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EncryptionInfo.encryptionEntityType
 
 /** Value: "ADWORDS_CUSTOMER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_AdwordsCustomer;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_AdwordsCustomer;
 /** Value: "DBM_ADVERTISER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DbmAdvertiser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DbmAdvertiser;
 /** Value: "DBM_PARTNER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DbmPartner;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DbmPartner;
 /** Value: "DCM_ACCOUNT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAccount;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAccount;
 /** Value: "DCM_ADVERTISER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAdvertiser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DcmAdvertiser;
 /** Value: "DFP_NETWORK_CODE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DfpNetworkCode;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_DfpNetworkCode;
 /** Value: "ENCRYPTION_ENTITY_TYPE_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_EncryptionEntityTypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionEntityType_EncryptionEntityTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EncryptionInfo.encryptionSource
 
 /** Value: "AD_SERVING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSource_AdServing;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSource_AdServing;
 /** Value: "DATA_TRANSFER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSource_DataTransfer;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSource_DataTransfer;
 /** Value: "ENCRYPTION_SCOPE_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSource_EncryptionScopeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSource_EncryptionScopeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.siteFilterType
 
 /** Value: "BLACKLIST" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Blacklist;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Blacklist;
 /** Value: "WHITELIST" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Whitelist;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Whitelist;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.status
 
 /** Value: "DISABLED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Status_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Status_Disabled;
 /** Value: "ENABLED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Status_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Status_Enabled;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.type
 
 /** Value: "CLICK_THROUGH_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ClickThroughEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ClickThroughEventTag;
 /** Value: "IMPRESSION_IMAGE_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag;
 /** Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.cacheBustingType
 
 /** Value: "ACTIVE_SERVER_PAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_ActiveServerPage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_ActiveServerPage;
 /** Value: "COLD_FUSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_ColdFusion;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_ColdFusion;
 /** Value: "JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Javascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Javascript;
 /** Value: "JSP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Jsp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Jsp;
 /** Value: "PHP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Php;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Php;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.countingMethod
 
 /** Value: "ITEMS_SOLD_COUNTING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_ItemsSoldCounting;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_ItemsSoldCounting;
 /** Value: "SESSION_COUNTING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_SessionCounting;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_SessionCounting;
 /** Value: "STANDARD_COUNTING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_StandardCounting;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_StandardCounting;
 /** Value: "TRANSACTIONS_COUNTING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_TransactionsCounting;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_TransactionsCounting;
 /** Value: "UNIQUE_COUNTING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_UniqueCounting;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CountingMethod_UniqueCounting;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.floodlightActivityGroupType
 
 /** Value: "COUNTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Counter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Counter;
 /** Value: "SALE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Sale;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightActivityGroupType_Sale;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.floodlightTagType
 
 /** Value: "GLOBAL_SITE_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_GlobalSiteTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_GlobalSiteTag;
 /** Value: "IFRAME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Iframe;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Iframe;
 /** Value: "IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_FloodlightTagType_Image;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.status
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_Active;
 /** Value: "ARCHIVED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_Archived;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_Archived;
 /** Value: "ARCHIVED_AND_DISABLED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_ArchivedAndDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_ArchivedAndDisabled;
 /** Value: "DISABLED_POLICY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_DisabledPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Status_DisabledPolicy;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.tagFormat
 
 /** Value: "HTML" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Html;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Html;
 /** Value: "XHTML" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Xhtml;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_TagFormat_Xhtml;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.userDefinedVariableTypes
 
 /** Value: "U1" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U1;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U1;
 /** Value: "U10" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U10;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U10;
 /** Value: "U100" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U100;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U100;
 /** Value: "U11" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U11;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U11;
 /** Value: "U12" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U12;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U12;
 /** Value: "U13" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U13;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U13;
 /** Value: "U14" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U14;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U14;
 /** Value: "U15" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U15;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U15;
 /** Value: "U16" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U16;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U16;
 /** Value: "U17" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U17;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U17;
 /** Value: "U18" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U18;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U18;
 /** Value: "U19" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U19;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U19;
 /** Value: "U2" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U2;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U2;
 /** Value: "U20" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U20;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U20;
 /** Value: "U21" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U21;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U21;
 /** Value: "U22" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U22;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U22;
 /** Value: "U23" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U23;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U23;
 /** Value: "U24" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U24;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U24;
 /** Value: "U25" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U25;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U25;
 /** Value: "U26" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U26;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U26;
 /** Value: "U27" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U27;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U27;
 /** Value: "U28" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U28;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U28;
 /** Value: "U29" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U29;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U29;
 /** Value: "U3" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U3;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U3;
 /** Value: "U30" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U30;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U30;
 /** Value: "U31" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U31;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U31;
 /** Value: "U32" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U32;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U32;
 /** Value: "U33" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U33;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U33;
 /** Value: "U34" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U34;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U34;
 /** Value: "U35" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U35;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U35;
 /** Value: "U36" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U36;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U36;
 /** Value: "U37" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U37;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U37;
 /** Value: "U38" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U38;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U38;
 /** Value: "U39" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U39;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U39;
 /** Value: "U4" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U4;
 /** Value: "U40" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U40;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U40;
 /** Value: "U41" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U41;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U41;
 /** Value: "U42" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U42;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U42;
 /** Value: "U43" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U43;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U43;
 /** Value: "U44" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U44;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U44;
 /** Value: "U45" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U45;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U45;
 /** Value: "U46" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U46;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U46;
 /** Value: "U47" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U47;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U47;
 /** Value: "U48" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U48;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U48;
 /** Value: "U49" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U49;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U49;
 /** Value: "U5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U5;
 /** Value: "U50" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U50;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U50;
 /** Value: "U51" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U51;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U51;
 /** Value: "U52" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U52;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U52;
 /** Value: "U53" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U53;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U53;
 /** Value: "U54" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U54;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U54;
 /** Value: "U55" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U55;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U55;
 /** Value: "U56" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U56;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U56;
 /** Value: "U57" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U57;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U57;
 /** Value: "U58" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U58;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U58;
 /** Value: "U59" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U59;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U59;
 /** Value: "U6" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U6;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U6;
 /** Value: "U60" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U60;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U60;
 /** Value: "U61" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U61;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U61;
 /** Value: "U62" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U62;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U62;
 /** Value: "U63" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U63;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U63;
 /** Value: "U64" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U64;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U64;
 /** Value: "U65" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U65;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U65;
 /** Value: "U66" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U66;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U66;
 /** Value: "U67" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U67;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U67;
 /** Value: "U68" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U68;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U68;
 /** Value: "U69" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U69;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U69;
 /** Value: "U7" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U7;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U7;
 /** Value: "U70" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U70;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U70;
 /** Value: "U71" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U71;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U71;
 /** Value: "U72" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U72;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U72;
 /** Value: "U73" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U73;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U73;
 /** Value: "U74" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U74;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U74;
 /** Value: "U75" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U75;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U75;
 /** Value: "U76" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U76;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U76;
 /** Value: "U77" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U77;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U77;
 /** Value: "U78" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U78;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U78;
 /** Value: "U79" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U79;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U79;
 /** Value: "U8" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U8;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U8;
 /** Value: "U80" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U80;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U80;
 /** Value: "U81" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U81;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U81;
 /** Value: "U82" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U82;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U82;
 /** Value: "U83" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U83;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U83;
 /** Value: "U84" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U84;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U84;
 /** Value: "U85" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U85;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U85;
 /** Value: "U86" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U86;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U86;
 /** Value: "U87" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U87;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U87;
 /** Value: "U88" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U88;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U88;
 /** Value: "U89" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U89;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U89;
 /** Value: "U9" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U9;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U9;
 /** Value: "U90" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U90;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U90;
 /** Value: "U91" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U91;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U91;
 /** Value: "U92" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U92;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U92;
 /** Value: "U93" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U93;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U93;
 /** Value: "U94" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U94;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U94;
 /** Value: "U95" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U95;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U95;
 /** Value: "U96" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U96;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U96;
 /** Value: "U97" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U97;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U97;
 /** Value: "U98" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U98;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U98;
 /** Value: "U99" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U99;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_UserDefinedVariableTypes_U99;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivityGroup.type
 
 /** Value: "COUNTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivityGroup_Type_Counter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivityGroup_Type_Counter;
 /** Value: "SALE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightActivityGroup_Type_Sale;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivityGroup_Type_Sale;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightConfiguration.firstDayOfWeek
 
 /** Value: "MONDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_FirstDayOfWeek_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_FirstDayOfWeek_Monday;
 /** Value: "SUNDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_FirstDayOfWeek_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_FirstDayOfWeek_Sunday;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightConfiguration.naturalSearchConversionAttributionOption
 
 /** Value: "EXCLUDE_NATURAL_SEARCH_CONVERSION_ATTRIBUTION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversionAttributionOption_ExcludeNaturalSearchConversionAttribution;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversionAttributionOption_ExcludeNaturalSearchConversionAttribution;
 /** Value: "INCLUDE_NATURAL_SEARCH_CONVERSION_ATTRIBUTION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversionAttributionOption_IncludeNaturalSearchConversionAttribution;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversionAttributionOption_IncludeNaturalSearchConversionAttribution;
 /** Value: "INCLUDE_NATURAL_SEARCH_TIERED_CONVERSION_ATTRIBUTION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversionAttributionOption_IncludeNaturalSearchTieredConversionAttribution;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightConfiguration_NaturalSearchConversionAttributionOption_IncludeNaturalSearchTieredConversionAttribution;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_FsCommand.positionOption
 
 /** Value: "CENTERED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_Centered;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_Centered;
 /** Value: "DISTANCE_FROM_TOP_LEFT_CORNER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_InventoryItem.type
 
 /** Value: "PLANNING_PLACEMENT_TYPE_CREDIT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit;
 /** Value: "PLANNING_PLACEMENT_TYPE_REGULAR" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeRegular;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeRegular;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ListPopulationTerm.operatorProperty
 
 /** Value: "NUM_EQUALS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumEquals;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumEquals;
 /** Value: "NUM_GREATER_THAN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumGreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumGreaterThan;
 /** Value: "NUM_GREATER_THAN_EQUAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumGreaterThanEqual;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumGreaterThanEqual;
 /** Value: "NUM_LESS_THAN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumLessThan;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumLessThan;
 /** Value: "NUM_LESS_THAN_EQUAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumLessThanEqual;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_NumLessThanEqual;
 /** Value: "STRING_CONTAINS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_StringContains;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_StringContains;
 /** Value: "STRING_EQUALS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_StringEquals;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_OperatorProperty_StringEquals;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ListPopulationTerm.type
 
 /** Value: "CUSTOM_VARIABLE_TERM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_CustomVariableTerm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_CustomVariableTerm;
 /** Value: "LIST_MEMBERSHIP_TERM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ListMembershipTerm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ListMembershipTerm;
 /** Value: "REFERRER_TERM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ReferrerTerm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ReferrerTerm;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MobileApp.directory
 
 /** Value: "APPLE_APP_STORE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AppleAppStore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_AppleAppStore;
 /** Value: "GOOGLE_PLAY_STORE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_GooglePlayStore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_GooglePlayStore;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MobileApp_Directory_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ObjectFilter.status
 
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_All;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_All;
 /** Value: "ASSIGNED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_Assigned;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_Assigned;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_None;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_None;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_OrderContact.contactType
 
 /** Value: "PLANNING_ORDER_CONTACT_BUYER_BILLING_CONTACT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerBillingContact;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerBillingContact;
 /** Value: "PLANNING_ORDER_CONTACT_BUYER_CONTACT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact;
 /** Value: "PLANNING_ORDER_CONTACT_SELLER_CONTACT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_OrderDocument.type
 
 /** Value: "PLANNING_ORDER_TYPE_CHANGE_ORDER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeChangeOrder;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeChangeOrder;
 /** Value: "PLANNING_ORDER_TYPE_INSERTION_ORDER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeInsertionOrder;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeInsertionOrder;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.compatibility
 
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_App;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_App;
 /** Value: "APP_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_AppInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_AppInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_Display;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_Display;
 /** Value: "DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_DisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_DisplayInterstitial;
 /** Value: "IN_STREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_InStreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_InStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_InStreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Compatibility_InStreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.paymentSource
 
 /** Value: "PLACEMENT_AGENCY_PAID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_PaymentSource_PlacementAgencyPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_PaymentSource_PlacementAgencyPaid;
 /** Value: "PLACEMENT_PUBLISHER_PAID" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_PaymentSource_PlacementPublisherPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_PaymentSource_PlacementPublisherPaid;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.status
 
 /** Value: "ACKNOWLEDGE_ACCEPTANCE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Status_AcknowledgeAcceptance;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_AcknowledgeAcceptance;
 /** Value: "ACKNOWLEDGE_REJECTION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Status_AcknowledgeRejection;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_AcknowledgeRejection;
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Status_Draft;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_Draft;
 /** Value: "PAYMENT_ACCEPTED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PaymentAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PaymentAccepted;
 /** Value: "PAYMENT_REJECTED" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PaymentRejected;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PaymentRejected;
 /** Value: "PENDING_REVIEW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PendingReview;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_Status_PendingReview;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.tagFormats
 
 /** Value: "PLACEMENT_TAG_CLICK_COMMANDS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagClickCommands;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagClickCommands;
 /** Value: "PLACEMENT_TAG_IFRAME_ILAYER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagIframeIlayer;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagIframeIlayer;
 /** Value: "PLACEMENT_TAG_IFRAME_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagIframeJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagIframeJavascript;
 /** Value: "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagIframeJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagIframeJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInstreamVideoPrefetch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInstreamVideoPrefetch;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInstreamVideoPrefetchVast3;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInstreamVideoPrefetchVast3;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInstreamVideoPrefetchVast4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInstreamVideoPrefetchVast4;
 /** Value: "PLACEMENT_TAG_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInternalRedirect;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialIframeJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialIframeJavascript;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialIframeJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialIframeJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialInternalRedirect;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialJavascript;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagInterstitialJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagJavascript;
 /** Value: "PLACEMENT_TAG_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagStandard;
 /** Value: "PLACEMENT_TAG_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTracking;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTracking;
 /** Value: "PLACEMENT_TAG_TRACKING_IFRAME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingIframe;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingIframe;
 /** Value: "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingJavascript;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.vpaidAdapterChoice
 
 /** Value: "BOTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Both;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Both;
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Default;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Default;
 /** Value: "FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Flash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Flash;
 /** Value: "HTML5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Html5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Html5;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PlacementGroup.placementGroupType
 
 /** Value: "PLACEMENT_PACKAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementPackage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementPackage;
 /** Value: "PLACEMENT_ROADBLOCK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementRoadblock;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PlacementGroup_PlacementGroupType_PlacementRoadblock;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PopupWindowProperties.positionType
 
 /** Value: "CENTER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Center;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Center;
 /** Value: "COORDINATES" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Coordinates;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Coordinates;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Pricing.capCostType
 
 /** Value: "PLANNING_PLACEMENT_CAP_COST_TYPE_CUMULATIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeCumulative;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeCumulative;
 /** Value: "PLANNING_PLACEMENT_CAP_COST_TYPE_MONTHLY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeMonthly;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeMonthly;
 /** Value: "PLANNING_PLACEMENT_CAP_COST_TYPE_NONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeNone;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeNone;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Pricing.groupType
 
 /** Value: "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypePackage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypePackage;
 /** Value: "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypeRoadblock;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypeRoadblock;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Pricing.pricingType
 
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CLICKS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeClicks;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeClicks;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpa;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPC" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpc;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpc;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpm;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPM_ACTIVEVIEW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpmActiveview;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpmActiveview;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_CLICKS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateClicks;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateClicks;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_IMPRESSIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateImpressions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateImpressions;
 /** Value: "PLANNING_PLACEMENT_PRICING_TYPE_IMPRESSIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeImpressions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeImpressions;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PricingSchedule.capCostOption
 
 /** Value: "CAP_COST_CUMULATIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_CapCostOption_CapCostCumulative;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_CapCostOption_CapCostCumulative;
 /** Value: "CAP_COST_MONTHLY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_CapCostOption_CapCostMonthly;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_CapCostOption_CapCostMonthly;
 /** Value: "CAP_COST_NONE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_CapCostOption_CapCostNone;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_CapCostOption_CapCostNone;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_PricingSchedule.pricingType
 
 /** Value: "PRICING_TYPE_CPA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpa;
 /** Value: "PRICING_TYPE_CPC" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpc;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpc;
 /** Value: "PRICING_TYPE_CPM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpm;
 /** Value: "PRICING_TYPE_CPM_ACTIVEVIEW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpmActiveview;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeCpmActiveview;
 /** Value: "PRICING_TYPE_FLAT_RATE_CLICKS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeFlatRateClicks;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeFlatRateClicks;
 /** Value: "PRICING_TYPE_FLAT_RATE_IMPRESSIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeFlatRateImpressions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeFlatRateImpressions;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Project.audienceAgeGroup
 
 /** Value: "PLANNING_AUDIENCE_AGE_18_24" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge1824;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge1824;
 /** Value: "PLANNING_AUDIENCE_AGE_25_34" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge2534;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge2534;
 /** Value: "PLANNING_AUDIENCE_AGE_35_44" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge3544;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge3544;
 /** Value: "PLANNING_AUDIENCE_AGE_45_54" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge4554;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge4554;
 /** Value: "PLANNING_AUDIENCE_AGE_55_64" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge5564;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge5564;
 /** Value: "PLANNING_AUDIENCE_AGE_65_OR_MORE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge65OrMore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge65OrMore;
 /** Value: "PLANNING_AUDIENCE_AGE_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAgeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAgeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Project.audienceGender
 
 /** Value: "PLANNING_AUDIENCE_GENDER_FEMALE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderFemale;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderFemale;
 /** Value: "PLANNING_AUDIENCE_GENDER_MALE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderMale;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderMale;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Recipient.deliveryType
 
 /** Value: "ATTACHMENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Recipient_DeliveryType_Attachment;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Recipient_DeliveryType_Attachment;
 /** Value: "LINK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Recipient_DeliveryType_Link;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Recipient_DeliveryType_Link;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_RemarketingList.listSource
 
 /** Value: "REMARKETING_LIST_SOURCE_ADX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceAdx;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceAdx;
 /** Value: "REMARKETING_LIST_SOURCE_DBM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDbm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDbm;
 /** Value: "REMARKETING_LIST_SOURCE_DFA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfa;
 /** Value: "REMARKETING_LIST_SOURCE_DFP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDfp;
 /** Value: "REMARKETING_LIST_SOURCE_DMP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDmp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceDmp;
 /** Value: "REMARKETING_LIST_SOURCE_GA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGa;
 /** Value: "REMARKETING_LIST_SOURCE_GPLUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGplus;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceGplus;
 /** Value: "REMARKETING_LIST_SOURCE_OTHER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceOther;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceOther;
 /** Value: "REMARKETING_LIST_SOURCE_PLAY_STORE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourcePlayStore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourcePlayStore;
 /** Value: "REMARKETING_LIST_SOURCE_XFP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceXfp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceXfp;
 /** Value: "REMARKETING_LIST_SOURCE_YOUTUBE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceYoutube;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_RemarketingList_ListSource_RemarketingListSourceYoutube;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report.format
 
 /** Value: "CSV" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Format_Csv;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Format_Csv;
 /** Value: "EXCEL" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Format_Excel;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Format_Excel;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report.type
 
 /** Value: "CROSS_DIMENSION_REACH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach;
 /** Value: "FLOODLIGHT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Type_Floodlight;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Floodlight;
 /** Value: "PATH_TO_CONVERSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathToConversion;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathToConversion;
 /** Value: "REACH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Type_Reach;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Reach;
 /** Value: "STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Type_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report_CrossDimensionReachCriteria.dimension
 
 /** Value: "ADVERTISER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Advertiser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Advertiser;
 /** Value: "CAMPAIGN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Campaign;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Campaign;
 /** Value: "SITE_BY_ADVERTISER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByAdvertiser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByAdvertiser;
 /** Value: "SITE_BY_CAMPAIGN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByCampaign;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByCampaign;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report_Delivery.emailOwnerDeliveryType
 
 /** Value: "ATTACHMENT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Delivery_EmailOwnerDeliveryType_Attachment;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Delivery_EmailOwnerDeliveryType_Attachment;
 /** Value: "LINK" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Delivery_EmailOwnerDeliveryType_Link;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Delivery_EmailOwnerDeliveryType_Link;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report_Schedule.repeatsOnWeekDays
 
 /** Value: "FRIDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Friday;
 /** Value: "MONDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Monday;
 /** Value: "SATURDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Saturday;
 /** Value: "SUNDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Sunday;
 /** Value: "THURSDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Thursday;
 /** Value: "TUESDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Tuesday;
 /** Value: "WEDNESDAY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RepeatsOnWeekDays_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report_Schedule.runsOnDayOfMonth
 
 /** Value: "DAY_OF_MONTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RunsOnDayOfMonth_DayOfMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RunsOnDayOfMonth_DayOfMonth;
 /** Value: "WEEK_OF_MONTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RunsOnDayOfMonth_WeekOfMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Schedule_RunsOnDayOfMonth_WeekOfMonth;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_SiteContact.contactType
 
 /** Value: "SALES_PERSON" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteContact_ContactType_SalesPerson;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteContact_ContactType_SalesPerson;
 /** Value: "TRAFFICKER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteContact_ContactType_Trafficker;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteContact_ContactType_Trafficker;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_SiteSettings.vpaidAdapterChoiceTemplate
 
 /** Value: "BOTH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both;
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Default;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Default;
 /** Value: "FLASH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Flash;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Flash;
 /** Value: "HTML5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Html5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Html5;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_SiteVideoSettings.orientation
 
 /** Value: "ANY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Any;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Any;
 /** Value: "LANDSCAPE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Landscape;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Landscape;
 /** Value: "PORTRAIT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_SortedDimension.sortOrder
 
 /** Value: "ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Ascending;
 /** Value: "DESCENDING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Descending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TagData.format
 
 /** Value: "PLACEMENT_TAG_CLICK_COMMANDS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagClickCommands;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagClickCommands;
 /** Value: "PLACEMENT_TAG_IFRAME_ILAYER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeIlayer;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeIlayer;
 /** Value: "PLACEMENT_TAG_IFRAME_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeJavascript;
 /** Value: "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInstreamVideoPrefetch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInstreamVideoPrefetch;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInstreamVideoPrefetchVast3;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInstreamVideoPrefetchVast3;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInstreamVideoPrefetchVast4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInstreamVideoPrefetchVast4;
 /** Value: "PLACEMENT_TAG_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInternalRedirect;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialIframeJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialIframeJavascript;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialIframeJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialIframeJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialInternalRedirect;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialJavascript;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagInterstitialJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagJavascript;
 /** Value: "PLACEMENT_TAG_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagStandard;
 /** Value: "PLACEMENT_TAG_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTracking;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTracking;
 /** Value: "PLACEMENT_TAG_TRACKING_IFRAME" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingIframe;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingIframe;
 /** Value: "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingJavascript;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TagSetting.keywordOption
 
 /** Value: "GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_GenerateSeparateTagForEachKeyword;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_GenerateSeparateTagForEachKeyword;
 /** Value: "IGNORE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_Ignore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_Ignore;
 /** Value: "PLACEHOLDER_WITH_LIST_OF_KEYWORDS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_PlaceholderWithListOfKeywords;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagSetting_KeywordOption_PlaceholderWithListOfKeywords;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TargetableRemarketingList.listSource
 
 /** Value: "REMARKETING_LIST_SOURCE_ADX" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceAdx;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceAdx;
 /** Value: "REMARKETING_LIST_SOURCE_DBM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDbm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDbm;
 /** Value: "REMARKETING_LIST_SOURCE_DFA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfa;
 /** Value: "REMARKETING_LIST_SOURCE_DFP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDfp;
 /** Value: "REMARKETING_LIST_SOURCE_DMP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDmp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceDmp;
 /** Value: "REMARKETING_LIST_SOURCE_GA" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGa;
 /** Value: "REMARKETING_LIST_SOURCE_GPLUS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGplus;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceGplus;
 /** Value: "REMARKETING_LIST_SOURCE_OTHER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceOther;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceOther;
 /** Value: "REMARKETING_LIST_SOURCE_PLAY_STORE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourcePlayStore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourcePlayStore;
 /** Value: "REMARKETING_LIST_SOURCE_XFP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceXfp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceXfp;
 /** Value: "REMARKETING_LIST_SOURCE_YOUTUBE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceYoutube;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetableRemarketingList_ListSource_RemarketingListSourceYoutube;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TargetWindow.targetWindowOption
 
 /** Value: "CURRENT_WINDOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_CurrentWindow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_CurrentWindow;
 /** Value: "CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_Custom;
 /** Value: "NEW_WINDOW" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_NewWindow;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TargetWindow_TargetWindowOption_NewWindow;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ThirdPartyTrackingUrl.thirdPartyUrlType
 
 /** Value: "CLICK_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_ClickTracking;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_ClickTracking;
 /** Value: "IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Impression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Impression;
 /** Value: "RICH_MEDIA_BACKUP_IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaBackupImpression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaBackupImpression;
 /** Value: "RICH_MEDIA_IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaImpression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaImpression;
 /** Value: "RICH_MEDIA_RM_IMPRESSION" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaRmImpression;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_RichMediaRmImpression;
 /** Value: "SURVEY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Survey;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Survey;
 /** Value: "VIDEO_COMPLETE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoComplete;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoComplete;
 /** Value: "VIDEO_CUSTOM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoCustom;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoCustom;
 /** Value: "VIDEO_FIRST_QUARTILE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFirstQuartile;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFirstQuartile;
 /** Value: "VIDEO_FULLSCREEN" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFullscreen;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoFullscreen;
 /** Value: "VIDEO_MIDPOINT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMidpoint;
 /** Value: "VIDEO_MUTE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMute;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoMute;
 /** Value: "VIDEO_PAUSE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoPause;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoPause;
 /** Value: "VIDEO_PROGRESS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoProgress;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoProgress;
 /** Value: "VIDEO_REWIND" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoRewind;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoRewind;
 /** Value: "VIDEO_SKIP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoSkip;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoSkip;
 /** Value: "VIDEO_START" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStart;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStart;
 /** Value: "VIDEO_STOP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStop;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStop;
 /** Value: "VIDEO_THIRD_QUARTILE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UniversalAdId.registry
 
 /** Value: "AD_ID.ORG" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOrg;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOrg;
 /** Value: "CLEARCAST" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast;
 /** Value: "DCM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Dcm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Dcm;
 /** Value: "OTHER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Other;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Other;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UserDefinedVariableConfiguration.dataType
 
 /** Value: "NUMBER" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_DataType_Number;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_DataType_Number;
 /** Value: "STRING" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_DataType_String;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_DataType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UserDefinedVariableConfiguration.variableType
 
 /** Value: "U1" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U1;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U1;
 /** Value: "U10" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U10;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U10;
 /** Value: "U100" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U100;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U100;
 /** Value: "U11" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U11;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U11;
 /** Value: "U12" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U12;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U12;
 /** Value: "U13" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U13;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U13;
 /** Value: "U14" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U14;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U14;
 /** Value: "U15" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U15;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U15;
 /** Value: "U16" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U16;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U16;
 /** Value: "U17" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U17;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U17;
 /** Value: "U18" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U18;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U18;
 /** Value: "U19" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U19;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U19;
 /** Value: "U2" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U2;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U2;
 /** Value: "U20" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U20;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U20;
 /** Value: "U21" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U21;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U21;
 /** Value: "U22" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U22;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U22;
 /** Value: "U23" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U23;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U23;
 /** Value: "U24" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U24;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U24;
 /** Value: "U25" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U25;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U25;
 /** Value: "U26" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U26;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U26;
 /** Value: "U27" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U27;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U27;
 /** Value: "U28" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U28;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U28;
 /** Value: "U29" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U29;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U29;
 /** Value: "U3" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U3;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U3;
 /** Value: "U30" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U30;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U30;
 /** Value: "U31" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U31;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U31;
 /** Value: "U32" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U32;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U32;
 /** Value: "U33" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U33;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U33;
 /** Value: "U34" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U34;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U34;
 /** Value: "U35" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U35;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U35;
 /** Value: "U36" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U36;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U36;
 /** Value: "U37" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U37;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U37;
 /** Value: "U38" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U38;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U38;
 /** Value: "U39" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U39;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U39;
 /** Value: "U4" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U4;
 /** Value: "U40" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U40;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U40;
 /** Value: "U41" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U41;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U41;
 /** Value: "U42" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U42;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U42;
 /** Value: "U43" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U43;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U43;
 /** Value: "U44" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U44;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U44;
 /** Value: "U45" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U45;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U45;
 /** Value: "U46" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U46;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U46;
 /** Value: "U47" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U47;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U47;
 /** Value: "U48" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U48;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U48;
 /** Value: "U49" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U49;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U49;
 /** Value: "U5" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U5;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U5;
 /** Value: "U50" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U50;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U50;
 /** Value: "U51" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U51;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U51;
 /** Value: "U52" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U52;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U52;
 /** Value: "U53" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U53;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U53;
 /** Value: "U54" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U54;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U54;
 /** Value: "U55" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U55;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U55;
 /** Value: "U56" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U56;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U56;
 /** Value: "U57" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U57;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U57;
 /** Value: "U58" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U58;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U58;
 /** Value: "U59" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U59;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U59;
 /** Value: "U6" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U6;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U6;
 /** Value: "U60" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U60;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U60;
 /** Value: "U61" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U61;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U61;
 /** Value: "U62" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U62;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U62;
 /** Value: "U63" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U63;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U63;
 /** Value: "U64" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U64;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U64;
 /** Value: "U65" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U65;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U65;
 /** Value: "U66" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U66;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U66;
 /** Value: "U67" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U67;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U67;
 /** Value: "U68" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U68;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U68;
 /** Value: "U69" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U69;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U69;
 /** Value: "U7" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U7;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U7;
 /** Value: "U70" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U70;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U70;
 /** Value: "U71" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U71;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U71;
 /** Value: "U72" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U72;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U72;
 /** Value: "U73" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U73;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U73;
 /** Value: "U74" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U74;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U74;
 /** Value: "U75" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U75;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U75;
 /** Value: "U76" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U76;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U76;
 /** Value: "U77" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U77;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U77;
 /** Value: "U78" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U78;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U78;
 /** Value: "U79" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U79;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U79;
 /** Value: "U8" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U8;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U8;
 /** Value: "U80" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U80;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U80;
 /** Value: "U81" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U81;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U81;
 /** Value: "U82" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U82;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U82;
 /** Value: "U83" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U83;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U83;
 /** Value: "U84" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U84;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U84;
 /** Value: "U85" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U85;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U85;
 /** Value: "U86" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U86;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U86;
 /** Value: "U87" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U87;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U87;
 /** Value: "U88" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U88;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U88;
 /** Value: "U89" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U89;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U89;
 /** Value: "U9" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U9;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U9;
 /** Value: "U90" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U90;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U90;
 /** Value: "U91" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U91;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U91;
 /** Value: "U92" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U92;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U92;
 /** Value: "U93" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U93;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U93;
 /** Value: "U94" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U94;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U94;
 /** Value: "U95" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U95;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U95;
 /** Value: "U96" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U96;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U96;
 /** Value: "U97" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U97;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U97;
 /** Value: "U98" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U98;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U98;
 /** Value: "U99" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U99;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserDefinedVariableConfiguration_VariableType_U99;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UserRolePermission.availability
 
 /** Value: "ACCOUNT_ALWAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_AccountAlways;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_AccountAlways;
 /** Value: "ACCOUNT_BY_DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_AccountByDefault;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_AccountByDefault;
 /** Value: "NOT_AVAILABLE_BY_DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_NotAvailableByDefault;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_NotAvailableByDefault;
 /** Value: "SUBACCOUNT_AND_ACCOUNT_ALWAYS" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountAlways;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountAlways;
 /** Value: "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoFormat.fileType
 
 /** Value: "FLV" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Flv;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Flv;
 /** Value: "M3U8" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_M3u8;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_M3u8;
 /** Value: "MP4" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Mp4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Mp4;
 /** Value: "THREEGPP" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Threegpp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Threegpp;
 /** Value: "WEBM" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoSettings.orientation
 
 /** Value: "ANY" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Any;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Any;
 /** Value: "LANDSCAPE" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Landscape;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Landscape;
 /** Value: "PORTRAIT" */
-GTLR_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait;
 
 /**
  *  Contains properties of a Campaign Manager account.

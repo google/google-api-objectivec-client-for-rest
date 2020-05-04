@@ -42,11 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
 // responseView
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewBasic;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewFull;
 /** Value: "VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -51,33 +51,33 @@ NS_ASSUME_NONNULL_BEGIN
 // format
 
 /** Value: "full" */
-GTLR_EXTERN NSString * const kGTLRGmailFormatFull;
+FOUNDATION_EXTERN NSString * const kGTLRGmailFormatFull;
 /** Value: "metadata" */
-GTLR_EXTERN NSString * const kGTLRGmailFormatMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRGmailFormatMetadata;
 /** Value: "minimal" */
-GTLR_EXTERN NSString * const kGTLRGmailFormatMinimal;
+FOUNDATION_EXTERN NSString * const kGTLRGmailFormatMinimal;
 /** Value: "raw" */
-GTLR_EXTERN NSString * const kGTLRGmailFormatRaw;
+FOUNDATION_EXTERN NSString * const kGTLRGmailFormatRaw;
 
 // ----------------------------------------------------------------------------
 // historyTypes
 
 /** Value: "labelAdded" */
-GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesLabelAdded;
+FOUNDATION_EXTERN NSString * const kGTLRGmailHistoryTypesLabelAdded;
 /** Value: "labelRemoved" */
-GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesLabelRemoved;
+FOUNDATION_EXTERN NSString * const kGTLRGmailHistoryTypesLabelRemoved;
 /** Value: "messageAdded" */
-GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesMessageAdded;
+FOUNDATION_EXTERN NSString * const kGTLRGmailHistoryTypesMessageAdded;
 /** Value: "messageDeleted" */
-GTLR_EXTERN NSString * const kGTLRGmailHistoryTypesMessageDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRGmailHistoryTypesMessageDeleted;
 
 // ----------------------------------------------------------------------------
 // internalDateSource
 
 /** Value: "dateHeader" */
-GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceDateHeader;
+FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceDateHeader;
 /** Value: "receivedTime" */
-GTLR_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
+FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 // ----------------------------------------------------------------------------
 // Query Classes

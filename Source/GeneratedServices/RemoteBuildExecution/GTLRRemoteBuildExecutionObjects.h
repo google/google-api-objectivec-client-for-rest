@@ -81,19 +81,19 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.digestFunction
 
 /** Value: "MD5" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Md5;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Md5;
 /** Value: "SHA1" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha1;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha1;
 /** Value: "SHA256" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha256;
 /** Value: "SHA384" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha384;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha384;
 /** Value: "SHA512" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha512;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha512;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Unknown;
 /** Value: "VSO" */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Vso;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Vso;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.symlinkAbsolutePathStrategy
@@ -104,7 +104,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  *
  *  Value: "ALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Allowed;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Allowed;
 /**
  *  Server will return an `INVALID_ARGUMENT` on input symlinks with absolute
  *  targets.
@@ -113,13 +113,13 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  *
  *  Value: "DISALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Disallowed;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Disallowed;
 /**
  *  Invalid value.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata.stage
@@ -129,31 +129,31 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  *
  *  Value: "CACHE_CHECK"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_CacheCheck;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_CacheCheck;
 /**
  *  Finished execution.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Completed;
 /**
  *  Currently being executed by a worker.
  *
  *  Value: "EXECUTING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Executing;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Executing;
 /**
  *  Currently idle, awaiting a free machine to execute.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Queued;
 /**
  *  Invalid value.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata_Stage_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities.digestFunction
@@ -163,37 +163,37 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  *
  *  Value: "MD5"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5;
 /**
  *  The SHA-1 digest function.
  *
  *  Value: "SHA1"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1;
 /**
  *  The SHA-256 digest function.
  *
  *  Value: "SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256;
 /**
  *  The SHA-384 digest function.
  *
  *  Value: "SHA384"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha384;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha384;
 /**
  *  The SHA-512 digest function.
  *
  *  Value: "SHA512"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha512;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha512;
 /**
  *  It is an error for the server to return this value.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown;
 /**
  *  The Microsoft "VSO-Hash" paged SHA256 digest function.
  *  See
@@ -202,7 +202,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  *
  *  Value: "VSO"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus.code
@@ -212,207 +212,207 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecution
  *
  *  Value: "ABORTED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Aborted;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Aborted;
 /**
  *  The bot failed to do the cleanup, e.g. unable to delete the command
  *  working directory or the command process.
  *
  *  Value: "CLEANUP_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_CleanupError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_CleanupError;
 /**
  *  The command had passed its expiry time while it was still running.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DeadlineExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DeadlineExceeded;
 /**
  *  Docker failed to run containers with CreateComputeSystem error.
  *
  *  Value: "DOCKER_CREATE_COMPUTE_SYSTEM_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError;
 /**
  *  The bot couldn't start the container.
  *
  *  Value: "DOCKER_CREATE_CONTAINER_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError;
 /**
  *  Docker failed to create OCI runtime because of file not found.
  *
  *  Value: "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound;
 /**
  *  Docker failed to create OCI runtime because of permission denied.
  *
  *  Value: "DOCKER_CREATE_RUNTIME_PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimePermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimePermissionDenied;
 /**
  *  The bot failed to check docker images.
  *
  *  Value: "DOCKER_IMAGE_EXIST_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError;
 /**
  *  The docker image cannot be found.
  *
  *  Value: "DOCKER_IMAGE_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageNotFound;
 /**
  *  The bot doesn't have the permissions to pull docker images.
  *
  *  Value: "DOCKER_IMAGE_PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePermissionDenied;
 /**
  *  The bot failed to pull docker image.
  *
  *  Value: "DOCKER_IMAGE_PULL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError;
 /**
  *  Docker incompatible operating system error.
  *
  *  Value: "DOCKER_INCOMPATIBLE_OS_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError;
 /**
  *  The docker ulimit is not valid.
  *
  *  Value: "DOCKER_INVALID_ULIMIT"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit;
 /**
  *  The bot failed to login to docker.
  *
  *  Value: "DOCKER_LOGIN_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError;
 /**
  *  Docker failed to run containers with hcsshim::PrepareLayer error.
  *
  *  Value: "DOCKER_PREPARELAYER_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError;
 /**
  *  There are issues with docker service/runtime.
  *
  *  Value: "DOCKER_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable;
 /**
  *  The docker capability is unknown.
  *
  *  Value: "DOCKER_UNKNOWN_CAPABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownCapability;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownCapability;
 /**
  *  The command failed with unknown docker errors.
  *
  *  Value: "DOCKER_UNKNOWN_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownError;
 /**
  *  The docker runtime is unknown.
  *
  *  Value: "DOCKER_UNKNOWN_RUNTIME"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownRuntime;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownRuntime;
 /**
  *  The bot failed to download the inputs.
  *
  *  Value: "DOWNLOAD_INPUTS_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DownloadInputsError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DownloadInputsError;
 /**
  *  The inputs contain duplicate files.
  *
  *  Value: "DUPLICATE_INPUTS"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DuplicateInputs;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DuplicateInputs;
 /**
  *  The command failed because of some invariants expected by the underlying
  *  system have been broken. This usually indicates a bug wit the system.
  *
  *  Value: "INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal;
 /**
  *  The command input was invalid.
  *
  *  Value: "INVALID_ARGUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument;
 /**
  *  The local casproxy is not running.
  *
  *  Value: "LOCAL_CASPROXY_NOT_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning;
 /**
  *  The command failed with "no cuda-capable device is detected" error.
  *
  *  Value: "NO_CUDA_CAPABLE_DEVICE"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice;
 /**
  *  The resources requested by the command were not found.
  *
  *  Value: "NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NotFound;
 /**
  *  The command succeeded.
  *
  *  Value: "OK"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Ok;
 /**
  *  The command failed due to permission errors.
  *
  *  Value: "PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_PermissionDenied;
 /**
  *  The bot encountered errors from remote CAS when downloading blobs.
  *
  *  Value: "REMOTE_CAS_DOWNLOAD_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasDownloadError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasDownloadError;
 /**
  *  The bot encountered errors from remote CAS when uploading blobs.
  *
  *  Value: "REMOTE_CAS_UPLOAD_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasUploadError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_RemoteCasUploadError;
 /**
  *  Unknown error.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Unknown;
 /**
  *  The bot failed to upload the outputs.
  *
  *  Value: "UPLOAD_OUTPUTS_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsError;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsError;
 /**
  *  Working directory is not found.
  *
  *  Value: "WORKING_DIR_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotFound;
 /**
  *  Working directory is not under the base directory
  *
  *  Value: "WORKING_DIR_NOT_IN_BASE_DIR"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance.state
@@ -423,7 +423,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Creating;
 /**
  *  An `INACTIVE` instance indicates that there is a problem that needs to be
  *  fixed. Such instances cannot be used for execution and instances that
@@ -432,19 +432,19 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Inactive;
 /**
  *  The instance is in state `RUNNING` when it is ready for use.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Running;
 /**
  *  Not a valid state, but the default value of the enum.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool.state
@@ -455,34 +455,34 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Creating;
 /**
  *  The worker pool is in state `DELETING` once the `Delete` method is called
  *  and before the deletion completes.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Deleting;
 /**
  *  The worker pool is in state `INACTIVE` when the instance hosting the
  *  worker pool in not running.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Inactive;
 /**
  *  The worker pool is in state `RUNNING` when all its workers are ready for
  *  use.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Running;
 /**
  *  Not a valid state, but the default value of the enum.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_StateUnspecified;
 /**
  *  The worker pool is in state `UPDATING` once `UpdateWorkerPool` is called
  *  and before the new configuration has all the requested workers ready for
@@ -491,7 +491,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp.command
@@ -502,7 +502,7 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuild
  *
  *  Value: "BOT_RESTART"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotRestart;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotRestart;
 /**
  *  Shut down the bot. `arg` will be a task resource name (similar to those
  *  in tasks.proto) that the bot can use to tell the server that it is
@@ -510,26 +510,26 @@ GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworke
  *
  *  Value: "BOT_TERMINATE"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotTerminate;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotTerminate;
 /**
  *  Download and run a new version of the bot. `arg` will be a resource
  *  accessible via `ByteStream.Read` to obtain the new bot code.
  *
  *  Value: "BOT_UPDATE"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotUpdate;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotUpdate;
 /**
  *  Restart the host computer. `arg` will be a message to log.
  *
  *  Value: "HOST_RESTART"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_HostRestart;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_HostRestart;
 /**
  *  Illegal value.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_Unspecified;
 
 /**
  *  An `Action` captures all the information about an execution which is

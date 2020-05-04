@@ -43,81 +43,81 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAppsactivity_Event.additionalEventTypes
 
 /** Value: "comment" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Comment;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Comment;
 /** Value: "create" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Create;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Create;
 /** Value: "edit" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Edit;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Edit;
 /** Value: "emptyTrash" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_EmptyTrash;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_EmptyTrash;
 /** Value: "move" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Move;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Move;
 /** Value: "permissionChange" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_PermissionChange;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_PermissionChange;
 /** Value: "rename" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Rename;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Rename;
 /** Value: "trash" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Trash;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Trash;
 /** Value: "unknown" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Unknown;
 /** Value: "untrash" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Untrash;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Untrash;
 /** Value: "upload" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Upload;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_AdditionalEventTypes_Upload;
 
 // ----------------------------------------------------------------------------
 // GTLRAppsactivity_Event.primaryEventType
 
 /** Value: "comment" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Comment;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Comment;
 /** Value: "create" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Create;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Create;
 /** Value: "edit" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Edit;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Edit;
 /** Value: "emptyTrash" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_EmptyTrash;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_EmptyTrash;
 /** Value: "move" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Move;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Move;
 /** Value: "permissionChange" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_PermissionChange;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_PermissionChange;
 /** Value: "rename" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Rename;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Rename;
 /** Value: "trash" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Trash;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Trash;
 /** Value: "unknown" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Unknown;
 /** Value: "untrash" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Untrash;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Untrash;
 /** Value: "upload" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Upload;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Event_PrimaryEventType_Upload;
 
 // ----------------------------------------------------------------------------
 // GTLRAppsactivity_Permission.role
 
 /** Value: "commenter" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Commenter;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Commenter;
 /** Value: "fileOrganizer" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_FileOrganizer;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_FileOrganizer;
 /** Value: "owner" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Owner;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Owner;
 /** Value: "publishedReader" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_PublishedReader;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_PublishedReader;
 /** Value: "reader" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Reader;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Reader;
 /** Value: "writer" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Writer;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Role_Writer;
 
 // ----------------------------------------------------------------------------
 // GTLRAppsactivity_Permission.type
 
 /** Value: "anyone" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_Anyone;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_Anyone;
 /** Value: "domain" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_Domain;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_Domain;
 /** Value: "group" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_Group;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_Group;
 /** Value: "user" */
-GTLR_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_User;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivity_Permission_Type_User;
 
 /**
  *  An Activity resource is a combined view of multiple events. An activity has

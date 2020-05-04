@@ -81,81 +81,81 @@ NS_ASSUME_NONNULL_BEGIN
 // orderBy
 
 /** Value: "returnCreationTimeAsc" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
 /** Value: "returnCreationTimeDesc" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc;
 
 // ----------------------------------------------------------------------------
 // shipmentStates
 
 /** Value: "completed" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesCompleted;
 /** Value: "new" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesNew;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesNew;
 /** Value: "shipped" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesShipped;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesShipped;
 /** Value: "undeliverable" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatesUndeliverable;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesUndeliverable;
 
 // ----------------------------------------------------------------------------
 // shipmentStatus
 
 /** Value: "inProgress" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatusInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusInProgress;
 /** Value: "new" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatusNew;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusNew;
 /** Value: "processed" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentStatusProcessed;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusProcessed;
 
 // ----------------------------------------------------------------------------
 // shipmentTypes
 
 /** Value: "byMail" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentTypesByMail;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesByMail;
 /** Value: "contactCustomerSupport" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport;
 /** Value: "returnless" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentShipmentTypesReturnless;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesReturnless;
 
 // ----------------------------------------------------------------------------
 // statuses
 
 /** Value: "active" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesActive;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesActive;
 /** Value: "canceled" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesCanceled;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesCanceled;
 /** Value: "completed" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesCompleted;
 /** Value: "delivered" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesDelivered;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesDelivered;
 /** Value: "inProgress" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesInProgress;
 /** Value: "partiallyDelivered" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyDelivered;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyDelivered;
 /** Value: "partiallyReturned" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyReturned;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyReturned;
 /** Value: "partiallyShipped" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyShipped;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyShipped;
 /** Value: "pendingShipment" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesPendingShipment;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPendingShipment;
 /** Value: "returned" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesReturned;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesReturned;
 /** Value: "shipped" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentStatusesShipped;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesShipped;
 
 // ----------------------------------------------------------------------------
 // templateName
 
 /** Value: "template1" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1;
 /** Value: "template1a" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1a;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1a;
 /** Value: "template1b" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1b;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1b;
 /** Value: "template2" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /** Value: "template3" */
-GTLR_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 // ----------------------------------------------------------------------------
 // Query Classes

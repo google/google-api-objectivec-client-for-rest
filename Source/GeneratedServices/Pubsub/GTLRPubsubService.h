@@ -34,14 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/pubsub"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePubsub;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePubsub;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePubsubCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePubsubCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRPubsubService

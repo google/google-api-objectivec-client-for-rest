@@ -100,26 +100,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ALLOW_INSTALL_DEVICE_WIDE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide;
 /**
  *  For devices with work profiles, allow untrusted app installs in the device's
  *  personal profile only.
  *
  *  Value: "ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly;
 /**
  *  Default. Disallow untrusted app installs on entire device.
  *
  *  Value: "DISALLOW_INSTALL"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_DisallowInstall;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_DisallowInstall;
 /**
  *  Unspecified. Defaults to DISALLOW_INSTALL.
  *
  *  Value: "UNTRUSTED_APPS_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationEvent.eventType
@@ -129,55 +129,55 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_Un
  *
  *  Value: "APPLICATION_EVENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_ApplicationEventTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_ApplicationEventTypeUnspecified;
 /**
  *  The app was changed, for example, a component was enabled or disabled.
  *
  *  Value: "CHANGED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Changed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Changed;
 /**
  *  The app data was cleared.
  *
  *  Value: "DATA_CLEARED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_DataCleared;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_DataCleared;
 /**
  *  The app was installed.
  *
  *  Value: "INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Installed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Installed;
 /**
  *  The app was pinned to the foreground.
  *
  *  Value: "PINNED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Pinned;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Pinned;
 /**
  *  The app was removed.
  *
  *  Value: "REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Removed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Removed;
 /**
  *  A new version of the app has been installed, replacing the old version.
  *
  *  Value: "REPLACED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced;
 /**
  *  The app was restarted.
  *
  *  Value: "RESTARTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted;
 /**
  *  The app was unpinned.
  *
  *  Value: "UNPINNED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
@@ -187,44 +187,44 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_U
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny;
 /**
  *  Automatically grant a permission.
  *
  *  Value: "GRANT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant;
 /**
  *  Policy not specified. If no policy is specified for a permission at any
  *  level, then the PROMPT behavior is used by default.
  *
  *  Value: "PERMISSION_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_PermissionPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_PermissionPolicyUnspecified;
 /**
  *  Prompt the user to grant a permission.
  *
  *  Value: "PROMPT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Prompt;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Prompt;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.delegatedScopes
 
 /** Value: "BLOCK_UNINSTALL" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_BlockUninstall;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_BlockUninstall;
 /** Value: "CERT_INSTALL" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertInstall;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertInstall;
 /** Value: "DELEGATED_SCOPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified;
 /** Value: "ENABLE_SYSTEM_APP" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp;
 /** Value: "MANAGED_CONFIGURATIONS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_ManagedConfigurations;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_ManagedConfigurations;
 /** Value: "PACKAGE_ACCESS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PackageAccess;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PackageAccess;
 /** Value: "PERMISSION_GRANT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PermissionGrant;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PermissionGrant;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.installType
@@ -234,26 +234,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedS
  *
  *  Value: "AVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available;
 /**
  *  The app is blocked and can't be installed. If the app was installed under a
  *  previous policy, it will be uninstalled.
  *
  *  Value: "BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked;
 /**
  *  The app is automatically installed and can't be removed by the user.
  *
  *  Value: "FORCE_INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled;
 /**
  *  Unspecified. Defaults to AVAILABLE.
  *
  *  Value: "INSTALL_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified;
 /**
  *  The app is automatically installed in kiosk mode: it's set as the preferred
  *  home intent and whitelisted for lock task mode. Device setup won't complete
@@ -264,20 +264,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
  *
  *  Value: "KIOSK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk;
 /**
  *  The app is automatically installed and can be removed by the user.
  *
  *  Value: "PREINSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled;
 /**
  *  The app is automatically installed and can't be removed by the user and will
  *  prevent setup from completion until installation is complete.
  *
  *  Value: "REQUIRED_FOR_SETUP"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationReport.applicationSource
@@ -287,25 +287,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallTyp
  *
  *  Value: "APPLICATION_SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified;
 /**
  *  The app was installed from the Google Play Store.
  *
  *  Value: "INSTALLED_FROM_PLAY_STORE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore;
 /**
  *  This is a system app from the device's factory image.
  *
  *  Value: "SYSTEM_APP_FACTORY_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppFactoryVersion;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppFactoryVersion;
 /**
  *  This is an updated system app.
  *
  *  Value: "SYSTEM_APP_UPDATED_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppUpdatedVersion;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppUpdatedVersion;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationReport.state
@@ -315,19 +315,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_Applicatio
  *
  *  Value: "APPLICATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_ApplicationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_ApplicationStateUnspecified;
 /**
  *  App is installed on the device
  *
  *  Value: "INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Installed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Installed;
 /**
  *  App was removed from the device
  *
  *  Value: "REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.errorCode
@@ -337,51 +337,51 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Remo
  *
  *  Value: "API_LEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_ApiLevel;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_ApiLevel;
 /**
  *  There was no error.
  *
  *  Value: "COMMAND_ERROR_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_CommandErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_CommandErrorCodeUnspecified;
 /**
  *  The command has an invalid parameter value.
  *
  *  Value: "INVALID_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_InvalidValue;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_InvalidValue;
 /**
  *  The management mode (profile owner, device owner, etc.) does not support the
  *  command.
  *
  *  Value: "MANAGEMENT_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_ManagementMode;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_ManagementMode;
 /**
  *  An unknown error occurred.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unknown;
 /**
  *  The device doesn't support the command. Updating Android Device Policy to
  *  the latest version may resolve the issue.
  *
  *  Value: "UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unsupported;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.resetPasswordFlags
 
 /** Value: "DO_NOT_ASK_CREDENTIALS_ON_BOOT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_DoNotAskCredentialsOnBoot;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_DoNotAskCredentialsOnBoot;
 /** Value: "LOCK_NOW" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_LockNow;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_LockNow;
 /** Value: "REQUIRE_ENTRY" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_RequireEntry;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_RequireEntry;
 /** Value: "RESET_PASSWORD_FLAG_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_ResetPasswordFlagUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_ResetPasswordFlagUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.type
@@ -391,25 +391,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_R
  *
  *  Value: "COMMAND_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_CommandTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_CommandTypeUnspecified;
 /**
  *  Lock the device, as if the lock screen timeout had expired.
  *
  *  Value: "LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Lock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Lock;
 /**
  *  Reboot the device. Only supported on API level 24+.
  *
  *  Value: "REBOOT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
 /**
  *  Reset the user's password.
  *
  *  Value: "RESET_PASSWORD"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -419,7 +419,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword;
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Active;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Active;
 /**
  *  The device was deleted. This state will never be returned by an API call,
  *  but is used in the final status report published to Cloud Pub/Sub when the
@@ -427,26 +427,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Active;
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Deleted;
 /**
  *  This value is disallowed.
  *
  *  Value: "DEVICE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_DeviceStateUnspecified;
 /**
  *  The device is disabled.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Disabled;
 /**
  *  The device is being provisioned. Newly enrolled devices are in this state
  *  until they have a policy applied.
  *
  *  Value: "PROVISIONING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Provisioning;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.managementMode
@@ -456,20 +456,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Provisio
  *
  *  Value: "DEVICE_OWNER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_DeviceOwner;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_DeviceOwner;
 /**
  *  This value is disallowed.
  *
  *  Value: "MANAGEMENT_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ManagementModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ManagementModeUnspecified;
 /**
  *  Profile owner. Android Device Policy has control over a managed profile on
  *  the device.
  *
  *  Value: "PROFILE_OWNER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ProfileOwner;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ProfileOwner;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.state
@@ -479,7 +479,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_Profil
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Active;
 /**
  *  The device was deleted. This state will never be returned by an API call,
  *  but is used in the final status report published to Cloud Pub/Sub when the
@@ -487,26 +487,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Active;
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Deleted;
 /**
  *  This value is disallowed.
  *
  *  Value: "DEVICE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_DeviceStateUnspecified;
 /**
  *  The device is disabled.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Disabled;
 /**
  *  The device is being provisioned. Newly enrolled devices are in this state
  *  until they have a policy applied.
  *
  *  Value: "PROVISIONING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceSettings.encryptionStatus
@@ -516,43 +516,43 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
  *
  *  Value: "ACTIVATING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Activating;
 /**
  *  Encryption is active.
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Active;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Active;
 /**
  *  Encryption is active, but an encryption key is not set by the user.
  *
  *  Value: "ACTIVE_DEFAULT_KEY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActiveDefaultKey;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActiveDefaultKey;
 /**
  *  Encryption is active, and the encryption key is tied to the user profile.
  *
  *  Value: "ACTIVE_PER_USER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActivePerUser;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_ActivePerUser;
 /**
  *  Unspecified. No device should have this type.
  *
  *  Value: "ENCRYPTION_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_EncryptionStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_EncryptionStatusUnspecified;
 /**
  *  Encryption is supported by the device, but is not currently active.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Inactive;
 /**
  *  Encryption is not supported by the device.
  *
  *  Value: "UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionStatus_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Display.state
@@ -562,45 +562,45 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_DeviceSettings_EncryptionSta
  *
  *  Value: "DISPLAY_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Display_State_DisplayStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_DisplayStateUnspecified;
 /**
  *  Display is dozing in a low power state
  *
  *  Value: "DOZE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Doze;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Doze;
 /**
  *  Display is off.
  *
  *  Value: "OFF"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Off;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Off;
 /**
  *  Display is on.
  *
  *  Value: "ON"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Display_State_On;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_On;
 /**
  *  Display is dozing in a suspended low power state.
  *
  *  Value: "SUSPENDED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Suspended;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
 
 /** Value: "COMMAND" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Command;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Command;
 /** Value: "COMPLIANCE_REPORT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_ComplianceReport;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_ComplianceReport;
 /** Value: "ENROLLMENT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment;
 /** Value: "NOTIFICATION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified;
 /** Value: "STATUS_REPORT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KeyedAppState.severity
@@ -611,19 +611,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificati
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Error;
 /**
  *  Information severity level.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Info;
 /**
  *  Unspecified severity level.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KioskCustomization.deviceSettings
@@ -633,19 +633,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KeyedAppState_Severity_Sever
  *
  *  Value: "DEVICE_SETTINGS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_DeviceSettingsUnspecified;
 /**
  *  Access to the Settings app is allowed in kiosk mode.
  *
  *  Value: "SETTINGS_ACCESS_ALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessAllowed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessAllowed;
 /**
  *  Access to the Settings app is not allowed in kiosk mode.
  *
  *  Value: "SETTINGS_ACCESS_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSettings_SettingsAccessBlocked;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KioskCustomization.powerButtonActions
@@ -655,14 +655,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_DeviceSet
  *
  *  Value: "POWER_BUTTON_ACTIONS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonActionsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonActionsUnspecified;
 /**
  *  The power menu (e.g. Power off, Restart) is shown when a user long-presses
  *  the Power button of a device in kiosk mode.
  *
  *  Value: "POWER_BUTTON_AVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonAvailable;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonAvailable;
 /**
  *  The power menu (e.g. Power off, Restart) is not shown when a user
  *  long-presses the Power button of a device in kiosk mode. Note: this may
@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButt
  *
  *  Value: "POWER_BUTTON_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButtonActions_PowerButtonBlocked;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KioskCustomization.statusBar
@@ -680,7 +680,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_PowerButt
  *
  *  Value: "NOTIFICATIONS_AND_SYSTEM_INFO_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoDisabled;
 /**
  *  System info and notifications are shown on the status bar in kiosk
  *  mode.Note: For this policy to take effect, the device's home button must be
@@ -688,19 +688,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar
  *
  *  Value: "NOTIFICATIONS_AND_SYSTEM_INFO_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_NotificationsAndSystemInfoEnabled;
 /**
  *  Unspecified, defaults to INFO_AND_NOTIFICATIONS_DISABLED.
  *
  *  Value: "STATUS_BAR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_StatusBarUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_StatusBarUnspecified;
 /**
  *  Only system info is shown on the status bar.
  *
  *  Value: "SYSTEM_INFO_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_SystemInfoOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar_SystemInfoOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KioskCustomization.systemErrorWarnings
@@ -711,7 +711,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_StatusBar
  *
  *  Value: "ERROR_AND_WARNINGS_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsEnabled;
 /**
  *  All system error dialogs, such as crash and app not responding (ANR) are
  *  blocked. When blocked, the system force-stops the app as if the user closes
@@ -719,13 +719,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErr
  *
  *  Value: "ERROR_AND_WARNINGS_MUTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsMuted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_ErrorAndWarningsMuted;
 /**
  *  Unspecified, defaults to ERROR_AND_WARNINGS_MUTED.
  *
  *  Value: "SYSTEM_ERROR_WARNINGS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_SystemErrorWarningsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErrorWarnings_SystemErrorWarningsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KioskCustomization.systemNavigation
@@ -735,25 +735,25 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemErr
  *
  *  Value: "HOME_BUTTON_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_HomeButtonOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_HomeButtonOnly;
 /**
  *  The home and Overview buttons are not accessible.
  *
  *  Value: "NAVIGATION_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_NavigationDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_NavigationDisabled;
 /**
  *  Home and overview buttons are enabled.
  *
  *  Value: "NAVIGATION_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_NavigationEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_NavigationEnabled;
 /**
  *  Unspecified, defaults to NAVIGATION_DISABLED.
  *
  *  Value: "SYSTEM_NAVIGATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_SystemNavigationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNavigation_SystemNavigationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ManagedProperty.type
@@ -763,56 +763,56 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_KioskCustomization_SystemNav
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bool;
 /**
  *  A bundle of properties
  *
  *  Value: "BUNDLE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bundle;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Bundle;
 /**
  *  An array of property bundles.
  *
  *  Value: "BUNDLE_ARRAY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_BundleArray;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_BundleArray;
 /**
  *  A choice of one item from a set.
  *
  *  Value: "CHOICE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Choice;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Choice;
 /**
  *  A hidden restriction of string type (the default value can be used to pass
  *  along information that can't be modified, such as a version code).
  *
  *  Value: "HIDDEN"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Hidden;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Hidden;
 /**
  *  A property of integer type.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Integer;
 /**
  *  Not used.
  *
  *  Value: "MANAGED_PROPERTY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_ManagedPropertyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_ManagedPropertyTypeUnspecified;
 /**
  *  A choice of multiple items from a set.
  *
  *  Value: "MULTISELECT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Multiselect;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_Multiselect;
 /**
  *  A property of string type.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_String;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_String;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_MemoryEvent.eventType
@@ -823,37 +823,37 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_ManagedProperty_Type_String;
  *
  *  Value: "EXTERNAL_STORAGE_DETECTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_ExternalStorageDetected;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_ExternalStorageDetected;
 /**
  *  Free space in an external storage medium was measured.
  *
  *  Value: "EXTERNAL_STORAGE_MEASURED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_ExternalStorageMeasured;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_ExternalStorageMeasured;
 /**
  *  An external storage medium was removed. The reported byte count is zero.
  *
  *  Value: "EXTERNAL_STORAGE_REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_ExternalStorageRemoved;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_ExternalStorageRemoved;
 /**
  *  Free space in internal storage was measured.
  *
  *  Value: "INTERNAL_STORAGE_MEASURED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_InternalStorageMeasured;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_InternalStorageMeasured;
 /**
  *  Unspecified. No events have this type.
  *
  *  Value: "MEMORY_EVENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_MemoryEventTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_MemoryEventTypeUnspecified;
 /**
  *  Free space in RAM was measured.
  *
  *  Value: "RAM_MEASURED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_RamMeasured;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_RamMeasured;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetail.installationFailureReason
@@ -863,7 +863,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_MemoryEvent_EventType_RamMea
  *
  *  Value: "IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InProgress;
 /**
  *  An unknown condition is preventing the app from being installed. Some
  *  potential reasons are that the device doesn't have enough storage, the
@@ -872,62 +872,62 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Installa
  *
  *  Value: "INSTALLATION_FAILURE_REASON_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnknown;
 /**
  *  This value is disallowed.
  *
  *  Value: "INSTALLATION_FAILURE_REASON_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_InstallationFailureReasonUnspecified;
 /**
  *  There are no licenses available to assign to the user.
  *
  *  Value: "NO_LICENSES_REMAINING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NoLicensesRemaining;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NoLicensesRemaining;
 /**
  *  The app has not been approved by the admin.
  *
  *  Value: "NOT_APPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotApproved;
 /**
  *  The app is not available in the user's country.
  *
  *  Value: "NOT_AVAILABLE_IN_COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotAvailableInCountry;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotAvailableInCountry;
 /**
  *  The app is incompatible with the device.
  *
  *  Value: "NOT_COMPATIBLE_WITH_DEVICE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotCompatibleWithDevice;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotCompatibleWithDevice;
 /**
  *  The enterprise is no longer enrolled with managed Play or the admin has not
  *  accepted the latest managed Play terms of service.
  *
  *  Value: "NOT_ENROLLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotEnrolled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotEnrolled;
 /**
  *  The app was not found in Play.
  *
  *  Value: "NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotFound;
 /**
  *  The app has new permissions that have not been accepted by the admin.
  *
  *  Value: "PERMISSIONS_NOT_ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted;
 /**
  *  The user is no longer valid. The user may have been deleted or disabled.
  *
  *  Value: "USER_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_UserInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_UserInvalid;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetail.nonComplianceReason
@@ -938,72 +938,72 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Installa
  *
  *  Value: "API_LEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ApiLevel;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ApiLevel;
 /**
  *  The setting can't be applied to the app because the app doesn't support it,
  *  for example because its target SDK version is not high enough.
  *
  *  Value: "APP_INCOMPATIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppIncompatible;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppIncompatible;
 /**
  *  A blocked app is installed.
  *
  *  Value: "APP_INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled;
 /**
  *  The app required to implement the policy is not installed.
  *
  *  Value: "APP_NOT_INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled;
 /**
  *  The app is installed, but it hasn't been updated to the minimum version code
  *  specified by policy.
  *
  *  Value: "APP_NOT_UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated;
 /**
  *  The setting has an invalid value.
  *
  *  Value: "INVALID_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue;
 /**
  *  The management mode (profile owner, device owner, etc.) doesn't support the
  *  setting.
  *
  *  Value: "MANAGEMENT_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode;
 /**
  *  This value is disallowed.
  *
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified;
 /**
  *  The setting hasn't been applied at the time of the report, but is expected
  *  to be applied shortly.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending;
 /**
  *  The policy is not supported by the version of Android Device Policy on the
  *  device.
  *
  *  Value: "UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Unsupported;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Unsupported;
 /**
  *  The user has not taken required action to comply with the setting.
  *
  *  Value: "USER_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_UserAction;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_UserAction;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetailCondition.nonComplianceReason
@@ -1014,72 +1014,72 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonCompl
  *
  *  Value: "API_LEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ApiLevel;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ApiLevel;
 /**
  *  The setting can't be applied to the app because the app doesn't support it,
  *  for example because its target SDK version is not high enough.
  *
  *  Value: "APP_INCOMPATIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppIncompatible;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppIncompatible;
 /**
  *  A blocked app is installed.
  *
  *  Value: "APP_INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled;
 /**
  *  The app required to implement the policy is not installed.
  *
  *  Value: "APP_NOT_INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled;
 /**
  *  The app is installed, but it hasn't been updated to the minimum version code
  *  specified by policy.
  *
  *  Value: "APP_NOT_UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated;
 /**
  *  The setting has an invalid value.
  *
  *  Value: "INVALID_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue;
 /**
  *  The management mode (profile owner, device owner, etc.) doesn't support the
  *  setting.
  *
  *  Value: "MANAGEMENT_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode;
 /**
  *  This value is disallowed.
  *
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified;
 /**
  *  The setting hasn't been applied at the time of the report, but is expected
  *  to be applied shortly.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending;
 /**
  *  The policy is not supported by the version of Android Device Policy on the
  *  device.
  *
  *  Value: "UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Unsupported;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Unsupported;
 /**
  *  The user has not taken required action to comply with the setting.
  *
  *  Value: "USER_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_UserAction;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_UserAction;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PasswordRequirements.passwordQuality
@@ -1089,14 +1089,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition
  *
  *  Value: "ALPHABETIC"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic;
 /**
  *  The password must contain both numeric and alphabetic (or symbol)
  *  characters.
  *
  *  Value: "ALPHANUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric;
 /**
  *  The device must be secured with a low-security biometric recognition
  *  technology, at minimum. This includes technologies that can recognize the
@@ -1105,7 +1105,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  *
  *  Value: "BIOMETRIC_WEAK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak;
 /**
  *  The password must meet the minimum requirements specified in
  *  passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols, etc.
@@ -1114,33 +1114,33 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  *
  *  Value: "COMPLEX"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex;
 /**
  *  The password must contain numeric characters.
  *
  *  Value: "NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric;
 /**
  *  The password must contain numeric characters with no repeating (4444) or
  *  ordered (1234, 4321, 2468) sequences.
  *
  *  Value: "NUMERIC_COMPLEX"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex;
 /**
  *  There are no password requirements.
  *
  *  Value: "PASSWORD_QUALITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified;
 /**
  *  A password is required, but there are no restrictions on what the password
  *  must contain.
  *
  *  Value: "SOMETHING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Something;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Something;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PasswordRequirements.passwordScope
@@ -1150,13 +1150,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  *
  *  Value: "SCOPE_DEVICE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeDevice;
 /**
  *  The password requirements are only applied to the work profile.
  *
  *  Value: "SCOPE_PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeProfile;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeProfile;
 /**
  *  The scope is unspecified. The password requirements are applied to the work
  *  profile for work profile devices and the whole device for fully managed or
@@ -1164,7 +1164,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  *
  *  Value: "SCOPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordScope_ScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PasswordRequirements.requirePasswordUnlock
@@ -1174,19 +1174,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Passwor
  *
  *  Value: "REQUIRE_EVERY_DAY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequireEveryDay;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequireEveryDay;
 /**
  *  Unspecified. Defaults to USE_DEFAULT_DEVICE_TIMEOUT.
  *
  *  Value: "REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequirePasswordUnlockUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequirePasswordUnlockUnspecified;
 /**
  *  The timeout period is set to the device’s default.
  *
  *  Value: "USE_DEFAULT_DEVICE_TIMEOUT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PermissionGrant.policy
@@ -1196,36 +1196,36 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_Require
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny;
 /**
  *  Automatically grant a permission.
  *
  *  Value: "GRANT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant;
 /**
  *  Policy not specified. If no policy is specified for a permission at any
  *  level, then the PROMPT behavior is used by default.
  *
  *  Value: "PERMISSION_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified;
 /**
  *  Prompt the user to grant a permission.
  *
  *  Value: "PROMPT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Prompt;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Prompt;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
 
 /** Value: "APP_TRACK_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_AppTrackUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_AppTrackUnspecified;
 /** Value: "BETA" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Beta;
 /** Value: "PRODUCTION" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Production;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Production;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.appAutoUpdatePolicy
@@ -1235,31 +1235,31 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTr
  *
  *  Value: "ALWAYS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always;
 /**
  *  The auto-update policy is not set. Equivalent to CHOICE_TO_THE_USER.
  *
  *  Value: "APP_AUTO_UPDATE_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_AppAutoUpdatePolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_AppAutoUpdatePolicyUnspecified;
 /**
  *  The user can control auto-updates.
  *
  *  Value: "CHOICE_TO_THE_USER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUser;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUser;
 /**
  *  Apps are never auto-updated.
  *
  *  Value: "NEVER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never;
 /**
  *  Apps are auto-updated over Wi-Fi only.
  *
  *  Value: "WIFI_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
@@ -1269,26 +1269,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_W
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny;
 /**
  *  Automatically grant a permission.
  *
  *  Value: "GRANT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant;
 /**
  *  Policy not specified. If no policy is specified for a permission at any
  *  level, then the PROMPT behavior is used by default.
  *
  *  Value: "PERMISSION_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified;
 /**
  *  Prompt the user to grant a permission.
  *
  *  Value: "PROMPT"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Prompt;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Prompt;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.encryptionPolicy
@@ -1298,45 +1298,45 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPoli
  *
  *  Value: "ENABLED_WITHOUT_PASSWORD"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithoutPassword;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithoutPassword;
 /**
  *  Encryption required with password required to boot
  *
  *  Value: "ENABLED_WITH_PASSWORD"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithPassword;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EnabledWithPassword;
 /**
  *  This value is ignored, i.e. no encryption required
  *
  *  Value: "ENCRYPTION_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
 
 /** Value: "ALL_FEATURES" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures;
 /** Value: "BIOMETRICS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Biometrics;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Biometrics;
 /** Value: "CAMERA" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera;
 /** Value: "DISABLE_FINGERPRINT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint;
 /** Value: "DISABLE_REMOTE_INPUT" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableRemoteInput;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableRemoteInput;
 /** Value: "FACE" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Face;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Face;
 /** Value: "IRIS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Iris;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Iris;
 /** Value: "KEYGUARD_DISABLED_FEATURE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified;
 /** Value: "NOTIFICATIONS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications;
 /** Value: "TRUST_AGENTS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents;
 /** Value: "UNREDACTED_NOTIFICATIONS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.locationMode
@@ -1346,32 +1346,32 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatu
  *
  *  Value: "BATTERY_SAVING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving;
 /**
  *  All location detection methods are enabled, including GPS, networks, and
  *  other sensors.
  *
  *  Value: "HIGH_ACCURACY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy;
 /**
  *  The current device value is not modified.
  *
  *  Value: "LOCATION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified;
 /**
  *  Location detection is disabled.
  *
  *  Value: "OFF"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off;
 /**
  *  Only GPS and other sensors are enabled.
  *
  *  Value: "SENSORS_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.playStoreMode
@@ -1382,32 +1382,32 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsO
  *
  *  Value: "BLACKLIST"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist;
 /**
  *  Unspecified. Defaults to WHITELIST.
  *
  *  Value: "PLAY_STORE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified;
 /**
  *  Only apps that are in the policy are available and any app not in the policy
  *  will be automatically uninstalled from the device.
  *
  *  Value: "WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 
 /** Value: "AC" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac;
 /** Value: "BATTERY_PLUGGED_MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_BatteryPluggedModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_BatteryPluggedModeUnspecified;
 /** Value: "USB" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Usb;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Usb;
 /** Value: "WIRELESS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PostureDetail.securityRisk
@@ -1418,20 +1418,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wi
  *
  *  Value: "COMPROMISED_OS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_CompromisedOs;
 /**
  *  Unspecified.
  *
  *  Value: "SECURITY_RISK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_SecurityRiskUnspecified;
 /**
  *  SafetyNet detects that the device is running an unknown OS (basicIntegrity
  *  check succeeds but ctsProfileMatch fails).
  *
  *  Value: "UNKNOWN_OS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_UnknownOs;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PowerManagementEvent.eventType
@@ -1441,49 +1441,49 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PostureDetail_SecurityRisk_U
  *
  *  Value: "BATTERY_LEVEL_COLLECTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryLevelCollected;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryLevelCollected;
 /**
  *  The device entered low-power mode.
  *
  *  Value: "BATTERY_LOW"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryLow;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryLow;
 /**
  *  The device exited low-power mode.
  *
  *  Value: "BATTERY_OKAY"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryOkay;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BatteryOkay;
 /**
  *  The device booted.
  *
  *  Value: "BOOT_COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BootCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_BootCompleted;
 /**
  *  The device started charging.
  *
  *  Value: "POWER_CONNECTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerConnected;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerConnected;
 /**
  *  The device stopped charging.
  *
  *  Value: "POWER_DISCONNECTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerDisconnected;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerDisconnected;
 /**
  *  Unspecified. No events have this type.
  *
  *  Value: "POWER_MANAGEMENT_EVENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerManagementEventTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_PowerManagementEventTypeUnspecified;
 /**
  *  The device shut down.
  *
  *  Value: "SHUTDOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SecurityPosture.devicePosture
@@ -1494,26 +1494,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventTy
  *
  *  Value: "AT_RISK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk;
 /**
  *  Unspecified. There is no posture detail for this posture value.
  *
  *  Value: "POSTURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified;
 /**
  *  This device may be compromised and corporate data may be accessible to
  *  unauthorized actors.
  *
  *  Value: "POTENTIALLY_COMPROMISED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised;
 /**
  *  This device is secure.
  *
  *  Value: "SECURE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SystemUpdate.type
@@ -1523,20 +1523,20 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePostur
  *
  *  Value: "AUTOMATIC"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic;
 /**
  *  Postpone automatic install up to a maximum of 30 days.
  *
  *  Value: "POSTPONE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Postpone;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Postpone;
 /**
  *  Follow the default update behavior for the device, which typically requires
  *  the user to accept system updates.
  *
  *  Value: "SYSTEM_UPDATE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified;
 /**
  *  Install automatically within a daily maintenance window. This also
  *  configures Play apps to be updated within the window. This is strongly
@@ -1545,7 +1545,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpda
  *
  *  Value: "WINDOWED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebApp.displayMode
@@ -1555,7 +1555,7 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed;
  *
  *  Value: "DISPLAY_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayModeUnspecified;
 /**
  *  Opens the web app in full screen without any visible controls. The browser
  *  UI elements, page URL, system status bar and back button are not visible,
@@ -1563,14 +1563,14 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayMo
  *
  *  Value: "FULL_SCREEN"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_FullScreen;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_FullScreen;
 /**
  *  Opens the web app with a minimal set of browser UI elements for controlling
  *  navigation and viewing the page URL.
  *
  *  Value: "MINIMAL_UI"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_MinimalUi;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_MinimalUi;
 /**
  *  Opens the web app to look and feel like a standalone native application. The
  *  browser UI elements and page URL are not visible, however the system status
@@ -1578,31 +1578,31 @@ GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_MinimalUi
  *
  *  Value: "STANDALONE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_Standalone;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_Standalone;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebToken.enabledFeatures
 
 /** Value: "FEATURE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_FeatureUnspecified;
 /** Value: "MANAGED_CONFIGURATIONS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ManagedConfigurations;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ManagedConfigurations;
 /** Value: "PLAY_SEARCH" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PlaySearch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PlaySearch;
 /** Value: "PRIVATE_APPS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PrivateApps;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PrivateApps;
 /** Value: "STORE_BUILDER" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_StoreBuilder;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_StoreBuilder;
 /** Value: "WEB_APPS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebToken.permissions
 
 /** Value: "APPROVE_APPS" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps;
 /** Value: "WEB_TOKEN_PERMISSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
 
 /**
  *  Security policies set to the most secure values by default. To maintain the

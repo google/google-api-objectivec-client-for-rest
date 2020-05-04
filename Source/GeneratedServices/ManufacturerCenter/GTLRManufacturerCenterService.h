@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/manufacturercenter"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeManufacturerCenterManufacturercenter;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeManufacturerCenterManufacturercenter;
 
 // ----------------------------------------------------------------------------
 //   GTLRManufacturerCenterService

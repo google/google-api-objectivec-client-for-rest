@@ -49,19 +49,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DRYRUN_AUDIT_LOG_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_DryrunAuditLogOnly;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_DryrunAuditLogOnly;
 /**
  *  Enforce the admission rule by blocking the pod creation.
  *
  *  Value: "ENFORCED_BLOCK_AND_AUDIT_LOG"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcedBlockAndAuditLog;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcedBlockAndAuditLog;
 /**
  *  Do not use.
  *
  *  Value: "ENFORCEMENT_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcementModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementMode_EnforcementModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBinaryAuthorization_AdmissionRule.evaluationMode
@@ -71,19 +71,19 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EnforcementM
  *
  *  Value: "ALWAYS_ALLOW"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysAllow;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysAllow;
 /**
  *  This rule denies all pod creations.
  *
  *  Value: "ALWAYS_DENY"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDeny;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_AlwaysDeny;
 /**
  *  Do not use.
  *
  *  Value: "EVALUATION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified;
 /**
  *  This rule allows a pod creation if all the attestors listed in
  *  'require_attestations_by' have valid attestations for all of the
@@ -91,7 +91,7 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  *
  *  Value: "REQUIRE_ATTESTATION"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation;
 
 // ----------------------------------------------------------------------------
 // GTLRBinaryAuthorization_PkixPublicKey.signatureAlgorithm
@@ -101,73 +101,73 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMo
  *
  *  Value: "ECDSA_P256_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256;
 /**
  *  ECDSA on the NIST P-384 curve with a SHA384 digest.
  *
  *  Value: "ECDSA_P384_SHA384"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384;
 /**
  *  ECDSA on the NIST P-521 curve with a SHA512 digest.
  *
  *  Value: "ECDSA_P521_SHA512"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP521Sha512;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP521Sha512;
 /**
  *  RSASSA-PSS 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_PSS_2048_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256;
 /**
  *  RSASSA-PSS 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_PSS_3072_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss3072Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss3072Sha256;
 /**
  *  RSASSA-PSS 4096 bit key with a SHA256 digest.
  *
  *  Value: "RSA_PSS_4096_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha256;
 /**
  *  RSASSA-PSS 4096 bit key with a SHA512 digest.
  *
  *  Value: "RSA_PSS_4096_SHA512"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha512;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha512;
 /**
  *  RSASSA-PKCS1-v1_5 with a 2048 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_2048_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs12048Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs12048Sha256;
 /**
  *  RSASSA-PKCS1-v1_5 with a 3072 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_3072_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs13072Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs13072Sha256;
 /**
  *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA256 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_4096_SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha256;
 /**
  *  RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest.
  *
  *  Value: "RSA_SIGN_PKCS1_4096_SHA512"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512;
 /**
  *  Not specified.
  *
  *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
@@ -177,19 +177,19 @@ GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlg
  *
  *  Value: "DISABLE"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable;
 /**
  *  Enables global policy evaluation.
  *
  *  Value: "ENABLE"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable;
 /**
  *  Not specified: DISABLE is assumed.
  *
  *  Value: "GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified;
 
 /**
  *  An admission rule specifies either that all container images

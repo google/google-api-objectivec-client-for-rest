@@ -39,9 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewBasic;
 /** Value: "INCLUDE_DOWNLOAD_URL" */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 
 // ----------------------------------------------------------------------------
 // Query Classes

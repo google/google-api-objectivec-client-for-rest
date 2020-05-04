@@ -34,33 +34,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/drive"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsDrive;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsDrive;
 /**
  *  Authorization scope: View and manage Google Drive files and folders that you
  *  have opened or created with this app
  *
  *  Value "https://www.googleapis.com/auth/drive.file"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsDriveFile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsDriveFile;
 /**
  *  Authorization scope: See and download all your Google Drive files
  *
  *  Value "https://www.googleapis.com/auth/drive.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsDriveReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsDriveReadonly;
 /**
  *  Authorization scope: See, edit, create, and delete your spreadsheets in
  *  Google Drive
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsSpreadsheets;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsSpreadsheets;
 /**
  *  Authorization scope: View your Google Spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSheetsSpreadsheetsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsSpreadsheetsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRSheetsService

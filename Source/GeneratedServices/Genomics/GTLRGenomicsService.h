@@ -33,14 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/genomics"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGenomics;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomics;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGenomicsCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomicsCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRGenomicsService

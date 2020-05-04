@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/books"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBooks;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBooks;
 
 // ----------------------------------------------------------------------------
 //   GTLRBooksService

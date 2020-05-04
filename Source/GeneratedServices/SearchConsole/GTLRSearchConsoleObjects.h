@@ -43,49 +43,49 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CONFIGURE_VIEWPORT"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_ConfigureViewport;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_ConfigureViewport;
 /**
  *  Viewport defined to a fixed width. [Learn more]
  *  (https://support.google.com/webmasters/answer/6352293#fixed-width_viewport).
  *
  *  Value: "FIXED_WIDTH_VIEWPORT"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_FixedWidthViewport;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_FixedWidthViewport;
 /**
  *  Unknown rule. Sorry, we don't have any description for the rule that was
  *  broken.
  *
  *  Value: "MOBILE_FRIENDLY_RULE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_MobileFriendlyRuleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_MobileFriendlyRuleUnspecified;
 /**
  *  Content not sized to viewport. [Learn more]
  *  (https://support.google.com/webmasters/answer/6352293#content_not_sized_to_viewport).
  *
  *  Value: "SIZE_CONTENT_TO_VIEWPORT"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_SizeContentToViewport;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_SizeContentToViewport;
 /**
  *  Touch elements are too close to each other. [Learn more]
  *  (https://support.google.com/webmasters/answer/6352293#touch_elements_too_close).
  *
  *  Value: "TAP_TARGETS_TOO_CLOSE"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_TapTargetsTooClose;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_TapTargetsTooClose;
 /**
  *  Font size is too small for easy reading on a small screen. [Learn More]
  *  (https://support.google.com/webmasters/answer/6352293#small_font_size).
  *
  *  Value: "USE_LEGIBLE_FONT_SIZES"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UseLegibleFontSizes;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UseLegibleFontSizes;
 /**
  *  Plugins incompatible with mobile devices are being used. [Learn more]
  *  (https://support.google.com/webmasters/answer/6352293#flash_usage).
  *
  *  Value: "USES_INCOMPATIBLE_PLUGINS"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UsesIncompatiblePlugins;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UsesIncompatiblePlugins;
 
 // ----------------------------------------------------------------------------
 // GTLRSearchConsole_RunMobileFriendlyTestResponse.mobileFriendliness
@@ -95,19 +95,19 @@ GTLR_EXTERN NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UsesInc
  *
  *  Value: "MOBILE_FRIENDLY"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_MobileFriendly;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_MobileFriendly;
 /**
  *  Internal error when running this test. Please try running the test again.
  *
  *  Value: "MOBILE_FRIENDLY_TEST_RESULT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_MobileFriendlyTestResultUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_MobileFriendlyTestResultUnspecified;
 /**
  *  The page is not mobile friendly.
  *
  *  Value: "NOT_MOBILE_FRIENDLY"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_NotMobileFriendly;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_NotMobileFriendly;
 
 // ----------------------------------------------------------------------------
 // GTLRSearchConsole_TestStatus.status
@@ -117,14 +117,14 @@ GTLR_EXTERN NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_Mo
  *
  *  Value: "COMPLETE"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_Complete;
 /**
  *  Inspection terminated in an error state. This indicates a problem in
  *  Google's infrastructure, not a user error. Please try again later.
  *
  *  Value: "INTERNAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_InternalError;
 /**
  *  Google can not access the URL because of a user error such as a robots.txt
  *  blockage, a 403 or 500 code etc. Please make sure that the URL provided is
@@ -132,13 +132,13 @@ GTLR_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_InternalError;
  *
  *  Value: "PAGE_UNREACHABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_PageUnreachable;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_PageUnreachable;
 /**
  *  Internal error when running this test. Please try running the test again.
  *
  *  Value: "TEST_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_TestStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_TestStatusUnspecified;
 
 /**
  *  Blocked resource.

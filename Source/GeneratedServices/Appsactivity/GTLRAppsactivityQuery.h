@@ -32,9 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 // groupingStrategy
 
 /** Value: "driveUi" */
-GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyDriveUi;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyDriveUi;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
+FOUNDATION_EXTERN NSString * const kGTLRAppsactivityGroupingStrategyNone;
 
 // ----------------------------------------------------------------------------
 // Query Classes

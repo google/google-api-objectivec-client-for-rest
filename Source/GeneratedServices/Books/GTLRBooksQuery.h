@@ -40,49 +40,49 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "FAMILY_SHARED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodFamilyShared;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodFamilyShared;
 /**
  *  Preordered books (not yet available)
  *
  *  Value: "PREORDERED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodPreordered;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPreordered;
 /**
  *  User-rented books past their expiration time
  *
  *  Value: "PREVIOUSLY_RENTED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodPreviouslyRented;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPreviouslyRented;
 /**
  *  Public domain books
  *
  *  Value: "PUBLIC_DOMAIN"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodPublicDomain;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPublicDomain;
 /**
  *  Purchased books
  *
  *  Value: "PURCHASED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodPurchased;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPurchased;
 /**
  *  User-rented books
  *
  *  Value: "RENTED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodRented;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodRented;
 /**
  *  Sample books
  *
  *  Value: "SAMPLE"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodSample;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodSample;
 /**
  *  User uploaded books
  *
  *  Value: "UPLOADED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodUploaded;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodUploaded;
 
 // ----------------------------------------------------------------------------
 // action
@@ -92,37 +92,37 @@ GTLR_EXTERN NSString * const kGTLRBooksAcquireMethodUploaded;
  *
  *  Value: "bookmark"
  */
-GTLR_EXTERN NSString * const kGTLRBooksActionBookmark;
+FOUNDATION_EXTERN NSString * const kGTLRBooksActionBookmark;
 /**
  *  User selected chapter from list.
  *
  *  Value: "chapter"
  */
-GTLR_EXTERN NSString * const kGTLRBooksActionChapter;
+FOUNDATION_EXTERN NSString * const kGTLRBooksActionChapter;
 /**
  *  Next page event.
  *
  *  Value: "next-page"
  */
-GTLR_EXTERN NSString * const kGTLRBooksActionNextPage;
+FOUNDATION_EXTERN NSString * const kGTLRBooksActionNextPage;
 /**
  *  Previous page event.
  *
  *  Value: "prev-page"
  */
-GTLR_EXTERN NSString * const kGTLRBooksActionPrevPage;
+FOUNDATION_EXTERN NSString * const kGTLRBooksActionPrevPage;
 /**
  *  User navigated to page.
  *
  *  Value: "scroll"
  */
-GTLR_EXTERN NSString * const kGTLRBooksActionScroll;
+FOUNDATION_EXTERN NSString * const kGTLRBooksActionScroll;
 /**
  *  User chose search results within volume.
  *
  *  Value: "search"
  */
-GTLR_EXTERN NSString * const kGTLRBooksActionSearch;
+FOUNDATION_EXTERN NSString * const kGTLRBooksActionSearch;
 
 // ----------------------------------------------------------------------------
 // association
@@ -132,19 +132,19 @@ GTLR_EXTERN NSString * const kGTLRBooksActionSearch;
  *
  *  Value: "end-of-sample"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAssociationEndOfSample;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationEndOfSample;
 /**
  *  Recommendations for display end-of-volume.
  *
  *  Value: "end-of-volume"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAssociationEndOfVolume;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationEndOfVolume;
 /**
  *  Related volumes for Play Store.
  *
  *  Value: "related-for-play"
  */
-GTLR_EXTERN NSString * const kGTLRBooksAssociationRelatedForPlay;
+FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationRelatedForPlay;
 
 // ----------------------------------------------------------------------------
 // download
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRBooksAssociationRelatedForPlay;
  *
  *  Value: "epub"
  */
-GTLR_EXTERN NSString * const kGTLRBooksDownloadEpub;
+FOUNDATION_EXTERN NSString * const kGTLRBooksDownloadEpub;
 
 // ----------------------------------------------------------------------------
 // features
@@ -164,7 +164,7 @@ GTLR_EXTERN NSString * const kGTLRBooksDownloadEpub;
  *
  *  Value: "RENTALS"
  */
-GTLR_EXTERN NSString * const kGTLRBooksFeaturesRentals;
+FOUNDATION_EXTERN NSString * const kGTLRBooksFeaturesRentals;
 
 // ----------------------------------------------------------------------------
 // filter
@@ -174,31 +174,31 @@ GTLR_EXTERN NSString * const kGTLRBooksFeaturesRentals;
  *
  *  Value: "ebooks"
  */
-GTLR_EXTERN NSString * const kGTLRBooksFilterEbooks;
+FOUNDATION_EXTERN NSString * const kGTLRBooksFilterEbooks;
 /**
  *  Google eBook with full volume text viewability.
  *
  *  Value: "free-ebooks"
  */
-GTLR_EXTERN NSString * const kGTLRBooksFilterFreeEbooks;
+FOUNDATION_EXTERN NSString * const kGTLRBooksFilterFreeEbooks;
 /**
  *  Public can view entire volume text.
  *
  *  Value: "full"
  */
-GTLR_EXTERN NSString * const kGTLRBooksFilterFull;
+FOUNDATION_EXTERN NSString * const kGTLRBooksFilterFull;
 /**
  *  Google eBook with a price.
  *
  *  Value: "paid-ebooks"
  */
-GTLR_EXTERN NSString * const kGTLRBooksFilterPaidEbooks;
+FOUNDATION_EXTERN NSString * const kGTLRBooksFilterPaidEbooks;
 /**
  *  Public able to see parts of text.
  *
  *  Value: "partial"
  */
-GTLR_EXTERN NSString * const kGTLRBooksFilterPartial;
+FOUNDATION_EXTERN NSString * const kGTLRBooksFilterPartial;
 
 // ----------------------------------------------------------------------------
 // libraryRestrict
@@ -208,13 +208,13 @@ GTLR_EXTERN NSString * const kGTLRBooksFilterPartial;
  *
  *  Value: "my-library"
  */
-GTLR_EXTERN NSString * const kGTLRBooksLibraryRestrictMyLibrary;
+FOUNDATION_EXTERN NSString * const kGTLRBooksLibraryRestrictMyLibrary;
 /**
  *  Do not restrict based on user's library.
  *
  *  Value: "no-restrict"
  */
-GTLR_EXTERN NSString * const kGTLRBooksLibraryRestrictNoRestrict;
+FOUNDATION_EXTERN NSString * const kGTLRBooksLibraryRestrictNoRestrict;
 
 // ----------------------------------------------------------------------------
 // licenseTypes
@@ -224,19 +224,19 @@ GTLR_EXTERN NSString * const kGTLRBooksLibraryRestrictNoRestrict;
  *
  *  Value: "BOTH"
  */
-GTLR_EXTERN NSString * const kGTLRBooksLicenseTypesBoth;
+FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesBoth;
 /**
  *  Concurrent access license.
  *
  *  Value: "CONCURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRBooksLicenseTypesConcurrent;
+FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesConcurrent;
 /**
  *  Offline download access license.
  *
  *  Value: "DOWNLOAD"
  */
-GTLR_EXTERN NSString * const kGTLRBooksLicenseTypesDownload;
+FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesDownload;
 
 // ----------------------------------------------------------------------------
 // maxAllowedMaturityRating
@@ -246,13 +246,13 @@ GTLR_EXTERN NSString * const kGTLRBooksLicenseTypesDownload;
  *
  *  Value: "mature"
  */
-GTLR_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingMature;
+FOUNDATION_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingMature;
 /**
  *  Show books which are rated not mature.
  *
  *  Value: "not-mature"
  */
-GTLR_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingNotMature;
+FOUNDATION_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingNotMature;
 
 // ----------------------------------------------------------------------------
 // orderBy
@@ -262,13 +262,13 @@ GTLR_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingNotMature;
  *
  *  Value: "newest"
  */
-GTLR_EXTERN NSString * const kGTLRBooksOrderByNewest;
+FOUNDATION_EXTERN NSString * const kGTLRBooksOrderByNewest;
 /**
  *  Relevance to search terms.
  *
  *  Value: "relevance"
  */
-GTLR_EXTERN NSString * const kGTLRBooksOrderByRelevance;
+FOUNDATION_EXTERN NSString * const kGTLRBooksOrderByRelevance;
 
 // ----------------------------------------------------------------------------
 // printType
@@ -278,19 +278,19 @@ GTLR_EXTERN NSString * const kGTLRBooksOrderByRelevance;
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRBooksPrintTypeAll;
+FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypeAll;
 /**
  *  Just books.
  *
  *  Value: "books"
  */
-GTLR_EXTERN NSString * const kGTLRBooksPrintTypeBooks;
+FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypeBooks;
 /**
  *  Just magazines.
  *
  *  Value: "magazines"
  */
-GTLR_EXTERN NSString * const kGTLRBooksPrintTypeMagazines;
+FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypeMagazines;
 
 // ----------------------------------------------------------------------------
 // processingState
@@ -300,19 +300,19 @@ GTLR_EXTERN NSString * const kGTLRBooksPrintTypeMagazines;
  *
  *  Value: "COMPLETED_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksProcessingStateCompletedFailed;
+FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateCompletedFailed;
 /**
  *  The volume processing was completed.
  *
  *  Value: "COMPLETED_SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRBooksProcessingStateCompletedSuccess;
+FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateCompletedSuccess;
 /**
  *  The volume processing is not completed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRBooksProcessingStateRunning;
+FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateRunning;
 
 // ----------------------------------------------------------------------------
 // projection
@@ -322,13 +322,13 @@ GTLR_EXTERN NSString * const kGTLRBooksProcessingStateRunning;
  *
  *  Value: "full"
  */
-GTLR_EXTERN NSString * const kGTLRBooksProjectionFull;
+FOUNDATION_EXTERN NSString * const kGTLRBooksProjectionFull;
 /**
  *  Includes a subset of fields in volumeInfo and accessInfo.
  *
  *  Value: "lite"
  */
-GTLR_EXTERN NSString * const kGTLRBooksProjectionLite;
+FOUNDATION_EXTERN NSString * const kGTLRBooksProjectionLite;
 
 // ----------------------------------------------------------------------------
 // rating
@@ -338,13 +338,13 @@ GTLR_EXTERN NSString * const kGTLRBooksProjectionLite;
  *
  *  Value: "HAVE_IT"
  */
-GTLR_EXTERN NSString * const kGTLRBooksRatingHaveIt;
+FOUNDATION_EXTERN NSString * const kGTLRBooksRatingHaveIt;
 /**
  *  Rating indicating a negative dismissal of a volume.
  *
  *  Value: "NOT_INTERESTED"
  */
-GTLR_EXTERN NSString * const kGTLRBooksRatingNotInterested;
+FOUNDATION_EXTERN NSString * const kGTLRBooksRatingNotInterested;
 
 // ----------------------------------------------------------------------------
 // reason
@@ -354,15 +354,15 @@ GTLR_EXTERN NSString * const kGTLRBooksRatingNotInterested;
  *
  *  Value: "IOS_PREX"
  */
-GTLR_EXTERN NSString * const kGTLRBooksReasonIosPrex;
+FOUNDATION_EXTERN NSString * const kGTLRBooksReasonIosPrex;
 /**
  *  Volumes added from the Search flow on iOS.
  *
  *  Value: "IOS_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRBooksReasonIosSearch;
+FOUNDATION_EXTERN NSString * const kGTLRBooksReasonIosSearch;
 /** Value: "ONBOARDING" */
-GTLR_EXTERN NSString * const kGTLRBooksReasonOnboarding;
+FOUNDATION_EXTERN NSString * const kGTLRBooksReasonOnboarding;
 
 // ----------------------------------------------------------------------------
 // Query Classes

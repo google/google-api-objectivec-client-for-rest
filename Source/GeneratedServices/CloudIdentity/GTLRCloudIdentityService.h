@@ -34,21 +34,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-identity.groups"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroups;
 /**
  *  Authorization scope: See any Cloud Identity Groups that you can access,
  *  including group members and their emails
  *
  *  Value "https://www.googleapis.com/auth/cloud-identity.groups.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudIdentityService

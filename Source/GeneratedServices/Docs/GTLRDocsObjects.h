@@ -205,19 +205,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "PAGE_COUNT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_AutoText_Type_PageCount;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_AutoText_Type_PageCount;
 /**
  *  Type for auto text that represents the current page number.
  *
  *  Value: "PAGE_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_AutoText_Type_PageNumber;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_AutoText_Type_PageNumber;
 /**
  *  An unspecified auto text type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_AutoText_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_AutoText_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_CreateFooterRequest.type
@@ -227,13 +227,13 @@ GTLR_EXTERN NSString * const kGTLRDocs_AutoText_Type_TypeUnspecified;
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_Default;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_Default;
 /**
  *  The header/footer type is unspecified.
  *
  *  Value: "HEADER_FOOTER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_HeaderFooterTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_HeaderFooterTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_CreateHeaderRequest.type
@@ -243,13 +243,13 @@ GTLR_EXTERN NSString * const kGTLRDocs_CreateFooterRequest_Type_HeaderFooterType
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_Default;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_Default;
 /**
  *  The header/footer type is unspecified.
  *
  *  Value: "HEADER_FOOTER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_HeaderFooterTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_HeaderFooterTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_CreateParagraphBulletsRequest.bulletPreset
@@ -260,82 +260,82 @@ GTLR_EXTERN NSString * const kGTLRDocs_CreateHeaderRequest_Type_HeaderFooterType
  *
  *  Value: "BULLET_ARROW3D_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare;
 /**
  *  A bulleted list with a `ARROW`, `DIAMOND` and `DISC` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_ARROW_DIAMOND_DISC"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc;
 /**
  *  A bulleted list with `CHECKBOX` bullet glyphs for all list nesting levels.
  *
  *  Value: "BULLET_CHECKBOX"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletCheckbox;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletCheckbox;
 /**
  *  A bulleted list with a `DIAMOND`, `CIRCLE` and `SQUARE` bullet glyph
  *  for the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMOND_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondCircleSquare;
 /**
  *  A bulleted list with a `DIAMONDX`, `ARROW3D` and `SQUARE` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMONDX_ARROW3D_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxArrow3dSquare;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxArrow3dSquare;
 /**
  *  A bulleted list with a `DIAMONDX`, `HOLLOWDIAMOND` and `SQUARE` bullet
  *  glyph for the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxHollowdiamondSquare;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxHollowdiamondSquare;
 /**
  *  A bulleted list with a `DISC`, `CIRCLE` and `SQUARE` bullet glyph for the
  *  first 3 list nesting levels.
  *
  *  Value: "BULLET_DISC_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiscCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletDiscCircleSquare;
 /**
  *  The bullet glyph preset is unspecified.
  *
  *  Value: "BULLET_GLYPH_PRESET_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletGlyphPresetUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletGlyphPresetUnspecified;
 /**
  *  A bulleted list with a `LEFTTRIANGLE`, `DIAMOND` and `DISC` bullet glyph
  *  for the first 3 list nesting levels.
  *
  *  Value: "BULLET_LEFTTRIANGLE_DIAMOND_DISC"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc;
 /**
  *  A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for
  *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_STAR_CIRCLE_SQUARE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare;
 /**
  *  A numbered list with `DECIMAL`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_DECIMAL_ALPHA_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedDecimalAlphaRoman;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedDecimalAlphaRoman;
 /**
  *  A numbered list with `DECIMAL`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by parenthesis.
  *
  *  Value: "NUMBERED_DECIMAL_ALPHA_ROMAN_PARENS"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedDecimalAlphaRomanParens;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedDecimalAlphaRomanParens;
 /**
  *  A numbered list with `DECIMAL` numeric glyphs separated by periods, where
  *  each nesting level uses the previous nesting level's glyph as a prefix.
@@ -343,28 +343,28 @@ GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPrese
  *
  *  Value: "NUMBERED_DECIMAL_NESTED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedDecimalNested;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedDecimalNested;
 /**
  *  A numbered list with `UPPERALPHA`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_UPPERALPHA_ALPHA_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperalphaAlphaRoman;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperalphaAlphaRoman;
 /**
  *  A numbered list with `UPPERROMAN`, `UPPERALPHA` and `DECIMAL` numeric
  *  glyphs for the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDecimal;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDecimal;
 /**
  *  A numbered list with `ZERODECIMAL`, `ALPHA` and `ROMAN` numeric glyphs for
  *  the first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_ZERODECIMAL_ALPHA_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodecimalAlphaRoman;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodecimalAlphaRoman;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_Dimension.unit
@@ -374,13 +374,13 @@ GTLR_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPrese
  *
  *  Value: "PT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_Dimension_Unit_Pt;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_Dimension_Unit_Pt;
 /**
  *  The units are unknown.
  *
  *  Value: "UNIT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_Dimension_Unit_UnitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_Dimension_Unit_UnitUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_Document.suggestionsViewMode
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_Dimension_Unit_UnitUnspecified;
  *
  *  Value: "DEFAULT_FOR_CURRENT_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_DefaultForCurrentAccess;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_DefaultForCurrentAccess;
 /**
  *  The returned document is a preview with all suggested changes accepted.
  *  Requests to retrieve a document using this mode will return a 403 error if
@@ -402,14 +402,14 @@ GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_DefaultForCu
  *
  *  Value: "PREVIEW_SUGGESTIONS_ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewSuggestionsAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewSuggestionsAccepted;
 /**
  *  The returned document is a preview with all suggested changes rejected if
  *  there are any suggestions in the document.
  *
  *  Value: "PREVIEW_WITHOUT_SUGGESTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewWithoutSuggestions;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewWithoutSuggestions;
 /**
  *  The returned document has suggestions inline. Suggested changes will be
  *  differentiated from base content within the document.
@@ -418,7 +418,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewWitho
  *
  *  Value: "SUGGESTIONS_INLINE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_SuggestionsInline;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_SuggestionsInline;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_EmbeddedObjectBorder.dashStyle
@@ -428,26 +428,26 @@ GTLR_EXTERN NSString * const kGTLRDocs_Document_SuggestionsViewMode_SuggestionsI
  *
  *  Value: "DASH"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Dash;
 /**
  *  Unspecified dash style.
  *
  *  Value: "DASH_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_DashStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_DashStyleUnspecified;
 /**
  *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
  *
  *  Value: "DOT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Dot;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Dot;
 /**
  *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
  *  This is the default dash style.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_EmbeddedObjectBorder.propertyState
@@ -458,14 +458,14 @@ GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Solid;
  *
  *  Value: "NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_NotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered in the document. This is the default value.
  *
  *  Value: "RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_Rendered;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_Rendered;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_InsertSectionBreakRequest.sectionType
@@ -476,19 +476,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_EmbeddedObjectBorder_PropertyState_Render
  *
  *  Value: "CONTINUOUS"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_Continuous;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_Continuous;
 /**
  *  The section starts on the next page.
  *
  *  Value: "NEXT_PAGE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_NextPage;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_NextPage;
 /**
  *  The section type is unspecified.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_SectionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_NamedStyle.namedStyleType
@@ -498,61 +498,61 @@ GTLR_EXTERN NSString * const kGTLRDocs_InsertSectionBreakRequest_SectionType_Sec
  *
  *  Value: "HEADING_1"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading1;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading1;
 /**
  *  Heading 2.
  *
  *  Value: "HEADING_2"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading2;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading2;
 /**
  *  Heading 3.
  *
  *  Value: "HEADING_3"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading3;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading3;
 /**
  *  Heading 4.
  *
  *  Value: "HEADING_4"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading4;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading4;
 /**
  *  Heading 5.
  *
  *  Value: "HEADING_5"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading5;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading5;
 /**
  *  Heading 6.
  *
  *  Value: "HEADING_6"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading6;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Heading6;
 /**
  *  The type of named style is unspecified.
  *
  *  Value: "NAMED_STYLE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_NamedStyleTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_NamedStyleTypeUnspecified;
 /**
  *  Normal text.
  *
  *  Value: "NORMAL_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_NormalText;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_NormalText;
 /**
  *  Subtitle.
  *
  *  Value: "SUBTITLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Subtitle;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Subtitle;
 /**
  *  Title.
  *
  *  Value: "TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Title;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Title;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_NamedStyleSuggestionState.namedStyleType
@@ -562,61 +562,61 @@ GTLR_EXTERN NSString * const kGTLRDocs_NamedStyle_NamedStyleType_Title;
  *
  *  Value: "HEADING_1"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading1;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading1;
 /**
  *  Heading 2.
  *
  *  Value: "HEADING_2"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading2;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading2;
 /**
  *  Heading 3.
  *
  *  Value: "HEADING_3"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading3;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading3;
 /**
  *  Heading 4.
  *
  *  Value: "HEADING_4"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading4;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading4;
 /**
  *  Heading 5.
  *
  *  Value: "HEADING_5"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading5;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading5;
 /**
  *  Heading 6.
  *
  *  Value: "HEADING_6"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading6;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Heading6;
 /**
  *  The type of named style is unspecified.
  *
  *  Value: "NAMED_STYLE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_NamedStyleTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_NamedStyleTypeUnspecified;
 /**
  *  Normal text.
  *
  *  Value: "NORMAL_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_NormalText;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_NormalText;
 /**
  *  Subtitle.
  *
  *  Value: "SUBTITLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Subtitle;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Subtitle;
 /**
  *  Title.
  *
  *  Value: "TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Title;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_Title;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_NestingLevel.bulletAlignment
@@ -626,28 +626,28 @@ GTLR_EXTERN NSString * const kGTLRDocs_NamedStyleSuggestionState_NamedStyleType_
  *
  *  Value: "BULLET_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_BulletAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_BulletAlignmentUnspecified;
 /**
  *  The bullet is aligned to the center of the space allotted for rendering
  *  the bullet.
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_Center;
 /**
  *  The bullet is aligned to the end of the space allotted for rendering the
  *  bullet. Right-aligned for LTR text, left-aligned otherwise.
  *
  *  Value: "END"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_End;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_End;
 /**
  *  The bullet is aligned to the start of the space allotted for rendering
  *  the bullet. Left-aligned for LTR text, right-aligned otherwise.
  *
  *  Value: "START"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_Start;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_NestingLevel.glyphType
@@ -657,43 +657,43 @@ GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_BulletAlignment_Start;
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_Alpha;
 /**
  *  A number, like `1`, `2`, or `3`.
  *
  *  Value: "DECIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_Decimal;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_Decimal;
 /**
  *  The glyph type is unspecified or unsupported.
  *
  *  Value: "GLYPH_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_GlyphTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_GlyphTypeUnspecified;
 /**
  *  An empty string.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_None;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_None;
 /**
  *  A lowercase Roman numeral, like `i`, `ii`, or `iii`.
  *
  *  Value: "ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_Roman;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_Roman;
 /**
  *  An uppercase letter, like `A`, `B`, or `C`.
  *
  *  Value: "UPPER_ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_UpperAlpha;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_UpperAlpha;
 /**
  *  An uppercase Roman numeral, like `I`, `II`, or `III`.
  *
  *  Value: "UPPER_ROMAN"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_UpperRoman;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_UpperRoman;
 /**
  *  A number where single digit numbers are prefixed with a zero, like `01`,
  *  `02`, or `03`. Numbers with more than one digit are not prefixed with a
@@ -701,7 +701,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_UpperRoman;
  *
  *  Value: "ZERO_DECIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_ZeroDecimal;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_ZeroDecimal;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_ParagraphBorder.dashStyle
@@ -711,26 +711,26 @@ GTLR_EXTERN NSString * const kGTLRDocs_NestingLevel_GlyphType_ZeroDecimal;
  *
  *  Value: "DASH"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Dash;
 /**
  *  Unspecified dash style.
  *
  *  Value: "DASH_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_DashStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_DashStyleUnspecified;
 /**
  *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
  *
  *  Value: "DOT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Dot;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Dot;
 /**
  *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
  *  This is the default dash style.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_ParagraphStyle.alignment
@@ -740,33 +740,33 @@ GTLR_EXTERN NSString * const kGTLRDocs_ParagraphBorder_DashStyle_Solid;
  *
  *  Value: "ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_AlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_AlignmentUnspecified;
 /**
  *  The paragraph is centered.
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Center;
 /**
  *  The paragraph is aligned to the end of the line. Right-aligned for LTR
  *  text, left-aligned otherwise.
  *
  *  Value: "END"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_End;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_End;
 /**
  *  The paragraph is justified.
  *
  *  Value: "JUSTIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Justified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Justified;
 /**
  *  The paragraph is aligned to the start of the line. Left-aligned for LTR
  *  text, right-aligned otherwise.
  *
  *  Value: "START"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Start;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_ParagraphStyle.direction
@@ -776,19 +776,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Alignment_Start;
  *
  *  Value: "CONTENT_DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_ContentDirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_ContentDirectionUnspecified;
 /**
  *  The content goes from left to right.
  *
  *  Value: "LEFT_TO_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_LeftToRight;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_LeftToRight;
 /**
  *  The content goes from right to left.
  *
  *  Value: "RIGHT_TO_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_RightToLeft;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_RightToLeft;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_ParagraphStyle.namedStyleType
@@ -798,61 +798,61 @@ GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_Direction_RightToLeft;
  *
  *  Value: "HEADING_1"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading1;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading1;
 /**
  *  Heading 2.
  *
  *  Value: "HEADING_2"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading2;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading2;
 /**
  *  Heading 3.
  *
  *  Value: "HEADING_3"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading3;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading3;
 /**
  *  Heading 4.
  *
  *  Value: "HEADING_4"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading4;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading4;
 /**
  *  Heading 5.
  *
  *  Value: "HEADING_5"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading5;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading5;
 /**
  *  Heading 6.
  *
  *  Value: "HEADING_6"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading6;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Heading6;
 /**
  *  The type of named style is unspecified.
  *
  *  Value: "NAMED_STYLE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_NamedStyleTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_NamedStyleTypeUnspecified;
 /**
  *  Normal text.
  *
  *  Value: "NORMAL_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_NormalText;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_NormalText;
 /**
  *  Subtitle.
  *
  *  Value: "SUBTITLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Subtitle;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Subtitle;
 /**
  *  Title.
  *
  *  Value: "TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Title;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Title;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_ParagraphStyle.spacingMode
@@ -862,19 +862,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_NamedStyleType_Title;
  *
  *  Value: "COLLAPSE_LISTS"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_CollapseLists;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_CollapseLists;
 /**
  *  Paragraph spacing is always rendered.
  *
  *  Value: "NEVER_COLLAPSE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_NeverCollapse;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_NeverCollapse;
 /**
  *  The spacing mode is inherited from the parent.
  *
  *  Value: "SPACING_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_SpacingModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_SpacingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_PositionedObjectPositioning.layout
@@ -885,39 +885,39 @@ GTLR_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_SpacingModeUns
  *
  *  Value: "BREAK_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeft;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeft;
 /**
  *  Breaks text such that there is no text on the left or right of the
  *  positioned object.
  *
  *  Value: "BREAK_LEFT_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeftRight;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeftRight;
 /**
  *  Breaks text such that the positioned object is on the right and text is on
  *  the left.
  *
  *  Value: "BREAK_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakRight;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakRight;
 /**
  *  The positioned object is in front of the text.
  *
  *  Value: "IN_FRONT_OF_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_InFrontOfText;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_InFrontOfText;
 /**
  *  The layout is unspecified.
  *
  *  Value: "POSITIONED_OBJECT_LAYOUT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_PositionedObjectLayoutUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_PositionedObjectLayoutUnspecified;
 /**
  *  The text wraps around the positioned object.
  *
  *  Value: "WRAP_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_WrapText;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_WrapText;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_ReplaceImageRequest.imageReplaceMethod
@@ -929,13 +929,13 @@ GTLR_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_WrapTe
  *
  *  Value: "CENTER_CROP"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
 /**
  *  Unspecified image replace method. This value must not be used.
  *
  *  Value: "IMAGE_REPLACE_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_ImageReplaceMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_SectionStyle.columnSeparatorStyle
@@ -945,19 +945,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_ReplaceImageRequest_ImageReplaceMethod_Im
  *
  *  Value: "BETWEEN_EACH_COLUMN"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_BetweenEachColumn;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_BetweenEachColumn;
 /**
  *  An unspecified column separator style.
  *
  *  Value: "COLUMN_SEPARATOR_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_ColumnSeparatorStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_ColumnSeparatorStyleUnspecified;
 /**
  *  No column separator lines between columns.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_None;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_None;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_SectionStyle.contentDirection
@@ -967,19 +967,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ColumnSeparatorStyle_None;
  *
  *  Value: "CONTENT_DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_ContentDirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_ContentDirectionUnspecified;
 /**
  *  The content goes from left to right.
  *
  *  Value: "LEFT_TO_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_LeftToRight;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_LeftToRight;
 /**
  *  The content goes from right to left.
  *
  *  Value: "RIGHT_TO_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_RightToLeft;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_RightToLeft;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_SectionStyle.sectionType
@@ -990,19 +990,19 @@ GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_ContentDirection_RightToLeft
  *
  *  Value: "CONTINUOUS"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_Continuous;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_Continuous;
 /**
  *  The section starts on the next page.
  *
  *  Value: "NEXT_PAGE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_NextPage;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_NextPage;
 /**
  *  The section type is unspecified.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_TableCellBorder.dashStyle
@@ -1012,26 +1012,26 @@ GTLR_EXTERN NSString * const kGTLRDocs_SectionStyle_SectionType_SectionTypeUnspe
  *
  *  Value: "DASH"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Dash;
 /**
  *  Unspecified dash style.
  *
  *  Value: "DASH_STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_DashStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_DashStyleUnspecified;
 /**
  *  Dotted line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'.
  *
  *  Value: "DOT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Dot;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Dot;
 /**
  *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
  *  This is the default dash style.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_TableCellStyle.contentAlignment
@@ -1042,34 +1042,34 @@ GTLR_EXTERN NSString * const kGTLRDocs_TableCellBorder_DashStyle_Solid;
  *
  *  Value: "BOTTOM"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Bottom;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Bottom;
 /**
  *  An unspecified content alignment. The content alignment is inherited from
  *  the parent if one exists.
  *
  *  Value: "CONTENT_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_ContentAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_ContentAlignmentUnspecified;
 /**
  *  An unsupported content alignment.
  *
  *  Value: "CONTENT_ALIGNMENT_UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_ContentAlignmentUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_ContentAlignmentUnsupported;
 /**
  *  An alignment that aligns the content to the middle of the content holder.
  *  Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
  *
  *  Value: "MIDDLE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Middle;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Middle;
 /**
  *  An alignment that aligns the content to the top of the content holder.
  *  Corresponds to ECMA-376 ST_TextAnchoringType 't'.
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Top;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_TableColumnProperties.widthType
@@ -1083,7 +1083,7 @@ GTLR_EXTERN NSString * const kGTLRDocs_TableCellStyle_ContentAlignment_Top;
  *
  *  Value: "EVENLY_DISTRIBUTED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_EvenlyDistributed;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_EvenlyDistributed;
 /**
  *  A fixed column width. The
  *  width property
@@ -1091,13 +1091,13 @@ GTLR_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_EvenlyDis
  *
  *  Value: "FIXED_WIDTH"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_FixedWidth;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_FixedWidth;
 /**
  *  The column width type is unspecified.
  *
  *  Value: "WIDTH_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_WidthTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_WidthTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_TabStop.alignment
@@ -1107,25 +1107,25 @@ GTLR_EXTERN NSString * const kGTLRDocs_TableColumnProperties_WidthType_WidthType
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_Center;
 /**
  *  The tab stop is aligned to the end of the line.
  *
  *  Value: "END"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_End;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_End;
 /**
  *  The tab stop is aligned to the start of the line. This is the default.
  *
  *  Value: "START"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_Start;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_Start;
 /**
  *  The tab stop alignment is unspecified.
  *
  *  Value: "TAB_STOP_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_TabStopAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_TabStopAlignmentUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_TextStyle.baselineOffset
@@ -1135,25 +1135,25 @@ GTLR_EXTERN NSString * const kGTLRDocs_TabStop_Alignment_TabStopAlignmentUnspeci
  *
  *  Value: "BASELINE_OFFSET_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_BaselineOffsetUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_BaselineOffsetUnspecified;
 /**
  *  The text is not vertically offset.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_None;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_None;
 /**
  *  The text is vertically offset downwards (subscript).
  *
  *  Value: "SUBSCRIPT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Subscript;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Subscript;
 /**
  *  The text is vertically offset upwards (superscript).
  *
  *  Value: "SUPERSCRIPT"
  */
-GTLR_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
+FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript;
 
 /**
  *  A ParagraphElement representing a

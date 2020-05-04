@@ -62,25 +62,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADD_ON"
  */
-GTLR_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_AddOn;
+FOUNDATION_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_AddOn;
 /**
  *  An unspecified entry point.
  *
  *  Value: "ENTRY_POINT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_EntryPointTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_EntryPointTypeUnspecified;
 /**
  *  An API executable entry point.
  *
  *  Value: "EXECUTION_API"
  */
-GTLR_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_ExecutionApi;
+FOUNDATION_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_ExecutionApi;
 /**
  *  A web application entry point.
  *
  *  Value: "WEB_APP"
  */
-GTLR_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_WebApp;
+FOUNDATION_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_WebApp;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_File.type
@@ -90,13 +90,13 @@ GTLR_EXTERN NSString * const kGTLRScript_EntryPoint_EntryPointType_WebApp;
  *
  *  Value: "ENUM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_File_Type_EnumTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScript_File_Type_EnumTypeUnspecified;
 /**
  *  A file containing client-side HTML.
  *
  *  Value: "HTML"
  */
-GTLR_EXTERN NSString * const kGTLRScript_File_Type_Html;
+FOUNDATION_EXTERN NSString * const kGTLRScript_File_Type_Html;
 /**
  *  A file in JSON format. This type is only used for the script
  *  project's manifest. The manifest file content must match the
@@ -105,13 +105,13 @@ GTLR_EXTERN NSString * const kGTLRScript_File_Type_Html;
  *
  *  Value: "JSON"
  */
-GTLR_EXTERN NSString * const kGTLRScript_File_Type_Json;
+FOUNDATION_EXTERN NSString * const kGTLRScript_File_Type_Json;
 /**
  *  An Apps Script server-side code file.
  *
  *  Value: "SERVER_JS"
  */
-GTLR_EXTERN NSString * const kGTLRScript_File_Type_ServerJs;
+FOUNDATION_EXTERN NSString * const kGTLRScript_File_Type_ServerJs;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeAddOnEntryPoint.addOnType
@@ -121,19 +121,19 @@ GTLR_EXTERN NSString * const kGTLRScript_File_Type_ServerJs;
  *
  *  Value: "DATA_STUDIO"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_AddOnType_DataStudio;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_AddOnType_DataStudio;
 /**
  *  Add-on type for Gmail.
  *
  *  Value: "GMAIL"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_AddOnType_Gmail;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_AddOnType_Gmail;
 /**
  *  Default value, unknown add-on type.
  *
  *  Value: "UNKNOWN_ADDON_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_AddOnType_UnknownAddonType;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_AddOnType_UnknownAddonType;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeExecutionApiConfig.access
@@ -143,33 +143,33 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeAddOnEntryPoint_Add
  *
  *  Value: "ANYONE"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Anyone;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Anyone;
 /**
  *  Any user, logged in or not, can access the web app or executable.
  *
  *  Value: "ANYONE_ANONYMOUS"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_AnyoneAnonymous;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_AnyoneAnonymous;
 /**
  *  Only users in the same domain as the user who deployed the web app or
  *  executable can access it.
  *
  *  Value: "DOMAIN"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Domain;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Domain;
 /**
  *  Only the user who deployed the web app or executable can access it.
  *  Note that this is not necessarily the owner of the script project.
  *
  *  Value: "MYSELF"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Myself;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Myself;
 /**
  *  Default value, should not be used.
  *
  *  Value: "UNKNOWN_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_UnknownAccess;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_UnknownAccess;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeProcess.processStatus
@@ -179,55 +179,55 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_
  *
  *  Value: "CANCELED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Canceled;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Canceled;
 /**
  *  The process has completed.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Completed;
 /**
  *  The process is delayed, waiting for quota.
  *
  *  Value: "DELAYED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Delayed;
 /**
  *  The process failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Failed;
 /**
  *  The process has paused.
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Paused;
 /**
  *  Unspecified status.
  *
  *  Value: "PROCESS_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_ProcessStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_ProcessStatusUnspecified;
 /**
  *  The process is currently running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Running;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Running;
 /**
  *  The process timed out.
  *
  *  Value: "TIMED_OUT"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_TimedOut;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_TimedOut;
 /**
  *  Process status unknown.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStatus_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeProcess.processType
@@ -237,61 +237,61 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessStat
  *
  *  Value: "ADD_ON"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_AddOn;
 /**
  *  The process was started as a task in a batch job.
  *
  *  Value: "BATCH_TASK"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_BatchTask;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_BatchTask;
 /**
  *  The process was started using the Apps Script IDE.
  *
  *  Value: "EDITOR"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Editor;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Editor;
 /**
  *  The process was started using the Apps Script API.
  *
  *  Value: "EXECUTION_API"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ExecutionApi;
 /**
  *  The process was started from a G Suite menu item.
  *
  *  Value: "MENU"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Menu;
 /**
  *  Unspecified type.
  *
  *  Value: "PROCESS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_ProcessTypeUnspecified;
 /**
  *  The process was started from a G Suite simple trigger.
  *
  *  Value: "SIMPLE_TRIGGER"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_SimpleTrigger;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_SimpleTrigger;
 /**
  *  The process was started from a time-based trigger.
  *
  *  Value: "TIME_DRIVEN"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_TimeDriven;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_TimeDriven;
 /**
  *  The process was started from an event-based trigger.
  *
  *  Value: "TRIGGER"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Trigger;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Trigger;
 /**
  *  The process was started from a web app entry point.
  *
  *  Value: "WEBAPP"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Webapp;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType_Webapp;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeProcess.userAccessLevel
@@ -301,31 +301,31 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_ProcessType
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_None;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_None;
 /**
  *  The user is an owner.
  *
  *  Value: "OWNER"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Owner;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Owner;
 /**
  *  The user has read-only access.
  *
  *  Value: "READ"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Read;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Read;
 /**
  *  User access level unspecified
  *
  *  Value: "USER_ACCESS_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_UserAccessLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_UserAccessLevelUnspecified;
 /**
  *  The user has write access.
  *
  *  Value: "WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Write;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessLevel_Write;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeWebAppConfig.access
@@ -335,33 +335,33 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeProcess_UserAccessL
  *
  *  Value: "ANYONE"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Anyone;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Anyone;
 /**
  *  Any user, logged in or not, can access the web app or executable.
  *
  *  Value: "ANYONE_ANONYMOUS"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_AnyoneAnonymous;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_AnyoneAnonymous;
 /**
  *  Only users in the same domain as the user who deployed the web app or
  *  executable can access it.
  *
  *  Value: "DOMAIN"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Domain;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Domain;
 /**
  *  Only the user who deployed the web app or executable can access it.
  *  Note that this is not necessarily the owner of the script project.
  *
  *  Value: "MYSELF"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Myself;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Myself;
 /**
  *  Default value, should not be used.
  *
  *  Value: "UNKNOWN_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_UnknownAccess;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_UnknownAccess;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_GoogleAppsScriptTypeWebAppConfig.executeAs
@@ -371,20 +371,20 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access
  *
  *  Value: "UNKNOWN_EXECUTE_AS"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UnknownExecuteAs;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UnknownExecuteAs;
 /**
  *  The script runs as the user accessing the web app.
  *
  *  Value: "USER_ACCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserAccessing;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserAccessing;
 /**
  *  The script runs as the user who deployed the web app. Note that this is
  *  not necessarily the owner of the script project.
  *
  *  Value: "USER_DEPLOYING"
  */
-GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDeploying;
+FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDeploying;
 
 // ----------------------------------------------------------------------------
 // GTLRScript_Value.nullValue
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Execut
  *
  *  Value: "NULL_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
+FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  The Content resource.

@@ -46,43 +46,43 @@ NS_ASSUME_NONNULL_BEGIN
 // deobfuscationFileType
 
 /** Value: "nativeCode" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode;
 /** Value: "proguard" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard;
 
 // ----------------------------------------------------------------------------
 // expansionFileType
 
 /** Value: "main" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypeMain;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypeMain;
 /** Value: "patch" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypePatch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypePatch;
 
 // ----------------------------------------------------------------------------
 // imageType
 
 /** Value: "automotiveScreenshots" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeAutomotiveScreenshots;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeAutomotiveScreenshots;
 /** Value: "daydreamStereoImage" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeDaydreamStereoImage;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeDaydreamStereoImage;
 /** Value: "featureGraphic" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeFeatureGraphic;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeFeatureGraphic;
 /** Value: "icon" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeIcon;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeIcon;
 /** Value: "phoneScreenshots" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypePhoneScreenshots;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypePhoneScreenshots;
 /** Value: "promoGraphic" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypePromoGraphic;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypePromoGraphic;
 /** Value: "sevenInchScreenshots" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeSevenInchScreenshots;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeSevenInchScreenshots;
 /** Value: "tenInchScreenshots" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTenInchScreenshots;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTenInchScreenshots;
 /** Value: "tvBanner" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvBanner;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvBanner;
 /** Value: "tvScreenshots" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvScreenshots;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvScreenshots;
 /** Value: "wearScreenshots" */
-GTLR_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 // ----------------------------------------------------------------------------
 // Query Classes

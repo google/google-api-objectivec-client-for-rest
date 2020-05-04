@@ -42,23 +42,23 @@ NS_ASSUME_NONNULL_BEGIN
 // kind
 
 /** Value: "ATTESTATION_AUTHORITY" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindAttestationAuthority;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindAttestationAuthority;
 /** Value: "BUILD_DETAILS" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindBuildDetails;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindBuildDetails;
 /** Value: "DEPLOYABLE" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindDeployable;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindDeployable;
 /** Value: "DISCOVERY" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindDiscovery;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindDiscovery;
 /** Value: "IMAGE_BASIS" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindImageBasis;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindImageBasis;
 /** Value: "KIND_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindKindUnspecified;
 /** Value: "PACKAGE_MANAGER" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindPackageManager;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindPackageManager;
 /** Value: "PACKAGE_VULNERABILITY" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindPackageVulnerability;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindPackageVulnerability;
 /** Value: "UPGRADE" */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 
 // ----------------------------------------------------------------------------
 // Query Classes

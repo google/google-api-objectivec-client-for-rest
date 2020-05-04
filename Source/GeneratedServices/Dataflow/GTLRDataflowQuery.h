@@ -43,43 +43,43 @@ NS_ASSUME_NONNULL_BEGIN
 // filter
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRDataflowFilterActive;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterActive;
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRDataflowFilterAll;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterAll;
 /** Value: "TERMINATED" */
-GTLR_EXTERN NSString * const kGTLRDataflowFilterTerminated;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterTerminated;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDataflowFilterUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterUnknown;
 
 // ----------------------------------------------------------------------------
 // minimumImportance
 
 /** Value: "JOB_MESSAGE_BASIC" */
-GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageBasic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageBasic;
 /** Value: "JOB_MESSAGE_DEBUG" */
-GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageDebug;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageDebug;
 /** Value: "JOB_MESSAGE_DETAILED" */
-GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageDetailed;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageDetailed;
 /** Value: "JOB_MESSAGE_ERROR" */
-GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageError;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageError;
 /** Value: "JOB_MESSAGE_IMPORTANCE_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown;
 /** Value: "JOB_MESSAGE_WARNING" */
-GTLR_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageWarning;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageWarning;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "JOB_VIEW_ALL" */
-GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewAll;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewAll;
 /** Value: "JOB_VIEW_DESCRIPTION" */
-GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewDescription;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewDescription;
 /** Value: "JOB_VIEW_SUMMARY" */
-GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewSummary;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewSummary;
 /** Value: "JOB_VIEW_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
 /** Value: "METADATA_ONLY" */
-GTLR_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
+FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/streetviewpublish"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeStreetViewPublish;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeStreetViewPublish;
 
 // ----------------------------------------------------------------------------
 //   GTLRStreetViewPublishService

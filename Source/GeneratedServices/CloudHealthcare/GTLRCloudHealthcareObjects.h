@@ -89,25 +89,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_DicomConfig.filterProfile
@@ -119,7 +119,7 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogType
  *
  *  Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile;
 /**
  *  Inspects within tag contents and replaces sensitive text. The process
  *  can be configured using the TextConfig.
@@ -128,25 +128,25 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_Attr
  *
  *  Value: "DEIDENTIFY_TAG_CONTENTS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents;
 /**
  *  Keep all tags.
  *
  *  Value: "KEEP_ALL_PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile;
 /**
  *  Keep only tags required to produce valid DICOM.
  *
  *  Value: "MINIMAL_KEEP_LIST_PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile;
 /**
  *  No tag filtration profile provided. Same as KEEP_ALL_PROFILE.
  *
  *  Value: "TAG_FILTER_PROFILE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfileUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagFilterProfileUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_FhirStore.version
@@ -156,26 +156,26 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_TagF
  *
  *  Value: "DSTU2"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2;
 /**
  *  [Release 4](https://www.hl7.org/fhir/R4)
  *
  *  Value: "R4"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
 /**
  *  Standard for Trial Use, [Release 3](https://www.hl7.org/fhir/STU3)
  *
  *  Value: "STU3"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3;
 /**
  *  Users must specify a version on store creation or an error will be
  *  returned.
  *
  *  Value: "VERSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_FieldMetadata.action
@@ -185,25 +185,25 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspe
  *
  *  Value: "ACTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_ActionUnspecified;
 /**
  *  Do not transform.
  *
  *  Value: "DO_NOT_TRANSFORM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform;
 /**
  *  Inspect and transform any found PHI.
  *
  *  Value: "INSPECT_AND_TRANSFORM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform;
 /**
  *  Transform the entire field.
  *
  *  Value: "TRANSFORM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_ImageConfig.textRedactionMode
@@ -213,25 +213,25 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform
  *
  *  Value: "REDACT_ALL_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText;
 /**
  *  Do not redact text.
  *
  *  Value: "REDACT_NO_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText;
 /**
  *  Redact sensitive text.
  *
  *  Value: "REDACT_SENSITIVE_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactSensitiveText;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactSensitiveText;
 /**
  *  No text redaction specified. Same as REDACT_NO_TEXT.
  *
  *  Value: "TEXT_REDACTION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_TextRedactionModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_TextRedactionModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_ImportResourcesRequest.contentStructure
@@ -243,33 +243,33 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_
  *
  *  Value: "BUNDLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle;
 /**
  *  The entire file is one JSON bundle. The JSON can span multiple lines.
  *
  *  Value: "BUNDLE_PRETTY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty;
 /**
  *  If the content structure is not specified, the default value `BUNDLE`
  *  will be used.
  *
  *  Value: "CONTENT_STRUCTURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified;
 /**
  *  The source file contains one or more lines of newline-delimited JSON
  *  (ndjson). Each line is a single resource.
  *
  *  Value: "RESOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource;
 /**
  *  The entire file is one JSON resource. The JSON can span multiple lines.
  *
  *  Value: "RESOURCE_PRETTY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_SchemaConfig.schemaType
@@ -280,13 +280,13 @@ GTLR_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_Content
  *
  *  Value: "ANALYTICS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics;
 /**
  *  No schema type specified.
  *
  *  Value: "SCHEMA_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified;
 
 /**
  *  Specifies the audit configuration for a service.

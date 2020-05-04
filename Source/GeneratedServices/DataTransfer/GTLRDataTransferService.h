@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/admin.datatransfer"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDataTransferDatatransfer;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataTransferDatatransfer;
 /**
  *  Authorization scope: View data transfers between users in your organization
  *
  *  Value "https://www.googleapis.com/auth/admin.datatransfer.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDataTransferDatatransferReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataTransferDatatransferReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRDataTransferService

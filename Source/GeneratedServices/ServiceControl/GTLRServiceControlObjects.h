@@ -101,189 +101,189 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ABUSER_DETECTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_AbuserDetected;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_AbuserDetected;
 /**
  *  The consumer's API Key has expired.
  *
  *  Value: "API_KEY_EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyExpired;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyExpired;
 /**
  *  The consumer's API key is invalid.
  *
  *  Value: "API_KEY_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyInvalid;
 /**
  *  The consumer's API Key was not found in config record.
  *
  *  Value: "API_KEY_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyNotFound;
 /**
  *  The API targeted by this request is invalid for the specified consumer
  *  project.
  *
  *  Value: "API_TARGET_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiTargetBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ApiTargetBlocked;
 /**
  *  The consumer cannot access the service because billing is disabled.
  *
  *  Value: "BILLING_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BillingDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BillingDisabled;
 /**
  *  The backend server for checking billing status is unavailable.
  *
  *  Value: "BILLING_STATUS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable;
 /**
  *  Budget check failed.
  *
  *  Value: "BUDGET_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BudgetExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_BudgetExceeded;
 /**
  *  The client application of the consumer request is invalid for the
  *  specific consumer project.
  *
  *  Value: "CLIENT_APP_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocked;
 /**
  *  Cloud Resource Manager backend server is unavailable.
  *
  *  Value: "CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable;
 /**
  *  The input consumer info does not represent a valid consumer folder or
  *  organization.
  *
  *  Value: "CONSUMER_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ConsumerInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ConsumerInvalid;
 /**
  *  The consumer's request has been flagged as a DoS attack.
  *
  *  Value: "DENIAL_OF_SERVICE_DETECTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected;
 /**
  *  This is never used in `CheckResponse`.
  *
  *  Value: "ERROR_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified;
 /**
  *  The credential in the request can not be verified.
  *
  *  Value: "INVALID_CREDENTIAL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_InvalidCredential;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_InvalidCredential;
 /**
  *  The IP address of the consumer is invalid for the specific consumer
  *  project.
  *
  *  Value: "IP_ADDRESS_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_IpAddressBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_IpAddressBlocked;
 /**
  *  The consumer's request should be rejected in order to protect the service
  *  from being overloaded.
  *
  *  Value: "LOAD_SHEDDING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoadShedding;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoadShedding;
 /**
  *  The consumer's LOAS project is not `ACTIVE` in LoquatV2.
  *
  *  Value: "LOAS_PROJECT_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectDisabled;
 /**
  *  The Spanner for looking up LOAS project is unavailable.
  *
  *  Value: "LOAS_PROJECT_LOOKUP_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectLookupUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectLookupUnavailable;
 /**
  *  The consumer's LOAS role is invalid.
  *
  *  Value: "LOAS_ROLE_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasRoleInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LoasRoleInvalid;
 /**
  *  Backend server for evaluating location policy is unavailable.
  *
  *  Value: "LOCATION_POLICY_BACKEND_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyBackendUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyBackendUnavailable;
 /**
  *  Request is not allowed as per location policies defined in Org Policy.
  *
  *  Value: "LOCATION_POLICY_VIOLATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyViolated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyViolated;
 /**
  *  The backend server for looking up project id/number is unavailable.
  *
  *  Value: "NAMESPACE_LOOKUP_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable;
 /**
  *  The consumer's LOAS role has no associated project.
  *
  *  Value: "NO_LOAS_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NoLoasProject;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NoLoasProject;
 /**
  *  The consumer's project id, network container, or resource container was
  *  not found. Same as google.rpc.Code.NOT_FOUND.
  *
  *  Value: "NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_NotFound;
 /**
  *  The consumer doesn't have access to the specified resource.
  *  Same as google.rpc.Code.PERMISSION_DENIED.
  *
  *  Value: "PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_PermissionDenied;
 /**
  *  The consumer's project has been marked as deleted (soft deletion).
  *
  *  Value: "PROJECT_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ProjectDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ProjectDeleted;
 /**
  *  The consumer's project number or id does not represent a valid project.
  *
  *  Value: "PROJECT_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ProjectInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ProjectInvalid;
 /**
  *  The backend server for checking quota limits is unavailable.
  *
  *  Value: "QUOTA_CHECK_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_QuotaCheckUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_QuotaCheckUnavailable;
 /**
  *  The referer address of the consumer request is invalid for the specific
  *  consumer project.
  *
  *  Value: "REFERER_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_RefererBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_RefererBlocked;
 /**
  *  Quota check failed. Same as google.rpc.Code.RESOURCE_EXHAUSTED.
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ResourceExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ResourceExhausted;
 /**
  *  NOTE: for customers in the scope of Beta/GA of
  *  https://cloud.google.com/vpc-service-controls, this error
@@ -293,37 +293,37 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ResourceExhaust
  *
  *  Value: "SECURITY_POLICY_BACKEND_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyBackendUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyBackendUnavailable;
 /**
  *  Request is not allowed as per security policies defined in Org Policy.
  *
  *  Value: "SECURITY_POLICY_VIOLATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyViolated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyViolated;
 /**
  *  The consumer hasn't activated the service.
  *
  *  Value: "SERVICE_NOT_ACTIVATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceNotActivated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceNotActivated;
 /**
  *  The backend server for checking service status is unavailable.
  *
  *  Value: "SERVICE_STATUS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceStatusUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_ServiceStatusUnavailable;
 /**
  *  The consumer's spatula header is invalid.
  *
  *  Value: "SPATULA_HEADER_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SpatulaHeaderInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_SpatulaHeaderInvalid;
 /**
  *  The consumer cannot access the service due to visibility configuration.
  *
  *  Value: "VISIBILITY_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenied;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_ConsumerInfo.type
@@ -333,25 +333,25 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenie
  *
  *  Value: "CONSUMER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified;
 /**
  *  The consumer is a Google Cloud Folder.
  *
  *  Value: "FOLDER"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder;
 /**
  *  The consumer is a Google Cloud Organization.
  *
  *  Value: "ORGANIZATION"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization;
 /**
  *  The consumer is a Google Cloud Project.
  *
  *  Value: "PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project;
 /**
  *  Service-specific resource container which is defined by the service
  *  producer to offer their users the ability to manage service control
@@ -359,7 +359,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project;
  *
  *  Value: "SERVICE_SPECIFIC"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecific;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecific;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_LogEntry.severity
@@ -369,56 +369,56 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecif
  *
  *  Value: "ALERT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Alert;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Alert;
 /**
  *  (600) Critical events cause more severe problems or outages.
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Critical;
 /**
  *  (100) Debug or trace information.
  *
  *  Value: "DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Debug;
 /**
  *  (0) The log entry has no assigned severity level.
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Default;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Default;
 /**
  *  (800) One or more systems are unusable.
  *
  *  Value: "EMERGENCY"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Emergency;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Emergency;
 /**
  *  (500) Error events are likely to cause problems.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Error;
 /**
  *  (200) Routine information, such as ongoing status or performance.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Info;
 /**
  *  (300) Normal but significant events, such as start up, shut down, or
  *  a configuration change.
  *
  *  Value: "NOTICE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Notice;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Notice;
 /**
  *  (400) Warning events might cause problems.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_Operation.importance
@@ -432,7 +432,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_LogEntry_Severity_Warning;
  *
  *  Value: "DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Debug;
 /**
  *  The API implementation doesn't cache and aggregate the data.
  *  If the method returns successfully, it's guaranteed that the data has
@@ -440,14 +440,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Debug;
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_High;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_High;
 /**
  *  The API implementation may cache and aggregate the data.
  *  The data may be lost when rare and unexpected system failures occur.
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_QuotaError.code
@@ -457,38 +457,38 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_Operation_Importance_Low;
  *
  *  Value: "API_KEY_EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyExpired;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyExpired;
 /**
  *  Specified API key is invalid.
  *
  *  Value: "API_KEY_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid;
 /**
  *  Consumer cannot access the service because the service requires active
  *  billing.
  *
  *  Value: "BILLING_NOT_ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingNotActive;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingNotActive;
 /**
  *  The backend server for checking billing status is unavailable.
  *
  *  Value: "BILLING_STATUS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable;
 /**
  *  The consumer's LOAS role is invalid.
  *
  *  Value: "LOAS_ROLE_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid;
 /**
  *  The consumer's LOAS role has no associated project.
  *
  *  Value: "NO_LOAS_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject;
 /**
  *  Quota release failed. This error is ONLY returned on a NORMAL release.
  *  More formally: if a user requests a release of 10 tokens, but only
@@ -500,50 +500,50 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject;
  *
  *  Value: "OUT_OF_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_OutOfRange;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_OutOfRange;
 /**
  *  Consumer's project has been marked as deleted (soft deletion).
  *
  *  Value: "PROJECT_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectDeleted;
 /**
  *  The backend server for looking up project id/number is unavailable.
  *
  *  Value: "PROJECT_STATUS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable;
 /**
  *  The backend server for checking quota limits is unavailable.
  *
  *  Value: "QUOTA_SYSTEM_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable;
 /**
  *  Quota allocation failed.
  *  Same as google.rpc.Code.RESOURCE_EXHAUSTED.
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ResourceExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ResourceExhausted;
 /**
  *  The backend server for checking service status is unavailable.
  *
  *  Value: "SERVICE_STATUS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ServiceStatusUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_ServiceStatusUnavailable;
 /**
  *  Consumer's spatula header is invalid.
  *
  *  Value: "SPATULA_HEADER_INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_SpatulaHeaderInvalid;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_SpatulaHeaderInvalid;
 /**
  *  This is never used.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_QuotaOperation.quotaMode
@@ -557,7 +557,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified;
  *
  *  Value: "ADJUST_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_AdjustOnly;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_AdjustOnly;
 /**
  *  The operation allocates quota for the amount specified in the service
  *  configuration or specified using the quota metrics. If the amount is
@@ -570,7 +570,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Adjust
  *
  *  Value: "BEST_EFFORT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort;
 /**
  *  For AllocateQuota request, only checks if there is enough quota
  *  available and does not change the available quota. No lock is placed on
@@ -578,7 +578,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEf
  *
  *  Value: "CHECK_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly;
 /**
  *  For AllocateQuota request, allocates quota for the amount specified in
  *  the service configuration or specified using the quota metrics. If the
@@ -589,7 +589,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckO
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal;
 /**
  *  Unimplemented. When used in AllocateQuotaRequest, this returns the
  *  effective quota limit(s) in the response, and no quota check will be
@@ -599,13 +599,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal
  *
  *  Value: "QUERY_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_QueryOnly;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_QueryOnly;
 /**
  *  Guard against implicit default. Must not be used.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_QuotaProperties.quotaMode
@@ -617,7 +617,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Unspec
  *
  *  Value: "ACQUIRE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Acquire;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Acquire;
 /**
  *  Decreases available quota by the cost specified for the operation.
  *  If cost is higher than available quota, operation does not fail and
@@ -625,7 +625,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Acqui
  *
  *  Value: "ACQUIRE_BEST_EFFORT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_AcquireBestEffort;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_AcquireBestEffort;
 /**
  *  Does not change any available quota. Only checks if there is enough
  *  quota.
@@ -633,14 +633,14 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Acqui
  *
  *  Value: "CHECK"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Check;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Check;
 /**
  *  Increases available quota by the operation cost specified for the
  *  operation.
  *
  *  Value: "RELEASE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_TraceSpan.spanKind
@@ -651,7 +651,7 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Relea
  *
  *  Value: "CLIENT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Client;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Client;
 /**
  *  Indicates that the span describes consumer receiving a message from a
  *  broker. Unlike client and server, there is no direct critical path
@@ -660,13 +660,13 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Client;
  *
  *  Value: "CONSUMER"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Consumer;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Consumer;
 /**
  *  Indicates that the span is used internally. Default value.
  *
  *  Value: "INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Internal;
 /**
  *  Indicates that the span describes producer sending a message to a broker.
  *  Unlike client and server, there is no direct critical path latency
@@ -675,21 +675,21 @@ GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Internal;
  *
  *  Value: "PRODUCER"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Producer;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Producer;
 /**
  *  Indicates that the span covers server-side handling of an RPC or other
  *  remote network request.
  *
  *  Value: "SERVER"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Server;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Server;
 /**
  *  Unspecified. Do NOT use as default.
  *  Implementations MAY assume SpanKind.INTERNAL to be default.
  *
  *  Value: "SPAN_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified;
 
 /**
  *  GTLRServiceControl_AllocateInfo

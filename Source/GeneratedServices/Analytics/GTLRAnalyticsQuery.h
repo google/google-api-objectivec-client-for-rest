@@ -55,13 +55,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "dataTable"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsOutputDataTable;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsOutputDataTable;
 /**
  *  Returns the response in standard JSON format.
  *
  *  Value: "json"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsOutputJson;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsOutputJson;
 
 // ----------------------------------------------------------------------------
 // samplingLevel
@@ -71,20 +71,20 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsOutputJson;
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelDefault;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelDefault;
 /**
  *  Returns a fast response with a smaller sample size.
  *
  *  Value: "FASTER"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelFaster;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelFaster;
 /**
  *  Returns a more accurate response using a large sample size, but this may
  *  result in the response being slower.
  *
  *  Value: "HIGHER_PRECISION"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -45,33 +45,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACCESS_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_AccessStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_AccessStateUnspecified;
 /**
  *  The member has the permission.
  *
  *  Value: "GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_Granted;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_Granted;
 /**
  *  The member does not have the permission.
  *
  *  Value: "NOT_GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_NotGranted;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_NotGranted;
 /**
  *  The member has the permission only if a condition expression evaluates to
  *  `true`.
  *
  *  Value: "UNKNOWN_CONDITIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownConditional;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownConditional;
 /**
  *  The sender of the request does not have access to all of the policies that
  *  Policy Troubleshooter needs to evaluate.
  *
  *  Value: "UNKNOWN_INFO_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownInfoDenied;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownInfoDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.relevance
@@ -81,21 +81,21 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_HeuristicRelevanceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_HeuristicRelevanceUnspecified;
 /**
  *  The data point has a strong effect on the result. Changing the data point
  *  is likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_High;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_High;
 /**
  *  The data point has a limited effect on the result. Changing the data point
  *  is unlikely to affect the overall determination.
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.rolePermission
@@ -105,25 +105,25 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "ROLE_PERMISSION_INCLUDED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionIncluded;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionIncluded;
 /**
  *  The permission is not included in the role.
  *
  *  Value: "ROLE_PERMISSION_NOT_INCLUDED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionNotIncluded;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionNotIncluded;
 /**
  *  The sender of the request is not allowed to access the binding.
  *
  *  Value: "ROLE_PERMISSION_UNKNOWN_INFO_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionUnknownInfoDenied;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionUnknownInfoDenied;
 /**
  *  Reserved for future use.
  *
  *  Value: "ROLE_PERMISSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.rolePermissionRelevance
@@ -133,21 +133,21 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified;
 /**
  *  The data point has a strong effect on the result. Changing the data point
  *  is likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_High;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_High;
 /**
  *  The data point has a limited effect on the result. Changing the data point
  *  is unlikely to affect the overall determination.
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership.membership
@@ -161,32 +161,32 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "MEMBERSHIP_INCLUDED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded;
 /**
  *  The binding does not include the member.
  *
  *  Value: "MEMBERSHIP_NOT_INCLUDED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded;
 /**
  *  The sender of the request is not allowed to access the binding.
  *
  *  Value: "MEMBERSHIP_UNKNOWN_INFO_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied;
 /**
  *  The member is an unsupported type. Only Google Accounts and service
  *  accounts are supported.
  *
  *  Value: "MEMBERSHIP_UNKNOWN_UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported;
 /**
  *  Reserved for future use.
  *
  *  Value: "MEMBERSHIP_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership.relevance
@@ -196,21 +196,21 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified;
 /**
  *  The data point has a strong effect on the result. Changing the data point
  *  is likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_High;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_High;
 /**
  *  The data point has a limited effect on the result. Changing the data point
  *  is unlikely to affect the overall determination.
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy.access
@@ -220,33 +220,33 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "ACCESS_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_AccessStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_AccessStateUnspecified;
 /**
  *  The member has the permission.
  *
  *  Value: "GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_Granted;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_Granted;
 /**
  *  The member does not have the permission.
  *
  *  Value: "NOT_GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_NotGranted;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_NotGranted;
 /**
  *  The member has the permission only if a condition expression evaluates to
  *  `true`.
  *
  *  Value: "UNKNOWN_CONDITIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownConditional;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownConditional;
 /**
  *  The sender of the request does not have access to all of the policies that
  *  Policy Troubleshooter needs to evaluate.
  *
  *  Value: "UNKNOWN_INFO_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownInfoDenied;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownInfoDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy.relevance
@@ -256,21 +256,21 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified;
 /**
  *  The data point has a strong effect on the result. Changing the data point
  *  is likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_High;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_High;
 /**
  *  The data point has a limited effect on the result. Changing the data point
  *  is unlikely to affect the overall determination.
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse.access
@@ -280,33 +280,33 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "ACCESS_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_AccessStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_AccessStateUnspecified;
 /**
  *  The member has the permission.
  *
  *  Value: "GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_Granted;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_Granted;
 /**
  *  The member does not have the permission.
  *
  *  Value: "NOT_GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_NotGranted;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_NotGranted;
 /**
  *  The member has the permission only if a condition expression evaluates to
  *  `true`.
  *
  *  Value: "UNKNOWN_CONDITIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownConditional;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownConditional;
 /**
  *  The sender of the request does not have access to all of the policies that
  *  Policy Troubleshooter needs to evaluate.
  *
  *  Value: "UNKNOWN_INFO_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownInfoDenied;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownInfoDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig.logType
@@ -316,25 +316,25 @@ GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubles
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
 
 /**
  *  Information about the member, resource, and permission to check.

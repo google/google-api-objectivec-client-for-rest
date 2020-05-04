@@ -71,25 +71,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_ExportAssetsRequest.contentType
@@ -99,31 +99,31 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspe
  *
  *  Value: "ACCESS_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy;
 /**
  *  Unspecified content type.
  *
  *  Value: "CONTENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified;
 /**
  *  The actual IAM policy set on a resource.
  *
  *  Value: "IAM_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy;
 /**
  *  The Cloud Organization Policy set on an asset.
  *
  *  Value: "ORG_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy;
 /**
  *  Resource metadata.
  *
  *  Value: "RESOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_Feed.contentType
@@ -133,31 +133,31 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Res
  *
  *  Value: "ACCESS_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_AccessPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_AccessPolicy;
 /**
  *  Unspecified content type.
  *
  *  Value: "CONTENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified;
 /**
  *  The actual IAM policy set on a resource.
  *
  *  Value: "IAM_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy;
 /**
  *  The Cloud Organization Policy set on an asset.
  *
  *  Value: "ORG_POLICY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy;
 /**
  *  Resource metadata.
  *
  *  Value: "RESOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Resource;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Resource;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
@@ -167,19 +167,19 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Resource;
  *
  *  Value: "ALLOW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow;
 /**
  *  Indicates that allowed_values or denied_values must be set.
  *
  *  Value: "ALL_VALUES_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_AllValuesUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_AllValuesUnspecified;
 /**
  *  A policy with this set denies all values.
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Deny;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel.combiningFunction
@@ -189,37 +189,37 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_Al
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_And;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_And;
 /**
  *  If at least one `Condition` is true, then the `BasicLevel` is true.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_Or;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel_CombiningFunction_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy.allowedDeviceManagementLevels
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Basic;
 /** Value: "COMPLETE" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Complete;
 /** Value: "MANAGEMENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy.allowedEncryptionStatuses
 
 /** Value: "ENCRYPTED" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Encrypted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Encrypted;
 /** Value: "ENCRYPTION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
 /** Value: "ENCRYPTION_UNSUPPORTED" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
 /** Value: "UNENCRYPTED" */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint.osType
@@ -229,43 +229,43 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Android;
 /**
  *  A desktop ChromeOS operating system.
  *
  *  Value: "DESKTOP_CHROME_OS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopChromeOs;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopChromeOs;
 /**
  *  A desktop Linux operating system.
  *
  *  Value: "DESKTOP_LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopLinux;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopLinux;
 /**
  *  A desktop Mac operating system.
  *
  *  Value: "DESKTOP_MAC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopMac;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopMac;
 /**
  *  A desktop Windows operating system.
  *
  *  Value: "DESKTOP_WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopWindows;
 /**
  *  An iOS operating system.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Ios;
 /**
  *  The operating system of the device is not specified or not known.
  *
  *  Value: "OS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_OsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter.perimeterType
@@ -275,13 +275,13 @@ GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV
  *
  *  Value: "PERIMETER_TYPE_BRIDGE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge;
 /**
  *  Regular Perimeter.
  *
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 /**
  *  An asset in Google Cloud. An asset can be any resource in the Google Cloud

@@ -53,19 +53,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "PUBLISHED"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_Published;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_Published;
 /**
  *  The photo has been rejected for an unknown reason.
  *
  *  Value: "REJECTED_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_RejectedUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_RejectedUnknown;
 /**
  *  The status of the photo is unknown.
  *
  *  Value: "UNSPECIFIED_MAPS_PUBLISH_STATUS"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_UnspecifiedMapsPublishStatus;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_UnspecifiedMapsPublishStatus;
 
 // ----------------------------------------------------------------------------
 // GTLRStreetViewPublish_Photo.transferStatus
@@ -75,51 +75,51 @@ GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatus_Unsp
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Cancelled;
 /**
  *  The photo transfer has been completed, and this photo has been
  *  transferred to the recipient.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Completed;
 /**
  *  The photo transfer expired before the recipient took any action.
  *
  *  Value: "EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Expired;
 /**
  *  This photo has never been in a transfer.
  *
  *  Value: "NEVER_TRANSFERRED"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_NeverTransferred;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_NeverTransferred;
 /**
  *  This photo transfer has been initiated, but the receiver has not yet
  *  responded.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Pending;
 /**
  *  The recipient owns this photo due to a rights transfer.
  *
  *  Value: "RECEIVED_VIA_TRANSFER"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_ReceivedViaTransfer;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_ReceivedViaTransfer;
 /**
  *  The recipient rejected this photo transfer.
  *
  *  Value: "REJECTED"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Rejected;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Rejected;
 /**
  *  The status of this transfer is unspecified.
  *
  *  Value: "TRANSFER_STATUS_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnknown;
 
 /**
  *  Request to delete multiple Photos.

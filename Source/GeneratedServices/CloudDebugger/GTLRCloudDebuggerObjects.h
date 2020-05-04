@@ -58,19 +58,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ANY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Any;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Any;
 /**
  *  Git tag
  *
  *  Value: "FIXED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Fixed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Fixed;
 /**
  *  Git branch
  *
  *  Value: "MOVABLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Movable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Movable;
 /**
  *  OTHER is used to specify non-standard aliases, those not of the kinds
  *  above. For example, if a Git repo has a ref named "refs/foo/bar", it
@@ -78,7 +78,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Movable;
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Other;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Other;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDebugger_Breakpoint.action
@@ -90,14 +90,14 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Other;
  *
  *  Value: "CAPTURE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_Action_Capture;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_Action_Capture;
 /**
  *  Log each breakpoint hit. The breakpoint remains active until
  *  deleted or expired.
  *
  *  Value: "LOG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_Action_Log;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_Action_Log;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDebugger_Breakpoint.logLevel
@@ -107,19 +107,19 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_Action_Log;
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Error;
 /**
  *  Information log message.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Info;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Info;
 /**
  *  Warning log message.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDebugger_Breakpoint.state
@@ -129,31 +129,31 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_LogLevel_Warning;
  *
  *  Value: "STATE_CANARY_ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryActive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryActive;
 /**
  *  Enabling canary but no agents are available.
  *
  *  Value: "STATE_CANARY_PENDING_AGENTS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryPendingAgents;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateCanaryPendingAgents;
 /**
  *  Breakpoint is hit/complete/failed.
  *
  *  Value: "STATE_IS_FINAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateIsFinal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateIsFinal;
 /**
  *  Breakpoint rolling out to all agents.
  *
  *  Value: "STATE_ROLLING_TO_ALL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateRollingToAll;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateRollingToAll;
 /**
  *  Breakpoint state UNSPECIFIED.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDebugger_Debuggee.canaryMode
@@ -164,28 +164,28 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_State_StateUnspecifie
  *
  *  Value: "CANARY_MODE_ALWAYS_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysDisabled;
 /**
  *  Always enable breakpoint canary regardless of the value of breakpoint's
  *  canary option.
  *
  *  Value: "CANARY_MODE_ALWAYS_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled;
 /**
  *  Depends on the breakpoint's canary option. Disable canary by default if
  *  the breakpoint's canary option is not specified.
  *
  *  Value: "CANARY_MODE_DEFAULT_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled;
 /**
  *  Depends on the breakpoint's canary option. Enable canary by default if
  *  the breakpoint's canary option is not specified.
  *
  *  Value: "CANARY_MODE_DEFAULT_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled;
 /**
  *  Before "use_breakpoint_canary" is deprecated:
  *  CANARY_MODE_UNSPECIFIED = use_breakpoint_canary ?
@@ -196,7 +196,7 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDe
  *
  *  Value: "CANARY_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDebugger_StatusMessage.refersTo
@@ -206,50 +206,50 @@ GTLR_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUn
  *
  *  Value: "BREAKPOINT_AGE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointAge;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointAge;
 /**
  *  Status applies to the breakpoint when the breakpoint failed to exit the
  *  canary state.
  *
  *  Value: "BREAKPOINT_CANARY_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCanaryFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCanaryFailed;
 /**
  *  Status applies to the breakpoint and is related to its condition.
  *
  *  Value: "BREAKPOINT_CONDITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCondition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCondition;
 /**
  *  Status applies to the breakpoint and is related to its expressions.
  *
  *  Value: "BREAKPOINT_EXPRESSION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointExpression;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointExpression;
 /**
  *  Status applies to the breakpoint and is related to its location.
  *
  *  Value: "BREAKPOINT_SOURCE_LOCATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointSourceLocation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointSourceLocation;
 /**
  *  Status doesn't refer to any particular input.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Unspecified;
 /**
  *  Status applies to the entire variable.
  *
  *  Value: "VARIABLE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableName;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableName;
 /**
  *  Status applies to variable value (variable name is valid).
  *
  *  Value: "VARIABLE_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_VariableValue;
 
 /**
  *  An alias to a repo revision.

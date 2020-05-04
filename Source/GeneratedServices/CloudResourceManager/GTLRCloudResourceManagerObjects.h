@@ -49,25 +49,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_Folder.lifecycleState
@@ -77,19 +77,19 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_Lo
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_Active;
 /**
  *  The folder has been marked for deletion by the user.
  *
  *  Value: "DELETE_REQUESTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_DeleteRequested;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_DeleteRequested;
 /**
  *  Unspecified state.
  *
  *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_LifecycleStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_LifecycleStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_FolderOperation.operationType
@@ -99,19 +99,19 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_Lif
  *
  *  Value: "CREATE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create;
 /**
  *  A move folder operation.
  *
  *  Value: "MOVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Move;
 /**
  *  Operation type not specified.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_OperationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_OperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_FolderOperationError.errorMessageId
@@ -121,63 +121,63 @@ GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperation_Operation
  *
  *  Value: "ACTIVE_FOLDER_HEIGHT_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ActiveFolderHeightViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ActiveFolderHeightViolation;
 /**
  *  The attempted action would introduce cycle in resource path.
  *
  *  Value: "CYCLE_INTRODUCED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_CycleIntroducedViolation;
 /**
  *  The attempted action would violate the max deleted folder depth
  *  constraint.
  *
  *  Value: "DELETED_FOLDER_HEIGHT_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_DeletedFolderHeightViolation;
 /**
  *  The error type was unrecognized or unspecified.
  *
  *  Value: "ERROR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified;
 /**
  *  The attempted action would move a folder that is already being moved.
  *
  *  Value: "FOLDER_BEING_MOVED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMovedViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMovedViolation;
 /**
  *  The attempted action would violate the locally-unique folder
  *  display_name constraint.
  *
  *  Value: "FOLDER_NAME_UNIQUENESS_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation;
 /**
  *  The folder the caller is trying to delete contains active resources.
  *
  *  Value: "FOLDER_TO_DELETE_NON_EMPTY_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation;
 /**
  *  The attempted action would violate the max child folders constraint.
  *
  *  Value: "MAX_CHILD_FOLDERS_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation;
 /**
  *  The resource a folder was being added to has been deleted.
  *
  *  Value: "PARENT_DELETED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation;
 /**
  *  The resource being moved has been deleted.
  *
  *  Value: "RESOURCE_DELETED_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation;
 
 /**
  *  Specifies the audit configuration for a service.

@@ -51,19 +51,19 @@ NS_ASSUME_NONNULL_BEGIN
 // duplicateIdMode
 
 /** Value: "FORCE_ENABLE_DUPLICATE_IDS" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeForceEnableDuplicateIds;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeForceEnableDuplicateIds;
 /** Value: "NO_DUPLICATES" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIDuplicateIdModeNoDuplicates;
 
 // ----------------------------------------------------------------------------
 // filterSyntax
 
 /** Value: "FILTER_SYNTAX_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxFilterSyntaxUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxFilterSyntaxUnspecified;
 /** Value: "LIST_FILTER" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxListFilter;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxListFilter;
 /** Value: "PQL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
 
 // ----------------------------------------------------------------------------
 // Query Classes

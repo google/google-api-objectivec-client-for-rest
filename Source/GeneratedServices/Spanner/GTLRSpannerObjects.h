@@ -94,19 +94,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Backup_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_Creating;
 /**
  *  The backup is complete and ready for use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Backup_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_Ready;
 /**
  *  Not specified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Backup_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Database.state
@@ -117,13 +117,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Backup_State_StateUnspecified;
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_Creating;
 /**
  *  The database is fully created and ready for use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_Ready;
 /**
  *  The database is fully created and ready for use, but is still
  *  being optimized for performance and cannot handle full load.
@@ -135,13 +135,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_Ready;
  *
  *  Value: "READY_OPTIMIZING"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_ReadyOptimizing;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_ReadyOptimizing;
 /**
  *  Not specified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_ExecuteSqlRequest.queryMode
@@ -151,21 +151,21 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal;
 /**
  *  This mode returns only the query plan, without any results or
  *  execution statistics information.
  *
  *  Value: "PLAN"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan;
 /**
  *  This mode returns both the query plan and the execution statistics along
  *  with the results.
  *
  *  Value: "PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Instance.state
@@ -177,20 +177,20 @@ GTLR_EXTERN NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile;
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_Creating;
 /**
  *  The instance is fully created and ready to do work such as
  *  creating databases.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_Ready;
 /**
  *  Not specified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_PlanNode.kind
@@ -200,7 +200,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified;
 /**
  *  Denotes a Relational operator node in the expression tree. Relational
  *  operators represent iterative processing of rows during query execution.
@@ -208,7 +208,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified;
  *
  *  Value: "RELATIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Relational;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Relational;
 /**
  *  Denotes a Scalar node in the expression tree. Scalar nodes represent
  *  non-iterable entities in the query plan. For example, constants or
@@ -217,7 +217,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Relational;
  *
  *  Value: "SCALAR"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_ReplicaInfo.type
@@ -231,7 +231,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_PlanNode_Kind_Scalar;
  *
  *  Value: "READ_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly;
 /**
  *  Read-write replicas support both reads and writes. These replicas:
  *  * Maintain a full copy of your data.
@@ -242,13 +242,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly;
  *
  *  Value: "READ_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite;
 /**
  *  Not specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified;
 /**
  *  Witness replicas don't support reads but do participate in voting to
  *  commit writes. Witness replicas:
@@ -259,7 +259,7 @@ GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified;
  *
  *  Value: "WITNESS"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_RestoreDatabaseMetadata.sourceType
@@ -269,13 +269,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
  *
  *  Value: "BACKUP"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_Backup;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_Backup;
 /**
  *  No restore associated.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_RestoreInfo.sourceType
@@ -285,13 +285,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_Typ
  *
  *  Value: "BACKUP"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_Backup;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_Backup;
 /**
  *  No restore associated.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Type.code
@@ -303,52 +303,52 @@ GTLR_EXTERN NSString * const kGTLRSpanner_RestoreInfo_SourceType_TypeUnspecified
  *
  *  Value: "ARRAY"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Array;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Array;
 /**
  *  Encoded as JSON `true` or `false`.
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Bool;
 /**
  *  Encoded as a base64-encoded `string`, as described in RFC 4648,
  *  section 4.
  *
  *  Value: "BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Bytes;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Bytes;
 /**
  *  Encoded as `string` in RFC 3339 date format.
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Date;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Date;
 /**
  *  Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or
  *  `"-Infinity"`.
  *
  *  Value: "FLOAT64"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
 /**
  *  Encoded as `string`, in decimal format.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Int64;
 /**
  *  Encoded as `string`.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_String;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_String;
 /**
  *  Encoded as `list`, where list element `i` is represented according
  *  to [struct_type.fields[i]][google.spanner.v1.StructType.fields].
  *
  *  Value: "STRUCT"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Struct;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Struct;
 /**
  *  Encoded as `string` in RFC 3339 timestamp format. The time zone
  *  must be present, and must be `"Z"`.
@@ -360,13 +360,13 @@ GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Struct;
  *
  *  Value: "TIMESTAMP"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
 /**
  *  Not specified.
  *
  *  Value: "TYPE_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  A backup of a Cloud Spanner database.

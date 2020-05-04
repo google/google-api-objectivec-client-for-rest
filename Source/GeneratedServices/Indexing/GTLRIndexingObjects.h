@@ -39,19 +39,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "URL_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlDeleted;
 /**
  *  Unspecified.
  *
  *  Value: "URL_NOTIFICATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlNotificationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlNotificationTypeUnspecified;
 /**
  *  The given URL (Web document) has been updated.
  *
  *  Value: "URL_UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlUpdated;
 
 /**
  *  Output for PublishUrlNotification

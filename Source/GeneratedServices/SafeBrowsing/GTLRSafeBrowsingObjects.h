@@ -54,11 +54,11 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRSafeBrowsing_Constraints.supportedCompressions
 
 /** Value: "COMPRESSION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_CompressionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_CompressionTypeUnspecified;
 /** Value: "RAW" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_Raw;
 /** Value: "RICE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_Rice;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_Rice;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateRequest.platformType
@@ -68,55 +68,55 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions
  *
  *  Value: "ALL_PLATFORMS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AllPlatforms;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AllPlatforms;
 /**
  *  Threat posed to Android.
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Android;
 /**
  *  Threat posed to at least one of the defined platforms.
  *
  *  Value: "ANY_PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AnyPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_AnyPlatform;
 /**
  *  Threat posed to Chrome.
  *
  *  Value: "CHROME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Chrome;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Chrome;
 /**
  *  Threat posed to iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Ios;
 /**
  *  Threat posed to Linux.
  *
  *  Value: "LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Linux;
 /**
  *  Threat posed to OS X.
  *
  *  Value: "OSX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Osx;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Osx;
 /**
  *  Unknown platform.
  *
  *  Value: "PLATFORM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_PlatformTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_PlatformTypeUnspecified;
 /**
  *  Threat posed to Windows.
  *
  *  Value: "WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateRequest.threatEntryType
@@ -126,43 +126,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_PlatformType_Wi
  *
  *  Value: "CERT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Cert;
 /**
  *  Chrome extension.
  *
  *  Value: "CHROME_EXTENSION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ChromeExtension;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ChromeExtension;
 /**
  *  An executable program.
  *
  *  Value: "EXECUTABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Executable;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Executable;
 /**
  *  Filename.
  *
  *  Value: "FILENAME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Filename;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Filename;
 /**
  *  An IP range.
  *
  *  Value: "IP_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_IpRange;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_IpRange;
 /**
  *  Unspecified.
  *
  *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ThreatEntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_ThreatEntryTypeUnspecified;
 /**
  *  A URL.
  *
  *  Value: "URL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateRequest.threatType
@@ -172,105 +172,105 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatEntryType
  *
  *  Value: "API_ABUSE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApiAbuse;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApiAbuse;
 /**
  *  List used for offline APK checks in PAM.
  *
  *  Value: "APK_MALWARE_OFFLINE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApkMalwareOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ApkMalwareOffline;
 /**
  *  Client incident threat type.
  *
  *  Value: "CLIENT_INCIDENT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncident;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncident;
 /**
  *  Whitelist used when detecting client incident threats.
  *  This enum was never launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncidentWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncidentWhitelist;
 /**
  *  Client side download detection whitelist threat type.
  *
  *  Value: "CSD_DOWNLOAD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdDownloadWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdDownloadWhitelist;
 /**
  *  Client side detection whitelist threat type.
  *
  *  Value: "CSD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdWhitelist;
 /**
  *  Safe list to ship hashes of known safe URL expressions.
  *
  *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_HighConfidenceAllowlist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Malware;
 /**
  *  Potentially harmful application threat type.
  *
  *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmfulApplication;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_PotentiallyHarmfulApplication;
 /**
  *  Social engineering threat type.
  *
  *  Value: "SOCIAL_ENGINEERING"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineering;
 /**
  *  Social engineering threat type for internal use.
  *
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineeringInternal;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineeringInternal;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial
  *  will not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter;
 /**
  *  Entities that are suspected to present a threat.
  *
  *  Value: "SUSPICIOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ThreatTypeUnspecified;
 /**
  *  Trick-to-bill threat list.
  *
  *  Value: "TRICK_TO_BILL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_TrickToBill;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.platformType
@@ -280,55 +280,55 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Unwa
  *
  *  Value: "ALL_PLATFORMS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AllPlatforms;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AllPlatforms;
 /**
  *  Threat posed to Android.
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Android;
 /**
  *  Threat posed to at least one of the defined platforms.
  *
  *  Value: "ANY_PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AnyPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_AnyPlatform;
 /**
  *  Threat posed to Chrome.
  *
  *  Value: "CHROME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Chrome;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Chrome;
 /**
  *  Threat posed to iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Ios;
 /**
  *  Threat posed to Linux.
  *
  *  Value: "LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Linux;
 /**
  *  Threat posed to OS X.
  *
  *  Value: "OSX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Osx;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Osx;
 /**
  *  Unknown platform.
  *
  *  Value: "PLATFORM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_PlatformTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_PlatformTypeUnspecified;
 /**
  *  Threat posed to Windows.
  *
  *  Value: "WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.responseType
@@ -340,19 +340,19 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_PlatformType_W
  *
  *  Value: "FULL_UPDATE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_FullUpdate;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_FullUpdate;
 /**
  *  Partial updates are applied to the client's existing local database.
  *
  *  Value: "PARTIAL_UPDATE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_PartialUpdate;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_PartialUpdate;
 /**
  *  Unknown.
  *
  *  Value: "RESPONSE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_ResponseTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_ResponseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.threatEntryType
@@ -362,43 +362,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_R
  *
  *  Value: "CERT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Cert;
 /**
  *  Chrome extension.
  *
  *  Value: "CHROME_EXTENSION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ChromeExtension;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ChromeExtension;
 /**
  *  An executable program.
  *
  *  Value: "EXECUTABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Executable;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Executable;
 /**
  *  Filename.
  *
  *  Value: "FILENAME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Filename;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Filename;
 /**
  *  An IP range.
  *
  *  Value: "IP_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_IpRange;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_IpRange;
 /**
  *  Unspecified.
  *
  *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ThreatEntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_ThreatEntryTypeUnspecified;
 /**
  *  A URL.
  *
  *  Value: "URL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ListUpdateResponse.threatType
@@ -408,105 +408,105 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatEntryTyp
  *
  *  Value: "API_ABUSE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApiAbuse;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApiAbuse;
 /**
  *  List used for offline APK checks in PAM.
  *
  *  Value: "APK_MALWARE_OFFLINE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApkMalwareOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ApkMalwareOffline;
 /**
  *  Client incident threat type.
  *
  *  Value: "CLIENT_INCIDENT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncident;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncident;
 /**
  *  Whitelist used when detecting client incident threats.
  *  This enum was never launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncidentWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncidentWhitelist;
 /**
  *  Client side download detection whitelist threat type.
  *
  *  Value: "CSD_DOWNLOAD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdDownloadWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdDownloadWhitelist;
 /**
  *  Client side detection whitelist threat type.
  *
  *  Value: "CSD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdWhitelist;
 /**
  *  Safe list to ship hashes of known safe URL expressions.
  *
  *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_HighConfidenceAllowlist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Malware;
 /**
  *  Potentially harmful application threat type.
  *
  *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarmfulApplication;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_PotentiallyHarmfulApplication;
 /**
  *  Social engineering threat type.
  *
  *  Value: "SOCIAL_ENGINEERING"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineering;
 /**
  *  Social engineering threat type for internal use.
  *
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeringInternal;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeringInternal;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial
  *  will not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter;
 /**
  *  Entities that are suspected to present a threat.
  *
  *  Value: "SUSPICIOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ThreatTypeUnspecified;
 /**
  *  Trick-to-bill threat list.
  *
  *  Value: "TRICK_TO_BILL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_TrickToBill;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatEntrySet.compressionType
@@ -516,19 +516,19 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Unw
  *
  *  Value: "COMPRESSION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_CompressionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_CompressionTypeUnspecified;
 /**
  *  Raw, uncompressed data.
  *
  *  Value: "RAW"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Raw;
 /**
  *  Rice-Golomb encoded data.
  *
  *  Value: "RICE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Rice;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Rice;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatHit.platformType
@@ -538,55 +538,55 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatEntrySet_CompressionType_Ri
  *
  *  Value: "ALL_PLATFORMS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_AllPlatforms;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_AllPlatforms;
 /**
  *  Threat posed to Android.
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Android;
 /**
  *  Threat posed to at least one of the defined platforms.
  *
  *  Value: "ANY_PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_AnyPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_AnyPlatform;
 /**
  *  Threat posed to Chrome.
  *
  *  Value: "CHROME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Chrome;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Chrome;
 /**
  *  Threat posed to iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Ios;
 /**
  *  Threat posed to Linux.
  *
  *  Value: "LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Linux;
 /**
  *  Threat posed to OS X.
  *
  *  Value: "OSX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Osx;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Osx;
 /**
  *  Unknown platform.
  *
  *  Value: "PLATFORM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_PlatformTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_PlatformTypeUnspecified;
 /**
  *  Threat posed to Windows.
  *
  *  Value: "WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatHit.threatType
@@ -596,183 +596,183 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_PlatformType_Windows;
  *
  *  Value: "API_ABUSE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ApiAbuse;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ApiAbuse;
 /**
  *  List used for offline APK checks in PAM.
  *
  *  Value: "APK_MALWARE_OFFLINE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ApkMalwareOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ApkMalwareOffline;
 /**
  *  Client incident threat type.
  *
  *  Value: "CLIENT_INCIDENT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncident;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncident;
 /**
  *  Whitelist used when detecting client incident threats.
  *  This enum was never launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncidentWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncidentWhitelist;
 /**
  *  Client side download detection whitelist threat type.
  *
  *  Value: "CSD_DOWNLOAD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdDownloadWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdDownloadWhitelist;
 /**
  *  Client side detection whitelist threat type.
  *
  *  Value: "CSD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdWhitelist;
 /**
  *  Safe list to ship hashes of known safe URL expressions.
  *
  *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_HighConfidenceAllowlist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_MaliciousBinary;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Malware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Malware;
 /**
  *  Potentially harmful application threat type.
  *
  *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_PotentiallyHarmfulApplication;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_PotentiallyHarmfulApplication;
 /**
  *  Social engineering threat type.
  *
  *  Value: "SOCIAL_ENGINEERING"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineering;
 /**
  *  Social engineering threat type for internal use.
  *
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineeringInternal;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineeringInternal;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial
  *  will not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SubresourceFilter;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SubresourceFilter;
 /**
  *  Entities that are suspected to present a threat.
  *
  *  Value: "SUSPICIOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ThreatTypeUnspecified;
 /**
  *  Trick-to-bill threat list.
  *
  *  Value: "TRICK_TO_BILL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_TrickToBill;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_UnwantedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.platformTypes
 
 /** Value: "ALL_PLATFORMS" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_AllPlatforms;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_AllPlatforms;
 /** Value: "ANDROID" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Android;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Android;
 /** Value: "ANY_PLATFORM" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_AnyPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_AnyPlatform;
 /** Value: "CHROME" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Chrome;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Chrome;
 /** Value: "IOS" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Ios;
 /** Value: "LINUX" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Linux;
 /** Value: "OSX" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Osx;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Osx;
 /** Value: "PLATFORM_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_PlatformTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_PlatformTypeUnspecified;
 /** Value: "WINDOWS" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatEntryTypes
 
 /** Value: "CERT" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Cert;
 /** Value: "CHROME_EXTENSION" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ChromeExtension;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ChromeExtension;
 /** Value: "EXECUTABLE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Executable;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Executable;
 /** Value: "FILENAME" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Filename;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Filename;
 /** Value: "IP_RANGE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_IpRange;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_IpRange;
 /** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ThreatEntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ThreatEntryTypeUnspecified;
 /** Value: "URL" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatTypes
 
 /** Value: "API_ABUSE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApiAbuse;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApiAbuse;
 /** Value: "APK_MALWARE_OFFLINE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApkMalwareOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApkMalwareOffline;
 /** Value: "CLIENT_INCIDENT" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncident;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncident;
 /** Value: "CLIENT_INCIDENT_WHITELIST" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncidentWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncidentWhitelist;
 /** Value: "CSD_DOWNLOAD_WHITELIST" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdDownloadWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdDownloadWhitelist;
 /** Value: "CSD_WHITELIST" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdWhitelist;
 /** Value: "HIGH_CONFIDENCE_ALLOWLIST" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_HighConfidenceAllowlist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_HighConfidenceAllowlist;
 /** Value: "MALICIOUS_BINARY" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary;
 /** Value: "MALWARE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Malware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Malware;
 /** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_PotentiallyHarmfulApplication;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_PotentiallyHarmfulApplication;
 /** Value: "SOCIAL_ENGINEERING" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineering;
 /** Value: "SOCIAL_ENGINEERING_INTERNAL" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInternal;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInternal;
 /** Value: "SUBRESOURCE_FILTER" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter;
 /** Value: "SUSPICIOUS" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious;
 /** Value: "THREAT_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified;
 /** Value: "TRICK_TO_BILL" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_TrickToBill;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_TrickToBill;
 /** Value: "UNWANTED_SOFTWARE" */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.platformType
@@ -782,55 +782,55 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSo
  *
  *  Value: "ALL_PLATFORMS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AllPlatforms;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AllPlatforms;
 /**
  *  Threat posed to Android.
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Android;
 /**
  *  Threat posed to at least one of the defined platforms.
  *
  *  Value: "ANY_PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AnyPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_AnyPlatform;
 /**
  *  Threat posed to Chrome.
  *
  *  Value: "CHROME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Chrome;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Chrome;
 /**
  *  Threat posed to iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Ios;
 /**
  *  Threat posed to Linux.
  *
  *  Value: "LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Linux;
 /**
  *  Threat posed to OS X.
  *
  *  Value: "OSX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Osx;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Osx;
 /**
  *  Unknown platform.
  *
  *  Value: "PLATFORM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_PlatformTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_PlatformTypeUnspecified;
 /**
  *  Threat posed to Windows.
  *
  *  Value: "WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.threatEntryType
@@ -840,43 +840,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_PlatformType
  *
  *  Value: "CERT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Cert;
 /**
  *  Chrome extension.
  *
  *  Value: "CHROME_EXTENSION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ChromeExtension;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ChromeExtension;
 /**
  *  An executable program.
  *
  *  Value: "EXECUTABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Executable;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Executable;
 /**
  *  Filename.
  *
  *  Value: "FILENAME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Filename;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Filename;
 /**
  *  An IP range.
  *
  *  Value: "IP_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_IpRange;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_IpRange;
 /**
  *  Unspecified.
  *
  *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ThreatEntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_ThreatEntryTypeUnspecified;
 /**
  *  A URL.
  *
  *  Value: "URL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatListDescriptor.threatType
@@ -886,105 +886,105 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatEntryT
  *
  *  Value: "API_ABUSE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApiAbuse;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApiAbuse;
 /**
  *  List used for offline APK checks in PAM.
  *
  *  Value: "APK_MALWARE_OFFLINE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApkMalwareOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ApkMalwareOffline;
 /**
  *  Client incident threat type.
  *
  *  Value: "CLIENT_INCIDENT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncident;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncident;
 /**
  *  Whitelist used when detecting client incident threats.
  *  This enum was never launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncidentWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncidentWhitelist;
 /**
  *  Client side download detection whitelist threat type.
  *
  *  Value: "CSD_DOWNLOAD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdDownloadWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdDownloadWhitelist;
 /**
  *  Client side detection whitelist threat type.
  *
  *  Value: "CSD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdWhitelist;
 /**
  *  Safe list to ship hashes of known safe URL expressions.
  *
  *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_HighConfidenceAllowlist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Malware;
 /**
  *  Potentially harmful application threat type.
  *
  *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHarmfulApplication;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_PotentiallyHarmfulApplication;
 /**
  *  Social engineering threat type.
  *
  *  Value: "SOCIAL_ENGINEERING"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineering;
 /**
  *  Social engineering threat type for internal use.
  *
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineeringInternal;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineeringInternal;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial
  *  will not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter;
 /**
  *  Entities that are suspected to present a threat.
  *
  *  Value: "SUSPICIOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ThreatTypeUnspecified;
 /**
  *  Trick-to-bill threat list.
  *
  *  Value: "TRICK_TO_BILL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_TrickToBill;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.platformType
@@ -994,55 +994,55 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_U
  *
  *  Value: "ALL_PLATFORMS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_AllPlatforms;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_AllPlatforms;
 /**
  *  Threat posed to Android.
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Android;
 /**
  *  Threat posed to at least one of the defined platforms.
  *
  *  Value: "ANY_PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_AnyPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_AnyPlatform;
 /**
  *  Threat posed to Chrome.
  *
  *  Value: "CHROME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Chrome;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Chrome;
 /**
  *  Threat posed to iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Ios;
 /**
  *  Threat posed to Linux.
  *
  *  Value: "LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Linux;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Linux;
 /**
  *  Threat posed to OS X.
  *
  *  Value: "OSX"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Osx;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Osx;
 /**
  *  Unknown platform.
  *
  *  Value: "PLATFORM_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_PlatformTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_PlatformTypeUnspecified;
 /**
  *  Threat posed to Windows.
  *
  *  Value: "WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.threatEntryType
@@ -1052,43 +1052,43 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_PlatformType_Windows;
  *
  *  Value: "CERT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Cert;
 /**
  *  Chrome extension.
  *
  *  Value: "CHROME_EXTENSION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ChromeExtension;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ChromeExtension;
 /**
  *  An executable program.
  *
  *  Value: "EXECUTABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Executable;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Executable;
 /**
  *  Filename.
  *
  *  Value: "FILENAME"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Filename;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Filename;
 /**
  *  An IP range.
  *
  *  Value: "IP_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_IpRange;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_IpRange;
 /**
  *  Unspecified.
  *
  *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ThreatEntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_ThreatEntryTypeUnspecified;
 /**
  *  A URL.
  *
  *  Value: "URL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatMatch.threatType
@@ -1098,105 +1098,105 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatEntryType_Url;
  *
  *  Value: "API_ABUSE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApiAbuse;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApiAbuse;
 /**
  *  List used for offline APK checks in PAM.
  *
  *  Value: "APK_MALWARE_OFFLINE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApkMalwareOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApkMalwareOffline;
 /**
  *  Client incident threat type.
  *
  *  Value: "CLIENT_INCIDENT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncident;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncident;
 /**
  *  Whitelist used when detecting client incident threats.
  *  This enum was never launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncidentWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncidentWhitelist;
 /**
  *  Client side download detection whitelist threat type.
  *
  *  Value: "CSD_DOWNLOAD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdDownloadWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdDownloadWhitelist;
 /**
  *  Client side detection whitelist threat type.
  *
  *  Value: "CSD_WHITELIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdWhitelist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdWhitelist;
 /**
  *  Safe list to ship hashes of known safe URL expressions.
  *
  *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_HighConfidenceAllowlist;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_HighConfidenceAllowlist;
 /**
  *  Malicious binary threat type.
  *
  *  Value: "MALICIOUS_BINARY"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_MaliciousBinary;
 /**
  *  Malware threat type.
  *
  *  Value: "MALWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Malware;
 /**
  *  Potentially harmful application threat type.
  *
  *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulApplication;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_PotentiallyHarmfulApplication;
 /**
  *  Social engineering threat type.
  *
  *  Value: "SOCIAL_ENGINEERING"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineering;
 /**
  *  Social engineering threat type for internal use.
  *
  *  Value: "SOCIAL_ENGINEERING_INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInternal;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInternal;
 /**
  *  Patterns to be used for activating the subresource filter. Interstitial
  *  will not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter;
 /**
  *  Entities that are suspected to present a threat.
  *
  *  Value: "SUSPICIOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious;
 /**
  *  Unknown.
  *
  *  Value: "THREAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ThreatTypeUnspecified;
 /**
  *  Trick-to-bill threat list.
  *
  *  Value: "TRICK_TO_BILL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_TrickToBill;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_TrickToBill;
 /**
  *  Unwanted software threat type.
  *
  *  Value: "UNWANTED_SOFTWARE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatSource.type
@@ -1207,32 +1207,32 @@ GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_UnwantedSo
  *
  *  Value: "MATCHING_URL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_MatchingUrl;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_MatchingUrl;
 /**
  *  A redirect URL that was fetched before hitting the final TAB_URL.
  *
  *  Value: "TAB_REDIRECT"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_TabRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_TabRedirect;
 /**
  *  A resource loaded within the final TAB_URL.
  *
  *  Value: "TAB_RESOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_TabResource;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_TabResource;
 /**
  *  The final top-level URL of the tab that the client was browsing when the
  *  match occurred.
  *
  *  Value: "TAB_URL"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_TabUrl;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_TabUrl;
 /**
  *  Unknown.
  *
  *  Value: "THREAT_SOURCE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTypeUnspecified;
 
 /**
  *  The expected state of a client's local database.

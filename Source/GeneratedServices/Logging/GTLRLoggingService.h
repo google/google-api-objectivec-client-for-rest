@@ -36,32 +36,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/logging.admin"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeLoggingAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingAdmin;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeLoggingCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeLoggingCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingCloudPlatformReadOnly;
 /**
  *  Authorization scope: View log data for your projects
  *
  *  Value "https://www.googleapis.com/auth/logging.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeLoggingRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingRead;
 /**
  *  Authorization scope: Submit log data for your projects
  *
  *  Value "https://www.googleapis.com/auth/logging.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeLoggingWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRLoggingService

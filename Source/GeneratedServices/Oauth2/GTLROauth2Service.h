@@ -33,20 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "openid"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2Openid;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeOauth2Openid;
 /**
  *  Authorization scope: View your email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2UserinfoEmail;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeOauth2UserinfoEmail;
 /**
  *  Authorization scope: See your personal info, including any personal info
  *  you've made publicly available
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeOauth2UserinfoProfile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeOauth2UserinfoProfile;
 
 // ----------------------------------------------------------------------------
 //   GTLROauth2Service

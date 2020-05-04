@@ -34,47 +34,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/youtube"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTube;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTube;
 /**
  *  Authorization scope: See a list of your current active channel members,
  *  their current level, and when they became a member
  *
  *  Value "https://www.googleapis.com/auth/youtube.channel-memberships.creator"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeChannelMembershipsCreator;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeChannelMembershipsCreator;
 /**
  *  Authorization scope: See, edit, and permanently delete your YouTube videos,
  *  ratings, comments and captions
  *
  *  Value "https://www.googleapis.com/auth/youtube.force-ssl"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeForceSsl;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeForceSsl;
 /**
  *  Authorization scope: View your YouTube account
  *
  *  Value "https://www.googleapis.com/auth/youtube.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeReadonly;
 /**
  *  Authorization scope: Manage your YouTube videos
  *
  *  Value "https://www.googleapis.com/auth/youtube.upload"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeUpload;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeUpload;
 /**
  *  Authorization scope: View and manage your assets and associated content on
  *  YouTube
  *
  *  Value "https://www.googleapis.com/auth/youtubepartner"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeYoutubepartner;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeYoutubepartner;
 /**
  *  Authorization scope: View private information of your YouTube channel
  *  relevant during the audit process with a YouTube partner
  *
  *  Value "https://www.googleapis.com/auth/youtubepartner-channel-audit"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit;
 
 // ----------------------------------------------------------------------------
 //   GTLRYouTubeService

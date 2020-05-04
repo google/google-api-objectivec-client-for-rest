@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DO_NOT_USE_ORCHESTRATOR"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNotUseOrchestrator;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNotUseOrchestrator;
 /**
  *  Default value: the server will choose the mode. Currently implies that
  *  the test will run without the orchestrator. In the future,
@@ -111,7 +111,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orchestrato
  *
  *  Value: "ORCHESTRATOR_OPTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_OrchestratorOptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_OrchestratorOptionUnspecified;
 /**
  *  Run test using orchestrator.
  *  ** Only compatible with AndroidJUnitRunner version 1.0 or higher! **
@@ -119,7 +119,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orchestrato
  *
  *  Value: "USE_ORCHESTRATOR"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_AndroidModel.form
@@ -129,19 +129,19 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orchestrato
  *
  *  Value: "DEVICE_FORM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified;
 /**
  *  Actual hardware.
  *
  *  Value: "PHYSICAL"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Physical;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Physical;
 /**
  *  A software stack that simulates the device.
  *
  *  Value: "VIRTUAL"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_AndroidModel.formFactor
@@ -151,25 +151,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
  *
  *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified;
 /**
  *  This device has the shape of a phone.
  *
  *  Value: "PHONE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone;
 /**
  *  This device has the shape of a tablet.
  *
  *  Value: "TABLET"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
 /**
  *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_CancelTestMatrixResponse.testState
@@ -180,14 +180,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Cancelled;
 /**
  *  The execution or matrix has stopped because it encountered an
  *  infrastructure failure.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Error;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Error;
 /**
  *  The execution or matrix has terminated normally.
  *  On a matrix this means that the matrix level processing completed normally,
@@ -195,7 +195,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Err
  *
  *  Value: "FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Finished;
 /**
  *  The execution was not run because the provided inputs are incompatible with
  *  the requested architecture.
@@ -205,7 +205,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Fin
  *
  *  Value: "INCOMPATIBLE_ARCHITECTURE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_IncompatibleArchitecture;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_IncompatibleArchitecture;
 /**
  *  The execution was not run because the provided inputs are incompatible with
  *  the requested environment.
@@ -214,7 +214,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Inc
  *
  *  Value: "INCOMPATIBLE_ENVIRONMENT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_IncompatibleEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_IncompatibleEnvironment;
 /**
  *  The execution or matrix was not run because the provided inputs are not
  *  valid.
@@ -223,26 +223,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Inc
  *
  *  Value: "INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Invalid;
 /**
  *  The execution or matrix is waiting for resources to become available.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Pending;
 /**
  *  The execution is currently being processed.
  *  Can only be set on an execution.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Running;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Running;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "TEST_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_TestStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_TestStateUnspecified;
 /**
  *  The execution was not run because it corresponds to a unsupported
  *  environment.
@@ -250,13 +250,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Tes
  *
  *  Value: "UNSUPPORTED_ENVIRONMENT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_UnsupportedEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_UnsupportedEnvironment;
 /**
  *  The execution or matrix is being validated.
  *
  *  Value: "VALIDATING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Validating;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Validating;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_IosModel.formFactor
@@ -266,25 +266,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Val
  *
  *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified;
 /**
  *  This device has the shape of a phone.
  *
  *  Value: "PHONE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Phone;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Phone;
 /**
  *  This device has the shape of a tablet.
  *
  *  Value: "TABLET"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
 /**
  *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_RoboDirective.actionType
@@ -294,27 +294,27 @@ GTLR_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
  *
  *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_ActionTypeUnspecified;
 /**
  *  Direct Robo to enter text on the specified element. No-op if specified
  *  element is not enabled or does not allow text entry.
  *
  *  Value: "ENTER_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_EnterText;
 /**
  *  Direct Robo to ignore interactions with a specific element.
  *
  *  Value: "IGNORE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_Ignore;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_Ignore;
 /**
  *  Direct Robo to click on the specified element. No-op if specified element
  *  is not clickable.
  *
  *  Value: "SINGLE_CLICK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_SingleClick;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_SingleClick;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestExecution.state
@@ -325,14 +325,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_RoboDirective_ActionType_SingleClick;
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Cancelled;
 /**
  *  The execution or matrix has stopped because it encountered an
  *  infrastructure failure.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Error;
 /**
  *  The execution or matrix has terminated normally.
  *  On a matrix this means that the matrix level processing completed normally,
@@ -340,7 +340,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Error;
  *
  *  Value: "FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Finished;
 /**
  *  The execution was not run because the provided inputs are incompatible with
  *  the requested architecture.
@@ -350,7 +350,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Finished;
  *
  *  Value: "INCOMPATIBLE_ARCHITECTURE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_IncompatibleArchitecture;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_IncompatibleArchitecture;
 /**
  *  The execution was not run because the provided inputs are incompatible with
  *  the requested environment.
@@ -359,7 +359,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_IncompatibleArchit
  *
  *  Value: "INCOMPATIBLE_ENVIRONMENT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_IncompatibleEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_IncompatibleEnvironment;
 /**
  *  The execution or matrix was not run because the provided inputs are not
  *  valid.
@@ -368,26 +368,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_IncompatibleEnviro
  *
  *  Value: "INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Invalid;
 /**
  *  The execution or matrix is waiting for resources to become available.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Pending;
 /**
  *  The execution is currently being processed.
  *  Can only be set on an execution.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Running;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "TEST_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_TestStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_TestStateUnspecified;
 /**
  *  The execution was not run because it corresponds to a unsupported
  *  environment.
@@ -395,13 +395,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_TestStateUnspecifi
  *
  *  Value: "UNSUPPORTED_ENVIRONMENT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_UnsupportedEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_UnsupportedEnvironment;
 /**
  *  The execution or matrix is being validated.
  *
  *  Value: "VALIDATING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Validating;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestExecution_State_Validating;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestMatrix.invalidMatrixDetails
@@ -412,25 +412,25 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestExecution_State_Validating;
  *
  *  Value: "BUILT_FOR_IOS_SIMULATOR"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_BuiltForIosSimulator;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_BuiltForIosSimulator;
 /**
  *  The matrix is INVALID, but there are no further details available.
  *
  *  Value: "DETAILS_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DetailsUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DetailsUnavailable;
 /**
  *  Device administrator applications are not allowed.
  *
  *  Value: "DEVICE_ADMIN_RECEIVER"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DeviceAdminReceiver;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_DeviceAdminReceiver;
 /**
  *  The app declares one or more permissions that are not allowed.
  *
  *  Value: "FORBIDDEN_PERMISSIONS"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ForbiddenPermissions;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ForbiddenPermissions;
 /**
  *  The test runner class specified by user or in the test APK's manifest file
  *  is not compatible with Android Test Orchestrator.
@@ -441,20 +441,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Forbid
  *
  *  Value: "INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible;
 /**
  *  APK is built for a preview SDK which is unsupported
  *
  *  Value: "INVALID_APK_PREVIEW_SDK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidApkPreviewSdk;
 /**
  *  Invalid definition of action in the robo directives
  *  (e.g. a click or ignore action includes an input text field)
  *
  *  Value: "INVALID_DIRECTIVE_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidDirectiveAction;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidDirectiveAction;
 /**
  *  Either the provided input APK path was malformed,
  *  the APK file does not exist, or the user does not have permission to
@@ -462,13 +462,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  *
  *  Value: "INVALID_INPUT_APK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidInputApk;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "INVALID_MATRIX_DETAILS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidMatrixDetailsUnspecified;
 /**
  *  The APK application ID (aka package name) is invalid.
  *  See also
@@ -476,44 +476,44 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Invali
  *
  *  Value: "INVALID_PACKAGE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidPackageName;
 /**
  *  There is at least one invalid resource name in the provided
  *  robo directives
  *
  *  Value: "INVALID_RESOURCE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidResourceName;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidResourceName;
 /**
  *  There is a conflict in the provided robo_directives.
  *
  *  Value: "INVALID_ROBO_DIRECTIVES"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_InvalidRoboDirectives;
 /**
  *  The input app APK could not be parsed.
  *
  *  Value: "MALFORMED_APK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedApk;
 /**
  *  The iOS application bundle (.app) couldn't be processed.
  *
  *  Value: "MALFORMED_APP_BUNDLE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedAppBundle;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedAppBundle;
 /**
  *  The input IPA could not be parsed.
  *
  *  Value: "MALFORMED_IPA"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedIpa;
 /**
  *  The input test APK could not be parsed.
  *
  *  Value: "MALFORMED_TEST_APK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedTestApk;
 /**
  *  The zipped XCTest was malformed. The zip did not contain a single
  *  .xctestrun file and the contents of the DerivedData/Build/Products
@@ -521,13 +521,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Malfor
  *
  *  Value: "MALFORMED_XC_TEST_ZIP"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MalformedXcTestZip;
 /**
  *  The application doesn't register the game loop URL scheme.
  *
  *  Value: "MISSING_URL_SCHEME"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_MissingUrlScheme;
 /**
  *  APK contains no code.
  *  See also
@@ -535,37 +535,37 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_Missin
  *
  *  Value: "NO_CODE_APK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoCodeApk;
 /**
  *  The test apk does not declare an instrumentation.
  *
  *  Value: "NO_INSTRUMENTATION"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoInstrumentation;
 /**
  *  A main launcher activity could not be found.
  *
  *  Value: "NO_LAUNCHER_ACTIVITY"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoLauncherActivity;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoLauncherActivity;
 /**
  *  The AndroidManifest.xml could not be found.
  *
  *  Value: "NO_MANIFEST"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoManifest;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoManifest;
 /**
  *  The APK manifest does not declare a package name.
  *
  *  Value: "NO_PACKAGE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoPackageName;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoPackageName;
 /**
  *  The input app apk does not have a signature.
  *
  *  Value: "NO_SIGNATURE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSignature;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSignature;
 /**
  *  The test APK does not contain the test runner class specified by user or in
  *  the manifest file.
@@ -576,73 +576,73 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoSign
  *
  *  Value: "NO_TEST_RUNNER_CLASS"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestRunnerClass;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestRunnerClass;
 /**
  *  The .xctestrun file did not specify any test targets.
  *
  *  Value: "NO_TESTS_IN_XC_TEST_ZIP"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_NoTestsInXcTestZip;
 /**
  *  An Info.plist file in the XCTest zip could not be parsed.
  *
  *  Value: "PLIST_CANNOT_BE_PARSED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_PlistCannotBeParsed;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_PlistCannotBeParsed;
 /**
  *  There was an error when parsing a label's value.
  *
  *  Value: "SCENARIO_LABEL_MALFORMED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelMalformed;
 /**
  *  The request contains a scenario label that was not declared in the
  *  manifest.
  *
  *  Value: "SCENARIO_LABEL_NOT_DECLARED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelNotDeclared;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioLabelNotDeclared;
 /**
  *  The request contains a scenario number that was not declared in the
  *  manifest.
  *
  *  Value: "SCENARIO_NOT_DECLARED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_ScenarioNotDeclared;
 /**
  *  There is no test loop intent filter, or the one that is given is
  *  not formatted correctly.
  *
  *  Value: "TEST_LOOP_INTENT_FILTER_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestLoopIntentFilterNotFound;
 /**
  *  XC tests which run on physical devices must have
  *  "IsAppHostedTestBundle" == "true" in the xctestrun file.
  *
  *  Value: "TEST_NOT_APP_HOSTED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestNotAppHosted;
 /**
  *  The APK is marked as "testOnly".
  *  Deprecated and not currently used.
  *
  *  Value: "TEST_ONLY_APK"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestOnlyApk;
 /**
  *  The test package and app package are the same.
  *
  *  Value: "TEST_SAME_AS_APP"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_TestSameAsApp;
 /**
  *  One or more of the test targets defined in the .xctestrun file specifies
  *  "UseDestinationArtifacts", which is disallowed.
  *
  *  Value: "USE_DESTINATION_ARTIFACTS"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDestinationArtifacts;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestMatrix.outcomeSummary
@@ -655,7 +655,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_UseDes
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Failure;
 /**
  *  Something unexpected happened. The run should still be considered
  *  unsuccessful but this is likely a transient problem and re-running the
@@ -663,20 +663,20 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Failure;
  *
  *  Value: "INCONCLUSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Inconclusive;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Inconclusive;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "OUTCOME_SUMMARY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_OutcomeSummaryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_OutcomeSummaryUnspecified;
 /**
  *  All tests were skipped, for instance:
  *  - All device configurations were incompatible.
  *
  *  Value: "SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Skipped;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Skipped;
 /**
  *  The test matrix run was successful, for instance:
  *  - All the test cases passed.
@@ -684,7 +684,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Skipped;
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Success;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Success;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_TestMatrix.state
@@ -695,14 +695,14 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_OutcomeSummary_Success;
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Cancelled;
 /**
  *  The execution or matrix has stopped because it encountered an
  *  infrastructure failure.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Error;
 /**
  *  The execution or matrix has terminated normally.
  *  On a matrix this means that the matrix level processing completed normally,
@@ -710,7 +710,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Error;
  *
  *  Value: "FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Finished;
 /**
  *  The execution was not run because the provided inputs are incompatible with
  *  the requested architecture.
@@ -720,7 +720,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Finished;
  *
  *  Value: "INCOMPATIBLE_ARCHITECTURE"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_IncompatibleArchitecture;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_IncompatibleArchitecture;
 /**
  *  The execution was not run because the provided inputs are incompatible with
  *  the requested environment.
@@ -729,7 +729,7 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_IncompatibleArchitect
  *
  *  Value: "INCOMPATIBLE_ENVIRONMENT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_IncompatibleEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_IncompatibleEnvironment;
 /**
  *  The execution or matrix was not run because the provided inputs are not
  *  valid.
@@ -738,26 +738,26 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_IncompatibleEnvironme
  *
  *  Value: "INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Invalid;
 /**
  *  The execution or matrix is waiting for resources to become available.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Pending;
 /**
  *  The execution is currently being processed.
  *  Can only be set on an execution.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Running;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "TEST_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_TestStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_TestStateUnspecified;
 /**
  *  The execution was not run because it corresponds to a unsupported
  *  environment.
@@ -765,13 +765,13 @@ GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_TestStateUnspecified;
  *
  *  Value: "UNSUPPORTED_ENVIRONMENT"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_UnsupportedEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_UnsupportedEnvironment;
 /**
  *  The execution or matrix is being validated.
  *
  *  Value: "VALIDATING"
  */
-GTLR_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Identifies an account and how to log into it.

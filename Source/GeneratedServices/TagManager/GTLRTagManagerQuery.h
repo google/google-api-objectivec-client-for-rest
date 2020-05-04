@@ -48,225 +48,225 @@ NS_ASSUME_NONNULL_BEGIN
 // type
 
 /** Value: "advertiserId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAdvertiserId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAdvertiserId;
 /** Value: "advertisingTrackingEnabled" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAdvertisingTrackingEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAdvertisingTrackingEnabled;
 /** Value: "ampBrowserLanguage" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpBrowserLanguage;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpBrowserLanguage;
 /** Value: "ampCanonicalHost" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalHost;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalHost;
 /** Value: "ampCanonicalPath" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalPath;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalPath;
 /** Value: "ampCanonicalUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpCanonicalUrl;
 /** Value: "ampClientId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientId;
 /** Value: "ampClientMaxScrollX" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientMaxScrollX;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientMaxScrollX;
 /** Value: "ampClientMaxScrollY" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientMaxScrollY;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientMaxScrollY;
 /** Value: "ampClientScreenHeight" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScreenHeight;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScreenHeight;
 /** Value: "ampClientScreenWidth" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScreenWidth;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScreenWidth;
 /** Value: "ampClientScrollX" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScrollX;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScrollX;
 /** Value: "ampClientScrollY" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScrollY;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientScrollY;
 /** Value: "ampClientTimestamp" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientTimestamp;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientTimestamp;
 /** Value: "ampClientTimezone" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpClientTimezone;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpClientTimezone;
 /** Value: "ampGtmEvent" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpGtmEvent;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpGtmEvent;
 /** Value: "ampPageDownloadTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpPageDownloadTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpPageDownloadTime;
 /** Value: "ampPageLoadTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpPageLoadTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpPageLoadTime;
 /** Value: "ampPageViewId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpPageViewId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpPageViewId;
 /** Value: "ampReferrer" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpReferrer;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpReferrer;
 /** Value: "ampTitle" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpTitle;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpTitle;
 /** Value: "ampTotalEngagedTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAmpTotalEngagedTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpTotalEngagedTime;
 /** Value: "appId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAppId;
 /** Value: "appName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAppName;
 /** Value: "appVersionCode" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppVersionCode;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAppVersionCode;
 /** Value: "appVersionName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeAppVersionName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAppVersionName;
 /** Value: "builtInVariableTypeUnspecified" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeBuiltInVariableTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeBuiltInVariableTypeUnspecified;
 /** Value: "clickClasses" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickClasses;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickClasses;
 /** Value: "clickElement" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickElement;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickElement;
 /** Value: "clickId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickId;
 /** Value: "clickTarget" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickTarget;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickTarget;
 /** Value: "clickText" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickText;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickText;
 /** Value: "clickUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClickUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickUrl;
 /** Value: "clientName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeClientName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClientName;
 /** Value: "containerId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeContainerId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeContainerId;
 /** Value: "containerVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeContainerVersion;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeContainerVersion;
 /** Value: "debugMode" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeDebugMode;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeDebugMode;
 /** Value: "deviceName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeDeviceName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeDeviceName;
 /** Value: "elementVisibilityFirstTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityFirstTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityFirstTime;
 /** Value: "elementVisibilityRatio" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityRatio;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityRatio;
 /** Value: "elementVisibilityRecentTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityRecentTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityRecentTime;
 /** Value: "elementVisibilityTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeElementVisibilityTime;
 /** Value: "environmentName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeEnvironmentName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeEnvironmentName;
 /** Value: "errorLine" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeErrorLine;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeErrorLine;
 /** Value: "errorMessage" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeErrorMessage;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeErrorMessage;
 /** Value: "errorUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeErrorUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeErrorUrl;
 /** Value: "event" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeEvent;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeEvent;
 /** Value: "eventName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeEventName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeEventName;
 /** Value: "firebaseEventParameterCampaign" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaign;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaign;
 /** Value: "firebaseEventParameterCampaignAclid" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignAclid;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignAclid;
 /** Value: "firebaseEventParameterCampaignAnid" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignAnid;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignAnid;
 /** Value: "firebaseEventParameterCampaignClickTimestamp" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignClickTimestamp;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignClickTimestamp;
 /** Value: "firebaseEventParameterCampaignContent" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignContent;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignContent;
 /** Value: "firebaseEventParameterCampaignCp1" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignCp1;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignCp1;
 /** Value: "firebaseEventParameterCampaignGclid" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignGclid;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignGclid;
 /** Value: "firebaseEventParameterCampaignSource" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignSource;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignSource;
 /** Value: "firebaseEventParameterCampaignTerm" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignTerm;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCampaignTerm;
 /** Value: "firebaseEventParameterCurrency" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCurrency;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterCurrency;
 /** Value: "firebaseEventParameterDynamicLinkAcceptTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkAcceptTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkAcceptTime;
 /** Value: "firebaseEventParameterDynamicLinkLinkid" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkLinkid;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterDynamicLinkLinkid;
 /** Value: "firebaseEventParameterNotificationMessageDeviceTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageDeviceTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageDeviceTime;
 /** Value: "firebaseEventParameterNotificationMessageId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageId;
 /** Value: "firebaseEventParameterNotificationMessageName" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageName;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageName;
 /** Value: "firebaseEventParameterNotificationMessageTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationMessageTime;
 /** Value: "firebaseEventParameterNotificationTopic" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationTopic;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterNotificationTopic;
 /** Value: "firebaseEventParameterPreviousAppVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPreviousAppVersion;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPreviousAppVersion;
 /** Value: "firebaseEventParameterPreviousOsVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPreviousOsVersion;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPreviousOsVersion;
 /** Value: "firebaseEventParameterPrice" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPrice;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterPrice;
 /** Value: "firebaseEventParameterProductId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterProductId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterProductId;
 /** Value: "firebaseEventParameterQuantity" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterQuantity;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterQuantity;
 /** Value: "firebaseEventParameterValue" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterValue;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirebaseEventParameterValue;
 /** Value: "firstPartyServingUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFirstPartyServingUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFirstPartyServingUrl;
 /** Value: "formClasses" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormClasses;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFormClasses;
 /** Value: "formElement" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormElement;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFormElement;
 /** Value: "formId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFormId;
 /** Value: "formTarget" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormTarget;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFormTarget;
 /** Value: "formText" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormText;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFormText;
 /** Value: "formUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeFormUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeFormUrl;
 /** Value: "historySource" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeHistorySource;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeHistorySource;
 /** Value: "htmlId" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeHtmlId;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeHtmlId;
 /** Value: "language" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeLanguage;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeLanguage;
 /** Value: "newHistoryFragment" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryFragment;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryFragment;
 /** Value: "newHistoryState" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryState;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryState;
 /** Value: "newHistoryUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeNewHistoryUrl;
 /** Value: "oldHistoryFragment" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryFragment;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryFragment;
 /** Value: "oldHistoryState" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryState;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryState;
 /** Value: "oldHistoryUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeOldHistoryUrl;
 /** Value: "osVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeOsVersion;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeOsVersion;
 /** Value: "pageHostname" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypePageHostname;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypePageHostname;
 /** Value: "pagePath" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypePagePath;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypePagePath;
 /** Value: "pageUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypePageUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypePageUrl;
 /** Value: "platform" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypePlatform;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypePlatform;
 /** Value: "queryString" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeQueryString;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeQueryString;
 /** Value: "randomNumber" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeRandomNumber;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeRandomNumber;
 /** Value: "referrer" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
 /** Value: "requestMethod" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeRequestMethod;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeRequestMethod;
 /** Value: "requestPath" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeRequestPath;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeRequestPath;
 /** Value: "resolution" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeResolution;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeResolution;
 /** Value: "scrollDepthDirection" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthDirection;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthDirection;
 /** Value: "scrollDepthThreshold" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthThreshold;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthThreshold;
 /** Value: "scrollDepthUnits" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthUnits;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthUnits;
 /** Value: "sdkVersion" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
 /** Value: "videoCurrentTime" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoCurrentTime;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoCurrentTime;
 /** Value: "videoDuration" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoDuration;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoDuration;
 /** Value: "videoPercent" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoPercent;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoPercent;
 /** Value: "videoProvider" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoProvider;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoProvider;
 /** Value: "videoStatus" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoStatus;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoStatus;
 /** Value: "videoTitle" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoTitle;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoTitle;
 /** Value: "videoUrl" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoUrl;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoUrl;
 /** Value: "videoVisible" */
-GTLR_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 
 // ----------------------------------------------------------------------------
 // Query Classes

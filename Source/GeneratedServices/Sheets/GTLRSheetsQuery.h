@@ -45,65 +45,65 @@ NS_ASSUME_NONNULL_BEGIN
 // dateTimeRenderOption
 
 /** Value: "FORMATTED_STRING" */
-GTLR_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionFormattedString;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionFormattedString;
 /** Value: "SERIAL_NUMBER" */
-GTLR_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionSerialNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionSerialNumber;
 
 // ----------------------------------------------------------------------------
 // insertDataOption
 
 /** Value: "INSERT_ROWS" */
-GTLR_EXTERN NSString * const kGTLRSheetsInsertDataOptionInsertRows;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsInsertDataOptionInsertRows;
 /** Value: "OVERWRITE" */
-GTLR_EXTERN NSString * const kGTLRSheetsInsertDataOptionOverwrite;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsInsertDataOptionOverwrite;
 
 // ----------------------------------------------------------------------------
 // majorDimension
 
 /** Value: "COLUMNS" */
-GTLR_EXTERN NSString * const kGTLRSheetsMajorDimensionColumns;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsMajorDimensionColumns;
 /** Value: "DIMENSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSheetsMajorDimensionDimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsMajorDimensionDimensionUnspecified;
 /** Value: "ROWS" */
-GTLR_EXTERN NSString * const kGTLRSheetsMajorDimensionRows;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsMajorDimensionRows;
 
 // ----------------------------------------------------------------------------
 // responseDateTimeRenderOption
 
 /** Value: "FORMATTED_STRING" */
-GTLR_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionFormattedString;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionFormattedString;
 /** Value: "SERIAL_NUMBER" */
-GTLR_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionSerialNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionSerialNumber;
 
 // ----------------------------------------------------------------------------
 // responseValueRenderOption
 
 /** Value: "FORMATTED_VALUE" */
-GTLR_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormattedValue;
 /** Value: "FORMULA" */
-GTLR_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormula;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormula;
 /** Value: "UNFORMATTED_VALUE" */
-GTLR_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionUnformattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionUnformattedValue;
 
 // ----------------------------------------------------------------------------
 // valueInputOption
 
 /** Value: "INPUT_VALUE_OPTION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSheetsValueInputOptionInputValueOptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionInputValueOptionUnspecified;
 /** Value: "RAW" */
-GTLR_EXTERN NSString * const kGTLRSheetsValueInputOptionRaw;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionRaw;
 /** Value: "USER_ENTERED" */
-GTLR_EXTERN NSString * const kGTLRSheetsValueInputOptionUserEntered;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionUserEntered;
 
 // ----------------------------------------------------------------------------
 // valueRenderOption
 
 /** Value: "FORMATTED_VALUE" */
-GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormattedValue;
 /** Value: "FORMULA" */
-GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormula;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormula;
 /** Value: "UNFORMATTED_VALUE" */
-GTLR_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 // ----------------------------------------------------------------------------
 // Query Classes

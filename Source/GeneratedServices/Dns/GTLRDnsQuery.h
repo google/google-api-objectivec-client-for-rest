@@ -36,11 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
 // sortBy
 
 /** Value: "changeSequence" */
-GTLR_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
+FOUNDATION_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
 /** Value: "id" */
-GTLR_EXTERN NSString * const kGTLRDnsSortById;
+FOUNDATION_EXTERN NSString * const kGTLRDnsSortById;
 /** Value: "startTime" */
-GTLR_EXTERN NSString * const kGTLRDnsSortByStartTime;
+FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 // ----------------------------------------------------------------------------
 // Query Classes

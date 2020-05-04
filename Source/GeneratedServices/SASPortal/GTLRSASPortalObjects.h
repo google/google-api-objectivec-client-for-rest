@@ -51,48 +51,48 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DEREGISTERED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_Device_State_Deregistered;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Device_State_Deregistered;
 /**
  *  Unspecified state.
  *
  *  Value: "DEVICE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_Device_State_DeviceStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Device_State_DeviceStateUnspecified;
 /**
  *  Device registered with SAS.
  *
  *  Value: "REGISTERED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_Device_State_Registered;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Device_State_Registered;
 /**
  *  Device created in the SAS Portal, however, not yet registered
  *  with SAS.
  *
  *  Value: "RESERVED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_Device_State_Reserved;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Device_State_Reserved;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceAirInterface.radioTechnology
 
 /** Value: "CAMBIUM_NETWORKS" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetworks;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetworks;
 /** Value: "CW" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Cw;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Cw;
 /** Value: "DOODLE_CBRS" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs;
 /** Value: "E_UTRA" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra;
 /** Value: "FOUR_G_BBW_SAA_1" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_FourGBbwSaa1;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_FourGBbwSaa1;
 /** Value: "NR" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr;
 /** Value: "RADIO_TECHNOLOGY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_RadioTechnologyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_RadioTechnologyUnspecified;
 /** Value: "REDLINE" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Redline;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Redline;
 /** Value: "TARANA_WIRELESS" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_TaranaWireless;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_TaranaWireless;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceConfig.category
@@ -102,49 +102,49 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_T
  *
  *  Value: "DEVICE_CATEGORY_A"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryA;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryA;
 /**
  *  Category B.
  *
  *  Value: "DEVICE_CATEGORY_B"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryB;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryB;
 /**
  *  Unspecified device category.
  *
  *  Value: "DEVICE_CATEGORY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_Category_DeviceCategoryUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceConfig.measurementCapabilities
 
 /** Value: "MEASUREMENT_CAPABILITY_RECEIVED_POWER_WITH_GRANT" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_MeasurementCapabilities_MeasurementCapabilityReceivedPowerWithGrant;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_MeasurementCapabilities_MeasurementCapabilityReceivedPowerWithGrant;
 /** Value: "MEASUREMENT_CAPABILITY_RECEIVED_POWER_WITHOUT_GRANT" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_MeasurementCapabilities_MeasurementCapabilityReceivedPowerWithoutGrant;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_MeasurementCapabilities_MeasurementCapabilityReceivedPowerWithoutGrant;
 /** Value: "MEASUREMENT_CAPABILITY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_MeasurementCapabilities_MeasurementCapabilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_MeasurementCapabilities_MeasurementCapabilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceConfig.state
 
 /** Value: "DEVICE_CONFIG_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_State_DeviceConfigStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_State_DeviceConfigStateUnspecified;
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_State_Draft;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_State_Draft;
 /** Value: "FINAL" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_State_Final;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceConfig_State_Final;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceGrant.channelType
 
 /** Value: "CHANNEL_TYPE_GAA" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypeGaa;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypeGaa;
 /** Value: "CHANNEL_TYPE_PAL" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypePal;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypePal;
 /** Value: "CHANNEL_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_DeviceGrant.state
@@ -154,33 +154,33 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_ChannelType_ChannelTypeU
  *
  *  Value: "GRANT_STATE_AUTHORIZED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateAuthorized;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateAuthorized;
 /**
  *  The grant has expired.
  *
  *  Value: "GRANT_STATE_EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateExpired;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateExpired;
 /**
  *  The grant has been granted but the device is not heartbeating on it.
  *
  *  Value: "GRANT_STATE_GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateGranted;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateGranted;
 /**
  *  The grant has been suspended by the SAS.
  *
  *  Value: "GRANT_STATE_SUSPENDED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateSuspended;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateSuspended;
 /**
  *  The grant has been terminated by the SAS.
  *
  *  Value: "GRANT_STATE_TERMINATED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateTerminated;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateTerminated;
 /** Value: "GRANT_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_InstallationParams.heightType
@@ -190,19 +190,19 @@ GTLR_EXTERN NSString * const kGTLRSASPortal_DeviceGrant_State_GrantStateUnspecif
  *
  *  Value: "HEIGHT_TYPE_AGL"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAgl;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAgl;
 /**
  *  AMSL height is measured relative to the mean sea level.
  *
  *  Value: "HEIGHT_TYPE_AMSL"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAmsl;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeAmsl;
 /**
  *  Unspecified height type.
  *
  *  Value: "HEIGHT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecified;
 
 /**
  *  Associates `members` with a `role`.

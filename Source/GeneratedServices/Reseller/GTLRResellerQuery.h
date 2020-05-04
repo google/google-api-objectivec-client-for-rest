@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "cancel"
  */
-GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeCancel;
+FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeCancel;
 /**
  *  Transfers a subscription directly to Google. The customer is immediately
  *  transferred to a direct billing relationship with Google and is given a
@@ -53,7 +53,7 @@ GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeCancel;
  *
  *  Value: "transfer_to_direct"
  */
-GTLR_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
+FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 
 // ----------------------------------------------------------------------------
 // Query Classes

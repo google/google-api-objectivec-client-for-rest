@@ -33,51 +33,51 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/bigquery"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigquery;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigquery;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryCloudPlatformReadOnly;
 /**
  *  Authorization scope: Manage your data and permissions in Google Cloud
  *  Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.full_control"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageFullControl;
 /**
  *  Authorization scope: View your data in Google Cloud Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageReadOnly;
 /**
  *  Authorization scope: Manage your data in Google Cloud Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageReadWrite;
 /**
  *  Authorization scope: Insert data into Google BigQuery
  *
  *  Value "https://www.googleapis.com/auth/bigquery.insertdata"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryInsertdata;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryInsertdata;
 /**
  *  Authorization scope: View your data in Google BigQuery
  *
  *  Value "https://www.googleapis.com/auth/bigquery.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigqueryReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRBigqueryService

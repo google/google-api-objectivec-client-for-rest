@@ -33,20 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/dfareporting"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDfareporting;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDfareporting;
 /**
  *  Authorization scope: Manage DoubleClick Digital Marketing conversions
  *
  *  Value "https://www.googleapis.com/auth/ddmconversions"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDfareportingDdmconversions;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDfareportingDdmconversions;
 /**
  *  Authorization scope: View and manage your DoubleClick Campaign Manager's
  *  (DCM) display ad campaigns
  *
  *  Value "https://www.googleapis.com/auth/dfatrafficking"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDfareportingDfatrafficking;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDfareportingDfatrafficking;
 
 // ----------------------------------------------------------------------------
 //   GTLRDfareportingService

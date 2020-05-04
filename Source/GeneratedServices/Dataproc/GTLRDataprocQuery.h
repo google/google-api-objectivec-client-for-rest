@@ -44,11 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 // jobStateMatcher
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherActive;
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherActive;
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherAll;
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherAll;
 /** Value: "NON_ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 // ----------------------------------------------------------------------------
 // Query Classes

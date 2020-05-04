@@ -51,38 +51,38 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DEPRECATED_UNHEALTHY"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_DeprecatedUnhealthy;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_DeprecatedUnhealthy;
 /**
  *  Health status is unknown: not initialized or failed to retrieve.
  *
  *  Value: "HEALTH_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_HealthUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_HealthUnspecified;
 /**
  *  The resource is healthy.
  *
  *  Value: "HEALTHY"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Healthy;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_Healthy;
 /**
  *  The resource is unresponsive.
  *
  *  Value: "TIMEOUT"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_Timeout;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_Timeout;
 /**
  *  The node is under maintenance/priority boost caused rescheduling and
  *  will resume running once rescheduled.
  *
  *  Value: "UNHEALTHY_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyMaintenance;
 /**
  *  The in-guest ML stack is unhealthy.
  *
  *  Value: "UNHEALTHY_TENSORFLOW"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_Node.state
@@ -92,93 +92,93 @@ GTLR_EXTERN NSString * const kGTLRTPU_Node_Health_UnhealthyTensorflow;
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Creating;
 /**
  *  TPU node is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Deleting;
 /**
  *  TPU node has been hidden.
  *
  *  Value: "HIDDEN"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Hidden;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Hidden;
 /**
  *  TPU node is currently hiding.
  *
  *  Value: "HIDING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Hiding;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Hiding;
 /**
  *  TPU node has been preempted. Only applies to Preemptible TPU Nodes.
  *
  *  Value: "PREEMPTED"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Preempted;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Preempted;
 /**
  *  TPU node has been created and is fully usable.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Ready;
 /**
  *  TPU node is undergoing reimaging.
  *
  *  Value: "REIMAGING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Reimaging;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Reimaging;
 /**
  *  TPU node is being repaired and may be unusable. Details can be
  *  found in the `help_description` field.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Repairing;
 /**
  *  TPU node is restarting.
  *
  *  Value: "RESTARTING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Restarting;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Restarting;
 /**
  *  TPU node is currently starting.
  *
  *  Value: "STARTING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Starting;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Starting;
 /**
  *  TPU node state is not known/set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_StateUnspecified;
 /**
  *  TPU node is stopped.
  *
  *  Value: "STOPPED"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Stopped;
 /**
  *  TPU node is currently stopping.
  *
  *  Value: "STOPPING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Stopping;
 /**
  *  TPU node has been terminated due to maintenance or has reached the end of
  *  its life cycle (for preemptible nodes).
  *
  *  Value: "TERMINATED"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
 /**
  *  TPU node is currently unhiding.
  *
  *  Value: "UNHIDING"
  */
-GTLR_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  A accelerator type that a Node can be configured with.

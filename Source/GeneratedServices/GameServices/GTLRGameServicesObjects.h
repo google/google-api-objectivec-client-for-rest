@@ -88,25 +88,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_AuthorizationLoggingOptions.permissionType
@@ -116,31 +116,31 @@ GTLR_EXTERN NSString * const kGTLRGameServices_AuditLogConfig_LogType_LogTypeUns
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_AdminRead;
 /**
  *  A write of admin (meta) data.
  *
  *  Value: "ADMIN_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_AdminWrite;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_AdminWrite;
 /**
  *  A read of standard data.
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_DataRead;
 /**
  *  A write of standard data.
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_DataWrite;
 /**
  *  Default. Should not be used.
  *
  *  Value: "PERMISSION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_CloudAuditOptions.logName
@@ -150,19 +150,19 @@ GTLR_EXTERN NSString * const kGTLRGameServices_AuthorizationLoggingOptions_Permi
  *
  *  Value: "ADMIN_ACTIVITY"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_AdminActivity;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_AdminActivity;
 /**
  *  Corresponds to "cloudaudit.googleapis.com/data_access"
  *
  *  Value: "DATA_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_DataAccess;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_DataAccess;
 /**
  *  Default. Should not be used.
  *
  *  Value: "UNSPECIFIED_LOG_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_UnspecifiedLogName;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_UnspecifiedLogName;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_Condition.iam
@@ -178,20 +178,20 @@ GTLR_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_Unspeci
  *
  *  Value: "APPROVER"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Approver;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Approver;
 /**
  *  The principal (even if an authority selector is present), which
  *  must only be used for attribution, not authorization.
  *
  *  Value: "ATTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Attribution;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Attribution;
 /**
  *  Either principal or (if present) authority selector.
  *
  *  Value: "AUTHORITY"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Authority;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Authority;
 /**
  *  What type of credentials have been supplied with this request.
  *  String values should match enum names from
@@ -203,7 +203,7 @@ GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Authority;
  *
  *  Value: "CREDENTIALS_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredentialsType;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredentialsType;
 /**
  *  What types of justifications have been supplied with this request.
  *  String values should match enum names from
@@ -216,13 +216,13 @@ GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredentialsType;
  *
  *  Value: "JUSTIFICATION_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_JustificationType;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_JustificationType;
 /**
  *  Default non-attribute.
  *
  *  Value: "NO_ATTR"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_NoAttr;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_NoAttr;
 /**
  *  Any of the security realms in the IAMContext (go/security-realms).
  *  When used with IN, the condition indicates "any of the request's realms
@@ -242,7 +242,7 @@ GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_NoAttr;
  *
  *  Value: "SECURITY_REALM"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_SecurityRealm;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_SecurityRealm;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_Condition.op
@@ -252,39 +252,39 @@ GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Iam_SecurityRealm;
  *
  *  Value: "DISCHARGED"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_Discharged;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_Discharged;
 /**
  *  DEPRECATED. Use IN instead.
  *
  *  Value: "EQUALS"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_Equals;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_Equals;
 /**
  *  The condition is true if the subject (or any element of it if it is
  *  a set) matches any of the supplied values.
  *
  *  Value: "IN"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_In;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_In;
 /**
  *  Default no-op.
  *
  *  Value: "NO_OP"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_NoOp;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_NoOp;
 /**
  *  DEPRECATED. Use NOT_IN instead.
  *
  *  Value: "NOT_EQUALS"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_NotEquals;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_NotEquals;
 /**
  *  The condition is true if the subject (or every element of it if it is
  *  a set) matches none of the supplied values.
  *
  *  Value: "NOT_IN"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_NotIn;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_NotIn;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_Condition.sys
@@ -294,31 +294,31 @@ GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Op_NotIn;
  *
  *  Value: "IP"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Ip;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Ip;
 /**
  *  Resource name
  *
  *  Value: "NAME"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Name;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Name;
 /**
  *  Default non-attribute type
  *
  *  Value: "NO_ATTR"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Sys_NoAttr;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Sys_NoAttr;
 /**
  *  Region of the resource
  *
  *  Value: "REGION"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Region;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Region;
 /**
  *  Service name
  *
  *  Value: "SERVICE"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Service;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Service;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_DataAccessOptions.logMode
@@ -335,7 +335,7 @@ GTLR_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Service;
  *
  *  Value: "LOG_FAIL_CLOSED"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogFailClosed;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogFailClosed;
 /**
  *  Client is not required to write a partial Gin log immediately after
  *  the authorization check. If client chooses to write one and it fails,
@@ -344,19 +344,19 @@ GTLR_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogFail
  *
  *  Value: "LOG_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_OperationStatus.errorCode
 
 /** Value: "CLUSTER_CONNECTION" */
-GTLR_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ClusterConnection;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ClusterConnection;
 /** Value: "ERROR_CODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ErrorCodeUnspecified;
 /** Value: "INTERNAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_InternalError;
 /** Value: "PERMISSION_DENIED" */
-GTLR_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_PermissionDenied;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_Rule.action
@@ -366,39 +366,39 @@ GTLR_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_Permiss
  *
  *  Value: "ALLOW"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Rule_Action_Allow;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_Allow;
 /**
  *  Matching 'Entries' grant access and the caller promises to log
  *  the request per the returned log_configs.
  *
  *  Value: "ALLOW_WITH_LOG"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Rule_Action_AllowWithLog;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_AllowWithLog;
 /**
  *  Matching 'Entries' deny access.
  *
  *  Value: "DENY"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Rule_Action_Deny;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_Deny;
 /**
  *  Matching 'Entries' deny access and the caller promises to log
  *  the request per the returned log_configs.
  *
  *  Value: "DENY_WITH_LOG"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Rule_Action_DenyWithLog;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_DenyWithLog;
 /**
  *  Matching 'Entries' tell IAM.Check callers to generate logs.
  *
  *  Value: "LOG"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Rule_Action_Log;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_Log;
 /**
  *  Default no action.
  *
  *  Value: "NO_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Specifies the audit configuration for a service.

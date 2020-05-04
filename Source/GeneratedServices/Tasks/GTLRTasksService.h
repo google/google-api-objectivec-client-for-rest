@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/tasks"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTasks;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTasks;
 /**
  *  Authorization scope: View your tasks
  *
  *  Value "https://www.googleapis.com/auth/tasks.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTasksReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTasksReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRTasksService

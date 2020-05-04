@@ -45,19 +45,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "BOOSTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_Boosted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_Size_Boosted;
 /**
  *  The default VM size.
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_Size_Default;
 /**
  *  The VM size is unknown.
  *
  *  Value: "VM_SIZE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudShell_Environment.state
@@ -68,7 +68,7 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspecified;
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_State_Disabled;
 /**
  *  The environment is running and ready to accept connections. It will
  *  automatically transition back to DISABLED after a period of inactivity or
@@ -76,20 +76,20 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_State_Disabled;
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_State_Running;
 /**
  *  The environment is being started but is not yet ready to accept
  *  connections.
  *
  *  Value: "STARTING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_State_Starting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_State_Starting;
 /**
  *  The environment's states is unknown.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudShell_PublicKey.format
@@ -99,37 +99,37 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_Environment_State_StateUnspecified;
  *
  *  Value: "ECDSA_SHA2_NISTP256"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_EcdsaSha2Nistp256;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_EcdsaSha2Nistp256;
 /**
  *  `ecdsa-sha2-nistp384` key format (see RFC5656).
  *
  *  Value: "ECDSA_SHA2_NISTP384"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_EcdsaSha2Nistp384;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_EcdsaSha2Nistp384;
 /**
  *  `ecdsa-sha2-nistp521` key format (see RFC5656).
  *
  *  Value: "ECDSA_SHA2_NISTP521"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_EcdsaSha2Nistp521;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_EcdsaSha2Nistp521;
 /**
  *  Unknown format. Do not use.
  *
  *  Value: "FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_FormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_FormatUnspecified;
 /**
  *  `ssh-dss` key format (see RFC4253).
  *
  *  Value: "SSH_DSS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_SshDss;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_SshDss;
 /**
  *  `ssh-rsa` key format (see RFC4253).
  *
  *  Value: "SSH_RSA"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_SshRsa;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_SshRsa;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudShell_StartEnvironmentMetadata.state
@@ -142,7 +142,7 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_PublicKey_Format_SshRsa;
  *
  *  Value: "AWAITING_COMPUTE_RESOURCES"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingComputeResources;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingComputeResources;
 /**
  *  Startup is waiting for a VM to be assigned to the environment. This
  *  should normally happen very quickly, but an environment might stay in
@@ -151,7 +151,7 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Awai
  *
  *  Value: "AWAITING_VM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingVm;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingVm;
 /**
  *  Startup has completed. If the start operation was successful, the user
  *  should be able to establish an SSH connection to their environment.
@@ -159,20 +159,20 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Awai
  *
  *  Value: "FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Finished;
 /**
  *  The environment is in the process of being started, but no additional
  *  details are available.
  *
  *  Value: "STARTING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Starting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Starting;
 /**
  *  The environment's start state is unknown.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_StateUnspecified;
 /**
  *  Startup is waiting for the user's disk to be unarchived. This can happen
  *  when the user returns to Cloud Shell after not having used it for a
@@ -180,7 +180,7 @@ GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Stat
  *
  *  Value: "UNARCHIVING_DISK"
  */
-GTLR_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk;
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk;
 
 /**
  *  The request message for Operations.CancelOperation.

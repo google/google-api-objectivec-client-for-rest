@@ -62,47 +62,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CLIENT_SPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified;
 /**
  *  Building.coordinates are automatically populated based on the postal
  *  address.
  *
  *  Value: "RESOLVED_FROM_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress;
 /**
  *  Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
  *  defaults to CLIENT_SPECIFIED if coordinates are provided.
  *
  *  Value: "SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // event
 
 /** Value: "add" */
-GTLR_EXTERN NSString * const kGTLRDirectoryEventAdd;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventAdd;
 /** Value: "delete" */
-GTLR_EXTERN NSString * const kGTLRDirectoryEventDelete;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventDelete;
 /**
  *  User Admin Status Change Event
  *
  *  Value: "makeAdmin"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryEventMakeAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventMakeAdmin;
 /**
  *  User Undeleted Event
  *
  *  Value: "undelete"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryEventUndelete;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventUndelete;
 /**
  *  User Updated Event
  *
  *  Value: "update"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryEventUpdate;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventUpdate;
 
 // ----------------------------------------------------------------------------
 // orderBy
@@ -112,93 +112,93 @@ GTLR_EXTERN NSString * const kGTLRDirectoryEventUpdate;
  *
  *  Value: "annotatedLocation"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByAnnotatedLocation;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByAnnotatedLocation;
 /**
  *  Chromebook user as annotated by administrator.
  *
  *  Value: "annotatedUser"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByAnnotatedUser;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByAnnotatedUser;
 /**
  *  Mobile Device serial number.
  *
  *  Value: "deviceId"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByDeviceId;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByDeviceId;
 /** Value: "email" */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByEmail;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByEmail;
 /**
  *  User's family name.
  *
  *  Value: "familyName"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByFamilyName;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByFamilyName;
 /**
  *  User's given name.
  *
  *  Value: "givenName"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByGivenName;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByGivenName;
 /** Value: "lastSync" */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByLastSync;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByLastSync;
 /**
  *  Mobile Device model.
  *
  *  Value: "model"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByModel;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByModel;
 /**
  *  Owner user name.
  *
  *  Value: "name"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByName;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByName;
 /**
  *  Chromebook notes as annotated by the administrator.
  *
  *  Value: "notes"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByNotes;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByNotes;
 /**
  *  Mobile operating system.
  *
  *  Value: "os"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByOs;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOs;
 /**
  *  Chromebook Serial Number.
  *
  *  Value: "serialNumber"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderBySerialNumber;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderBySerialNumber;
 /** Value: "status" */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByStatus;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByStatus;
 /**
  *  Chromebook support end date.
  *
  *  Value: "supportEndDate"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderBySupportEndDate;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderBySupportEndDate;
 /**
  *  Type of the device.
  *
  *  Value: "type"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryOrderByType;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByType;
 
 // ----------------------------------------------------------------------------
 // projection
 
 /** Value: "basic" */
-GTLR_EXTERN NSString * const kGTLRDirectoryProjectionBasic;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionBasic;
 /**
  *  Include custom fields from schemas mentioned in customFieldMask.
  *
  *  Value: "custom"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryProjectionCustom;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionCustom;
 /** Value: "full" */
-GTLR_EXTERN NSString * const kGTLRDirectoryProjectionFull;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionFull;
 
 // ----------------------------------------------------------------------------
 // sortOrder
@@ -208,13 +208,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryProjectionFull;
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDirectorySortOrderAscending;
+FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderAscending;
 /**
  *  Descending order.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
+FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
 
 // ----------------------------------------------------------------------------
 // type
@@ -224,13 +224,13 @@ GTLR_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryTypeAll;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeAll;
 /**
  *  Immediate children only (default).
  *
  *  Value: "children"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryTypeChildren;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeChildren;
 
 // ----------------------------------------------------------------------------
 // viewType
@@ -240,13 +240,13 @@ GTLR_EXTERN NSString * const kGTLRDirectoryTypeChildren;
  *
  *  Value: "admin_view"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeAdminView;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeAdminView;
 /**
  *  Fetches the DOMAIN_PUBLIC view of the user.
  *
  *  Value: "domain_public"
  */
-GTLR_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 // ----------------------------------------------------------------------------
 // Query Classes

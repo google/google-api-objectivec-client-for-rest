@@ -105,13 +105,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_BackendRule.pathTranslation
@@ -133,7 +133,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3;
  *
  *  Value: "APPEND_PATH_TO_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress;
 /**
  *  Use the backend address as-is, with no modification to the path. If the
  *  URL pattern contains variables, the variable names and values will be
@@ -155,9 +155,9 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_Appen
  *
  *  Value: "CONSTANT_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Enum.syntax
@@ -167,13 +167,13 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathT
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Field.cardinality
@@ -183,25 +183,25 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3;
  *
  *  Value: "CARDINALITY_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityOptional;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityOptional;
 /**
  *  For repeated fields.
  *
  *  Value: "CARDINALITY_REPEATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityRepeated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityRepeated;
 /**
  *  For required fields. Proto2 syntax only.
  *
  *  Value: "CARDINALITY_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityRequired;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityRequired;
 /**
  *  For fields with unknown cardinality.
  *
  *  Value: "CARDINALITY_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Field.kind
@@ -211,115 +211,115 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Cardinality_CardinalityUnkn
  *
  *  Value: "TYPE_BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeBool;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeBool;
 /**
  *  Field type bytes.
  *
  *  Value: "TYPE_BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeBytes;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeBytes;
 /**
  *  Field type double.
  *
  *  Value: "TYPE_DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeDouble;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeDouble;
 /**
  *  Field type enum.
  *
  *  Value: "TYPE_ENUM"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeEnum;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeEnum;
 /**
  *  Field type fixed32.
  *
  *  Value: "TYPE_FIXED32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeFixed32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeFixed32;
 /**
  *  Field type fixed64.
  *
  *  Value: "TYPE_FIXED64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeFixed64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeFixed64;
 /**
  *  Field type float.
  *
  *  Value: "TYPE_FLOAT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeFloat;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeFloat;
 /**
  *  Field type group. Proto2 syntax only, and deprecated.
  *
  *  Value: "TYPE_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeGroup;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeGroup;
 /**
  *  Field type int32.
  *
  *  Value: "TYPE_INT32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeInt32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeInt32;
 /**
  *  Field type int64.
  *
  *  Value: "TYPE_INT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeInt64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeInt64;
 /**
  *  Field type message.
  *
  *  Value: "TYPE_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeMessage;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeMessage;
 /**
  *  Field type sfixed32.
  *
  *  Value: "TYPE_SFIXED32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSfixed32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSfixed32;
 /**
  *  Field type sfixed64.
  *
  *  Value: "TYPE_SFIXED64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSfixed64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSfixed64;
 /**
  *  Field type sint32.
  *
  *  Value: "TYPE_SINT32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSint32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSint32;
 /**
  *  Field type sint64.
  *
  *  Value: "TYPE_SINT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSint64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeSint64;
 /**
  *  Field type string.
  *
  *  Value: "TYPE_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeString;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeString;
 /**
  *  Field type uint32.
  *
  *  Value: "TYPE_UINT32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUint32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUint32;
 /**
  *  Field type uint64.
  *
  *  Value: "TYPE_UINT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUint64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUint64;
 /**
  *  Field type unknown.
  *
  *  Value: "TYPE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_GetServiceIdentityResponse.state
@@ -329,14 +329,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Field_Kind_TypeUnknown;
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_Active;
 /**
  *  Default service identity state. This value is used if the state is
  *  omitted.
  *
  *  Value: "IDENTITY_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_IdentityStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse.state
@@ -346,14 +346,14 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_GetServiceIdentityResponse_State_
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_Active;
 /**
  *  Default service identity state. This value is used if the state is
  *  omitted.
  *
  *  Value: "IDENTITY_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_IdentityStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetServiceIdentityResponse_State_IdentityStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_GoogleApiServiceusageV1Service.state
@@ -364,13 +364,13 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1beta1GetSe
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled;
 /**
  *  The service has been explicitly enabled for use by this consumer.
  *
  *  Value: "ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled;
 /**
  *  The default value, which indicates that the enabled state of the service
  *  is unspecified or not meaningful. Currently, all consumers other than
@@ -378,7 +378,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_St
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_LabelDescriptor.valueType
@@ -388,19 +388,19 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_St
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool;
 /**
  *  A 64-bit signed integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Int64;
 /**
  *  A variable-length string. This is the default.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Method.syntax
@@ -410,13 +410,13 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_String;
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MetricDescriptor.launchStage
@@ -434,7 +434,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_Method_Syntax_SyntaxProto3;
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any
  *  customer to use. There are no SLA or technical support obligations in a
@@ -444,7 +444,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Alph
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our [Terms of
@@ -454,7 +454,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Beta
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use
  *  these features, you must sign up in advance and sign a Trusted Tester
@@ -464,32 +464,32 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Depr
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and
  *  fully qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MetricDescriptor.metricKind
@@ -503,25 +503,25 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_LaunchStage_Unim
  *
  *  Value: "CUMULATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Cumulative;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Cumulative;
 /**
  *  The change in a value during a time interval.
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Delta;
 /**
  *  An instantaneous measurement of a value.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Gauge;
 /**
  *  Do not use this default value.
  *
  *  Value: "METRIC_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_MetricKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MetricDescriptor.valueType
@@ -532,44 +532,44 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_MetricKind_Metri
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Bool;
 /**
  *  The value is a `Distribution`.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Distribution;
 /**
  *  The value is a double precision floating point number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Double;
 /**
  *  The value is a signed 64-bit integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Int64;
 /**
  *  The value is money.
  *
  *  Value: "MONEY"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Money;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_Money;
 /**
  *  The value is a text string.
  *  This value type can be used only if the metric kind is `GAUGE`.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_String;
 /**
  *  Do not use this default value.
  *
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MetricDescriptorMetadata.launchStage
@@ -587,7 +587,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptor_ValueType_ValueT
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any
  *  customer to use. There are no SLA or technical support obligations in a
@@ -597,7 +597,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchSt
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our [Terms of
@@ -607,7 +607,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchSt
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use
  *  these features, you must sign up in advance and sign a Trusted Tester
@@ -617,32 +617,32 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchSt
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and
  *  fully qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
@@ -660,7 +660,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchSt
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any
  *  customer to use. There are no SLA or technical support obligations in a
@@ -670,7 +670,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_Launc
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our [Terms of
@@ -680,7 +680,7 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_Launc
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use
  *  these features, you must sign up in advance and sign a Trusted Tester
@@ -690,32 +690,32 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_Launc
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and
  *  fully qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Type.syntax
@@ -725,13 +725,13 @@ GTLR_EXTERN NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_Launc
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Api is a light-weight descriptor for an API Interface.

@@ -53,14 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CUSTOMER_INITIATED_SUPPORT"
  */
-GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport;
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport;
 /**
  *  Google initiated service for security, fraud, abuse, or compliance
  *  purposes.
  *
  *  Value: "GOOGLE_INITIATED_REVIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview;
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview;
 /**
  *  The principal accessed customer data in order to diagnose or resolve a
  *  suspected issue in services or a known outage. Often this access is used
@@ -69,13 +69,13 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiat
  *
  *  Value: "GOOGLE_INITIATED_SERVICE"
  */
-GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService;
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService;
 /**
  *  Default value for proto, shouldn't be used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessApproval_EnrolledService.enrollmentLevel
@@ -85,13 +85,13 @@ GTLR_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecifi
  *
  *  Value: "BLOCK_ALL"
  */
-GTLR_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll;
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll;
 /**
  *  Default value for proto, shouldn't be used.
  *
  *  Value: "ENROLLMENT_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified;
 
 /**
  *  Home office and physical location of the principal.

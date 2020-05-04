@@ -61,43 +61,43 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
 /**
  *  Instance is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
 /**
  *  Instance encountered an error and is in indeterministic state.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
 /**
  *  Instance has been created and is ready to use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
 /**
  *  Instance is unheathy and under repair.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
 /**
  *  Instance is being updated.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.state
@@ -107,13 +107,13 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManag
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Creating;
 /**
  *  The instance is shutting down.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Deleting;
 /**
  *  The instance is experiencing an issue and might be unusable. You can get
  *  further details from the `statusMessage` field of the `Instance`
@@ -121,26 +121,26 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Deleting;
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Error;
 /**
  *  The instance is available for use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Ready;
 /**
  *  Work is being done on the instance. You can get further details from the
  *  `statusMessage` field of the `Instance` resource.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Repairing;
 /**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.tier
@@ -152,7 +152,7 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified
  *
  *  Value: "BASIC_HDD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
 /**
  *  BASIC instances offer a maximum capacity of 63.9 TB.
  *  BASIC_SSD is an alias for PREMIUM Tier, and offers improved
@@ -160,40 +160,40 @@ GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
  *
  *  Value: "BASIC_SSD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd;
 /**
  *  HIGH_SCALE instances offer expanded capacity and performance scaling
  *  capabilities.
  *
  *  Value: "HIGH_SCALE_SSD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd;
 /**
  *  PREMIUM tier. BASIC_SSD is the preferred term for this tier.
  *
  *  Value: "PREMIUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Premium;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Premium;
 /**
  *  STANDARD tier. BASIC_HDD is the preferred term for this tier.
  *
  *  Value: "STANDARD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Standard;
 /**
  *  Not set.
  *
  *  Value: "TIER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_NetworkConfig.modes
 
 /** Value: "ADDRESS_MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified;
 /** Value: "MODE_IPV4" */
-GTLR_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 /**
  *  The request message for Operations.CancelOperation.

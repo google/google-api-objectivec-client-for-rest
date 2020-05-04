@@ -50,73 +50,73 @@ NS_ASSUME_NONNULL_BEGIN
 // announcementStates
 
 /** Value: "ANNOUNCEMENT_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClassroomAnnouncementStatesAnnouncementStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomAnnouncementStatesAnnouncementStateUnspecified;
 /** Value: "DELETED" */
-GTLR_EXTERN NSString * const kGTLRClassroomAnnouncementStatesDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomAnnouncementStatesDeleted;
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRClassroomAnnouncementStatesDraft;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomAnnouncementStatesDraft;
 /** Value: "PUBLISHED" */
-GTLR_EXTERN NSString * const kGTLRClassroomAnnouncementStatesPublished;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomAnnouncementStatesPublished;
 
 // ----------------------------------------------------------------------------
 // courseStates
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesActive;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesActive;
 /** Value: "ARCHIVED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesArchived;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesArchived;
 /** Value: "COURSE_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesCourseStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesCourseStateUnspecified;
 /** Value: "DECLINED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesDeclined;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesDeclined;
 /** Value: "PROVISIONED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesProvisioned;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesProvisioned;
 /** Value: "SUSPENDED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseStatesSuspended;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesSuspended;
 
 // ----------------------------------------------------------------------------
 // courseWorkStates
 
 /** Value: "COURSE_WORK_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkStatesCourseWorkStateUnspecified;
 /** Value: "DELETED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkStatesDeleted;
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesDraft;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkStatesDraft;
 /** Value: "PUBLISHED" */
-GTLR_EXTERN NSString * const kGTLRClassroomCourseWorkStatesPublished;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkStatesPublished;
 
 // ----------------------------------------------------------------------------
 // late
 
 /** Value: "LATE_ONLY" */
-GTLR_EXTERN NSString * const kGTLRClassroomLateLateOnly;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomLateLateOnly;
 /** Value: "LATE_VALUES_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClassroomLateLateValuesUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomLateLateValuesUnspecified;
 /** Value: "NOT_LATE_ONLY" */
-GTLR_EXTERN NSString * const kGTLRClassroomLateNotLateOnly;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomLateNotLateOnly;
 
 // ----------------------------------------------------------------------------
 // states
 
 /** Value: "COMPLETE" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesComplete;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesComplete;
 /** Value: "CREATED" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesCreated;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesCreated;
 /** Value: "GUARDIAN_INVITATION_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesGuardianInvitationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesGuardianInvitationStateUnspecified;
 /** Value: "NEW" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesNew;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesNew;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesPending;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesPending;
 /** Value: "RECLAIMED_BY_STUDENT" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesReclaimedByStudent;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesReclaimedByStudent;
 /** Value: "RETURNED" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesReturned;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesReturned;
 /** Value: "SUBMISSION_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesSubmissionStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesSubmissionStateUnspecified;
 /** Value: "TURNED_IN" */
-GTLR_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
+FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -46,41 +46,41 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Other;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Other;
 /**
  *  Location is request paramater. This maps to the {\@link PARAMETERS} in
  *  {\@link MessageLocation}.
  *
  *  Value: "PARAMETER"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Parameter;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Parameter;
 /**
  *  location is an xpath-like path pointing
  *  to the request field that caused the error.
  *
  *  Value: "PATH"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Path;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Path;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTubeAnalytics_Errors.code
 
 /** Value: "BAD_REQUEST" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_BadRequest;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_BadRequest;
 /** Value: "CONFLICT" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_Conflict;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_Conflict;
 /** Value: "FORBIDDEN" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_Forbidden;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_Forbidden;
 /** Value: "GONE" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_Gone;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_Gone;
 /** Value: "INTERNAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_InternalError;
 /** Value: "NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_NotFound;
 /** Value: "PRECONDITION_FAILED" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_PreconditionFailed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_PreconditionFailed;
 /** Value: "SERVICE_UNAVAILABLE" */
-GTLR_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnavailable;
 
 /**
  *  Empty response.

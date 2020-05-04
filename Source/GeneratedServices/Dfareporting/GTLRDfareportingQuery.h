@@ -68,373 +68,373 @@ NS_ASSUME_NONNULL_BEGIN
 // action
 
 /** Value: "ACTION_ADD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionAdd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionAdd;
 /** Value: "ACTION_ASSIGN" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionAssign;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionAssign;
 /** Value: "ACTION_ASSOCIATE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionAssociate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionAssociate;
 /** Value: "ACTION_CREATE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionCreate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionCreate;
 /** Value: "ACTION_DELETE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionDelete;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionDelete;
 /** Value: "ACTION_DISABLE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionDisable;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionDisable;
 /** Value: "ACTION_EMAIL_TAGS" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionEmailTags;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionEmailTags;
 /** Value: "ACTION_ENABLE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionEnable;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionEnable;
 /** Value: "ACTION_LINK" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionLink;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionLink;
 /** Value: "ACTION_MARK_AS_DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionMarkAsDefault;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionMarkAsDefault;
 /** Value: "ACTION_PUSH" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionPush;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionPush;
 /** Value: "ACTION_REMOVE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionRemove;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionRemove;
 /** Value: "ACTION_SEND" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionSend;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionSend;
 /** Value: "ACTION_SHARE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionShare;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionShare;
 /** Value: "ACTION_UNASSIGN" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionUnassign;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionUnassign;
 /** Value: "ACTION_UNLINK" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionUnlink;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionUnlink;
 /** Value: "ACTION_UPDATE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingActionActionUpdate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingActionActionUpdate;
 
 // ----------------------------------------------------------------------------
 // compatibilities
 
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesApp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesApp;
 /** Value: "APP_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesAppInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesAppInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplay;
 /** Value: "DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesDisplayInterstitial;
 /** Value: "IN_STREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilitiesInStreamVideo;
 
 // ----------------------------------------------------------------------------
 // compatibility
 
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityApp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityApp;
 /** Value: "APP_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityAppInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityAppInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplay;
 /** Value: "DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityDisplayInterstitial;
 /** Value: "IN_STREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamAudio;
 /** Value: "IN_STREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingCompatibilityInStreamVideo;
 
 // ----------------------------------------------------------------------------
 // directories
 
 /** Value: "APPLE_APP_STORE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingDirectoriesAppleAppStore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesAppleAppStore;
 /** Value: "GOOGLE_PLAY_STORE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingDirectoriesGooglePlayStore;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesGooglePlayStore;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareportingDirectoriesUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingDirectoriesUnknown;
 
 // ----------------------------------------------------------------------------
 // eventTagTypes
 
 /** Value: "CLICK_THROUGH_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareportingEventTagTypesClickThroughEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingEventTagTypesClickThroughEventTag;
 /** Value: "IMPRESSION_IMAGE_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareportingEventTagTypesImpressionImageEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingEventTagTypesImpressionImageEventTag;
 /** Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareportingEventTagTypesImpressionJavascriptEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingEventTagTypesImpressionJavascriptEventTag;
 
 // ----------------------------------------------------------------------------
 // floodlightActivityGroupType
 
 /** Value: "COUNTER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingFloodlightActivityGroupTypeCounter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingFloodlightActivityGroupTypeCounter;
 /** Value: "SALE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingFloodlightActivityGroupTypeSale;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingFloodlightActivityGroupTypeSale;
 
 // ----------------------------------------------------------------------------
 // objectType
 
 /** Value: "OBJECT_ACCOUNT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccount;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccount;
 /** Value: "OBJECT_ACCOUNT_BILLING_FEATURE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccountBillingFeature;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAccountBillingFeature;
 /** Value: "OBJECT_AD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAd;
 /** Value: "OBJECT_ADVERTISER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiser;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiser;
 /** Value: "OBJECT_ADVERTISER_GROUP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiserGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectAdvertiserGroup;
 /** Value: "OBJECT_BILLING_ACCOUNT_GROUP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingAccountGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingAccountGroup;
 /** Value: "OBJECT_BILLING_FEATURE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingFeature;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingFeature;
 /** Value: "OBJECT_BILLING_MINIMUM_FEE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingMinimumFee;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingMinimumFee;
 /** Value: "OBJECT_BILLING_PROFILE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingProfile;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectBillingProfile;
 /** Value: "OBJECT_CAMPAIGN" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCampaign;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCampaign;
 /** Value: "OBJECT_CONTENT_CATEGORY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectContentCategory;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectContentCategory;
 /** Value: "OBJECT_CREATIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreative;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreative;
 /** Value: "OBJECT_CREATIVE_ASSET" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeAsset;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeAsset;
 /** Value: "OBJECT_CREATIVE_BUNDLE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeBundle;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeBundle;
 /** Value: "OBJECT_CREATIVE_FIELD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeField;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeField;
 /** Value: "OBJECT_CREATIVE_GROUP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectCreativeGroup;
 /** Value: "OBJECT_DFA_SITE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectDfaSite;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectDfaSite;
 /** Value: "OBJECT_EVENT_TAG" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectEventTag;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectEventTag;
 /** Value: "OBJECT_FLOODLIGHT_ACTIVITY_GROUP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActivityGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActivityGroup;
 /** Value: "OBJECT_FLOODLIGHT_ACTVITY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActvity;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightActvity;
 /** Value: "OBJECT_FLOODLIGHT_CONFIGURATION" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightConfiguration;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightConfiguration;
 /** Value: "OBJECT_FLOODLIGHT_DV360_LINK" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightDv360Link;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectFloodlightDv360Link;
 /** Value: "OBJECT_INSTREAM_CREATIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectInstreamCreative;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectInstreamCreative;
 /** Value: "OBJECT_LANDING_PAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectLandingPage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectLandingPage;
 /** Value: "OBJECT_MEDIA_ORDER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectMediaOrder;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectMediaOrder;
 /** Value: "OBJECT_PLACEMENT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectPlacement;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectPlacement;
 /** Value: "OBJECT_PLACEMENT_STRATEGY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectPlacementStrategy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectPlacementStrategy;
 /** Value: "OBJECT_PLAYSTORE_LINK" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectPlaystoreLink;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectPlaystoreLink;
 /** Value: "OBJECT_PROVIDED_LIST_CLIENT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectProvidedListClient;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectProvidedListClient;
 /** Value: "OBJECT_RATE_CARD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectRateCard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectRateCard;
 /** Value: "OBJECT_REMARKETING_LIST" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectRemarketingList;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectRemarketingList;
 /** Value: "OBJECT_RICHMEDIA_CREATIVE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectRichmediaCreative;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectRichmediaCreative;
 /** Value: "OBJECT_SD_SITE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSdSite;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSdSite;
 /** Value: "OBJECT_SEARCH_LIFT_STUDY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSearchLiftStudy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSearchLiftStudy;
 /** Value: "OBJECT_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSize;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSize;
 /** Value: "OBJECT_SUBACCOUNT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSubaccount;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectSubaccount;
 /** Value: "OBJECT_TARGETING_TEMPLATE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectTargetingTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectTargetingTemplate;
 /** Value: "OBJECT_USER_PROFILE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectUserProfile;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectUserProfile;
 /** Value: "OBJECT_USER_PROFILE_FILTER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectUserProfileFilter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectUserProfileFilter;
 /** Value: "OBJECT_USER_ROLE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectUserRole;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingObjectTypeObjectUserRole;
 
 // ----------------------------------------------------------------------------
 // paymentSource
 
 /** Value: "PLACEMENT_AGENCY_PAID" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPaymentSourcePlacementAgencyPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPaymentSourcePlacementAgencyPaid;
 /** Value: "PLACEMENT_PUBLISHER_PAID" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPaymentSourcePlacementPublisherPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPaymentSourcePlacementPublisherPaid;
 
 // ----------------------------------------------------------------------------
 // placementGroupType
 
 /** Value: "PLACEMENT_PACKAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPlacementGroupTypePlacementPackage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPlacementGroupTypePlacementPackage;
 /** Value: "PLACEMENT_ROADBLOCK" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPlacementGroupTypePlacementRoadblock;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPlacementGroupTypePlacementRoadblock;
 
 // ----------------------------------------------------------------------------
 // pricingTypes
 
 /** Value: "PRICING_TYPE_CPA" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpa;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpa;
 /** Value: "PRICING_TYPE_CPC" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpc;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpc;
 /** Value: "PRICING_TYPE_CPM" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpm;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpm;
 /** Value: "PRICING_TYPE_CPM_ACTIVEVIEW" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpmActiveview;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeCpmActiveview;
 /** Value: "PRICING_TYPE_FLAT_RATE_CLICKS" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeFlatRateClicks;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeFlatRateClicks;
 /** Value: "PRICING_TYPE_FLAT_RATE_IMPRESSIONS" */
-GTLR_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeFlatRateImpressions;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingPricingTypesPricingTypeFlatRateImpressions;
 
 // ----------------------------------------------------------------------------
 // scope
 
 /** Value: "ALL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingScopeAll;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingScopeAll;
 /** Value: "MINE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingScopeMine;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingScopeMine;
 /**
  *  Files shared with me.
  *
  *  Value: "SHARED_WITH_ME"
  */
-GTLR_EXTERN NSString * const kGTLRDfareportingScopeSharedWithMe;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingScopeSharedWithMe;
 
 // ----------------------------------------------------------------------------
 // sortField
 
 /** Value: "ID" */
-GTLR_EXTERN NSString * const kGTLRDfareportingSortFieldId;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortFieldId;
 /** Value: "LAST_MODIFIED_TIME" */
-GTLR_EXTERN NSString * const kGTLRDfareportingSortFieldLastModifiedTime;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortFieldLastModifiedTime;
 /** Value: "NAME" */
-GTLR_EXTERN NSString * const kGTLRDfareportingSortFieldName;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortFieldName;
 /** Value: "VALUE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingSortFieldValue;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortFieldValue;
 
 // ----------------------------------------------------------------------------
 // sortOrder
 
 /** Value: "ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRDfareportingSortOrderAscending;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortOrderAscending;
 /** Value: "DESCENDING" */
-GTLR_EXTERN NSString * const kGTLRDfareportingSortOrderDescending;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingSortOrderDescending;
 
 // ----------------------------------------------------------------------------
 // status
 
 /** Value: "APPROVED" */
-GTLR_EXTERN NSString * const kGTLRDfareportingStatusApproved;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusApproved;
 /** Value: "ON_HOLD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingStatusOnHold;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingStatusOnHold;
 
 // ----------------------------------------------------------------------------
 // tagFormats
 
 /** Value: "PLACEMENT_TAG_CLICK_COMMANDS" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagClickCommands;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagClickCommands;
 /** Value: "PLACEMENT_TAG_IFRAME_ILAYER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagIframeIlayer;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagIframeIlayer;
 /** Value: "PLACEMENT_TAG_IFRAME_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagIframeJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagIframeJavascript;
 /** Value: "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagIframeJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagIframeJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetch;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetch;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast3;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast3;
 /** Value: "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast4;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast4;
 /** Value: "PLACEMENT_TAG_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInternalRedirect;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascript;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialInternalRedirect;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascript;
 /** Value: "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagJavascript;
 /** Value: "PLACEMENT_TAG_JAVASCRIPT_LEGACY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagJavascriptLegacy;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagJavascriptLegacy;
 /** Value: "PLACEMENT_TAG_STANDARD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagStandard;
 /** Value: "PLACEMENT_TAG_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTracking;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTracking;
 /** Value: "PLACEMENT_TAG_TRACKING_IFRAME" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingIframe;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingIframe;
 /** Value: "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript;
 
 // ----------------------------------------------------------------------------
 // type
 
 /** Value: "AD_SERVING_CLICK_TRACKER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypeAdServingClickTracker;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeAdServingClickTracker;
 /** Value: "AD_SERVING_DEFAULT_AD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypeAdServingDefaultAd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeAdServingDefaultAd;
 /** Value: "AD_SERVING_STANDARD_AD" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypeAdServingStandardAd;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeAdServingStandardAd;
 /** Value: "AD_SERVING_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypeAdServingTracking;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeAdServingTracking;
 /** Value: "COUNTER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypeCounter;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeCounter;
 /** Value: "PLANNING_PLACEMENT_TYPE_CREDIT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypePlanningPlacementTypeCredit;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypePlanningPlacementTypeCredit;
 /** Value: "PLANNING_PLACEMENT_TYPE_REGULAR" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypePlanningPlacementTypeRegular;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypePlanningPlacementTypeRegular;
 /** Value: "SALE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypeSale;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeSale;
 
 // ----------------------------------------------------------------------------
 // types
 
 /** Value: "BRAND_SAFE_DEFAULT_INSTREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesBrandSafeDefaultInstreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesBrandSafeDefaultInstreamVideo;
 /** Value: "CUSTOM_DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesCustomDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesCustomDisplay;
 /** Value: "CUSTOM_DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesCustomDisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesCustomDisplayInterstitial;
 /** Value: "DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesDisplay;
 /** Value: "DISPLAY_IMAGE_GALLERY" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesDisplayImageGallery;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesDisplayImageGallery;
 /** Value: "DISPLAY_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesDisplayRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesDisplayRedirect;
 /** Value: "FLASH_INPAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesFlashInpage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesFlashInpage;
 /** Value: "HTML5_BANNER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesHtml5Banner;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesHtml5Banner;
 /** Value: "IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesImage;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesImage;
 /** Value: "INSTREAM_AUDIO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesInstreamAudio;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesInstreamAudio;
 /** Value: "INSTREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesInstreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesInstreamVideo;
 /** Value: "INSTREAM_VIDEO_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesInstreamVideoRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesInstreamVideoRedirect;
 /** Value: "INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesInternalRedirect;
 /** Value: "INTERSTITIAL_INTERNAL_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesInterstitialInternalRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesInterstitialInternalRedirect;
 /** Value: "RICH_MEDIA_DISPLAY_BANNER" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayBanner;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayBanner;
 /** Value: "RICH_MEDIA_DISPLAY_EXPANDING" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayExpanding;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayExpanding;
 /** Value: "RICH_MEDIA_DISPLAY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayInterstitial;
 /** Value: "RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayMultiFloatingInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaDisplayMultiFloatingInterstitial;
 /** Value: "RICH_MEDIA_IM_EXPAND" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaImExpand;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaImExpand;
 /** Value: "RICH_MEDIA_INPAGE_FLOATING" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaInpageFloating;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaInpageFloating;
 /** Value: "RICH_MEDIA_MOBILE_IN_APP" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaMobileInApp;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaMobileInApp;
 /** Value: "RICH_MEDIA_PEEL_DOWN" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesRichMediaPeelDown;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesRichMediaPeelDown;
 /** Value: "TRACKING_TEXT" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesTrackingText;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesTrackingText;
 /** Value: "VPAID_LINEAR_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidLinearVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidLinearVideo;
 /** Value: "VPAID_NON_LINEAR_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 
 // ----------------------------------------------------------------------------
 // Query Classes

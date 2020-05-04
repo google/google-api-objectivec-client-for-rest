@@ -56,97 +56,97 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDns_Change.status
 
 /** Value: "done" */
-GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDns_Change_Status_Done;
 /** Value: "pending" */
-GTLR_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKey.algorithm
 
 /** Value: "ecdsap256sha256" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256;
 /** Value: "ecdsap384sha384" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384;
 /** Value: "rsasha1" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha1;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha1;
 /** Value: "rsasha256" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha256;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha256;
 /** Value: "rsasha512" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha512;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha512;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKey.type
 
 /** Value: "keySigning" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Type_KeySigning;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Type_KeySigning;
 /** Value: "zoneSigning" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKey_Type_ZoneSigning;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Type_ZoneSigning;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKeySpec.algorithm
 
 /** Value: "ecdsap256sha256" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256;
 /** Value: "ecdsap384sha384" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap384sha384;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap384sha384;
 /** Value: "rsasha1" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha1;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha1;
 /** Value: "rsasha256" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha256;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha256;
 /** Value: "rsasha512" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha512;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha512;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKeySpec.keyType
 
 /** Value: "keySigning" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_KeyType_KeySigning;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_KeyType_KeySigning;
 /** Value: "zoneSigning" */
-GTLR_EXTERN NSString * const kGTLRDns_DnsKeySpec_KeyType_ZoneSigning;
+FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_KeyType_ZoneSigning;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_KeyDigest.type
 
 /** Value: "sha1" */
-GTLR_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha1;
+FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha1;
 /** Value: "sha256" */
-GTLR_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha256;
 /** Value: "sha384" */
-GTLR_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha384;
+FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha384;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZone.visibility
 
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Private;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Private;
 /** Value: "public" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Public;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Public;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneDnsSecConfig.nonExistence
 
 /** Value: "nsec" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec;
 /** Value: "nsec3" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneDnsSecConfig.state
 
 /** Value: "off" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off;
 /** Value: "on" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On;
 /** Value: "transfer" */
-GTLR_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer;
+FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_Operation.status
 
 /** Value: "done" */
-GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Done;
 /** Value: "pending" */
-GTLR_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 /**
  *  A Change represents a set of ResourceRecordSet additions and deletions

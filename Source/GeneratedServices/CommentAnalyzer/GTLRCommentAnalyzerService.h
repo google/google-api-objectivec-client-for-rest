@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCommentAnalyzerUserinfoEmail;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCommentAnalyzerUserinfoEmail;
 
 // ----------------------------------------------------------------------------
 //   GTLRCommentAnalyzerService

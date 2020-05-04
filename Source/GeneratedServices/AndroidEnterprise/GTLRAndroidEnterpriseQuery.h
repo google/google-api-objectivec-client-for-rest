@@ -49,17 +49,17 @@ NS_ASSUME_NONNULL_BEGIN
 // keyType
 
 /** Value: "googleCredentials" */
-GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials;
 /** Value: "pkcs12" */
-GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12;
 
 // ----------------------------------------------------------------------------
 // requestMode
 
 /** Value: "returnImmediately" */
-GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately;
 /** Value: "waitForNotifications" */
-GTLR_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications;
 
 // ----------------------------------------------------------------------------
 // Query Classes

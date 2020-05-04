@@ -33,14 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/bigquery"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryReservationBigquery;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryReservationBigquery;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryReservationCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryReservationCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRBigQueryReservationService

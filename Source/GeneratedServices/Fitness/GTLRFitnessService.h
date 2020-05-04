@@ -35,34 +35,34 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/fitness.activity.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessActivityRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessActivityRead;
 /**
  *  Authorization scope: See and add to your Google Fit physical activity data
  *
  *  Value "https://www.googleapis.com/auth/fitness.activity.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessActivityWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessActivityWrite;
 /**
  *  Authorization scope: See info about your blood glucose in Google Fit. I
  *  consent to Google sharing my blood glucose information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.blood_glucose.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseRead;
 /**
  *  Authorization scope: See and add info about your blood glucose to Google
  *  Fit. I consent to Google sharing my blood glucose information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.blood_glucose.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseWrite;
 /**
  *  Authorization scope: See info about your blood pressure in Google Fit. I
  *  consent to Google sharing my blood pressure information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.blood_pressure.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureRead;
 /**
  *  Authorization scope: See and add info about your blood pressure in Google
  *  Fit. I consent to Google sharing my blood pressure information with this
@@ -70,21 +70,21 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureRead;
  *
  *  Value "https://www.googleapis.com/auth/fitness.blood_pressure.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureWrite;
 /**
  *  Authorization scope: See info about your body measurements and heart rate in
  *  Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.body.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyRead;
 /**
  *  Authorization scope: See info about your body temperature in Google Fit. I
  *  consent to Google sharing my body temperature information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.body_temperature.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead;
 /**
  *  Authorization scope: See and add to info about your body temperature in
  *  Google Fit. I consent to Google sharing my body temperature information with
@@ -92,45 +92,45 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead;
  *
  *  Value "https://www.googleapis.com/auth/fitness.body_temperature.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite;
 /**
  *  Authorization scope: See and add info about your body measurements and heart
  *  rate to Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.body.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessBodyWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyWrite;
 /**
  *  Authorization scope: See your Google Fit speed and distance data
  *
  *  Value "https://www.googleapis.com/auth/fitness.location.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessLocationRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessLocationRead;
 /**
  *  Authorization scope: See and add to your Google Fit location data
  *
  *  Value "https://www.googleapis.com/auth/fitness.location.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessLocationWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessLocationWrite;
 /**
  *  Authorization scope: See info about your nutrition in Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.nutrition.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionRead;
 /**
  *  Authorization scope: See and add to info about your nutrition in Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.nutrition.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionWrite;
 /**
  *  Authorization scope: See info about your oxygen saturation in Google Fit. I
  *  consent to Google sharing my oxygen saturation information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.oxygen_saturation.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead;
 /**
  *  Authorization scope: See and add info about your oxygen saturation in Google
  *  Fit. I consent to Google sharing my oxygen saturation information with this
@@ -138,7 +138,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead;
  *
  *  Value "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
 /**
  *  Authorization scope: See info about your reproductive health in Google Fit.
  *  I consent to Google sharing my reporductive health information with this
@@ -146,7 +146,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
  *
  *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
 /**
  *  Authorization scope: See and add info about your reproductive health in
  *  Google Fit. I consent to Google sharing my reporductive health information
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
  *
  *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRFitnessService

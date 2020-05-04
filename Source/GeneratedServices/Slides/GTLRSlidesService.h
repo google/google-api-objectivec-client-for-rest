@@ -34,45 +34,45 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/drive"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesDrive;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesDrive;
 /**
  *  Authorization scope: View and manage Google Drive files and folders that you
  *  have opened or created with this app
  *
  *  Value "https://www.googleapis.com/auth/drive.file"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesDriveFile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesDriveFile;
 /**
  *  Authorization scope: See and download all your Google Drive files
  *
  *  Value "https://www.googleapis.com/auth/drive.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesDriveReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesDriveReadonly;
 /**
  *  Authorization scope: View and manage your Google Slides presentations
  *
  *  Value "https://www.googleapis.com/auth/presentations"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesPresentations;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesPresentations;
 /**
  *  Authorization scope: View your Google Slides presentations
  *
  *  Value "https://www.googleapis.com/auth/presentations.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesPresentationsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesPresentationsReadonly;
 /**
  *  Authorization scope: See, edit, create, and delete your spreadsheets in
  *  Google Drive
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesSpreadsheets;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesSpreadsheets;
 /**
  *  Authorization scope: View your Google Spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSlidesSpreadsheetsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesSpreadsheetsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRSlidesService

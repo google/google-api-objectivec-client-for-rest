@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/ediscovery"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeVaultEdiscovery;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeVaultEdiscovery;
 /**
  *  Authorization scope: View your eDiscovery data
  *
  *  Value "https://www.googleapis.com/auth/ediscovery.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeVaultEdiscoveryReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeVaultEdiscoveryReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRVaultService

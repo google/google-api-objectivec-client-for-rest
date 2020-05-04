@@ -44,83 +44,83 @@ NS_ASSUME_NONNULL_BEGIN
 // targetingType
 
 /** Value: "TARGETING_TYPE_AGE_RANGE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange;
 /** Value: "TARGETING_TYPE_APP" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeApp;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeApp;
 /** Value: "TARGETING_TYPE_APP_CATEGORY" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory;
 /** Value: "TARGETING_TYPE_AUDIENCE_GROUP" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup;
 /** Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus;
 /** Value: "TARGETING_TYPE_BROWSER" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser;
 /** Value: "TARGETING_TYPE_CARRIER_AND_ISP" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp;
 /** Value: "TARGETING_TYPE_CATEGORY" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCategory;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeCategory;
 /** Value: "TARGETING_TYPE_CHANNEL" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeChannel;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeChannel;
 /** Value: "TARGETING_TYPE_CONTENT_INSTREAM_POSITION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition;
 /** Value: "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition;
 /** Value: "TARGETING_TYPE_DAY_AND_TIME" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime;
 /** Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel;
 /** Value: "TARGETING_TYPE_DEVICE_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType;
 /** Value: "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion;
 /** Value: "TARGETING_TYPE_ENVIRONMENT" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment;
 /** Value: "TARGETING_TYPE_EXCHANGE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeExchange;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeExchange;
 /** Value: "TARGETING_TYPE_GENDER" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeGender;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeGender;
 /** Value: "TARGETING_TYPE_GEO_REGION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion;
 /** Value: "TARGETING_TYPE_HOUSEHOLD_INCOME" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome;
 /** Value: "TARGETING_TYPE_INVENTORY_SOURCE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource;
 /** Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup;
 /** Value: "TARGETING_TYPE_KEYWORD" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword;
 /** Value: "TARGETING_TYPE_LANGUAGE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage;
 /** Value: "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList;
 /** Value: "TARGETING_TYPE_ON_SCREEN_POSITION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition;
 /** Value: "TARGETING_TYPE_OPERATING_SYSTEM" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem;
 /** Value: "TARGETING_TYPE_PARENTAL_STATUS" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus;
 /** Value: "TARGETING_TYPE_PROXIMITY_LOCATION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation;
 /** Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList;
 /** Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList;
 /** Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion;
 /** Value: "TARGETING_TYPE_SUB_EXCHANGE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange;
 /** Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier;
 /** Value: "TARGETING_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified;
 /** Value: "TARGETING_TYPE_URL" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUrl;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUrl;
 /** Value: "TARGETING_TYPE_USER_REWARDED_CONTENT" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent;
 /** Value: "TARGETING_TYPE_VIDEO_PLAYER_SIZE" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize;
 /** Value: "TARGETING_TYPE_VIEWABILITY" */
-GTLR_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability;
 
 // ----------------------------------------------------------------------------
 // Query Classes

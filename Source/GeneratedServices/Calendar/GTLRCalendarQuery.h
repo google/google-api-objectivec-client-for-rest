@@ -43,25 +43,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "freeBusyReader"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarMinAccessRoleFreeBusyReader;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleFreeBusyReader;
 /**
  *  The user can read and modify events and access control lists.
  *
  *  Value: "owner"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarMinAccessRoleOwner;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleOwner;
 /**
  *  The user can read events that are not private.
  *
  *  Value: "reader"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarMinAccessRoleReader;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleReader;
 /**
  *  The user can read and modify events.
  *
  *  Value: "writer"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarMinAccessRoleWriter;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarMinAccessRoleWriter;
 
 // ----------------------------------------------------------------------------
 // orderBy
@@ -72,13 +72,13 @@ GTLR_EXTERN NSString * const kGTLRCalendarMinAccessRoleWriter;
  *
  *  Value: "startTime"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarOrderByStartTime;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarOrderByStartTime;
 /**
  *  Order by last modification time (ascending).
  *
  *  Value: "updated"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
 
 // ----------------------------------------------------------------------------
 // sendUpdates
@@ -88,20 +88,20 @@ GTLR_EXTERN NSString * const kGTLRCalendarOrderByUpdated;
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarSendUpdatesAll;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesAll;
 /**
  *  Notifications are sent to non-Google Calendar guests only.
  *
  *  Value: "externalOnly"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarSendUpdatesExternalOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesExternalOnly;
 /**
  *  No notifications are sent. This value should only be used for migration use
  *  cases (note that in most migration cases the import method should be used).
  *
  *  Value: "none"
  */
-GTLR_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
+FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 // ----------------------------------------------------------------------------
 // Query Classes

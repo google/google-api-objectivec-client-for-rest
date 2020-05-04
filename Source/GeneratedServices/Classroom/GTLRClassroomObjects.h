@@ -78,19 +78,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ALL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_AllStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_AllStudents;
 /**
  *  No mode specified. This is never returned.
  *
  *  Value: "ASSIGNEE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_AssigneeModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_AssigneeModeUnspecified;
 /**
  *  A subset of the students can see the item.
  *
  *  Value: "INDIVIDUAL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_IndividualStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_IndividualStudents;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Announcement.state
@@ -100,7 +100,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_AssigneeMode_Individual
  *
  *  Value: "ANNOUNCEMENT_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_AnnouncementStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_State_AnnouncementStateUnspecified;
 /**
  *  Status for announcement that was published but is now deleted.
  *  Announcement in this state is visible only to course teachers and domain
@@ -109,7 +109,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_AnnouncementState
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_State_Deleted;
 /**
  *  Status for an announcement that is not yet published.
  *  Announcement in this state is visible only to course teachers and domain
@@ -117,14 +117,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_Deleted;
  *
  *  Value: "DRAFT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_Draft;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_State_Draft;
 /**
  *  Status for announcement that has been published.
  *  This is the default state.
  *
  *  Value: "PUBLISHED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_Published;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Announcement_State_Published;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Course.courseState
@@ -134,20 +134,20 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Announcement_State_Published;
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Active;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Active;
 /**
  *  The course has been archived. You cannot modify it except to change it
  *  to a different state.
  *
  *  Value: "ARCHIVED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Archived;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Archived;
 /**
  *  No course state. No returned Course message will use this value.
  *
  *  Value: "COURSE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspecified;
 /**
  *  The course has been created, but declined. It is accessible by the
  *  course owner and domain administrators, though it will not be
@@ -158,7 +158,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_CourseStateUnspec
  *
  *  Value: "DECLINED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Declined;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Declined;
 /**
  *  The course has been created, but not yet activated. It is accessible by
  *  the primary teacher and domain administrators, who may modify it or
@@ -168,7 +168,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Declined;
  *
  *  Value: "PROVISIONED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Provisioned;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Provisioned;
 /**
  *  The course has been suspended. You cannot modify the course, and only the
  *  user identified by the `owner_id` can view the course.
@@ -177,7 +177,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Provisioned;
  *
  *  Value: "SUSPENDED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Suspended;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.assigneeMode
@@ -188,19 +188,19 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Course_CourseState_Suspended;
  *
  *  Value: "ALL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_AllStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_AllStudents;
 /**
  *  No mode specified. This is never returned.
  *
  *  Value: "ASSIGNEE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_AssigneeModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_AssigneeModeUnspecified;
 /**
  *  A subset of the students can see the item.
  *
  *  Value: "INDIVIDUAL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_IndividualStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_IndividualStudents;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.state
@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_AssigneeMode_IndividualSt
  *
  *  Value: "COURSE_WORK_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnspecified;
 /**
  *  Status for work that was published but is now deleted.
  *  Work in this state is visible only to course teachers and domain
@@ -219,7 +219,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_CourseWorkStateUnsp
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Deleted;
 /**
  *  Status for work that is not yet published.
  *  Work in this state is visible only to course teachers and domain
@@ -227,14 +227,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Deleted;
  *
  *  Value: "DRAFT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Draft;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Draft;
 /**
  *  Status for work that has been published.
  *  This is the default state.
  *
  *  Value: "PUBLISHED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Published;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Published;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.submissionModificationMode
@@ -244,19 +244,19 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_State_Published;
  *
  *  Value: "MODIFIABLE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_Modifiable;
 /**
  *  Submissions can be modified before being turned in.
  *
  *  Value: "MODIFIABLE_UNTIL_TURNED_IN"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_ModifiableUntilTurnedIn;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_ModifiableUntilTurnedIn;
 /**
  *  No modification mode specified. This is never returned.
  *
  *  Value: "SUBMISSION_MODIFICATION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_SubmissionModificationModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMode_SubmissionModificationModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_CourseWork.workType
@@ -266,25 +266,25 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_SubmissionModificationMod
  *
  *  Value: "ASSIGNMENT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_Assignment;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_Assignment;
 /**
  *  No work type specified. This is never returned.
  *
  *  Value: "COURSE_WORK_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified;
 /**
  *  A multiple-choice question.
  *
  *  Value: "MULTIPLE_CHOICE_QUESTION"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion;
 /**
  *  A short answer question.
  *
  *  Value: "SHORT_ANSWER_QUESTION"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Feed.feedType
@@ -298,7 +298,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuest
  *
  *  Value: "COURSE_ROSTER_CHANGES"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_CourseRosterChanges;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_CourseRosterChanges;
 /**
  *  All course work activity for a particular course.
  *  Notifications will be generated when a CourseWork or
@@ -310,7 +310,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_CourseRosterChanges;
  *
  *  Value: "COURSE_WORK_CHANGES"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_CourseWorkChanges;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_CourseWorkChanges;
 /**
  *  All roster changes for a particular domain.
  *  Notifications will be generated whenever a user joins or leaves a course.
@@ -320,13 +320,13 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_CourseWorkChanges;
  *
  *  Value: "DOMAIN_ROSTER_CHANGES"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_DomainRosterChanges;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_DomainRosterChanges;
 /**
  *  Should never be returned or provided.
  *
  *  Value: "FEED_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_FeedTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_FeedTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_GlobalPermission.permission
@@ -336,14 +336,14 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Feed_FeedType_FeedTypeUnspecified;
  *
  *  Value: "CREATE_COURSE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse;
 /**
  *  No permission is specified. This is not returned and is not a
  *  valid value.
  *
  *  Value: "PERMISSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_GradeHistory.gradeChangeType
@@ -353,25 +353,25 @@ GTLR_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_Permissi
  *
  *  Value: "ASSIGNED_GRADE_POINTS_EARNED_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_AssignedGradePointsEarnedChange;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_AssignedGradePointsEarnedChange;
 /**
  *  A change in the numerator of the draft grade.
  *
  *  Value: "DRAFT_GRADE_POINTS_EARNED_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_DraftGradePointsEarnedChange;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_DraftGradePointsEarnedChange;
 /**
  *  A change in the denominator of the grade.
  *
  *  Value: "MAX_POINTS_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_MaxPointsChange;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_MaxPointsChange;
 /**
  *  No grade change type specified. This should never be returned.
  *
  *  Value: "UNKNOWN_GRADE_CHANGE_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_UnknownGradeChangeType;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_UnknownGradeChangeType;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_GuardianInvitation.state
@@ -382,19 +382,19 @@ GTLR_EXTERN NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_Unknown
  *
  *  Value: "COMPLETE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Complete;
 /**
  *  Should never be returned.
  *
  *  Value: "GUARDIAN_INVITATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_GuardianInvitationStateUnspecified;
 /**
  *  The invitation is active and awaiting a response.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Invitation.role
@@ -404,25 +404,25 @@ GTLR_EXTERN NSString * const kGTLRClassroom_GuardianInvitation_State_Pending;
  *
  *  Value: "COURSE_ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Invitation_Role_CourseRoleUnspecified;
 /**
  *  Owner of the course.
  *
  *  Value: "OWNER"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Owner;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Owner;
 /**
  *  Student in the course.
  *
  *  Value: "STUDENT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Student;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Student;
 /**
  *  Teacher of the course.
  *
  *  Value: "TEACHER"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Teacher;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Teacher;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_ModifyAnnouncementAssigneesRequest.assigneeMode
@@ -433,19 +433,19 @@ GTLR_EXTERN NSString * const kGTLRClassroom_Invitation_Role_Teacher;
  *
  *  Value: "ALL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_AllStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_AllStudents;
 /**
  *  No mode specified. This is never returned.
  *
  *  Value: "ASSIGNEE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_AssigneeModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_AssigneeModeUnspecified;
 /**
  *  A subset of the students can see the item.
  *
  *  Value: "INDIVIDUAL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_IndividualStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_AssigneeMode_IndividualStudents;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_ModifyCourseWorkAssigneesRequest.assigneeMode
@@ -456,19 +456,19 @@ GTLR_EXTERN NSString * const kGTLRClassroom_ModifyAnnouncementAssigneesRequest_A
  *
  *  Value: "ALL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_AllStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_AllStudents;
 /**
  *  No mode specified. This is never returned.
  *
  *  Value: "ASSIGNEE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_AssigneeModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_AssigneeModeUnspecified;
 /**
  *  A subset of the students can see the item.
  *
  *  Value: "INDIVIDUAL_STUDENTS"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_IndividualStudents;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_AssigneeMode_IndividualStudents;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_SharedDriveFile.shareMode
@@ -478,25 +478,25 @@ GTLR_EXTERN NSString * const kGTLRClassroom_ModifyCourseWorkAssigneesRequest_Ass
  *
  *  Value: "EDIT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_Edit;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_Edit;
 /**
  *  Students have a personal copy of the shared file.
  *
  *  Value: "STUDENT_COPY"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_StudentCopy;
 /**
  *  No sharing mode specified. This should never be returned.
  *
  *  Value: "UNKNOWN_SHARE_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_UnknownShareMode;
 /**
  *  Students can view the shared file.
  *
  *  Value: "VIEW"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_StateHistory.state
@@ -506,7 +506,7 @@ GTLR_EXTERN NSString * const kGTLRClassroom_SharedDriveFile_ShareMode_View;
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Created;
 /**
  *  The student turned in the assigned document, and then chose to
  *  "unsubmit" the assignment, giving the student control again as the
@@ -514,33 +514,33 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Created;
  *
  *  Value: "RECLAIMED_BY_STUDENT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_ReclaimedByStudent;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StateHistory_State_ReclaimedByStudent;
 /**
  *  The teacher has returned the assigned document to the student.
  *
  *  Value: "RETURNED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Returned;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StateHistory_State_Returned;
 /**
  *  No state specified. This should never be returned.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StateHistory_State_StateUnspecified;
 /**
  *  The student edited their submission after turning it in. Currently,
  *  only used by Questions, when the student edits their answer.
  *
  *  Value: "STUDENT_EDITED_AFTER_TURN_IN"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_StudentEditedAfterTurnIn;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StateHistory_State_StudentEditedAfterTurnIn;
 /**
  *  The student has turned in an assigned document, which may or may not be
  *  a template.
  *
  *  Value: "TURNED_IN"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_TurnedIn;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StateHistory_State_TurnedIn;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_StudentSubmission.courseWorkType
@@ -550,25 +550,25 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StateHistory_State_TurnedIn;
  *
  *  Value: "ASSIGNMENT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_Assignment;
 /**
  *  No work type specified. This is never returned.
  *
  *  Value: "COURSE_WORK_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_CourseWorkTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_CourseWorkTypeUnspecified;
 /**
  *  A multiple-choice question.
  *
  *  Value: "MULTIPLE_CHOICE_QUESTION"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_MultipleChoiceQuestion;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_MultipleChoiceQuestion;
 /**
  *  A short answer question.
  *
  *  Value: "SHORT_ANSWER_QUESTION"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_ShortAnswerQuestion;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_ShortAnswerQuestion;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_StudentSubmission.state
@@ -578,38 +578,38 @@ GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_CourseWorkType_Sho
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Created;
 /**
  *  The student has never accessed this submission. Attachments are not
  *  returned and timestamps is not set.
  *
  *  Value: "NEW"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_New;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_New;
 /**
  *  Student chose to "unsubmit" the assignment.
  *
  *  Value: "RECLAIMED_BY_STUDENT"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_ReclaimedByStudent;
 /**
  *  Has been returned to the student.
  *
  *  Value: "RETURNED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Returned;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Returned;
 /**
  *  No state specified. This should never be returned.
  *
  *  Value: "SUBMISSION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_SubmissionStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_SubmissionStateUnspecified;
 /**
  *  Has been turned in to the teacher.
  *
  *  Value: "TURNED_IN"
  */
-GTLR_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn;
 
 /**
  *  Announcement created by a teacher for students of the course

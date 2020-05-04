@@ -33,33 +33,33 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/youtube"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYoutube;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYoutube;
 /**
  *  Authorization scope: View and manage your assets and associated content on
  *  YouTube
  *
  *  Value "https://www.googleapis.com/auth/youtubepartner"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYoutubepartner;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYoutubepartner;
 /**
  *  Authorization scope: View your YouTube account
  *
  *  Value "https://www.googleapis.com/auth/youtube.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYoutubeReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYoutubeReadonly;
 /**
  *  Authorization scope: View monetary and non-monetary YouTube Analytics
  *  reports for your YouTube content
  *
  *  Value "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsMonetaryReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsMonetaryReadonly;
 /**
  *  Authorization scope: View YouTube Analytics reports for your YouTube content
  *
  *  Value "https://www.googleapis.com/auth/yt-analytics.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRYouTubeAnalyticsService

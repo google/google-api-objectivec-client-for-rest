@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/androidmanagement"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAndroidManagement;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAndroidManagement;
 
 // ----------------------------------------------------------------------------
 //   GTLRAndroidManagementService

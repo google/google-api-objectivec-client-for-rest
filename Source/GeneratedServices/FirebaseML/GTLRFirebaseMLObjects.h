@@ -45,19 +45,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "BASIC_OPERATION_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_BasicOperationStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_BasicOperationStatusUnspecified;
 /**
  *  The model file is being uploaded
  *
  *  Value: "BASIC_OPERATION_STATUS_UPLOADING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_BasicOperationStatusUploading;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_BasicOperationStatusUploading;
 /**
  *  The model file is being verified
  *
  *  Value: "BASIC_OPERATION_STATUS_VERIFYING"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_BasicOperationStatusVerifying;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_BasicOperationStatusVerifying;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated

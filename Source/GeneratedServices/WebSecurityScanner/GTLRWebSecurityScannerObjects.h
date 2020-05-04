@@ -58,31 +58,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Critical;
 /**
  *  High severity.
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_High;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_High;
 /**
  *  Low severity.
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Low;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Low;
 /**
  *  Medium severity.
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Medium;
 /**
  *  No severity specified. The default value.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanConfig.exportToSecurityCommandCenter
@@ -92,19 +92,19 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_SeverityUn
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Disabled;
 /**
  *  Export results of this scan to Cloud Security Command Center.
  *
  *  Value: "ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Enabled;
 /**
  *  Use default, which is ENABLED.
  *
  *  Value: "EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_ExportToSecurityCommandCenterUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_ExportToSecurityCommandCenterUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanConfig.riskLevel
@@ -114,19 +114,19 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurity
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_Low;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_Low;
 /**
  *  Normal scanning (Recommended)
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_Normal;
 /**
  *  Use default, which is NORMAL.
  *
  *  Value: "RISK_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_RiskLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_RiskLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanConfig.userAgent
@@ -136,25 +136,25 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_RiskLevel_RiskLe
  *
  *  Value: "CHROME_ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_ChromeAndroid;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_ChromeAndroid;
 /**
  *  Chrome on Linux. This is the service default if unspecified.
  *
  *  Value: "CHROME_LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_ChromeLinux;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_ChromeLinux;
 /**
  *  Safari on IPhone.
  *
  *  Value: "SAFARI_IPHONE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_SafariIphone;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_SafariIphone;
 /**
  *  The user agent is unknown. Service will default to CHROME_LINUX.
  *
  *  Value: "USER_AGENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_UserAgentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_UserAgentUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanConfigError.code
@@ -165,135 +165,135 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_UserAg
  *
  *  Value: "APPENGINE_API_BACKEND_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiBackendError;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiBackendError;
 /**
  *  One of the seed URLs is an App Engine URL but we cannot access the
  *  App Engine API to validate scan settings.
  *
  *  Value: "APPENGINE_API_NOT_ACCESSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiNotAccessible;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiNotAccessible;
 /**
  *  One of the seed URLs is an App Engine URL but the Default Host of the
  *  App Engine is not set.
  *
  *  Value: "APPENGINE_DEFAULT_HOST_MISSING"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineDefaultHostMissing;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineDefaultHostMissing;
 /**
  *  Google corporate accounts can not be used for scanning.
  *
  *  Value: "CANNOT_USE_GOOGLE_COM_ACCOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseGoogleComAccount;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseGoogleComAccount;
 /**
  *  The account of the scan creator can not be used for scanning.
  *
  *  Value: "CANNOT_USE_OWNER_ACCOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseOwnerAccount;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CannotUseOwnerAccount;
 /**
  *  There is no error.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CodeUnspecified;
 /**
  *  This scan targets Compute Engine, but we cannot validate scan settings
  *  due to a Compute Engine API backend error.
  *
  *  Value: "COMPUTE_API_BACKEND_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiBackendError;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiBackendError;
 /**
  *  This scan targets Compute Engine, but we cannot access the Compute Engine
  *  API to validate the scan settings.
  *
  *  Value: "COMPUTE_API_NOT_ACCESSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiNotAccessible;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiNotAccessible;
 /**
  *  The Custom Login URL does not belong to the current project.
  *
  *  Value: "CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlDoesNotBelongToCurrentProject;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlDoesNotBelongToCurrentProject;
 /**
  *  The Custom Login URL has a non-routable IP address.
  *
  *  Value: "CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlHasNonRoutableIpAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlHasNonRoutableIpAddress;
 /**
  *  The Custom Login URL has an IP address which is not reserved for the
  *  current project.
  *
  *  Value: "CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlHasUnreservedIpAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlHasUnreservedIpAddress;
 /**
  *  The Custom Login URL is malformed (can not be parsed).
  *
  *  Value: "CUSTOM_LOGIN_URL_MALFORMED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMalformed;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMalformed;
 /**
  *  The Custom Login URL is mapped to a non-routable IP address in DNS.
  *
  *  Value: "CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMappedToNonRoutableAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMappedToNonRoutableAddress;
 /**
  *  The Custom Login URL is mapped to an IP address which is not reserved for
  *  the current project.
  *
  *  Value: "CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMappedToUnreservedAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMappedToUnreservedAddress;
 /**
  *  Another scan with the same name (case-sensitive) already exists.
  *
  *  Value: "DUPLICATE_SCAN_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_DuplicateScanName;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_DuplicateScanName;
 /**
  *  There was an error trying to authenticate to the scan target.
  *
  *  Value: "FAILED_TO_AUTHENTICATE_TO_TARGET"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_FailedToAuthenticateToTarget;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_FailedToAuthenticateToTarget;
 /**
  *  Finding type value is not specified in the list findings request.
  *
  *  Value: "FINDING_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_FindingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_FindingTypeUnspecified;
 /**
  *  Scan targets Compute Engine, yet current project was not whitelisted for
  *  Google Compute Engine Scanning Alpha access.
  *
  *  Value: "FORBIDDEN_TO_SCAN_COMPUTE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenToScanCompute;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenToScanCompute;
 /**
  *  User tries to update managed scan
  *
  *  Value: "FORBIDDEN_UPDATE_TO_MANAGED_SCAN"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan;
 /**
  *  Indicates an internal server error.
  *  Please DO NOT USE THIS ERROR CODE unless the root cause is truly unknown.
  *
  *  Value: "INTERNAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InternalError;
 /**
  *  A field is set to an invalid value.
  *
  *  Value: "INVALID_FIELD_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InvalidFieldValue;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InvalidFieldValue;
 /**
  *  The supplied filter is malformed. For example, it can not be parsed, does
  *  not have a filter type in expression, or the same filter type appears
@@ -301,132 +301,132 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_Invali
  *
  *  Value: "MALFORMED_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_MalformedFilter;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_MalformedFilter;
 /**
  *  The supplied resource name is malformed (can not be parsed).
  *
  *  Value: "MALFORMED_RESOURCE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_MalformedResourceName;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_MalformedResourceName;
 /**
  *  There is no error.
  *
  *  Value: "OK"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_Ok;
 /**
  *  The current project is not in an active state.
  *
  *  Value: "PROJECT_INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ProjectInactive;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ProjectInactive;
 /**
  *  A required field is not set.
  *
  *  Value: "REQUIRED_FIELD"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_RequiredField;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_RequiredField;
 /**
  *  Project id, scanconfig id, scanrun id, or finding id are not consistent
  *  with each other in resource name.
  *
  *  Value: "RESOURCE_NAME_INCONSISTENT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ResourceNameInconsistent;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ResourceNameInconsistent;
 /**
  *  The scan being requested to start is already running.
  *
  *  Value: "SCAN_ALREADY_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ScanAlreadyRunning;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ScanAlreadyRunning;
 /**
  *  The scan that was requested to be stopped is not running.
  *
  *  Value: "SCAN_NOT_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ScanNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ScanNotRunning;
 /**
  *  One of the seed URLs does not belong to the current project.
  *
  *  Value: "SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlDoesNotBelongToCurrentProject;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlDoesNotBelongToCurrentProject;
 /**
  *  One of the seed URLs has on-routable IP address.
  *
  *  Value: "SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlHasNonRoutableIpAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlHasNonRoutableIpAddress;
 /**
  *  One of the seed URLs has an IP address that is not reserved
  *  for the current project.
  *
  *  Value: "SEED_URL_HAS_UNRESERVED_IP_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlHasUnreservedIpAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlHasUnreservedIpAddress;
 /**
  *  One of the seed URLs is malformed (can not be parsed).
  *
  *  Value: "SEED_URL_MALFORMED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMalformed;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMalformed;
 /**
  *  One of the seed URLs is mapped to a non-routable IP address in DNS.
  *
  *  Value: "SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMappedToNonRoutableAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMappedToNonRoutableAddress;
 /**
  *  One of the seed URLs is mapped to an IP address which is not reserved
  *  for the current project.
  *
  *  Value: "SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMappedToUnreservedAddress;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMappedToUnreservedAddress;
 /**
  *  The Cloud Security Scanner service account is not configured under the
  *  project.
  *
  *  Value: "SERVICE_ACCOUNT_NOT_CONFIGURED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ServiceAccountNotConfigured;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ServiceAccountNotConfigured;
 /**
  *  A project has reached the maximum number of scans.
  *
  *  Value: "TOO_MANY_SCANS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_TooManyScans;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_TooManyScans;
 /**
  *  Resolving the details of the current project fails.
  *
  *  Value: "UNABLE_TO_RESOLVE_PROJECT_INFO"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnableToResolveProjectInfo;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnableToResolveProjectInfo;
 /**
  *  One or more blacklist patterns were in the wrong format.
  *
  *  Value: "UNSUPPORTED_BLACKLIST_PATTERN_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedBlacklistPatternFormat;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedBlacklistPatternFormat;
 /**
  *  The supplied filter is not supported.
  *
  *  Value: "UNSUPPORTED_FILTER"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedFilter;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedFilter;
 /**
  *  The supplied finding type is not supported. For example, we do not
  *  provide findings of the given finding type.
  *
  *  Value: "UNSUPPORTED_FINDING_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedFindingType;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedFindingType;
 /**
  *  The URL scheme of one or more of the supplied URLs is not supported.
  *
  *  Value: "UNSUPPORTED_URL_SCHEME"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedUrlScheme;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedUrlScheme;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanRun.executionState
@@ -437,25 +437,25 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_Unsupp
  *
  *  Value: "EXECUTION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_ExecutionStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_ExecutionStateUnspecified;
 /**
  *  The scan is either finished or stopped by user.
  *
  *  Value: "FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Finished;
 /**
  *  The scan is waiting in the queue.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Queued;
 /**
  *  The scan is in progress.
  *
  *  Value: "SCANNING"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Scanning;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Scanning;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanRun.resultState
@@ -465,26 +465,26 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ExecutionState_Scan
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Error;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Error;
 /**
  *  The scan was terminated by user.
  *
  *  Value: "KILLED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Killed;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Killed;
 /**
  *  Default value. This value is returned when the ScanRun is not yet
  *  finished.
  *
  *  Value: "RESULT_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_ResultStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_ResultStateUnspecified;
 /**
  *  The scan finished without errors.
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanRunErrorTrace.code
@@ -495,32 +495,32 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Success
  *
  *  Value: "AUTHENTICATION_CONFIG_ISSUE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_AuthenticationConfigIssue;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_AuthenticationConfigIssue;
 /**
  *  Default value is never used.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_CodeUnspecified;
 /**
  *  Indicates that the scan run failed due to an internal server error.
  *
  *  Value: "INTERNAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_InternalError;
 /**
  *  Indicates a scan configuration error, usually due to outdated ScanConfig
  *  settings, such as starting_urls or the DNS configuration.
  *
  *  Value: "SCAN_CONFIG_ISSUE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_ScanConfigIssue;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_ScanConfigIssue;
 /**
  *  Indicates a scan operation timeout, usually caused by a very large site.
  *
  *  Value: "TIMED_OUT_WHILE_SCANNING"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TimedOutWhileScanning;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TimedOutWhileScanning;
 /**
  *  Indicates that a scan encountered numerous errors from the web site
  *  pages. When available, most_common_http_error_code field indicates the
@@ -528,14 +528,14 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_Time
  *
  *  Value: "TOO_MANY_HTTP_ERRORS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyHttpErrors;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyHttpErrors;
 /**
  *  Indicates that a scan encountered excessive redirects, either to
  *  authentication or some other page outside of the scan scope.
  *
  *  Value: "TOO_MANY_REDIRECTS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyRedirects;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyRedirects;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_ScanRunWarningTrace.code
@@ -545,13 +545,13 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooM
  *
  *  Value: "BLOCKED_BY_IAP"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_BlockedByIap;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_BlockedByIap;
 /**
  *  Default value is never used.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_CodeUnspecified;
 /**
  *  Indicates that a scan discovered an unexpectedly low number of URLs. This
  *  is sometimes caused by complex navigation features or by using a single
@@ -559,14 +559,14 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_Co
  *
  *  Value: "INSUFFICIENT_CRAWL_RESULTS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_InsufficientCrawlResults;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_InsufficientCrawlResults;
 /**
  *  Indicates that a scan discovered too many URLs to test, or excessive
  *  redundant URLs.
  *
  *  Value: "TOO_MANY_CRAWL_RESULTS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyCrawlResults;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyCrawlResults;
 /**
  *  Indicates that too many tests have been generated for the scan. Customer
  *  should try reducing the number of starting URLs, increasing the QPS rate,
@@ -574,7 +574,7 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_To
  *
  *  Value: "TOO_MANY_FUZZ_TASKS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyFuzzTasks;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyFuzzTasks;
 
 // ----------------------------------------------------------------------------
 // GTLRWebSecurityScanner_Xss.attackVector
@@ -584,98 +584,98 @@ GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_To
  *
  *  Value: "ATTACK_VECTOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_AttackVectorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_AttackVectorUnspecified;
 /**
  *  The attack comes from fuzzing the browser's cookies.
  *
  *  Value: "COOKIE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Cookie;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Cookie;
 /**
  *  The attack comes from fuzzing an input element.
  *
  *  Value: "FORM_INPUT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_FormInput;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_FormInput;
 /**
  *  The attack comes from fuzzing parameters in the url.
  *
  *  Value: "GET_PARAMETERS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_GetParameters;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_GetParameters;
 /**
  *  The attack comes from fuzzing the HTML comments.
  *
  *  Value: "HTML_COMMENT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_HtmlComment;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_HtmlComment;
 /**
  *  The attack comes from fuzzing the browser's localStorage.
  *
  *  Value: "LOCAL_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_LocalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_LocalStorage;
 /**
  *  The attack comes from hijacking the post messaging mechanism.
  *
  *  Value: "POST_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_PostMessage;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_PostMessage;
 /**
  *  The attack comes from fuzzing the POST parameters.
  *
  *  Value: "POST_PARAMETERS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_PostParameters;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_PostParameters;
 /**
  *  The attack comes from fuzzing the protocol.
  *
  *  Value: "PROTOCOL"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Protocol;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Protocol;
 /**
  *  The attack comes from fuzzing the referrer property.
  *
  *  Value: "REFERRER"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Referrer;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Referrer;
 /**
  *  The attack is a Same-Origin Method Execution attack via a GET parameter.
  *
  *  Value: "SAME_ORIGIN"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_SameOrigin;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_SameOrigin;
 /**
  *  The attack comes from fuzzing the browser's sessionStorage.
  *
  *  Value: "SESSION_STORAGE"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_SessionStorage;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_SessionStorage;
 /**
  *  The attack comes from the server side and is stored.
  *
  *  Value: "STORED_XSS"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_StoredXss;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_StoredXss;
 /**
  *  The attack comes from fuzzing the fragment in the url.
  *
  *  Value: "URL_FRAGMENT"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_UrlFragment;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_UrlFragment;
 /**
  *  The attack payload is received from a third-party host via a URL that is
  *  user-controllable
  *
  *  Value: "USER_CONTROLLABLE_URL"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_UserControllableUrl;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_UserControllableUrl;
 /**
  *  The attack comes from fuzzing the window's name property.
  *
  *  Value: "WINDOW_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName;
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName;
 
 /**
  *  Scan authentication configuration.

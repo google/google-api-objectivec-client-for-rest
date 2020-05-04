@@ -34,31 +34,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/calendar"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCalendar;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendar;
 /**
  *  Authorization scope: View and edit events on all your calendars
  *
  *  Value "https://www.googleapis.com/auth/calendar.events"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCalendarEvents;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEvents;
 /**
  *  Authorization scope: View events on all your calendars
  *
  *  Value "https://www.googleapis.com/auth/calendar.events.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCalendarEventsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsReadonly;
 /**
  *  Authorization scope: View your calendars
  *
  *  Value "https://www.googleapis.com/auth/calendar.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCalendarReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarReadonly;
 /**
  *  Authorization scope: View your Calendar settings
  *
  *  Value "https://www.googleapis.com/auth/calendar.settings.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCalendarSettingsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarSettingsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCalendarService

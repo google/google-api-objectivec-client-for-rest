@@ -45,9 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRServiceManagementViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewBasic;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRServiceManagementViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 // ----------------------------------------------------------------------------
 // Query Classes

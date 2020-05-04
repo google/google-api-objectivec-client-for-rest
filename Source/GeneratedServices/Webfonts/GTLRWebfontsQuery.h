@@ -38,31 +38,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "alpha"
  */
-GTLR_EXTERN NSString * const kGTLRWebfontsSortAlpha;
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortAlpha;
 /**
  *  Sort by date added
  *
  *  Value: "date"
  */
-GTLR_EXTERN NSString * const kGTLRWebfontsSortDate;
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortDate;
 /**
  *  Sort by popularity
  *
  *  Value: "popularity"
  */
-GTLR_EXTERN NSString * const kGTLRWebfontsSortPopularity;
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortPopularity;
 /**
  *  Sort by number of styles
  *
  *  Value: "style"
  */
-GTLR_EXTERN NSString * const kGTLRWebfontsSortStyle;
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortStyle;
 /**
  *  Sort by trending
  *
  *  Value: "trending"
  */
-GTLR_EXTERN NSString * const kGTLRWebfontsSortTrending;
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 
 // ----------------------------------------------------------------------------
 // Query Classes

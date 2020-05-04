@@ -49,47 +49,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionAll;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionAll;
 /**
  *  (DEPRECATED) Retrieve a list of players that are also playing this game in
  *  reverse chronological order.
  *
  *  Value: "connected"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionConnected;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionConnected;
 /**
  *  Retrieve a list of players who are friends of the user in alphabetical
  *  order.
  *
  *  Value: "friends_all"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionFriendsAll;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriendsAll;
 /**
  *  (DEPRECATED) Retrieve a list of players you have played a multiplayer game
  *  (realtime or turn-based) with recently.
  *
  *  Value: "playedWith"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionPlayedWith;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPlayedWith;
 /**
  *  List all scores in the public leaderboard.
  *
  *  Value: "PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionPublic;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPublic;
 /**
  *  List only social scores.
  *
  *  Value: "SOCIAL"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionSocial;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionSocial;
 /**
  *  (DEPRECATED: please use FRIENDS_ALL) Retrieve a list of players in the
  *  user's social graph that are visible to this game.
  *
  *  Value: "visible"
  */
-GTLR_EXTERN NSString * const kGTLRGamesCollectionVisible;
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible;
 
 // ----------------------------------------------------------------------------
 // includeRankType
@@ -99,20 +99,20 @@ GTLR_EXTERN NSString * const kGTLRGamesCollectionVisible;
  *
  *  Value: "ALL"
  */
-GTLR_EXTERN NSString * const kGTLRGamesIncludeRankTypeAll;
+FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeAll;
 /**
  *  Retrieve public ranks, if the player is sharing their gameplay activity
  *  publicly.
  *
  *  Value: "PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRGamesIncludeRankTypePublic;
+FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypePublic;
 /**
  *  Retrieve the social rank.
  *
  *  Value: "SOCIAL"
  */
-GTLR_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial;
+FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial;
 
 // ----------------------------------------------------------------------------
 // platformType
@@ -122,19 +122,19 @@ GTLR_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial;
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRGamesPlatformTypeAndroid;
+FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeAndroid;
 /**
  *  Retrieve applications that can be played on iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRGamesPlatformTypeIos;
+FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeIos;
 /**
  *  Retrieve applications that can be played on desktop web.
  *
  *  Value: "WEB_APP"
  */
-GTLR_EXTERN NSString * const kGTLRGamesPlatformTypeWebApp;
+FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeWebApp;
 
 // ----------------------------------------------------------------------------
 // state
@@ -144,25 +144,25 @@ GTLR_EXTERN NSString * const kGTLRGamesPlatformTypeWebApp;
  *
  *  Value: "ALL"
  */
-GTLR_EXTERN NSString * const kGTLRGamesStateAll;
+FOUNDATION_EXTERN NSString * const kGTLRGamesStateAll;
 /**
  *  List only hidden achievements.
  *
  *  Value: "HIDDEN"
  */
-GTLR_EXTERN NSString * const kGTLRGamesStateHidden;
+FOUNDATION_EXTERN NSString * const kGTLRGamesStateHidden;
 /**
  *  List only revealed achievements.
  *
  *  Value: "REVEALED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesStateRevealed;
+FOUNDATION_EXTERN NSString * const kGTLRGamesStateRevealed;
 /**
  *  List only unlocked achievements.
  *
  *  Value: "UNLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesStateUnlocked;
+FOUNDATION_EXTERN NSString * const kGTLRGamesStateUnlocked;
 
 // ----------------------------------------------------------------------------
 // timeSpan
@@ -173,21 +173,21 @@ GTLR_EXTERN NSString * const kGTLRGamesStateUnlocked;
  *
  *  Value: "ALL"
  */
-GTLR_EXTERN NSString * const kGTLRGamesTimeSpanAll;
+FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAll;
 /** Value: "ALL_TIME" */
-GTLR_EXTERN NSString * const kGTLRGamesTimeSpanAllTime;
+FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAllTime;
 /**
  *  List the top scores for the current day.
  *
  *  Value: "DAILY"
  */
-GTLR_EXTERN NSString * const kGTLRGamesTimeSpanDaily;
+FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanDaily;
 /**
  *  List the top scores for the current week.
  *
  *  Value: "WEEKLY"
  */
-GTLR_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
+FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 // ----------------------------------------------------------------------------
 // Query Classes

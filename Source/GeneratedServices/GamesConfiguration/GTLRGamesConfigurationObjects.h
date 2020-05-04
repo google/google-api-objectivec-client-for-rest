@@ -46,19 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACHIEVEMENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_AchievementTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_AchievementTypeUnspecified;
 /**
  *  Achievement is incremental.
  *
  *  Value: "INCREMENTAL"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Incremental;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Incremental;
 /**
  *  Achievement is either locked or unlocked.
  *
  *  Value: "STANDARD"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_AchievementType_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRGamesConfiguration_AchievementConfiguration.initialState
@@ -68,19 +68,19 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_Ac
  *
  *  Value: "HIDDEN"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Hidden;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Hidden;
 /**
  *  Default value. This value is unused.
  *
  *  Value: "INITIAL_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_InitialStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_InitialStateUnspecified;
 /**
  *  Achievement is revealed.
  *
  *  Value: "REVEALED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Revealed;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_InitialState_Revealed;
 
 // ----------------------------------------------------------------------------
 // GTLRGamesConfiguration_GamesNumberFormatConfiguration.numberFormatType
@@ -90,13 +90,13 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_AchievementConfiguration_In
  *
  *  Value: "CURRENCY"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Currency;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Currency;
 /**
  *  Default value. This value is unused.
  *
  *  Value: "NUMBER_FORMAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_NumberFormatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_NumberFormatTypeUnspecified;
 /**
  *  Numbers are formatted to have no digits or fixed number of digits after
  *  the decimal point according to locale. An optional custom unit can be
@@ -104,13 +104,13 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfigurat
  *
  *  Value: "NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric;
 /**
  *  Numbers are formatted to hours, minutes and seconds.
  *
  *  Value: "TIME_DURATION"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration;
 
 // ----------------------------------------------------------------------------
 // GTLRGamesConfiguration_ImageConfiguration.imageType
@@ -120,19 +120,19 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfigurat
  *
  *  Value: "ACHIEVEMENT_ICON"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_AchievementIcon;
 /**
  *  Default value. This value is unused.
  *
  *  Value: "IMAGE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_ImageTypeUnspecified;
 /**
  *  The icon image for a leaderboard resource.
  *
  *  Value: "LEADERBOARD_ICON"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageType_LeaderboardIcon;
 
 // ----------------------------------------------------------------------------
 // GTLRGamesConfiguration_LeaderboardConfiguration.scoreOrder
@@ -142,19 +142,19 @@ GTLR_EXTERN NSString * const kGTLRGamesConfiguration_ImageConfiguration_ImageTyp
  *
  *  Value: "LARGER_IS_BETTER"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_LargerIsBetter;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_LargerIsBetter;
 /**
  *  Default value. This value is unused.
  *
  *  Value: "SCORE_ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_ScoreOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_ScoreOrderUnspecified;
 /**
  *  Smaller scores posted are ranked higher.
  *
  *  Value: "SMALLER_IS_BETTER"
  */
-GTLR_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_SmallerIsBetter;
+FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfiguration_ScoreOrder_SmallerIsBetter;
 
 /**
  *  An achievement configuration resource.

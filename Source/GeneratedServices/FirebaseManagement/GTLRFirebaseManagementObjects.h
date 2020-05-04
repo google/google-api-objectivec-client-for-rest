@@ -56,37 +56,37 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Android;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Android;
 /**
  *  The Firebase App is associated with iOS.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Ios;
 /**
  *  Unknown state. This is only used for distinguishing unset values.
  *
  *  Value: "PLATFORM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_PlatformUnspecified;
 /**
  *  The Firebase App is associated with web.
  *
  *  Value: "WEB"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_Location.features
 
 /** Value: "DEFAULT_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage;
 /** Value: "FIRESTORE" */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Firestore;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Firestore;
 /** Value: "FUNCTIONS" */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Functions;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Functions;
 /** Value: "LOCATION_FEATURE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_LocationFeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_LocationFeatureUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_Location.type
@@ -97,7 +97,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_LocationF
  *
  *  Value: "LOCATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified;
 /**
  *  The location is a multi-regional location.
  *  <br>Data in a multi-region location is replicated in multiple regions.
@@ -105,7 +105,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_LocationTypeU
  *
  *  Value: "MULTI_REGIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_MultiRegional;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_MultiRegional;
 /**
  *  The location is a regional location.
  *  <br>Data in a regional location is replicated in multiple zones within a
@@ -113,7 +113,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_MultiRegional
  *
  *  Value: "REGIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_Regional;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_Regional;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_ShaCertificate.certType
@@ -123,19 +123,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_Regional;
  *
  *  Value: "SHA_1"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha1;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha1;
 /**
  *  Certificate is a SHA-256 type certificate.
  *
  *  Value: "SHA_256"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_Sha256;
 /**
  *  Unknown state. This is only used for distinguishing unset values.
  *
  *  Value: "SHA_CERTIFICATE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateTypeUnspecified;
 
 /**
  *  All fields are required.

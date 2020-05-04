@@ -52,51 +52,51 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAdMob_MediationReportSpec.dimensions
 
 /** Value: "AD_SOURCE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSource;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSource;
 /** Value: "AD_SOURCE_INSTANCE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSourceInstance;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSourceInstance;
 /** Value: "AD_UNIT" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdUnit;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdUnit;
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App;
 /** Value: "COUNTRY" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Country;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Country;
 /** Value: "DATE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Date;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Date;
 /** Value: "DIMENSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_DimensionUnspecified;
 /** Value: "FORMAT" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Format;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Format;
 /** Value: "MEDIATION_GROUP" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MediationGroup;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MediationGroup;
 /** Value: "MONTH" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Month;
 /** Value: "PLATFORM" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform;
 /** Value: "WEEK" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpec.metrics
 
 /** Value: "AD_REQUESTS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_AdRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_AdRequests;
 /** Value: "CLICKS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Clicks;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Clicks;
 /** Value: "ESTIMATED_EARNINGS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_EstimatedEarnings;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_EstimatedEarnings;
 /** Value: "IMPRESSION_CTR" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ImpressionCtr;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ImpressionCtr;
 /** Value: "IMPRESSIONS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Impressions;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Impressions;
 /** Value: "MATCHED_REQUESTS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MatchedRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MatchedRequests;
 /** Value: "MATCH_RATE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MatchRate;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MatchRate;
 /** Value: "METRIC_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MetricUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MetricUnspecified;
 /** Value: "OBSERVED_ECPM" */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ObservedEcpm;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ObservedEcpm;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpecDimensionFilter.dimension
@@ -107,7 +107,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ObservedEcpm
  *
  *  Value: "AD_SOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSource;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSource;
 /**
  *  The unique ID of the ad source instance (for example,
  *  "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
@@ -117,48 +117,48 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimen
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance;
 /**
  *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
  *  If AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdUnit;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdUnit;
 /**
  *  The unique ID of the mobile application (for example,
  *  "ca-app-pub-1234~1234").
  *
  *  Value: "APP"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App;
 /**
  *  CLDR country code of the place where the ad views/clicks occur (for
  *  example, "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Country;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Country;
 /**
  *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Date;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Date;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_DimensionUnspecified;
 /**
  *  Format of the ad unit (for example, "banner", "native"), an ad delivery
  *  dimension.
  *
  *  Value: "FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format;
 /**
  *  The unique ID of the mediation group (for example,
  *  "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
@@ -168,20 +168,20 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimen
  *
  *  Value: "MEDIATION_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month;
 /**
  *  Mobile OS platform of the app (for example, "Android" or "iOS").
  *
  *  Value: "PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format
  *  (for example, "2018-12-21"). Requests can specify at most one time
@@ -189,7 +189,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimen
  *
  *  Value: "WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpecSortCondition.dimension
@@ -200,7 +200,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimen
  *
  *  Value: "AD_SOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSource;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSource;
 /**
  *  The unique ID of the ad source instance (for example,
  *  "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
@@ -210,48 +210,48 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimensi
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance;
 /**
  *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
  *  If AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdUnit;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdUnit;
 /**
  *  The unique ID of the mobile application (for example,
  *  "ca-app-pub-1234~1234").
  *
  *  Value: "APP"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App;
 /**
  *  CLDR country code of the place where the ad views/clicks occur (for
  *  example, "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Country;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Country;
 /**
  *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Date;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Date;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_DimensionUnspecified;
 /**
  *  Format of the ad unit (for example, "banner", "native"), an ad delivery
  *  dimension.
  *
  *  Value: "FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format;
 /**
  *  The unique ID of the mediation group (for example,
  *  "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
@@ -261,20 +261,20 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimensi
  *
  *  Value: "MEDIATION_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month;
 /**
  *  Mobile OS platform of the app (for example, "Android" or "iOS").
  *
  *  Value: "PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format
  *  (for example, "2018-12-21"). Requests can specify at most one time
@@ -282,7 +282,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimensi
  *
  *  Value: "WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpecSortCondition.metric
@@ -292,13 +292,13 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimensi
  *
  *  Value: "AD_REQUESTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_AdRequests;
 /**
  *  The number of times a user clicks an ad. The value is an integer.
  *
  *  Value: "CLICKS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Clicks;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Clicks;
 /**
  *  The estimated earnings of the AdMob publisher. The currency unit (USD,
  *  EUR, or other) of the earning metrics are determined by the localization
@@ -310,40 +310,40 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_
  *
  *  Value: "ESTIMATED_EARNINGS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_EstimatedEarnings;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_EstimatedEarnings;
 /**
  *  The ratio of clicks over impressions. The value is a double precision
  *  (approximate) decimal value.
  *
  *  Value: "IMPRESSION_CTR"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_ImpressionCtr;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_ImpressionCtr;
 /**
  *  The total number of ads shown to users. The value is an integer.
  *
  *  Value: "IMPRESSIONS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Impressions;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Impressions;
 /**
  *  The number of times ads are returned in response to a request. The value
  *  is an integer.
  *
  *  Value: "MATCHED_REQUESTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchedRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchedRequests;
 /**
  *  The ratio of matched ad requests over the total ad requests. The value is
  *  a double precision (approximate) decimal value.
  *
  *  Value: "MATCH_RATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchRate;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchRate;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "METRIC_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MetricUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MetricUnspecified;
 /**
  *  The third-party ad network's estimated average eCPM. The currency unit
  *  (USD, EUR, or other) of the earning metrics are determined by the
@@ -355,7 +355,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_
  *
  *  Value: "OBSERVED_ECPM"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_ObservedEcpm;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_ObservedEcpm;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpecSortCondition.order
@@ -365,67 +365,67 @@ GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_Ascending;
 /**
  *  Sort dimension value or metric value in descending order.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_Descending;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "SORT_ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_SortOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_SortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpec.dimensions
 
 /** Value: "AD_TYPE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdType;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdType;
 /** Value: "AD_UNIT" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdUnit;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdUnit;
 /** Value: "APP" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_App;
 /** Value: "COUNTRY" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Country;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Country;
 /** Value: "DATE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Date;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Date;
 /** Value: "DIMENSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_DimensionUnspecified;
 /** Value: "FORMAT" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Format;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Format;
 /** Value: "MONTH" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Month;
 /** Value: "PLATFORM" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Platform;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Platform;
 /** Value: "WEEK" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpec.metrics
 
 /** Value: "AD_REQUESTS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_AdRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_AdRequests;
 /** Value: "CLICKS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_Clicks;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_Clicks;
 /** Value: "ESTIMATED_EARNINGS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_EstimatedEarnings;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_EstimatedEarnings;
 /** Value: "IMPRESSION_CTR" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ImpressionCtr;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ImpressionCtr;
 /** Value: "IMPRESSION_RPM" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ImpressionRpm;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ImpressionRpm;
 /** Value: "IMPRESSIONS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_Impressions;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_Impressions;
 /** Value: "MATCHED_REQUESTS" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MatchedRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MatchedRequests;
 /** Value: "MATCH_RATE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MatchRate;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MatchRate;
 /** Value: "METRIC_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MetricUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MetricUnspecified;
 /** Value: "SHOW_RATE" */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ShowRate;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ShowRate;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpecDimensionFilter.dimension
@@ -440,61 +440,61 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ShowRate;
  *
  *  Value: "AD_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdType;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdType;
 /**
  *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
  *  If AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdUnit;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdUnit;
 /**
  *  The unique ID of the mobile application (for example,
  *  "ca-app-pub-1234~1234").
  *
  *  Value: "APP"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App;
 /**
  *  CLDR country code of the place where the ad views/clicks occur (for
  *  example, "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Country;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Country;
 /**
  *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Date;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Date;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_DimensionUnspecified;
 /**
  *  Format of the ad unit (for example, "banner", "native"), an ad delivery
  *  dimension.
  *
  *  Value: "FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Month;
 /**
  *  Mobile OS platform of the app (for example, "Android" or "iOS").
  *
  *  Value: "PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format
  *  (for example, "2018-12-21"). Requests can specify at most one time
@@ -502,7 +502,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimensi
  *
  *  Value: "WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpecSortCondition.dimension
@@ -517,61 +517,61 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimensi
  *
  *  Value: "AD_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdType;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdType;
 /**
  *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
  *  If AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdUnit;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdUnit;
 /**
  *  The unique ID of the mobile application (for example,
  *  "ca-app-pub-1234~1234").
  *
  *  Value: "APP"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App;
 /**
  *  CLDR country code of the place where the ad views/clicks occur (for
  *  example, "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Country;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Country;
 /**
  *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Date;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Date;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_DimensionUnspecified;
 /**
  *  Format of the ad unit (for example, "banner", "native"), an ad delivery
  *  dimension.
  *
  *  Value: "FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Format;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Format;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Month;
 /**
  *  Mobile OS platform of the app (for example, "Android" or "iOS").
  *
  *  Value: "PLATFORM"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format
  *  (for example, "2018-12-21"). Requests can specify at most one time
@@ -579,7 +579,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension
  *
  *  Value: "WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpecSortCondition.metric
@@ -591,13 +591,13 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension
  *
  *  Value: "AD_REQUESTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_AdRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_AdRequests;
 /**
  *  The number of times a user clicks an ad. The value is an integer.
  *
  *  Value: "CLICKS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Clicks;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Clicks;
 /**
  *  The estimated earnings of the AdMob publisher. The currency unit (USD,
  *  EUR, or other) of the earning metrics are determined by the localization
@@ -606,14 +606,14 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Cl
  *
  *  Value: "ESTIMATED_EARNINGS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_EstimatedEarnings;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_EstimatedEarnings;
 /**
  *  The ratio of clicks over impressions. The value is a double precision
  *  (approximate) decimal value.
  *
  *  Value: "IMPRESSION_CTR"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ImpressionCtr;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ImpressionCtr;
 /**
  *  The estimated earnings per thousand ad impressions. The value is in
  *  micros. For example, $1.03 would be represented as 1030000.
@@ -622,20 +622,20 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Im
  *
  *  Value: "IMPRESSION_RPM"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ImpressionRpm;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ImpressionRpm;
 /**
  *  The total number of ads shown to users. The value is an integer.
  *
  *  Value: "IMPRESSIONS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Impressions;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Impressions;
 /**
  *  The number of times ads are returned in response to a request. The value
  *  is an integer.
  *
  *  Value: "MATCHED_REQUESTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchedRequests;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchedRequests;
 /**
  *  The ratio of matched ad requests over the total ad requests. The value is
  *  a double precision (approximate) decimal value.
@@ -644,13 +644,13 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Ma
  *
  *  Value: "MATCH_RATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchRate;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchRate;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "METRIC_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MetricUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MetricUnspecified;
 /**
  *  The ratio of ads that are displayed over ads that are returned, defined
  *  as impressions / matched requests. The value is a double precision
@@ -658,7 +658,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Me
  *
  *  Value: "SHOW_RATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ShowRate;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ShowRate;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpecSortCondition.order
@@ -668,19 +668,19 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Sh
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_Ascending;
 /**
  *  Sort dimension value or metric value in descending order.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_Descending;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "SORT_ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_SortOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_SortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_ReportWarning.type
@@ -694,7 +694,7 @@ GTLR_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Order_Sor
  *
  *  Value: "DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataBeforeAccountTimezoneChange;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataBeforeAccountTimezoneChange;
 /**
  *  There is an unusual delay in processing the source data for the
  *  requested date range. The report results might be less up to date than
@@ -703,14 +703,14 @@ GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataBeforeAccountTime
  *
  *  Value: "DATA_DELAYED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataDelayed;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataDelayed;
 /**
  *  Warnings that are exposed without a specific type. Useful when new
  *  warning types are added but the API is not changed yet.
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_Other;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_Other;
 /**
  *  The currency being requested is not the account currency. The earning
  *  metrics will be based on the requested currency, and thus not a good
@@ -719,13 +719,13 @@ GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_Other;
  *
  *  Value: "REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_ReportCurrencyNotAccountCurrency;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_ReportCurrencyNotAccountCurrency;
 /**
  *  Default value for an unset field. Do not use.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified;
 
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of

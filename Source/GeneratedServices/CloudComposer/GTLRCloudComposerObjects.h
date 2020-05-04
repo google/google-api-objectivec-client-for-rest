@@ -54,38 +54,38 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Creating;
 /**
  *  The environment is undergoing deletion. It cannot be used.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Deleting;
 /**
  *  The environment has encountered an error and cannot be used.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Error;
 /**
  *  The environment is currently running and healthy. It is ready for use.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Running;
 /**
  *  The state of the environment is unknown.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified;
 /**
  *  The environment is being updated. It remains usable but cannot receive
  *  additional update requests or be deleted at this time.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_OperationMetadata.operationType
@@ -95,25 +95,25 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating;
  *
  *  Value: "CREATE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create;
 /**
  *  A resource deletion operation.
  *
  *  Value: "DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete;
 /**
  *  Unused.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified;
 /**
  *  A resource update operation.
  *
  *  Value: "UPDATE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_OperationMetadata.state
@@ -123,33 +123,33 @@ GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Failed;
 /**
  *  The operation has been created but is not yet started.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Pending;
 /**
  *  The operation is underway.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Running;
 /**
  *  Unused.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUnspecified;
 /**
  *  The operation completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded;
 /** Value: "SUCCESSFUL" */
-GTLR_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated

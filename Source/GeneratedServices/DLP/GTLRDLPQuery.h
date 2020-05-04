@@ -53,11 +53,11 @@ NS_ASSUME_NONNULL_BEGIN
 // type
 
 /** Value: "DLP_JOB_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDLPTypeDlpJobTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLPTypeDlpJobTypeUnspecified;
 /** Value: "INSPECT_JOB" */
-GTLR_EXTERN NSString * const kGTLRDLPTypeInspectJob;
+FOUNDATION_EXTERN NSString * const kGTLRDLPTypeInspectJob;
 /** Value: "RISK_ANALYSIS_JOB" */
-GTLR_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
+FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 // ----------------------------------------------------------------------------
 // Query Classes

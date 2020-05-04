@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/apps.groups.migration"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGroupsMigrationAppsGroupsMigration;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGroupsMigrationAppsGroupsMigration;
 
 // ----------------------------------------------------------------------------
 //   GTLRGroupsMigrationService

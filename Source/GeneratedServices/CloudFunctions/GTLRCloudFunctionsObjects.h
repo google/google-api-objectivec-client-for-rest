@@ -60,25 +60,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_CloudFunction.ingressSettings
@@ -88,19 +88,19 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeU
  *
  *  Value: "ALLOW_ALL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll;
 /**
  *  Allow HTTP traffic from only private VPC sources.
  *
  *  Value: "ALLOW_INTERNAL_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly;
 /**
  *  Unspecified.
  *
  *  Value: "INGRESS_SETTINGS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_IngressSettingsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_IngressSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_CloudFunction.status
@@ -110,38 +110,38 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_I
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Active;
 /**
  *  Not specified. Invalid state.
  *
  *  Value: "CLOUD_FUNCTION_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_CloudFunctionStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_CloudFunctionStatusUnspecified;
 /**
  *  Function is being deleted.
  *
  *  Value: "DELETE_IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeleteInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeleteInProgress;
 /**
  *  Function is being created or updated.
  *
  *  Value: "DEPLOY_IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeployInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_DeployInProgress;
 /**
  *  Function deployment failed and the function isn’t serving.
  *
  *  Value: "OFFLINE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Offline;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Offline;
 /**
  *  Function deployment failed and the function serving state is undefined.
  *  The function should be updated or deleted to move it out of this state.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_CloudFunction.vpcConnectorEgressSettings
@@ -152,19 +152,19 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_Status_Unknown;
  *
  *  Value: "ALL_TRAFFIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_AllTraffic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_AllTraffic;
 /**
  *  Use the VPC Access Connector only for private IP space from RFC1918.
  *
  *  Value: "PRIVATE_RANGES_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_PrivateRangesOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_PrivateRangesOnly;
 /**
  *  Unspecified.
  *
  *  Value: "VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_OperationMetadataV1.type
@@ -174,25 +174,25 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgres
  *
  *  Value: "CREATE_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_CreateFunction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_CreateFunction;
 /**
  *  Triggered by DeleteFunction call.
  *
  *  Value: "DELETE_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_DeleteFunction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_DeleteFunction;
 /**
  *  Unknown operation type.
  *
  *  Value: "OPERATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_OperationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_OperationUnspecified;
 /**
  *  Triggered by UpdateFunction call
  *
  *  Value: "UPDATE_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_OperationMetadataV1Beta2.type
@@ -202,25 +202,25 @@ GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_Update
  *
  *  Value: "CREATE_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction;
 /**
  *  Triggered by DeleteFunction call.
  *
  *  Value: "DELETE_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction;
 /**
  *  Unknown operation type.
  *
  *  Value: "OPERATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified;
 /**
  *  Triggered by UpdateFunction call
  *
  *  Value: "UPDATE_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction;
 
 /**
  *  Specifies the audit configuration for a service.

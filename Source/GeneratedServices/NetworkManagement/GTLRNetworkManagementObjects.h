@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CAUSE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified;
 /**
  *  Aborted because the source and/or destination endpoint specified in
  *  the test are invalid. The possible reasons that an endpoint is
@@ -81,48 +81,48 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspeci
  *
  *  Value: "INVALID_ARGUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument;
 /**
  *  Aborted because traffic is sent from a public IP to an instance without
  *  an external IP.
  *
  *  Value: "NO_EXTERNAL_IP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp;
 /**
  *  Aborted because no valid source endpoint is derived from the input test
  *  request.
  *
  *  Value: "NO_SOURCE_LOCATION"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation;
 /**
  *  Aborted because the user lacks the permission to access all or part of
  *  the network configurations required to run the test.
  *
  *  Value: "PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied;
 /**
  *  Aborted because the number of steps in the trace exceeding a certain
  *  limit which may be caused by routing loop.
  *
  *  Value: "TRACE_TOO_LONG"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong;
 /**
  *  Aborted because none of the traces matches destination information
  *  specified in the input test request.
  *
  *  Value: "UNINTENDED_DESTINATION"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination;
 /**
  *  Aborted because the IP address(es) are unknown.
  *
  *  Value: "UNKNOWN_IP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp;
 /**
  *  Aborted due to unknown network.
  *  The reachability analysis cannot proceed because the user does not have
@@ -132,14 +132,14 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp;
  *
  *  Value: "UNKNOWN_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork;
 /**
  *  Aborted because no project information can be derived from the test
  *  input.
  *
  *  Value: "UNKNOWN_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_AuditLogConfig.logType
@@ -149,25 +149,25 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProje
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_DeliverInfo.target
@@ -177,25 +177,25 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_LogTy
  *
  *  Value: "GOOGLE_API"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi;
 /**
  *  Target is a Compute Engine instance.
  *
  *  Value: "INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Instance;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Instance;
 /**
  *  Target is the Internet.
  *
  *  Value: "INTERNET"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Internet;
 /**
  *  Target not specified.
  *
  *  Value: "TARGET_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_DropInfo.cause
@@ -205,7 +205,7 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_TargetUns
  *
  *  Value: "CAUSE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified;
 /**
  *  Firewalls block the health check probes to the backends and cause
  *  the backends to be unavailable for traffic from the load balancer.
@@ -214,32 +214,32 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecif
  *
  *  Value: "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck;
 /**
  *  Dropped due to a firewall rule unless allowed due to connection tracking.
  *
  *  Value: "FIREWALL_RULE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule;
 /**
  *  a Compute Engine instance can only send or receive a packet with a
  *  foreign IP <code>if ip_forward</code> is enabled.
  *
  *  Value: "FOREIGN_IP_DISALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed;
 /**
  *  Forwarding rule's protocol and ports do not match the packet header.
  *
  *  Value: "FORWARDING_RULE_MISMATCH"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleMismatch;
 /**
  *  Forwarding rule does not have backends configured.
  *
  *  Value: "FORWARDING_RULE_NO_INSTANCES"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleNoInstances;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleNoInstances;
 /**
  *  Access to GKE master's endpoint is not authorized.
  *  See [Access to the cluster endpoints](/kubernetes-engine/docs/how-to/
@@ -247,14 +247,14 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRul
  *
  *  Value: "GKE_MASTER_UNAUTHORIZED_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
 /**
  *  Packet is sent from or to a Compute Engine instance that is not in a
  *  running state.
  *
  *  Value: "INSTANCE_NOT_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
 /**
  *  Instance with only internal IP tries to access external hosts, but
  *  Cloud NAT is not enabled in the subnet, unless special configurations
@@ -263,32 +263,32 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRu
  *
  *  Value: "NO_EXTERNAL_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress;
 /**
  *  Dropped due to no routes.
  *
  *  Value: "NO_ROUTE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute;
 /**
  *  Instance with only an internal IP tries to access Google API and
  *  Services, and private Google access is not enabled.
  *
  *  Value: "PRIVATE_GOOGLE_ACCESS_DISALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed;
 /**
  *  Packet with internal destination address sent to Internet gateway.
  *
  *  Value: "PRIVATE_TRAFFIC_TO_INTERNET"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet;
 /**
  *  Dropped due to invalid route. Route's next hop is a blackhole.
  *
  *  Value: "ROUTE_BLACKHOLE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole;
 /**
  *  Packet is sent to a wrong (unintended) network. Example: user traces a
  *  packet from VM1:Network1 to VM2:Network2, however, the route configured
@@ -296,7 +296,7 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhol
  *
  *  Value: "ROUTE_WRONG_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork;
 /**
  *  The type of traffic is blocked and the user cannot configure a firewall
  *  rule to enable it. See [Always blocked traffic](/vpc/docs/firewalls#
@@ -304,19 +304,19 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNet
  *
  *  Value: "TRAFFIC_TYPE_BLOCKED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked;
 /**
  *  Destination external address cannot be resolved to a known target.
  *
  *  Value: "UNKNOWN_EXTERNAL_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress;
 /**
  *  Destination internal address cannot be resolved to a known target.
  *
  *  Value: "UNKNOWN_INTERNAL_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_Endpoint.networkType
@@ -328,13 +328,13 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownIntern
  *
  *  Value: "GCP_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork;
 /**
  *  Default type if unspecified.
  *
  *  Value: "NETWORK_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified;
 /**
  *  A network hosted outside of Google Cloud Platform.
  *  This can be an on-premises network, or a network hosted by another cloud
@@ -342,7 +342,7 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_Network
  *
  *  Value: "NON_GCP_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ForwardInfo.target
@@ -352,37 +352,37 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpN
  *
  *  Value: "GKE_MASTER"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster;
 /**
  *  Forwarded to the next hop of a custom route imported from a peering VPC.
  *
  *  Value: "IMPORTED_CUSTOM_ROUTE_NEXT_HOP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_ImportedCustomRouteNextHop;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_ImportedCustomRouteNextHop;
 /**
  *  Forwarded to an Cloud Interconnect connection.
  *
  *  Value: "INTERCONNECT"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Interconnect;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Interconnect;
 /**
  *  Forwarded to a VPC peering network.
  *
  *  Value: "PEERING_VPC"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_PeeringVpc;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_PeeringVpc;
 /**
  *  Target not specified.
  *
  *  Value: "TARGET_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified;
 /**
  *  Forwarded to a Cloud VPN gateway.
  *
  *  Value: "VPN_GATEWAY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
@@ -393,13 +393,13 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGatewa
  *
  *  Value: "CONFIGURED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Configured;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Configured;
 /**
  *  State is unspecified. Default state if not populated.
  *
  *  Value: "HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_HealthCheckFirewallStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_HealthCheckFirewallStateUnspecified;
 /**
  *  There are firewall rules configured to allow partial health check ranges
  *  or block all health check ranges.
@@ -409,7 +409,7 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCh
  *
  *  Value: "MISCONFIGURED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Misconfigured;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Misconfigured;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerInfo.backendType
@@ -419,19 +419,19 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCh
  *
  *  Value: "BACKEND_SERVICE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendService;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendService;
 /**
  *  Type is unspecified.
  *
  *  Value: "BACKEND_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_BackendTypeUnspecified;
 /**
  *  Target Pool as the load balancer's backend.
  *
  *  Value: "TARGET_POOL"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetPool;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType_TargetPool;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerInfo.loadBalancerType
@@ -441,37 +441,37 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_BackendType
  *
  *  Value: "HTTP_PROXY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_HttpProxy;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_HttpProxy;
 /**
  *  Internal TCP/UDP load balancer.
  *
  *  Value: "INTERNAL_TCP_UDP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_InternalTcpUdp;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_InternalTcpUdp;
 /**
  *  Type is unspecified.
  *
  *  Value: "LOAD_BALANCER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_LoadBalancerTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_LoadBalancerTypeUnspecified;
 /**
  *  Network TCP/UDP load balancer.
  *
  *  Value: "NETWORK_TCP_UDP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_NetworkTcpUdp;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_NetworkTcpUdp;
 /**
  *  SSL proxy load balancer.
  *
  *  Value: "SSL_PROXY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_SslProxy;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_SslProxy;
 /**
  *  TCP proxy load balancer.
  *
  *  Value: "TCP_PROXY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ReachabilityDetails.result
@@ -484,19 +484,19 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalance
  *
  *  Value: "AMBIGUOUS"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous;
 /**
  *  Packet originating from source is expected to reach destination.
  *
  *  Value: "REACHABLE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable;
 /**
  *  Result is not specified.
  *
  *  Value: "RESULT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_ResultUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_ResultUnspecified;
 /**
  *  The reachability could not be determined. Possible reasons are:
  *  * Analysis is aborted due to permission error. User does not have read
@@ -509,14 +509,14 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_R
  *
  *  Value: "UNDETERMINED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Undetermined;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Undetermined;
 /**
  *  Packet originating from source is expected to be dropped before
  *  reaching destination.
  *
  *  Value: "UNREACHABLE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Unreachable;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_RouteInfo.nextHopType
@@ -527,49 +527,49 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_U
  *
  *  Value: "NEXT_HOP_BLACKHOLE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopBlackhole;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopBlackhole;
 /**
  *  Next hop is a Compute Engine instance.
  *
  *  Value: "NEXT_HOP_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInstance;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInstance;
 /**
  *  Next hop is an interconnect.
  *
  *  Value: "NEXT_HOP_INTERCONNECT"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInterconnect;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInterconnect;
 /**
  *  Next hop is an internet gateway.
  *
  *  Value: "NEXT_HOP_INTERNET_GATEWAY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInternetGateway;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInternetGateway;
 /**
  *  Next hop is an IP address.
  *
  *  Value: "NEXT_HOP_IP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp;
 /**
  *  Next hop is a VPC network gateway.
  *
  *  Value: "NEXT_HOP_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork;
 /**
  *  Next hop is a peering VPC.
  *
  *  Value: "NEXT_HOP_PEERING"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering;
 /**
  *  Unspecified type. Default value.
  *
  *  Value: "NEXT_HOP_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified;
 /**
  *  Next hop is a VPN Gateway. This scenario only happens when tracing
  *  connectivity from an on-premises network to GCP through a VPN. The
@@ -578,13 +578,13 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHo
  *
  *  Value: "NEXT_HOP_VPN_GATEWAY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway;
 /**
  *  Next hop is a VPN tunnel.
  *
  *  Value: "NEXT_HOP_VPN_TUNNEL"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_RouteInfo.routeType
@@ -594,44 +594,44 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHo
  *
  *  Value: "DYNAMIC"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Dynamic;
 /**
  *  A dynamic route received from peering network.
  *
  *  Value: "PEERING_DYNAMIC"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringDynamic;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringDynamic;
 /**
  *  A static route received from peering network.
  *
  *  Value: "PEERING_STATIC"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringStatic;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringStatic;
 /**
  *  A subnet route received from peering network.
  *
  *  Value: "PEERING_SUBNET"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_PeeringSubnet;
 /**
  *  Unspecified type. Default value.
  *
  *  Value: "ROUTE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified;
 /**
  *  Static route created by the user including the default route to the
  *  Internet.
  *
  *  Value: "STATIC"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Static;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Static;
 /**
  *  Route is a subnet route automatically created by the system.
  *
  *  Value: "SUBNET"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Subnet;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Subnet;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_Step.state
@@ -641,113 +641,113 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Subnet;
  *
  *  Value: "ABORT"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Abort;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Abort;
 /**
  *  Config checking state: verify egress firewall rule.
  *
  *  Value: "APPLY_EGRESS_FIREWALL_RULE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyEgressFirewallRule;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyEgressFirewallRule;
 /**
  *  Config checking state: match forwarding rule.
  *
  *  Value: "APPLY_FORWARDING_RULE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyForwardingRule;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyForwardingRule;
 /**
  *  Config checking state: verify ingress firewall rule.
  *
  *  Value: "APPLY_INGRESS_FIREWALL_RULE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressFirewallRule;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressFirewallRule;
 /**
  *  Config checking state: verify route.
  *
  *  Value: "APPLY_ROUTE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute;
 /**
  *  Forwarding state: arriving at a Compute Engine external load balancer.
  *
  *  Value: "ARRIVE_AT_EXTERNAL_LOAD_BALANCER"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer;
 /**
  *  Forwarding state: arriving at a Compute Engine instance.
  *
  *  Value: "ARRIVE_AT_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInstance;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInstance;
 /**
  *  Forwarding state: arriving at a Compute Engine internal load balancer.
  *
  *  Value: "ARRIVE_AT_INTERNAL_LOAD_BALANCER"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInternalLoadBalancer;
 /**
  *  Forwarding state: arriving at a Cloud VPN gateway.
  *
  *  Value: "ARRIVE_AT_VPN_GATEWAY"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnGateway;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnGateway;
 /**
  *  Forwarding state: arriving at a Cloud VPN tunnel.
  *
  *  Value: "ARRIVE_AT_VPN_TUNNEL"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnTunnel;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnTunnel;
 /**
  *  Final state: packet delivered.
  *
  *  Value: "DELIVER"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Deliver;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Deliver;
 /**
  *  Final state: packet dropped.
  *
  *  Value: "DROP"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Drop;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Drop;
 /**
  *  Final state: packet forwarded to a network with an unknown configuration.
  *
  *  Value: "FORWARD"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Forward;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Forward;
 /**
  *  Transition state: packet header translated.
  *
  *  Value: "NAT"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Nat;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Nat;
 /**
  *  Transition state: original connection is terminated and a new proxied
  *  connection is initiated.
  *
  *  Value: "PROXY_CONNECTION"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection;
 /**
  *  Config checking state: packet sent or received under foreign IP
  *  address and allowed.
  *
  *  Value: "SPOOFING_APPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
 /**
  *  Initial state: packet originating from a Compute Engine instance.
  *  An InstanceInfo will be populated with starting instance info.
  *
  *  Value: "START_FROM_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance;
 /**
  *  Initial state: packet originating from Internet.
  *  The endpoint info will be populated.
  *
  *  Value: "START_FROM_INTERNET"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet;
 /**
  *  Initial state: packet originating from a VPC or on-premises network
  *  with internal source IP.
@@ -756,20 +756,20 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet
  *
  *  Value: "START_FROM_PRIVATE_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified;
 /**
  *  Special state: viewer of the test result does not have permission to
  *  see the configuration in this step.
  *
  *  Value: "VIEWER_PERMISSION_MISSING"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionMissing;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_VpnTunnelInfo.routingType
@@ -779,25 +779,25 @@ GTLR_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ViewerPermissionM
  *
  *  Value: "DYNAMIC"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_Dynamic;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_Dynamic;
 /**
  *  Policy based routing.
  *
  *  Value: "POLICY_BASED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_PolicyBased;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_PolicyBased;
 /**
  *  Route based VPN.
  *
  *  Value: "ROUTE_BASED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RouteBased;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RouteBased;
 /**
  *  Unspecified type. Default value.
  *
  *  Value: "ROUTING_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUnspecified;
 
 /**
  *  Details of the final state "abort" and associated resource.

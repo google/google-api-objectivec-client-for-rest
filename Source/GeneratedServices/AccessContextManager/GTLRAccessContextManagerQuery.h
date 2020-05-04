@@ -41,11 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
 // accessLevelFormat
 
 /** Value: "AS_DEFINED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatAsDefined;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatAsDefined;
 /** Value: "CEL" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatCel;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatCel;
 /** Value: "LEVEL_FORMAT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

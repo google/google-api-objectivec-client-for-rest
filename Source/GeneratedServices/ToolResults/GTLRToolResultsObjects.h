@@ -97,77 +97,77 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRToolResults_BasicPerfSampleSeries.perfMetricType
 
 /** Value: "CPU" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu;
 /** Value: "GRAPHICS" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics;
 /** Value: "MEMORY" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory;
 /** Value: "NETWORK" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network;
 /** Value: "PERF_METRIC_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_BasicPerfSampleSeries.perfUnit
 
 /** Value: "BYTE" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte;
 /** Value: "BYTES_PER_SECOND" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond;
 /** Value: "FRAMES_PER_SECOND" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond;
 /** Value: "KIBIBYTE" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte;
 /** Value: "PERCENT" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent;
 /** Value: "PERF_UNIT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_BasicPerfSampleSeries.sampleSeriesLabel
 
 /** Value: "CPU_KERNEL" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel;
 /** Value: "CPU_TOTAL" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal;
 /**
  *  CPU sample series
  *
  *  Value: "CPU_USER"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser;
 /**
  *  Graphics sample series
  *
  *  Value: "GRAPHICS_FRAME_RATE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate;
 /**
  *  Memory sample series
  *
  *  Value: "MEMORY_RSS_PRIVATE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate;
 /** Value: "MEMORY_RSS_SHARED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared;
 /** Value: "MEMORY_RSS_TOTAL" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal;
 /** Value: "MEMORY_TOTAL" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal;
 /** Value: "NETWORK_RECEIVED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived;
 /** Value: "NETWORK_SENT" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent;
 /** Value: "NT_BYTES_RECEIVED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived;
 /**
  *  Network sample series
  *
  *  Value: "NT_BYTES_TRANSFERRED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred;
 /** Value: "SAMPLE_SERIES_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_Execution.state
@@ -178,13 +178,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeries
  *
  *  Value: "COMPLETE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Execution_State_Complete;
 /**
  *  The Execution/Step is in progress.
  *
  *  Value: "IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Execution_State_InProgress;
 /**
  *  The Execution/Step is created, ready to run, but not running yet.
  *  If an Execution/Step is created without initial state, it is assumed
@@ -192,14 +192,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_InProgress;
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Execution_State_Pending;
 /**
  *  Should never be in this state. Exists for proto deserialization backward
  *  compatibility.
  *
  *  Value: "UNKNOWN_STATE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_UnknownState;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Execution_State_UnknownState;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_IndividualOutcome.outcomeSummary
@@ -212,14 +212,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Execution_State_UnknownState;
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure;
 /**
  *  A group of steps that were run with the same configuration had both
  *  failure and success outcomes.
  *
  *  Value: "FLAKY"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky;
 /**
  *  Something unexpected happened. The run should still be considered
  *  unsuccessful but this is likely a transient problem and re-running the
@@ -227,14 +227,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_F
  *
  *  Value: "INCONCLUSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive;
 /**
  *  All tests were skipped, for instance:
  *  - All device configurations were incompatible.
  *
  *  Value: "SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped;
 /**
  *  The test matrix run was successful, for instance:
  *  - All the test cases passed.
@@ -242,13 +242,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_S
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "UNSET"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_MergedResult.state
@@ -259,13 +259,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_U
  *
  *  Value: "COMPLETE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_MergedResult_State_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_MergedResult_State_Complete;
 /**
  *  The Execution/Step is in progress.
  *
  *  Value: "IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_MergedResult_State_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_MergedResult_State_InProgress;
 /**
  *  The Execution/Step is created, ready to run, but not running yet.
  *  If an Execution/Step is created without initial state, it is assumed
@@ -273,32 +273,32 @@ GTLR_EXTERN NSString * const kGTLRToolResults_MergedResult_State_InProgress;
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_MergedResult_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_MergedResult_State_Pending;
 /**
  *  Should never be in this state. Exists for proto deserialization backward
  *  compatibility.
  *
  *  Value: "UNKNOWN_STATE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_MergedResult_State_UnknownState;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_MergedResult_State_UnknownState;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_NonSdkApi.list
 
 /** Value: "BLACK" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_Black;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_Black;
 /** Value: "GREY" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_Grey;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_Grey;
 /** Value: "GREY_MAX_O" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO;
 /** Value: "GREY_MAX_P" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP;
 /** Value: "GREY_MAX_Q" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_None;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_None;
 /** Value: "WHITE" */
-GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_White;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_White;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_Outcome.summary
@@ -311,14 +311,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_White;
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Failure;
 /**
  *  A group of steps that were run with the same configuration had both
  *  failure and success outcomes.
  *
  *  Value: "FLAKY"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Flaky;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Flaky;
 /**
  *  Something unexpected happened. The run should still be considered
  *  unsuccessful but this is likely a transient problem and re-running the
@@ -326,14 +326,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Flaky;
  *
  *  Value: "INCONCLUSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive;
 /**
  *  All tests were skipped, for instance:
  *  - All device configurations were incompatible.
  *
  *  Value: "SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Skipped;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Skipped;
 /**
  *  The test matrix run was successful, for instance:
  *  - All the test cases passed.
@@ -341,27 +341,27 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Skipped;
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Success;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Success;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "UNSET"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Unset;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Unset;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_PerfMetricsSummary.perfMetrics
 
 /** Value: "CPU" */
-GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu;
 /** Value: "GRAPHICS" */
-GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics;
 /** Value: "MEMORY" */
-GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory;
 /** Value: "NETWORK" */
-GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network;
 /** Value: "PERF_METRIC_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_PrimaryStep.rollUp
@@ -374,14 +374,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Per
  *
  *  Value: "FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure;
 /**
  *  A group of steps that were run with the same configuration had both
  *  failure and success outcomes.
  *
  *  Value: "FLAKY"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky;
 /**
  *  Something unexpected happened. The run should still be considered
  *  unsuccessful but this is likely a transient problem and re-running the
@@ -389,14 +389,14 @@ GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky;
  *
  *  Value: "INCONCLUSIVE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive;
 /**
  *  All tests were skipped, for instance:
  *  - All device configurations were incompatible.
  *
  *  Value: "SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped;
 /**
  *  The test matrix run was successful, for instance:
  *  - All the test cases passed.
@@ -404,13 +404,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped;
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success;
 /**
  *  Do not use. For proto versioning only.
  *
  *  Value: "UNSET"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_Step.state
@@ -421,13 +421,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset;
  *
  *  Value: "COMPLETE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Step_State_Complete;
 /**
  *  The Execution/Step is in progress.
  *
  *  Value: "IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Step_State_InProgress;
 /**
  *  The Execution/Step is created, ready to run, but not running yet.
  *  If an Execution/Step is created without initial state, it is assumed
@@ -435,40 +435,40 @@ GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_InProgress;
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Step_State_Pending;
 /**
  *  Should never be in this state. Exists for proto deserialization backward
  *  compatibility.
  *
  *  Value: "UNKNOWN_STATE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_Step_State_UnknownState;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_SuggestionClusterProto.category
 
 /** Value: "CONTENT_LABELING" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_ContentLabeling;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_ContentLabeling;
 /** Value: "IMPLEMENTATION" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_Implementation;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_Implementation;
 /** Value: "LOW_CONTRAST" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_LowContrast;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_LowContrast;
 /** Value: "TOUCH_TARGET_SIZE" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_TouchTargetSize;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_TouchTargetSize;
 /** Value: "UNKNOWN_CATEGORY" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_UnknownCategory;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionClusterProto_Category_UnknownCategory;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_SuggestionProto.priority
 
 /** Value: "ERROR" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Error;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Error;
 /** Value: "INFO" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Info;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Info;
 /** Value: "UNKNOWN_PRIORITY" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_UnknownPriority;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_UnknownPriority;
 /** Value: "WARNING" */
-GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_TestCase.status
@@ -478,13 +478,13 @@ GTLR_EXTERN NSString * const kGTLRToolResults_SuggestionProto_Priority_Warning;
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Error;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Error;
 /**
  *  Test failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Failed;
 /**
  *  Test flaked.
  *  Present only for rollup test cases; test cases from steps that were run
@@ -492,19 +492,19 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Failed;
  *
  *  Value: "FLAKY"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Flaky;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Flaky;
 /**
  *  Test passed.
  *
  *  Value: "PASSED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Passed;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Passed;
 /**
  *  Test skipped
  *
  *  Value: "SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Skipped;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Skipped;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_TestIssue.category
@@ -514,20 +514,20 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Skipped;
  *
  *  Value: "COMMON"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Common;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Common;
 /**
  *  Issue is specific to Robo run.
  *
  *  Value: "ROBO"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Robo;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Robo;
 /**
  *  Default unspecified category.
  *  Do not use. For versioning only.
  *
  *  Value: "UNSPECIFIED_CATEGORY"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_TestIssue.severity
@@ -537,33 +537,33 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCate
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Info;
 /**
  *  Critical issue.
  *
  *  Value: "SEVERE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Severe;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Severe;
 /**
  *  Non critical issue, providing users with some hints on improving their
  *  testing experience, e.g., suggesting to use Game Loops.
  *
  *  Value: "SUGGESTION"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion;
 /**
  *  Default unspecified severity.
  *  Do not use. For versioning only.
  *
  *  Value: "UNSPECIFIED_SEVERITY"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity;
 /**
  *  Potentially critical issue.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRToolResults_TestIssue.type
@@ -573,171 +573,171 @@ GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Warning;
  *
  *  Value: "ANR"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_Anr;
 /**
  *  The app-under-test has deep links, but none were provided to Robo.
  *
  *  Value: "AVAILABLE_DEEP_LINKS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks;
 /**
  *  Blank screen is found in the Robo crawl
  *
  *  Value: "BLANK_SCREEN"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen;
 /**
  *  Issue is a suggestion to use orchestrator.
  *
  *  Value: "COMPATIBLE_WITH_ORCHESTRATOR"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator;
 /**
  *  A Robo script was fully and successfully executed.
  *
  *  Value: "COMPLETE_ROBO_SCRIPT_EXECUTION"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution;
 /**
  *  Crash dialog was detected during the test execution
  *
  *  Value: "CRASH_DIALOG_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError;
 /**
  *  Robo crawl encountered at least one probable login screen.
  *
  *  Value: "ENCOUNTERED_LOGIN_SCREEN"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen;
 /**
  *  Robo crawl encountered at least one screen with elements that are not
  *  Android UI widgets.
  *
  *  Value: "ENCOUNTERED_NON_ANDROID_UI_WIDGET_SCREEN"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen;
 /**
  *  The APK failed to install.
  *
  *  Value: "FAILED_TO_INSTALL"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall;
 /**
  *  Issue is a fatal exception.
  *
  *  Value: "FATAL_EXCEPTION"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_FatalException;
 /**
  *  Robo crawl involved some in-app purchases.
  *
  *  Value: "IN_APP_PURCHASES"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases;
 /**
  *  A Robo script was not fully executed.
  *
  *  Value: "INCOMPLETE_ROBO_SCRIPT_EXECUTION"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution;
 /**
  *  Robo did not crawl some potentially important parts of the app.
  *
  *  Value: "INSUFFICIENT_COVERAGE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage;
 /**
  *  iOS App crashed without an exception (e.g. killed).
  *
  *  Value: "IOS_CRASH"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosCrash;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosCrash;
 /**
  *  iOS App crashed with an exception.
  *
  *  Value: "IOS_EXCEPTION"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosException;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosException;
 /**
  *  Issue with finding a launcher activity
  *
  *  Value: "LAUNCHER_ACTIVITY_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /**
  *  Issue is a native crash.
  *
  *  Value: "NATIVE_CRASH"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash;
 /**
  *  App accessed a non-sdk Api (new detailed report)
  *
  *  Value: "NON_SDK_API_USAGE_REPORT"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport;
 /**
  *  App accessed a non-sdk Api.
  *
  *  Value: "NON_SDK_API_USAGE_VIOLATION"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation;
 /**
  *  Overlapping UI elements are found in the Robo crawl
  *
  *  Value: "OVERLAPPING_UI_ELEMENTS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_OverlappingUiElements;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_OverlappingUiElements;
 /**
  *  Robo signed in with Google.
  *
  *  Value: "PERFORMED_GOOGLE_LOGIN"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin;
 /**
  *  Robo crawl involved performing some monkey actions.
  *
  *  Value: "PERFORMED_MONKEY_ACTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions;
 /**
  *  Issue with resolving a user-provided intent to start an activity
  *
  *  Value: "START_ACTIVITY_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound;
 /**
  *  UI element depth is greater than the threshold
  *
  *  Value: "UI_ELEMENTS_TOO_DEEP"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UiElementsTooDeep;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UiElementsTooDeep;
 /**
  *  Default unspecified type.
  *  Do not use. For versioning only.
  *
  *  Value: "UNSPECIFIED_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType;
 /**
  *  Issue is an unused robo directive.
  *
  *  Value: "UNUSED_ROBO_DIRECTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective;
 /**
  *  Robo crawl used a Robo directive.
  *
  *  Value: "USED_ROBO_DIRECTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective;
 /**
  *  Robo crawl used a Robo directive to ignore an UI element.
  *
  *  Value: "USED_ROBO_IGNORE_DIRECTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective;
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective;
 
 /**
  *  Android app information.

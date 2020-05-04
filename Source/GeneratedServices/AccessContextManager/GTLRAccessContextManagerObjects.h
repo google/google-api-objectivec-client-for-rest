@@ -54,37 +54,37 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_And;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_And;
 /**
  *  If at least one `Condition` is true, then the `BasicLevel` is true.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_Or;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_DevicePolicy.allowedDeviceManagementLevels
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_Basic;
 /** Value: "COMPLETE" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_Complete;
 /** Value: "MANAGEMENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_None;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_None;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_DevicePolicy.allowedEncryptionStatuses
 
 /** Value: "ENCRYPTED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Encrypted;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Encrypted;
 /** Value: "ENCRYPTION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
 /** Value: "ENCRYPTION_UNSUPPORTED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
 /** Value: "UNENCRYPTED" */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_OsConstraint.osType
@@ -94,43 +94,43 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncry
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android;
 /**
  *  A desktop ChromeOS operating system.
  *
  *  Value: "DESKTOP_CHROME_OS"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs;
 /**
  *  A desktop Linux operating system.
  *
  *  Value: "DESKTOP_LINUX"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopLinux;
 /**
  *  A desktop Mac operating system.
  *
  *  Value: "DESKTOP_MAC"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopMac;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopMac;
 /**
  *  A desktop Windows operating system.
  *
  *  Value: "DESKTOP_WINDOWS"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopWindows;
 /**
  *  An iOS operating system.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Ios;
 /**
  *  The operating system of the device is not specified or not known.
  *
  *  Value: "OS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_ServicePerimeter.perimeterType
@@ -140,13 +140,13 @@ GTLR_EXTERN NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUns
  *
  *  Value: "PERIMETER_TYPE_BRIDGE"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge;
 /**
  *  Regular Perimeter.
  *
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
-GTLR_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 /**
  *  An `AccessLevel` is a label that can be applied to requests to Google Cloud

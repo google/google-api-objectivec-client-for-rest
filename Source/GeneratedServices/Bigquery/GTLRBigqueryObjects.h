@@ -149,16 +149,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ANY_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyType;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_AnyType;
 /** Value: "ARGUMENT_KIND_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_ArgumentKindUnspecified;
 /**
  *  The argument is a variable with fully specified type, which can be a
  *  struct or an array, but not a table.
  *
  *  Value: "FIXED_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_FixedType;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_FixedType;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Argument.mode
@@ -168,57 +168,57 @@ GTLR_EXTERN NSString * const kGTLRBigquery_Argument_ArgumentKind_FixedType;
  *
  *  Value: "IN"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_Mode_In;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_In;
 /**
  *  The argument is both an input and an output.
  *
  *  Value: "INOUT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Inout;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Inout;
 /** Value: "MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified;
 /**
  *  The argument is output-only.
  *
  *  Value: "OUT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Out;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Out;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_ArimaModelInfo.seasonalPeriods
 
 /** Value: "DAILY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily;
 /** Value: "MONTHLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Monthly;
 /** Value: "NO_SEASONALITY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_NoSeasonality;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_NoSeasonality;
 /** Value: "QUARTERLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly;
 /** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /** Value: "WEEKLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Weekly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Weekly;
 /** Value: "YEARLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Yearly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_ArimaResult.seasonalPeriods
 
 /** Value: "DAILY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Daily;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Daily;
 /** Value: "MONTHLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Monthly;
 /** Value: "NO_SEASONALITY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_NoSeasonality;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_NoSeasonality;
 /** Value: "QUARTERLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Quarterly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Quarterly;
 /** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /** Value: "WEEKLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Weekly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Weekly;
 /** Value: "YEARLY" */
-GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Model.modelType
@@ -228,69 +228,69 @@ GTLR_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly;
  *
  *  Value: "AUTOML_CLASSIFIER"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier;
 /**
  *  AutoML Tables regression model.
  *
  *  Value: "AUTOML_REGRESSOR"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor;
 /**
  *  Boosted tree classifier model.
  *
  *  Value: "BOOSTED_TREE_CLASSIFIER"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier;
 /**
  *  Boosted tree regressor model.
  *
  *  Value: "BOOSTED_TREE_REGRESSOR"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegressor;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegressor;
 /**
  *  DNN classifier model.
  *
  *  Value: "DNN_CLASSIFIER"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnClassifier;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnClassifier;
 /**
  *  DNN regressor model.
  *
  *  Value: "DNN_REGRESSOR"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnRegressor;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnRegressor;
 /**
  *  K-means clustering model.
  *
  *  Value: "KMEANS"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Kmeans;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Kmeans;
 /**
  *  Linear regression model.
  *
  *  Value: "LINEAR_REGRESSION"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LinearRegression;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LinearRegression;
 /**
  *  Logistic regression based classification model.
  *
  *  Value: "LOGISTIC_REGRESSION"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LogisticRegression;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LogisticRegression;
 /**
  *  Matrix factorization model.
  *
  *  Value: "MATRIX_FACTORIZATION"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization;
 /** Value: "MODEL_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified;
 /**
  *  [Beta] An imported TensorFlow model.
  *
  *  Value: "TENSORFLOW"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Routine.language
@@ -300,15 +300,15 @@ GTLR_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
  *
  *  Value: "JAVASCRIPT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Routine_Language_Javascript;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Javascript;
 /** Value: "LANGUAGE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified;
 /**
  *  SQL language.
  *
  *  Value: "SQL"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Routine_Language_Sql;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_Language_Sql;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Routine.routineType
@@ -318,15 +318,15 @@ GTLR_EXTERN NSString * const kGTLRBigquery_Routine_Language_Sql;
  *
  *  Value: "PROCEDURE"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_Procedure;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_Procedure;
 /** Value: "ROUTINE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified;
 /**
  *  Non-builtin permanent scalar function.
  *
  *  Value: "SCALAR_FUNCTION"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_StandardSqlDataType.typeKind
@@ -336,87 +336,87 @@ GTLR_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction;
  *
  *  Value: "ARRAY"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array;
 /**
  *  Encoded as a boolean "false" or "true".
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bool;
 /**
  *  Encoded as a base64 string per RFC 4648, section 4.
  *
  *  Value: "BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bytes;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bytes;
 /**
  *  Encoded as RFC 3339 full-date format string: 1985-04-12
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Date;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Date;
 /**
  *  Encoded as RFC 3339 full-date "T" partial-time: 1985-04-12T23:20:50.52
  *
  *  Value: "DATETIME"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Datetime;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Datetime;
 /**
  *  Encoded as a number, or string "NaN", "Infinity" or "-Infinity".
  *
  *  Value: "FLOAT64"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Float64;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Float64;
 /**
  *  Encoded as WKT
  *
  *  Value: "GEOGRAPHY"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Geography;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Geography;
 /**
  *  Encoded as a string in decimal format.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Int64;
 /**
  *  Encoded as a decimal string.
  *
  *  Value: "NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric;
 /**
  *  Encoded as a string value.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_String;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_String;
 /**
  *  Encoded as a list with fields of type Type.struct_type[i]. List is used
  *  because a JSON object cannot have duplicate field names.
  *
  *  Value: "STRUCT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct;
 /**
  *  Encoded as RFC 3339 partial-time format string: 23:20:50.52
  *
  *  Value: "TIME"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time;
 /**
  *  Encoded as an RFC 3339 timestamp with mandatory "Z" time zone string:
  *  1985-04-12T23:20:50.52Z
  *
  *  Value: "TIMESTAMP"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Timestamp;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Timestamp;
 /**
  *  Invalid type.
  *
  *  Value: "TYPE_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.dataSplitMethod
@@ -427,33 +427,33 @@ GTLR_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKind
  *
  *  Value: "AUTO_SPLIT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_AutoSplit;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_AutoSplit;
 /**
  *  Splits data with the user provided tags.
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Custom;
 /** Value: "DATA_SPLIT_METHOD_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_DataSplitMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_DataSplitMethodUnspecified;
 /**
  *  Data split will be skipped.
  *
  *  Value: "NO_SPLIT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_NoSplit;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_NoSplit;
 /**
  *  Splits data randomly.
  *
  *  Value: "RANDOM"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Random;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Random;
 /**
  *  Splits data sequentially.
  *
  *  Value: "SEQUENTIAL"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Sequential;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Sequential;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.distanceType
@@ -463,15 +463,15 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Seque
  *
  *  Value: "COSINE"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Cosine;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Cosine;
 /** Value: "DISTANCE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_DistanceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_DistanceTypeUnspecified;
 /**
  *  Eculidean distance.
  *
  *  Value: "EUCLIDEAN"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Euclidean;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Euclidean;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.feedbackType
@@ -481,15 +481,15 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Euclidea
  *
  *  Value: "EXPLICIT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Explicit;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Explicit;
 /** Value: "FEEDBACK_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_FeedbackTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_FeedbackTypeUnspecified;
 /**
  *  Use weighted-als for implicit feedback problems.
  *
  *  Value: "IMPLICIT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Implicit;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Implicit;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.kmeansInitializationMethod
@@ -500,21 +500,21 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Implicit
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Custom;
 /** Value: "KMEANS_INITIALIZATION_METHOD_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansInitializationMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansInitializationMethodUnspecified;
 /**
  *  Initializes with kmeans++.
  *
  *  Value: "KMEANS_PLUS_PLUS"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansPlusPlus;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansPlusPlus;
 /**
  *  Initializes the centroids randomly.
  *
  *  Value: "RANDOM"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Random;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Random;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.learnRateStrategy
@@ -524,33 +524,33 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationM
  *
  *  Value: "CONSTANT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_Constant;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_Constant;
 /** Value: "LEARN_RATE_STRATEGY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_LearnRateStrategyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_LearnRateStrategyUnspecified;
 /**
  *  Use line search to determine learning rate.
  *
  *  Value: "LINE_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_LineSearch;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LearnRateStrategy_LineSearch;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.lossType
 
 /** Value: "LOSS_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_LossTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_LossTypeUnspecified;
 /**
  *  Mean log loss, used for logistic regression.
  *
  *  Value: "MEAN_LOG_LOSS"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanLogLoss;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanLogLoss;
 /**
  *  Mean squared loss, used for linear regression.
  *
  *  Value: "MEAN_SQUARED_LOSS"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSquaredLoss;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSquaredLoss;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.optimizationStrategy
@@ -560,15 +560,15 @@ GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSquaredL
  *
  *  Value: "BATCH_GRADIENT_DESCENT"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_BatchGradientDescent;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_BatchGradientDescent;
 /**
  *  Uses a normal equation to solve linear regression problem.
  *
  *  Value: "NORMAL_EQUATION"
  */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation;
 /** Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified;
 
 /**
  *  Aggregate metrics for classification/classifier models. For multi-class

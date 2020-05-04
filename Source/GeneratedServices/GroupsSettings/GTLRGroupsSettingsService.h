@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/apps.groups.settings"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGroupsSettingsAppsGroupsSettings;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGroupsSettingsAppsGroupsSettings;
 
 // ----------------------------------------------------------------------------
 //   GTLRGroupsSettingsService

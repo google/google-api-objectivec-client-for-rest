@@ -38,11 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 // executableVersion
 
 /** Value: "FIREBASE_RULES_EXECUTABLE_V1" */
-GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1;
 /** Value: "FIREBASE_RULES_EXECUTABLE_V2" */
-GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2;
 /** Value: "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes
