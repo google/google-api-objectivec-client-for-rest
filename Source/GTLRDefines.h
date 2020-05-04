@@ -68,15 +68,3 @@
     #define GTLR_DEBUG_LOG(...) do { } while (0)
   #endif
 #endif
-
-#ifndef GTLR_DEBUG_ASSERT_CURRENT_QUEUE
-  #define GTLR_ASSERT_CURRENT_QUEUE_DEBUG(targetQueue)                  \
-      GTLR_DEBUG_ASSERT(0 == strcmp(GTLR_QUEUE_NAME(targetQueue),       \
-                        GTLR_QUEUE_NAME(DISPATCH_CURRENT_QUEUE_LABEL)), \
-          @"Current queue is %s (expected %s)",                         \
-          GTLR_QUEUE_NAME(DISPATCH_CURRENT_QUEUE_LABEL),                \
-          GTLR_QUEUE_NAME(targetQueue))
-
-  #define GTLR_QUEUE_NAME(queue) \
-      (strlen(dispatch_queue_get_label(queue)) > 0 ? dispatch_queue_get_label(queue) : "unnamed")
-#endif  // GTLR_ASSERT_CURRENT_QUEUE_DEBUG
