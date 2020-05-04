@@ -151,41 +151,41 @@
   "}";
 
   static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-      NSString *resourcePath = [testBundle resourcePath];
+  dispatch_once(&onceToken, ^{
+    NSString *resourcePath = [testBundle resourcePath];
 
-      if (![[NSFileManager defaultManager] fileExistsAtPath:resourcePath]) {
-          NSError *createDirectoryError = nil;
-          if (![[NSFileManager defaultManager] createDirectoryAtPath:resourcePath
-                                         withIntermediateDirectories:true
-                                                          attributes:nil
-                                                               error:&createDirectoryError]) {
-            NSLog(@"Failed to create the resources directory \"%@\"",
-                  createDirectoryError);
-          }
-      }
-
-      NSData *testData = [base64TestDataString dataUsingEncoding:NSUTF8StringEncoding];
-      NSError *readError = nil;
-      NSDictionary *dataFiles = [NSJSONSerialization JSONObjectWithData:testData
-                                                                options:0
-                                                                  error:&readError];
-      if (readError) {
-        NSLog(@"Cannot decode base64 encoded test data \"%@\" at %@",
-              readError, testBundle.resourcePath);
-      }
-
-      [dataFiles enumerateKeysAndObjectsUsingBlock: ^(NSString *fileName, NSString *base64Data,  BOOL *stop) {
-        NSString *path = [resourcePath stringByAppendingPathComponent:fileName];
-        NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Data options:0];
-        NSError *writeError = nil;
-
-        if (![data writeToFile:path options:NSDataWritingAtomic error:&writeError]) {
-          NSLog(@"Failed to write `%@` bundle resources folder \"%@\" at %@",
-                fileName, writeError, testBundle.resourcePath);
+    if (![[NSFileManager defaultManager] fileExistsAtPath:resourcePath]) {
+        NSError *createDirectoryError = nil;
+        if (![[NSFileManager defaultManager] createDirectoryAtPath:resourcePath
+                                       withIntermediateDirectories:true
+                                                        attributes:nil
+                                                             error:&createDirectoryError]) {
+          NSLog(@"Failed to create the resources directory \"%@\"",
+                createDirectoryError);
         }
-      }];
-    });
+    }
+
+    NSData *testData = [base64TestDataString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *readError = nil;
+    NSDictionary *dataFiles = [NSJSONSerialization JSONObjectWithData:testData
+                                                              options:0
+                                                                error:&readError];
+    if (readError) {
+      NSLog(@"Cannot decode base64 encoded test data \"%@\" at %@",
+            readError, testBundle.resourcePath);
+    }
+
+    [dataFiles enumerateKeysAndObjectsUsingBlock: ^(NSString *fileName, NSString *base64Data,  BOOL *stop) {
+      NSString *path = [resourcePath stringByAppendingPathComponent:fileName];
+      NSData *data = [[NSData alloc] initWithBase64EncodedString:base64Data options:0];
+      NSError *writeError = nil;
+
+      if (![data writeToFile:path options:NSDataWritingAtomic error:&writeError]) {
+        NSLog(@"Failed to write `%@` bundle resources folder \"%@\" at %@",
+              fileName, writeError, testBundle.resourcePath);
+      }
+    }];
+  });
 #endif
   NSURL *fileURL = [testBundle URLForResource:fileName
                                 withExtension:nil];
