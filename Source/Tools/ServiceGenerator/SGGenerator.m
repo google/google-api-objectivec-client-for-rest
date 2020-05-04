@@ -2090,7 +2090,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 
         if (doesQueryTakeObject) {
           [paramChecks addObject:@"object == nil"];
-          [assertLines addObject:@"    GTLR_DEBUG_ASSERT(object != nil, @\"Got a nil object\");\n"];
+          [assertLines addObject:@"    NSAssert(object != nil, @\"Got a nil object\");\n"];
         }
 
         // At this point we used to loop over the requiredParams and make sure
@@ -2117,7 +2117,11 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
                                                         elementJoiner:@" || "];
           [methodStr appendString:paramCheckStr];
 
-          [methodStr appendString:[assertLines componentsJoinedByString:@""]];
+          if (assertLines.count) {
+            [methodStr appendString:@"#if defined(DEBUG) && DEBUG\n"];
+            [methodStr appendString:[assertLines componentsJoinedByString:@""]];
+            [methodStr appendString:@"#endif\n"];
+          }
 
           [methodStr appendString:@"    return nil;\n"];
           [methodStr appendString:@"  }\n"];
