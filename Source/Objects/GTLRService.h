@@ -18,7 +18,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GTLRDefines.h"
 #import "GTLRBatchQuery.h"
 #import "GTLRBatchResult.h"
 #import "GTLRDateTime.h"

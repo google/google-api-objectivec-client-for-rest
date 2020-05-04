@@ -18,7 +18,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GTLRDefines.h"
 #import "GTLRDateTime.h"
 #import "GTLRDuration.h"
 

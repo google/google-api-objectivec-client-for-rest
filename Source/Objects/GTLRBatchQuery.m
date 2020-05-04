@@ -19,6 +19,7 @@
 
 #import "GTLRBatchQuery.h"
 
+#import "GTLRDefines.h"
 #import "GTLRService.h"
 
 #if DEBUG
