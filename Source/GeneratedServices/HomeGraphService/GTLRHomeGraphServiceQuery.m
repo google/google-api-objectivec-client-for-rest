@@ -39,7 +39,9 @@
 
 + (instancetype)queryWithObject:(GTLRHomeGraphService_QueryRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/devices:query";
@@ -59,7 +61,9 @@
 
 + (instancetype)queryWithObject:(GTLRHomeGraphService_ReportStateAndNotificationRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/devices:reportStateAndNotification";
@@ -79,7 +83,9 @@
 
 + (instancetype)queryWithObject:(GTLRHomeGraphService_RequestSyncDevicesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/devices:requestSync";
@@ -99,7 +105,9 @@
 
 + (instancetype)queryWithObject:(GTLRHomeGraphService_SyncRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/devices:sync";

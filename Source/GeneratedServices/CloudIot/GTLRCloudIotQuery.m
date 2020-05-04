@@ -38,7 +38,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_BindDeviceToGatewayRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -63,7 +65,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_DeviceRegistry *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -126,7 +130,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -228,7 +234,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_ModifyCloudToDeviceConfigRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -253,7 +261,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_Device *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -278,7 +288,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_SendCommandToDeviceRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -341,7 +353,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -405,7 +419,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -430,7 +446,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -455,7 +473,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -499,7 +519,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_DeviceRegistry *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -524,7 +546,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -549,7 +573,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -574,7 +600,9 @@ NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway = @"NON_GA
 + (instancetype)queryWithObject:(GTLRCloudIot_UnbindDeviceFromGatewayRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];

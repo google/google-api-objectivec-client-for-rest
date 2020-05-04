@@ -34,7 +34,9 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 + (instancetype)queryWithObject:(GTLRCloudIdentity_Group *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/groups";
@@ -137,7 +139,9 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRCloudIdentity_Membership *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -246,7 +250,9 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRCloudIdentity_Group *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

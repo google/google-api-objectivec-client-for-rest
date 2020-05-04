@@ -59,7 +59,9 @@
 
 + (instancetype)queryWithObject:(GTLRTasks_TaskList *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"users/@me/lists";
@@ -99,7 +101,9 @@
 + (instancetype)queryWithObject:(GTLRTasks_TaskList *)object
                        tasklist:(NSString *)tasklist {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"tasklist" ];
@@ -124,7 +128,9 @@
 + (instancetype)queryWithObject:(GTLRTasks_TaskList *)object
                        tasklist:(NSString *)tasklist {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"tasklist" ];
@@ -212,7 +218,9 @@
 + (instancetype)queryWithObject:(GTLRTasks_Task *)object
                        tasklist:(NSString *)tasklist {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"tasklist" ];
@@ -281,7 +289,9 @@
                        tasklist:(NSString *)tasklist
                            task:(NSString *)task {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -310,7 +320,9 @@
                        tasklist:(NSString *)tasklist
                            task:(NSString *)task {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

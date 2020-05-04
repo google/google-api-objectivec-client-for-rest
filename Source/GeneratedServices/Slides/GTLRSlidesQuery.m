@@ -41,7 +41,9 @@ NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspeci
 + (instancetype)queryWithObject:(GTLRSlides_BatchUpdatePresentationRequest *)object
                  presentationId:(NSString *)presentationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"presentationId" ];
@@ -63,7 +65,9 @@ NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspeci
 
 + (instancetype)queryWithObject:(GTLRSlides_Presentation *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/presentations";

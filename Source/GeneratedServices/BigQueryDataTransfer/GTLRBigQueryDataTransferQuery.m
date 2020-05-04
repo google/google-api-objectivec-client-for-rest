@@ -51,7 +51,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_CheckValidCredsRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -114,7 +116,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_CheckValidCredsRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -215,7 +219,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -304,7 +310,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -419,7 +427,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -444,7 +454,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -469,7 +481,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -558,7 +572,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_TransferConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -673,7 +689,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -698,7 +716,9 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];

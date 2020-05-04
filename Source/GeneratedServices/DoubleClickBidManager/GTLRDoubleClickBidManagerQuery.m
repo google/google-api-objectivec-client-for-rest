@@ -22,7 +22,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_DownloadLineItemsRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"lineitems/downloadlineitems";
@@ -42,7 +44,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_UploadLineItemsRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"lineitems/uploadlineitems";
@@ -64,7 +68,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_Query *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"query";
@@ -141,7 +147,9 @@
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_RunQueryRequest *)object
                         queryId:(long long)queryId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"queryId" ];
@@ -181,7 +189,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickBidManager_DownloadRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"sdf/download";

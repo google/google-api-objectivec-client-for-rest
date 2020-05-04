@@ -148,7 +148,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Activity *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"activities";
@@ -243,7 +245,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
                            part:(NSString *)part
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"captions";
@@ -293,7 +297,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
                            part:(NSString *)part
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"captions";
@@ -318,7 +324,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelBannerResource *)object
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"channelBanners/insert";
@@ -363,7 +371,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelSection *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"channelSections";
@@ -409,7 +419,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelSection *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"channelSections";
@@ -456,7 +468,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Channel *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"channels";
@@ -501,7 +515,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Comment *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"comments";
@@ -591,7 +607,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Comment *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"comments";
@@ -615,7 +633,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"commentThreads";
@@ -663,7 +683,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"commentThreads";
@@ -816,7 +838,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveBroadcasts";
@@ -890,7 +914,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveBroadcasts";
@@ -935,7 +961,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatBan *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveChat/bans";
@@ -980,7 +1008,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatMessage *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveChat/messages";
@@ -1045,7 +1075,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatModerator *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveChat/moderators";
@@ -1110,7 +1142,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveStreams";
@@ -1157,7 +1191,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liveStreams";
@@ -1239,7 +1275,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"playlistItems";
@@ -1286,7 +1324,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"playlistItems";
@@ -1331,7 +1371,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Playlist *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"playlists";
@@ -1378,7 +1420,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Playlist *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"playlists";
@@ -1465,7 +1509,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Subscription *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"subscriptions";
@@ -1636,7 +1682,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
                            part:(NSString *)part
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"videos";
@@ -1707,7 +1755,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 + (instancetype)queryWithObject:(GTLRYouTube_VideoAbuseReport *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"videos/reportAbuse";
@@ -1729,7 +1779,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 + (instancetype)queryWithObject:(GTLRYouTube_Video *)object
                            part:(NSString *)part {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"videos";
@@ -1754,7 +1806,9 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
                       channelId:(NSString *)channelId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"watermarks/set";

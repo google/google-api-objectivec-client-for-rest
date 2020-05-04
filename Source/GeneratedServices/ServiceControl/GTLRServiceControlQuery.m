@@ -26,7 +26,9 @@
 + (instancetype)queryWithObject:(GTLRServiceControl_AllocateQuotaRequest *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -51,7 +53,9 @@
 + (instancetype)queryWithObject:(GTLRServiceControl_CheckRequest *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -76,7 +80,9 @@
 + (instancetype)queryWithObject:(GTLRServiceControl_ReportRequest *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];

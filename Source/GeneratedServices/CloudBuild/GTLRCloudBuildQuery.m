@@ -25,7 +25,9 @@
 + (instancetype)queryWithObject:(GTLRCloudBuild_CancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -93,7 +95,9 @@
                       projectId:(NSString *)projectId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -121,7 +125,9 @@
 + (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -197,7 +203,9 @@
                       projectId:(NSString *)projectId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -225,7 +233,9 @@
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -316,7 +326,9 @@
                       projectId:(NSString *)projectId
                       triggerId:(NSString *)triggerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -345,7 +357,9 @@
                       projectId:(NSString *)projectId
                       triggerId:(NSString *)triggerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

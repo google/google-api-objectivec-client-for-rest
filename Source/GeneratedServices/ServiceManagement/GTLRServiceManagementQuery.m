@@ -74,7 +74,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_Service *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -141,7 +143,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_SubmitConfigSourceRequest *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -166,7 +170,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -191,7 +197,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -216,7 +224,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -238,7 +248,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 
 + (instancetype)queryWithObject:(GTLRServiceManagement_ManagedService *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/services";
@@ -280,7 +292,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_DisableServiceRequest *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -305,7 +319,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_EnableServiceRequest *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -327,7 +343,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 
 + (instancetype)queryWithObject:(GTLRServiceManagement_GenerateConfigReportRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/services:generateConfigReport";
@@ -388,7 +406,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -430,7 +450,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_Rollout *)object
                     serviceName:(NSString *)serviceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
@@ -497,7 +519,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -522,7 +546,9 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRServiceManagement_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];

@@ -103,7 +103,9 @@ NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified = @"PE
 + (instancetype)queryWithObject:(GTLRClouderrorreporting_ReportedErrorEvent *)object
                     projectName:(NSString *)projectName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectName" ];
@@ -185,7 +187,9 @@ NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified = @"PE
 + (instancetype)queryWithObject:(GTLRClouderrorreporting_ErrorGroup *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

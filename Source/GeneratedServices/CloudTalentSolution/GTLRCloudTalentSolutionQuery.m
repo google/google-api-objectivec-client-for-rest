@@ -51,7 +51,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateClientEventRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -76,7 +78,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateCompanyRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -158,7 +162,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_UpdateCompanyRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -210,7 +216,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_BatchDeleteJobsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -235,7 +243,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateJobRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -317,7 +327,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_UpdateJobRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -342,7 +354,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_SearchJobsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -367,7 +381,9 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 + (instancetype)queryWithObject:(GTLRCloudTalentSolution_SearchJobsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];

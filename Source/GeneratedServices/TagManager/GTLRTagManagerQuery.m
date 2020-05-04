@@ -145,7 +145,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Container *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -188,7 +190,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -269,7 +273,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -294,7 +300,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Environment *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -357,7 +365,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Container *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -533,7 +543,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_ContainerVersion *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -647,7 +659,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Workspace *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -672,7 +686,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_CreateContainerVersionRequestVersionOptions *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -715,7 +731,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -824,7 +842,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -867,7 +887,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Folder *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -968,7 +990,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Entity *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1011,7 +1035,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Tag *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1111,7 +1137,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Tag *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1136,7 +1164,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_CustomTemplate *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1236,7 +1266,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_CustomTemplate *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1261,7 +1293,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Trigger *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1361,7 +1395,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Trigger *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1386,7 +1422,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Workspace *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1411,7 +1449,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Variable *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1511,7 +1551,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Variable *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1536,7 +1578,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Zone *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1636,7 +1680,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Zone *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1697,7 +1743,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_Account *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];
@@ -1722,7 +1770,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_UserPermission *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1803,7 +1853,9 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 + (instancetype)queryWithObject:(GTLRTagManager_UserPermission *)object
                            path:(NSString *)path {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"path" ];

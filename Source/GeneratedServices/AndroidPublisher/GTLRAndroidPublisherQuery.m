@@ -54,7 +54,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                          editId:(NSString *)editId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -276,7 +278,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                          editId:(NSString *)editId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -305,7 +309,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                          editId:(NSString *)editId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -363,7 +369,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                  apkVersionCode:(NSInteger)apkVersionCode
               expansionFileType:(NSString *)expansionFileType {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -396,7 +404,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                  apkVersionCode:(NSInteger)apkVersionCode
               expansionFileType:(NSString *)expansionFileType {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -589,7 +599,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_AppEdit *)object
                     packageName:(NSString *)packageName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"packageName" ];
@@ -710,7 +722,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                          editId:(NSString *)editId
                        language:(NSString *)language {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -741,7 +755,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                          editId:(NSString *)editId
                        language:(NSString *)language {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -797,7 +813,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                          editId:(NSString *)editId
                           track:(NSString *)track {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -828,7 +846,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                          editId:(NSString *)editId
                           track:(NSString *)track {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -907,7 +927,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                          editId:(NSString *)editId
                           track:(NSString *)track {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -938,7 +960,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                          editId:(NSString *)editId
                           track:(NSString *)track {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1035,7 +1059,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"packageName" ];
@@ -1080,7 +1106,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                             sku:(NSString *)sku {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1109,7 +1137,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                             sku:(NSString *)sku {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1203,7 +1233,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                       productId:(NSString *)productId
                           token:(NSString *)token {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1258,7 +1290,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                  subscriptionId:(NSString *)subscriptionId
                           token:(NSString *)token {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1312,7 +1346,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                  subscriptionId:(NSString *)subscriptionId
                           token:(NSString *)token {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1476,7 +1512,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                        reviewId:(NSString *)reviewId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1505,7 +1543,9 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
                     packageName:(NSString *)packageName
                     versionCode:(long long)versionCode {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

@@ -59,7 +59,9 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 + (instancetype)queryWithObject:(GTLRPeopleService_CreateContactGroupRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/contactGroups";
@@ -137,7 +139,9 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 + (instancetype)queryWithObject:(GTLRPeopleService_ModifyContactGroupMembersRequest *)object
                    resourceName:(NSString *)resourceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resourceName" ];
@@ -162,7 +166,9 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 + (instancetype)queryWithObject:(GTLRPeopleService_UpdateContactGroupRequest *)object
                    resourceName:(NSString *)resourceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resourceName" ];
@@ -208,7 +214,9 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/people:createContact";
@@ -320,7 +328,9 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object
                    resourceName:(NSString *)resourceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resourceName" ];
@@ -345,7 +355,9 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 + (instancetype)queryWithObject:(GTLRPeopleService_UpdateContactPhotoRequest *)object
                    resourceName:(NSString *)resourceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resourceName" ];

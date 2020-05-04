@@ -96,7 +96,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Account *)object
                      identifier:(NSInteger)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];
@@ -125,7 +127,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Account *)object
                      identifier:(NSInteger)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];
@@ -208,7 +212,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
                       accountId:(long long)accountId
                       billingId:(long long)billingId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -237,7 +243,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
                       accountId:(long long)accountId
                       billingId:(long long)billingId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -309,7 +317,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_Creative *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"creatives";
@@ -405,7 +415,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_DeleteOrderDealsRequest *)object
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"proposalId" ];
@@ -430,7 +442,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_AddOrderDealsRequest *)object
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"proposalId" ];
@@ -474,7 +488,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_EditAllOrderDealsRequest *)object
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"proposalId" ];
@@ -499,7 +515,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_AddOrderNotesRequest *)object
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"proposalId" ];
@@ -543,7 +561,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_UpdatePrivateAuctionProposalRequest *)object
                privateAuctionId:(NSString *)privateAuctionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"privateAuctionId" ];
@@ -634,7 +654,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_PretargetingConfig *)object
                       accountId:(long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -679,7 +701,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
                       accountId:(long long)accountId
                        configId:(long long)configId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -708,7 +732,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
                       accountId:(long long)accountId
                        configId:(long long)configId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -788,7 +814,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
 
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyer_CreateOrdersRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"proposals/insert";
@@ -813,7 +841,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
                  revisionNumber:(long long)revisionNumber
                    updateAction:(NSString *)updateAction {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -879,7 +909,9 @@ NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms = @"updateNonTer
                  revisionNumber:(long long)revisionNumber
                    updateAction:(NSString *)updateAction {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

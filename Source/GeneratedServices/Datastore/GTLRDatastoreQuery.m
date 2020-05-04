@@ -26,7 +26,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_AllocateIdsRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -51,7 +53,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_BeginTransactionRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -76,7 +80,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_CommitRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -101,7 +107,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -126,7 +134,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -151,7 +161,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_GoogleDatastoreAdminV1Index *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -241,7 +253,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_LookupRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -342,7 +356,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_ReserveIdsRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -367,7 +383,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_RollbackRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -392,7 +410,9 @@
 + (instancetype)queryWithObject:(GTLRDatastore_RunQueryRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];

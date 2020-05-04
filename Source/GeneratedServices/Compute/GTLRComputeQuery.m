@@ -193,7 +193,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -326,7 +328,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -386,7 +390,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -419,7 +425,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -448,7 +456,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                   backendBucket:(NSString *)backendBucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -547,7 +557,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -592,7 +604,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                   backendBucket:(NSString *)backendBucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -621,7 +635,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                   backendBucket:(NSString *)backendBucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -650,7 +666,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -769,7 +787,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -797,7 +817,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -842,7 +864,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -871,7 +895,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -900,7 +926,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -934,7 +962,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -988,7 +1018,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1109,7 +1141,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1170,7 +1204,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1205,7 +1241,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1240,7 +1278,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1275,7 +1315,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1310,7 +1352,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1460,7 +1504,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_ExternalVpnGateway *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -1505,7 +1551,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1534,7 +1582,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1608,7 +1658,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Firewall *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -1653,7 +1705,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        firewall:(NSString *)firewall {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1682,7 +1736,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        firewall:(NSString *)firewall {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1780,7 +1836,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1833,7 +1891,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                  forwardingRule:(NSString *)forwardingRule {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1864,7 +1924,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                  forwardingRule:(NSString *)forwardingRule {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1939,7 +2001,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Address *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -2029,7 +2093,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -2074,7 +2140,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  forwardingRule:(NSString *)forwardingRule {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2103,7 +2171,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  forwardingRule:(NSString *)forwardingRule {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2132,7 +2202,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
            networkEndpointGroup:(NSString *)networkEndpointGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2184,7 +2256,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
            networkEndpointGroup:(NSString *)networkEndpointGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2235,7 +2309,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroup *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -2473,7 +2549,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_HealthCheck *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -2518,7 +2596,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                     healthCheck:(NSString *)healthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2547,7 +2627,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                     healthCheck:(NSString *)healthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2621,7 +2703,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_HttpHealthCheck *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -2666,7 +2750,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                 httpHealthCheck:(NSString *)httpHealthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2695,7 +2781,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                 httpHealthCheck:(NSString *)httpHealthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2769,7 +2857,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_HttpsHealthCheck *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -2814,7 +2904,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                httpsHealthCheck:(NSString *)httpsHealthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2843,7 +2935,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                httpsHealthCheck:(NSString *)httpsHealthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2895,7 +2989,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                           image:(NSString *)image {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2992,7 +3088,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Image *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -3037,7 +3135,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3066,7 +3166,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3095,7 +3197,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3129,7 +3233,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3183,7 +3289,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3218,7 +3326,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3282,7 +3392,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3345,7 +3457,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3466,7 +3580,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3501,7 +3617,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3567,7 +3685,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3602,7 +3722,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3637,7 +3759,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                   instanceGroup:(NSString *)instanceGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3748,7 +3872,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3810,7 +3936,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                   instanceGroup:(NSString *)instanceGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3845,7 +3973,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                   instanceGroup:(NSString *)instanceGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3880,7 +4010,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                   instanceGroup:(NSString *)instanceGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3916,7 +4048,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                        instance:(NSString *)instance
                networkInterface:(NSString *)networkInterface {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -3952,7 +4086,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4006,7 +4142,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4279,7 +4417,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4370,7 +4510,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4496,7 +4638,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4531,7 +4675,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4566,7 +4712,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4601,7 +4749,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4636,7 +4786,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4671,7 +4823,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4706,7 +4860,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4741,7 +4897,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4776,7 +4934,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4811,7 +4971,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4904,7 +5066,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -4968,7 +5132,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5004,7 +5170,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5040,7 +5208,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                        instance:(NSString *)instance
                networkInterface:(NSString *)networkInterface {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5076,7 +5246,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5112,7 +5284,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                        instance:(NSString *)instance
                networkInterface:(NSString *)networkInterface {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5148,7 +5322,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5246,7 +5422,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_InstanceTemplate *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -5291,7 +5469,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5320,7 +5500,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5418,7 +5600,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5471,7 +5655,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
          interconnectAttachment:(NSString *)interconnectAttachment {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5611,7 +5797,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Interconnect *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -5656,7 +5844,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    interconnect:(NSString *)interconnect {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5708,7 +5898,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5805,7 +5997,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_License *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -5850,7 +6044,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -5879,7 +6075,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6007,7 +6205,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            networkEndpointGroup:(NSString *)networkEndpointGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6071,7 +6271,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            networkEndpointGroup:(NSString *)networkEndpointGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6134,7 +6336,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6196,7 +6400,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
            networkEndpointGroup:(NSString *)networkEndpointGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6231,7 +6437,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6261,7 +6469,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                         network:(NSString *)network {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6335,7 +6545,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Network *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -6404,7 +6616,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                         network:(NSString *)network {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6433,7 +6647,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                         network:(NSString *)network {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6485,7 +6701,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                         network:(NSString *)network {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6519,7 +6737,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                       nodeGroup:(NSString *)nodeGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6602,7 +6822,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                       nodeGroup:(NSString *)nodeGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6695,7 +6917,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                initialNodeCount:(NSInteger)initialNodeCount {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6787,7 +7011,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                       nodeGroup:(NSString *)nodeGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6822,7 +7048,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6857,7 +7085,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                       nodeGroup:(NSString *)nodeGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -6892,7 +7122,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7016,7 +7248,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7069,7 +7303,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7100,7 +7336,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7274,7 +7512,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7327,7 +7567,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                 packetMirroring:(NSString *)packetMirroring {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7358,7 +7600,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7406,7 +7650,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsDisableXpnResourceRequest *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7450,7 +7696,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsEnableXpnResourceRequest *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7532,7 +7780,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsListXpnHostsRequest *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7557,7 +7807,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_DiskMoveRequest *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7582,7 +7834,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_InstanceMoveRequest *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7607,7 +7861,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Metadata *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7632,7 +7888,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsSetDefaultNetworkTierRequest *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7657,7 +7915,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_UsageExportLocation *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -7733,7 +7993,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7785,7 +8047,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7814,7 +8078,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7894,7 +8160,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7924,7 +8192,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -7977,7 +8247,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8008,7 +8280,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                  backendService:(NSString *)backendService {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8082,7 +8356,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8135,7 +8411,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8166,7 +8444,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8246,7 +8526,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8299,7 +8581,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8330,7 +8614,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                            disk:(NSString *)disk {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8361,7 +8647,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8392,7 +8680,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8520,7 +8810,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8573,7 +8865,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                     healthCheck:(NSString *)healthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8604,7 +8898,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                     healthCheck:(NSString *)healthCheck {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8635,7 +8931,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8666,7 +8964,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8697,7 +8997,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8753,7 +9055,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8808,7 +9112,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8913,7 +9219,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -8944,7 +9252,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9002,7 +9312,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9033,7 +9345,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9112,7 +9426,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                   instanceGroup:(NSString *)instanceGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9143,7 +9459,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                   instanceGroup:(NSString *)instanceGroup {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9362,7 +9680,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9464,7 +9784,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9517,7 +9839,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                 targetHttpProxy:(NSString *)targetHttpProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9597,7 +9921,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9650,7 +9976,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                targetHttpsProxy:(NSString *)targetHttpsProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9681,7 +10009,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                targetHttpsProxy:(NSString *)targetHttpsProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9761,7 +10091,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9814,7 +10146,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9845,7 +10179,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -9876,7 +10212,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10016,7 +10354,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10077,7 +10417,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                     reservation:(NSString *)reservation {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10112,7 +10454,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10147,7 +10491,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                    zoneProperty:(NSString *)zoneProperty
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10271,7 +10617,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10324,7 +10672,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10355,7 +10705,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10504,7 +10856,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10557,7 +10911,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                          router:(NSString *)router {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10588,7 +10944,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                          router:(NSString *)router {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10619,7 +10977,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                          router:(NSString *)router {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10694,7 +11054,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_Route *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -10739,7 +11101,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  securityPolicy:(NSString *)securityPolicy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10836,7 +11200,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -10900,7 +11266,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  securityPolicy:(NSString *)securityPolicy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -10929,7 +11297,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  securityPolicy:(NSString *)securityPolicy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11069,7 +11439,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11098,7 +11470,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11127,7 +11501,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11220,7 +11596,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_SslCertificate *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -11310,7 +11688,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_SslPolicy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -11374,7 +11754,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                       sslPolicy:(NSString *)sslPolicy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11448,7 +11830,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      subnetwork:(NSString *)subnetwork {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11528,7 +11912,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11600,7 +11986,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      subnetwork:(NSString *)subnetwork {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11631,7 +12019,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11662,7 +12052,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      subnetwork:(NSString *)subnetwork {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11693,7 +12085,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11787,7 +12181,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_TargetHttpProxy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -11832,7 +12228,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                 targetHttpProxy:(NSString *)targetHttpProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11925,7 +12323,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -11970,7 +12370,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                targetHttpsProxy:(NSString *)targetHttpsProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -11999,7 +12401,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                targetHttpsProxy:(NSString *)targetHttpsProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12028,7 +12432,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                targetHttpsProxy:(NSString *)targetHttpsProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12057,7 +12463,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                targetHttpsProxy:(NSString *)targetHttpsProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12167,7 +12575,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12224,7 +12634,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12255,7 +12667,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12355,7 +12769,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12385,7 +12801,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12438,7 +12856,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12469,7 +12889,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12500,7 +12922,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                      targetPool:(NSString *)targetPool {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12575,7 +12999,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_TargetSslProxy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -12620,7 +13046,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  targetSslProxy:(NSString *)targetSslProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12649,7 +13077,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  targetSslProxy:(NSString *)targetSslProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12678,7 +13108,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  targetSslProxy:(NSString *)targetSslProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12707,7 +13139,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  targetSslProxy:(NSString *)targetSslProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12781,7 +13215,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_TargetTcpProxy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -12826,7 +13262,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  targetTcpProxy:(NSString *)targetTcpProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12855,7 +13293,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                  targetTcpProxy:(NSString *)targetTcpProxy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -12953,7 +13393,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13069,7 +13511,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 + (instancetype)queryWithObject:(GTLRCompute_UrlMap *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -13095,7 +13539,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13143,7 +13589,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13172,7 +13620,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13201,7 +13651,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          urlMap:(NSString *)urlMap {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13324,7 +13776,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13377,7 +13831,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13408,7 +13864,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                          region:(NSString *)region
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -13507,7 +13965,9 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                         project:(NSString *)project
                          region:(NSString *)region {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

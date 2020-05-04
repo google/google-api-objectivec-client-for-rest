@@ -64,7 +64,9 @@
 
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FindFullHashesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v4/fullHashes:find";
@@ -84,7 +86,9 @@
 
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_ThreatHit *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v4/threatHits";
@@ -119,7 +123,9 @@
 
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FetchThreatListUpdatesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v4/threatListUpdates:fetch";
@@ -139,7 +145,9 @@
 
 + (instancetype)queryWithObject:(GTLRSafeBrowsing_FindThreatMatchesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v4/threatMatches:find";

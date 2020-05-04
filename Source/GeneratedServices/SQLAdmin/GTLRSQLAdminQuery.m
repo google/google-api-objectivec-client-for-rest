@@ -96,7 +96,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -198,7 +200,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -251,7 +255,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                        instance:(NSString *)instance
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -282,7 +288,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                        instance:(NSString *)instance
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -352,7 +360,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -404,7 +414,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -433,7 +445,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -462,7 +476,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -514,7 +530,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -542,7 +560,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 + (instancetype)queryWithObject:(GTLRSQLAdmin_DatabaseInstance *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -610,7 +630,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -708,7 +730,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -737,7 +761,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -812,7 +838,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -841,7 +869,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -912,7 +942,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -987,7 +1019,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1066,7 +1100,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1160,7 +1196,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1212,7 +1250,9 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
                         project:(NSString *)project
                        instance:(NSString *)instance {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

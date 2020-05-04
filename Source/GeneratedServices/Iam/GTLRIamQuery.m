@@ -45,7 +45,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 + (instancetype)queryWithObject:(GTLRIam_LintPolicyRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/iamPolicies:lintPolicy";
@@ -65,7 +67,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 + (instancetype)queryWithObject:(GTLRIam_QueryAuditableServicesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/iamPolicies:queryAuditableServices";
@@ -88,7 +92,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_CreateRoleRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -174,7 +180,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_Role *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -199,7 +207,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_UndeleteRoleRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -221,7 +231,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 + (instancetype)queryWithObject:(GTLRIam_QueryTestablePermissionsRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/permissions:queryTestablePermissions";
@@ -244,7 +256,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_CreateRoleRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -330,7 +344,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_Role *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -355,7 +371,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_UndeleteRoleRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -380,7 +398,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_CreateServiceAccountRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -424,7 +444,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -449,7 +471,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -516,7 +540,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_CreateServiceAccountKeyRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -605,7 +631,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_UploadServiceAccountKeyRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -649,7 +677,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_PatchServiceAccountRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -674,7 +704,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -699,7 +731,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_SignBlobRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -724,7 +758,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_SignJwtRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -749,7 +785,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -774,7 +812,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_UndeleteServiceAccountRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -799,7 +839,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 + (instancetype)queryWithObject:(GTLRIam_ServiceAccount *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -857,7 +899,9 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 + (instancetype)queryWithObject:(GTLRIam_QueryGrantableRolesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/roles:queryGrantableRoles";

@@ -22,7 +22,9 @@
 
 + (instancetype)queryWithObject:(GTLRAlertCenter_BatchDeleteAlertsRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1beta1/alerts:batchDelete";
@@ -42,7 +44,9 @@
 
 + (instancetype)queryWithObject:(GTLRAlertCenter_BatchUndeleteAlertsRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1beta1/alerts:batchUndelete";
@@ -84,7 +88,9 @@
 + (instancetype)queryWithObject:(GTLRAlertCenter_AlertFeedback *)object
                         alertId:(NSString *)alertId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"alertId" ];
@@ -183,7 +189,9 @@
 + (instancetype)queryWithObject:(GTLRAlertCenter_UndeleteAlertRequest *)object
                         alertId:(NSString *)alertId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"alertId" ];
@@ -224,7 +232,9 @@
 
 + (instancetype)queryWithObject:(GTLRAlertCenter_Settings *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1beta1/settings";

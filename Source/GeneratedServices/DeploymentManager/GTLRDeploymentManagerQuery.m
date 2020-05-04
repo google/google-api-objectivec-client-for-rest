@@ -42,7 +42,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
                         project:(NSString *)project
                      deployment:(NSString *)deployment {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -139,7 +141,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 + (instancetype)queryWithObject:(GTLRDeploymentManager_Deployment *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -184,7 +188,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
                         project:(NSString *)project
                      deployment:(NSString *)deployment {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -213,7 +219,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -242,7 +250,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
                         project:(NSString *)project
                      deployment:(NSString *)deployment {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -271,7 +281,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
                         project:(NSString *)project
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -300,7 +312,9 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
                         project:(NSString *)project
                      deployment:(NSString *)deployment {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

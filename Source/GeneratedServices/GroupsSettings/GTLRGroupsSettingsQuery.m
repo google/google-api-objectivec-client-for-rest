@@ -44,7 +44,9 @@
 + (instancetype)queryWithObject:(GTLRGroupsSettings_Groups *)object
                   groupUniqueId:(NSString *)groupUniqueId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"groupUniqueId" ];
@@ -69,7 +71,9 @@
 + (instancetype)queryWithObject:(GTLRGroupsSettings_Groups *)object
                   groupUniqueId:(NSString *)groupUniqueId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"groupUniqueId" ];

@@ -91,7 +91,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 + (instancetype)queryWithObject:(GTLRDataflow_Job *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -117,7 +119,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -146,7 +150,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -264,7 +270,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -293,7 +301,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -322,7 +332,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -351,7 +363,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -380,7 +394,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                        location:(NSString *)location {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -409,7 +425,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                        location:(NSString *)location {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -439,7 +457,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                        location:(NSString *)location
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -470,7 +490,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                        location:(NSString *)location
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -600,7 +622,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                        location:(NSString *)location
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -656,7 +680,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                        location:(NSString *)location
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -687,7 +713,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                        location:(NSString *)location
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -718,7 +746,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                        location:(NSString *)location
                           jobId:(NSString *)jobId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -844,7 +874,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                        location:(NSString *)location {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -905,7 +937,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                        location:(NSString *)location {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -934,7 +968,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
                       projectId:(NSString *)projectId
                        location:(NSString *)location {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1004,7 +1040,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 + (instancetype)queryWithObject:(GTLRDataflow_CreateJobFromTemplateRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -1057,7 +1095,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 + (instancetype)queryWithObject:(GTLRDataflow_LaunchTemplateParameters *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -1082,7 +1122,9 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 + (instancetype)queryWithObject:(GTLRDataflow_SendWorkerMessagesRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];

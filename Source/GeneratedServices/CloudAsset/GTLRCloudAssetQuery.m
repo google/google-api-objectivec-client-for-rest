@@ -39,7 +39,9 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 + (instancetype)queryWithObject:(GTLRCloudAsset_CreateFeedRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -121,7 +123,9 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 + (instancetype)queryWithObject:(GTLRCloudAsset_UpdateFeedRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -200,7 +204,9 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 + (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];

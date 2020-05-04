@@ -213,7 +213,9 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithObject:(GTLRBooks_CloudloadingResource *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"cloudloading/updateBook";
@@ -552,7 +554,9 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithObject:(GTLRBooks_Usersettings *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"myconfig/updateUserSettings";
@@ -592,7 +596,9 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithObject:(GTLRBooks_Annotation *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"mylibrary/annotations";
@@ -667,7 +673,9 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 + (instancetype)queryWithObject:(GTLRBooks_Annotation *)object
                    annotationId:(NSString *)annotationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"annotationId" ];

@@ -67,7 +67,9 @@
 
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceGettokenRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"token";
@@ -90,7 +92,9 @@
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceResource *)object
              verificationMethod:(NSString *)verificationMethod {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"webResource";
@@ -133,7 +137,9 @@
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceResource *)object
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];
@@ -162,7 +168,9 @@
 + (instancetype)queryWithObject:(GTLRSiteVerification_WebResourceResource *)object
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];

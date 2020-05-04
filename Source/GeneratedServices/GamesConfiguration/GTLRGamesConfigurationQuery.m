@@ -75,7 +75,9 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
                   applicationId:(NSString *)applicationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"applicationId" ];
@@ -119,7 +121,9 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_AchievementConfiguration *)object
                   achievementId:(NSString *)achievementId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"achievementId" ];
@@ -206,7 +210,9 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
                   applicationId:(NSString *)applicationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"applicationId" ];
@@ -250,7 +256,9 @@ NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon = @"LEADERBOARD
 + (instancetype)queryWithObject:(GTLRGamesConfiguration_LeaderboardConfiguration *)object
                   leaderboardId:(NSString *)leaderboardId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"leaderboardId" ];

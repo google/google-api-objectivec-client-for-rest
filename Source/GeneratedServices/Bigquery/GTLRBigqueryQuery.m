@@ -86,7 +86,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -131,7 +133,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       projectId:(NSString *)projectId
                       datasetId:(NSString *)datasetId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -160,7 +164,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       projectId:(NSString *)projectId
                       datasetId:(NSString *)datasetId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -259,7 +265,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       projectId:(NSString *)projectId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -312,7 +320,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 + (instancetype)queryWithObject:(GTLRBigquery_QueryRequest *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -411,7 +421,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       datasetId:(NSString *)datasetId
                         modelId:(NSString *)modelId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -526,7 +538,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       projectId:(NSString *)projectId
                       datasetId:(NSString *)datasetId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -579,7 +593,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       datasetId:(NSString *)datasetId
                       routineId:(NSString *)routineId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -610,7 +626,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       datasetId:(NSString *)datasetId
                         tableId:(NSString *)tableId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -715,7 +733,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       projectId:(NSString *)projectId
                       datasetId:(NSString *)datasetId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -768,7 +788,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       datasetId:(NSString *)datasetId
                         tableId:(NSString *)tableId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -799,7 +821,9 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
                       datasetId:(NSString *)datasetId
                         tableId:(NSString *)tableId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

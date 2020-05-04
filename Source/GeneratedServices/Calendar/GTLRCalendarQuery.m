@@ -92,7 +92,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_AclRule *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -137,7 +139,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
                      calendarId:(NSString *)calendarId
                          ruleId:(NSString *)ruleId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -166,7 +170,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
                      calendarId:(NSString *)calendarId
                          ruleId:(NSString *)ruleId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -194,7 +200,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_Channel *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -255,7 +263,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 + (instancetype)queryWithObject:(GTLRCalendar_CalendarListEntry *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"users/me/calendarList";
@@ -296,7 +306,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_CalendarListEntry *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -321,7 +333,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_CalendarListEntry *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -346,7 +360,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 + (instancetype)queryWithObject:(GTLRCalendar_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"users/me/calendarList/watch";
@@ -421,7 +437,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 + (instancetype)queryWithObject:(GTLRCalendar_Calendar *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"calendars";
@@ -444,7 +462,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_Calendar *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -469,7 +489,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_Calendar *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -491,7 +513,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 + (instancetype)queryWithObject:(GTLRCalendar_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"channels/stop";
@@ -573,7 +597,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -599,7 +625,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_Event *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -705,7 +733,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
                      calendarId:(NSString *)calendarId
                         eventId:(NSString *)eventId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -756,7 +786,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
                      calendarId:(NSString *)calendarId
                         eventId:(NSString *)eventId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -795,7 +827,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 + (instancetype)queryWithObject:(GTLRCalendar_Channel *)object
                      calendarId:(NSString *)calendarId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"calendarId" ];
@@ -817,7 +851,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 + (instancetype)queryWithObject:(GTLRCalendar_FreeBusyRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"freeBusy";
@@ -875,7 +911,9 @@ NSString * const kGTLRCalendarSendUpdatesNone         = @"none";
 
 + (instancetype)queryWithObject:(GTLRCalendar_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"users/me/settings/watch";

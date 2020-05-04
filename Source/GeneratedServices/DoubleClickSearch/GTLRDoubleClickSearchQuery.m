@@ -57,7 +57,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"conversion";
@@ -77,7 +79,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ConversionList *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"conversion";
@@ -97,7 +101,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_UpdateAvailabilityRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"conversion/updateAvailability";
@@ -117,7 +123,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ReportRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"reports/generate";
@@ -189,7 +197,9 @@
 
 + (instancetype)queryWithObject:(GTLRDoubleClickSearch_ReportRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"reports";

@@ -22,7 +22,9 @@
 
 + (instancetype)queryWithObject:(GTLRAnalyticsReporting_GetReportsRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v4/reports:batchGet";
@@ -42,7 +44,9 @@
 
 + (instancetype)queryWithObject:(GTLRAnalyticsReporting_SearchUserActivityRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v4/userActivity:search";

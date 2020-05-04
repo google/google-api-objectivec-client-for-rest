@@ -35,7 +35,9 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 + (instancetype)queryWithObject:(GTLRStreetViewPublish_Photo *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/photo";
@@ -93,7 +95,9 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 + (instancetype)queryWithObject:(GTLRStreetViewPublish_BatchDeletePhotosRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/photos:batchDelete";
@@ -137,7 +141,9 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 + (instancetype)queryWithObject:(GTLRStreetViewPublish_BatchUpdatePhotosRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/photos:batchUpdate";
@@ -174,7 +180,9 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 
 + (instancetype)queryWithObject:(GTLRStreetViewPublish_Empty *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/photo:startUpload";
@@ -201,7 +209,9 @@ NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl = @"INCLUDE_DOWNLO
 + (instancetype)queryWithObject:(GTLRStreetViewPublish_Photo *)object
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];

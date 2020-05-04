@@ -176,7 +176,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_AchievementUpdateMultipleRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"achievements/updateMultiple";
@@ -284,7 +286,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_EventRecordRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"events";
@@ -416,7 +420,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_PushTokenId *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"pushtokens/remove";
@@ -435,7 +441,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_PushToken *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"pushtokens";
@@ -474,7 +482,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_RoomCreateRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"rooms/create";
@@ -553,7 +563,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithObject:(GTLRGames_RoomJoinRequest *)object
                          roomId:(NSString *)roomId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"roomId" ];
@@ -578,7 +590,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithObject:(GTLRGames_RoomLeaveRequest *)object
                          roomId:(NSString *)roomId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"roomId" ];
@@ -620,7 +634,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithObject:(GTLRGames_RoomP2PStatuses *)object
                          roomId:(NSString *)roomId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"roomId" ];
@@ -742,7 +758,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_PlayerScoreSubmissionList *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"leaderboards/scores";
@@ -820,7 +838,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchCreateRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"turnbasedmatches/create";
@@ -880,7 +900,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchResults *)object
                         matchId:(NSString *)matchId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matchId" ];
@@ -1036,7 +1058,9 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchTurn *)object
                         matchId:(NSString *)matchId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matchId" ];

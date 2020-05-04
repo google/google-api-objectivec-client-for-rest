@@ -24,7 +24,9 @@
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents:analyzeEntities";
@@ -44,7 +46,9 @@
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents:analyzeEntitySentiment";
@@ -64,7 +68,9 @@
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSentimentRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents:analyzeSentiment";
@@ -84,7 +90,9 @@
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnalyzeSyntaxRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents:analyzeSyntax";
@@ -104,7 +112,9 @@
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_AnnotateTextRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents:annotateText";
@@ -124,7 +134,9 @@
 
 + (instancetype)queryWithObject:(GTLRCloudNaturalLanguage_ClassifyTextRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents:classifyText";

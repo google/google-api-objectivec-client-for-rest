@@ -66,7 +66,9 @@ NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified = @"CANAR
                      debuggeeId:(NSString *)debuggeeId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -91,7 +93,9 @@ NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified = @"CANAR
 
 + (instancetype)queryWithObject:(GTLRCloudDebugger_RegisterDebuggeeRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v2/controller/debuggees/register";
@@ -184,7 +188,9 @@ NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified = @"CANAR
 + (instancetype)queryWithObject:(GTLRCloudDebugger_Breakpoint *)object
                      debuggeeId:(NSString *)debuggeeId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"debuggeeId" ];

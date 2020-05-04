@@ -208,7 +208,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 + (instancetype)queryWithObject:(GTLRAnalytics_EntityUserLink *)object
                       accountId:(NSString *)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -261,7 +263,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                          linkId:(NSString *)linkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -286,7 +290,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 + (instancetype)queryWithObject:(GTLRAnalytics_HashClientIdRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"management/clientId:hashClientId";
@@ -366,7 +372,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -428,7 +436,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
               customDimensionId:(NSString *)customDimensionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -460,7 +470,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
               customDimensionId:(NSString *)customDimensionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -515,7 +527,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -576,7 +590,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                  customMetricId:(NSString *)customMetricId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -607,7 +623,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                  customMetricId:(NSString *)customMetricId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -691,7 +709,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -756,7 +776,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                    experimentId:(NSString *)experimentId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -789,7 +811,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                    experimentId:(NSString *)experimentId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -865,7 +889,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 + (instancetype)queryWithObject:(GTLRAnalytics_Filter *)object
                       accountId:(NSString *)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -918,7 +944,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                        filterId:(NSString *)filterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -947,7 +975,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                        filterId:(NSString *)filterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1004,7 +1034,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1069,7 +1101,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                          goalId:(NSString *)goalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1102,7 +1136,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                          goalId:(NSString *)goalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1187,7 +1223,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1252,7 +1290,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                          linkId:(NSString *)linkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1285,7 +1325,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                          linkId:(NSString *)linkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1365,7 +1407,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1426,7 +1470,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1457,7 +1503,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1514,7 +1562,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1579,7 +1629,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       profileId:(NSString *)profileId
                          linkId:(NSString *)linkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1659,7 +1711,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1720,7 +1774,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
           remarketingAudienceId:(NSString *)remarketingAudienceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1751,7 +1807,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
           remarketingAudienceId:(NSString *)remarketingAudienceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1860,7 +1918,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                       profileId:(NSString *)profileId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1924,7 +1984,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
              customDataSourceId:(NSString *)customDataSourceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2062,7 +2124,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 + (instancetype)queryWithObject:(GTLRAnalytics_Webproperty *)object
                       accountId:(NSString *)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -2115,7 +2179,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2144,7 +2210,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2222,7 +2290,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2283,7 +2353,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
        webPropertyAdWordsLinkId:(NSString *)webPropertyAdWordsLinkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2314,7 +2386,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
        webPropertyAdWordsLinkId:(NSString *)webPropertyAdWordsLinkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2368,7 +2442,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                       accountId:(NSString *)accountId
                   webPropertyId:(NSString *)webPropertyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2429,7 +2505,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
                   webPropertyId:(NSString *)webPropertyId
                          linkId:(NSString *)linkId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2474,7 +2552,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 + (instancetype)queryWithObject:(GTLRAnalytics_AccountTicket *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"provisioning/createAccountTicket";
@@ -2494,7 +2574,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 + (instancetype)queryWithObject:(GTLRAnalytics_AccountTreeRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"provisioning/createAccountTree";
@@ -2514,7 +2596,9 @@ NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision = @"HIGHER_PRECISION
 
 + (instancetype)queryWithObject:(GTLRAnalytics_UserDeletionRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"userDeletion/userDeletionRequests:upsert";
