@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "domain"
  */
-GTLR_EXTERN NSString * const kGTLRTestingSvcCorpusDomain;
+FOUNDATION_EXTERN NSString * const kGTLRTestingSvcCorpusDomain;
 /**
  *  Files owned by or shared to the user.
  *
  *  Value: "user"
  */
-GTLR_EXTERN NSString * const kGTLRTestingSvcCorpusUser;
+FOUNDATION_EXTERN NSString * const kGTLRTestingSvcCorpusUser;
 
 // ----------------------------------------------------------------------------
 // Query Classes

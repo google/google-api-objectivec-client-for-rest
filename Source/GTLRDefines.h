@@ -32,7 +32,7 @@
   #define GTLR_CLASSNAME_CSTR(x) _GTLR_CLASSNAME_HELPER(x)
 #endif
 
-// Provide a common definition for externing constants/functions
+// The ServiceGenerator used to use this, now it just uses `FOUNDATION_EXTERN`.
 #if defined(__cplusplus)
   #define GTLR_EXTERN extern "C"
 #else
