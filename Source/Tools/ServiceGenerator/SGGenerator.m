@@ -27,7 +27,7 @@ static NSString *kQueryBaseClass        = @"GTLRQuery";
 static NSString *kBaseObjectClass       = @"GTLRObject";
 static NSString *kCollectionObjectClass = @"GTLRCollectionObject";
 static NSString *kResultArrayClass      = @"GTLRResultArray";
-static NSString *kExternPrefix          = @"GTLR_EXTERN";
+static NSString *kExternPrefix          = @"FOUNDATION_EXTERN";
 static NSString *kFrameworkIncludeGate  = @"GTLR_BUILT_AS_FRAMEWORK";
 
 static NSString *kFatalGeneration = @"FatalGeneration";
@@ -2757,7 +2757,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
 - (NSArray *)constantsBlocksForMode:(GeneratorMode)mode
                            enumsMap:(NSDictionary *)enumsMap
                        commentExtra:(NSString *)commentExtra {
-    if (enumsMap.count == 0) {
+  if (enumsMap.count == 0) {
     return nil;
   }
 
