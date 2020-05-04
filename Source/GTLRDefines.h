@@ -17,9 +17,7 @@
 // GTLRDefines.h
 //
 
-// Ensure Apple's conditionals we depend on are defined.
-#import <TargetConditionals.h>
-#import <AvailabilityMacros.h>
+#import <Foundation/Foundation.h>
 
 // These can be redefined via a prefix if you are prefixing symbols to prefix
 // the names used in strings. Something like:

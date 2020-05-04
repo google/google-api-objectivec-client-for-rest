@@ -33,6 +33,7 @@
 
 #import "GTLRService.h"
 
+#import "GTLRDefines.h"
 #import "GTLRFramework.h"
 #import "GTLRURITemplate.h"
 #import "GTLRUtilities.h"

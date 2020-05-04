@@ -7,8 +7,6 @@
 #error "This file needs to be compiled without ARC enabled."
 #endif
 
-#import "GTLRDefines.h"
-
 #import "GTLRBatchQuery.h"
 #import "GTLRBatchResult.h"
 #import "GTLRDateTime.h"

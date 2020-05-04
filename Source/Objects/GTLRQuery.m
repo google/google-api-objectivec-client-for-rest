@@ -20,6 +20,8 @@
 #include <objc/runtime.h>
 
 #import "GTLRQuery.h"
+
+#import "GTLRDefines.h"
 #import "GTLRRuntimeCommon.h"
 #import "GTLRService.h"
 #import "GTLRUtilities.h"

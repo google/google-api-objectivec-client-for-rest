@@ -19,6 +19,7 @@
 
 #include <objc/runtime.h>
 
+#import "GTLRDefines.h"
 #import "GTLRObject.h"
 #import "GTLRRuntimeCommon.h"
 #import "GTLRUtilities.h"
