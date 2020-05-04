@@ -43,7 +43,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 + (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
                          appsId:(NSString *)appsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"appsId" ];
@@ -134,7 +136,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                          appsId:(NSString *)appsId
        authorizedCertificatesId:(NSString *)authorizedCertificatesId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -178,7 +182,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 + (instancetype)queryWithObject:(GTLRAppengine_Application *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/apps";
@@ -201,7 +207,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 + (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
                          appsId:(NSString *)appsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"appsId" ];
@@ -292,7 +300,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                          appsId:(NSString *)appsId
                domainMappingsId:(NSString *)domainMappingsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -320,7 +330,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 + (instancetype)queryWithObject:(GTLRAppengine_BatchUpdateIngressRulesRequest *)object
                          appsId:(NSString *)appsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"appsId" ];
@@ -345,7 +357,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 + (instancetype)queryWithObject:(GTLRAppengine_FirewallRule *)object
                          appsId:(NSString *)appsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"appsId" ];
@@ -436,7 +450,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                          appsId:(NSString *)appsId
                  ingressRulesId:(NSString *)ingressRulesId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -567,7 +583,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 + (instancetype)queryWithObject:(GTLRAppengine_Application *)object
                          appsId:(NSString *)appsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"appsId" ];
@@ -592,7 +610,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 + (instancetype)queryWithObject:(GTLRAppengine_RepairApplicationRequest *)object
                          appsId:(NSString *)appsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"appsId" ];
@@ -683,7 +703,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                          appsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -712,7 +734,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                          appsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -793,7 +817,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                      versionsId:(NSString *)versionsId
                     instancesId:(NSString *)instancesId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -927,7 +953,9 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
                      servicesId:(NSString *)servicesId
                      versionsId:(NSString *)versionsId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

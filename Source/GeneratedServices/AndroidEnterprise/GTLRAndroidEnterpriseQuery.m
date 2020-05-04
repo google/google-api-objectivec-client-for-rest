@@ -139,7 +139,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                          userId:(NSString *)userId
                        deviceId:(NSString *)deviceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -170,7 +172,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                          userId:(NSString *)userId
                        deviceId:(NSString *)deviceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -232,7 +236,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_AdministratorWebTokenSpec *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -257,7 +263,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_Enterprise *)object
                           token:(NSString *)token {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"enterprises/enroll";
@@ -409,7 +417,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_EnterpriseAccount *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -434,7 +444,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_StoreLayout *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -551,7 +563,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                          userId:(NSString *)userId
                   entitlementId:(NSString *)entitlementId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -726,7 +740,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                        deviceId:(NSString *)deviceId
                       installId:(NSString *)installId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -837,7 +853,9 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
                        deviceId:(NSString *)deviceId
 managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -941,7 +959,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                          userId:(NSString *)userId
   managedConfigurationForUserId:(NSString *)managedConfigurationForUserId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1013,7 +1033,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                    enterpriseId:(NSString *)enterpriseId
                       productId:(NSString *)productId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1195,7 +1217,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_ServiceAccountKey *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -1289,7 +1313,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                    enterpriseId:(NSString *)enterpriseId
                          pageId:(NSString *)pageId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1342,7 +1368,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                          pageId:(NSString *)pageId
                       clusterId:(NSString *)clusterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1416,7 +1444,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_StorePage *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -1461,7 +1491,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                    enterpriseId:(NSString *)enterpriseId
                          pageId:(NSString *)pageId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1603,7 +1635,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_User *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -1694,7 +1728,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1723,7 +1759,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                    enterpriseId:(NSString *)enterpriseId
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1796,7 +1834,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 + (instancetype)queryWithObject:(GTLRAndroidEnterprise_WebApp *)object
                    enterpriseId:(NSString *)enterpriseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
@@ -1841,7 +1881,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
                    enterpriseId:(NSString *)enterpriseId
                        webAppId:(NSString *)webAppId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

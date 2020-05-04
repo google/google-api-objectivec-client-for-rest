@@ -181,7 +181,9 @@ NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite = @"WRITE";
 
 + (instancetype)queryWithObject:(GTLRScript_CreateProjectRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/projects";
@@ -204,7 +206,9 @@ NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite = @"WRITE";
 + (instancetype)queryWithObject:(GTLRScript_DeploymentConfig *)object
                        scriptId:(NSString *)scriptId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"scriptId" ];
@@ -295,7 +299,9 @@ NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite = @"WRITE";
                        scriptId:(NSString *)scriptId
                    deploymentId:(NSString *)deploymentId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -384,7 +390,9 @@ NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite = @"WRITE";
 + (instancetype)queryWithObject:(GTLRScript_Content *)object
                        scriptId:(NSString *)scriptId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"scriptId" ];
@@ -409,7 +417,9 @@ NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite = @"WRITE";
 + (instancetype)queryWithObject:(GTLRScript_Version *)object
                        scriptId:(NSString *)scriptId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"scriptId" ];
@@ -476,7 +486,9 @@ NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite = @"WRITE";
 + (instancetype)queryWithObject:(GTLRScript_ExecutionRequest *)object
                        scriptId:(NSString *)scriptId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"scriptId" ];

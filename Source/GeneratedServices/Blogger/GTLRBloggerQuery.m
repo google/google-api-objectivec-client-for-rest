@@ -370,7 +370,9 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRBlogger_Page *)object
                          blogId:(NSString *)blogId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"blogId" ];
@@ -422,7 +424,9 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
                          blogId:(NSString *)blogId
                          pageId:(NSString *)pageId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -497,7 +501,9 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
                          blogId:(NSString *)blogId
                          pageId:(NSString *)pageId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -617,7 +623,9 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRBlogger_Post *)object
                          blogId:(NSString *)blogId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"blogId" ];
@@ -670,7 +678,9 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
                          blogId:(NSString *)blogId
                          postId:(NSString *)postId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -766,7 +776,9 @@ NSString * const kGTLRBloggerViewViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
                          blogId:(NSString *)blogId
                          postId:(NSString *)postId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

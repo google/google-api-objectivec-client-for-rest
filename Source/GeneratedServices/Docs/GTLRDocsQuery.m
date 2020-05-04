@@ -38,7 +38,9 @@ NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline = @"SUGGESTIONS_I
 + (instancetype)queryWithObject:(GTLRDocs_BatchUpdateDocumentRequest *)object
                      documentId:(NSString *)documentId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"documentId" ];
@@ -60,7 +62,9 @@ NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline = @"SUGGESTIONS_I
 
 + (instancetype)queryWithObject:(GTLRDocs_Document *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/documents";

@@ -140,7 +140,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithObject:(GTLRDirectory_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"admin/directory_v1/channels/stop";
@@ -163,7 +165,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                      resourceId:(NSString *)resourceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -234,7 +238,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                     orgUnitPath:(NSString *)orgUnitPath {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
@@ -260,7 +266,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                        deviceId:(NSString *)deviceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -289,7 +297,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                        deviceId:(NSString *)deviceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -336,7 +346,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Customer *)object
                     customerKey:(NSString *)customerKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerKey" ];
@@ -361,7 +373,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Customer *)object
                     customerKey:(NSString *)customerKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerKey" ];
@@ -431,7 +445,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_DomainAlias *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -520,7 +536,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Domains *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -586,7 +604,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Alias *)object
                        groupKey:(NSString *)groupKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
@@ -664,7 +684,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithObject:(GTLRDirectory_Group *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"groups";
@@ -705,7 +727,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Group *)object
                        groupKey:(NSString *)groupKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
@@ -730,7 +754,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Group *)object
                        groupKey:(NSString *)groupKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
@@ -823,7 +849,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Member *)object
                        groupKey:(NSString *)groupKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
@@ -868,7 +896,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        groupKey:(NSString *)groupKey
                       memberKey:(NSString *)memberKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -897,7 +927,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        groupKey:(NSString *)groupKey
                       memberKey:(NSString *)memberKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -926,7 +958,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                      resourceId:(NSString *)resourceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1083,7 +1117,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                  notificationId:(NSString *)notificationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1112,7 +1148,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                  notificationId:(NSString *)notificationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1199,7 +1237,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
@@ -1251,7 +1291,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                     orgUnitPath:(NSArray<NSString *> *)orgUnitPath {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1287,7 +1329,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                     orgUnitPath:(NSArray<NSString *> *)orgUnitPath {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1379,7 +1423,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Building *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -1424,7 +1470,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                      buildingId:(NSString *)buildingId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1453,7 +1501,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                      buildingId:(NSString *)buildingId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1526,7 +1576,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_CalendarResource *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -1571,7 +1623,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
              calendarResourceId:(NSString *)calendarResourceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1600,7 +1654,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
              calendarResourceId:(NSString *)calendarResourceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1673,7 +1729,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Feature *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -1718,7 +1776,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                      featureKey:(NSString *)featureKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1747,7 +1807,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                         oldName:(NSString *)oldName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1775,7 +1837,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                      featureKey:(NSString *)featureKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1848,7 +1912,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_RoleAssignment *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -1937,7 +2003,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Role *)object
                        customer:(NSString *)customer {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
@@ -1982,7 +2050,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                          roleId:(NSString *)roleId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2011,7 +2081,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                        customer:(NSString *)customer
                          roleId:(NSString *)roleId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2084,7 +2156,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Schema *)object
                      customerId:(NSString *)customerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
@@ -2129,7 +2203,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                       schemaKey:(NSString *)schemaKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2158,7 +2234,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
                      customerId:(NSString *)customerId
                       schemaKey:(NSString *)schemaKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2272,7 +2350,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Alias *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2316,7 +2396,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_Channel *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2375,7 +2457,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithObject:(GTLRDirectory_User *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"users";
@@ -2416,7 +2500,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_UserMakeAdmin *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2440,7 +2526,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_User *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2502,7 +2590,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_UserPhoto *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2527,7 +2617,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_UserPhoto *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2552,7 +2644,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_UserUndelete *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2576,7 +2670,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 + (instancetype)queryWithObject:(GTLRDirectory_User *)object
                         userKey:(NSString *)userKey {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
@@ -2601,7 +2697,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithObject:(GTLRDirectory_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"users/watch";

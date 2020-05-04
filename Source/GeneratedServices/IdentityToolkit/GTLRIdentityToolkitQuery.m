@@ -22,7 +22,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyCreateAuthUriRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"createAuthUri";
@@ -42,7 +44,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyDeleteAccountRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"deleteAccount";
@@ -62,7 +66,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyDownloadAccountRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"downloadAccount";
@@ -82,7 +88,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyEmailLinkSigninRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"emailLinkSignin";
@@ -102,7 +110,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyGetAccountInfoRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"getAccountInfo";
@@ -122,7 +132,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_Relyingparty *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"getOobConfirmationCode";
@@ -189,7 +201,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyResetPasswordRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"resetPassword";
@@ -209,7 +223,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartySendVerificationCodeRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"sendVerificationCode";
@@ -229,7 +245,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartySetAccountInfoRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"setAccountInfo";
@@ -249,7 +267,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartySetProjectConfigRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"setProjectConfig";
@@ -269,7 +289,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartySignOutUserRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"signOutUser";
@@ -289,7 +311,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartySignupNewUserRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"signupNewUser";
@@ -309,7 +333,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyUploadAccountRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"uploadAccount";
@@ -329,7 +355,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyVerifyAssertionRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"verifyAssertion";
@@ -349,7 +377,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyVerifyCustomTokenRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"verifyCustomToken";
@@ -369,7 +399,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyVerifyPasswordRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"verifyPassword";
@@ -389,7 +421,9 @@
 
 + (instancetype)queryWithObject:(GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"verifyPhoneNumber";

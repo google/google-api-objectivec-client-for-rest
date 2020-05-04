@@ -88,7 +88,9 @@
 
 + (instancetype)queryWithObject:(GTLRGamesManagement_AchievementResetMultipleForAllRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"achievements/resetMultipleForAllPlayers";
@@ -190,7 +192,9 @@
 
 + (instancetype)queryWithObject:(GTLRGamesManagement_EventsResetMultipleForAllRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"events/resetMultipleForAllPlayers";
@@ -347,7 +351,9 @@
 
 + (instancetype)queryWithObject:(GTLRGamesManagement_ScoresResetMultipleForAllRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"scores/resetMultipleForAllPlayers";

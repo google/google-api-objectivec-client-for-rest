@@ -106,7 +106,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_BucketAccessControl *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -151,7 +153,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          entity:(NSString *)entity {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -180,7 +184,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          entity:(NSString *)entity {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -268,7 +274,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_Bucket *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"b";
@@ -334,7 +342,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_Bucket *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -359,7 +369,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_Policy *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -414,7 +426,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_Bucket *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -436,7 +450,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"channels/stop";
@@ -503,7 +519,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_ObjectAccessControl *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -549,7 +567,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          entity:(NSString *)entity {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -578,7 +598,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          entity:(NSString *)entity {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -651,7 +673,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_Notification *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -747,7 +771,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -801,7 +827,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          object:(NSString *)object_param
                          entity:(NSString *)entity {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -833,7 +861,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          object:(NSString *)object_param
                          entity:(NSString *)entity {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -865,7 +895,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
               destinationBucket:(NSString *)destinationBucket
               destinationObject:(NSString *)destinationObject {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -902,7 +934,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
               destinationBucket:(NSString *)destinationBucket
               destinationObject:(NSString *)destinationObject {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1019,7 +1053,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -1069,7 +1105,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1107,7 +1145,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
               destinationBucket:(NSString *)destinationBucket
               destinationObject:(NSString *)destinationObject {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1139,7 +1179,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1203,7 +1245,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                          bucket:(NSString *)bucket
                          object:(NSString *)object_param {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1233,7 +1277,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"bucket" ];
@@ -1345,7 +1391,9 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
                       projectId:(NSString *)projectId
                        accessId:(NSString *)accessId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

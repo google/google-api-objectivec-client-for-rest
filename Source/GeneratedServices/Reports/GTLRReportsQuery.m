@@ -85,7 +85,9 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
                         userKey:(NSString *)userKey
                 applicationName:(NSString *)applicationName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -110,7 +112,9 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 
 + (instancetype)queryWithObject:(GTLRReports_Channel *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"admin/reports_v1/channels/stop";

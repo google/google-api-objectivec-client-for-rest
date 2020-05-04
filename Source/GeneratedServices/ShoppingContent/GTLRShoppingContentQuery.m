@@ -108,7 +108,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountsCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"accounts/batch";
@@ -176,7 +178,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_Account *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -202,7 +206,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -269,7 +275,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountstatusesCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"accountstatuses/batch";
@@ -349,7 +357,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -374,7 +384,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccounttaxCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"accounttax/batch";
@@ -440,7 +452,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -465,7 +479,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_DatafeedsCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"datafeeds/batch";
@@ -556,7 +572,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_Datafeed *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -597,7 +615,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_DatafeedstatusesCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"datafeedstatuses/batch";
@@ -663,7 +683,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                      datafeedId:(unsigned long long)datafeedId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -688,7 +710,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_LiasettingsCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"liasettings/batch";
@@ -899,7 +923,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -924,7 +950,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_LocalinventoryCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"localinventory/batch";
@@ -948,7 +976,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       productId:(NSString *)productId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -977,7 +1007,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1006,7 +1038,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1083,7 +1117,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                        returnId:(NSString *)returnId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1167,7 +1203,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                        returnId:(NSString *)returnId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1196,7 +1234,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1248,7 +1288,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1277,7 +1319,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1306,7 +1350,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1334,7 +1380,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrdersCreateTestOrderRequest *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -1360,7 +1408,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1458,7 +1508,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1514,7 +1566,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1543,7 +1597,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1572,7 +1628,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1601,7 +1659,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1630,7 +1690,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1659,7 +1721,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1688,7 +1752,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1713,7 +1779,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_PosCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"pos/batch";
@@ -1786,7 +1854,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                targetMerchantId:(unsigned long long)targetMerchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1815,7 +1885,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                targetMerchantId:(unsigned long long)targetMerchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1867,7 +1939,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                targetMerchantId:(unsigned long long)targetMerchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1892,7 +1966,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ProductsCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"products/batch";
@@ -1960,7 +2036,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_Product *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -2001,7 +2079,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ProductstatusesCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"productstatuses/batch";
@@ -2099,7 +2179,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_PubsubNotificationSettings *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -2121,7 +2203,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_RegionalinventoryCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"regionalinventory/batch";
@@ -2145,7 +2229,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       productId:(NSString *)productId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -2170,7 +2256,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ReturnaddressCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"returnaddress/batch";
@@ -2238,7 +2326,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_ReturnAddress *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -2279,7 +2369,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ReturnpolicyCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"returnpolicy/batch";
@@ -2347,7 +2439,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 + (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicy *)object
                      merchantId:(unsigned long long)merchantId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
@@ -2460,7 +2554,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ShippingsettingsCustomBatchRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"shippingsettings/batch";
@@ -2583,7 +2679,9 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

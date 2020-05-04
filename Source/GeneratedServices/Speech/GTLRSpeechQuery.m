@@ -96,7 +96,9 @@
 
 + (instancetype)queryWithObject:(GTLRSpeech_LongRunningRecognizeRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/speech:longrunningrecognize";
@@ -116,7 +118,9 @@
 
 + (instancetype)queryWithObject:(GTLRSpeech_RecognizeRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/speech:recognize";

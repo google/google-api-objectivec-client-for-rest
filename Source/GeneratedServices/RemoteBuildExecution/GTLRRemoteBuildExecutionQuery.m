@@ -72,7 +72,9 @@
                    hashProperty:(NSString *)hashProperty
                       sizeBytes:(long long)sizeBytes {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -101,7 +103,9 @@
 + (instancetype)queryWithObject:(GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteRequest *)object
                    instanceName:(NSString *)instanceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"instanceName" ];
@@ -126,7 +130,9 @@
 + (instancetype)queryWithObject:(GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2BatchReadBlobsRequest *)object
                    instanceName:(NSString *)instanceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"instanceName" ];
@@ -151,7 +157,9 @@
 + (instancetype)queryWithObject:(GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2BatchUpdateBlobsRequest *)object
                    instanceName:(NSString *)instanceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"instanceName" ];
@@ -176,7 +184,9 @@
 + (instancetype)queryWithObject:(GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FindMissingBlobsRequest *)object
                    instanceName:(NSString *)instanceName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"instanceName" ];
@@ -230,7 +240,9 @@
 + (instancetype)queryWithObject:(GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2WaitExecutionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

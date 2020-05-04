@@ -118,7 +118,9 @@ NSString * const kGTLRManufacturerCenterIncludeUnknown         = @"UNKNOWN";
                          parent:(NSString *)parent
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

@@ -42,7 +42,9 @@
 
 + (instancetype)queryWithObject:(GTLRStorageTransfer_TransferJob *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/transferJobs";
@@ -101,7 +103,9 @@
 + (instancetype)queryWithObject:(GTLRStorageTransfer_UpdateTransferJobRequest *)object
                         jobName:(NSString *)jobName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"jobName" ];
@@ -183,7 +187,9 @@
 + (instancetype)queryWithObject:(GTLRStorageTransfer_PauseTransferOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -208,7 +214,9 @@
 + (instancetype)queryWithObject:(GTLRStorageTransfer_ResumeTransferOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

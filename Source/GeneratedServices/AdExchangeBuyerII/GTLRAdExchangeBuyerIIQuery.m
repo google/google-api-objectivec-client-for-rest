@@ -43,7 +43,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Client *)object
                       accountId:(long long)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -92,7 +94,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(long long)accountId
                 clientAccountId:(long long)clientAccountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -188,7 +192,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(long long)accountId
                 clientAccountId:(long long)clientAccountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -266,7 +272,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                 clientAccountId:(long long)clientAccountId
                          userId:(long long)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -295,7 +303,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Creative *)object
                       accountId:(NSString *)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -321,7 +331,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      creativeId:(NSString *)creativeId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -373,7 +385,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      creativeId:(NSString *)creativeId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -444,7 +458,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      creativeId:(NSString *)creativeId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -473,7 +489,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      creativeId:(NSString *)creativeId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -502,7 +520,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      creativeId:(NSString *)creativeId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -592,7 +612,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -621,7 +643,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -650,7 +674,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -679,7 +705,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -707,7 +735,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_Proposal *)object
                       accountId:(NSString *)accountId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"accountId" ];
@@ -775,7 +805,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -804,7 +836,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -833,7 +867,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
                       accountId:(NSString *)accountId
                      proposalId:(NSString *)proposalId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -960,7 +996,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
                       ownerName:(NSString *)ownerName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"ownerName" ];
@@ -1240,7 +1278,9 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 + (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_FilterSet *)object
                       ownerName:(NSString *)ownerName {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"ownerName" ];

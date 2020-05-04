@@ -68,7 +68,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_CourseAlias *)object
                        courseId:(NSString *)courseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"courseId" ];
@@ -135,7 +137,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_Announcement *)object
                        courseId:(NSString *)courseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"courseId" ];
@@ -245,7 +249,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                        courseId:(NSString *)courseId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -278,7 +284,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                        courseId:(NSString *)courseId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -306,7 +314,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_CourseWork *)object
                        courseId:(NSString *)courseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"courseId" ];
@@ -416,7 +426,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                        courseId:(NSString *)courseId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -449,7 +461,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                        courseId:(NSString *)courseId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -542,7 +556,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                    courseWorkId:(NSString *)courseWorkId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -577,7 +593,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                    courseWorkId:(NSString *)courseWorkId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -612,7 +630,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                    courseWorkId:(NSString *)courseWorkId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -647,7 +667,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                    courseWorkId:(NSString *)courseWorkId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -682,7 +704,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                    courseWorkId:(NSString *)courseWorkId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -708,7 +732,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/courses";
@@ -805,7 +831,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];
@@ -830,7 +858,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_Student *)object
                        courseId:(NSString *)courseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"courseId" ];
@@ -920,7 +950,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_Teacher *)object
                        courseId:(NSString *)courseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"courseId" ];
@@ -1010,7 +1042,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_Topic *)object
                        courseId:(NSString *)courseId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"courseId" ];
@@ -1113,7 +1147,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                        courseId:(NSString *)courseId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1145,7 +1181,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_Course *)object
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"id" ];
@@ -1190,7 +1228,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 + (instancetype)queryWithObject:(GTLRClassroom_Invitation *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/invitations";
@@ -1273,7 +1313,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 + (instancetype)queryWithObject:(GTLRClassroom_Registration *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/registrations";
@@ -1334,7 +1376,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 + (instancetype)queryWithObject:(GTLRClassroom_GuardianInvitation *)object
                       studentId:(NSString *)studentId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"studentId" ];
@@ -1409,7 +1453,9 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
                       studentId:(NSString *)studentId
                    invitationId:(NSString *)invitationId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

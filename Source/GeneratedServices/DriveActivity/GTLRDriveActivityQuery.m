@@ -22,7 +22,9 @@
 
 + (instancetype)queryWithObject:(GTLRDriveActivity_QueryDriveActivityRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v2/activity:query";

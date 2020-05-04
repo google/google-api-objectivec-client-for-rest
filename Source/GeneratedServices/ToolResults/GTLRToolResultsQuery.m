@@ -144,7 +144,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                       projectId:(NSString *)projectId
                       historyId:(NSString *)historyId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -222,7 +224,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                       historyId:(NSString *)historyId
                     executionId:(NSString *)executionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -251,7 +255,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
 + (instancetype)queryWithObject:(GTLRToolResults_History *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];
@@ -321,7 +327,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                     executionId:(NSString *)executionId
                          stepId:(NSString *)stepId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -354,7 +362,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                     executionId:(NSString *)executionId
                          stepId:(NSString *)stepId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -489,7 +499,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                          stepId:(NSString *)stepId
                  sampleSeriesId:(NSString *)sampleSeriesId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -571,7 +583,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                       historyId:(NSString *)historyId
                     executionId:(NSString *)executionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -682,7 +696,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                     executionId:(NSString *)executionId
                          stepId:(NSString *)stepId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -715,7 +731,9 @@ NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified = @"PERF_METRIC
                     executionId:(NSString *)executionId
                          stepId:(NSString *)stepId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

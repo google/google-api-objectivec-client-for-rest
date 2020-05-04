@@ -38,7 +38,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
                         project:(NSString *)project
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -210,7 +212,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -300,7 +304,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
                         project:(NSString *)project
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -329,7 +335,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
                         project:(NSString *)project
                     managedZone:(NSString *)managedZone {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -357,7 +365,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
                         project:(NSString *)project {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
@@ -447,7 +457,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
                         project:(NSString *)project
                          policy:(NSString *)policy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -476,7 +488,9 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
                         project:(NSString *)project
                          policy:(NSString *)policy {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

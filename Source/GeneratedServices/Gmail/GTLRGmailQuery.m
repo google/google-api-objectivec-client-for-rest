@@ -49,7 +49,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -148,7 +150,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -180,7 +184,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                      identifier:(NSString *)identifier
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -254,7 +260,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_Label *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -356,7 +364,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -389,7 +399,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -446,7 +458,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_BatchDeleteMessagesRequest *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -470,7 +484,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_BatchModifyMessagesRequest *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -555,7 +571,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -582,7 +600,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -639,7 +659,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -668,7 +690,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -748,7 +772,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_Delegate *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -837,7 +863,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_Filter *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -934,7 +962,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_ForwardingAddress *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1118,7 +1148,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_SendAs *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1208,7 +1240,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                     sendAsEmail:(NSString *)sendAsEmail {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1294,7 +1328,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                     sendAsEmail:(NSString *)sendAsEmail {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1374,7 +1410,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                     sendAsEmail:(NSString *)sendAsEmail {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1424,7 +1462,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_AutoForwarding *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1449,7 +1489,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_ImapSettings *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1474,7 +1516,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_LanguageSettings *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1499,7 +1543,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_PopSettings *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1524,7 +1570,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_VacationSettings *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -1658,7 +1706,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
                          userId:(NSString *)userId
                      identifier:(NSString *)identifier {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -1740,7 +1790,9 @@ NSString * const kGTLRGmailInternalDateSourceReceivedTime = @"receivedTime";
 + (instancetype)queryWithObject:(GTLRGmail_WatchRequest *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];

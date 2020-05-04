@@ -54,7 +54,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 
 + (instancetype)queryWithObject:(GTLRReseller_Customer *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"customers";
@@ -77,7 +79,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 + (instancetype)queryWithObject:(GTLRReseller_Customer *)object
                      customerId:(NSString *)customerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
@@ -102,7 +106,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 + (instancetype)queryWithObject:(GTLRReseller_Customer *)object
                      customerId:(NSString *)customerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
@@ -200,7 +206,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
                      customerId:(NSString *)customerId
                  subscriptionId:(NSString *)subscriptionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -229,7 +237,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
                      customerId:(NSString *)customerId
                  subscriptionId:(NSString *)subscriptionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -258,7 +268,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
                      customerId:(NSString *)customerId
                  subscriptionId:(NSString *)subscriptionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -333,7 +345,9 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 + (instancetype)queryWithObject:(GTLRReseller_Subscription *)object
                      customerId:(NSString *)customerId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];

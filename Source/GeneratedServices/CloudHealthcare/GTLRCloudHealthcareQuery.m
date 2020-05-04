@@ -39,7 +39,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Dataset *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -64,7 +66,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyDatasetRequest *)object
                   sourceDataset:(NSString *)sourceDataset {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"sourceDataset" ];
@@ -108,7 +112,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_DicomStore *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -133,7 +139,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyDicomStoreRequest *)object
                     sourceStore:(NSString *)sourceStore {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"sourceStore" ];
@@ -177,7 +185,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportDicomDataRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -244,7 +254,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_ImportDicomDataRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -288,7 +300,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_DicomStore *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -382,7 +396,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -408,7 +424,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
                          parent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -782,7 +800,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
                          parent:(NSString *)parent
                    dicomWebPath:(NSString *)dicomWebPath {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -810,7 +830,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -835,7 +857,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_FhirStore *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -860,7 +884,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_DeidentifyFhirStoreRequest *)object
                     sourceStore:(NSString *)sourceStore {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"sourceStore" ];
@@ -904,7 +930,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportResourcesRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -949,7 +977,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
                          parent:(NSString *)parent
                            type:(NSString *)type {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -996,7 +1026,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1050,7 +1082,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1140,7 +1174,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1165,7 +1201,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1251,7 +1289,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_ImportResourcesRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1295,7 +1335,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_FhirStore *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1339,7 +1381,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -1364,7 +1408,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -1431,7 +1477,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Hl7V2Store *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1536,7 +1584,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_CreateMessageRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1599,7 +1649,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_IngestMessageRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -1643,7 +1695,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Message *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1668,7 +1722,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Hl7V2Store *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1693,7 +1749,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -1718,7 +1776,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -1762,7 +1822,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_CancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1825,7 +1887,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Dataset *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -1850,7 +1914,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -1875,7 +1941,9 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];

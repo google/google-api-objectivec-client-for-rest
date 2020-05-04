@@ -26,7 +26,9 @@
 + (instancetype)queryWithObject:(GTLRFitness_AggregateRequest *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -51,7 +53,9 @@
 + (instancetype)queryWithObject:(GTLRFitness_DataSource *)object
                          userId:(NSString *)userId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
@@ -150,7 +154,9 @@
                    dataSourceId:(NSString *)dataSourceId
                       datasetId:(NSString *)datasetId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -252,7 +258,9 @@
                          userId:(NSString *)userId
                    dataSourceId:(NSString *)dataSourceId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -329,7 +337,9 @@
                          userId:(NSString *)userId
                       sessionId:(NSString *)sessionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[

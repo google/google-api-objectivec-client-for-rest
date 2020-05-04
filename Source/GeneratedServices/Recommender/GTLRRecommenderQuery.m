@@ -61,7 +61,9 @@
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1beta1MarkInsightAcceptedRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -124,7 +126,9 @@
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationClaimedRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -149,7 +153,9 @@
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationFailedRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -174,7 +180,9 @@
 + (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1beta1MarkRecommendationSucceededRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

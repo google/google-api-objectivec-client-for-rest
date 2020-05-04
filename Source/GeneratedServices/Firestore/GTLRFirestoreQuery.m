@@ -64,7 +64,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Field *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -89,7 +91,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Index *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -171,7 +175,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_BatchGetDocumentsRequest *)object
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"database" ];
@@ -196,7 +202,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_BeginTransactionRequest *)object
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"database" ];
@@ -221,7 +229,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_CommitRequest *)object
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"database" ];
@@ -258,7 +268,9 @@
                          parent:(NSString *)parent
                    collectionId:(NSString *)collectionId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -378,7 +390,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_ListCollectionIdsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -403,7 +417,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_ListenRequest *)object
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"database" ];
@@ -447,7 +463,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_Document *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -472,7 +490,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_RollbackRequest *)object
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"database" ];
@@ -497,7 +517,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_RunQueryRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -522,7 +544,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_WriteRequest *)object
                        database:(NSString *)database {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"database" ];
@@ -547,7 +571,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -572,7 +598,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -597,7 +625,9 @@
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleLongrunningCancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

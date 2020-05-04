@@ -44,7 +44,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_Note *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -107,7 +109,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -170,7 +174,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_Note *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -195,7 +201,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -220,7 +228,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -245,7 +255,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_Occurrence *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -308,7 +320,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -390,7 +404,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_Occurrence *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -415,7 +431,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -440,7 +458,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -465,7 +485,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_CreateOperationRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -490,7 +512,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_UpdateOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -553,7 +577,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_ScanConfig *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -578,7 +604,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_Note *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -641,7 +669,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_GetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -704,7 +734,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_Note *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -729,7 +761,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -754,7 +788,9 @@ NSString * const kGTLRContainerAnalysisKindUpgrade             = @"UPGRADE";
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];

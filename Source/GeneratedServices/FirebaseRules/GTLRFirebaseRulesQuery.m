@@ -38,7 +38,9 @@ NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnsp
 + (instancetype)queryWithObject:(GTLRFirebaseRules_Release *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -139,7 +141,9 @@ NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnsp
 + (instancetype)queryWithObject:(GTLRFirebaseRules_UpdateReleaseRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -164,7 +168,9 @@ NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnsp
 + (instancetype)queryWithObject:(GTLRFirebaseRules_Ruleset *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -246,7 +252,9 @@ NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnsp
 + (instancetype)queryWithObject:(GTLRFirebaseRules_TestRulesetRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];

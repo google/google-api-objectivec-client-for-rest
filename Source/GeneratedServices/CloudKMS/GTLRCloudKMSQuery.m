@@ -60,7 +60,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_KeyRing *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -85,7 +87,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKey *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -110,7 +114,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_AsymmetricDecryptRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -135,7 +141,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_AsymmetricSignRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -160,7 +168,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKeyVersion *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -185,7 +195,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_DestroyCryptoKeyVersionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -248,7 +260,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_ImportCryptoKeyVersionRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -292,7 +306,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKeyVersion *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -317,7 +333,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_RestoreCryptoKeyVersionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -342,7 +360,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_DecryptRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -367,7 +387,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_EncryptRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -453,7 +475,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_CryptoKey *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -478,7 +502,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -503,7 +529,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -528,7 +556,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
@@ -595,7 +625,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_ImportJob *)object
                          parent:(NSString *)parent {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
@@ -681,7 +713,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -706,7 +740,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -750,7 +786,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_SetIamPolicyRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
@@ -775,7 +813,9 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 + (instancetype)queryWithObject:(GTLRCloudKMS_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];

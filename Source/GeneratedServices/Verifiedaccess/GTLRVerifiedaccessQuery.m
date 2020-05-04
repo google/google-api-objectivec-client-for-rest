@@ -23,7 +23,9 @@
 
 + (instancetype)queryWithObject:(GTLRVerifiedaccess_Empty *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/challenge";
@@ -43,7 +45,9 @@
 
 + (instancetype)queryWithObject:(GTLRVerifiedaccess_VerifyChallengeResponseRequest *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/challenge:verify";

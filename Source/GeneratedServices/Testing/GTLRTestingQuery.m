@@ -37,7 +37,9 @@ NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFT
 
 + (instancetype)queryWithObject:(GTLRTesting_FileReference *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/applicationDetailService/getApkDetails";
@@ -83,7 +85,9 @@ NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFT
 + (instancetype)queryWithObject:(GTLRTesting_TestMatrix *)object
                       projectId:(NSString *)projectId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"projectId" ];

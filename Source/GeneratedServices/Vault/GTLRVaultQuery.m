@@ -46,7 +46,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_AddMatterPermissionsRequest *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -71,7 +73,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_CloseMatterRequest *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -93,7 +97,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 + (instancetype)queryWithObject:(GTLRVault_Matter *)object {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSString *pathURITemplate = @"v1/matters";
@@ -135,7 +141,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_Export *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -245,7 +253,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
                        matterId:(NSString *)matterId
                          holdId:(NSString *)holdId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -322,7 +332,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
                        matterId:(NSString *)matterId
                          holdId:(NSString *)holdId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -350,7 +362,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_Hold *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -441,7 +455,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
                        matterId:(NSString *)matterId
                          holdId:(NSString *)holdId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -470,7 +486,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
                        matterId:(NSString *)matterId
                          holdId:(NSString *)holdId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -515,7 +533,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_RemoveMatterPermissionsRequest *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -540,7 +560,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_ReopenMatterRequest *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -565,7 +587,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_SavedQuery *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -655,7 +679,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_UndeleteMatterRequest *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];
@@ -680,7 +706,9 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 + (instancetype)queryWithObject:(GTLRVault_Matter *)object
                        matterId:(NSString *)matterId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"matterId" ];

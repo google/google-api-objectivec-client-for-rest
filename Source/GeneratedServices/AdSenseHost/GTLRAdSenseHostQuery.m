@@ -165,7 +165,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
                       accountId:(NSString *)accountId
                      adClientId:(NSString *)adClientId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -218,7 +220,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
                      adClientId:(NSString *)adClientId
                        adUnitId:(NSString *)adUnitId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -248,7 +252,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
                       accountId:(NSString *)accountId
                      adClientId:(NSString *)adClientId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[
@@ -481,7 +487,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
 + (instancetype)queryWithObject:(GTLRAdSenseHost_CustomChannel *)object
                      adClientId:(NSString *)adClientId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"adClientId" ];
@@ -526,7 +534,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
                      adClientId:(NSString *)adClientId
                 customChannelId:(NSString *)customChannelId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"adClientId" ];
@@ -552,7 +562,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
 + (instancetype)queryWithObject:(GTLRAdSenseHost_CustomChannel *)object
                      adClientId:(NSString *)adClientId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"adClientId" ];
@@ -631,7 +643,9 @@ NSString * const kGTLRAdSenseHostProductCodeAfv  = @"AFV";
 + (instancetype)queryWithObject:(GTLRAdSenseHost_UrlChannel *)object
                      adClientId:(NSString *)adClientId {
   if (object == nil) {
-    GTLR_DEBUG_ASSERT(object != nil, @"Got a nil object");
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
     return nil;
   }
   NSArray *pathParams = @[ @"adClientId" ];
