@@ -319,7 +319,7 @@ Class GTLRObjectResolveClass(
 
 // Version marker used to validate the generated sources against the library
 // version. The will be changed any time the library makes a change that means
-// past sources need to be regenerated.
+// sources need to be regenerated.
 #define GTLR_RUNTIME_VERSION 3000
 
 // ----------------------------------------------------------------------------
