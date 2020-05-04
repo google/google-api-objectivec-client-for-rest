@@ -103,25 +103,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_DomainMappingSpec.certificateMode
@@ -131,15 +131,15 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspeci
  *
  *  Value: "AUTOMATIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_Automatic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_Automatic;
 /** Value: "CERTIFICATE_MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_CertificateModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_CertificateModeUnspecified;
 /**
  *  Do not provision an HTTPS certificate.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_ResourceRecord.type
@@ -149,25 +149,25 @@ GTLR_EXTERN NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_Non
  *
  *  Value: "A"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_A;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_A;
 /**
  *  An AAAA resource record. Data is an IPv6 address.
  *
  *  Value: "AAAA"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_Aaaa;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_Aaaa;
 /**
  *  A CNAME resource record. Data is a domain name to be aliased.
  *
  *  Value: "CNAME"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_Cname;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_Cname;
 /**
  *  An unknown resource record.
  *
  *  Value: "RECORD_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified;
 
 /**
  *  Information for connecting over HTTP(s).

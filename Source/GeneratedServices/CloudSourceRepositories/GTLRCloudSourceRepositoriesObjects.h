@@ -52,25 +52,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSourceRepositories_PubsubConfig.messageFormat
@@ -80,19 +80,19 @@ GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_AuditLogConfig_LogType
  *
  *  Value: "JSON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Json;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Json;
 /**
  *  Unspecified.
  *
  *  Value: "MESSAGE_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_MessageFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_MessageFormatUnspecified;
 /**
  *  The message payload is a serialized protocol buffer of SourceRepoEvent.
  *
  *  Value: "PROTOBUF"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobuf;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSourceRepositories_PubsubConfig_MessageFormat_Protobuf;
 
 /**
  *  Specifies the audit configuration for a service.

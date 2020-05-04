@@ -50,25 +50,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "approved"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterApproved;
 /**
  *  Creatives which have been conditionally approved for serving on deals.
  *
  *  Value: "conditionally_approved"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterConditionallyApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterConditionallyApproved;
 /**
  *  Creatives which have been disapproved for serving on deals.
  *
  *  Value: "disapproved"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterDisapproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterDisapproved;
 /**
  *  Creatives whose deals status is not yet checked.
  *
  *  Value: "not_checked"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterNotChecked;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterNotChecked;
 
 // ----------------------------------------------------------------------------
 // openAuctionStatusFilter
@@ -78,42 +78,42 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerDealsStatusFilterNotChecked;
  *
  *  Value: "approved"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterApproved;
 /**
  *  Creatives which have been conditionally approved for serving on the open
  *  auction.
  *
  *  Value: "conditionally_approved"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterConditionallyApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterConditionallyApproved;
 /**
  *  Creatives which have been disapproved for serving on the open auction.
  *
  *  Value: "disapproved"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterDisapproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterDisapproved;
 /**
  *  Creatives whose open auction status is not yet checked.
  *
  *  Value: "not_checked"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterNotChecked;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerOpenAuctionStatusFilterNotChecked;
 
 // ----------------------------------------------------------------------------
 // updateAction
 
 /** Value: "accept" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionAccept;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionAccept;
 /** Value: "cancel" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionCancel;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionCancel;
 /** Value: "propose" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionPropose;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionPropose;
 /** Value: "proposeAndAccept" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionProposeAndAccept;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionProposeAndAccept;
 /** Value: "unknownAction" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUnknownAction;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUnknownAction;
 /** Value: "updateNonTerms" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerms;
 
 // ----------------------------------------------------------------------------
 // Query Classes

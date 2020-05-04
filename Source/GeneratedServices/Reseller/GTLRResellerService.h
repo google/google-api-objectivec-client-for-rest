@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/apps.order"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResellerAppsOrder;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeResellerAppsOrder;
 /**
  *  Authorization scope: Manage users on your domain
  *
  *  Value "https://www.googleapis.com/auth/apps.order.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeResellerAppsOrderReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeResellerAppsOrderReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRResellerService

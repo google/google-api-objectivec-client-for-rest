@@ -33,13 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/siteverification"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSiteVerification;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSiteVerification;
 /**
  *  Authorization scope: Manage your new site verifications with Google
  *
  *  Value "https://www.googleapis.com/auth/siteverification.verify_only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSiteVerificationVerifyOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSiteVerificationVerifyOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRSiteVerificationService

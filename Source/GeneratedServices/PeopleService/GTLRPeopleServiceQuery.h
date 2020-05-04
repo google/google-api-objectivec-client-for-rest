@@ -38,13 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
 // sortOrder
 
 /** Value: "FIRST_NAME_ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending;
 /** Value: "LAST_MODIFIED_ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending;
 /** Value: "LAST_MODIFIED_DESCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedDescending;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedDescending;
 /** Value: "LAST_NAME_ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -35,27 +35,27 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerCloudPlatformReadOnly;
 /**
  *  Authorization scope: View and manage your Google Cloud Platform management
  *  resources and deployment status information
  *
  *  Value "https://www.googleapis.com/auth/ndev.cloudman"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudman;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudman;
 /**
  *  Authorization scope: View your Google Cloud Platform management resources
  *  and deployment status information
  *
  *  Value "https://www.googleapis.com/auth/ndev.cloudman.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRDeploymentManagerService

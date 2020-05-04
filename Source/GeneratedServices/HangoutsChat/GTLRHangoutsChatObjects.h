@@ -60,25 +60,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "NEW_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage;
 /**
  *  Privately ask the user for additional auth or config.
  *
  *  Value: "REQUEST_CONFIG"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig;
 /**
  *  Default type; will be handled as NEW_MESSAGE.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified;
 /**
  *  Update the bot's own message. (Only after CARD_CLICKED events.)
  *
  *  Value: "UPDATE_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Annotation.type
@@ -88,13 +88,13 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage
  *
  *  Value: "ANNOTATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified;
 /**
  *  A user is mentioned.
  *
  *  Value: "USER_MENTION"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_CardHeader.imageStyle
@@ -104,15 +104,15 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention;
  *
  *  Value: "AVATAR"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar;
 /**
  *  Square border.
  *
  *  Value: "IMAGE"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image;
 /** Value: "IMAGE_STYLE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.type
@@ -122,163 +122,163 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleU
  *
  *  Value: "ADDED_TO_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace;
 /**
  *  The bot's interactive card was clicked.
  *
  *  Value: "CARD_CLICKED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked;
 /**
  *  A message was sent in a room or direct message.
  *
  *  Value: "MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message;
 /**
  *  The bot was removed from a room or DM.
  *
  *  Value: "REMOVED_FROM_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace;
 /**
  *  Default value for the enum. DO NOT USE.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ImageButton.icon
 
 /** Value: "AIRPLANE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Airplane;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Airplane;
 /** Value: "BOOKMARK" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Bookmark;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Bookmark;
 /** Value: "BUS" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Bus;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Bus;
 /** Value: "CAR" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Car;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Car;
 /** Value: "CLOCK" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Clock;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Clock;
 /** Value: "CONFIRMATION_NUMBER_ICON" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_ConfirmationNumberIcon;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_ConfirmationNumberIcon;
 /** Value: "DESCRIPTION" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Description;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Description;
 /** Value: "DOLLAR" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Dollar;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Dollar;
 /** Value: "EMAIL" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Email;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Email;
 /** Value: "EVENT_PERFORMER" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_EventPerformer;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_EventPerformer;
 /** Value: "EVENT_SEAT" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_EventSeat;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_EventSeat;
 /** Value: "FLIGHT_ARRIVAL" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_FlightArrival;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_FlightArrival;
 /** Value: "FLIGHT_DEPARTURE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_FlightDeparture;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_FlightDeparture;
 /** Value: "HOTEL" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Hotel;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Hotel;
 /** Value: "HOTEL_ROOM_TYPE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_HotelRoomType;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_HotelRoomType;
 /** Value: "ICON_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_IconUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_IconUnspecified;
 /** Value: "INVITE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Invite;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Invite;
 /** Value: "MAP_PIN" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_MapPin;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_MapPin;
 /** Value: "MEMBERSHIP" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Membership;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Membership;
 /** Value: "MULTIPLE_PEOPLE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_MultiplePeople;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_MultiplePeople;
 /** Value: "OFFER" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Offer;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Offer;
 /** Value: "PERSON" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Person;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Person;
 /** Value: "PHONE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Phone;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Phone;
 /** Value: "RESTAURANT_ICON" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_RestaurantIcon;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_RestaurantIcon;
 /** Value: "SHOPPING_CART" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_ShoppingCart;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_ShoppingCart;
 /** Value: "STAR" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Star;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Star;
 /** Value: "STORE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Store;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Store;
 /** Value: "TICKET" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Ticket;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Ticket;
 /** Value: "TRAIN" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Train;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_Train;
 /** Value: "VIDEO_CAMERA" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_VideoCamera;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_VideoCamera;
 /** Value: "VIDEO_PLAY" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_VideoPlay;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ImageButton_Icon_VideoPlay;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_KeyValue.icon
 
 /** Value: "AIRPLANE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Airplane;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Airplane;
 /** Value: "BOOKMARK" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Bookmark;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Bookmark;
 /** Value: "BUS" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Bus;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Bus;
 /** Value: "CAR" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Car;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Car;
 /** Value: "CLOCK" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Clock;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Clock;
 /** Value: "CONFIRMATION_NUMBER_ICON" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_ConfirmationNumberIcon;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_ConfirmationNumberIcon;
 /** Value: "DESCRIPTION" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Description;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Description;
 /** Value: "DOLLAR" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Dollar;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Dollar;
 /** Value: "EMAIL" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Email;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Email;
 /** Value: "EVENT_PERFORMER" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_EventPerformer;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_EventPerformer;
 /** Value: "EVENT_SEAT" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_EventSeat;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_EventSeat;
 /** Value: "FLIGHT_ARRIVAL" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_FlightArrival;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_FlightArrival;
 /** Value: "FLIGHT_DEPARTURE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_FlightDeparture;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_FlightDeparture;
 /** Value: "HOTEL" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Hotel;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Hotel;
 /** Value: "HOTEL_ROOM_TYPE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_HotelRoomType;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_HotelRoomType;
 /** Value: "ICON_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_IconUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_IconUnspecified;
 /** Value: "INVITE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Invite;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Invite;
 /** Value: "MAP_PIN" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_MapPin;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_MapPin;
 /** Value: "MEMBERSHIP" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Membership;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Membership;
 /** Value: "MULTIPLE_PEOPLE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_MultiplePeople;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_MultiplePeople;
 /** Value: "OFFER" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Offer;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Offer;
 /** Value: "PERSON" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Person;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Person;
 /** Value: "PHONE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Phone;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Phone;
 /** Value: "RESTAURANT_ICON" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_RestaurantIcon;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_RestaurantIcon;
 /** Value: "SHOPPING_CART" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_ShoppingCart;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_ShoppingCart;
 /** Value: "STAR" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Star;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Star;
 /** Value: "STORE" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Store;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Store;
 /** Value: "TICKET" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Ticket;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Ticket;
 /** Value: "TRAIN" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Train;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_Train;
 /** Value: "VIDEO_CAMERA" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoCamera;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoCamera;
 /** Value: "VIDEO_PLAY" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Membership.state
@@ -289,26 +289,26 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay;
  *
  *  Value: "INVITED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Invited;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Invited;
 /**
  *  The user has joined the space.
  *
  *  Value: "JOINED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Joined;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Joined;
 /**
  *  Default, do not use.
  *
  *  Value: "MEMBERSHIP_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified;
 /**
  *  The user is not a member of the space, has not been invited and is not
  *  able to join the space.
  *
  *  Value: "NOT_A_MEMBER"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_Space.type
@@ -319,16 +319,16 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
  *
  *  Value: "DM"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Dm;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Dm;
 /**
  *  A chat space where memberships are free to change. Messages in rooms are
  *  threaded.
  *
  *  Value: "ROOM"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Room;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Room;
 /** Value: "TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_User.type
@@ -338,19 +338,19 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_TypeUnspecified;
  *
  *  Value: "BOT"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_User_Type_Bot;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_User_Type_Bot;
 /**
  *  Human user.
  *
  *  Value: "HUMAN"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_User_Type_Human;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_User_Type_Human;
 /**
  *  Default value for the enum. DO NOT USE.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_User_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_User_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_UserMentionMetadata.type
@@ -360,19 +360,19 @@ GTLR_EXTERN NSString * const kGTLRHangoutsChat_User_Type_TypeUnspecified;
  *
  *  Value: "ADD"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Add;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Add;
 /**
  *  Mention user in space.
  *
  *  Value: "MENTION"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Mention;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Mention;
 /**
  *  Default value for the enum. DO NOT USE.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified;
 
 /**
  *  List of string parameters to supply when the action method is invoked.

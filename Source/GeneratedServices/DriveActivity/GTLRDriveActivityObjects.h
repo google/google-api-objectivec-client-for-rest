@@ -89,19 +89,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DISCUSS"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_Discuss;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_Discuss;
 /**
  *  The links of one or more Drive items were posted.
  *
  *  Value: "LINK"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_Link;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_Link;
 /**
  *  The type is not available.
  *
  *  Value: "UNSPECIFIED_REFERENCE_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_UnspecifiedReferenceType;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_UnspecifiedReferenceType;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Assignment.subtype
@@ -111,49 +111,49 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_ApplicationReference_Type_Unspec
  *
  *  Value: "ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Added;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Added;
 /**
  *  An assignment was deleted.
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Deleted;
 /**
  *  An assignment was reassigned.
  *
  *  Value: "REASSIGNED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Reassigned;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Reassigned;
 /**
  *  A resolved assignment was reopened.
  *
  *  Value: "REOPENED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Reopened;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Reopened;
 /**
  *  An assignment reply was added.
  *
  *  Value: "REPLY_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_ReplyAdded;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_ReplyAdded;
 /**
  *  An assignment reply was deleted.
  *
  *  Value: "REPLY_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_ReplyDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_ReplyDeleted;
 /**
  *  An assignment was resolved.
  *
  *  Value: "RESOLVED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Resolved;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_Resolved;
 /**
  *  Subtype not available.
  *
  *  Value: "SUBTYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_SubtypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_SubtypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_DataLeakPreventionChange.type
@@ -163,19 +163,19 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Assignment_Subtype_SubtypeUnspec
  *
  *  Value: "CLEARED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_Cleared;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_Cleared;
 /**
  *  Document has been flagged as containing sensitive content.
  *
  *  Value: "FLAGGED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_Flagged;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_Flagged;
 /**
  *  An update to the DLP state that is neither FLAGGED or CLEARED.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Delete.type
@@ -185,19 +185,19 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_DataLeakPreventionChange_Type_Ty
  *
  *  Value: "PERMANENT_DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_PermanentDelete;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_PermanentDelete;
 /**
  *  An object was put into the trash.
  *
  *  Value: "TRASH"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_Trash;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_Trash;
 /**
  *  Deletion type is not available.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_DriveFolder.type
@@ -207,25 +207,25 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Delete_Type_TypeUnspecified;
  *
  *  Value: "MY_DRIVE_ROOT"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_MyDriveRoot;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_MyDriveRoot;
 /**
  *  The folder is the root of a shared drive.
  *
  *  Value: "SHARED_DRIVE_ROOT"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_SharedDriveRoot;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_SharedDriveRoot;
 /**
  *  The folder is a standard, non-root, folder.
  *
  *  Value: "STANDARD_FOLDER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_StandardFolder;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_StandardFolder;
 /**
  *  The folder type is unknown.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Folder.type
@@ -235,25 +235,25 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_DriveFolder_Type_TypeUnspecified
  *
  *  Value: "MY_DRIVE_ROOT"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_MyDriveRoot;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_MyDriveRoot;
 /**
  *  This item is deprecated; please see `DriveFolder.Type` instead.
  *
  *  Value: "STANDARD_FOLDER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_StandardFolder;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_StandardFolder;
 /**
  *  This item is deprecated; please see `DriveFolder.Type` instead.
  *
  *  Value: "TEAM_DRIVE_ROOT"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_TeamDriveRoot;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_TeamDriveRoot;
 /**
  *  This item is deprecated; please see `DriveFolder.Type` instead.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Permission.role
@@ -263,32 +263,32 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Folder_Type_TypeUnspecified;
  *
  *  Value: "COMMENTER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Commenter;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Commenter;
 /**
  *  A role granting the ability to contribute content. This role is sometimes
  *  also known as "writer".
  *
  *  Value: "EDITOR"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Editor;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Editor;
 /**
  *  A role granting the ability to contribute and manage content.
  *
  *  Value: "FILE_ORGANIZER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_FileOrganizer;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_FileOrganizer;
 /**
  *  A role granting the ability to manage people and settings.
  *
  *  Value: "ORGANIZER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Organizer;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Organizer;
 /**
  *  A role granting full access.
  *
  *  Value: "OWNER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Owner;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Owner;
 /**
  *  A role granting the ability to view content only after it has been
  *  published to the web. This role is sometimes also known as "published
@@ -297,20 +297,20 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Owner;
  *
  *  Value: "PUBLISHED_VIEWER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_PublishedViewer;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_PublishedViewer;
 /**
  *  The role is not available.
  *
  *  Value: "ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_RoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_RoleUnspecified;
 /**
  *  A role granting the ability to view content. This role is sometimes also
  *  known as "reader".
  *
  *  Value: "VIEWER"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Viewer;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Viewer;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Post.subtype
@@ -320,43 +320,43 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Viewer;
  *
  *  Value: "ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Added;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Added;
 /**
  *  A post was deleted.
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Deleted;
 /**
  *  A posted comment was reopened.
  *
  *  Value: "REOPENED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Reopened;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Reopened;
 /**
  *  A reply was added.
  *
  *  Value: "REPLY_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_ReplyAdded;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_ReplyAdded;
 /**
  *  A reply was deleted.
  *
  *  Value: "REPLY_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_ReplyDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_ReplyDeleted;
 /**
  *  A posted comment was resolved.
  *
  *  Value: "RESOLVED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Resolved;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_Resolved;
 /**
  *  Subtype not available.
  *
  *  Value: "SUBTYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_SubtypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_SubtypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Restore.type
@@ -366,13 +366,13 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Post_Subtype_SubtypeUnspecified;
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Restore_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Restore_Type_TypeUnspecified;
 /**
  *  An object was restored from the trash.
  *
  *  Value: "UNTRASH"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Restore_Type_Untrash;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Restore_Type_Untrash;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_RestrictionChange.feature
@@ -382,33 +382,33 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Restore_Type_Untrash;
  *
  *  Value: "DIRECT_SHARING"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_DirectSharing;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_DirectSharing;
 /**
  *  When restricted, this prevents use of Drive File Stream.
  *
  *  Value: "DRIVE_FILE_STREAM"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_DriveFileStream;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_DriveFileStream;
 /**
  *  The feature which changed restriction settings was not available.
  *
  *  Value: "FEATURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FeatureUnspecified;
 /**
  *  When restricted, this prevents actions like copy, download, and print
  *  that might result in uncontrolled duplicates of items.
  *
  *  Value: "ITEM_DUPLICATION"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication;
 /**
  *  When restricted, this prevents items from being shared outside the
  *  domain.
  *
  *  Value: "SHARING_OUTSIDE_DOMAIN"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_RestrictionChange.newRestriction
@@ -418,19 +418,19 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_Sharin
  *
  *  Value: "FULLY_RESTRICTED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction_FullyRestricted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction_FullyRestricted;
 /**
  *  The type of restriction is not available.
  *
  *  Value: "RESTRICTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction_RestrictionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction_RestrictionUnspecified;
 /**
  *  The feature is available without restriction.
  *
  *  Value: "UNRESTRICTED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction_Unrestricted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction_Unrestricted;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_Suggestion.subtype
@@ -440,55 +440,55 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_NewRestriction
  *
  *  Value: "ACCEPT_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_AcceptDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_AcceptDeleted;
 /**
  *  A suggestion was accepted.
  *
  *  Value: "ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Accepted;
 /**
  *  A suggestion was added.
  *
  *  Value: "ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Added;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Added;
 /**
  *  A suggestion was deleted.
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Deleted;
 /**
  *  A rejected suggestion was deleted.
  *
  *  Value: "REJECT_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_RejectDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_RejectDeleted;
 /**
  *  A suggestion was rejected.
  *
  *  Value: "REJECTED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Rejected;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_Rejected;
 /**
  *  A suggestion reply was added.
  *
  *  Value: "REPLY_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_ReplyAdded;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_ReplyAdded;
 /**
  *  A suggestion reply was deleted.
  *
  *  Value: "REPLY_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_ReplyDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_ReplyDeleted;
 /**
  *  Subtype not available.
  *
  *  Value: "SUBTYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_SubtypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_SubtypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_SystemEvent.type
@@ -498,19 +498,19 @@ GTLR_EXTERN NSString * const kGTLRDriveActivity_Suggestion_Subtype_SubtypeUnspec
  *
  *  Value: "TRASH_AUTO_PURGE"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_TrashAutoPurge;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_TrashAutoPurge;
 /**
  *  The event type is unspecified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_TypeUnspecified;
 /**
  *  The event is a consequence of a user account being deleted.
  *
  *  Value: "USER_DELETION"
  */
-GTLR_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDeletion;
 
 /**
  *  Information about the action.

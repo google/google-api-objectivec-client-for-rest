@@ -99,19 +99,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "KEY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecified;
 /**
  *  `PGP ASCII Armored` public key.
  *
  *  Value: "PGP_ASCII_ARMORED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PgpAsciiArmored;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PgpAsciiArmored;
 /**
  *  `PKIX PEM` public key.
  *
  *  Value: "PKIX_PEM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PkixPem;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PkixPem;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Deployment.platform
@@ -121,25 +121,25 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PkixP
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Custom;
 /**
  *  Google App Engine: Flexible Environment
  *
  *  Value: "FLEX"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Flex;
 /**
  *  Google Container Engine
  *
  *  Value: "GKE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Gke;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Gke;
 /**
  *  Unknown
  *
  *  Value: "PLATFORM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_PlatformUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Discovered.analysisStatus
@@ -149,38 +149,38 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Platform
  *
  *  Value: "ANALYSIS_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_AnalysisStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_AnalysisStatusUnspecified;
 /**
  *  Analysis has finished unsuccessfully, the analysis itself is in a bad
  *  state.
  *
  *  Value: "FINISHED_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedFailed;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedFailed;
 /**
  *  Analysis has finished successfully.
  *
  *  Value: "FINISHED_SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedSuccess;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedSuccess;
 /**
  *  The resource is known not to be supported.
  *
  *  Value: "FINISHED_UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedUnsupported;
 /**
  *  Resource is known but no action has been taken yet.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Pending;
 /**
  *  Resource is being analyzed.
  *
  *  Value: "SCANNING"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Scanning;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Scanning;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Discovered.continuousAnalysis
@@ -190,19 +190,19 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Sc
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Active;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Active;
 /**
  *  Unknown
  *
  *  Value: "CONTINUOUS_ANALYSIS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_ContinuousAnalysisUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_ContinuousAnalysisUnspecified;
 /**
  *  The resource is ignored for continuous analysis.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Inactive;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Discovery.analysisKind
@@ -212,55 +212,55 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysi
  *
  *  Value: "ATTESTATION_AUTHORITY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_AttestationAuthority;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_AttestationAuthority;
 /**
  *  The note and occurrence assert build provenance.
  *
  *  Value: "BUILD_DETAILS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_BuildDetails;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_BuildDetails;
 /**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYABLE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Deployable;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Deployable;
 /**
  *  The note and occurrence track the initial discovery status of a resource.
  *
  *  Value: "DISCOVERY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Discovery;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Discovery;
 /**
  *  This represents an image basis relationship.
  *
  *  Value: "IMAGE_BASIS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_ImageBasis;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_ImageBasis;
 /**
  *  Unknown
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_KindUnspecified;
 /**
  *  This represents a package installed via a package manager.
  *
  *  Value: "PACKAGE_MANAGER"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageManager;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageManager;
 /**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "PACKAGE_VULNERABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageVulnerability;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_PackageVulnerability;
 /**
  *  This represents an available software upgrade.
  *
  *  Value: "UPGRADE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Upgrade;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Distribution.architecture
@@ -270,19 +270,19 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Upgra
  *
  *  Value: "ARCHITECTURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_ArchitectureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_ArchitectureUnspecified;
 /**
  *  X64 architecture
  *
  *  Value: "X64"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X64;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X64;
 /**
  *  X86 architecture
  *
  *  Value: "X86"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext.kind
@@ -292,26 +292,26 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X8
  *
  *  Value: "FIXED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Fixed;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Fixed;
 /**
  *  Unknown.
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_KindUnspecified;
 /**
  *  Git branch.
  *
  *  Value: "MOVABLE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Movable;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Movable;
 /**
  *  Used to specify non-standard aliases. For example, if a Git repo has a
  *  ref named "refs/foo/bar".
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Other;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Other;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Hash.type
@@ -321,13 +321,13 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranaly
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_None;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_None;
 /**
  *  A sha256 hash.
  *
  *  Value: "SHA256"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_Sha256;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_Sha256;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Layer.directive
@@ -337,109 +337,109 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_Sha256;
  *
  *  Value: "ADD"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Add;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Add;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ARG"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Arg;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Arg;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "CMD"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Cmd;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Cmd;
 /**
  *  https://docs.docker.com/reference/builder/#copy
  *
  *  Value: "COPY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Copy;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Copy;
 /**
  *  Default value for unsupported/missing directive
  *
  *  Value: "DIRECTIVE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_DirectiveUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_DirectiveUnspecified;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ENTRYPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Entrypoint;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Entrypoint;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ENV"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Env;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Env;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "EXPOSE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Expose;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Expose;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "HEALTHCHECK"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Healthcheck;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Healthcheck;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "LABEL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Label;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Label;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "MAINTAINER"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Maintainer;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Maintainer;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "ONBUILD"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Onbuild;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Onbuild;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "RUN"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Run;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Run;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "SHELL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Shell;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Shell;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "STOPSIGNAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Stopsignal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Stopsignal;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "USER"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_User;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_User;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "VOLUME"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Volume;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Volume;
 /**
  *  https://docs.docker.com/engine/reference/builder/
  *
  *  Value: "WORKDIR"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Workdir;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Workdir;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Note.kind
@@ -449,55 +449,55 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Workdir;
  *
  *  Value: "ATTESTATION_AUTHORITY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_AttestationAuthority;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_AttestationAuthority;
 /**
  *  The note and occurrence assert build provenance.
  *
  *  Value: "BUILD_DETAILS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_BuildDetails;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_BuildDetails;
 /**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYABLE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Deployable;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Deployable;
 /**
  *  The note and occurrence track the initial discovery status of a resource.
  *
  *  Value: "DISCOVERY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Discovery;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Discovery;
 /**
  *  This represents an image basis relationship.
  *
  *  Value: "IMAGE_BASIS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_ImageBasis;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_ImageBasis;
 /**
  *  Unknown
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_KindUnspecified;
 /**
  *  This represents a package installed via a package manager.
  *
  *  Value: "PACKAGE_MANAGER"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_PackageManager;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_PackageManager;
 /**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "PACKAGE_VULNERABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_PackageVulnerability;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_PackageVulnerability;
 /**
  *  This represents an available software upgrade.
  *
  *  Value: "UPGRADE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Occurrence.kind
@@ -507,55 +507,55 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade;
  *
  *  Value: "ATTESTATION_AUTHORITY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_AttestationAuthority;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_AttestationAuthority;
 /**
  *  The note and occurrence assert build provenance.
  *
  *  Value: "BUILD_DETAILS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_BuildDetails;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_BuildDetails;
 /**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYABLE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Deployable;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Deployable;
 /**
  *  The note and occurrence track the initial discovery status of a resource.
  *
  *  Value: "DISCOVERY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Discovery;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Discovery;
 /**
  *  This represents an image basis relationship.
  *
  *  Value: "IMAGE_BASIS"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_ImageBasis;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_ImageBasis;
 /**
  *  Unknown
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_KindUnspecified;
 /**
  *  This represents a package installed via a package manager.
  *
  *  Value: "PACKAGE_MANAGER"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageManager;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageManager;
 /**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "PACKAGE_VULNERABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageVulnerability;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_PackageVulnerability;
 /**
  *  This represents an available software upgrade.
  *
  *  Value: "UPGRADE"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_PgpSignedAttestation.contentType
@@ -565,7 +565,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade;
  *
  *  Value: "CONTENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified;
 /**
  *  Atomic format attestation signature. See
  *  https://github.com/containers/image/blob/8a5d2f82a6e3263290c8e0276c3e0f64e77723e7/docs/atomic-signature.md
@@ -574,7 +574,7 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_Content
  *
  *  Value: "SIMPLE_SIGNING_JSON"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_SeverityCount.severity
@@ -584,37 +584,37 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_Content
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Critical;
 /**
  *  High Impact
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_High;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_High;
 /**
  *  Low Impact
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Low;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Low;
 /**
  *  Medium Impact
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Medium;
 /**
  *  Minimal Impact
  *
  *  Value: "MINIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Minimal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Minimal;
 /**
  *  Unknown Impact
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
@@ -625,20 +625,20 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity_Sever
  *
  *  Value: "MAXIMUM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum;
 /**
  *  A special version representing negative infinity,
  *  other fields are ignored.
  *
  *  Value: "MINIMUM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Minimum;
 /**
  *  A standard package version, defined by the other fields.
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityDetails.effectiveSeverity
@@ -648,37 +648,37 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Critical;
 /**
  *  High Impact
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_High;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_High;
 /**
  *  Low Impact
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Low;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Low;
 /**
  *  Medium Impact
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Medium;
 /**
  *  Minimal Impact
  *
  *  Value: "MINIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Minimal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Minimal;
 /**
  *  Unknown Impact
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityDetails.severity
@@ -688,37 +688,37 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Effecti
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Critical;
 /**
  *  High Impact
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_High;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_High;
 /**
  *  Low Impact
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Low;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Low;
 /**
  *  Medium Impact
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Medium;
 /**
  *  Minimal Impact
  *
  *  Value: "MINIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Minimal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_Minimal;
 /**
  *  Unknown Impact
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_VulnerabilityType.severity
@@ -728,37 +728,37 @@ GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityDetails_Severit
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Critical;
 /**
  *  High Impact
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_High;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_High;
 /**
  *  Low Impact
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Low;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Low;
 /**
  *  Medium Impact
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Medium;
 /**
  *  Minimal Impact
  *
  *  Value: "MINIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Minimal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_Minimal;
 /**
  *  Unknown Impact
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Severity_SeverityUnspecified;
 
 /**
  *  Artifact describes a build product.

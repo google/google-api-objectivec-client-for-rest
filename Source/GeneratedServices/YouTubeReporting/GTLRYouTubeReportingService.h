@@ -35,13 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeReportingYtAnalyticsMonetaryReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeReportingYtAnalyticsMonetaryReadonly;
 /**
  *  Authorization scope: View YouTube Analytics reports for your YouTube content
  *
  *  Value "https://www.googleapis.com/auth/yt-analytics.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRYouTubeReportingService

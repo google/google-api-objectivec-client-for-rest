@@ -41,21 +41,21 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter.creditTypesTreatment
 
 /** Value: "CREDIT_TYPES_TREATMENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified;
 /**
  *  All types of credit are added to the net cost to determine the spend for
  *  threshold calculations.
  *
  *  Value: "EXCLUDE_ALL_CREDITS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_ExcludeAllCredits;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_ExcludeAllCredits;
 /**
  *  All types of credit are subtracted from the gross cost to determine the
  *  spend for threshold calculations.
  *
  *  Value: "INCLUDE_ALL_CREDITS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_IncludeAllCredits;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_IncludeAllCredits;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule.spendBasis
@@ -65,20 +65,20 @@ GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1
  *
  *  Value: "BASIS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_BasisUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_BasisUnspecified;
 /**
  *  Use current spend as the basis for comparison against the threshold.
  *
  *  Value: "CURRENT_SPEND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_CurrentSpend;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_CurrentSpend;
 /**
  *  Use forecasted spend for the period as the basis for comparison against
  *  the threshold.
  *
  *  Value: "FORECASTED_SPEND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_ForecastedSpend;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_ForecastedSpend;
 
 /**
  *  AllUpdatesRule defines notifications that are sent on every update to the

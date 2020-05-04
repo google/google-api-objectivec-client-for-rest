@@ -42,20 +42,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AUDIO_ENCODING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEncodingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEncodingUnspecified;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
  *  Audio content returned as LINEAR16 also contains a WAV header.
  *
  *  Value: "LINEAR16"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16;
 /**
  *  MP3 audio at 32kbps.
  *
  *  Value: "MP3"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3;
 /**
  *  Opus encoded audio wrapped in an ogg container. The result will be a
  *  file which can be played natively on Android, and in browsers (at least
@@ -64,7 +64,7 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3;
  *
  *  Value: "OGG_OPUS"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus;
 
 // ----------------------------------------------------------------------------
 // GTLRTexttospeech_Voice.ssmlGender
@@ -74,19 +74,19 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus
  *
  *  Value: "FEMALE"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Female;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Female;
 /**
  *  A male voice.
  *
  *  Value: "MALE"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Male;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Male;
 /**
  *  A gender-neutral voice.
  *
  *  Value: "NEUTRAL"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Neutral;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Neutral;
 /**
  *  An unspecified gender.
  *  In VoiceSelectionParams, this means that the client doesn't care which
@@ -96,7 +96,7 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Neutral;
  *
  *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_SsmlVoiceGenderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_SsmlVoiceGenderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRTexttospeech_VoiceSelectionParams.ssmlGender
@@ -106,19 +106,19 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_SsmlVoiceGenderU
  *
  *  Value: "FEMALE"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Female;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Female;
 /**
  *  A male voice.
  *
  *  Value: "MALE"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Male;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Male;
 /**
  *  A gender-neutral voice.
  *
  *  Value: "NEUTRAL"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Neutral;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Neutral;
 /**
  *  An unspecified gender.
  *  In VoiceSelectionParams, this means that the client doesn't care which
@@ -128,7 +128,7 @@ GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_N
  *
  *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
 
 /**
  *  Description of audio data to be synthesized.

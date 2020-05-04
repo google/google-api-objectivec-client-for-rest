@@ -101,13 +101,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_BackendRule.pathTranslation
@@ -129,7 +129,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Api_Syntax_SyntaxProto3;
  *
  *  Value: "APPEND_PATH_TO_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathToAddress;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathToAddress;
 /**
  *  Use the backend address as-is, with no modification to the path. If the
  *  URL pattern contains variables, the variable names and values will be
@@ -151,9 +151,9 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_
  *
  *  Value: "CONSTANT_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Enum.syntax
@@ -163,13 +163,13 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Field.cardinality
@@ -179,25 +179,25 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Enum_Syntax_SyntaxProto3;
  *
  *  Value: "CARDINALITY_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityOptional;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityOptional;
 /**
  *  For repeated fields.
  *
  *  Value: "CARDINALITY_REPEATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityRepeated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityRepeated;
 /**
  *  For required fields. Proto2 syntax only.
  *
  *  Value: "CARDINALITY_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityRequired;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityRequired;
 /**
  *  For fields with unknown cardinality.
  *
  *  Value: "CARDINALITY_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_CardinalityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Field.kind
@@ -207,115 +207,115 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Cardinality_Cardinalit
  *
  *  Value: "TYPE_BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeBool;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeBool;
 /**
  *  Field type bytes.
  *
  *  Value: "TYPE_BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeBytes;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeBytes;
 /**
  *  Field type double.
  *
  *  Value: "TYPE_DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeDouble;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeDouble;
 /**
  *  Field type enum.
  *
  *  Value: "TYPE_ENUM"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeEnum;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeEnum;
 /**
  *  Field type fixed32.
  *
  *  Value: "TYPE_FIXED32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeFixed32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeFixed32;
 /**
  *  Field type fixed64.
  *
  *  Value: "TYPE_FIXED64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeFixed64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeFixed64;
 /**
  *  Field type float.
  *
  *  Value: "TYPE_FLOAT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeFloat;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeFloat;
 /**
  *  Field type group. Proto2 syntax only, and deprecated.
  *
  *  Value: "TYPE_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeGroup;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeGroup;
 /**
  *  Field type int32.
  *
  *  Value: "TYPE_INT32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeInt32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeInt32;
 /**
  *  Field type int64.
  *
  *  Value: "TYPE_INT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeInt64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeInt64;
 /**
  *  Field type message.
  *
  *  Value: "TYPE_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeMessage;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeMessage;
 /**
  *  Field type sfixed32.
  *
  *  Value: "TYPE_SFIXED32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSfixed32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSfixed32;
 /**
  *  Field type sfixed64.
  *
  *  Value: "TYPE_SFIXED64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSfixed64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSfixed64;
 /**
  *  Field type sint32.
  *
  *  Value: "TYPE_SINT32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSint32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSint32;
 /**
  *  Field type sint64.
  *
  *  Value: "TYPE_SINT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSint64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeSint64;
 /**
  *  Field type string.
  *
  *  Value: "TYPE_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeString;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeString;
 /**
  *  Field type uint32.
  *
  *  Value: "TYPE_UINT32"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUint32;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUint32;
 /**
  *  Field type uint64.
  *
  *  Value: "TYPE_UINT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUint64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUint64;
 /**
  *  Field type unknown.
  *
  *  Value: "TYPE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_LabelDescriptor.valueType
@@ -325,19 +325,19 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Field_Kind_TypeUnknown;
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_Bool;
 /**
  *  A 64-bit signed integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_Int64;
 /**
  *  A variable-length string. This is the default.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Method.syntax
@@ -347,13 +347,13 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_LabelDescriptor_ValueType_St
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MetricDescriptor.launchStage
@@ -371,7 +371,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxProto3;
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any
  *  customer to use. There are no SLA or technical support obligations in a
@@ -381,7 +381,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our [Terms of
@@ -391,7 +391,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use
  *  these features, you must sign up in advance and sign a Trusted Tester
@@ -401,32 +401,32 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and
  *  fully qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MetricDescriptor.metricKind
@@ -440,25 +440,25 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage
  *
  *  Value: "CUMULATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Cumulative;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Cumulative;
 /**
  *  The change in a value during a time interval.
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Delta;
 /**
  *  An instantaneous measurement of a value.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_Gauge;
 /**
  *  Do not use this default value.
  *
  *  Value: "METRIC_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_MetricKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MetricDescriptor.valueType
@@ -469,44 +469,44 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_MetricKind_
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Bool;
 /**
  *  The value is a `Distribution`.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Distribution;
 /**
  *  The value is a double precision floating point number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Double;
 /**
  *  The value is a signed 64-bit integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Int64;
 /**
  *  The value is money.
  *
  *  Value: "MONEY"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Money;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_Money;
 /**
  *  The value is a text string.
  *  This value type can be used only if the metric kind is `GAUGE`.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_String;
 /**
  *  Do not use this default value.
  *
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_ValueTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MetricDescriptorMetadata.launchStage
@@ -524,7 +524,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_ValueType_V
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any
  *  customer to use. There are no SLA or technical support obligations in a
@@ -534,7 +534,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_Lau
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our [Terms of
@@ -544,7 +544,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_Lau
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use
  *  these features, you must sign up in advance and sign a Trusted Tester
@@ -554,32 +554,32 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_Lau
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and
  *  fully qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
@@ -597,7 +597,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_Lau
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any
  *  customer to use. There are no SLA or technical support obligations in a
@@ -607,7 +607,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our [Terms of
@@ -617,7 +617,7 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use
  *  these features, you must sign up in advance and sign a Trusted Tester
@@ -627,32 +627,32 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and
  *  fully qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_Type.syntax
@@ -662,13 +662,13 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto2;
 /**
  *  Syntax `proto3`.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_ValidateConsumerConfigResponse.validationError
@@ -678,82 +678,82 @@ GTLR_EXTERN NSString * const kGTLRServiceNetworking_Type_Syntax_SyntaxProto3;
  *
  *  Value: "COMPUTE_API_NOT_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ComputeApiNotEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ComputeApiNotEnabled;
 /**
  *  The consumer project is not a service project for
  *  the specified host project.
  *
  *  Value: "CONSUMER_PROJECT_NOT_SERVICE_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ConsumerProjectNotServiceProject;
 /**
  *  The host project associated with the consumer project
  *  was not found.
  *
  *  Value: "HOST_PROJECT_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_HostProjectNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_HostProjectNotFound;
 /**
  *  The network provided by the consumer does not exist.
  *
  *  Value: "NETWORK_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotFound;
 /**
  *  The consumer project is a service project, and network is a shared VPC,
  *  but the network is not in the host project of this consumer project.
  *
  *  Value: "NETWORK_NOT_IN_CONSUMERS_HOST_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersHostProject;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersHostProject;
 /**
  *  The network is a regular VPC but the network is not in the consumer's
  *  project.
  *
  *  Value: "NETWORK_NOT_IN_CONSUMERS_PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersProject;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotInConsumersProject;
 /**
  *  The network has not been peered with the producer org.
  *
  *  Value: "NETWORK_NOT_PEERED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotPeered;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkNotPeered;
 /**
  *  The peering was created and later deleted.
  *
  *  Value: "NETWORK_PEERING_DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkPeeringDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_NetworkPeeringDeleted;
 /**
  *  The IP ranges were reserved but deleted later.
  *
  *  Value: "RANGES_DELETED_LATER"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesDeletedLater;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesDeletedLater;
 /**
  *  The reserved IP ranges do not have enough space to create
  *  a subnet of desired size.
  *
  *  Value: "RANGES_EXHAUSTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted;
 /**
  *  The IP ranges were not reserved.
  *
  *  Value: "RANGES_NOT_RESERVED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved;
 /** Value: "SERVICE_NETWORKING_NOT_ENABLED" */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled;
 /** Value: "VALIDATION_ERROR_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified;
 /**
  *  In case none of the validations are requested.
  *
  *  Value: "VALIDATION_NOT_REQUESTED"
  */
-GTLR_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested;
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested;
 
 /**
  *  Metadata provided through GetOperation request for the LRO generated by

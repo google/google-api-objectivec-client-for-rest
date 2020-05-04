@@ -87,13 +87,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "REGION_UNREACHABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable;
 /**
  *  An unknown or unset warning type from Cloud SQL API.
  *
  *  Value: "SQL_API_WARNING_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRun.status
@@ -103,31 +103,31 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnsp
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Deleted;
 /**
  *  The backup deletion failed.
  *
  *  Value: "DELETION_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionFailed;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionFailed;
 /**
  *  The backup is about to be deleted.
  *
  *  Value: "DELETION_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionPending;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionPending;
 /**
  *  The backup operation was enqueued.
  *
  *  Value: "ENQUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Enqueued;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Enqueued;
 /**
  *  The backup failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Failed;
 /**
  *  The backup is overdue across a given backup window. Indicates a
  *  problem. Example: Long-running operation in progress during
@@ -135,32 +135,32 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Failed;
  *
  *  Value: "OVERDUE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Overdue;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Overdue;
 /**
  *  The backup is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Running;
 /**
  *  The backup was skipped (without problems) for a given backup
  *  window. Example: Instance was idle.
  *
  *  Value: "SKIPPED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Skipped;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Skipped;
 /**
  *  The status of the run is unknown.
  *
  *  Value: "SQL_BACKUP_RUN_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_SqlBackupRunStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_SqlBackupRunStatusUnspecified;
 /**
  *  The backup was successful.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRun.type
@@ -170,19 +170,19 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Status_Successful;
  *
  *  Value: "AUTOMATED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated;
 /**
  *  The user manually triggers a backup.
  *
  *  Value: "ON_DEMAND"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand;
 /**
  *  This is an unknown BackupRun type.
  *
  *  Value: "SQL_BACKUP_RUN_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.backendType
@@ -192,25 +192,25 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspec
  *
  *  Value: "EXTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External;
 /**
  *  V1 speckle instance.
  *
  *  Value: "FIRST_GEN"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen;
 /**
  *  V2 speckle instance.
  *
  *  Value: "SECOND_GEN"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SecondGen;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SecondGen;
 /**
  *  This is an unknown backend type for instance.
  *
  *  Value: "SQL_BACKEND_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SqlBackendTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SqlBackendTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.databaseVersion
@@ -220,79 +220,79 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_SqlBacke
  *
  *  Value: "MYSQL_5_1"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51;
 /**
  *  The database version is MySQL 5.5.
  *
  *  Value: "MYSQL_5_5"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55;
 /**
  *  The database version is MySQL 5.6.
  *
  *  Value: "MYSQL_5_6"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56;
 /**
  *  The database version is MySQL 5.7.
  *
  *  Value: "MYSQL_5_7"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57;
 /**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10;
 /**
  *  The database version is PostgreSQL 11.
  *
  *  Value: "POSTGRES_11"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11;
 /**
  *  The database version is PostgreSQL 12.
  *
  *  Value: "POSTGRES_12"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12;
 /**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96;
 /**
  *  This is an unknown database version.
  *
  *  Value: "SQL_DATABASE_VERSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified;
 /**
  *  The database version is SQL Server 2017 Enterprise.
  *
  *  Value: "SQLSERVER_2017_ENTERPRISE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise;
 /**
  *  The database version is SQL Server 2017 Express.
  *
  *  Value: "SQLSERVER_2017_EXPRESS"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Express;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Express;
 /**
  *  The database version is SQL Server 2017 Standard.
  *
  *  Value: "SQLSERVER_2017_STANDARD"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Standard;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Standard;
 /**
  *  The database version is SQL Server 2017 Web.
  *
  *  Value: "SQLSERVER_2017_WEB"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.instanceType
@@ -302,26 +302,26 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqls
  *
  *  Value: "CLOUD_SQL_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance;
 /**
  *  An instance running on the customer's premises that is not managed by
  *  Cloud SQL.
  *
  *  Value: "ON_PREMISES_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance;
 /**
  *  A Cloud SQL instance acting as a read-replica.
  *
  *  Value: "READ_REPLICA_INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_ReadReplicaInstance;
 /**
  *  This is an unknown Cloud SQL instance type.
  *
  *  Value: "SQL_INSTANCE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.state
@@ -331,111 +331,111 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInst
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Failed;
 /**
  *  The instance is down for maintenance.
  *
  *  Value: "MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance;
 /**
  *  The instance is being created.
  *
  *  Value: "PENDING_CREATE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate;
 /**
  *  The instance is being deleted.
  *
  *  Value: "PENDING_DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete;
 /**
  *  The instance is running.
  *
  *  Value: "RUNNABLE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable;
 /**
  *  The state of the instance is unknown.
  *
  *  Value: "SQL_INSTANCE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified;
 /**
  *  The instance is currently offline, but it may run again in the future.
  *
  *  Value: "SUSPENDED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Suspended;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Suspended;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.suspensionReason
 
 /** Value: "BILLING_ISSUE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_BillingIssue;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_BillingIssue;
 /** Value: "KMS_KEY_ISSUE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_KmsKeyIssue;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_KmsKeyIssue;
 /** Value: "LEGAL_ISSUE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_LegalIssue;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_LegalIssue;
 /** Value: "OPERATIONAL_ISSUE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_OperationalIssue;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_OperationalIssue;
 /** Value: "SQL_SUSPENSION_REASON_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ExportContext.fileType
 
 /** Value: "BAK" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Bak;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Bak;
 /**
  *  File in CSV format.
  *
  *  Value: "CSV"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Csv;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Csv;
 /**
  *  File containing SQL statements.
  *
  *  Value: "SQL"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Sql;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_Sql;
 /**
  *  Unknown file type.
  *
  *  Value: "SQL_FILE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExportContext_FileType_SqlFileTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.appliesTo
 
 /** Value: "MYSQL_5_1" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51;
 /** Value: "MYSQL_5_5" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55;
 /** Value: "MYSQL_5_6" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56;
 /** Value: "MYSQL_5_7" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57;
 /** Value: "POSTGRES_10" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10;
 /** Value: "POSTGRES_11" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11;
 /** Value: "POSTGRES_12" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12;
 /** Value: "POSTGRES_9_6" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96;
 /** Value: "SQL_DATABASE_VERSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified;
 /** Value: "SQLSERVER_2017_ENTERPRISE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise;
 /** Value: "SQLSERVER_2017_EXPRESS" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Express;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Express;
 /** Value: "SQLSERVER_2017_STANDARD" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Standard;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Standard;
 /** Value: "SQLSERVER_2017_WEB" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.type
@@ -445,74 +445,74 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web;
  *
  *  Value: "BOOLEAN"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Boolean;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Boolean;
 /**
  *  Float type flag.
  *
  *  Value: "FLOAT"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Float;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Float;
 /**
  *  Integer type flag.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Integer;
 /**
  *  Type introduced specically for MySQL TimeZone offset. Accept a string value
  *  with the format [-12:59, 13:00].
  *
  *  Value: "MYSQL_TIMEZONE_OFFSET"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_MysqlTimezoneOffset;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_MysqlTimezoneOffset;
 /**
  *  Flag type used for a server startup option.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_None;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_None;
 /**
  *  Comma-separated list of the strings in a SqlFlagType enum.
  *
  *  Value: "REPEATED_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_RepeatedString;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_RepeatedString;
 /**
  *  This is an unknown flag type.
  *
  *  Value: "SQL_FLAG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_SqlFlagTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_SqlFlagTypeUnspecified;
 /**
  *  String type flag.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_String;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_String;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ImportContext.fileType
 
 /** Value: "BAK" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Bak;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Bak;
 /**
  *  File in CSV format.
  *
  *  Value: "CSV"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Csv;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Csv;
 /**
  *  File containing SQL statements.
  *
  *  Value: "SQL"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Sql;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_Sql;
 /**
  *  Unknown file type.
  *
  *  Value: "SQL_FILE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_IpMapping.type
@@ -524,7 +524,7 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileTypeUns
  *
  *  Value: "MIGRATED_1ST_GEN"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Migrated1stGen;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Migrated1stGen;
 /**
  *  Source IP address of the connection a read replica establishes to its
  *  external master. This IP address can be whitelisted by the customer
@@ -533,26 +533,26 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Migrated1stGen;
  *
  *  Value: "OUTGOING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Outgoing;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Outgoing;
 /**
  *  IP address the customer is supposed to connect to. Usually this is the
  *  load balancer's IP address
  *
  *  Value: "PRIMARY"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Primary;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Primary;
 /**
  *  Private IP used when using private IPs and network peering.
  *
  *  Value: "PRIVATE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Private;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Private;
 /**
  *  This is an unknown IP address type.
  *
  *  Value: "SQL_IP_ADDRESS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_SqlIpAddressTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_SqlIpAddressTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_MaintenanceWindow.updateTrack
@@ -564,13 +564,13 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_SqlIpAddressTypeUnspec
  *
  *  Value: "canary"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Canary;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Canary;
 /**
  *  This is an unknown maintenance timing preference.
  *
  *  Value: "SQL_UPDATE_TRACK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpdateTrackUnspecified;
 /**
  *  For instance update that requires a restart, this update track indicates
  *  your instance prefer to let Cloud SQL choose the timing of restart (within
@@ -578,209 +578,209 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_SqlUpda
  *
  *  Value: "stable"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Stable;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Operation.operationType
 
 /** Value: "BACKUP" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Backup;
 /**
  *  Performs instance backup.
  *
  *  Value: "BACKUP_VOLUME"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_BackupVolume;
 /**
  *  Clones a Cloud SQL instance.
  *
  *  Value: "CLONE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Clone;
 /**
  *  Creates a new Cloud SQL instance.
  *
  *  Value: "CREATE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Create;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Create;
 /**
  *  Creates clone instance.
  *
  *  Value: "CREATE_CLONE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateClone;
 /**
  *  Creates a database in the Cloud SQL instance.
  *
  *  Value: "CREATE_DATABASE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateDatabase;
 /**
  *  Creates a Cloud SQL replica instance.
  *
  *  Value: "CREATE_REPLICA"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReplica;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateReplica;
 /**
  *  Creates a new user in a Cloud SQL instance.
  *
  *  Value: "CREATE_USER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateUser;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_CreateUser;
 /** Value: "DEFER_MAINTENANCE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeferMaintenance;
 /**
  *  Deletes a Cloud SQL instance.
  *
  *  Value: "DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Delete;
 /**
  *  Deletes the backup taken by a backup run.
  *
  *  Value: "DELETE_BACKUP"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBackup;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteBackup;
 /**
  *  Deletes a database in the Cloud SQL instance.
  *
  *  Value: "DELETE_DATABASE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteDatabase;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteDatabase;
 /**
  *  Deletes a user from a Cloud SQL instance.
  *
  *  Value: "DELETE_USER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteUser;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteUser;
 /**
  *  Deletes an instance backup.
  *
  *  Value: "DELETE_VOLUME"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteVolume;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DeleteVolume;
 /**
  *  Demotes the stand-alone instance to be a Cloud SQL
  *  read replica for an external database server.
  *
  *  Value: "DEMOTE_MASTER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DemoteMaster;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_DemoteMaster;
 /**
  *  This field is deprecated, and will be removed in future version of API.
  *
  *  Value: "ENABLE_PRIVATE_IP"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_EnablePrivateIp;
 /**
  *  Exports data from a Cloud SQL instance to a Cloud Storage
  *  bucket.
  *
  *  Value: "EXPORT"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Export;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Export;
 /**
  *  Performs failover of an HA-enabled Cloud SQL
  *  failover replica.
  *
  *  Value: "FAILOVER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Failover;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Failover;
 /**
  *  Imports data into a Cloud SQL instance.
  *
  *  Value: "IMPORT"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Import;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Import;
 /**
  *  Injects a privileged user in mysql for MOB instances.
  *
  *  Value: "INJECT_USER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_InjectUser;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_InjectUser;
 /**
  *  Indicates that the instance is currently in maintenance. Maintenance
  *  typically causes the instance to be unavailable for 1-3 minutes.
  *
  *  Value: "MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance;
 /**
  *  Promotes a Cloud SQL replica instance.
  *
  *  Value: "PROMOTE_REPLICA"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica;
 /** Value: "RECREATE_REPLICA" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica;
 /**
  *  Reschedule maintenance to another time.
  *
  *  Value: "RESCHEDULE_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RescheduleMaintenance;
 /**
  *  Restarts the Cloud SQL instance.
  *
  *  Value: "RESTART"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Restart;
 /**
  *  Restores an instance backup.
  *
  *  Value: "RESTORE_VOLUME"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_RestoreVolume;
 /** Value: "SNAPSHOT" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapshot;
 /**
  *  Unknown operation type.
  *
  *  Value: "SQL_OPERATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified;
 /**
  *  Starts external sync of a Cloud SQL EM replica to an external master.
  *
  *  Value: "START_EXTERNAL_SYNC"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StartExternalSync;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StartExternalSync;
 /**
  *  Starts replication on a Cloud SQL read replica instance.
  *
  *  Value: "START_REPLICA"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StartReplica;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StartReplica;
 /**
  *  Stops replication on a Cloud SQL read replica instance.
  *
  *  Value: "STOP_REPLICA"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_StopReplica;
 /**
  *  Truncates a general or slow log table in MySQL.
  *
  *  Value: "TRUNCATE_LOG"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_TruncateLog;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_TruncateLog;
 /**
  *  Updates the settings of a Cloud SQL instance.
  *
  *  Value: "UPDATE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Update;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Update;
 /**
  *  Updates a database in the Cloud SQL instance.
  *
  *  Value: "UPDATE_DATABASE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase;
 /**
  *  Updates an existing user in a Cloud SQL instance.
  *
  *  Value: "UPDATE_USER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateUser;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateUser;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Operation.status
@@ -790,25 +790,25 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateUser;
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Done;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Done;
 /**
  *  The operation has been queued, but has not started yet.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Pending;
 /**
  *  The operation is running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Running;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Running;
 /**
  *  The state of the operation is unknown.
  *
  *  Value: "SQL_OPERATION_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Reschedule.rescheduleType
@@ -818,22 +818,22 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUn
  *
  *  Value: "IMMEDIATE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate;
 /**
  *  If the user wants to use the existing maintenance policy to find the
  *  next available window.
  *
  *  Value: "NEXT_AVAILABLE_WINDOW"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_NextAvailableWindow;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_NextAvailableWindow;
 /** Value: "RESCHEDULE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_RescheduleTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_RescheduleTypeUnspecified;
 /**
  *  If the user wants to reschedule the maintenance to a specific time.
  *
  *  Value: "SPECIFIC_TIME"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_SpecificTime;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_SpecificTime;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.activationPolicy
@@ -843,25 +843,25 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_SpecificTim
  *
  *  Value: "ALWAYS"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Always;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Always;
 /**
  *  The instance should never spin up.
  *
  *  Value: "NEVER"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Never;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_Never;
 /**
  *  The instance spins up upon receiving requests.
  *
  *  Value: "ON_DEMAND"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_OnDemand;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_OnDemand;
 /**
  *  Unknown activation plan.
  *
  *  Value: "SQL_ACTIVATION_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_SqlActivationPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_SqlActivationPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.availabilityType
@@ -871,19 +871,19 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ActivationPolicy_SqlActivati
  *
  *  Value: "REGIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Regional;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Regional;
 /**
  *  This is an unknown Availability type.
  *
  *  Value: "SQL_AVAILABILITY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_SqlAvailabilityTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_SqlAvailabilityTypeUnspecified;
 /**
  *  Zonal available instance.
  *
  *  Value: "ZONAL"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Zonal;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Zonal;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.dataDiskType
@@ -894,25 +894,25 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_AvailabilityType_Zonal;
  *
  *  Value: "OBSOLETE_LOCAL_SSD"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd;
 /**
  *  An HDD data disk.
  *
  *  Value: "PD_HDD"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdHdd;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdHdd;
 /**
  *  An SSD data disk.
  *
  *  Value: "PD_SSD"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdSsd;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_PdSsd;
 /**
  *  This is an unknown data disk type.
  *
  *  Value: "SQL_DATA_DISK_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDiskTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDiskTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.pricingPlan
@@ -922,19 +922,19 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataDiskType_SqlDataDiskType
  *
  *  Value: "PACKAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_Package;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_Package;
 /**
  *  The instance is billed per usage.
  *
  *  Value: "PER_USE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_PerUse;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_PerUse;
 /**
  *  This is an unknown pricing plan for this instance.
  *
  *  Value: "SQL_PRICING_PLAN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_SqlPricingPlanUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_SqlPricingPlanUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.replicationType
@@ -947,54 +947,54 @@ GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_PricingPlan_SqlPricingPlanUn
  *
  *  Value: "ASYNCHRONOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Asynchronous;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Asynchronous;
 /**
  *  This is an unknown replication type for a Cloud SQL instance.
  *
  *  Value: "SQL_REPLICATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_SqlReplicationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_SqlReplicationTypeUnspecified;
 /**
  *  The synchronous replication mode for First Generation instances. It is the
  *  default value.
  *
  *  Value: "SYNCHRONOUS"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlExternalSyncSettingError.type
 
 /** Value: "BINLOG_NOT_ENABLED" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled;
 /** Value: "CONNECTION_FAILURE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure;
 /** Value: "INCOMPATIBLE_DATABASE_VERSION" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
 /** Value: "INSUFFICIENT_PRIVILEGE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege;
 /**
  *  No pglogical extension installed on databases, applicable for postgres.
  *
  *  Value: "NO_PGLOGICAL_INSTALLED"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled;
 /**
  *  pglogical node already exists on databases, applicable for postgres.
  *
  *  Value: "PGLOGICAL_NODE_ALREADY_EXISTS"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists;
 /** Value: "REPLICA_ALREADY_SETUP" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup;
 /** Value: "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified;
 /**
  *  Unsupported migration type.
  *
  *  Value: "UNSUPPORTED_MIGRATION_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType;
 
 /**
  *  An entry for an Access Control list.

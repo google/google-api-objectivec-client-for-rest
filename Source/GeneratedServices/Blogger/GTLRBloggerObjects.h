@@ -62,71 +62,71 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBlogger_Blog.status
 
 /** Value: "DELETED" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Blog_Status_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Blog_Status_Deleted;
 /** Value: "LIVE" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Blog_Status_Live;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Blog_Status_Live;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_BlogPerUserInfo.role
 
 /** Value: "ADMIN" */
-GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Admin;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Admin;
 /** Value: "AUTHOR" */
-GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Author;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Author;
 /** Value: "READER" */
-GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Reader;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_Reader;
 /** Value: "VIEW_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_ViewTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_BlogPerUserInfo_Role_ViewTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_Comment.status
 
 /** Value: "EMPTIED" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Emptied;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Comment_Status_Emptied;
 /** Value: "LIVE" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Live;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Comment_Status_Live;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Comment_Status_Pending;
 /** Value: "SPAM" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Comment_Status_Spam;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Comment_Status_Spam;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_Page.status
 
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Page_Status_Draft;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Page_Status_Draft;
 /** Value: "LIVE" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Page_Status_Live;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Page_Status_Live;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_Pageviews_Counts_Item.timeRange
 
 /** Value: "ALL_TIME" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_AllTime;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_AllTime;
 /** Value: "SEVEN_DAYS" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_SevenDays;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_SevenDays;
 /** Value: "THIRTY_DAYS" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_ThirtyDays;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_ThirtyDays;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_Post.readerComments
 
 /** Value: "ALLOW" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_Allow;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_Allow;
 /** Value: "DONT_ALLOW_HIDE_EXISTING" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowHideExisting;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowHideExisting;
 /** Value: "DONT_ALLOW_SHOW_EXISTING" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowShowExisting;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowShowExisting;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_Post.status
 
 /** Value: "DRAFT" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Post_Status_Draft;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Draft;
 /** Value: "LIVE" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Post_Status_Live;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Live;
 /** Value: "SCHEDULED" */
-GTLR_EXTERN NSString * const kGTLRBlogger_Post_Status_Scheduled;
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Scheduled;
 
 /**
  *  GTLRBlogger_Blog

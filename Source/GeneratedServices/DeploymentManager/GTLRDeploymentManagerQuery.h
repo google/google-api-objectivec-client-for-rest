@@ -39,17 +39,17 @@ NS_ASSUME_NONNULL_BEGIN
 // createPolicy
 
 /** Value: "ACQUIRE" */
-GTLR_EXTERN NSString * const kGTLRDeploymentManagerCreatePolicyAcquire;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerCreatePolicyAcquire;
 /** Value: "CREATE_OR_ACQUIRE" */
-GTLR_EXTERN NSString * const kGTLRDeploymentManagerCreatePolicyCreateOrAcquire;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerCreatePolicyCreateOrAcquire;
 
 // ----------------------------------------------------------------------------
 // deletePolicy
 
 /** Value: "ABANDON" */
-GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyAbandon;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyAbandon;
 /** Value: "DELETE" */
-GTLR_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -57,31 +57,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CATEGORY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_CategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_CategoryUnspecified;
 /**
  *  Indicates a potential increase or decrease in cost.
  *
  *  Value: "COST"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Cost;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Cost;
 /**
  *  Indicates a potential increase or decrease in manageability.
  *
  *  Value: "MANAGEABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Manageability;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Manageability;
 /**
  *  Indicates a potential increase or decrease in performance.
  *
  *  Value: "PERFORMANCE"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Performance;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Performance;
 /**
  *  Indicates a potential increase or decrease in security.
  *
  *  Value: "SECURITY"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Security;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impact_Category_Security;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1beta1Insight.category
@@ -91,31 +91,31 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Impac
  *
  *  Value: "CATEGORY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_CategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_CategoryUnspecified;
 /**
  *  The insight is related to cost.
  *
  *  Value: "COST"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Cost;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Cost;
 /**
  *  This insight is related to manageability.
  *
  *  Value: "MANAGEABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Manageability;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Manageability;
 /**
  *  The insight is related to performance.
  *
  *  Value: "PERFORMANCE"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Performance;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Performance;
 /**
  *  The insight is related to security.
  *
  *  Value: "SECURITY"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Security;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insight_Category_Security;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo.state
@@ -129,27 +129,27 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insig
  *
  *  Value: "ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_Accepted;
 /**
  *  Insight is active. Content for ACTIVE insights can be updated by Google.
  *  ACTIVE insights can be marked DISMISSED OR ACCEPTED.
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_Active;
 /**
  *  Insight is dismissed. Content for DISMISSED insights can be updated by
  *  Google. DISMISSED insights can be marked as ACTIVE.
  *
  *  Value: "DISMISSED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_Dismissed;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_Dismissed;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1InsightStateInfo_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo.state
@@ -161,7 +161,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Insig
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Active;
 /**
  *  Recommendation is in claimed state. Recommendations content is
  *  immutable and cannot be updated by Google.
@@ -169,7 +169,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  *
  *  Value: "CLAIMED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Claimed;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Claimed;
 /**
  *  Recommendation is in dismissed state. Recommendation content can be
  *  updated by Google.
@@ -177,7 +177,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  *
  *  Value: "DISMISSED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Dismissed;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Dismissed;
 /**
  *  Recommendation is in failed state. Recommendations content is immutable
  *  and cannot be updated by Google.
@@ -185,13 +185,13 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Failed;
 /**
  *  Default state. Don't use directly.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_StateUnspecified;
 /**
  *  Recommendation is in succeeded state. Recommendations content is
  *  immutable and cannot be updated by Google.
@@ -199,7 +199,7 @@ GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1Recom
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1beta1RecommendationStateInfo_State_Succeeded;
 
 /**
  *  Contains metadata about how much money a recommendation can save or incur.

@@ -44,13 +44,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "full"
  */
-GTLR_EXTERN NSString * const kGTLRBigqueryProjectionFull;
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryProjectionFull;
 /**
  *  Does not include the job configuration
  *
  *  Value: "minimal"
  */
-GTLR_EXTERN NSString * const kGTLRBigqueryProjectionMinimal;
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryProjectionMinimal;
 
 // ----------------------------------------------------------------------------
 // stateFilter
@@ -60,19 +60,19 @@ GTLR_EXTERN NSString * const kGTLRBigqueryProjectionMinimal;
  *
  *  Value: "done"
  */
-GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterDone;
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterDone;
 /**
  *  Pending jobs
  *
  *  Value: "pending"
  */
-GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterPending;
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterPending;
 /**
  *  Running jobs
  *
  *  Value: "running"
  */
-GTLR_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -178,21 +178,21 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRApigee_GoogleCloudApigeeV1Alias.type
 
 /** Value: "ALIAS_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_AliasTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_AliasTypeUnspecified;
 /** Value: "CERT" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_Cert;
 /** Value: "KEY_CERT" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_KeyCert;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_KeyCert;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig.type
 
 /** Value: "ALIAS_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_AliasTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_AliasTypeUnspecified;
 /** Value: "CERT" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert;
 /** Value: "KEY_CERT" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ApiDocBody.snapshotState
@@ -202,49 +202,49 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_Deleted;
 /**
  *  Snapshot is missing.
  *
  *  Value: "MISSING"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_Missing;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_Missing;
 /**
  *  Snapshot uploaded from spec store.
  *
  *  Value: "OK_DOCSTORE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_OkDocstore;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_OkDocstore;
 /**
  *  Snapshot imported from an external URL.
  *
  *  Value: "OK_EXTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_OkExternal;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_OkExternal;
 /**
  *  Snapshot uploaded from local directory.
  *
  *  Value: "OK_SUBMITTED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_OkSubmitted;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_OkSubmitted;
 /** Value: "SNAPSHOT_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_SnapshotStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiDocBody_SnapshotState_SnapshotStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CheckAccess.action
 
 /** Value: "ACTION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccess_Action_ActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccess_Action_ActionUnspecified;
 /** Value: "view" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccess_Action_View;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccess_Action_View;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict.action
 
 /** Value: "ACTION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Action_ActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Action_ActionUnspecified;
 /** Value: "view" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Action_View;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Action_View;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict.verdict
@@ -254,25 +254,25 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_A
  *
  *  Value: "allowed"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_Allowed;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_Allowed;
 /**
  *  Access is denied.
  *
  *  Value: "denied"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_Denied;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_Denied;
 /**
  *  Resource path not found.
  *
  *  Value: "unknown"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_Unknown;
 /**
  *  When a Verdict has not been specified.
  *
  *  Value: "VERDICT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_VerdictUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_Verdict_VerdictUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ConsumerAudience.membershipType
@@ -282,13 +282,13 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CheckAccessVerdict_V
  *
  *  Value: "all_authenticated"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerAudience_MembershipType_AllAuthenticated;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerAudience_MembershipType_AllAuthenticated;
 /**
  *  Explicit audience entitlement.
  *
  *  Value: "explicit"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerAudience_MembershipType_Explicit;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerAudience_MembershipType_Explicit;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership.role
@@ -298,19 +298,19 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerAudience_Mem
  *
  *  Value: "ADMIN"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership_Role_Admin;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership_Role_Admin;
 /**
  *  App administrator.
  *
  *  Value: "APP_ADMIN"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership_Role_AppAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership_Role_AppAdmin;
 /**
  *  View only.
  *
  *  Value: "VIEWER"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership_Role_Viewer;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembership_Role_Viewer;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CreateConsumerAppRequestBody.ownerType
@@ -320,13 +320,13 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ConsumerTeamMembersh
  *
  *  Value: "team"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CreateConsumerAppRequestBody_OwnerType_Team;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CreateConsumerAppRequestBody_OwnerType_Team;
 /**
  *  User owner.
  *
  *  Value: "user"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CreateConsumerAppRequestBody_OwnerType_User;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CreateConsumerAppRequestBody_OwnerType_User;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CustomCssData.editorModeDraft
@@ -336,19 +336,19 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CreateConsumerAppReq
  *
  *  Value: "EDITOR_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModeDraft_EditorModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModeDraft_EditorModeUnspecified;
 /**
  *  Not used by Apigee hybrid.
  *
  *  Value: "MANAGED_THEME_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModeDraft_ManagedThemeMode;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModeDraft_ManagedThemeMode;
 /**
  *  Custom CSS mode enabled.
  *
  *  Value: "SCSS_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModeDraft_ScssMode;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModeDraft_ScssMode;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CustomCssData.editorModePublished
@@ -358,19 +358,19 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_Editor
  *
  *  Value: "EDITOR_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModePublished_EditorModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModePublished_EditorModeUnspecified;
 /**
  *  Not used by Apigee hybrid.
  *
  *  Value: "MANAGED_THEME_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModePublished_ManagedThemeMode;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModePublished_ManagedThemeMode;
 /**
  *  Custom CSS mode enabled.
  *
  *  Value: "SCSS_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModePublished_ScssMode;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_EditorModePublished_ScssMode;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CustomCssData.migrationState
@@ -380,19 +380,19 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_Editor
  *
  *  Value: "MIGRATED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_MigrationState_Migrated;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_MigrationState_Migrated;
 /**
  *  Migration state not specified.
  *
  *  Value: "MIGRATION_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_MigrationState_MigrationStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_MigrationState_MigrationStateUnspecified;
 /**
  *  Portal not migrated.
  *
  *  Value: "NOT_MIGRATED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_MigrationState_NotMigrated;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_MigrationState_NotMigrated;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1KeyStatusChange.action
@@ -402,41 +402,41 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CustomCssData_Migrat
  *
  *  Value: "ACTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1KeyStatusChange_Action_ActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1KeyStatusChange_Action_ActionUnspecified;
 /**
  *  Approve API key.
  *
  *  Value: "approve"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1KeyStatusChange_Action_Approve;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1KeyStatusChange_Action_Approve;
 /**
  *  Revoke API key.
  *
  *  Value: "revoke"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1KeyStatusChange_Action_Revoke;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1KeyStatusChange_Action_Revoke;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
 
 /** Value: "DELETE" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Delete;
 /** Value: "INSERT" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Insert;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Insert;
 /** Value: "OPERATION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_OperationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_OperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.state
 
 /** Value: "FINISHED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_Finished;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_Finished;
 /** Value: "IN_PROGRESS" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_InProgress;
 /** Value: "NOT_STARTED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_NotStarted;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_NotStarted;
 /** Value: "STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.runtimeType
@@ -446,15 +446,15 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_St
  *
  *  Value: "CLOUD"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Cloud;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Cloud;
 /**
  *  User-managed Apigee hybrid runtime.
  *
  *  Value: "HYBRID"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Hybrid;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Hybrid;
 /** Value: "RUNTIME_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_RuntimeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_RuntimeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionType
@@ -464,16 +464,16 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Runtime
  *
  *  Value: "PAID"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Paid;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Paid;
 /** Value: "SUBSCRIPTION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_SubscriptionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_SubscriptionTypeUnspecified;
 /**
  *  Subscription to Apigee is free, limited, and used for evaluation purposes
  *  only.
  *
  *  Value: "TRIAL"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Trial;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Trial;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.type
@@ -483,37 +483,37 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Subscri
  *
  *  Value: "TYPE_INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeInternal;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeInternal;
 /**
  *  Full subscription to Apigee has been purchased. See
  *  [Apigee pricing](https://cloud.google.com/apigee/pricing/).
  *
  *  Value: "TYPE_PAID"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypePaid;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypePaid;
 /**
  *  Subscription to Apigee is free, limited, and used for evaluation purposes
  *  only.
  *
  *  Value: "TYPE_TRIAL"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeTrial;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeTrial;
 /**
  *  Subscription type not specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1PageBody.generatedContent
 
 /** Value: "GENERATED_CONTENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedContent_GeneratedContentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedContent_GeneratedContentUnspecified;
 /** Value: "RATE_PLAN_DESCRIPTION" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedContent_RatePlanDescription;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedContent_RatePlanDescription;
 /** Value: "RATE_PLAN_PRICING_DETAILS" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedContent_RatePlanPricingDetails;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedContent_RatePlanPricingDetails;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1PageBody.type
@@ -523,19 +523,19 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_GeneratedCo
  *
  *  Value: "GENERIC"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_Generic;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_Generic;
 /**
  *  Unspecified page type.
  *
  *  Value: "PAGE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_PageTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_PageTypeUnspecified;
 /**
  *  Reserved for future use.
  *
  *  Value: "RATE_PLAN"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_RatePlan;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_RatePlan;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1PortalApp.ownerType
@@ -545,25 +545,25 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PageBody_Type_RatePl
  *
  *  Value: "team"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PortalApp_OwnerType_Team;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PortalApp_OwnerType_Team;
 /**
  *  User owner.
  *
  *  Value: "user"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PortalApp_OwnerType_User;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1PortalApp_OwnerType_User;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SystemStateData.systemStateAccessLevel
 
 /** Value: "NO_PORTAL_CREATE" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_NoPortalCreate;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_NoPortalCreate;
 /** Value: "NORMAL" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_Normal;
 /** Value: "READONLY" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_Readonly;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_Readonly;
 /** Value: "SYSTEM_STATE_ACCESS_LEVEL_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_SystemStateAccessLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_SystemStateAccessLevel_SystemStateAccessLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload.editorMode
@@ -573,19 +573,19 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SystemStateData_Syst
  *
  *  Value: "EDITOR_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload_EditorMode_EditorModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload_EditorMode_EditorModeUnspecified;
 /**
  *  Not used by Apigee hybrid.
  *
  *  Value: "MANAGED_THEME_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload_EditorMode_ManagedThemeMode;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload_EditorMode_ManagedThemeMode;
 /**
  *  Custom CSS mode enabled.
  *
  *  Value: "SCSS_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload_EditorMode_ScssMode;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePayload_EditorMode_ScssMode;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleIamV1AuditLogConfig.logType
@@ -595,25 +595,25 @@ GTLR_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ThemeEditorUpdatePay
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for

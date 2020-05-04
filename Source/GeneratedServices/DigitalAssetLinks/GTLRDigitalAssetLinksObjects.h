@@ -39,53 +39,53 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDigitalAssetLinks_CheckResponse.errorCode
 
 /** Value: "ERROR_CODE_FAILED_SSL_VALIDATION" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFailedSslValidation;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFailedSslValidation;
 /** Value: "ERROR_CODE_FETCH_BUDGET_EXHAUSTED" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFetchBudgetExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFetchBudgetExhausted;
 /** Value: "ERROR_CODE_FETCH_ERROR" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFetchError;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFetchError;
 /** Value: "ERROR_CODE_INVALID_QUERY" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeInvalidQuery;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeInvalidQuery;
 /** Value: "ERROR_CODE_MALFORMED_CONTENT" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeMalformedContent;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeMalformedContent;
 /** Value: "ERROR_CODE_MALFORMED_HTTP_RESPONSE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeMalformedHttpResponse;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeMalformedHttpResponse;
 /** Value: "ERROR_CODE_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeRedirect;
 /** Value: "ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeSecureAssetIncludesInsecure;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeSecureAssetIncludesInsecure;
 /** Value: "ERROR_CODE_TOO_LARGE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeTooLarge;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeTooLarge;
 /** Value: "ERROR_CODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeUnspecified;
 /** Value: "ERROR_CODE_WRONG_CONTENT_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeWrongContentType;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeWrongContentType;
 
 // ----------------------------------------------------------------------------
 // GTLRDigitalAssetLinks_ListResponse.errorCode
 
 /** Value: "ERROR_CODE_FAILED_SSL_VALIDATION" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeFailedSslValidation;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeFailedSslValidation;
 /** Value: "ERROR_CODE_FETCH_BUDGET_EXHAUSTED" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeFetchBudgetExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeFetchBudgetExhausted;
 /** Value: "ERROR_CODE_FETCH_ERROR" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeFetchError;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeFetchError;
 /** Value: "ERROR_CODE_INVALID_QUERY" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeInvalidQuery;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeInvalidQuery;
 /** Value: "ERROR_CODE_MALFORMED_CONTENT" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeMalformedContent;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeMalformedContent;
 /** Value: "ERROR_CODE_MALFORMED_HTTP_RESPONSE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeMalformedHttpResponse;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeMalformedHttpResponse;
 /** Value: "ERROR_CODE_REDIRECT" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeRedirect;
 /** Value: "ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeSecureAssetIncludesInsecure;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeSecureAssetIncludesInsecure;
 /** Value: "ERROR_CODE_TOO_LARGE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeTooLarge;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeTooLarge;
 /** Value: "ERROR_CODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeUnspecified;
 /** Value: "ERROR_CODE_WRONG_CONTENT_TYPE" */
-GTLR_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongContentType;
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongContentType;
 
 /**
  *  Describes an android app asset.

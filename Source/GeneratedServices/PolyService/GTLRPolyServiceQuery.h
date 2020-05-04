@@ -35,23 +35,23 @@ NS_ASSUME_NONNULL_BEGIN
 // maxComplexity
 
 /** Value: "COMPLEX" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceMaxComplexityComplex;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexityComplex;
 /** Value: "COMPLEXITY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceMaxComplexityComplexityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexityComplexityUnspecified;
 /** Value: "MEDIUM" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceMaxComplexityMedium;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexityMedium;
 /** Value: "SIMPLE" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceMaxComplexitySimple;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexitySimple;
 
 // ----------------------------------------------------------------------------
 // visibility
 
 /** Value: "PRIVATE" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityPrivate;
 /** Value: "PUBLISHED" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityPublished;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityPublished;
 /** Value: "VISIBILITY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

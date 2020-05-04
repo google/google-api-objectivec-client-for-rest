@@ -33,56 +33,56 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/bigtable.admin"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdmin;
 /**
  *  Authorization scope: Administer your Cloud Bigtable clusters
  *
  *  Value "https://www.googleapis.com/auth/bigtable.admin.cluster"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdminCluster;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdminCluster;
 /**
  *  Authorization scope: Administer your Cloud Bigtable clusters
  *
  *  Value "https://www.googleapis.com/auth/bigtable.admin.instance"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdminInstance;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdminInstance;
 /**
  *  Authorization scope: Administer your Cloud Bigtable tables
  *
  *  Value "https://www.googleapis.com/auth/bigtable.admin.table"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdminTable;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminBigtableAdminTable;
 /**
  *  Authorization scope: Administer your Cloud Bigtable tables and clusters
  *
  *  Value "https://www.googleapis.com/auth/cloud-bigtable.admin"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdmin;
 /**
  *  Authorization scope: Administer your Cloud Bigtable clusters
  *
  *  Value "https://www.googleapis.com/auth/cloud-bigtable.admin.cluster"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster;
 /**
  *  Authorization scope: Administer your Cloud Bigtable tables
  *
  *  Value "https://www.googleapis.com/auth/cloud-bigtable.admin.table"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRBigtableAdminService

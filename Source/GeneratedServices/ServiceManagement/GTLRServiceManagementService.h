@@ -36,25 +36,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceManagementCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeServiceManagementCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceManagementCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeServiceManagementCloudPlatformReadOnly;
 /**
  *  Authorization scope: Manage your Google API service configuration
  *
  *  Value "https://www.googleapis.com/auth/service.management"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceManagementServiceManagement;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeServiceManagementServiceManagement;
 /**
  *  Authorization scope: View your Google API service configuration
  *
  *  Value "https://www.googleapis.com/auth/service.management.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeServiceManagementServiceManagementReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeServiceManagementServiceManagementReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRServiceManagementService

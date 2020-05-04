@@ -35,27 +35,27 @@ NS_ASSUME_NONNULL_BEGIN
 // category
 
 /** Value: "ACCESSIBILITY" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsCategoryAccessibility;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryAccessibility;
 /** Value: "BEST_PRACTICES" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsCategoryBestPractices;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryBestPractices;
 /** Value: "CATEGORY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsCategoryCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryCategoryUnspecified;
 /** Value: "PERFORMANCE" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPerformance;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPerformance;
 /** Value: "PWA" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPwa;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPwa;
 /** Value: "SEO" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsCategorySeo;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategorySeo;
 
 // ----------------------------------------------------------------------------
 // strategy
 
 /** Value: "DESKTOP" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsStrategyDesktop;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyDesktop;
 /** Value: "MOBILE" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsStrategyMobile;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyMobile;
 /** Value: "STRATEGY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

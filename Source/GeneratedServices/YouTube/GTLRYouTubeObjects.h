@@ -194,2153 +194,2153 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRYouTube_ActivityContentDetailsPromotedItem.ctaType
 
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsPromotedItem_CtaType_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsPromotedItem_CtaType_Unspecified;
 /** Value: "visitAdvertiserSite" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsPromotedItem_CtaType_VisitAdvertiserSite;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsPromotedItem_CtaType_VisitAdvertiserSite;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ActivityContentDetailsRecommendation.reason
 
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_Unspecified;
 /** Value: "videoFavorited" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoFavorited;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoFavorited;
 /** Value: "videoLiked" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoLiked;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoLiked;
 /** Value: "videoWatched" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoWatched;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoWatched;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ActivityContentDetailsSocial.type
 
 /** Value: "facebook" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Facebook;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Facebook;
 /** Value: "googlePlus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_GooglePlus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_GooglePlus;
 /** Value: "twitter" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter;
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ActivitySnippet.type
 
 /** Value: "bulletin" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Bulletin;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Bulletin;
 /** Value: "channelItem" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_ChannelItem;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_ChannelItem;
 /** Value: "comment" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Comment;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Comment;
 /** Value: "favorite" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Favorite;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Favorite;
 /** Value: "like" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Like;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Like;
 /** Value: "playlistItem" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_PlaylistItem;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_PlaylistItem;
 /** Value: "promotedItem" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_PromotedItem;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_PromotedItem;
 /** Value: "recommendation" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Recommendation;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Recommendation;
 /** Value: "social" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Social;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Social;
 /** Value: "subscription" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Subscription;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Subscription;
 /** Value: "upload" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Upload;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivitySnippet_Type_Upload;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CaptionSnippet.audioTrackType
 
 /** Value: "commentary" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Commentary;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Commentary;
 /** Value: "descriptive" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Descriptive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Descriptive;
 /** Value: "primary" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Primary;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Primary;
 /** Value: "unknown" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_AudioTrackType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CaptionSnippet.failureReason
 
 /** Value: "processingFailed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_FailureReason_ProcessingFailed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_FailureReason_ProcessingFailed;
 /** Value: "unknownFormat" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_FailureReason_UnknownFormat;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_FailureReason_UnknownFormat;
 /** Value: "unsupportedFormat" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_FailureReason_UnsupportedFormat;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_FailureReason_UnsupportedFormat;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CaptionSnippet.status
 
 /** Value: "failed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_Status_Failed;
 /** Value: "serving" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_Status_Serving;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_Status_Serving;
 /** Value: "syncing" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_Status_Syncing;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_Status_Syncing;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CaptionSnippet.trackKind
 
 /** Value: "ASR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Asr;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Asr;
 /** Value: "forced" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Forced;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Forced;
 /** Value: "standard" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Standard;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CaptionSnippet_TrackKind_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.frameRate
 
 /** Value: "variable" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_Variable;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_Variable;
 /** Value: "30fps" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X30fps;
 /** Value: "60fps" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_FrameRate_X60fps;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.ingestionType
 
 /** Value: "dash" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash;
 /** Value: "hls" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls;
 /** Value: "rtmp" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
 /** Value: "webrtc" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CdnSettings.resolution
 
 /** Value: "variable" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_Variable;
 /** Value: "1080p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1080p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1080p;
 /** Value: "1440p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1440p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X1440p;
 /** Value: "2160p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X2160p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X2160p;
 /** Value: "240p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X240p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X240p;
 /** Value: "360p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X360p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X360p;
 /** Value: "480p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X480p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X480p;
 /** Value: "720p" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X720p;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_Resolution_X720p;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ChannelConversionPing.context
 
 /** Value: "cview" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelConversionPing_Context_Cview;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelConversionPing_Context_Cview;
 /** Value: "subscribe" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelConversionPing_Context_Subscribe;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelConversionPing_Context_Subscribe;
 /** Value: "unsubscribe" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelConversionPing_Context_Unsubscribe;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelConversionPing_Context_Unsubscribe;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ChannelSectionSnippet.style
 
 /** Value: "channelsectionStyleUndefined" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_ChannelsectionStyleUndefined;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_ChannelsectionStyleUndefined;
 /** Value: "horizontalRow" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_HorizontalRow;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_HorizontalRow;
 /** Value: "verticalList" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_VerticalList;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_VerticalList;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ChannelSectionSnippet.type
 
 /** Value: "allPlaylists" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists;
 /** Value: "channelsectionTypeUndefined" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined;
 /** Value: "completedEvents" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents;
 /** Value: "likedPlaylists" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists;
 /** Value: "likes" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Likes;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Likes;
 /** Value: "liveEvents" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LiveEvents;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LiveEvents;
 /** Value: "multipleChannels" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_MultipleChannels;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_MultipleChannels;
 /** Value: "multiplePlaylists" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_MultiplePlaylists;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_MultiplePlaylists;
 /** Value: "popularUploads" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PopularUploads;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PopularUploads;
 /** Value: "postedPlaylists" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedPlaylists;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedPlaylists;
 /** Value: "postedVideos" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedVideos;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_PostedVideos;
 /** Value: "recentActivity" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentActivity;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentActivity;
 /** Value: "recentPosts" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentPosts;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentPosts;
 /** Value: "recentUploads" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentUploads;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_RecentUploads;
 /** Value: "singlePlaylist" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_SinglePlaylist;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_SinglePlaylist;
 /** Value: "subscriptions" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Subscriptions;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Subscriptions;
 /** Value: "upcomingEvents" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_UpcomingEvents;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_UpcomingEvents;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ChannelStatus.longUploadsStatus
 
 /** Value: "allowed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_Allowed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_Allowed;
 /** Value: "disallowed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_Disallowed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_Disallowed;
 /** Value: "eligible" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_Eligible;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_Eligible;
 /** Value: "longUploadsUnspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_LongUploadsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_LongUploadsStatus_LongUploadsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ChannelStatus.privacyStatus
 
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Private;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Private;
 /** Value: "public" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CommentSnippet.moderationStatus
 
 /** Value: "heldForReview" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_HeldForReview;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_HeldForReview;
 /** Value: "likelySpam" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_LikelySpam;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_LikelySpam;
 /** Value: "published" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_Published;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_Published;
 /** Value: "rejected" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_Rejected;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_Rejected;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CommentSnippet.viewerRating
 
 /** Value: "dislike" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Dislike;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Dislike;
 /** Value: "like" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Like;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Like;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_None;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_None;
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CommentSnippet_ViewerRating_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.acbRating
 
 /** Value: "acbC" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbC;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbC;
 /** Value: "acbE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbE;
 /** Value: "acbG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbG;
 /** Value: "acbM" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbM;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbM;
 /** Value: "acbMa15plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbMa15plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbMa15plus;
 /** Value: "acbP" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbP;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbP;
 /** Value: "acbPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbPg;
 /** Value: "acbR18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbR18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbR18plus;
 /** Value: "acbUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AcbRating_AcbUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.agcomRating
 
 /** Value: "agcomT" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomT;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomT;
 /** Value: "agcomUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomUnrated;
 /** Value: "agcomVm14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomVm14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomVm14;
 /** Value: "agcomVm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomVm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AgcomRating_AgcomVm18;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.anatelRating
 
 /** Value: "anatelA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelA;
 /** Value: "anatelF" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelF;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelF;
 /** Value: "anatelI" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI;
 /** Value: "anatelI10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI10;
 /** Value: "anatelI12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI12;
 /** Value: "anatelI7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelI7;
 /** Value: "anatelR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelR;
 /** Value: "anatelUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_AnatelRating_AnatelUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.bbfcRating
 
 /** Value: "bbfc12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc12;
 /** Value: "bbfc12a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc12a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc12a;
 /** Value: "bbfc15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc15;
 /** Value: "bbfc18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_Bbfc18;
 /** Value: "bbfcPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcPg;
 /** Value: "bbfcR18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcR18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcR18;
 /** Value: "bbfcU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcU;
 /** Value: "bbfcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BbfcRating_BbfcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.bfvcRating
 
 /** Value: "bfvc13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc13;
 /** Value: "bfvc15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc15;
 /** Value: "bfvc18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc18;
 /** Value: "bfvc20" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc20;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_Bfvc20;
 /** Value: "bfvcB" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcB;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcB;
 /** Value: "bfvcE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcE;
 /** Value: "bfvcG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcG;
 /** Value: "bfvcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BfvcRating_BfvcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.bmukkRating
 
 /** Value: "bmukk10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk10;
 /** Value: "bmukk12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk12;
 /** Value: "bmukk14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk14;
 /** Value: "bmukk16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk16;
 /** Value: "bmukk6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk6;
 /** Value: "bmukk8" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk8;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_Bmukk8;
 /** Value: "bmukkAa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_BmukkAa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_BmukkAa;
 /** Value: "bmukkUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_BmukkUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_BmukkRating_BmukkUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.catvfrRating
 
 /** Value: "catvfr13plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr13plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr13plus;
 /** Value: "catvfr16plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr16plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr16plus;
 /** Value: "catvfr18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr18plus;
 /** Value: "catvfr8plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr8plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_Catvfr8plus;
 /** Value: "catvfrG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_CatvfrG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_CatvfrG;
 /** Value: "catvfrUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_CatvfrUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvfrRating_CatvfrUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.catvRating
 
 /** Value: "catv14plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_Catv14plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_Catv14plus;
 /** Value: "catv18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_Catv18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_Catv18plus;
 /** Value: "catvC" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvC;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvC;
 /** Value: "catvC8" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvC8;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvC8;
 /** Value: "catvG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvG;
 /** Value: "catvPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvPg;
 /** Value: "catvUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CatvRating_CatvUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cbfcRating
 
 /** Value: "cbfcA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcA;
 /** Value: "cbfcS" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcS;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcS;
 /** Value: "cbfcU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcU;
 /** Value: "cbfcUA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUA;
 /** Value: "cbfcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CbfcRating_CbfcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cccRating
 
 /** Value: "ccc14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc14;
 /** Value: "ccc18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc18;
 /** Value: "ccc18s" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc18s;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc18s;
 /** Value: "ccc18v" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc18v;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc18v;
 /** Value: "ccc6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_Ccc6;
 /** Value: "cccTe" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_CccTe;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_CccTe;
 /** Value: "cccUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_CccUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CccRating_CccUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cceRating
 
 /** Value: "cceM12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM12;
 /** Value: "cceM14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM14;
 /** Value: "cceM16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM16;
 /** Value: "cceM18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM18;
 /** Value: "cceM4" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM4;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM4;
 /** Value: "cceM6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceM6;
 /** Value: "cceUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CceRating_CceUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.chfilmRating
 
 /** Value: "chfilm0" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm0;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm0;
 /** Value: "chfilm12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm12;
 /** Value: "chfilm16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm16;
 /** Value: "chfilm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm18;
 /** Value: "chfilm6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_Chfilm6;
 /** Value: "chfilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_ChfilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChfilmRating_ChfilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.chvrsRating
 
 /** Value: "chvrs14a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_Chvrs14a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_Chvrs14a;
 /** Value: "chvrs18a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_Chvrs18a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_Chvrs18a;
 /** Value: "chvrsE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsE;
 /** Value: "chvrsG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsG;
 /** Value: "chvrsPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsPg;
 /** Value: "chvrsR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsR;
 /** Value: "chvrsUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ChvrsRating_ChvrsUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cicfRating
 
 /** Value: "cicfE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfE;
 /** Value: "cicfKntEna" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfKntEna;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfKntEna;
 /** Value: "cicfKtEa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfKtEa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfKtEa;
 /** Value: "cicfUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CicfRating_CicfUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cnaRating
 
 /** Value: "cna12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna12;
 /** Value: "cna15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna15;
 /** Value: "cna18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna18;
 /** Value: "cna18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_Cna18plus;
 /** Value: "cnaAp" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_CnaAp;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_CnaAp;
 /** Value: "cnaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_CnaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CnaRating_CnaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cncRating
 
 /** Value: "cnc10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc10;
 /** Value: "cnc12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc12;
 /** Value: "cnc16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc16;
 /** Value: "cnc18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_Cnc18;
 /** Value: "cncE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncE;
 /** Value: "cncInterdiction" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncInterdiction;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncInterdiction;
 /** Value: "cncT" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncT;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncT;
 /** Value: "cncUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CncRating_CncUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.csaRating
 
 /** Value: "csa10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa10;
 /** Value: "csa12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa12;
 /** Value: "csa16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa16;
 /** Value: "csa18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_Csa18;
 /** Value: "csaInterdiction" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_CsaInterdiction;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_CsaInterdiction;
 /** Value: "csaT" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_CsaT;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_CsaT;
 /** Value: "csaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_CsaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CsaRating_CsaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.cscfRating
 
 /** Value: "cscf12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf12;
 /** Value: "cscf16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf16;
 /** Value: "cscf18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf18;
 /** Value: "cscf6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf6;
 /** Value: "cscf9" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf9;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_Cscf9;
 /** Value: "cscfA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_CscfA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_CscfA;
 /** Value: "cscfAl" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_CscfAl;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_CscfAl;
 /** Value: "cscfUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_CscfUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CscfRating_CscfUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.czfilmRating
 
 /** Value: "czfilm12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_Czfilm12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_Czfilm12;
 /** Value: "czfilm14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_Czfilm14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_Czfilm14;
 /** Value: "czfilm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_Czfilm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_Czfilm18;
 /** Value: "czfilmU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_CzfilmU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_CzfilmU;
 /** Value: "czfilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_CzfilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_CzfilmRating_CzfilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.djctqRating
 
 /** Value: "djctq10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq10;
 /** Value: "djctq1012" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1012;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1012;
 /** Value: "djctq1014" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1014;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1014;
 /** Value: "djctq1016" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1016;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1016;
 /** Value: "djctq1018" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1018;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1018;
 /** Value: "djctq12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq12;
 /** Value: "djctq1214" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1214;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1214;
 /** Value: "djctq1216" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1216;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1216;
 /** Value: "djctq1218" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1218;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1218;
 /** Value: "djctq14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq14;
 /** Value: "djctq1416" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1416;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1416;
 /** Value: "djctq1418" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1418;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1418;
 /** Value: "djctq16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq16;
 /** Value: "djctq1618" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1618;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq1618;
 /** Value: "djctq18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_Djctq18;
 /** Value: "djctqEr" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqEr;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqEr;
 /** Value: "djctqL" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL;
 /** Value: "djctqL10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL10;
 /** Value: "djctqL12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL12;
 /** Value: "djctqL14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL14;
 /** Value: "djctqL16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL16;
 /** Value: "djctqL18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqL18;
 /** Value: "djctqUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRating_DjctqUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.djctqRatingReasons
 
 /** Value: "djctqCriminalActs" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqCriminalActs;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqCriminalActs;
 /** Value: "djctqDrugs" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqDrugs;
 /** Value: "djctqExplicitSex" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExplicitSex;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExplicitSex;
 /** Value: "djctqExtremeViolence" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExtremeViolence;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExtremeViolence;
 /** Value: "djctqIllegalDrugs" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqIllegalDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqIllegalDrugs;
 /** Value: "djctqImpactingContent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqImpactingContent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqImpactingContent;
 /** Value: "djctqInappropriateLanguage" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqInappropriateLanguage;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqInappropriateLanguage;
 /** Value: "djctqLegalDrugs" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqLegalDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqLegalDrugs;
 /** Value: "djctqNudity" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqNudity;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqNudity;
 /** Value: "djctqSex" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSex;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSex;
 /** Value: "djctqSexualContent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSexualContent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSexualContent;
 /** Value: "djctqViolence" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqViolence;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqViolence;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.ecbmctRating
 
 /** Value: "ecbmct13a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct13a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct13a;
 /** Value: "ecbmct13plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct13plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct13plus;
 /** Value: "ecbmct15a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct15a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct15a;
 /** Value: "ecbmct15plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct15plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct15plus;
 /** Value: "ecbmct18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct18plus;
 /** Value: "ecbmct7a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct7a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct7a;
 /** Value: "ecbmct7plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct7plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_Ecbmct7plus;
 /** Value: "ecbmctG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_EcbmctG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_EcbmctG;
 /** Value: "ecbmctUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_EcbmctUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EcbmctRating_EcbmctUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.eefilmRating
 
 /** Value: "eefilmK12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK12;
 /** Value: "eefilmK14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK14;
 /** Value: "eefilmK16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK16;
 /** Value: "eefilmK6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmK6;
 /** Value: "eefilmL" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmL;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmL;
 /** Value: "eefilmMs12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmMs12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmMs12;
 /** Value: "eefilmMs6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmMs6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmMs6;
 /** Value: "eefilmPere" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmPere;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmPere;
 /** Value: "eefilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EefilmRating_EefilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.egfilmRating
 
 /** Value: "egfilm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_Egfilm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_Egfilm18;
 /** Value: "egfilmBn" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_EgfilmBn;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_EgfilmBn;
 /** Value: "egfilmGn" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_EgfilmGn;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_EgfilmGn;
 /** Value: "egfilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_EgfilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EgfilmRating_EgfilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.eirinRating
 
 /** Value: "eirinG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinG;
 /** Value: "eirinPg12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinPg12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinPg12;
 /** Value: "eirinR15plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinR15plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinR15plus;
 /** Value: "eirinR18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinR18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinR18plus;
 /** Value: "eirinUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_EirinRating_EirinUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fcbmRating
 
 /** Value: "fcbm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18;
 /** Value: "fcbm18pa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18pa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18pa;
 /** Value: "fcbm18pl" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18pl;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18pl;
 /** Value: "fcbm18sg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18sg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18sg;
 /** Value: "fcbm18sx" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18sx;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_Fcbm18sx;
 /** Value: "fcbmP13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmP13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmP13;
 /** Value: "fcbmPg13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmPg13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmPg13;
 /** Value: "fcbmU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmU;
 /** Value: "fcbmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcbmRating_FcbmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fcoRating
 
 /** Value: "fcoI" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoI;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoI;
 /** Value: "fcoIi" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIi;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIi;
 /** Value: "fcoIia" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIia;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIia;
 /** Value: "fcoIib" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIib;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIib;
 /** Value: "fcoIii" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIii;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoIii;
 /** Value: "fcoUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FcoRating_FcoUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fmocRating
 
 /** Value: "fmoc10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc10;
 /** Value: "fmoc12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc12;
 /** Value: "fmoc16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc16;
 /** Value: "fmoc18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_Fmoc18;
 /** Value: "fmocE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_FmocE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_FmocE;
 /** Value: "fmocU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_FmocU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_FmocU;
 /** Value: "fmocUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_FmocUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FmocRating_FmocUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fpbRating
 
 /** Value: "fpb10" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb10;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb10;
 /** Value: "fpb1012Pg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb1012Pg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb1012Pg;
 /** Value: "fpb13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb13;
 /** Value: "fpb16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb16;
 /** Value: "fpb18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb18;
 /** Value: "fpb79Pg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb79Pg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_Fpb79Pg;
 /** Value: "fpbA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbA;
 /** Value: "fpbPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbPg;
 /** Value: "fpbUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbUnrated;
 /** Value: "fpbX18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbX18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbX18;
 /** Value: "fpbXx" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbXx;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRating_FpbXx;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fpbRatingReasons
 
 /** Value: "fpbBlasphemy" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbBlasphemy;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbBlasphemy;
 /** Value: "fpbCriminalTechniques" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbCriminalTechniques;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbCriminalTechniques;
 /** Value: "fpbDrugs" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbDrugs;
 /** Value: "fpbHorror" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbHorror;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbHorror;
 /** Value: "fpbImitativeActsTechniques" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbImitativeActsTechniques;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbImitativeActsTechniques;
 /** Value: "fpbLanguage" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbLanguage;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbLanguage;
 /** Value: "fpbNudity" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbNudity;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbNudity;
 /** Value: "fpbPrejudice" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbPrejudice;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbPrejudice;
 /** Value: "fpbSex" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSex;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSex;
 /** Value: "fpbSexualViolence" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSexualViolence;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbSexualViolence;
 /** Value: "fpbViolence" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbViolence;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FpbRatingReasons_FpbViolence;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.fskRating
 
 /** Value: "fsk0" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk0;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk0;
 /** Value: "fsk12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk12;
 /** Value: "fsk16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk16;
 /** Value: "fsk18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk18;
 /** Value: "fsk6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_Fsk6;
 /** Value: "fskUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_FskUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_FskRating_FskUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.grfilmRating
 
 /** Value: "grfilmE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmE;
 /** Value: "grfilmK" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK;
 /** Value: "grfilmK12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK12;
 /** Value: "grfilmK13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK13;
 /** Value: "grfilmK15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK15;
 /** Value: "grfilmK17" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK17;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK17;
 /** Value: "grfilmK18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmK18;
 /** Value: "grfilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_GrfilmRating_GrfilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.icaaRating
 
 /** Value: "icaa12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa12;
 /** Value: "icaa13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa13;
 /** Value: "icaa16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa16;
 /** Value: "icaa18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa18;
 /** Value: "icaa7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_Icaa7;
 /** Value: "icaaApta" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_IcaaApta;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_IcaaApta;
 /** Value: "icaaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_IcaaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_IcaaUnrated;
 /** Value: "icaaX" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_IcaaX;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IcaaRating_IcaaX;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.ifcoRating
 
 /** Value: "ifco12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco12;
 /** Value: "ifco12a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco12a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco12a;
 /** Value: "ifco15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco15;
 /** Value: "ifco15a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco15a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco15a;
 /** Value: "ifco16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco16;
 /** Value: "ifco18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_Ifco18;
 /** Value: "ifcoG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_IfcoG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_IfcoG;
 /** Value: "ifcoPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_IfcoPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_IfcoPg;
 /** Value: "ifcoUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_IfcoUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IfcoRating_IfcoUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.ilfilmRating
 
 /** Value: "ilfilm12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm12;
 /** Value: "ilfilm14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm14;
 /** Value: "ilfilm16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm16;
 /** Value: "ilfilm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_Ilfilm18;
 /** Value: "ilfilmAa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_IlfilmAa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_IlfilmAa;
 /** Value: "ilfilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_IlfilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IlfilmRating_IlfilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.incaaRating
 
 /** Value: "incaaAtp" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaAtp;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaAtp;
 /** Value: "incaaC" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaC;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaC;
 /** Value: "incaaSam13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaSam13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaSam13;
 /** Value: "incaaSam16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaSam16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaSam16;
 /** Value: "incaaSam18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaSam18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaSam18;
 /** Value: "incaaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_IncaaRating_IncaaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.kfcbRating
 
 /** Value: "kfcb16plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_Kfcb16plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_Kfcb16plus;
 /** Value: "kfcbG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbG;
 /** Value: "kfcbPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbPg;
 /** Value: "kfcbR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbR;
 /** Value: "kfcbUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KfcbRating_KfcbUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.kijkwijzerRating
 
 /** Value: "kijkwijzer12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer12;
 /** Value: "kijkwijzer16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer16;
 /** Value: "kijkwijzer18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer18;
 /** Value: "kijkwijzer6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer6;
 /** Value: "kijkwijzer9" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer9;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_Kijkwijzer9;
 /** Value: "kijkwijzerAl" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_KijkwijzerAl;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_KijkwijzerAl;
 /** Value: "kijkwijzerUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_KijkwijzerUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KijkwijzerRating_KijkwijzerUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.kmrbRating
 
 /** Value: "kmrb12plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_Kmrb12plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_Kmrb12plus;
 /** Value: "kmrb15plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_Kmrb15plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_Kmrb15plus;
 /** Value: "kmrbAll" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbAll;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbAll;
 /** Value: "kmrbR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbR;
 /** Value: "kmrbTeenr" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbTeenr;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbTeenr;
 /** Value: "kmrbUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_KmrbRating_KmrbUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.lsfRating
 
 /** Value: "lsf13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_Lsf13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_Lsf13;
 /** Value: "lsf17" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_Lsf17;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_Lsf17;
 /** Value: "lsf21" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_Lsf21;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_Lsf21;
 /** Value: "lsfA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfA;
 /** Value: "lsfBo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfBo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfBo;
 /** Value: "lsfD" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfD;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfD;
 /** Value: "lsfR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfR;
 /** Value: "lsfSu" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfSu;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfSu;
 /** Value: "lsfUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_LsfRating_LsfUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mccaaRating
 
 /** Value: "mccaa12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa12;
 /** Value: "mccaa12a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa12a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa12a;
 /** Value: "mccaa14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa14;
 /** Value: "mccaa15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa15;
 /** Value: "mccaa16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa16;
 /** Value: "mccaa18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_Mccaa18;
 /** Value: "mccaaPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_MccaaPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_MccaaPg;
 /** Value: "mccaaU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_MccaaU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_MccaaU;
 /** Value: "mccaaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_MccaaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccaaRating_MccaaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mccypRating
 
 /** Value: "mccyp11" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp11;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp11;
 /** Value: "mccyp15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp15;
 /** Value: "mccyp7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_Mccyp7;
 /** Value: "mccypA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_MccypA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_MccypA;
 /** Value: "mccypUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_MccypUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MccypRating_MccypUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mcstRating
 
 /** Value: "mcst0" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_Mcst0;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_Mcst0;
 /** Value: "mcst16plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_Mcst16plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_Mcst16plus;
 /** Value: "mcstC13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC13;
 /** Value: "mcstC16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC16;
 /** Value: "mcstC18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstC18;
 /** Value: "mcstGPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstGPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstGPg;
 /** Value: "mcstP" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstP;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstP;
 /** Value: "mcstUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_McstRating_McstUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mdaRating
 
 /** Value: "mdaG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaG;
 /** Value: "mdaM18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaM18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaM18;
 /** Value: "mdaNc16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaNc16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaNc16;
 /** Value: "mdaPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaPg;
 /** Value: "mdaPg13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaPg13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaPg13;
 /** Value: "mdaR21" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaR21;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaR21;
 /** Value: "mdaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MdaRating_MdaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.medietilsynetRating
 
 /** Value: "medietilsynet11" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet11;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet11;
 /** Value: "medietilsynet12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet12;
 /** Value: "medietilsynet15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet15;
 /** Value: "medietilsynet18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet18;
 /** Value: "medietilsynet6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet6;
 /** Value: "medietilsynet7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet7;
 /** Value: "medietilsynet9" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet9;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_Medietilsynet9;
 /** Value: "medietilsynetA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_MedietilsynetA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_MedietilsynetA;
 /** Value: "medietilsynetUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_MedietilsynetUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MedietilsynetRating_MedietilsynetUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mekuRating
 
 /** Value: "meku12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku12;
 /** Value: "meku16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku16;
 /** Value: "meku18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku18;
 /** Value: "meku7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_Meku7;
 /** Value: "mekuS" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuS;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuS;
 /** Value: "mekuUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MekuRating_MekuUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.menaMpaaRating
 
 /** Value: "menaMpaaG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaG;
 /** Value: "menaMpaaPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg;
 /** Value: "menaMpaaPg13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaPg13;
 /** Value: "menaMpaaR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaR;
 /** Value: "menaMpaaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MenaMpaaRating_MenaMpaaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mibacRating
 
 /** Value: "mibacT" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacT;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacT;
 /** Value: "mibacUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacUnrated;
 /** Value: "mibacVap" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVap;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVap;
 /** Value: "mibacVm12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm12;
 /** Value: "mibacVm14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm14;
 /** Value: "mibacVm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MibacRating_MibacVm18;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mocRating
 
 /** Value: "moc12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc12;
 /** Value: "moc15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc15;
 /** Value: "moc18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc18;
 /** Value: "moc7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_Moc7;
 /** Value: "mocBanned" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocBanned;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocBanned;
 /** Value: "mocE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocE;
 /** Value: "mocT" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocT;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocT;
 /** Value: "mocUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocUnrated;
 /** Value: "mocX" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocX;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MocRating_MocX;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.moctwRating
 
 /** Value: "moctwG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwG;
 /** Value: "moctwP" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwP;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwP;
 /** Value: "moctwPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwPg;
 /** Value: "moctwR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwR;
 /** Value: "moctwR12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwR12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwR12;
 /** Value: "moctwR15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwR15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwR15;
 /** Value: "moctwUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MoctwRating_MoctwUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mpaaRating
 
 /** Value: "mpaaG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaG;
 /** Value: "mpaaNc17" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaNc17;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaNc17;
 /** Value: "mpaaPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg;
 /** Value: "mpaaPg13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaPg13;
 /** Value: "mpaaR" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaR;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaR;
 /** Value: "mpaaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaUnrated;
 /** Value: "mpaaX" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaX;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaaRating_MpaaX;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mpaatRating
 
 /** Value: "mpaatGb" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatGb;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatGb;
 /** Value: "mpaatRb" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatRb;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MpaatRating_MpaatRb;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.mtrcbRating
 
 /** Value: "mtrcbG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbG;
 /** Value: "mtrcbPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbPg;
 /** Value: "mtrcbR13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbR13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbR13;
 /** Value: "mtrcbR16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbR16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbR16;
 /** Value: "mtrcbR18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbR18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbR18;
 /** Value: "mtrcbUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbUnrated;
 /** Value: "mtrcbX" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbX;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_MtrcbRating_MtrcbX;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.nbcplRating
 
 /** Value: "nbcpl18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_Nbcpl18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_Nbcpl18plus;
 /** Value: "nbcplI" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplI;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplI;
 /** Value: "nbcplIi" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplIi;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplIi;
 /** Value: "nbcplIii" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplIii;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplIii;
 /** Value: "nbcplIv" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplIv;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplIv;
 /** Value: "nbcplUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcplRating_NbcplUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.nbcRating
 
 /** Value: "nbc12plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc12plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc12plus;
 /** Value: "nbc15plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc15plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc15plus;
 /** Value: "nbc18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc18plus;
 /** Value: "nbc18plusr" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc18plusr;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_Nbc18plusr;
 /** Value: "nbcG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcG;
 /** Value: "nbcPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcPg;
 /** Value: "nbcPu" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcPu;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcPu;
 /** Value: "nbcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NbcRating_NbcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.nfrcRating
 
 /** Value: "nfrcA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcA;
 /** Value: "nfrcB" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcB;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcB;
 /** Value: "nfrcC" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcC;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcC;
 /** Value: "nfrcD" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcD;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcD;
 /** Value: "nfrcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcUnrated;
 /** Value: "nfrcX" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcX;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfrcRating_NfrcX;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.nfvcbRating
 
 /** Value: "nfvcb12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb12;
 /** Value: "nfvcb12a" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb12a;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb12a;
 /** Value: "nfvcb15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb15;
 /** Value: "nfvcb18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_Nfvcb18;
 /** Value: "nfvcbG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbG;
 /** Value: "nfvcbPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbPg;
 /** Value: "nfvcbRe" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbRe;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbRe;
 /** Value: "nfvcbUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NfvcbRating_NfvcbUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.nkclvRating
 
 /** Value: "nkclv12plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv12plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv12plus;
 /** Value: "nkclv16plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv16plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv16plus;
 /** Value: "nkclv18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv18plus;
 /** Value: "nkclv7plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv7plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_Nkclv7plus;
 /** Value: "nkclvU" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvU;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvU;
 /** Value: "nkclvUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NkclvRating_NkclvUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.nmcRating
 
 /** Value: "nmc15plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc15plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc15plus;
 /** Value: "nmc18plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18plus;
 /** Value: "nmc18tc" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18tc;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_Nmc18tc;
 /** Value: "nmcG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcG;
 /** Value: "nmcPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg;
 /** Value: "nmcPg13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg13;
 /** Value: "nmcPg15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcPg15;
 /** Value: "nmcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_NmcRating_NmcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.oflcRating
 
 /** Value: "oflcG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcG;
 /** Value: "oflcM" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcM;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcM;
 /** Value: "oflcPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcPg;
 /** Value: "oflcR13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR13;
 /** Value: "oflcR15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR15;
 /** Value: "oflcR16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR16;
 /** Value: "oflcR18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcR18;
 /** Value: "oflcRp13" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp13;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp13;
 /** Value: "oflcRp16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp16;
 /** Value: "oflcRp18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcRp18;
 /** Value: "oflcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_OflcRating_OflcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.pefilmRating
 
 /** Value: "pefilm14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_Pefilm14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_Pefilm14;
 /** Value: "pefilm18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_Pefilm18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_Pefilm18;
 /** Value: "pefilmPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_PefilmPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_PefilmPg;
 /** Value: "pefilmPt" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_PefilmPt;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_PefilmPt;
 /** Value: "pefilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_PefilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_PefilmRating_PefilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.rcnofRating
 
 /** Value: "rcnofI" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofI;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofI;
 /** Value: "rcnofIi" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofIi;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofIi;
 /** Value: "rcnofIii" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofIii;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofIii;
 /** Value: "rcnofIv" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofIv;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofIv;
 /** Value: "rcnofUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofUnrated;
 /** Value: "rcnofV" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofV;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofV;
 /** Value: "rcnofVi" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofVi;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RcnofRating_RcnofVi;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.resorteviolenciaRating
 
 /** Value: "resorteviolenciaA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaA;
 /** Value: "resorteviolenciaB" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaB;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaB;
 /** Value: "resorteviolenciaC" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaC;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaC;
 /** Value: "resorteviolenciaD" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaD;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaD;
 /** Value: "resorteviolenciaE" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaE;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaE;
 /** Value: "resorteviolenciaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_ResorteviolenciaRating_ResorteviolenciaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.rtcRating
 
 /** Value: "rtcA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcA;
 /** Value: "rtcAa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcAa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcAa;
 /** Value: "rtcB" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcB;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcB;
 /** Value: "rtcB15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcB15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcB15;
 /** Value: "rtcC" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcC;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcC;
 /** Value: "rtcD" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcD;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcD;
 /** Value: "rtcUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RtcRating_RtcUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.rteRating
 
 /** Value: "rteCh" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteCh;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteCh;
 /** Value: "rteGa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteGa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteGa;
 /** Value: "rteMa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteMa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteMa;
 /** Value: "rtePs" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RtePs;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RtePs;
 /** Value: "rteUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RteRating_RteUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.russiaRating
 
 /** Value: "russia0" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia0;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia0;
 /** Value: "russia12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia12;
 /** Value: "russia16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia16;
 /** Value: "russia18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia18;
 /** Value: "russia6" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia6;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_Russia6;
 /** Value: "russiaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_RussiaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_RussiaRating_RussiaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.skfilmRating
 
 /** Value: "skfilmG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmG;
 /** Value: "skfilmP2" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmP2;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmP2;
 /** Value: "skfilmP5" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmP5;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmP5;
 /** Value: "skfilmP8" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmP8;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmP8;
 /** Value: "skfilmUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SkfilmRating_SkfilmUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.smaisRating
 
 /** Value: "smais12" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais12;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais12;
 /** Value: "smais14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais14;
 /** Value: "smais16" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais16;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais16;
 /** Value: "smais18" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais18;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais18;
 /** Value: "smais7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_Smais7;
 /** Value: "smaisL" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_SmaisL;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_SmaisL;
 /** Value: "smaisUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_SmaisUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmaisRating_SmaisUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.smsaRating
 
 /** Value: "smsa11" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_Smsa11;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_Smsa11;
 /** Value: "smsa15" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_Smsa15;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_Smsa15;
 /** Value: "smsa7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_Smsa7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_Smsa7;
 /** Value: "smsaA" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_SmsaA;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_SmsaA;
 /** Value: "smsaUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_SmsaUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_SmsaRating_SmsaUnrated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.tvpgRating
 
 /** Value: "pg14" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_Pg14;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_Pg14;
 /** Value: "tvpgG" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgG;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgG;
 /** Value: "tvpgMa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgMa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgMa;
 /** Value: "tvpgPg" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgPg;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgPg;
 /** Value: "tvpgUnrated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgUnrated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgUnrated;
 /** Value: "tvpgY" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY;
 /** Value: "tvpgY7" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY7;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY7;
 /** Value: "tvpgY7Fv" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY7Fv;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_TvpgRating_TvpgY7Fv;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ContentRating.ytRating
 
 /** Value: "ytAgeRestricted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_ContentRating_YtRating_YtAgeRestricted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_YtRating_YtAgeRestricted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_InvideoPosition.cornerPosition
 
 /** Value: "bottomLeft" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomLeft;
 /** Value: "bottomRight" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_BottomRight;
 /** Value: "topLeft" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopLeft;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopLeft;
 /** Value: "topRight" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopRight;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_CornerPosition_TopRight;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_InvideoPosition.type
 
 /** Value: "corner" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoPosition_Type_Corner;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoPosition_Type_Corner;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_InvideoTiming.type
 
 /** Value: "offsetFromEnd" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoTiming_Type_OffsetFromEnd;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoTiming_Type_OffsetFromEnd;
 /** Value: "offsetFromStart" */
-GTLR_EXTERN NSString * const kGTLRYouTube_InvideoTiming_Type_OffsetFromStart;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_InvideoTiming_Type_OffsetFromStart;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastContentDetails.closedCaptionsType
 
 /** Value: "closedCaptionsDisabled" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsDisabled;
 /** Value: "closedCaptionsEmbedded" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsEmbedded;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsEmbedded;
 /** Value: "closedCaptionsHttpPost" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsHttpPost;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_ClosedCaptionsType_ClosedCaptionsHttpPost;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastContentDetails.latencyPreference
 
 /** Value: "low" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Low;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Low;
 /** Value: "normal" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_Normal;
 /** Value: "ultraLow" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_UltraLow;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_LatencyPreference_UltraLow;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastContentDetails.projection
 
 /** Value: "mesh" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Mesh;
 /** Value: "rectangular" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular;
 /** Value: "360" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastContentDetails.stereoLayout
 
 /** Value: "left_right" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight;
 /** Value: "mono" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono;
 /** Value: "top_bottom" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastSnippet.broadcastType
 
 /** Value: "fludd" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Fludd;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Fludd;
 /** Value: "fluddArchive" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_FluddArchive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_FluddArchive;
 /** Value: "gplusHoa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_GplusHoa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_GplusHoa;
 /** Value: "lcrEncoder" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_LcrEncoder;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_LcrEncoder;
 /** Value: "mobile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Mobile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Mobile;
 /** Value: "persistent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Persistent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Persistent;
 /** Value: "premiere" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Premiere;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Premiere;
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Unspecified;
 /** Value: "webcam" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Webcam;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_Webcam;
 /** Value: "ytHoa" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_YtHoa;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastSnippet_BroadcastType_YtHoa;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 
 /** Value: "complete" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete;
 /** Value: "created" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created;
 /** Value: "live" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Live;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Live;
 /** Value: "liveStarting" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_LiveStarting;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_LiveStarting;
 /** Value: "ready" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Ready;
 /** Value: "revoked" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Revoked;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Revoked;
 /** Value: "testing" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Testing;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Testing;
 /** Value: "testStarting" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_TestStarting;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_TestStarting;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.liveBroadcastPriority
 
 /** Value: "high" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_High;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_High;
 /** Value: "low" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_Low;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_Low;
 /** Value: "normal" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_LiveBroadcastPriority_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.privacyStatus
 
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Private;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Private;
 /** Value: "public" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Public;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.recordingStatus
 
 /** Value: "notRecording" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_NotRecording;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_NotRecording;
 /** Value: "recorded" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recorded;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recorded;
 /** Value: "recording" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recording;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastStatus_RecordingStatus_Recording;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveChatBanSnippet.type
 
 /** Value: "permanent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Permanent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Permanent;
 /** Value: "temporary" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporary;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporary;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveChatMessageSnippet.type
 
 /** Value: "chatEndedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent;
 /** Value: "fanFundingEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent;
 /** Value: "messageDeletedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent;
 /** Value: "messageRetractedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent;
 /** Value: "newSponsorEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent;
 /** Value: "pollClosedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent;
 /** Value: "pollEditedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent;
 /** Value: "pollOpenedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent;
 /** Value: "pollVotedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent;
 /** Value: "sponsorOnlyModeEndedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent;
 /** Value: "sponsorOnlyModeStartedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent;
 /** Value: "superChatEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent;
 /** Value: "superStickerEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperStickerEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperStickerEvent;
 /** Value: "textMessageEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_TextMessageEvent;
 /** Value: "tombstone" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Tombstone;
 /** Value: "userBannedEvent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_UserBannedEvent;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveChatUserBannedMessageDetails.banType
 
 /** Value: "permanent" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatUserBannedMessageDetails_BanType_Permanent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatUserBannedMessageDetails_BanType_Permanent;
 /** Value: "temporary" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveChatUserBannedMessageDetails_BanType_Temporary;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatUserBannedMessageDetails_BanType_Temporary;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveStreamConfigurationIssue.severity
 
 /** Value: "error" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Error;
 /** Value: "info" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Info;
 /** Value: "warning" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveStreamConfigurationIssue.type
 
 /** Value: "audioBitrateHigh" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioBitrateHigh;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioBitrateHigh;
 /** Value: "audioBitrateLow" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioBitrateLow;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioBitrateLow;
 /** Value: "audioBitrateMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioBitrateMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioBitrateMismatch;
 /** Value: "audioCodec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioCodec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioCodec;
 /** Value: "audioCodecMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioCodecMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioCodecMismatch;
 /** Value: "audioSampleRate" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioSampleRate;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioSampleRate;
 /** Value: "audioSampleRateMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioSampleRateMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioSampleRateMismatch;
 /** Value: "audioStereoMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioStereoMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioStereoMismatch;
 /** Value: "audioTooManyChannels" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioTooManyChannels;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_AudioTooManyChannels;
 /** Value: "badContainer" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_BadContainer;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_BadContainer;
 /** Value: "bitrateHigh" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_BitrateHigh;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_BitrateHigh;
 /** Value: "bitrateLow" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_BitrateLow;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_BitrateLow;
 /** Value: "frameRateHigh" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_FrameRateHigh;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_FrameRateHigh;
 /** Value: "framerateMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_FramerateMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_FramerateMismatch;
 /** Value: "gopMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopMismatch;
 /** Value: "gopSizeLong" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopSizeLong;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopSizeLong;
 /** Value: "gopSizeOver" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopSizeOver;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopSizeOver;
 /** Value: "gopSizeShort" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopSizeShort;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_GopSizeShort;
 /** Value: "interlacedVideo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_InterlacedVideo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_InterlacedVideo;
 /** Value: "multipleAudioStreams" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_MultipleAudioStreams;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_MultipleAudioStreams;
 /** Value: "multipleVideoStreams" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_MultipleVideoStreams;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_MultipleVideoStreams;
 /** Value: "noAudioStream" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_NoAudioStream;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_NoAudioStream;
 /** Value: "noVideoStream" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_NoVideoStream;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_NoVideoStream;
 /** Value: "openGop" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_OpenGop;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_OpenGop;
 /** Value: "resolutionMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_ResolutionMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_ResolutionMismatch;
 /** Value: "videoBitrateMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoBitrateMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoBitrateMismatch;
 /** Value: "videoCodec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodec;
 /** Value: "videoCodecMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodecMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoCodecMismatch;
 /** Value: "videoIngestionFasterThanRealtime" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionFasterThanRealtime;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionFasterThanRealtime;
 /** Value: "videoIngestionStarved" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionStarved;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoIngestionStarved;
 /** Value: "videoInterlaceMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoInterlaceMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoInterlaceMismatch;
 /** Value: "videoProfileMismatch" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoProfileMismatch;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoProfileMismatch;
 /** Value: "videoResolutionSuboptimal" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoResolutionSuboptimal;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoResolutionSuboptimal;
 /** Value: "videoResolutionUnsupported" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoResolutionUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamConfigurationIssue_Type_VideoResolutionUnsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveStreamHealthStatus.status
 
 /** Value: "bad" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Bad;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Bad;
 /** Value: "good" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Good;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Good;
 /** Value: "noData" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_NoData;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_NoData;
 /** Value: "ok" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Ok;
 /** Value: "revoked" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Revoked;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamHealthStatus_Status_Revoked;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_LiveStreamStatus.streamStatus
 
 /** Value: "active" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Active;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Active;
 /** Value: "created" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Created;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Created;
 /** Value: "error" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Error;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Error;
 /** Value: "inactive" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Inactive;
 /** Value: "ready" */
-GTLR_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveStreamStatus_StreamStatus_Ready;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_PlaylistItemStatus.privacyStatus
 
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Private;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Private;
 /** Value: "public" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_PlaylistStatus.privacyStatus
 
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Private;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Private;
 /** Value: "public" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Public;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Unlisted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_PromotedItemId.type
 
 /** Value: "recentUpload" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PromotedItemId_Type_RecentUpload;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PromotedItemId_Type_RecentUpload;
 /** Value: "video" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PromotedItemId_Type_Video;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PromotedItemId_Type_Video;
 /** Value: "website" */
-GTLR_EXTERN NSString * const kGTLRYouTube_PromotedItemId_Type_Website;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PromotedItemId_Type_Website;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_SearchResultSnippet.liveBroadcastContent
 
 /** Value: "live" */
-GTLR_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Live;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Live;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_None;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_None;
 /** Value: "upcoming" */
-GTLR_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Upcoming;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Upcoming;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_SubscriptionContentDetails.activityType
 
 /** Value: "all" */
-GTLR_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_All;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_All;
 /** Value: "uploads" */
-GTLR_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_Uploads;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_Uploads;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoAgeGating.videoGameRating
 
 /** Value: "anyone" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_Anyone;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_Anyone;
 /** Value: "m15Plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_M15Plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_M15Plus;
 /** Value: "m16Plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_M16Plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_M16Plus;
 /** Value: "m17Plus" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_M17Plus;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_M17Plus;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoContentDetails.caption
 
 /** Value: "false" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Caption_False;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Caption_False;
 /** Value: "true" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Caption_True;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Caption_True;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoContentDetails.definition
 
 /** Value: "hd" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Definition_Hd;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Definition_Hd;
 /** Value: "sd" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Definition_Sd;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Definition_Sd;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoContentDetails.projection
 
 /** Value: "rectangular" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Projection_Rectangular;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Projection_Rectangular;
 /** Value: "360" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Projection_X360;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoContentDetails_Projection_X360;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoFileDetails.fileType
 
 /** Value: "archive" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Archive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Archive;
 /** Value: "audio" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Audio;
 /** Value: "document" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Document;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Document;
 /** Value: "image" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Image;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Image;
 /** Value: "other" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Other;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Other;
 /** Value: "project" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Project;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Project;
 /** Value: "video" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Video;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetails_FileType_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoFileDetailsVideoStream.rotation
 
 /** Value: "clockwise" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_Clockwise;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_Clockwise;
 /** Value: "counterClockwise" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_CounterClockwise;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_CounterClockwise;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_None;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_None;
 /** Value: "other" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_Other;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_Other;
 /** Value: "upsideDown" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_UpsideDown;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoFileDetailsVideoStream_Rotation_UpsideDown;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoProcessingDetails.processingFailureReason
 
 /** Value: "other" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_Other;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_Other;
 /** Value: "streamingFailed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_StreamingFailed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_StreamingFailed;
 /** Value: "transcodeFailed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_TranscodeFailed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_TranscodeFailed;
 /** Value: "uploadFailed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_UploadFailed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingFailureReason_UploadFailed;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoProcessingDetails.processingStatus
 
 /** Value: "failed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Failed;
 /** Value: "processing" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Processing;
 /** Value: "succeeded" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Succeeded;
 /** Value: "terminated" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoProcessingDetails_ProcessingStatus_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoRating.rating
 
 /** Value: "dislike" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Dislike;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Dislike;
 /** Value: "like" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Like;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Like;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_None;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_None;
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoRating_Rating_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSnippet.liveBroadcastContent
 
 /** Value: "live" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Live;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Live;
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_None;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_None;
 /** Value: "upcoming" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Upcoming;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSnippet_LiveBroadcastContent_Upcoming;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.failureReason
 
 /** Value: "codec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_Codec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_Codec;
 /** Value: "conversion" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_Conversion;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_Conversion;
 /** Value: "emptyFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_EmptyFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_EmptyFile;
 /** Value: "invalidFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_InvalidFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_InvalidFile;
 /** Value: "tooSmall" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_TooSmall;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_TooSmall;
 /** Value: "uploadAborted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_UploadAborted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_FailureReason_UploadAborted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.license
 
 /** Value: "creativeCommon" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_License_CreativeCommon;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_License_CreativeCommon;
 /** Value: "youtube" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_License_Youtube;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_License_Youtube;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.privacyStatus
 
 /** Value: "private" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Private;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Private;
 /** Value: "public" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Public;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Public;
 /** Value: "unlisted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Unlisted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.rejectionReason
 
 /** Value: "claim" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Claim;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Claim;
 /** Value: "copyright" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Copyright;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Copyright;
 /** Value: "duplicate" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Duplicate;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Duplicate;
 /** Value: "inappropriate" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Inappropriate;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Inappropriate;
 /** Value: "legal" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Legal;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Legal;
 /** Value: "length" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Length;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Length;
 /** Value: "termsOfUse" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_TermsOfUse;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_TermsOfUse;
 /** Value: "trademark" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Trademark;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_Trademark;
 /** Value: "uploaderAccountClosed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_UploaderAccountClosed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_UploaderAccountClosed;
 /** Value: "uploaderAccountSuspended" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_UploaderAccountSuspended;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_RejectionReason_UploaderAccountSuspended;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoStatus.uploadStatus
 
 /** Value: "deleted" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Deleted;
 /** Value: "failed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Failed;
 /** Value: "processed" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Processed;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Processed;
 /** Value: "rejected" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Rejected;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Rejected;
 /** Value: "uploaded" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Uploaded;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoStatus_UploadStatus_Uploaded;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.editorSuggestions
 
 /** Value: "audioQuietAudioSwap" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_AudioQuietAudioSwap;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_AudioQuietAudioSwap;
 /** Value: "videoAutoLevels" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_VideoAutoLevels;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_VideoAutoLevels;
 /** Value: "videoCrop" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_VideoCrop;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_VideoCrop;
 /** Value: "videoStabilize" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_VideoStabilize;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_EditorSuggestions_VideoStabilize;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.processingErrors
 
 /** Value: "archiveFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ArchiveFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ArchiveFile;
 /** Value: "audioFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_AudioFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_AudioFile;
 /** Value: "docFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_DocFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_DocFile;
 /** Value: "imageFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ImageFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ImageFile;
 /** Value: "notAVideoFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_NotAVideoFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_NotAVideoFile;
 /** Value: "projectFile" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ProjectFile;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_ProjectFile;
 /** Value: "unsupportedSpatialAudioLayout" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_UnsupportedSpatialAudioLayout;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingErrors_UnsupportedSpatialAudioLayout;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.processingHints
 
 /** Value: "hdrVideo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_HdrVideo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_HdrVideo;
 /** Value: "nonStreamableMov" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_NonStreamableMov;
 /** Value: "sendBestQualityVideo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SendBestQualityVideo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SendBestQualityVideo;
 /** Value: "spatialAudio" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SpatialAudio;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SpatialAudio;
 /** Value: "sphericalVideo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SphericalVideo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_SphericalVideo;
 /** Value: "vrVideo" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_VrVideo;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingHints_VrVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoSuggestions.processingWarnings
 
 /** Value: "hasEditlist" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_HasEditlist;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_HasEditlist;
 /** Value: "inconsistentResolution" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_InconsistentResolution;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_InconsistentResolution;
 /** Value: "problematicAudioCodec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicAudioCodec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicAudioCodec;
 /** Value: "problematicHdrLookupTable" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicHdrLookupTable;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicHdrLookupTable;
 /** Value: "problematicVideoCodec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicVideoCodec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_ProblematicVideoCodec;
 /** Value: "unknownAudioCodec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownAudioCodec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownAudioCodec;
 /** Value: "unknownContainer" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownContainer;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownContainer;
 /** Value: "unknownVideoCodec" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCodec;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnknownVideoCodec;
 /** Value: "unsupportedHdrColorMetadata" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrColorMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrColorMetadata;
 /** Value: "unsupportedHdrPixelFormat" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrPixelFormat;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedHdrPixelFormat;
 /** Value: "unsupportedSphericalProjectionType" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedSphericalProjectionType;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedSphericalProjectionType;
 /** Value: "unsupportedVrStereoMode" */
-GTLR_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrStereoMode;
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrStereoMode;
 
 /**
  *  Rights management policy for YouTube resources.

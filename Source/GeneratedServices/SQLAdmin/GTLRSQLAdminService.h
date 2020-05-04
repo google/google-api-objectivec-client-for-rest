@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSQLAdminCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSQLAdminCloudPlatform;
 /**
  *  Authorization scope: Manage your Google SQL Service instances
  *
  *  Value "https://www.googleapis.com/auth/sqlservice.admin"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin;
 
 // ----------------------------------------------------------------------------
 //   GTLRSQLAdminService

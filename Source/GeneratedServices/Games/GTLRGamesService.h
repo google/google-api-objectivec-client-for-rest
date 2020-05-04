@@ -34,14 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/games"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGames;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGames;
 /**
  *  Authorization scope: View and manage its own configuration data in your
  *  Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesService

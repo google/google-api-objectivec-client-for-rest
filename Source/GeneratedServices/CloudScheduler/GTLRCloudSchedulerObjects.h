@@ -54,49 +54,49 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Delete;
 /**
  *  HTTP GET
  *
  *  Value: "GET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Get;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Get;
 /**
  *  HTTP HEAD
  *
  *  Value: "HEAD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Head;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Head;
 /**
  *  HTTP method unspecified. Defaults to POST.
  *
  *  Value: "HTTP_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_HttpMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_HttpMethodUnspecified;
 /**
  *  HTTP OPTIONS
  *
  *  Value: "OPTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Options;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Options;
 /**
  *  HTTP PATCH
  *
  *  Value: "PATCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Patch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Patch;
 /**
  *  HTTP POST
  *
  *  Value: "POST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Post;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Post;
 /**
  *  HTTP PUT
  *
  *  Value: "PUT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Put;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_Put;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudScheduler_HttpTarget.httpMethod
@@ -106,49 +106,49 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_AppEngineHttpTarget_HttpMethod_
  *
  *  Value: "DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Delete;
 /**
  *  HTTP GET
  *
  *  Value: "GET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Get;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Get;
 /**
  *  HTTP HEAD
  *
  *  Value: "HEAD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Head;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Head;
 /**
  *  HTTP method unspecified. Defaults to POST.
  *
  *  Value: "HTTP_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_HttpMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_HttpMethodUnspecified;
 /**
  *  HTTP OPTIONS
  *
  *  Value: "OPTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Options;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Options;
 /**
  *  HTTP PATCH
  *
  *  Value: "PATCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Patch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Patch;
 /**
  *  HTTP POST
  *
  *  Value: "POST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Post;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Post;
 /**
  *  HTTP PUT
  *
  *  Value: "PUT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Put;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Put;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudScheduler_Job.state
@@ -159,13 +159,13 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_HttpTarget_HttpMethod_Put;
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Disabled;
 /**
  *  The job is executing normally.
  *
  *  Value: "ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Enabled;
 /**
  *  The job is paused by the user. It will not execute. A user can
  *  intentionally pause the job using
@@ -173,13 +173,13 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Enabled;
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_Paused;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_StateUnspecified;
 /**
  *  The job state resulting from a failed CloudScheduler.UpdateJob
  *  operation. To recover a job from this state, retry
@@ -187,7 +187,7 @@ GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_StateUnspecified;
  *
  *  Value: "UPDATE_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 /**
  *  App Engine target. The job will be pushed to a job handler by means

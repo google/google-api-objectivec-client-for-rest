@@ -54,29 +54,29 @@ NS_ASSUME_NONNULL_BEGIN
 // keyTypes
 
 /** Value: "KEY_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRIamKeyTypesKeyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIamKeyTypesKeyTypeUnspecified;
 /** Value: "SYSTEM_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRIamKeyTypesSystemManaged;
+FOUNDATION_EXTERN NSString * const kGTLRIamKeyTypesSystemManaged;
 /** Value: "USER_MANAGED" */
-GTLR_EXTERN NSString * const kGTLRIamKeyTypesUserManaged;
+FOUNDATION_EXTERN NSString * const kGTLRIamKeyTypesUserManaged;
 
 // ----------------------------------------------------------------------------
 // publicKeyType
 
 /** Value: "TYPE_NONE" */
-GTLR_EXTERN NSString * const kGTLRIamPublicKeyTypeTypeNone;
+FOUNDATION_EXTERN NSString * const kGTLRIamPublicKeyTypeTypeNone;
 /** Value: "TYPE_RAW_PUBLIC_KEY" */
-GTLR_EXTERN NSString * const kGTLRIamPublicKeyTypeTypeRawPublicKey;
+FOUNDATION_EXTERN NSString * const kGTLRIamPublicKeyTypeTypeRawPublicKey;
 /** Value: "TYPE_X509_PEM_FILE" */
-GTLR_EXTERN NSString * const kGTLRIamPublicKeyTypeTypeX509PemFile;
+FOUNDATION_EXTERN NSString * const kGTLRIamPublicKeyTypeTypeX509PemFile;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRIamViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRIamViewBasic;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRIamViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 // ----------------------------------------------------------------------------
 // Query Classes

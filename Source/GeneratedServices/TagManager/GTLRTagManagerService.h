@@ -34,46 +34,46 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.delete.containers"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerDeleteContainers;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerDeleteContainers;
 /**
  *  Authorization scope: Manage your Google Tag Manager container and its
  *  subcomponents, excluding versioning and publishing
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.edit.containers"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerEditContainers;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerEditContainers;
 /**
  *  Authorization scope: Manage your Google Tag Manager container versions
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.edit.containerversions"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerEditContainerversions;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerEditContainerversions;
 /**
  *  Authorization scope: View and manage your Google Tag Manager accounts
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.manage.accounts"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerManageAccounts;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerManageAccounts;
 /**
  *  Authorization scope: Manage user permissions of your Google Tag Manager
  *  account and container
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.manage.users"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerManageUsers;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerManageUsers;
 /**
  *  Authorization scope: Publish your Google Tag Manager container versions
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.publish"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerPublish;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerPublish;
 /**
  *  Authorization scope: View your Google Tag Manager container and its
  *  subcomponents
  *
  *  Value "https://www.googleapis.com/auth/tagmanager.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTagManagerReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTagManagerReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRTagManagerService

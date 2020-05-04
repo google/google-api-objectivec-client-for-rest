@@ -41,31 +41,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AFC"
  */
-GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfc;
+FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfc;
 /**
  *  AdSense For Games
  *
  *  Value: "AFG"
  */
-GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfg;
+FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfg;
 /**
  *  AdSense For Mobile Content - deprecated
  *
  *  Value: "AFMC"
  */
-GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfmc;
+FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfmc;
 /**
  *  AdSense For Search - deprecated
  *
  *  Value: "AFS"
  */
-GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfs;
+FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfs;
 /**
  *  AdSense For Video
  *
  *  Value: "AFV"
  */
-GTLR_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
+FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
 
 // ----------------------------------------------------------------------------
 // Query Classes

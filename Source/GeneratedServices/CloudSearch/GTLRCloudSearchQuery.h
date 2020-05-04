@@ -50,27 +50,27 @@ NS_ASSUME_NONNULL_BEGIN
 // mode
 
 /** Value: "ASYNCHRONOUS" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchModeAsynchronous;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeAsynchronous;
 /** Value: "SYNCHRONOUS" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchModeSynchronous;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeSynchronous;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // resolutionStatusCode
 
 /** Value: "CODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeCodeUnspecified;
 /** Value: "IDENTITY_SOURCE_MISCONFIGURED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeIdentitySourceMisconfigured;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeIdentitySourceMisconfigured;
 /** Value: "IDENTITY_SOURCE_NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeIdentitySourceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeIdentitySourceNotFound;
 /** Value: "INTERNAL_ERROR" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeInternalError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeInternalError;
 /** Value: "NOT_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeNotFound;
 /** Value: "TOO_MANY_MAPPINGS_FOUND" */
-GTLR_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound;
 
 // ----------------------------------------------------------------------------
 // Query Classes

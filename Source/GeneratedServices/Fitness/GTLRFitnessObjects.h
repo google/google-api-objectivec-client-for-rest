@@ -51,117 +51,117 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRFitness_AggregateBucket.type
 
 /** Value: "activitySegment" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_ActivitySegment;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_ActivitySegment;
 /** Value: "activityType" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_ActivityType;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_ActivityType;
 /** Value: "session" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Session;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Session;
 /** Value: "time" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Time;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Time;
 /** Value: "unknown" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_AggregateRequest.filteredDataQualityStandard
 
 /** Value: "dataQualityBloodGlucoseIso151972003" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972003;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972003;
 /** Value: "dataQualityBloodGlucoseIso151972013" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972013;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodGlucoseIso151972013;
 /** Value: "dataQualityBloodPressureAami" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureAami;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureAami;
 /** Value: "dataQualityBloodPressureBhsAA" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAA;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAA;
 /** Value: "dataQualityBloodPressureBhsAB" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAB;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsAB;
 /** Value: "dataQualityBloodPressureBhsBA" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBA;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBA;
 /** Value: "dataQualityBloodPressureBhsBB" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBB;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureBhsBB;
 /** Value: "dataQualityBloodPressureEsh2002" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2002;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2002;
 /** Value: "dataQualityBloodPressureEsh2010" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2010;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityBloodPressureEsh2010;
 /** Value: "dataQualityUnknown" */
-GTLR_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateRequest_FilteredDataQualityStandard_DataQualityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_BucketByTimePeriod.type
 
 /** Value: "day" */
-GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Day;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Day;
 /** Value: "month" */
-GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Month;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Month;
 /** Value: "week" */
-GTLR_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Week;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_BucketByTimePeriod_Type_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_DataSource.dataQualityStandard
 
 /** Value: "dataQualityBloodGlucoseIso151972003" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972003;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972003;
 /** Value: "dataQualityBloodGlucoseIso151972013" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972013;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodGlucoseIso151972013;
 /** Value: "dataQualityBloodPressureAami" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureAami;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureAami;
 /** Value: "dataQualityBloodPressureBhsAA" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAA;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAA;
 /** Value: "dataQualityBloodPressureBhsAB" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAB;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsAB;
 /** Value: "dataQualityBloodPressureBhsBA" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBA;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBA;
 /** Value: "dataQualityBloodPressureBhsBB" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBB;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureBhsBB;
 /** Value: "dataQualityBloodPressureEsh2002" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2002;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2002;
 /** Value: "dataQualityBloodPressureEsh2010" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2010;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityBloodPressureEsh2010;
 /** Value: "dataQualityUnknown" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_DataQualityStandard_DataQualityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_DataSource.type
 
 /** Value: "derived" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_Type_Derived;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_Type_Derived;
 /** Value: "raw" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataSource_Type_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataSource_Type_Raw;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_DataTypeField.format
 
 /** Value: "blob" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_Blob;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_Blob;
 /** Value: "floatList" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_FloatList;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_FloatList;
 /** Value: "floatPoint" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_FloatPoint;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_FloatPoint;
 /** Value: "integer" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_Integer;
 /** Value: "integerList" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_IntegerList;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_IntegerList;
 /** Value: "map" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_Map;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_Map;
 /** Value: "string" */
-GTLR_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_String;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_DataTypeField_Format_String;
 
 // ----------------------------------------------------------------------------
 // GTLRFitness_Device.type
 
 /** Value: "chestStrap" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_ChestStrap;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_ChestStrap;
 /** Value: "headMounted" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_HeadMounted;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_HeadMounted;
 /** Value: "phone" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Phone;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Phone;
 /** Value: "scale" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Scale;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Scale;
 /** Value: "tablet" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Tablet;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Tablet;
 /** Value: "unknown" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Unknown;
 /** Value: "watch" */
-GTLR_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  GTLRFitness_AggregateBucket

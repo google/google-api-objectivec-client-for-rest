@@ -35,175 +35,175 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryCloudPlatform;
 /**
  *  Authorization scope: View and manage customer related information
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.customer"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryCustomer;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryCustomer;
 /**
  *  Authorization scope: View customer related information
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.customer.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryCustomerReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryCustomerReadonly;
 /**
  *  Authorization scope: View and manage your Chrome OS devices' metadata
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.chromeos"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceChromeos;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceChromeos;
 /**
  *  Authorization scope: View your Chrome OS devices' metadata
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly;
 /**
  *  Authorization scope: View and manage your mobile devices' metadata
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.mobile"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceMobile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceMobile;
 /**
  *  Authorization scope: Manage your mobile devices by performing administrative
  *  tasks
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.mobile.action"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceMobileAction;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceMobileAction;
 /**
  *  Authorization scope: View your mobile devices' metadata
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.device.mobile.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceMobileReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDeviceMobileReadonly;
 /**
  *  Authorization scope: View and manage the provisioning of domains for your
  *  customers
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.domain"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDomain;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDomain;
 /**
  *  Authorization scope: View domains related to your customers
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.domain.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDomainReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryDomainReadonly;
 /**
  *  Authorization scope: View and manage the provisioning of groups on your
  *  domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.group"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroup;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroup;
 /**
  *  Authorization scope: View and manage group subscriptions on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.group.member"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMember;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMember;
 /**
  *  Authorization scope: View group subscriptions on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.group.member.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMemberReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMemberReadonly;
 /**
  *  Authorization scope: View groups on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.group.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupReadonly;
 /**
  *  Authorization scope: View and manage notifications received on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.notifications"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryNotifications;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryNotifications;
 /**
  *  Authorization scope: View and manage organization units on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.orgunit"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryOrgunit;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryOrgunit;
 /**
  *  Authorization scope: View organization units on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.orgunit.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryOrgunitReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryOrgunitReadonly;
 /**
  *  Authorization scope: View and manage the provisioning of calendar resources
  *  on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.resource.calendar"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryResourceCalendar;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryResourceCalendar;
 /**
  *  Authorization scope: View calendar resources on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly;
 /**
  *  Authorization scope: Manage delegated admin roles for your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.rolemanagement"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryRolemanagement;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryRolemanagement;
 /**
  *  Authorization scope: View delegated admin roles for your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.rolemanagement.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly;
 /**
  *  Authorization scope: View and manage the provisioning of users on your
  *  domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUser;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUser;
 /**
  *  Authorization scope: View and manage user aliases on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user.alias"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAlias;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAlias;
 /**
  *  Authorization scope: View user aliases on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user.alias.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAliasReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAliasReadonly;
 /**
  *  Authorization scope: View users on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserReadonly;
 /**
  *  Authorization scope: View and manage the provisioning of user schemas on
  *  your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.userschema"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserschema;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserschema;
 /**
  *  Authorization scope: View user schemas on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.userschema.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserschemaReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserschemaReadonly;
 /**
  *  Authorization scope: Manage data access permissions for users on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user.security"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity;
 
 // ----------------------------------------------------------------------------
 //   GTLRDirectoryService

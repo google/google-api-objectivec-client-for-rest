@@ -54,143 +54,143 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRGmail_AutoForwarding.disposition
 
 /** Value: "archive" */
-GTLR_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_Archive;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_Archive;
 /** Value: "dispositionUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_DispositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_DispositionUnspecified;
 /** Value: "leaveInInbox" */
-GTLR_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_LeaveInInbox;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_LeaveInInbox;
 /** Value: "markRead" */
-GTLR_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_MarkRead;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_MarkRead;
 /** Value: "trash" */
-GTLR_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_Trash;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_AutoForwarding_Disposition_Trash;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_Delegate.verificationStatus
 
 /** Value: "accepted" */
-GTLR_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Accepted;
 /** Value: "expired" */
-GTLR_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Expired;
 /** Value: "pending" */
-GTLR_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Pending;
 /** Value: "rejected" */
-GTLR_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Rejected;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_Rejected;
 /** Value: "verificationStatusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_VerificationStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Delegate_VerificationStatus_VerificationStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_FilterCriteria.sizeComparison
 
 /** Value: "larger" */
-GTLR_EXTERN NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Larger;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Larger;
 /** Value: "smaller" */
-GTLR_EXTERN NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Smaller;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Smaller;
 /** Value: "unspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_FilterCriteria_SizeComparison_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_ForwardingAddress.verificationStatus
 
 /** Value: "accepted" */
-GTLR_EXTERN NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_Accepted;
 /** Value: "pending" */
-GTLR_EXTERN NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_Pending;
 /** Value: "verificationStatusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_VerificationStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ForwardingAddress_VerificationStatus_VerificationStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_ImapSettings.expungeBehavior
 
 /** Value: "archive" */
-GTLR_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Archive;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Archive;
 /** Value: "deleteForever" */
-GTLR_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_DeleteForever;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_DeleteForever;
 /** Value: "expungeBehaviorUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_ExpungeBehaviorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_ExpungeBehaviorUnspecified;
 /** Value: "trash" */
-GTLR_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Trash;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Trash;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_Label.labelListVisibility
 
 /** Value: "labelHide" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelHide;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelHide;
 /** Value: "labelShow" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShow;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShow;
 /** Value: "labelShowIfUnread" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShowIfUnread;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShowIfUnread;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_Label.messageListVisibility
 
 /** Value: "hide" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_MessageListVisibility_Hide;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_MessageListVisibility_Hide;
 /** Value: "show" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_MessageListVisibility_Show;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_MessageListVisibility_Show;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_Label.type
 
 /** Value: "system" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_Type_System;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_Type_System;
 /** Value: "user" */
-GTLR_EXTERN NSString * const kGTLRGmail_Label_Type_User;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_Type_User;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_PopSettings.accessWindow
 
 /** Value: "accessWindowUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_AccessWindowUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_AccessWindowUnspecified;
 /** Value: "allMail" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_AllMail;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_AllMail;
 /** Value: "disabled" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_Disabled;
 /** Value: "fromNowOn" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_FromNowOn;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_AccessWindow_FromNowOn;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_PopSettings.disposition
 
 /** Value: "archive" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_Archive;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_Archive;
 /** Value: "dispositionUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_DispositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_DispositionUnspecified;
 /** Value: "leaveInInbox" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_LeaveInInbox;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_LeaveInInbox;
 /** Value: "markRead" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_MarkRead;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_MarkRead;
 /** Value: "trash" */
-GTLR_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_Trash;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_PopSettings_Disposition_Trash;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_SendAs.verificationStatus
 
 /** Value: "accepted" */
-GTLR_EXTERN NSString * const kGTLRGmail_SendAs_VerificationStatus_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SendAs_VerificationStatus_Accepted;
 /** Value: "pending" */
-GTLR_EXTERN NSString * const kGTLRGmail_SendAs_VerificationStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SendAs_VerificationStatus_Pending;
 /** Value: "verificationStatusUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_SendAs_VerificationStatus_VerificationStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SendAs_VerificationStatus_VerificationStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_SmtpMsa.securityMode
 
 /** Value: "none" */
-GTLR_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_None;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_None;
 /** Value: "securityModeUnspecified" */
-GTLR_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_SecurityModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_SecurityModeUnspecified;
 /** Value: "ssl" */
-GTLR_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Ssl;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Ssl;
 /** Value: "starttls" */
-GTLR_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Starttls;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_SmtpMsa_SecurityMode_Starttls;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_WatchRequest.labelFilterAction
 
 /** Value: "exclude" */
-GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Exclude;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Exclude;
 /** Value: "include" */
-GTLR_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
+FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Include;
 
 /**
  *  Auto-forwarding settings for an account.

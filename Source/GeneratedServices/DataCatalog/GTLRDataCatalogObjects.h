@@ -69,19 +69,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "BIGQUERY_TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryTable;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryTable;
 /**
  *  Table view.
  *
  *  Value: "BIGQUERY_VIEW"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView;
 /**
  *  Default unknown type.
  *
  *  Value: "TABLE_SOURCE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.integratedSystem
@@ -91,19 +91,19 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQu
  *
  *  Value: "BIGQUERY"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery;
 /**
  *  Cloud Pub/Sub.
  *
  *  Value: "CLOUD_PUBSUB"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub;
 /**
  *  Default unknown system.
  *
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.type
@@ -114,34 +114,34 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
  *
  *  Value: "DATA_STREAM"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream;
 /**
  *  Default unknown type.
  *
  *  Value: "ENTRY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified;
 /**
  *  An entry type which is a set of files or objects. Example:
  *  Cloud Storage fileset.
  *
  *  Value: "FILESET"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset;
 /**
  *  Output only. The type of models.
  *  https://cloud.google.com/bigquery-ml/docs/bigqueryml-intro
  *
  *  Value: "MODEL"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model;
 /**
  *  Output only. The type of entry that has a GoogleSQL schema, including
  *  logical views.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType.primitiveType
@@ -151,31 +151,31 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Bool;
 /**
  *  A double precision number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Double;
 /**
  *  This is the default invalid value for a type.
  *
  *  Value: "PRIMITIVE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_PrimitiveTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_PrimitiveTypeUnspecified;
 /**
  *  An UTF-8 string.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_String;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_String;
 /**
  *  A timestamp.
  *
  *  Value: "TIMESTAMP"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Timestamp;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Timestamp;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult.searchResultType
@@ -185,33 +185,33 @@ GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Field
  *
  *  Value: "ENTRY"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_Entry;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_Entry;
 /**
  *  An EntryGroup.
  *
  *  Value: "ENTRY_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_EntryGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_EntryGroup;
 /**
  *  Default unknown type.
  *
  *  Value: "SEARCH_RESULT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified;
 /**
  *  A TagTemplate.
  *
  *  Value: "TAG_TEMPLATE"
  */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_TagTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_TagTemplate;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy.activatedPolicyTypes
 
 /** Value: "FINE_GRAINED_ACCESS_CONTROL" */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
 /** Value: "POLICY_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
 
 /**
  *  Associates `members` with a `role`.

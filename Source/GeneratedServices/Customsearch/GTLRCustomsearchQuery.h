@@ -36,13 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "0"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchFilterX0;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchFilterX0;
 /**
  *  Turns on duplicate content filter.
  *
  *  Value: "1"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchFilterX1;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchFilterX1;
 
 // ----------------------------------------------------------------------------
 // imgColorType
@@ -52,19 +52,19 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchFilterX1;
  *
  *  Value: "color"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgColorTypeColor;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgColorTypeColor;
 /**
  *  gray
  *
  *  Value: "gray"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgColorTypeGray;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgColorTypeGray;
 /**
  *  mono
  *
  *  Value: "mono"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgColorTypeMono;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgColorTypeMono;
 
 // ----------------------------------------------------------------------------
 // imgDominantColor
@@ -74,73 +74,73 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchImgColorTypeMono;
  *
  *  Value: "black"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorBlack;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorBlack;
 /**
  *  blue
  *
  *  Value: "blue"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorBlue;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorBlue;
 /**
  *  brown
  *
  *  Value: "brown"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorBrown;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorBrown;
 /**
  *  gray
  *
  *  Value: "gray"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorGray;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorGray;
 /**
  *  green
  *
  *  Value: "green"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorGreen;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorGreen;
 /**
  *  orange
  *
  *  Value: "orange"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorOrange;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorOrange;
 /**
  *  pink
  *
  *  Value: "pink"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorPink;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorPink;
 /**
  *  purple
  *
  *  Value: "purple"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorPurple;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorPurple;
 /**
  *  red
  *
  *  Value: "red"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorRed;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorRed;
 /**
  *  teal
  *
  *  Value: "teal"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorTeal;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorTeal;
 /**
  *  white
  *
  *  Value: "white"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorWhite;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorWhite;
 /**
  *  yellow
  *
  *  Value: "yellow"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorYellow;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgDominantColorYellow;
 
 // ----------------------------------------------------------------------------
 // imgSize
@@ -150,43 +150,43 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchImgDominantColorYellow;
  *
  *  Value: "huge"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeHuge;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeHuge;
 /**
  *  icon
  *
  *  Value: "icon"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeIcon;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeIcon;
 /**
  *  large
  *
  *  Value: "large"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeLarge;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeLarge;
 /**
  *  medium
  *
  *  Value: "medium"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeMedium;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeMedium;
 /**
  *  small
  *
  *  Value: "small"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeSmall;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeSmall;
 /**
  *  xlarge
  *
  *  Value: "xlarge"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeXlarge;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeXlarge;
 /**
  *  xxlarge
  *
  *  Value: "xxlarge"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeXxlarge;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgSizeXxlarge;
 
 // ----------------------------------------------------------------------------
 // imgType
@@ -196,31 +196,31 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchImgSizeXxlarge;
  *
  *  Value: "clipart"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgTypeClipart;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgTypeClipart;
 /**
  *  face
  *
  *  Value: "face"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgTypeFace;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgTypeFace;
 /**
  *  lineart
  *
  *  Value: "lineart"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgTypeLineart;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgTypeLineart;
 /**
  *  news
  *
  *  Value: "news"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgTypeNews;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgTypeNews;
 /**
  *  photo
  *
  *  Value: "photo"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchImgTypePhoto;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchImgTypePhoto;
 
 // ----------------------------------------------------------------------------
 // lr
@@ -230,211 +230,211 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchImgTypePhoto;
  *
  *  Value: "lang_ar"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangAr;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangAr;
 /**
  *  Bulgarian
  *
  *  Value: "lang_bg"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangBg;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangBg;
 /**
  *  Catalan
  *
  *  Value: "lang_ca"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangCa;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangCa;
 /**
  *  Czech
  *
  *  Value: "lang_cs"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangCs;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangCs;
 /**
  *  Danish
  *
  *  Value: "lang_da"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangDa;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangDa;
 /**
  *  German
  *
  *  Value: "lang_de"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangDe;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangDe;
 /**
  *  Greek
  *
  *  Value: "lang_el"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangEl;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangEl;
 /**
  *  English
  *
  *  Value: "lang_en"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangEn;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangEn;
 /**
  *  Spanish
  *
  *  Value: "lang_es"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangEs;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangEs;
 /**
  *  Estonian
  *
  *  Value: "lang_et"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangEt;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangEt;
 /**
  *  Finnish
  *
  *  Value: "lang_fi"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangFi;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangFi;
 /**
  *  French
  *
  *  Value: "lang_fr"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangFr;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangFr;
 /**
  *  Croatian
  *
  *  Value: "lang_hr"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangHr;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangHr;
 /**
  *  Hungarian
  *
  *  Value: "lang_hu"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangHu;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangHu;
 /**
  *  Indonesian
  *
  *  Value: "lang_id"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangId;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangId;
 /**
  *  Icelandic
  *
  *  Value: "lang_is"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangIs;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangIs;
 /**
  *  Italian
  *
  *  Value: "lang_it"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangIt;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangIt;
 /**
  *  Hebrew
  *
  *  Value: "lang_iw"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangIw;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangIw;
 /**
  *  Japanese
  *
  *  Value: "lang_ja"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangJa;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangJa;
 /**
  *  Korean
  *
  *  Value: "lang_ko"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangKo;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangKo;
 /**
  *  Lithuanian
  *
  *  Value: "lang_lt"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangLt;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangLt;
 /**
  *  Latvian
  *
  *  Value: "lang_lv"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangLv;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangLv;
 /**
  *  Dutch
  *
  *  Value: "lang_nl"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangNl;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangNl;
 /**
  *  Norwegian
  *
  *  Value: "lang_no"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangNo;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangNo;
 /**
  *  Polish
  *
  *  Value: "lang_pl"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangPl;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangPl;
 /**
  *  Portuguese
  *
  *  Value: "lang_pt"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangPt;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangPt;
 /**
  *  Romanian
  *
  *  Value: "lang_ro"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangRo;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangRo;
 /**
  *  Russian
  *
  *  Value: "lang_ru"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangRu;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangRu;
 /**
  *  Slovak
  *
  *  Value: "lang_sk"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangSk;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangSk;
 /**
  *  Slovenian
  *
  *  Value: "lang_sl"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangSl;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangSl;
 /**
  *  Serbian
  *
  *  Value: "lang_sr"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangSr;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangSr;
 /**
  *  Swedish
  *
  *  Value: "lang_sv"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangSv;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangSv;
 /**
  *  Turkish
  *
  *  Value: "lang_tr"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangTr;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangTr;
 /**
  *  Chinese (Simplified)
  *
  *  Value: "lang_zh-CN"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangZhCN;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangZhCN;
 /**
  *  Chinese (Traditional)
  *
  *  Value: "lang_zh-TW"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangZhTW;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchLrLangZhTW;
 
 // ----------------------------------------------------------------------------
 // safe
@@ -444,17 +444,17 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchLrLangZhTW;
  *
  *  Value: "active"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSafeActive;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSafeActive;
 /** Value: "high" */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSafeHigh;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSafeHigh;
 /** Value: "medium" */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSafeMedium;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSafeMedium;
 /**
  *  Disables safe search filtering.
  *
  *  Value: "off"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSafeOff;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSafeOff;
 
 // ----------------------------------------------------------------------------
 // searchType
@@ -464,7 +464,7 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSafeOff;
  *
  *  Value: "image"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSearchTypeImage;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSearchTypeImage;
 
 // ----------------------------------------------------------------------------
 // siteSearchFilter
@@ -474,13 +474,13 @@ GTLR_EXTERN NSString * const kGTLRCustomsearchSearchTypeImage;
  *
  *  Value: "e"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterE;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterE;
 /**
  *  include
  *
  *  Value: "i"
  */
-GTLR_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
+FOUNDATION_EXTERN NSString * const kGTLRCustomsearchSiteSearchFilterI;
 
 // ----------------------------------------------------------------------------
 // Query Classes

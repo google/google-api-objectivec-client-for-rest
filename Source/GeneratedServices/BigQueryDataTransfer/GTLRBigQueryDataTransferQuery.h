@@ -38,37 +38,37 @@ NS_ASSUME_NONNULL_BEGIN
 // messageTypes
 
 /** Value: "ERROR" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesError;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesError;
 /** Value: "INFO" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesInfo;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesInfo;
 /** Value: "MESSAGE_SEVERITY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified;
 /** Value: "WARNING" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesWarning;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesWarning;
 
 // ----------------------------------------------------------------------------
 // runAttempt
 
 /** Value: "LATEST" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptLatest;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptLatest;
 /** Value: "RUN_ATTEMPT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified;
 
 // ----------------------------------------------------------------------------
 // states
 
 /** Value: "CANCELLED" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesCancelled;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesCancelled;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesFailed;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesFailed;
 /** Value: "PENDING" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesPending;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesPending;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesRunning;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesRunning;
 /** Value: "SUCCEEDED" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesSucceeded;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesSucceeded;
 /** Value: "TRANSFER_STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

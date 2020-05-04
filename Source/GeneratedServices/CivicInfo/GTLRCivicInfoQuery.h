@@ -39,49 +39,49 @@ NS_ASSUME_NONNULL_BEGIN
 // levels
 
 /** Value: "administrativeArea1" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsAdministrativeArea1;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsAdministrativeArea1;
 /** Value: "administrativeArea2" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsAdministrativeArea2;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsAdministrativeArea2;
 /** Value: "country" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsCountry;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsCountry;
 /** Value: "international" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsInternational;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsInternational;
 /** Value: "locality" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsLocality;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsLocality;
 /** Value: "regional" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsRegional;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsRegional;
 /** Value: "special" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsSpecial;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsSpecial;
 /** Value: "subLocality1" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsSubLocality1;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsSubLocality1;
 /** Value: "subLocality2" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoLevelsSubLocality2;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsSubLocality2;
 
 // ----------------------------------------------------------------------------
 // roles
 
 /** Value: "deputyHeadOfGovernment" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesDeputyHeadOfGovernment;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesDeputyHeadOfGovernment;
 /** Value: "executiveCouncil" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesExecutiveCouncil;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesExecutiveCouncil;
 /** Value: "governmentOfficer" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesGovernmentOfficer;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesGovernmentOfficer;
 /** Value: "headOfGovernment" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesHeadOfGovernment;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesHeadOfGovernment;
 /** Value: "headOfState" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesHeadOfState;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesHeadOfState;
 /** Value: "highestCourtJudge" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesHighestCourtJudge;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesHighestCourtJudge;
 /** Value: "judge" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesJudge;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesJudge;
 /** Value: "legislatorLowerBody" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorLowerBody;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorLowerBody;
 /** Value: "legislatorUpperBody" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorUpperBody;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorUpperBody;
 /** Value: "schoolBoard" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSchoolBoard;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSchoolBoard;
 /** Value: "specialPurposeOfficer" */
-GTLR_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 
 // ----------------------------------------------------------------------------
 // Query Classes

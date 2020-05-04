@@ -33,39 +33,39 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/compute"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCompute;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCompute;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeComputeCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeCloudPlatform;
 /**
  *  Authorization scope: Manage your data and permissions in Google Cloud
  *  Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.full_control"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageFullControl;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageFullControl;
 /**
  *  Authorization scope: View your data in Google Cloud Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageReadOnly;
 /**
  *  Authorization scope: Manage your data in Google Cloud Storage
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_write"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageReadWrite;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageReadWrite;
 /**
  *  Authorization scope: View your Google Compute Engine resources
  *
  *  Value "https://www.googleapis.com/auth/compute.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeComputeReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRComputeService

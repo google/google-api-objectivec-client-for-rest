@@ -43,11 +43,11 @@ NS_ASSUME_NONNULL_BEGIN
 // gatewayListOptionsGatewayType
 
 /** Value: "GATEWAY" */
-GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeGateway;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeGateway;
 /** Value: "GATEWAY_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeGatewayTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeGatewayTypeUnspecified;
 /** Value: "NON_GATEWAY" */
-GTLR_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway;
 
 // ----------------------------------------------------------------------------
 // Query Classes

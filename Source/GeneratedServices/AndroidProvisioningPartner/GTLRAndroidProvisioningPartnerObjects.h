@@ -56,19 +56,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "SECTION_TYPE_SIM_LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeSimLock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeUnspecified;
 /**
  *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_Company.termsStatus
@@ -78,26 +78,26 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_ClaimDeviceRequest_
  *
  *  Value: "TERMS_STATUS_ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusAccepted;
 /**
  *  None of the company's users have accepted the ToS.
  *
  *  Value: "TERMS_STATUS_NOT_ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusNotAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusNotAccepted;
 /**
  *  None of the company's users has accepted the current ToS but at least one
  *  user accepted a previous ToS.
  *
  *  Value: "TERMS_STATUS_STALE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale;
 /**
  *  Default value. This value should never be set if the enum is present.
  *
  *  Value: "TERMS_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
@@ -107,19 +107,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus
  *
  *  Value: "SECTION_TYPE_SIM_LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeSimLock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified;
 /**
  *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata.processingStatus
@@ -129,13 +129,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_Section
  *
  *  Value: "BATCH_PROCESS_IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessInProgress;
 /**
  *  Pending.
  *
  *  Value: "BATCH_PROCESS_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending;
 /**
  *  Processed.
  *  This doesn't mean all items were processed successfully, you should
@@ -143,13 +143,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningO
  *
  *  Value: "BATCH_PROCESS_PROCESSED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessProcessed;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessProcessed;
 /**
  *  Invalid code. Shouldn't be used.
  *
  *  Value: "BATCH_PROCESS_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest.sectionType
@@ -159,19 +159,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningO
  *
  *  Value: "SECTION_TYPE_SIM_LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeSimLock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeUnspecified;
 /**
  *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerRequest_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_PartnerClaim.sectionType
@@ -181,19 +181,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_FindDevicesByOwnerR
  *
  *  Value: "SECTION_TYPE_SIM_LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeSimLock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeUnspecified;
 /**
  *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeZeroTouch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_PartnerUnclaim.sectionType
@@ -203,19 +203,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerClaim_Sectio
  *
  *  Value: "SECTION_TYPE_SIM_LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeSimLock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeUnspecified;
 /**
  *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_SectionType_SectionTypeZeroTouch;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_PerDeviceStatusInBatch.status
@@ -225,13 +225,13 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PartnerUnclaim_Sect
  *
  *  Value: "SINGLE_DEVICE_STATUS_INVALID_DEVICE_IDENTIFIER"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidDeviceIdentifier;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidDeviceIdentifier;
 /**
  *  Invalid section type.
  *
  *  Value: "SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType;
 /**
  *  Other error.
  *  We know/expect this error, but there's no defined error code for the
@@ -239,38 +239,38 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
  *
  *  Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError;
 /**
  *  Permission denied.
  *
  *  Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied;
 /**
  *  This section is claimed by another company.
  *
  *  Value: "SINGLE_DEVICE_STATUS_SECTION_NOT_YOURS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSectionNotYours;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSectionNotYours;
 /**
  *  Success.
  *
  *  Value: "SINGLE_DEVICE_STATUS_SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess;
 /**
  *  Unknown error.
  *  We don't expect this error to occur here.
  *
  *  Value: "SINGLE_DEVICE_STATUS_UNKNOWN_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnknownError;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnknownError;
 /**
  *  Invalid code. Shouldn't be used.
  *
  *  Value: "SINGLE_DEVICE_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_UnclaimDeviceRequest.sectionType
@@ -280,19 +280,19 @@ GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBa
  *
  *  Value: "SECTION_TYPE_SIM_LOCK"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeSimLock;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeSimLock;
 /**
  *  Unspecified section type.
  *
  *  Value: "SECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeUnspecified;
 /**
  *  Zero-touch enrollment section type.
  *
  *  Value: "SECTION_TYPE_ZERO_TOUCH"
  */
-GTLR_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeZeroTouch;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionType_SectionTypeZeroTouch;
 
 /**
  *  Request message to claim a device on behalf of a customer.

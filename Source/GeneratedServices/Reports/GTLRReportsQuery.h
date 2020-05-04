@@ -40,28 +40,28 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "access_transparency"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency;
 /**
  *  The Admin console application's activity reports return account information
  *  about different types of administrator activity events.
  *
  *  Value: "admin"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
 /**
  *  The G Suite Calendar application's activity reports return information about
  *  various Calendar activity events.
  *
  *  Value: "calendar"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameCalendar;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameCalendar;
 /**
  *  The Chat activity reports return information about various Chat activity
  *  events.
  *
  *  Value: "chat"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameChat;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
 /**
  *  The Google Drive application's activity reports return information about
  *  various Google Drive activity events. The Drive activity report is only
@@ -69,91 +69,91 @@ GTLR_EXTERN NSString * const kGTLRReportsApplicationNameChat;
  *
  *  Value: "drive"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
 /**
  *  The Google Cloud Platform application's activity reports return information
  *  about various GCP activity events.
  *
  *  Value: "gcp"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
 /**
  *  The Google+ application's activity reports return information about various
  *  Google+ activity events.
  *
  *  Value: "gplus"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGplus;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGplus;
 /**
  *  The Google Groups application's activity reports return information about
  *  various Groups activity events.
  *
  *  Value: "groups"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGroups;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGroups;
 /**
  *  The Enterprise Groups activity reports return information about various
  *  Enterprise group activity events.
  *
  *  Value: "groups_enterprise"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameGroupsEnterprise;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGroupsEnterprise;
 /**
  *  The Jamboard activity reports return information about various Jamboard
  *  activity events.
  *
  *  Value: "jamboard"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
 /**
  *  The Login application's activity reports return account information about
  *  different types of Login activity events.
  *
  *  Value: "login"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
 /**
  *  The Meet Audit activity report return information about different types of
  *  Meet Audit activity events.
  *
  *  Value: "meet"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameMeet;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMeet;
 /**
  *  The Mobile Audit activity report return information about different types of
  *  Mobile Audit activity events.
  *
  *  Value: "mobile"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameMobile;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMobile;
 /**
  *  The Rules activity report return information about different types of Rules
  *  activity events.
  *
  *  Value: "rules"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameRules;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameRules;
 /**
  *  The SAML activity report return information about different types of SAML
  *  activity events.
  *
  *  Value: "saml"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameSaml;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameSaml;
 /**
  *  The Token application's activity reports return account information about
  *  different types of Token activity events.
  *
  *  Value: "token"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameToken;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameToken;
 /**
  *  The User Accounts application's activity reports return account information
  *  about different types of User Accounts activity events.
  *
  *  Value: "user_accounts"
  */
-GTLR_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
 
 // ----------------------------------------------------------------------------
 // entityKey
@@ -163,7 +163,7 @@ GTLR_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRReportsEntityKeyAll;
+FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyAll;
 /**
  *  Represents an app-specific identifier for the entity. For details on how to
  *  obtain the entityKey for a particular entityType, see the Entities Usage
@@ -171,7 +171,7 @@ GTLR_EXTERN NSString * const kGTLRReportsEntityKeyAll;
  *
  *  Value: "entityKey"
  */
-GTLR_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
+FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
 
 // ----------------------------------------------------------------------------
 // entityType
@@ -181,7 +181,7 @@ GTLR_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
  *
  *  Value: "gplus_communities"
  */
-GTLR_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
+FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 // ----------------------------------------------------------------------------
 // Query Classes

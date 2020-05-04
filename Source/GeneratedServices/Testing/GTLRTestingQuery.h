@@ -36,15 +36,15 @@ NS_ASSUME_NONNULL_BEGIN
 // environmentType
 
 /** Value: "ANDROID" */
-GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeAndroid;
+FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeAndroid;
 /** Value: "ENVIRONMENT_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified;
 /** Value: "IOS" */
-GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeIos;
+FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeIos;
 /** Value: "NETWORK_CONFIGURATION" */
-GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
+FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
 /** Value: "PROVIDED_SOFTWARE" */
-GTLR_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 
 // ----------------------------------------------------------------------------
 // Query Classes

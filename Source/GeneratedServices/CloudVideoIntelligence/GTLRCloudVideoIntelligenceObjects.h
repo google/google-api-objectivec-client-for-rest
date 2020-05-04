@@ -180,21 +180,21 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest.features
 
 /** Value: "EXPLICIT_CONTENT_DETECTION" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ExplicitContentDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ExplicitContentDetection;
 /** Value: "FEATURE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_FeatureUnspecified;
 /** Value: "LABEL_DETECTION" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_LabelDetection;
 /** Value: "LOGO_RECOGNITION" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_LogoRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_LogoRecognition;
 /** Value: "OBJECT_TRACKING" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ObjectTracking;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ObjectTracking;
 /** Value: "SHOT_CHANGE_DETECTION" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ShotChangeDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ShotChangeDetection;
 /** Value: "SPEECH_TRANSCRIPTION" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_SpeechTranscription;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_SpeechTranscription;
 /** Value: "TEXT_DETECTION" */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame.pornographyLikelihood
@@ -204,37 +204,37 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
 /**
  *  Likely.
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_Likely;
 /**
  *  Possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_Possible;
 /**
  *  Unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_Unlikely;
 /**
  *  Very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryLikely;
 /**
  *  Very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress.feature
@@ -244,49 +244,49 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "EXPLICIT_CONTENT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FeatureUnspecified;
 /**
  *  Label detection. Detect objects, such as dog or flower.
  *
  *  Value: "LABEL_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LabelDetection;
 /**
  *  Logo detection, tracking, and recognition.
  *
  *  Value: "LOGO_RECOGNITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LogoRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LogoRecognition;
 /**
  *  Object detection and tracking.
  *
  *  Value: "OBJECT_TRACKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ObjectTracking;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ObjectTracking;
 /**
  *  Shot change detection.
  *
  *  Value: "SHOT_CHANGE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ShotChangeDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ShotChangeDetection;
 /**
  *  Speech transcription.
  *
  *  Value: "SPEECH_TRANSCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_SpeechTranscription;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_SpeechTranscription;
 /**
  *  OCR text detection and tracking.
  *
  *  Value: "TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame.pornographyLikelihood
@@ -296,37 +296,37 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
 /**
  *  Likely.
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Likely;
 /**
  *  Possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Possible;
 /**
  *  Unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_Unlikely;
 /**
  *  Very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
 /**
  *  Very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig.labelDetectionMode
@@ -336,25 +336,25 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "FRAME_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_FrameMode;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_FrameMode;
 /**
  *  Unspecified.
  *
  *  Value: "LABEL_DETECTION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_LabelDetectionModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_LabelDetectionModeUnspecified;
 /**
  *  Detect both shot-level and frame-level labels.
  *
  *  Value: "SHOT_AND_FRAME_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_ShotAndFrameMode;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_ShotAndFrameMode;
 /**
  *  Detect shot-level labels.
  *
  *  Value: "SHOT_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_ShotMode;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig_LabelDetectionMode_ShotMode;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame.pornographyLikelihood
@@ -364,37 +364,37 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
 /**
  *  Likely.
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Likely;
 /**
  *  Possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Possible;
 /**
  *  Unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
 /**
  *  Very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
 /**
  *  Very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress.feature
@@ -404,49 +404,49 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "EXPLICIT_CONTENT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
 /**
  *  Label detection. Detect objects, such as dog or flower.
  *
  *  Value: "LABEL_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LabelDetection;
 /**
  *  Logo detection, tracking, and recognition.
  *
  *  Value: "LOGO_RECOGNITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LogoRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LogoRecognition;
 /**
  *  Object detection and tracking.
  *
  *  Value: "OBJECT_TRACKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ObjectTracking;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ObjectTracking;
 /**
  *  Shot change detection.
  *
  *  Value: "SHOT_CHANGE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
 /**
  *  Speech transcription.
  *
  *  Value: "SPEECH_TRANSCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_SpeechTranscription;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_SpeechTranscription;
 /**
  *  OCR text detection and tracking.
  *
  *  Value: "TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame.pornographyLikelihood
@@ -456,37 +456,37 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
 /**
  *  Likely.
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_Likely;
 /**
  *  Possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_Possible;
 /**
  *  Unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
 /**
  *  Very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
 /**
  *  Very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress.feature
@@ -496,49 +496,49 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "EXPLICIT_CONTENT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
 /**
  *  Label detection. Detect objects, such as dog or flower.
  *
  *  Value: "LABEL_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LabelDetection;
 /**
  *  Logo detection, tracking, and recognition.
  *
  *  Value: "LOGO_RECOGNITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LogoRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LogoRecognition;
 /**
  *  Object detection and tracking.
  *
  *  Value: "OBJECT_TRACKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ObjectTracking;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ObjectTracking;
 /**
  *  Shot change detection.
  *
  *  Value: "SHOT_CHANGE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
 /**
  *  Speech transcription.
  *
  *  Value: "SPEECH_TRANSCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_SpeechTranscription;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_SpeechTranscription;
 /**
  *  OCR text detection and tracking.
  *
  *  Value: "TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame.pornographyLikelihood
@@ -548,37 +548,37 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_LikelihoodUnspecified;
 /**
  *  Likely.
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Likely;
 /**
  *  Possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Possible;
 /**
  *  Unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_Unlikely;
 /**
  *  Very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryLikely;
 /**
  *  Very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame_PornographyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress.feature
@@ -588,67 +588,67 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "CELEBRITY_RECOGNITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_CelebrityRecognition;
 /**
  *  Explicit content detection.
  *
  *  Value: "EXPLICIT_CONTENT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
  *  Human face detection.
  *
  *  Value: "FACE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FaceDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FaceDetection;
 /**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_FeatureUnspecified;
 /**
  *  Label detection. Detect objects, such as dog or flower.
  *
  *  Value: "LABEL_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LabelDetection;
 /**
  *  Logo detection, tracking, and recognition.
  *
  *  Value: "LOGO_RECOGNITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LogoRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_LogoRecognition;
 /**
  *  Object detection and tracking.
  *
  *  Value: "OBJECT_TRACKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ObjectTracking;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ObjectTracking;
 /**
  *  Person detection.
  *
  *  Value: "PERSON_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_PersonDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_PersonDetection;
 /**
  *  Shot change detection.
  *
  *  Value: "SHOT_CHANGE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_ShotChangeDetection;
 /**
  *  Speech transcription.
  *
  *  Value: "SPEECH_TRANSCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_SpeechTranscription;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_SpeechTranscription;
 /**
  *  OCR text detection and tracking.
  *
  *  Value: "TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationProgress_Feature_TextDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress.feature
@@ -658,49 +658,49 @@ GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelli
  *
  *  Value: "EXPLICIT_CONTENT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FeatureUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FeatureUnspecified;
 /**
  *  Label detection. Detect objects, such as dog or flower.
  *
  *  Value: "LABEL_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LabelDetection;
 /**
  *  Logo detection, tracking, and recognition.
  *
  *  Value: "LOGO_RECOGNITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LogoRecognition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LogoRecognition;
 /**
  *  Object detection and tracking.
  *
  *  Value: "OBJECT_TRACKING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ObjectTracking;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ObjectTracking;
 /**
  *  Shot change detection.
  *
  *  Value: "SHOT_CHANGE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ShotChangeDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ShotChangeDetection;
 /**
  *  Speech transcription.
  *
  *  Value: "SPEECH_TRANSCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_SpeechTranscription;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_SpeechTranscription;
 /**
  *  OCR text detection and tracking.
  *
  *  Value: "TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_TextDetection;
 
 /**
  *  Video annotation progress. Included in the `metadata`

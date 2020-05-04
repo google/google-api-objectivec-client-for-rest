@@ -61,19 +61,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DIST"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Dist;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Dist;
 /**
  *  By default, upgrade will be performed.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_TypeUnspecified;
 /**
  *  Runs `apt-get upgrade`.
  *
  *  Value: "UPGRADE"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Upgrade;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_ExecStepConfig.interpreter
@@ -85,21 +85,21 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Upgrade;
  *
  *  Value: "INTERPRETER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_InterpreterUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_InterpreterUnspecified;
 /**
  *  Indicates that the file is run with PowerShell flags
  *  `-NonInteractive`, `-NoProfile`, and `-ExecutionPolicy Bypass`.
  *
  *  Value: "POWERSHELL"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Powershell;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Powershell;
 /**
  *  Indicates that the script is run with `/bin/sh` on Linux and `cmd`
  *  on Windows.
  *
  *  Value: "SHELL"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Shell;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Shell;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_PatchConfig.rebootConfig
@@ -109,7 +109,7 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_S
  *
  *  Value: "ALWAYS"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Always;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Always;
 /**
  *  The agent decides if a reboot is necessary by checking signals such as
  *  registry keys on Windows or `/var/run/reboot-required` on APT based
@@ -118,19 +118,19 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Alw
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Default;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Default;
 /**
  *  Never reboot the machine after the update completes.
  *
  *  Value: "NEVER"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Never;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Never;
 /**
  *  The default behavior is DEFAULT.
  *
  *  Value: "REBOOT_CONFIG_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_RebootConfigUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_RebootConfigUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_PatchJob.state
@@ -140,49 +140,49 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Reb
  *
  *  Value: "CANCELED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Canceled;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Canceled;
 /**
  *  Patch job completed but there were errors.
  *
  *  Value: "COMPLETED_WITH_ERRORS"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_CompletedWithErrors;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_CompletedWithErrors;
 /**
  *  The patch job is looking up instances to run the patch on.
  *
  *  Value: "INSTANCE_LOOKUP"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_InstanceLookup;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_InstanceLookup;
 /**
  *  Instances are being patched.
  *
  *  Value: "PATCHING"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Patching;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Patching;
 /**
  *  The patch job was successfully initiated.
  *
  *  Value: "STARTED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Started;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Started;
 /**
  *  State must be specified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_StateUnspecified;
 /**
  *  Patch job completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_Succeeded;
 /**
  *  The patch job timed out.
  *
  *  Value: "TIMED_OUT"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_TimedOut;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_TimedOut;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_PatchJobInstanceDetails.state
@@ -192,31 +192,31 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJob_State_TimedOut;
  *
  *  Value: "ACKED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Acked;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Acked;
 /**
  *  The instance is applying patches.
  *
  *  Value: "APPLYING_PATCHES"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_ApplyingPatches;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_ApplyingPatches;
 /**
  *  The instance is downloading patches.
  *
  *  Value: "DOWNLOADING_PATCHES"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_DownloadingPatches;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_DownloadingPatches;
 /**
  *  The instance has failed to apply the patch.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Failed;
 /**
  *  Instance is inactive and cannot be patched.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Inactive;
 /**
  *  The service could not detect the presence of the agent. Check to ensure
  *  that the agent is installed, running, and able to communicate with the
@@ -224,67 +224,67 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_Stat
  *
  *  Value: "NO_AGENT_DETECTED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_NoAgentDetected;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_NoAgentDetected;
 /**
  *  The instance is notified that it should be patched.
  *
  *  Value: "NOTIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Notified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Notified;
 /**
  *  Unspecified.
  *
  *  Value: "PATCH_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_PatchStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_PatchStateUnspecified;
 /**
  *  The instance is not yet notified.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Pending;
 /**
  *  The instance is rebooting.
  *
  *  Value: "REBOOTING"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Rebooting;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Rebooting;
 /**
  *  The instance is running the post-patch step.
  *
  *  Value: "RUNNING_POST_PATCH_STEP"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_RunningPostPatchStep;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_RunningPostPatchStep;
 /**
  *  The instance is running the pre-patch step.
  *
  *  Value: "RUNNING_PRE_PATCH_STEP"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_RunningPrePatchStep;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_RunningPrePatchStep;
 /**
  *  The instance has started the patching process.
  *
  *  Value: "STARTED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Started;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Started;
 /**
  *  The instance has completed applying patches.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Succeeded;
 /**
  *  The instance has completed applying patches but a reboot is required.
  *
  *  Value: "SUCCEEDED_REBOOT_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_SucceededRebootRequired;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_SucceededRebootRequired;
 /**
  *  The instance exceeded the time out while applying the patch.
  *
  *  Value: "TIMED_OUT"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_TimedOut;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_TimedOut;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_RecurringSchedule.frequency
@@ -294,21 +294,21 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_Stat
  *
  *  Value: "FREQUENCY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_FrequencyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_FrequencyUnspecified;
 /**
  *  Indicates that the frequency should be expressed in terms of
  *  months.
  *
  *  Value: "MONTHLY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Monthly;
 /**
  *  Indicates that the frequency should be expressed in terms of
  *  weeks.
  *
  *  Value: "WEEKLY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Weekly;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Weekly;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_WeekDayOfMonth.dayOfWeek
@@ -318,49 +318,49 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified;
 /**
  *  Friday
  *
  *  Value: "FRIDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Friday;
 /**
  *  Monday
  *
  *  Value: "MONDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Monday;
 /**
  *  Saturday
  *
  *  Value: "SATURDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Saturday;
 /**
  *  Sunday
  *
  *  Value: "SUNDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Sunday;
 /**
  *  Thursday
  *
  *  Value: "THURSDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Thursday;
 /**
  *  Tuesday
  *
  *  Value: "TUESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Tuesday;
 /**
  *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_WeeklySchedule.dayOfWeek
@@ -370,73 +370,73 @@ GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_Wed
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_DayOfWeekUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_DayOfWeekUnspecified;
 /**
  *  Friday
  *
  *  Value: "FRIDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Friday;
 /**
  *  Monday
  *
  *  Value: "MONDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Monday;
 /**
  *  Saturday
  *
  *  Value: "SATURDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Saturday;
 /**
  *  Sunday
  *
  *  Value: "SUNDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Sunday;
 /**
  *  Thursday
  *
  *  Value: "THURSDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Thursday;
 /**
  *  Tuesday
  *
  *  Value: "TUESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Tuesday;
 /**
  *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_WindowsUpdateSettings.classifications
 
 /** Value: "CLASSIFICATION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_ClassificationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_ClassificationUnspecified;
 /** Value: "CRITICAL" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Critical;
 /** Value: "DEFINITION" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Definition;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Definition;
 /** Value: "DRIVER" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Driver;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Driver;
 /** Value: "FEATURE_PACK" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_FeaturePack;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_FeaturePack;
 /** Value: "SECURITY" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Security;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Security;
 /** Value: "SERVICE_PACK" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_ServicePack;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_ServicePack;
 /** Value: "TOOL" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Tool;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Tool;
 /** Value: "UPDATE" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Update;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Update;
 /** Value: "UPDATE_ROLLUP" */
-GTLR_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_UpdateRollup;
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_UpdateRollup;
 
 /**
  *  Apt patching is completed by executing `apt-get update && apt-get

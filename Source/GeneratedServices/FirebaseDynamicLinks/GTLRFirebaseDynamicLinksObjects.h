@@ -52,38 +52,38 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "APP_FIRST_OPEN"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppFirstOpen;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppFirstOpen;
 /**
  *  Indicates that an FDL triggers an app install from Play store, currently
  *  it's impossible to get stats from App store.
  *
  *  Value: "APP_INSTALL"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppInstall;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppInstall;
 /**
  *  Indicates that the app is opened via an FDL for non-first time.
  *
  *  Value: "APP_RE_OPEN"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppReOpen;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppReOpen;
 /**
  *  Indicates that an FDL is clicked by users.
  *
  *  Value: "CLICK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_Click;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_Click;
 /**
  *  Unspecified type.
  *
  *  Value: "DYNAMIC_LINK_EVENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_DynamicLinkEventUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_DynamicLinkEventUnspecified;
 /**
  *  Indicates that an FDL redirects users to fallback link.
  *
  *  Value: "REDIRECT"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_Redirect;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_Redirect;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_DynamicLinkEventStat.platform
@@ -94,32 +94,32 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Even
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Android;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Android;
 /**
  *  Represents desktop.
  *
  *  Value: "DESKTOP"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Desktop;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Desktop;
 /**
  *  Unspecified platform.
  *
  *  Value: "DYNAMIC_LINK_PLATFORM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_DynamicLinkPlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_DynamicLinkPlatformUnspecified;
 /**
  *  Represents iOS platform.
  *  All apps and browsers on iOS are classfied in this category.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Ios;
 /**
  *  Platforms are not categorized as Android/iOS/Destop fall into here.
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Other;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Other;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_DynamicLinkWarning.warningCode
@@ -129,169 +129,169 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Plat
  *
  *  Value: "BAD_AD_PARAM"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadAdParam;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadAdParam;
 /**
  *  Debug param format is incorrect.
  *
  *  Value: "BAD_DEBUG_PARAM"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadDebugParam;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadDebugParam;
 /**
  *  Android fallback link has an invalid (non http/https) URI scheme.
  *
  *  Value: "BAD_URI_SCHEME_ANDROID_FALLBACK_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeAndroidFallbackLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeAndroidFallbackLink;
 /**
  *  iOS fallback link has an invalid (non http/https) URI scheme.
  *
  *  Value: "BAD_URI_SCHEME_IOS_FALLBACK_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeIosFallbackLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeIosFallbackLink;
 /**
  *  iPad fallback link has an invalid (non http/https) URI scheme.
  *
  *  Value: "BAD_URI_SCHEME_IPAD_FALLBACK_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeIpadFallbackLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeIpadFallbackLink;
 /**
  *  Social meta tag image link has an invalid (non http/https) URI scheme.
  *
  *  Value: "BAD_URI_SCHEME_SOCIAL_IMAGE_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeSocialImageLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeSocialImageLink;
 /** Value: "BAD_URI_SCHEME_SOCIAL_URL" */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeSocialUrl;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeSocialUrl;
 /**
  *  Unknown code.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_CodeUnspecified;
 /**
  *  Indicates a certain param is deprecated.
  *
  *  Value: "DEPRECATED_PARAM"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_DeprecatedParam;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_DeprecatedParam;
 /**
  *  Dynamic Link URL length is too long.
  *
  *  Value: "LINK_LENGTH_TOO_LONG"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_LinkLengthTooLong;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_LinkLengthTooLong;
 /**
  *  Dynamic Link URL contains fragments.
  *
  *  Value: "LINK_WITH_FRAGMENTS"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_LinkWithFragments;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_LinkWithFragments;
 /**
  *  The Android package does not match any in developer's DevConsole project.
  *
  *  Value: "NOT_IN_PROJECT_ANDROID_PACKAGE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotInProjectAndroidPackageName;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotInProjectAndroidPackageName;
 /**
  *  The iOS bundle ID does not match any in developer's DevConsole project.
  *
  *  Value: "NOT_IN_PROJECT_IOS_BUNDLE_ID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotInProjectIosBundleId;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotInProjectIosBundleId;
 /**
  *  The iPad bundle ID does not match any in developer's DevConsole project.
  *
  *  Value: "NOT_IN_PROJECT_IPAD_BUNDLE_ID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotInProjectIpadBundleId;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotInProjectIpadBundleId;
 /**
  *  The Android minimum version code has to be a valid integer.
  *
  *  Value: "NOT_INTEGER_ANDROID_PACKAGE_MIN_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotIntegerAndroidPackageMinVersion;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotIntegerAndroidPackageMinVersion;
 /**
  *  The iOS bundle ID does not match with the given iOS store ID.
  *
  *  Value: "NOT_MATCHING_IOS_BUNDLE_ID_AND_STORE_ID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotMatchingIosBundleIdAndStoreId;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotMatchingIosBundleIdAndStoreId;
 /**
  *  iOS app store ID format is incorrect, e.g. not numeric.
  *
  *  Value: "NOT_NUMERIC_IOS_APP_STORE_ID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotNumericIosAppStoreId;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotNumericIosAppStoreId;
 /**
  *  Android fallback link is not a valid URI.
  *
  *  Value: "NOT_URI_ANDROID_FALLBACK_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriAndroidFallbackLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriAndroidFallbackLink;
 /**
  *  Android link is not a valid URI.
  *
  *  Value: "NOT_URI_ANDROID_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriAndroidLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriAndroidLink;
 /**
  *  iOS fallback link is not a valid URI.
  *
  *  Value: "NOT_URI_IOS_FALLBACK_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriIosFallbackLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriIosFallbackLink;
 /**
  *  iPad fallback link is not a valid URI.
  *
  *  Value: "NOT_URI_IPAD_FALLBACK_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriIpadFallbackLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriIpadFallbackLink;
 /**
  *  Social meta tag image link is not a valid URI.
  *
  *  Value: "NOT_URI_SOCIAL_IMAGE_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriSocialImageLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriSocialImageLink;
 /** Value: "NOT_URI_SOCIAL_URL" */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriSocialUrl;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriSocialUrl;
 /**
  *  Indicates certain paramater is too long.
  *
  *  Value: "TOO_LONG_PARAM"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_TooLongParam;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_TooLongParam;
 /**
  *  Android link param is not needed, e.g. when param 'al' and 'link' have
  *  the same value..
  *
  *  Value: "UNNECESSARY_ANDROID_LINK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidLink;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidLink;
 /**
  *  Android package min version param is not needed, e.g. when
  *  'apn' is missing.
  *
  *  Value: "UNNECESSARY_ANDROID_PACKAGE_MIN_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidPackageMinVersion;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidPackageMinVersion;
 /**
  *  iOS app store ID is not needed.
  *
  *  Value: "UNNECESSARY_IOS_APP_STORE_ID"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosAppStoreId;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosAppStoreId;
 /**
  *  iOS URL scheme is not needed, e.g. when 'ibi' are 'ipbi' are all missing.
  *
  *  Value: "UNNECESSARY_IOS_URL_SCHEME"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosUrlScheme;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosUrlScheme;
 /**
  *  Indicates certain paramater is not recognized.
  *
  *  Value: "UNRECOGNIZED_PARAM"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnrecognizedParam;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnrecognizedParam;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.retrievalMethod
@@ -302,26 +302,26 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_Warnin
  *
  *  Value: "EXPLICIT_STRONG_AFTER_WEAK_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch;
 /**
  *  iSDK performs a server lookup by device fingerprint upon a dev API call.
  *
  *  Value: "EXPLICIT_WEAK_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch;
 /**
  *  iSDK performs a server lookup by device fingerprint in the background
  *  when app is first-opened; no API called by developer.
  *
  *  Value: "IMPLICIT_WEAK_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ImplicitWeakMatch;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ImplicitWeakMatch;
 /**
  *  Unknown method.
  *
  *  Value: "UNKNOWN_PAYLOAD_RETRIEVAL_METHOD"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_UnknownPayloadRetrievalMethod;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_UnknownPayloadRetrievalMethod;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.visualStyle
@@ -331,19 +331,19 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttribut
  *
  *  Value: "CUSTOM_STYLE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_CustomStyle;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_CustomStyle;
 /**
  *  Default style.
  *
  *  Value: "DEFAULT_STYLE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_DefaultStyle;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_DefaultStyle;
 /**
  *  Unknown style.
  *
  *  Value: "UNKNOWN_VISUAL_STYLE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_UnknownVisualStyle;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_UnknownVisualStyle;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.attributionConfidence
@@ -353,27 +353,27 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttribut
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Default;
 /**
  *  Unique confidence, match based on "unique match link to check" or other
  *  means
  *
  *  Value: "UNIQUE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique;
 /**
  *  Unset.
  *
  *  Value: "UNKNOWN_ATTRIBUTION_CONFIDENCE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence;
 /**
  *  Weak confidence, more than one matching link found or link suspected to
  *  be false positive
  *
  *  Value: "WEAK"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.requestIpVersion
@@ -383,27 +383,27 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttribut
  *
  *  Value: "IP_V4"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV4;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV4;
 /**
  *  Request made from an IPv6 IP address.
  *
  *  Value: "IP_V6"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV6;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_IpV6;
 /**
  *  Unset.
  *
  *  Value: "UNKNOWN_IP_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_UnknownIpVersion;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_RequestIpVersion_UnknownIpVersion;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_ManagedShortLink.flaggedAttribute
 
 /** Value: "SPAM" */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_Spam;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_Spam;
 /** Value: "UNSPECIFIED_ATTRIBUTE" */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_UnspecifiedAttribute;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_UnspecifiedAttribute;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_ManagedShortLink.visibility
@@ -414,25 +414,25 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedA
  *
  *  Value: "ARCHIVED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_Archived;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_Archived;
 /**
  *  Link created outside of console and should never be shown in console.
  *
  *  Value: "NEVER_SHOWN"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_NeverShown;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_NeverShown;
 /**
  *  Link created in console and should be shown in console.
  *
  *  Value: "UNARCHIVED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_Unarchived;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_Unarchived;
 /**
  *  Visibility of the link is not specified.
  *
  *  Value: "UNSPECIFIED_VISIBILITY"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_UnspecifiedVisibility;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_UnspecifiedVisibility;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_Suffix.option
@@ -445,13 +445,13 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibili
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Custom;
 /**
  *  The suffix option is not specified, performs as UNGUESSABLE .
  *
  *  Value: "OPTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_OptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_OptionUnspecified;
 /**
  *  Short Dynamic Link suffix is a base62 [0-9A-Za-z] string starting with a
  *  length of 4 chars. the length will increase when all the space is
@@ -459,7 +459,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_OptionUnspe
  *
  *  Value: "SHORT"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Short;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Short;
 /**
  *  Short Dynamic Link suffix is a base62 [0-9A-Za-z] encoded string of
  *  a random generated 96 bit random number, which has a length of 17 chars.
@@ -469,7 +469,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Short;
  *
  *  Value: "UNGUESSABLE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable;
 
 /**
  *  Tracking parameters supported by Dynamic Link.

@@ -64,50 +64,50 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Creating;
 /**
  *  The domain is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Deleting;
 /**
  *  The domain is undergoing maintenance.
  *
  *  Value: "PERFORMING_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_PerformingMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_PerformingMaintenance;
 /**
  *  The domain has been created and is fully usable.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Ready;
 /**
  *  The domain is being repaired and may be unusable. Details
  *  can be found in the `status_message` field.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Repairing;
 /**
  *  Not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_StateUnspecified;
 /**
  *  The domain is not serving requests.
  *
  *  Value: "UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Unavailable;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Unavailable;
 /**
  *  The domain's configuration is being updated.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
@@ -117,43 +117,43 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
 /**
  *  Instance is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
 /**
  *  Instance encountered an error and is in indeterministic state.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
 /**
  *  Instance has been created and is ready to use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
 /**
  *  Instance is unheathy and under repair.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
 /**
  *  Instance is being updated.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.state
@@ -163,37 +163,37 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
  *
  *  Value: "CONNECTED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Connected;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Connected;
 /**
  *  The domain trust is being created.
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Creating;
 /**
  *  The domain trust is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Deleting;
 /**
  *  The domain trust is disconnected.
  *
  *  Value: "DISCONNECTED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Disconnected;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Disconnected;
 /**
  *  Not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_StateUnspecified;
 /**
  *  The domain trust is being updated.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.trustDirection
@@ -203,25 +203,25 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
  *
  *  Value: "BIDIRECTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_Bidirectional;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_Bidirectional;
 /**
  *  The inbound direction represents the trusting side.
  *
  *  Value: "INBOUND"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_Inbound;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_Inbound;
 /**
  *  The outboud direction represents the trusted side.
  *
  *  Value: "OUTBOUND"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_Outbound;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_Outbound;
 /**
  *  Not set.
  *
  *  Value: "TRUST_DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_TrustDirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustDirection_TrustDirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.trustType
@@ -231,19 +231,19 @@ GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsu
  *
  *  Value: "EXTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_External;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_External;
 /**
  *  The forest trust.
  *
  *  Value: "FOREST"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_Forest;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_Forest;
 /**
  *  Not set.
  *
  *  Value: "TRUST_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_TrustTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_TrustTypeUnspecified;
 
 /**
  *  Request message for

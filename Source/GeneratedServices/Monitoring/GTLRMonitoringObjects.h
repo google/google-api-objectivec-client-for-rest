@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "REDUCE_COUNT"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceCount;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceCount;
 /**
  *  Reduce by computing the number of False-valued data points across time
  *  series for each alignment period. This reducer is valid for DELTA and GAUGE
@@ -137,7 +137,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_COUNT_FALSE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceCountFalse;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceCountFalse;
 /**
  *  Reduce by computing the number of True-valued data points across time series
  *  for each alignment period. This reducer is valid for DELTA and GAUGE metrics
@@ -145,7 +145,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_COUNT_TRUE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceCountTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceCountTrue;
 /**
  *  Reduce by computing the ratio of the number of True-valued data points to
  *  the total number of data points for each alignment period. This reducer is
@@ -154,7 +154,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_FRACTION_TRUE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceFractionTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceFractionTrue;
 /**
  *  Reduce by computing the maximum value across time series for each alignment
  *  period. This reducer is valid for DELTA and GAUGE metrics with numeric
@@ -163,7 +163,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_MAX"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceMax;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceMax;
 /**
  *  Reduce by computing the mean value across time series for each alignment
  *  period. This reducer is valid for DELTA and GAUGE metrics with numeric or
@@ -171,7 +171,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_MEAN"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceMean;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceMean;
 /**
  *  Reduce by computing the minimum value across time series for each alignment
  *  period. This reducer is valid for DELTA and GAUGE metrics with numeric
@@ -180,13 +180,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_MIN"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceMin;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceMin;
 /**
  *  No cross-time series reduction. The output of the Aligner is returned.
  *
  *  Value: "REDUCE_NONE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceNone;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceNone;
 /**
  *  Reduce by computing the 5th percentile
  *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
@@ -195,7 +195,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_PERCENTILE_05"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile05;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile05;
 /**
  *  Reduce by computing the 50th percentile
  *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
@@ -204,7 +204,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_PERCENTILE_50"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile50;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile50;
 /**
  *  Reduce by computing the 95th percentile
  *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
@@ -213,7 +213,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_PERCENTILE_95"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile95;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile95;
 /**
  *  Reduce by computing the 99th percentile
  *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
@@ -222,7 +222,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_PERCENTILE_99"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile99;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReducePercentile99;
 /**
  *  Reduce by computing the standard deviation across time series for each
  *  alignment period. This reducer is valid for DELTA and GAUGE metrics with
@@ -230,7 +230,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_STDDEV"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceStddev;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceStddev;
 /**
  *  Reduce by computing the sum across time series for each alignment period.
  *  This reducer is valid for DELTA and GAUGE metrics with numeric and
@@ -239,7 +239,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "REDUCE_SUM"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceSum;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_ReduceSum;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Aggregation.perSeriesAligner
@@ -251,7 +251,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_CrossSeriesReducer_Redu
  *
  *  Value: "ALIGN_COUNT"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignCount;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignCount;
 /**
  *  Align the time series by returning the number of False values in each
  *  alignment period. This aligner is valid for GAUGE metrics with Boolean
@@ -259,7 +259,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignC
  *
  *  Value: "ALIGN_COUNT_FALSE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignCountFalse;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignCountFalse;
 /**
  *  Align the time series by returning the number of True values in each
  *  alignment period. This aligner is valid for GAUGE metrics with Boolean
@@ -267,7 +267,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignC
  *
  *  Value: "ALIGN_COUNT_TRUE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignCountTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignCountTrue;
 /**
  *  Align and convert to DELTA. The output is delta = y1 - y0.This alignment is
  *  valid for CUMULATIVE and DELTA metrics. If the selected alignment period
@@ -277,7 +277,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignC
  *
  *  Value: "ALIGN_DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignDelta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignDelta;
 /**
  *  Align the time series by returning the ratio of the number of True values to
  *  the total number of values in each alignment period. This aligner is valid
@@ -286,7 +286,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignD
  *
  *  Value: "ALIGN_FRACTION_TRUE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignFractionTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignFractionTrue;
 /**
  *  Align by interpolating between adjacent points around the alignment period
  *  boundary. This aligner is valid for GAUGE metrics with numeric values. The
@@ -294,7 +294,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignF
  *
  *  Value: "ALIGN_INTERPOLATE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignInterpolate;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignInterpolate;
 /**
  *  Align the time series by returning the maximum value in each alignment
  *  period. This aligner is valid for GAUGE and DELTA metrics with numeric
@@ -303,7 +303,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignI
  *
  *  Value: "ALIGN_MAX"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignMax;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignMax;
 /**
  *  Align the time series by returning the mean value in each alignment period.
  *  This aligner is valid for GAUGE and DELTA metrics with numeric values. The
@@ -311,7 +311,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignM
  *
  *  Value: "ALIGN_MEAN"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignMean;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignMean;
 /**
  *  Align the time series by returning the minimum value in each alignment
  *  period. This aligner is valid for GAUGE and DELTA metrics with numeric
@@ -320,7 +320,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignM
  *
  *  Value: "ALIGN_MIN"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignMin;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignMin;
 /**
  *  Align by moving the most recent data point before the end of the alignment
  *  period to the boundary at the end of the alignment period. This aligner is
@@ -329,7 +329,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignM
  *
  *  Value: "ALIGN_NEXT_OLDER"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignNextOlder;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignNextOlder;
 /**
  *  No alignment. Raw data is returned. Not valid if cross-series reduction is
  *  requested. The value_type of the result is the same as the value_type of the
@@ -337,7 +337,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignN
  *
  *  Value: "ALIGN_NONE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignNone;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignNone;
 /**
  *  Align and convert to a percentage change. This aligner is valid for GAUGE
  *  and DELTA metrics with numeric values. This alignment returns ((current -
@@ -354,7 +354,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignN
  *
  *  Value: "ALIGN_PERCENT_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentChange;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentChange;
 /**
  *  Align the time series by using percentile aggregation
  *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
@@ -364,7 +364,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignP
  *
  *  Value: "ALIGN_PERCENTILE_05"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile05;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile05;
 /**
  *  Align the time series by using percentile aggregation
  *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
@@ -374,7 +374,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignP
  *
  *  Value: "ALIGN_PERCENTILE_50"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile50;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile50;
 /**
  *  Align the time series by using percentile aggregation
  *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
@@ -384,7 +384,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignP
  *
  *  Value: "ALIGN_PERCENTILE_95"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile95;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile95;
 /**
  *  Align the time series by using percentile aggregation
  *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
@@ -394,7 +394,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignP
  *
  *  Value: "ALIGN_PERCENTILE_99"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile99;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignPercentile99;
 /**
  *  Align and convert to a rate. The result is computed as rate = (y1 - y0)/(t1
  *  - t0), or "delta over time". Think of this aligner as providing the slope of
@@ -407,7 +407,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignP
  *
  *  Value: "ALIGN_RATE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignRate;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignRate;
 /**
  *  Align the time series by returning the standard deviation of the values in
  *  each alignment period. This aligner is valid for GAUGE and DELTA metrics
@@ -415,7 +415,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignR
  *
  *  Value: "ALIGN_STDDEV"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignStddev;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignStddev;
 /**
  *  Align the time series by returning the sum of the values in each alignment
  *  period. This aligner is valid for GAUGE and DELTA metrics with numeric and
@@ -424,7 +424,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignS
  *
  *  Value: "ALIGN_SUM"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignSum;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignSum;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_AlertPolicy.combiner
@@ -437,7 +437,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignS
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_And;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_And;
 /**
  *  Combine conditions using logical AND operator, but unlike the regular AND
  *  option, an incident is created only if all conditions are met simultaneously
@@ -445,20 +445,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_And;
  *
  *  Value: "AND_WITH_MATCHING_RESOURCE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_AndWithMatchingResource;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_AndWithMatchingResource;
 /**
  *  An unspecified combiner.
  *
  *  Value: "COMBINE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_CombineUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_CombineUnspecified;
 /**
  *  Combine conditions using the logical OR operator. An incident is created if
  *  any of the listed conditions is met.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_Or;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_CollectdValue.dataSourceType
@@ -469,34 +469,34 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Combiner_Or;
  *
  *  Value: "ABSOLUTE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Absolute;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Absolute;
 /**
  *  A cumulative value over time. This corresponds to
  *  google.api.MetricDescriptor.MetricKind.CUMULATIVE.
  *
  *  Value: "COUNTER"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Counter;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Counter;
 /**
  *  A rate of change of the measurement.
  *
  *  Value: "DERIVE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Derive;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Derive;
 /**
  *  An instantaneous measurement of a varying quantity. This corresponds to
  *  google.api.MetricDescriptor.MetricKind.GAUGE.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Gauge;
 /**
  *  An unspecified data source type. This corresponds to
  *  google.api.MetricDescriptor.MetricKind.METRIC_KIND_UNSPECIFIED.
  *
  *  Value: "UNSPECIFIED_DATA_SOURCE_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_UnspecifiedDataSourceType;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ContentMatcher.matcher
@@ -508,28 +508,28 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Unspec
  *
  *  Value: "CONTAINS_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsString;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContainsString;
 /**
  *  No content matcher type specified (maintained for backward compatibility,
  *  but deprecated for future use). Treated as CONTAINS_STRING.
  *
  *  Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
  *  Selects regular-expression matching. The match succeeds of the output
  *  matches the regular expression specified in the content string.
  *
  *  Value: "MATCHES_REGEX"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex;
 /**
  *  Selects negation of substring matching. The match succeeds if the output
  *  does NOT contain the content string.
  *
  *  Value: "NOT_CONTAINS_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString;
 /**
  *  Selects negation of regular-expression matching. The match succeeds if the
  *  output does NOT match the regular expression specified in the content
@@ -537,7 +537,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotContainsS
  *
  *  Value: "NOT_MATCHES_REGEX"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Field.cardinality
@@ -547,25 +547,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRe
  *
  *  Value: "CARDINALITY_OPTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityOptional;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityOptional;
 /**
  *  For repeated fields.
  *
  *  Value: "CARDINALITY_REPEATED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRepeated;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRepeated;
 /**
  *  For required fields. Proto2 syntax only.
  *
  *  Value: "CARDINALITY_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRequired;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityRequired;
 /**
  *  For fields with unknown cardinality.
  *
  *  Value: "CARDINALITY_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Field.kind
@@ -575,115 +575,115 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Cardinality_CardinalityUnknow
  *
  *  Value: "TYPE_BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeBool;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeBool;
 /**
  *  Field type bytes.
  *
  *  Value: "TYPE_BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeBytes;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeBytes;
 /**
  *  Field type double.
  *
  *  Value: "TYPE_DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeDouble;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeDouble;
 /**
  *  Field type enum.
  *
  *  Value: "TYPE_ENUM"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeEnum;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeEnum;
 /**
  *  Field type fixed32.
  *
  *  Value: "TYPE_FIXED32"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFixed32;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFixed32;
 /**
  *  Field type fixed64.
  *
  *  Value: "TYPE_FIXED64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFixed64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFixed64;
 /**
  *  Field type float.
  *
  *  Value: "TYPE_FLOAT"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFloat;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeFloat;
 /**
  *  Field type group. Proto2 syntax only, and deprecated.
  *
  *  Value: "TYPE_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeGroup;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeGroup;
 /**
  *  Field type int32.
  *
  *  Value: "TYPE_INT32"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeInt32;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeInt32;
 /**
  *  Field type int64.
  *
  *  Value: "TYPE_INT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeInt64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeInt64;
 /**
  *  Field type message.
  *
  *  Value: "TYPE_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeMessage;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeMessage;
 /**
  *  Field type sfixed32.
  *
  *  Value: "TYPE_SFIXED32"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSfixed32;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSfixed32;
 /**
  *  Field type sfixed64.
  *
  *  Value: "TYPE_SFIXED64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSfixed64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSfixed64;
 /**
  *  Field type sint32.
  *
  *  Value: "TYPE_SINT32"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSint32;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSint32;
 /**
  *  Field type sint64.
  *
  *  Value: "TYPE_SINT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSint64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeSint64;
 /**
  *  Field type string.
  *
  *  Value: "TYPE_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeString;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeString;
 /**
  *  Field type uint32.
  *
  *  Value: "TYPE_UINT32"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint32;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint32;
 /**
  *  Field type uint64.
  *
  *  Value: "TYPE_UINT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint64;
 /**
  *  Field type unknown.
  *
  *  Value: "TYPE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_InternalChecker.state
@@ -697,7 +697,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Creating;
 /**
  *  The checker is running and available for use. A checker in this state can be
  *  returned by ListInternalCheckers or GetInternalChecker as well as by
@@ -708,13 +708,13 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Creating;
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Running;
 /**
  *  An internal checker should never be in the unspecified state.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_LabelDescriptor.valueType
@@ -724,20 +724,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_InternalChecker_State_Unspecified;
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Bool;
 /**
  *  A 64-bit signed integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Int64;
 /**
  *  A variable-length string, not to exceed 1,024 characters. This is the
  *  default value type.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptor.launchStage
@@ -754,7 +754,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_String;
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -764,7 +764,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Alpha;
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -774,7 +774,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Beta;
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -784,32 +784,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Deprec
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptor.metricKind
@@ -822,25 +822,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Unimpl
  *
  *  Value: "CUMULATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Cumulative;
 /**
  *  The change in a value during a time interval.
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Delta;
 /**
  *  An instantaneous measurement of a value.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_Gauge;
 /**
  *  Do not use this default value.
  *
  *  Value: "METRIC_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_MetricKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptor.valueType
@@ -851,44 +851,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_MetricKind_MetricK
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Bool;
 /**
  *  The value is a Distribution.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Distribution;
 /**
  *  The value is a double precision floating point number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Double;
 /**
  *  The value is a signed 64-bit integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Int64;
 /**
  *  The value is money.
  *
  *  Value: "MONEY"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Money;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Money;
 /**
  *  The value is a text string. This value type can be used only if the metric
  *  kind is GAUGE.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_String;
 /**
  *  Do not use this default value.
  *
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricDescriptorMetadata.launchStage
@@ -905,7 +905,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_ValueTyp
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -915,7 +915,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStag
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -925,7 +925,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStag
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -935,32 +935,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStag
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricThreshold.comparison
@@ -970,43 +970,43 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStag
  *
  *  Value: "COMPARISON_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonEq;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonEq;
 /**
  *  True if the left argument is greater than or equal to the right argument.
  *
  *  Value: "COMPARISON_GE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGe;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGe;
 /**
  *  True if the left argument is greater than the right argument.
  *
  *  Value: "COMPARISON_GT"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGt;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGt;
 /**
  *  True if the left argument is less than or equal to the right argument.
  *
  *  Value: "COMPARISON_LE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLe;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLe;
 /**
  *  True if the left argument is less than the right argument.
  *
  *  Value: "COMPARISON_LT"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLt;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLt;
 /**
  *  True if the left argument is not equal to the right argument.
  *
  *  Value: "COMPARISON_NE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonNe;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonNe;
 /**
  *  No ordering relationship is specified.
  *
  *  Value: "COMPARISON_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_MonitoredResourceDescriptor.launchStage
@@ -1023,7 +1023,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_Comparis
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -1033,7 +1033,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchS
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -1043,7 +1043,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchS
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -1053,32 +1053,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchS
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_NotificationChannel.verificationStatus
@@ -1091,7 +1091,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchS
  *
  *  Value: "UNVERIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Unverified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Unverified;
 /**
  *  Sentinel value used to indicate that the state is unknown, omitted, or is
  *  not applicable (as in the case of channels that neither support nor require
@@ -1099,7 +1099,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationSta
  *
  *  Value: "VERIFICATION_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_VerificationStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_VerificationStatusUnspecified;
 /**
  *  It has been proven that notifications can be received on this notification
  *  channel and that someone on the project has access to messages that are
@@ -1107,7 +1107,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationSta
  *
  *  Value: "VERIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Verified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationStatus_Verified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_NotificationChannelDescriptor.launchStage
@@ -1124,7 +1124,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_VerificationSta
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -1134,7 +1134,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_Launc
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -1144,7 +1144,7 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_Launc
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -1154,32 +1154,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_Launc
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
@@ -1189,20 +1189,20 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_Launc
  *
  *  Value: "AWS_ELB_LOAD_BALANCER"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer;
 /**
  *  A group of instances from Google Cloud Platform (GCP) or Amazon Web Services
  *  (AWS).
  *
  *  Value: "INSTANCE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance;
 /**
  *  Default value (not valid).
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
@@ -1212,52 +1212,52 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Resource
  *
  *  Value: "CALENDAR_PERIOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified;
 /**
  *  A day.
  *
  *  Value: "DAY"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Day;
 /**
  *  A fortnight. The first calendar fortnight of the year begins at the start of
  *  week 1 according to ISO 8601 (https://en.wikipedia.org/wiki/ISO_week_date).
  *
  *  Value: "FORTNIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Fortnight;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Fortnight;
 /**
  *  A half-year. Half-years start on dates 1-Jan and 1-Jul.
  *
  *  Value: "HALF"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Half;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Half;
 /**
  *  A month.
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Month;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Month;
 /**
  *  A quarter. Quarters start on dates 1-Jan, 1-Apr, 1-Jul, and 1-Oct of each
  *  year.
  *
  *  Value: "QUARTER"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Quarter;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Quarter;
 /**
  *  A week. Weeks begin on Monday, following ISO 8601
  *  (https://en.wikipedia.org/wiki/ISO_week_date).
  *
  *  Value: "WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Week;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Week;
 /**
  *  A year.
  *
  *  Value: "YEAR"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Year;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_Year;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_TimeSeries.metricKind
@@ -1270,25 +1270,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPerio
  *
  *  Value: "CUMULATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Cumulative;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Cumulative;
 /**
  *  The change in a value during a time interval.
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Delta;
 /**
  *  An instantaneous measurement of a value.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_Gauge;
 /**
  *  Do not use this default value.
  *
  *  Value: "METRIC_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_TimeSeries.valueType
@@ -1299,44 +1299,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_MetricKind_MetricKindUns
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Bool;
 /**
  *  The value is a Distribution.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Distribution;
 /**
  *  The value is a double precision floating point number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Double;
 /**
  *  The value is a signed 64-bit integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Int64;
 /**
  *  The value is money.
  *
  *  Value: "MONEY"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Money;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_Money;
 /**
  *  The value is a text string. This value type can be used only if the metric
  *  kind is GAUGE.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_String;
 /**
  *  Do not use this default value.
  *
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_Type.syntax
@@ -1346,27 +1346,27 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspe
  *
  *  Value: "SYNTAX_PROTO2"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2;
 /**
  *  Syntax proto3.
  *
  *  Value: "SYNTAX_PROTO3"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_UptimeCheckConfig.selectedRegions
 
 /** Value: "ASIA_PACIFIC" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_AsiaPacific;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_AsiaPacific;
 /** Value: "EUROPE" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Europe;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Europe;
 /** Value: "REGION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_RegionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_RegionUnspecified;
 /** Value: "SOUTH_AMERICA" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_SouthAmerica;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_SouthAmerica;
 /** Value: "USA" */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Usa;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Usa;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_UptimeCheckIp.region
@@ -1377,32 +1377,32 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_U
  *
  *  Value: "ASIA_PACIFIC"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_AsiaPacific;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_AsiaPacific;
 /**
  *  Allows checks to run from locations within the continent of Europe.
  *
  *  Value: "EUROPE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Europe;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Europe;
 /**
  *  Default value if no region is specified. Will result in Uptime checks
  *  running from all regions.
  *
  *  Value: "REGION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_RegionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_RegionUnspecified;
 /**
  *  Allows checks to run from locations within the continent of South America.
  *
  *  Value: "SOUTH_AMERICA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_SouthAmerica;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_SouthAmerica;
 /**
  *  Allows checks to run from locations within the United States of America.
  *
  *  Value: "USA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ValueDescriptor.metricKind
@@ -1415,25 +1415,25 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_UptimeCheckIp_Region_Usa;
  *
  *  Value: "CUMULATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Cumulative;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Cumulative;
 /**
  *  The change in a value during a time interval.
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Delta;
 /**
  *  An instantaneous measurement of a value.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_Gauge;
 /**
  *  Do not use this default value.
  *
  *  Value: "METRIC_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_MetricKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ValueDescriptor.valueType
@@ -1444,44 +1444,44 @@ GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_MetricKind_MetricKi
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Bool;
 /**
  *  The value is a Distribution.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Distribution;
 /**
  *  The value is a double precision floating point number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Double;
 /**
  *  The value is a signed 64-bit integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Int64;
 /**
  *  The value is money.
  *
  *  Value: "MONEY"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Money;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Money;
 /**
  *  The value is a text string. This value type can be used only if the metric
  *  kind is GAUGE.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_String;
 /**
  *  Do not use this default value.
  *
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified;
 
 /**
  *  Describes how to combine multiple time series to provide a different view of

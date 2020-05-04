@@ -82,13 +82,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_ModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_ModeUnspecified;
 /**
  *  Non-transactional: The mutations may not apply as all or none.
  *
  *  Value: "NON_TRANSACTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_NonTransactional;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_NonTransactional;
 /**
  *  Transactional: The mutations are either all applied, or none are applied.
  *  Learn about transactions
@@ -96,7 +96,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_NonTransactional;
  *
  *  Value: "TRANSACTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_Transactional;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_Transactional;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_CompositeFilter.op
@@ -106,13 +106,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_CommitRequest_Mode_Transactional;
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_And;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_And;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
@@ -122,19 +122,19 @@ GTLR_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUnspecifi
  *
  *  Value: "EXPORT_ENTITIES"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities;
 /**
  *  ImportEntities.
  *
  *  Value: "IMPORT_ENTITIES"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ImportEntities;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ImportEntities;
 /**
  *  Unspecified.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_OperationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_OperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.state
@@ -145,50 +145,50 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMet
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
  *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Cancelling;
 /**
  *  Request has finished being processed, but encountered an error.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Failed;
 /**
  *  Request has been processed and is in its finalization stage.
  *
  *  Value: "FINALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Finalizing;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Finalizing;
 /**
  *  Request is being prepared for processing.
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Initializing;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Processing;
 /**
  *  Unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_StateUnspecified;
 /**
  *  Request has completed successfully.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata.operationType
@@ -198,31 +198,31 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMet
  *
  *  Value: "CREATE_INDEX"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_CreateIndex;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_CreateIndex;
 /**
  *  DeleteIndex.
  *
  *  Value: "DELETE_INDEX"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_DeleteIndex;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_DeleteIndex;
 /**
  *  ExportEntities.
  *
  *  Value: "EXPORT_ENTITIES"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ExportEntities;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ExportEntities;
 /**
  *  ImportEntities.
  *
  *  Value: "IMPORT_ENTITIES"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ImportEntities;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_ImportEntities;
 /**
  *  Unspecified.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_OperationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_OperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata.state
@@ -233,50 +233,50 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelled;
 /**
  *  Request is in the process of being cancelled after user called
  *  google.longrunning.Operations.CancelOperation on the operation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Cancelling;
 /**
  *  Request has finished being processed, but encountered an error.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Failed;
 /**
  *  Request has been processed and is in its finalization stage.
  *
  *  Value: "FINALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Finalizing;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Finalizing;
 /**
  *  Request is being prepared for processing.
  *
  *  Value: "INITIALIZING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Initializing;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Initializing;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Processing;
 /**
  *  Unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_StateUnspecified;
 /**
  *  Request has completed successfully.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1Index.ancestor
@@ -286,19 +286,19 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata
  *
  *  Value: "ALL_ANCESTORS"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AllAncestors;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AllAncestors;
 /**
  *  The ancestor mode is unspecified.
  *
  *  Value: "ANCESTOR_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AncestorModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AncestorModeUnspecified;
 /**
  *  Do not include the entity's ancestors in the index.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_None;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_None;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1Index.state
@@ -311,7 +311,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating;
 /**
  *  The index is being deleted, and cannot be used by queries.
  *  There is an active long-running operation for the index.
@@ -320,7 +320,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Cr
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Deleting;
 /**
  *  The index was being created or deleted, but something went wrong.
  *  The index cannot by used by queries.
@@ -331,7 +331,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_De
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Error;
 /**
  *  The index is ready to be used.
  *  The index is updated when writing an entity.
@@ -339,13 +339,13 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Er
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Ready;
 /**
  *  The state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty.direction
@@ -356,20 +356,20 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_St
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Ascending;
 /**
  *  The property's values are indexed so as to support sequencing in
  *  descending order and also query by <, >, <=, >=, and =.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Descending;
 /**
  *  The direction is unspecified.
  *
  *  Value: "DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_DirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_DirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_PropertyFilter.op
@@ -379,43 +379,43 @@ GTLR_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedPropert
  *
  *  Value: "EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_Equal;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_Equal;
 /**
  *  Greater than.
  *
  *  Value: "GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan;
 /**
  *  Greater than or equal.
  *
  *  Value: "GREATER_THAN_OR_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual;
 /**
  *  Has ancestor.
  *
  *  Value: "HAS_ANCESTOR"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_HasAncestor;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_HasAncestor;
 /**
  *  Less than.
  *
  *  Value: "LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThan;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThan;
 /**
  *  Less than or equal.
  *
  *  Value: "LESS_THAN_OR_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThanOrEqual;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThanOrEqual;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_PropertyOrder.direction
@@ -425,19 +425,19 @@ GTLR_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_OperatorUnspecifie
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_Ascending;
 /**
  *  Descending.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_Descending;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_DirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_DirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_QueryResultBatch.entityResultType
@@ -447,25 +447,25 @@ GTLR_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_DirectionUns
  *
  *  Value: "FULL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Full;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Full;
 /**
  *  Only the key.
  *
  *  Value: "KEY_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_KeyOnly;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_KeyOnly;
 /**
  *  A projected subset of properties. The entity may have no key.
  *
  *  Value: "PROJECTION"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Projection;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Projection;
 /**
  *  Unspecified. This value is never used.
  *
  *  Value: "RESULT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_ResultTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_ResultTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_QueryResultBatch.moreResults
@@ -476,31 +476,31 @@ GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultType_Re
  *
  *  Value: "MORE_RESULTS_AFTER_CURSOR"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsAfterCursor;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsAfterCursor;
 /**
  *  The query is finished, but there may be more results after the limit.
  *
  *  Value: "MORE_RESULTS_AFTER_LIMIT"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsAfterLimit;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsAfterLimit;
 /**
  *  Unspecified. This value is never used.
  *
  *  Value: "MORE_RESULTS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_MoreResultsTypeUnspecified;
 /**
  *  The query is finished, and there are no more results.
  *
  *  Value: "NO_MORE_RESULTS"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_NoMoreResults;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_NoMoreResults;
 /**
  *  There may be additional batches to fetch from this query.
  *
  *  Value: "NOT_FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_NotFinished;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_NotFinished;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_ReadOptions.readConsistency
@@ -510,19 +510,19 @@ GTLR_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_MoreResults_NotFini
  *
  *  Value: "EVENTUAL"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Eventual;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Eventual;
 /**
  *  Unspecified. This value must not be used.
  *
  *  Value: "READ_CONSISTENCY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_ReadConsistencyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_ReadConsistencyUnspecified;
 /**
  *  Strong consistency.
  *
  *  Value: "STRONG"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Strong;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Strong;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_Value.nullValue
@@ -532,7 +532,7 @@ GTLR_EXTERN NSString * const kGTLRDatastore_ReadOptions_ReadConsistency_Strong;
  *
  *  Value: "NULL_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  The request for Datastore.AllocateIds.

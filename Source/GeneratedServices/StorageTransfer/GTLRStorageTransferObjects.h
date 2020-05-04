@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ABORTED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted;
 /**
  *  The entity that a client attempted to create (e.g., file or directory)
  *  already exists.
@@ -72,21 +72,21 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted
  *
  *  Value: "ALREADY_EXISTS"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists;
 /**
  *  The operation was cancelled, typically by the caller.
  *  HTTP Mapping: 499 Client Closed Request
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled;
 /**
  *  Unrecoverable data loss or corruption.
  *  HTTP Mapping: 500 Internal Server Error
  *
  *  Value: "DATA_LOSS"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss;
 /**
  *  The deadline expired before the operation could complete. For operations
  *  that change the state of the system, this error may be returned
@@ -97,7 +97,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLos
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded;
 /**
  *  The operation was rejected because the system is not in a state
  *  required for the operation's execution. For example, the directory
@@ -118,7 +118,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Deadlin
  *
  *  Value: "FAILED_PRECONDITION"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition;
 /**
  *  Internal errors. This means that some invariants expected by the
  *  underlying system have been broken. This error code is reserved
@@ -127,7 +127,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedP
  *
  *  Value: "INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal;
 /**
  *  The client specified an invalid argument. Note that this differs
  *  from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
@@ -137,7 +137,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Interna
  *
  *  Value: "INVALID_ARGUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument;
 /**
  *  Some requested entity (e.g., file or directory) was not found.
  *  Note to server developers: if a request is denied for an entire class
@@ -149,14 +149,14 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Invalid
  *
  *  Value: "NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound;
 /**
  *  Not an error; returned on success
  *  HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok;
 /**
  *  The operation was attempted past the valid range. E.g., seeking or
  *  reading past end-of-file.
@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok;
  *
  *  Value: "OUT_OF_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange;
 /**
  *  The caller does not have permission to execute the specified
  *  operation. `PERMISSION_DENIED` must not be used for rejections
@@ -189,7 +189,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRa
  *
  *  Value: "PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied;
 /**
  *  Some resource has been exhausted, perhaps a per-user quota, or
  *  perhaps the entire file system is out of space.
@@ -197,7 +197,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Permiss
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted;
 /**
  *  The request does not have valid authentication credentials for the
  *  operation.
@@ -205,7 +205,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Resourc
  *
  *  Value: "UNAUTHENTICATED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated;
 /**
  *  The service is currently unavailable. This is most likely a
  *  transient condition, which can be corrected by retrying with
@@ -217,7 +217,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthe
  *
  *  Value: "UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable;
 /**
  *  The operation is not implemented or is not supported/enabled in this
  *  service.
@@ -225,7 +225,7 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavail
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented;
 /**
  *  Unknown error. For example, this error may be returned when
  *  a `Status` value received from another address space belongs to
@@ -236,19 +236,19 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimple
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_NotificationConfig.eventTypes
 
 /** Value: "EVENT_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified;
 /** Value: "TRANSFER_OPERATION_ABORTED" */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted;
 /** Value: "TRANSFER_OPERATION_FAILED" */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationFailed;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationFailed;
 /** Value: "TRANSFER_OPERATION_SUCCESS" */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationSuccess;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationSuccess;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_NotificationConfig.payloadFormat
@@ -260,19 +260,19 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_
  *
  *  Value: "JSON"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_Json;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_Json;
 /**
  *  No payload is included with the notification.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_None;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_None;
 /**
  *  Illegal value, to avoid allowing a default.
  *
  *  Value: "PAYLOAD_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadFormat_PayloadFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferJob.status
@@ -285,25 +285,25 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_PayloadForm
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Deleted;
 /**
  *  New transfers will not be scheduled.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Disabled;
 /**
  *  New transfers will be performed based on the schedule.
  *
  *  Value: "ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Enabled;
 /**
  *  Zero is an illegal value.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_TransferOperation.status
@@ -313,43 +313,43 @@ GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_StatusUnspe
  *
  *  Value: "ABORTED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Aborted;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Aborted;
 /**
  *  Terminated due to an unrecoverable failure.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Failed;
 /**
  *  In progress.
  *
  *  Value: "IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_InProgress;
 /**
  *  Paused.
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Paused;
 /**
  *  Temporarily delayed by the system. No user action is required.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Queued;
 /**
  *  Zero is an illegal value.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_StatusUnspecified;
 /**
  *  Completed successfully.
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success;
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success;
 
 /**
  *  AWS access key (see

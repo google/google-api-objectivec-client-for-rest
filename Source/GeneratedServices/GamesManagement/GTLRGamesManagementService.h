@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/games"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeGamesManagementGames;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesManagementGames;
 
 // ----------------------------------------------------------------------------
 //   GTLRGamesManagementService

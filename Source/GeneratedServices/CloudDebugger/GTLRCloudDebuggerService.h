@@ -34,14 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud_debugger"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudDebugger;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDebuggerCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudDebuggerService

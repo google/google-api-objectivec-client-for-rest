@@ -35,52 +35,52 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/drive"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDrive;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDrive;
 /**
  *  Authorization scope: View and manage its own configuration data in your
  *  Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveAppdata;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveAppdata;
 /**
  *  Authorization scope: View and manage Google Drive files and folders that you
  *  have opened or created with this app
  *
  *  Value "https://www.googleapis.com/auth/drive.file"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveFile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveFile;
 /**
  *  Authorization scope: View and manage metadata of files in your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.metadata"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveMetadata;
 /**
  *  Authorization scope: View metadata for files in your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.metadata.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveMetadataReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveMetadataReadonly;
 /**
  *  Authorization scope: View the photos, videos and albums in your Google
  *  Photos
  *
  *  Value "https://www.googleapis.com/auth/drive.photos.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDrivePhotosReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDrivePhotosReadonly;
 /**
  *  Authorization scope: See and download all your Google Drive files
  *
  *  Value "https://www.googleapis.com/auth/drive.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveReadonly;
 /**
  *  Authorization scope: Modify your Google Apps Script scripts' behavior
  *
  *  Value "https://www.googleapis.com/auth/drive.scripts"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDriveScripts;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveScripts;
 
 // ----------------------------------------------------------------------------
 //   GTLRDriveService

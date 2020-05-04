@@ -35,11 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRCloudIdentityViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewBasic;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRCloudIdentityViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewFull;
 /** Value: "VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

@@ -58,19 +58,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CHILD_LINKED_SPAN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ChildLinkedSpan;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ChildLinkedSpan;
 /**
  *  The linked span is a parent of the current span.
  *
  *  Value: "PARENT_LINKED_SPAN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ParentLinkedSpan;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Link_Type_ParentLinkedSpan;
 /**
  *  The relationship of the two spans is unknown.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTrace_MessageEvent.type
@@ -80,19 +80,19 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Link_Type_TypeUnspecified;
  *
  *  Value: "RECEIVED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Received;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Received;
 /**
  *  Indicates a sent message.
  *
  *  Value: "SENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Sent;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_Sent;
 /**
  *  Unknown event type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTrace_Span.spanKind
@@ -103,7 +103,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspecified;
  *
  *  Value: "CLIENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Client;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Client;
 /**
  *  Indicates that the span describes consumer recieving a message from a
  *  broker. Unlike client and server, there is no direct critical path
@@ -112,13 +112,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Client;
  *
  *  Value: "CONSUMER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Consumer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Consumer;
 /**
  *  Indicates that the span is used internally. Default value.
  *
  *  Value: "INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Internal;
 /**
  *  Indicates that the span describes producer sending a message to a broker.
  *  Unlike client and server, there is no direct critical path latency
@@ -127,21 +127,21 @@ GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Internal;
  *
  *  Value: "PRODUCER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Producer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Producer;
 /**
  *  Indicates that the span covers server-side handling of an RPC or other
  *  remote network request.
  *
  *  Value: "SERVER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Server;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Server;
 /**
  *  Unspecified. Do NOT use as default.
  *  Implementations MAY assume SpanKind.INTERNAL to be default.
  *
  *  Value: "SPAN_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspecified;
 
 /**
  *  Text annotation with a set of attributes.

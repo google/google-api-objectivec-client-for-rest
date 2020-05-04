@@ -115,47 +115,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "FLUID"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid;
 /**
  *  Special size to describe an interstitial ad slot.
  *
  *  Value: "INTERSTITIAL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Interstitial;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Interstitial;
 /**
  *  Native (mobile) ads rendered by the publisher.
  *
  *  Value: "NATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Native;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Native;
 /**
  *  Ad slot with size specified by height and width in pixels.
  *
  *  Value: "PIXEL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Pixel;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_Pixel;
 /**
  *  A placeholder for an undefined size type.
  *
  *  Value: "SIZE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_SizeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_SizeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_AppContext.appTypes
 
 /** Value: "NATIVE" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Native;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Native;
 /** Value: "WEB" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Web;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_AuctionContext.auctionTypes
 
 /** Value: "DIRECT_DEALS" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_DirectDeals;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_DirectDeals;
 /** Value: "OPEN_AUCTION" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_OpenAuction;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_OpenAuction;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow.status
@@ -165,7 +165,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_
  *
  *  Value: "RESPONSES_WITHOUT_BIDS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBids;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBids;
 /**
  *  The response had no bids for the specified account, though it may have
  *  included bids on behalf of other accounts.
@@ -175,7 +175,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatus
  *
  *  Value: "RESPONSES_WITHOUT_BIDS_FOR_ACCOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForAccount;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForAccount;
 /**
  *  The response had no bids for the specified deal, though it may have
  *  included bids on other deals on behalf of the account to which the deal
@@ -185,14 +185,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatus
  *
  *  Value: "RESPONSES_WITHOUT_BIDS_FOR_DEAL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForDeal;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForDeal;
 /**
  *  A placeholder for an undefined status.
  *  This value will never be returned in responses.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Client.entityType
@@ -202,32 +202,32 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatus
  *
  *  Value: "ADVERTISER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Advertiser;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Advertiser;
 /**
  *  An advertising agency.
  *
  *  Value: "AGENCY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agency;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agency;
 /**
  *  A brand.
  *
  *  Value: "BRAND"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Brand;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Brand;
 /**
  *  An explicit value for a client that was not yet classified
  *  as any particular entity.
  *
  *  Value: "ENTITY_TYPE_UNCLASSIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnclassified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnclassified;
 /**
  *  A placeholder for an undefined client entity type. Should not be used.
  *
  *  Value: "ENTITY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Client.role
@@ -240,7 +240,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_EntityType
  *
  *  Value: "CLIENT_DEAL_APPROVER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealApprover;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealApprover;
 /**
  *  Users associated with this client can respond to deal proposals
  *  sent to them by publishers. They can also initiate deal proposals
@@ -248,7 +248,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealApprov
  *
  *  Value: "CLIENT_DEAL_NEGOTIATOR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealNegotiator;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealNegotiator;
 /**
  *  Users associated with this client can see publisher deal offers
  *  in the Marketplace.
@@ -258,13 +258,13 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealNegoti
  *
  *  Value: "CLIENT_DEAL_VIEWER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealViewer;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealViewer;
 /**
  *  A placeholder for an undefined client role.
  *
  *  Value: "CLIENT_ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientRoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientRoleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Client.status
@@ -274,19 +274,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientRoleUnspec
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_Active;
 /**
  *  A placeholder for an undefined client status.
  *
  *  Value: "CLIENT_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_ClientStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_ClientStatusUnspecified;
 /**
  *  A client that is currently disabled.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_Disabled;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ClientUser.status
@@ -296,25 +296,25 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Status_Disabled;
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Active;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Active;
 /**
  *  A user that is currently disabled.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Disabled;
 /**
  *  A user who was already created but hasn't accepted the invitation yet.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_Pending;
 /**
  *  A placeholder for an undefined user status.
  *
  *  Value: "USER_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Correction.type
@@ -324,162 +324,162 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ClientUser_Status_UserStatus
  *
  *  Value: "CORRECTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_CorrectionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_CorrectionTypeUnspecified;
 /**
  *  The ad unnecessarily declared the Flash attribute, so the Flash attribute
  *  was removed.
  *
  *  Value: "FLASH_ATTRIBUTE_REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashAttributeRemoved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashAttributeRemoved;
 /**
  *  The ad was not declared as Flash-free but it did not reference any flash
  *  content, so the Flash-free attribute was added.
  *
  *  Value: "FLASH_FREE_ATTRIBUTE_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeAdded;
 /**
  *  The ad was declared as Flash-free but contained Flash, so the Flash-free
  *  attribute was removed.
  *
  *  Value: "FLASH_FREE_ATTRIBUTE_REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeRemoved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeRemoved;
 /**
  *  Properties consistent with In-banner video were found, so an
  *  In-Banner Video attribute was added.
  *
  *  Value: "IN_BANNER_VIDEO_ATTRIBUTE_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_InBannerVideoAttributeAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_InBannerVideoAttributeAdded;
 /**
  *  The ad makes calls to the MRAID API so the MRAID attribute was added.
  *
  *  Value: "MRAID_ATTRIBUTE_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_MraidAttributeAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_MraidAttributeAdded;
 /**
  *  The ad did not declare a required creative attribute.
  *  The attribute was added.
  *
  *  Value: "REQUIRED_ATTRIBUTE_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredAttributeAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredAttributeAdded;
 /**
  *  The ad did not declare a required technology vendor.
  *  The technology vendor was added.
  *
  *  Value: "REQUIRED_VENDOR_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredVendorAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredVendorAdded;
 /**
  *  The ad did not declare the SSL attribute but was SSL-compliant, so the
  *  SSL attribute was added.
  *
  *  Value: "SSL_ATTRIBUTE_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeAdded;
 /**
  *  The ad had the SSL attribute declared but was not SSL-compliant.
  *  The SSL attribute was removed.
  *
  *  Value: "SSL_ATTRIBUTE_REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeRemoved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeRemoved;
 /**
  *  The ad's declared vendors did not match the vendors that were detected.
  *  The detected vendors were added.
  *
  *  Value: "VENDOR_IDS_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VendorIdsAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VendorIdsAdded;
 /**
  *  The ad contains video content.
  *
  *  Value: "VIDEO_IN_SNIPPET_ATTRIBUTE_ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnippetAttributeAdded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnippetAttributeAdded;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.attributes
 
 /** Value: "ADOBE_FLASH_FLV" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AdobeFlashFlv;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AdobeFlashFlv;
 /** Value: "ANY_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AnyInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AnyInterstitial;
 /** Value: "ATTRIBUTE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified;
 /** Value: "CREATIVE_TYPE_HTML" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeHtml;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeHtml;
 /** Value: "CREATIVE_TYPE_VAST_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeVastVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeVastVideo;
 /** Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingActionRolloverToExpand;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingActionRolloverToExpand;
 /** Value: "EXPANDING_DIRECTION_ANY_DIAGONAL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionAnyDiagonal;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionAnyDiagonal;
 /** Value: "EXPANDING_DIRECTION_DOWN" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDown;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDown;
 /** Value: "EXPANDING_DIRECTION_DOWN_LEFT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownLeft;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownLeft;
 /** Value: "EXPANDING_DIRECTION_DOWN_RIGHT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownRight;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownRight;
 /** Value: "EXPANDING_DIRECTION_LEFT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeft;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeft;
 /** Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeftOrRight;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeftOrRight;
 /** Value: "EXPANDING_DIRECTION_NONE" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionNone;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionNone;
 /** Value: "EXPANDING_DIRECTION_RIGHT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionRight;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionRight;
 /** Value: "EXPANDING_DIRECTION_UP" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUp;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUp;
 /** Value: "EXPANDING_DIRECTION_UP_LEFT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpLeft;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpLeft;
 /** Value: "EXPANDING_DIRECTION_UP_OR_DOWN" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown;
 /** Value: "EXPANDING_DIRECTION_UP_RIGHT" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight;
 /** Value: "IMAGE_RICH_MEDIA" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ImageRichMedia;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ImageRichMedia;
 /** Value: "IN_BANNER_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo;
 /** Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash;
 /** Value: "IS_COOKIE_TARGETED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsCookieTargeted;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsCookieTargeted;
 /** Value: "IS_TAGGED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsTagged;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsTagged;
 /** Value: "IS_USER_INTEREST_TARGETED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserInterestTargeted;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserInterestTargeted;
 /** Value: "NATIVE_ELIGIBILITY_ELIGIBLE" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible;
 /** Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible;
 /** Value: "NON_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonInterstitial;
 /** Value: "NON_SKIPPABLE_INSTREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonSkippableInstreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonSkippableInstreamVideo;
 /** Value: "NON_VPAID" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonVpaid;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonVpaid;
 /** Value: "OMSDK_1_0" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10;
 /** Value: "RENDERING_SIZELESS_ADX" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeHtml5;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeHtml5;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeInterstitial;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeInterstitial;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl;
 /** Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl;
 /** Value: "SKIPPABLE_INSTREAM_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_SkippableInstreamVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_SkippableInstreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.dealsStatus
@@ -489,44 +489,44 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Skippabl
  *
  *  Value: "APPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved;
 /**
  *  The creative has been conditionally approved.
  *  See serving_restrictions for details.
  *
  *  Value: "CONDITIONALLY_APPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_ConditionallyApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_ConditionallyApproved;
 /**
  *  The creative has been disapproved.
  *
  *  Value: "DISAPPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Disapproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Disapproved;
 /**
  *  The creative has not been checked.
  *
  *  Value: "NOT_CHECKED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked;
 /**
  *  Placeholder for transition to v1beta1. Currently not used.
  *
  *  Value: "PENDING_REVIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_PendingReview;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_PendingReview;
 /**
  *  Placeholder for transition to v1beta1. Currently not used.
  *
  *  Value: "STATUS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusTypeUnspecified;
 /**
  *  The status is unknown.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.openAuctionStatus
@@ -536,52 +536,52 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_StatusU
  *
  *  Value: "APPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Approved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Approved;
 /**
  *  The creative has been conditionally approved.
  *  See serving_restrictions for details.
  *
  *  Value: "CONDITIONALLY_APPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_ConditionallyApproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_ConditionallyApproved;
 /**
  *  The creative has been disapproved.
  *
  *  Value: "DISAPPROVED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Disapproved;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Disapproved;
 /**
  *  The creative has not been checked.
  *
  *  Value: "NOT_CHECKED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked;
 /**
  *  Placeholder for transition to v1beta1. Currently not used.
  *
  *  Value: "PENDING_REVIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_PendingReview;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_PendingReview;
 /**
  *  Placeholder for transition to v1beta1. Currently not used.
  *
  *  Value: "STATUS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusTypeUnspecified;
 /**
  *  The status is unknown.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.restrictedCategories
 
 /** Value: "ALCOHOL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_Alcohol;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_Alcohol;
 /** Value: "NO_RESTRICTED_CATEGORIES" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_NoRestrictedCategories;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_NoRestrictedCategories;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeRestrictions.creativeFormat
@@ -591,20 +591,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategorie
  *
  *  Value: "CREATIVE_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_CreativeFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_CreativeFormatUnspecified;
 /**
  *  A creative that will be displayed in environments such as a browser.
  *
  *  Value: "DISPLAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Display;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Display;
 /**
  *  A video creative that will be displayed in environments such as a video
  *  player.
  *
  *  Value: "VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Video;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_CreativeFormat_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeRestrictions.skippableAdType
@@ -617,33 +617,33 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_Creativ
  *
  *  Value: "INSTREAM_SELECT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_InstreamSelect;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_InstreamSelect;
 /**
  *  This video ad is not skippable.
  *
  *  Value: "NOT_SKIPPABLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_NotSkippable;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_NotSkippable;
 /**
  *  This video ad can be skipped after 5 seconds.
  *
  *  Value: "SKIPPABLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_Skippable;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_Skippable;
 /**
  *  A placeholder for an undefined skippable ad type.
  *
  *  Value: "SKIPPABLE_AD_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_SkippableAdTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_SkippableAdTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeSize.allowedFormats
 
 /** Value: "AUDIO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Audio;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeSize.creativeSizeType
@@ -653,31 +653,31 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_
  *
  *  Value: "CREATIVE_SIZE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_CreativeSizeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_CreativeSizeTypeUnspecified;
 /**
  *  The creative is an interstitial creative.
  *
  *  Value: "INTERSTITIAL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Interstitial;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Interstitial;
 /**
  *  The creative is a native (mobile) creative.
  *
  *  Value: "NATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Native;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Native;
 /**
  *  The creative is a regular desktop creative.
  *
  *  Value: "REGULAR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Regular;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Regular;
 /**
  *  The creative is a video creative.
  *
  *  Value: "VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Video;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeType_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeSize.nativeTemplate
@@ -687,31 +687,31 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_CreativeSizeTyp
  *
  *  Value: "NATIVE_APP_INSTALL_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeAppInstallAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeAppInstallAd;
 /**
  *  The creative is linked to native content ad.
  *
  *  Value: "NATIVE_CONTENT_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeContentAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeContentAd;
 /**
  *  The creative is linked to native video app install ad.
  *
  *  Value: "NATIVE_VIDEO_APP_INSTALL_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoAppInstallAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoAppInstallAd;
 /**
  *  The creative is linked to native video content ad.
  *
  *  Value: "NATIVE_VIDEO_CONTENT_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoContentAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_NativeVideoContentAd;
 /**
  *  A placeholder for an undefined native template.
  *
  *  Value: "UNKNOWN_NATIVE_TEMPLATE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_UnknownNativeTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_UnknownNativeTemplate;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeSize.skippableAdType
@@ -721,7 +721,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTemplate_
  *
  *  Value: "GENERIC"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_Generic;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_Generic;
 /**
  *  This video ad can be skipped after 5 seconds, and count as
  *  engaged view after 30 seconds. The creative is hosted on
@@ -730,19 +730,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType
  *
  *  Value: "INSTREAM_SELECT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_InstreamSelect;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_InstreamSelect;
 /**
  *  This video ad is not skippable.
  *
  *  Value: "NOT_SKIPPABLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_NotSkippable;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_NotSkippable;
 /**
  *  A placeholder for an undefined skippable ad type.
  *
  *  Value: "SKIPPABLE_AD_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_SkippableAdTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_SkippableAdTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_DayPart.dayOfWeek
@@ -752,49 +752,49 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_DayOfWeekUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_DayOfWeekUnspecified;
 /**
  *  Friday
  *
  *  Value: "FRIDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Friday;
 /**
  *  Monday
  *
  *  Value: "MONDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Monday;
 /**
  *  Saturday
  *
  *  Value: "SATURDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Saturday;
 /**
  *  Sunday
  *
  *  Value: "SUNDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Sunday;
 /**
  *  Thursday
  *
  *  Value: "THURSDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Thursday;
 /**
  *  Tuesday
  *
  *  Value: "TUESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Tuesday;
 /**
  *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_DayPartTargeting.timeZoneType
@@ -804,19 +804,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPart_DayOfWeek_Wednesday;
  *
  *  Value: "PUBLISHER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_Publisher;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_Publisher;
 /**
  *  A placeholder for an undefined time zone source.
  *
  *  Value: "TIME_ZONE_SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_TimeZoneSourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_TimeZoneSourceUnspecified;
 /**
  *  Use the user's time zone setting.
  *
  *  Value: "USER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_User;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneType_User;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Deal.creativePreApprovalPolicy
@@ -826,19 +826,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DayPartTargeting_TimeZoneTyp
  *
  *  Value: "CREATIVE_PRE_APPROVAL_POLICY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_CreativePreApprovalPolicyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_CreativePreApprovalPolicyUnspecified;
 /**
  *  The seller does not need to approve each creative before it can serve.
  *
  *  Value: "SELLER_PRE_APPROVAL_NOT_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalNotRequired;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalNotRequired;
 /**
  *  The seller needs to approve each creative before it can serve.
  *
  *  Value: "SELLER_PRE_APPROVAL_REQUIRED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalRequired;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPolicy_SellerPreApprovalRequired;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Deal.creativeSafeFrameCompatibility
@@ -848,19 +848,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativePreApprovalPoli
  *
  *  Value: "COMPATIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Compatible;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Compatible;
 /**
  *  A placeholder for an undefined creative safe-frame compatibility.
  *
  *  Value: "CREATIVE_SAFE_FRAME_COMPATIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_CreativeSafeFrameCompatibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_CreativeSafeFrameCompatibilityUnspecified;
 /**
  *  The creatives can be incompatible with the safe frame option.
  *
  *  Value: "INCOMPATIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Incompatible;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompatibility_Incompatible;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Deal.programmaticCreativeSource
@@ -870,19 +870,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_CreativeSafeFrameCompat
  *
  *  Value: "ADVERTISER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Advertiser;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Advertiser;
 /**
  *  A placeholder for an undefined programmatic creative source.
  *
  *  Value: "PROGRAMMATIC_CREATIVE_SOURCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_ProgrammaticCreativeSourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_ProgrammaticCreativeSourceUnspecified;
 /**
  *  The publisher provides the creatives to be served.
  *
  *  Value: "PUBLISHER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Publisher;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Publisher;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Deal.syndicationProduct
@@ -892,31 +892,31 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSou
  *
  *  Value: "CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Content;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Content;
 /**
  *  This represents ads shown within games.
  *
  *  Value: "GAMES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Games;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Games;
 /**
  *  This represents a mobile property.
  *
  *  Value: "MOBILE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Mobile;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Mobile;
 /**
  *  A placeholder for an undefined syndication product.
  *
  *  Value: "SYNDICATION_PRODUCT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_SyndicationProductUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_SyndicationProductUnspecified;
 /**
  *  This represents video ad formats.
  *
  *  Value: "VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Video;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_DealPauseStatus.firstPausedBy
@@ -926,19 +926,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Vide
  *
  *  Value: "BUYER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Buyer;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Buyer;
 /**
  *  A placeholder for an undefined buyer/seller role.
  *
  *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_BuyerSellerRoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_BuyerSellerRoleUnspecified;
 /**
  *  Specifies the role as seller.
  *
  *  Value: "SELLER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Seller;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedBy_Seller;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_DealTerms.brandingType
@@ -948,20 +948,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealPauseStatus_FirstPausedB
  *
  *  Value: "BRANDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_Branded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_Branded;
 /**
  *  A placeholder for an undefined branding type.
  *
  *  Value: "BRANDING_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_BrandingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_BrandingTypeUnspecified;
 /**
  *  A TopLevelDomain or masked URL is sent in bid requests
  *  rather than the full one.
  *
  *  Value: "SEMI_TRANSPARENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_SemiTransparent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_SemiTransparent;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_DeliveryControl.creativeBlockingLevel
@@ -971,19 +971,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_SemiT
  *
  *  Value: "ADX_POLICY_BLOCKING_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_AdxPolicyBlockingOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_AdxPolicyBlockingOnly;
 /**
  *  A placeholder for an undefined creative blocking level.
  *
  *  Value: "CREATIVE_BLOCKING_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_CreativeBlockingLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_CreativeBlockingLevelUnspecified;
 /**
  *  Publisher blocking rules will be applied.
  *
  *  Value: "PUBLISHER_BLOCKING_RULES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_PublisherBlockingRules;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBlockingLevel_PublisherBlockingRules;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_DeliveryControl.deliveryRateType
@@ -993,25 +993,25 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_CreativeBloc
  *
  *  Value: "AS_FAST_AS_POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_AsFastAsPossible;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_AsFastAsPossible;
 /**
  *  A placeholder for an undefined delivery rate type.
  *
  *  Value: "DELIVERY_RATE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_DeliveryRateTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_DeliveryRateTypeUnspecified;
 /**
  *  Impressions are served uniformly over the life of the deal.
  *
  *  Value: "EVENLY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_Evenly;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_Evenly;
 /**
  *  Impressions are served front-loaded.
  *
  *  Value: "FRONT_LOADED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_FrontLoaded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRateType_FrontLoaded;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Disapproval.reason
@@ -1021,249 +1021,249 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_DeliveryControl_DeliveryRate
  *
  *  Value: "ABORTION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Abortion;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Abortion;
 /**
  *  The ad size when rendered does not match the declaration.
  *
  *  Value: "AD_SIZE_DOES_NOT_MATCH_AD_SLOT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdSizeDoesNotMatchAdSlot;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdSizeDoesNotMatchAdSlot;
 /**
  *  The ad contains adult images or video content.
  *
  *  Value: "ADULT_IMAGE_OR_VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdultImageOrVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdultImageOrVideo;
 /**
  *  The ad automatically redirects to the destination site without a click,
  *  or reports a click when none were made.
  *
  *  Value: "AUTOMATED_AD_CLICKING"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AutomatedAdClicking;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AutomatedAdClicking;
 /**
  *  Bad URL: Legal disapproval.
  *
  *  Value: "BAD_URL_LEGAL_DISAPPROVAL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BadUrlLegalDisapproval;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BadUrlLegalDisapproval;
 /**
  *  Promotes services related to bail bonds.
  *
  *  Value: "BAIL_BONDS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BailBonds;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BailBonds;
 /**
  *  The ad serves a blank.
  *
  *  Value: "BLANK_CREATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BlankCreative;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BlankCreative;
 /**
  *  The click through URL doesn't work properly.
  *
  *  Value: "BROKEN_URL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BrokenUrl;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_BrokenUrl;
 /**
  *  Click to download must link to an app.
  *
  *  Value: "CLICK_TO_DOWNLOAD_NOT_AN_APP"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ClickToDownloadNotAnApp;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ClickToDownloadNotAnApp;
 /**
  *  Clinical trial recruitment.
  *
  *  Value: "CLINICAL_TRIAL_RECRUITMENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ClinicalTrialRecruitment;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ClinicalTrialRecruitment;
 /**
  *  Unacceptable content: Birth control.
  *
  *  Value: "CONTRACEPTIVES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Contraceptives;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Contraceptives;
 /**
  *  The ad promotes counterfeit designer goods.
  *
  *  Value: "COUNTERFEIT_DESIGNER_GOODS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_CounterfeitDesignerGoods;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_CounterfeitDesignerGoods;
 /**
  *  The ad promotes recreational drugs/services & related equipment.
  *
  *  Value: "DANGEROUS_PRODUCTS_DRUGS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsDrugs;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsDrugs;
 /**
  *  The ad promotes explosives.
  *
  *  Value: "DANGEROUS_PRODUCTS_EXPLOSIVES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsExplosives;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsExplosives;
 /**
  *  The ad promotes guns & parts.
  *
  *  Value: "DANGEROUS_PRODUCTS_GUNS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsGuns;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsGuns;
 /**
  *  The ad promotes dangerous knives.
  *
  *  Value: "DANGEROUS_PRODUCTS_KNIVES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsKnives;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsKnives;
 /**
  *  The ad promotes tobacco products/services & related equipment.
  *
  *  Value: "DANGEROUS_PRODUCTS_TOBACCO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsTobacco;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsTobacco;
 /**
  *  The ad promotes weapons.
  *
  *  Value: "DANGEROUS_PRODUCTS_WEAPONS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsWeapons;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DangerousProductsWeapons;
 /**
  *  Unacceptable landing page.
  *
  *  Value: "DESTINATION_EXPERIENCE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationExperience;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationExperience;
 /**
  *  Broken back button.
  *
  *  Value: "DESTINATION_SITE_DOES_NOT_ALLOW_GOING_BACK"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteDoesNotAllowGoingBack;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteDoesNotAllowGoingBack;
 /**
  *  The destination site's robot.txt file prevents it from being crawled.
  *
  *  Value: "DESTINATION_SITE_NOT_CRAWLABLE_ROBOTS_TXT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteNotCrawlableRobotsTxt;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationSiteNotCrawlableRobotsTxt;
 /**
  *  Bad Destination URL: Site Not Crawlable.
  *
  *  Value: "DESTINATION_URL_SITE_NOT_CRAWLABLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlSiteNotCrawlable;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlSiteNotCrawlable;
 /**
  *  The ad uses rotation, but not all destination URLs were declared.
  *
  *  Value: "DESTINATION_URLS_UNDECLARED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlsUndeclared;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DestinationUrlsUndeclared;
 /**
  *  Rich Media - Direct Download in Ad (ex. PDF download).
  *
  *  Value: "DIRECT_DOWNLOAD_IN_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DirectDownloadInAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DirectDownloadInAd;
 /**
  *  Dynamic DNS at Destination URL.
  *
  *  Value: "DYNAMIC_DNS_AT_DESTINATION_URL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DynamicDnsAtDestinationUrl;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DynamicDnsAtDestinationUrl;
 /**
  *  The promotion is unnecessarily difficult to navigate.
  *
  *  Value: "DYSFUNCTIONAL_PROMOTION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DysfunctionalPromotion;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_DysfunctionalPromotion;
 /**
  *  Products & Services that enable dishonest behavior.
  *
  *  Value: "ENABLING_DISHONEST_BEHAVIOR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_EnablingDishonestBehavior;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_EnablingDishonestBehavior;
 /**
  *  The ad does not expand in a supported direction.
  *
  *  Value: "EXPANDABLE_DIRECTION_NOT_SUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableDirectionNotSupported;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableDirectionNotSupported;
 /**
  *  There was an issue with the expandable ad.
  *
  *  Value: "EXPANDABLE_FUNCTIONALITY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableFunctionality;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableFunctionality;
 /**
  *  The declared expanding direction does not match the actual direction.
  *
  *  Value: "EXPANDABLE_INCORRECT_DIRECTION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableIncorrectDirection;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableIncorrectDirection;
 /**
  *  The ad uses an expandable vendor that is not supported.
  *
  *  Value: "EXPANDABLE_INVALID_VENDOR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableInvalidVendor;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExpandableInvalidVendor;
 /**
  *  Promotes speculative and/or experimental medical treatments.
  *
  *  Value: "EXPERIMENTAL_MEDICAL_TREATMENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExperimentalMedicalTreatment;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ExperimentalMedicalTreatment;
 /**
  *  The creative attempts to set cookies from a fourth party that is not
  *  certified.
  *
  *  Value: "FOURTH_PARTY_BROWSER_COOKIES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_FourthPartyBrowserCookies;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_FourthPartyBrowserCookies;
 /**
  *  The ad tries to gain an unfair traffic advantage.
  *
  *  Value: "GAINING_AN_UNFAIR_ADVANTAGE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GainingAnUnfairAdvantage;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GainingAnUnfairAdvantage;
 /**
  *  The ad tries to circumvent Google's advertising systems.
  *
  *  Value: "GAMING_THE_GOOGLE_NETWORK"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GamingTheGoogleNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_GamingTheGoogleNetwork;
 /**
  *  The ad contains text that is unclear or inaccurate.
  *
  *  Value: "INACCURATE_AD_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InaccurateAdText;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InaccurateAdText;
 /**
  *  A review extension must be an accurate review.
  *
  *  Value: "INACCURATE_REVIEW_EXTENSION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InaccurateReviewExtension;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InaccurateReviewExtension;
 /**
  *  Offensive or inappropriate content.
  *
  *  Value: "INAPPROPRIATE_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InappropriateContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InappropriateContent;
 /**
  *  The ad technology declaration is not accurate.
  *
  *  Value: "INCORRECT_AD_TECHNOLOGY_DECLARATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectAdTechnologyDeclaration;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectAdTechnologyDeclaration;
 /**
  *  The actual destination URL does not match the declared destination URL.
  *
  *  Value: "INCORRECT_DESTINATION_URL_DECLARATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectDestinationUrlDeclaration;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectDestinationUrlDeclaration;
 /**
  *  Incorrect Image Layout.
  *
  *  Value: "INCORRECT_IMAGE_LAYOUT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectImageLayout;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectImageLayout;
 /**
  *  The ad targets consumers using remarketing lists and/or collects
  *  data for subsequent use in retargeting, but does not correctly declare
@@ -1271,378 +1271,378 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Incorrect
  *
  *  Value: "INCORRECT_REMARKETING_DECLARATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectRemarketingDeclaration;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectRemarketingDeclaration;
 /**
  *  Invalid bidding method.
  *
  *  Value: "INVALID_BIDDING_METHOD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidBiddingMethod;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidBiddingMethod;
 /**
  *  The ad makes a fourth party call to an unapproved vendor.
  *
  *  Value: "INVALID_FOURTH_PARTY_CALL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidFourthPartyCall;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidFourthPartyCall;
 /**
  *  Violation of Google's policy for interest-based ads.
  *
  *  Value: "INVALID_INTEREST_BASED_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidInterestBasedAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidInterestBasedAd;
 /**
  *  Violation of the remarketing list policy.
  *
  *  Value: "INVALID_REMARKETING_LIST_USAGE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidRemarketingListUsage;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidRemarketingListUsage;
 /**
  *  The creative does not follow policies set for the RTB protocol.
  *
  *  Value: "INVALID_RTB_PROTOCOL_USAGE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidRtbProtocolUsage;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidRtbProtocolUsage;
 /**
  *  SSL support declared but not working correctly.
  *
  *  Value: "INVALID_SSL_DECLARATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidSslDeclaration;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidSslDeclaration;
 /**
  *  The ad uses URL protocols that do not exist or are not allowed on AdX.
  *
  *  Value: "INVALID_URL_PROTOCOL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidUrlProtocol;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidUrlProtocol;
 /**
  *  Irrelevant Image / Video.
  *
  *  Value: "IRRELEVANT_IMAGE_OR_VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IrrelevantImageOrVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IrrelevantImageOrVideo;
 /**
  *  Unacceptable content: Korean healthcare.
  *
  *  Value: "KCDSP_REGISTRATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_KcdspRegistration;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_KcdspRegistration;
 /**
  *  The landing page does not conform to Ad Exchange policy.
  *
  *  Value: "LANDING_PAGE_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LandingPageDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LandingPageDisabled;
 /**
  *  Clicking on the ad leads to an error page.
  *
  *  Value: "LANDING_PAGE_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LandingPageError;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LandingPageError;
 /**
  *  The length of the image animation is longer than allowed.
  *
  *  Value: "LENGTH_OF_IMAGE_ANIMATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LengthOfImageAnimation;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LengthOfImageAnimation;
 /**
  *  The creative sets an LSO object.
  *
  *  Value: "LSO_OBJECTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LsoObjects;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_LsoObjects;
 /**
  *  The ad or the landing page may contain malware.
  *
  *  Value: "MALWARE_SUSPECTED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MalwareSuspected;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MalwareSuspected;
 /**
  *  Maximum download size exceeded.
  *
  *  Value: "MAXIMUM_DOWNLOAD_SIZE_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumDownloadSizeExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumDownloadSizeExceeded;
 /**
  *  Maximum number of cookies exceeded.
  *
  *  Value: "MAXIMUM_NUMBER_OF_COOKIES_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfCookiesExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfCookiesExceeded;
 /**
  *  Maximum number of HTTP calls exceeded.
  *
  *  Value: "MAXIMUM_NUMBER_OF_HTTP_CALLS_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfHttpCallsExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MaximumNumberOfHttpCallsExceeded;
 /**
  *  Something is wrong with the creative itself.
  *
  *  Value: "MEDIA_NOT_FUNCTIONAL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MediaNotFunctional;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MediaNotFunctional;
 /**
  *  Misleading/Inaccurate claims in ads.
  *
  *  Value: "MISLEADING_CLAIMS_IN_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingClaimsInAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingClaimsInAd;
 /**
  *  Misleading or unrealistic promotions.
  *
  *  Value: "MISLEADING_PROMOTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingPromotions;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisleadingPromotions;
 /**
  *  Misuse by an Open Measurement SDK script.
  *
  *  Value: "MISUSE_BY_OMID_SCRIPT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseByOmidScript;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseByOmidScript;
 /**
  *  Misuse of personal information.
  *
  *  Value: "MISUSE_OF_PERSONAL_INFORMATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseOfPersonalInformation;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_MisuseOfPersonalInformation;
 /**
  *  Restricted in China.
  *
  *  Value: "NEED_CERTIFICATES_TO_ADVERTISE_IN_CHINA"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NeedCertificatesToAdvertiseInChina;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NeedCertificatesToAdvertiseInChina;
 /**
  *  Ads with a white background require a border, which was missing.
  *
  *  Value: "NO_BORDER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoBorder;
 /**
  *  Non-SSL compliant.
  *
  *  Value: "NON_SSL_COMPLIANT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant;
 /**
  *  Use of an Open Measurement SDK vendor not on approved whitelist.
  *
  *  Value: "NON_WHITELISTED_OMID_VENDOR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonWhitelistedOmidVendor;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonWhitelistedOmidVendor;
 /**
  *  Non-family safe or adult content.
  *
  *  Value: "NOT_FAMILY_SAFE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NotFamilySafe;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NotFamilySafe;
 /**
  *  Omission of relevant information.
  *
  *  Value: "OMISSION_OF_RELEVANT_INFORMATION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_OmissionOfRelevantInformation;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_OmissionOfRelevantInformation;
 /**
  *  Financial service ad does not adhere to specifications.
  *
  *  Value: "PERSONAL_LOANS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PersonalLoans;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PersonalLoans;
 /**
  *  Pharmaceuticals, Gambling, Alcohol not allowed and at least one was
  *  detected.
  *
  *  Value: "PHARMA_GAMBLING_ALCOHOL_NOT_ALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PharmaGamblingAlcoholNotAllowed;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PharmaGamblingAlcoholNotAllowed;
 /**
  *  Poor Image / Video Quality.
  *
  *  Value: "POOR_IMAGE_OR_VIDEO_QUALITY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PoorImageOrVideoQuality;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PoorImageOrVideoQuality;
 /**
  *  The ad causes a popup window to appear.
  *
  *  Value: "POP_UP"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PopUp;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_PopUp;
 /**
  *  There is a problem with the way the click macro is used.
  *
  *  Value: "PROBLEM_WITH_CLICK_MACRO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ProblemWithClickMacro;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ProblemWithClickMacro;
 /**
  *  The ad does not meet professional standards.
  *
  *  Value: "PROFESSIONAL_STANDARDS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ProfessionalStandards;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ProfessionalStandards;
 /**
  *  The ad contains a URL that uses a numeric IP address for the domain.
  *
  *  Value: "RAW_IP_ADDRESS_IN_SNIPPET"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RawIpAddressInSnippet;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RawIpAddressInSnippet;
 /**
  *  Restricted political content.
  *
  *  Value: "RESTRICTED_POLITICAL_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RestrictedPoliticalContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RestrictedPoliticalContent;
 /**
  *  Restricted Products.
  *
  *  Value: "RESTRICTED_PRODUCTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RestrictedProducts;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_RestrictedProducts;
 /**
  *  Capitalizing on sensitive events.
  *
  *  Value: "SENSITIVE_EVENTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SensitiveEvents;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SensitiveEvents;
 /**
  *  Sexually explicit content.
  *
  *  Value: "SEXUALLY_EXPLICIT_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SexuallyExplicitContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_SexuallyExplicitContent;
 /**
  *  Shocking content.
  *
  *  Value: "SHOCKING_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ShockingContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ShockingContent;
 /**
  *  The ad does not meet technical requirements.
  *
  *  Value: "TECHNICAL_REQUIREMENTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TechnicalRequirements;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TechnicalRequirements;
 /**
  *  Temporary pausing of creative.
  *
  *  Value: "TEMPORARY_PAUSE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TemporaryPause;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_TemporaryPause;
 /**
  *  Unacceptable content. For example, malware.
  *
  *  Value: "UNACCEPTABLE_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContent;
 /**
  *  The ad or landing page contains unacceptable content because it initiated
  *  a software or executable download.
  *
  *  Value: "UNACCEPTABLE_CONTENT_SOFTWARE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContentSoftware;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContentSoftware;
 /**
  *  For example, Image Trick to Click.
  *
  *  Value: "UNACCEPTABLE_IMAGE_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableImageContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableImageContent;
 /**
  *  Online pharmacy ID required.
  *
  *  Value: "UNACCREDITED_PET_PHARMACY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnaccreditedPetPharmacy;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnaccreditedPetPharmacy;
 /**
  *  The ad set an unauthorized cookie on a Google domain.
  *
  *  Value: "UNAUTHORIZED_COOKIE_ON_GOOGLE_DOMAIN"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnauthorizedCookieOnGoogleDomain;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnauthorizedCookieOnGoogleDomain;
 /**
  *  Unavailable promotions.
  *
  *  Value: "UNAVAILABLE_PROMOTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnavailablePromotions;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnavailablePromotions;
 /**
  *  The ad is unclear or irrelevant to the destination site.
  *
  *  Value: "UNCLEAR_OR_IRRELEVANT_AD"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnclearOrIrrelevantAd;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnclearOrIrrelevantAd;
 /**
  *  Flash content found when no flash was declared.
  *
  *  Value: "UNDECLARED_FLASH_OBJECTS"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredFlashObjects;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredFlashObjects;
 /**
  *  Restricted content (for example, alcohol) was found in the ad but not
  *  declared.
  *
  *  Value: "UNDECLARED_RESTRICTED_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredRestrictedContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UndeclaredRestrictedContent;
 /**
  *  Unsupported content.
  *
  *  Value: "UNSUPPORTED_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedContent;
 /**
  *  Flash content was found in an unsupported context.
  *
  *  Value: "UNSUPPORTED_FLASH_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedFlashContent;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedFlashContent;
 /**
  *  Unsupported language.
  *
  *  Value: "UNSUPPORTED_LANGUAGE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedLanguage;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnsupportedLanguage;
 /**
  *  There was an issue with the video ad.
  *
  *  Value: "VIDEO_FUNCTIONALITY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoFunctionality;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoFunctionality;
 /**
  *  The ad uses a video vendor that is not supported.
  *
  *  Value: "VIDEO_INVALID_VENDOR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoInvalidVendor;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoInvalidVendor;
 /**
  *  Video length exceeds limits.
  *
  *  Value: "VIDEO_TOO_LONG"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoTooLong;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoTooLong;
 /**
  *  The format of the video ad is not supported.
  *
  *  Value: "VIDEO_UNSUPPORTED_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedFormat;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedFormat;
 /**
  *  The length of the video ad is not supported.
  *
  *  Value: "VIDEO_UNSUPPORTED_LENGTH"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedLength;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_VideoUnsupportedLength;
 /**
  *  Unacceptable content: Japanese healthcare.
  *
  *  Value: "VIOLATES_JAPANESE_PHARMACY_LAW"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ViolatesJapanesePharmacyLaw;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_ViolatesJapanesePharmacyLaw;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.breakdownDimensions
 
 /** Value: "BREAKDOWN_DIMENSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_BreakdownDimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_BreakdownDimensionUnspecified;
 /** Value: "PUBLISHER_IDENTIFIER" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_PublisherIdentifier;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_PublisherIdentifier;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.environment
@@ -1652,20 +1652,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimension
  *
  *  Value: "APP"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_App;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_App;
 /**
  *  A placeholder for an undefined environment; indicates that no environment
  *  filter will be applied.
  *
  *  Value: "ENVIRONMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspecified;
 /**
  *  The ad impression appears on the web.
  *
  *  Value: "WEB"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.format
@@ -1676,57 +1676,57 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_Web;
  *
  *  Value: "FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_FormatUnspecified;
 /**
  *  The ad impression is a native ad, and display (i.e., image) format.
  *
  *  Value: "NATIVE_DISPLAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeDisplay;
 /**
  *  The ad impression is a native ad, and video format.
  *
  *  Value: "NATIVE_VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NativeVideo;
 /**
  *  The ad impression is not a native ad, and display (i.e., image) format.
  *
  *  Value: "NON_NATIVE_DISPLAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeDisplay;
 /**
  *  The ad impression is not a native ad, and video format.
  *
  *  Value: "NON_NATIVE_VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNativeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.formats
 
 /** Value: "FORMAT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified;
 /** Value: "NATIVE_DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeDisplay;
 /** Value: "NATIVE_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeVideo;
 /** Value: "NON_NATIVE_DISPLAY" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeDisplay;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeDisplay;
 /** Value: "NON_NATIVE_VIDEO" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.platforms
 
 /** Value: "DESKTOP" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Desktop;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Desktop;
 /** Value: "MOBILE" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Mobile;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Mobile;
 /** Value: "PLATFORM_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_PlatformUnspecified;
 /** Value: "TABLET" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Tablet;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Tablet;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.timeSeriesGranularity
@@ -1736,20 +1736,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Tablet;
  *
  *  Value: "DAILY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Daily;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Daily;
 /**
  *  Indicates that data will be broken down by the hour.
  *
  *  Value: "HOURLY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Hourly;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Hourly;
 /**
  *  A placeholder for an unspecified interval; no time series is applied.
  *  All rows in response will contain data for the entire requested time range.
  *
  *  Value: "TIME_SERIES_GRANULARITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_TimeSeriesGranularityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_TimeSeriesGranularityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FrequencyCap.timeUnitType
@@ -1759,44 +1759,44 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranular
  *
  *  Value: "DAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Day;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Day;
 /**
  *  Hour
  *
  *  Value: "HOUR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Hour;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Hour;
 /**
  *  Lifetime
  *
  *  Value: "LIFETIME"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Lifetime;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Lifetime;
 /**
  *  Minute
  *
  *  Value: "MINUTE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Minute;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Minute;
 /**
  *  Month
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month;
 /**
  *  A placeholder for an undefined time unit type. This just indicates the
  *  variable with this value hasn't been initialized.
  *
  *  Value: "TIME_UNIT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified;
 /**
  *  Week
  *
  *  Value: "WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
@@ -1807,14 +1807,14 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_We
  *
  *  Value: "CREATIVE_ATTRIBUTE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute;
 /**
  *  A placeholder for an undefined status.
  *  This value will never be returned in responses.
  *
  *  Value: "DETAIL_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified;
 /**
  *  Indicates that the detail ID refers to a disapproval reason; see
  *  DisapprovalReason enum in
@@ -1822,28 +1822,28 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownB
  *
  *  Value: "DISAPPROVAL_REASON"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason;
 /**
  *  Indicates that the detail ID refers to a product category; see
  *  [ad-product-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-product-categories).
  *
  *  Value: "PRODUCT_CATEGORY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory;
 /**
  *  Indicates that the detail ID refers to a sensitive category; see
  *  [ad-sensitive-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-sensitive-categories).
  *
  *  Value: "SENSITIVE_CATEGORY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory;
 /**
  *  Indicates that the detail ID refers to a vendor; see
  *  [vendors](https://developers.google.com/authorized-buyers/rtb/downloads/vendors).
  *
  *  Value: "VENDOR"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow.status
@@ -1854,21 +1854,21 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownB
  *
  *  Value: "AD_NOT_RENDERED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered;
 /**
  *  The buyer was not billed because the impression won by the bid was
  *  determined to be invalid.
  *
  *  Value: "INVALID_IMPRESSION"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression;
 /**
  *  A placeholder for an undefined status.
  *  This value will never be returned in responses.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Note.creatorRole
@@ -1878,29 +1878,29 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusR
  *
  *  Value: "BUYER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Buyer;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Buyer;
 /**
  *  A placeholder for an undefined buyer/seller role.
  *
  *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_BuyerSellerRoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_BuyerSellerRoleUnspecified;
 /**
  *  Specifies the role as seller.
  *
  *  Value: "SELLER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Seller;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Seller;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_PlatformContext.platforms
 
 /** Value: "ANDROID" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Android;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Android;
 /** Value: "DESKTOP" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Desktop;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Desktop;
 /** Value: "IOS" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Ios;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Price.pricingType
@@ -1910,20 +1910,20 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Io
  *
  *  Value: "COST_PER_DAY"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerDay;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerDay;
 /**
  *  Cost per thousand impressions.
  *
  *  Value: "COST_PER_MILLE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerMille;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerMille;
 /**
  *  A placeholder for an undefined pricing type. If the pricing type is
  *  unpsecified, `COST_PER_MILLE` will be used instead.
  *
  *  Value: "PRICING_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_PricingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_PricingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Product.syndicationProduct
@@ -1933,31 +1933,31 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_PricingTyp
  *
  *  Value: "CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Content;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Content;
 /**
  *  This represents ads shown within games.
  *
  *  Value: "GAMES"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Games;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Games;
 /**
  *  This represents a mobile property.
  *
  *  Value: "MOBILE"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Mobile;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Mobile;
 /**
  *  A placeholder for an undefined syndication product.
  *
  *  Value: "SYNDICATION_PRODUCT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_SyndicationProductUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_SyndicationProductUnspecified;
 /**
  *  This represents video ad formats.
  *
  *  Value: "VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Video;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Proposal.lastUpdaterOrCommentorRole
@@ -1967,19 +1967,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Product_SyndicationProduct_V
  *
  *  Value: "BUYER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Buyer;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Buyer;
 /**
  *  A placeholder for an undefined buyer/seller role.
  *
  *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_BuyerSellerRoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_BuyerSellerRoleUnspecified;
 /**
  *  Specifies the role as seller.
  *
  *  Value: "SELLER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Seller;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommentorRole_Seller;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Proposal.originatorRole
@@ -1989,19 +1989,19 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_LastUpdaterOrCommen
  *
  *  Value: "BUYER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Buyer;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Buyer;
 /**
  *  A placeholder for an undefined buyer/seller role.
  *
  *  Value: "BUYER_SELLER_ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_BuyerSellerRoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_BuyerSellerRoleUnspecified;
 /**
  *  Specifies the role as seller.
  *
  *  Value: "SELLER"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Seller;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Seller;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Proposal.proposalState
@@ -2011,47 +2011,47 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_OriginatorRole_Sell
  *
  *  Value: "BUYER_ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_BuyerAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_BuyerAccepted;
 /**
  *  The negotiations on the proposal were canceled and the proposal was never
  *  finalized.
  *
  *  Value: "CANCELED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Canceled;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Canceled;
 /**
  *  The proposal is finalized. During renegotiation, the proposal may
  *  not be in this state.
  *
  *  Value: "FINALIZED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Finalized;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Finalized;
 /**
  *  A placeholder for an undefined proposal state.
  *
  *  Value: "PROPOSAL_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_ProposalStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_ProposalStateUnspecified;
 /**
  *  The proposal is under negotiation or renegotiation.
  *
  *  Value: "PROPOSED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Proposed;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Proposed;
 /**
  *  The proposal has been accepted by the seller.
  *
  *  Value: "SELLER_ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_SellerAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_SellerAccepted;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_SecurityContext.securities
 
 /** Value: "INSECURE" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Insecure;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Insecure;
 /** Value: "SSL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Ssl;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Ssl;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ServingContext.all
@@ -2061,7 +2061,7 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_S
  *
  *  Value: "SIMPLE_CONTEXT"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingContext_All_SimpleContext;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingContext_All_SimpleContext;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ServingRestriction.status
@@ -2071,43 +2071,43 @@ GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingContext_All_SimpleCon
  *
  *  Value: "DISAPPROVAL"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_Disapproval;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_Disapproval;
 /**
  *  The ad is pending review in this context.
  *
  *  Value: "PENDING_REVIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_PendingReview;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_PendingReview;
 /**
  *  The status is not known.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_VideoTargeting.excludedPositionTypes
 
 /** Value: "MIDROLL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Midroll;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Midroll;
 /** Value: "POSITION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_PositionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_PositionTypeUnspecified;
 /** Value: "POSTROLL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Postroll;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Postroll;
 /** Value: "PREROLL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Preroll;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Preroll;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_VideoTargeting.targetedPositionTypes
 
 /** Value: "MIDROLL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Midroll;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Midroll;
 /** Value: "POSITION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_PositionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_PositionTypeUnspecified;
 /** Value: "POSTROLL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Postroll;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Postroll;
 /** Value: "PREROLL" */
-GTLR_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Preroll;
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Preroll;
 
 /**
  *  An absolute date range, specified by its start date and end date.

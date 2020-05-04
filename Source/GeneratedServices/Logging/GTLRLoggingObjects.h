@@ -70,19 +70,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_Bool;
 /**
  *  A 64-bit signed integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64;
 /**
  *  A variable-length string. This is the default.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogBucket.lifecycleState
@@ -92,19 +92,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_String;
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_Active;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_Active;
 /**
  *  The bucket has been marked for deletion by the user.
  *
  *  Value: "DELETE_REQUESTED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_DeleteRequested;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_DeleteRequested;
 /**
  *  Unspecified state. This is only used/useful for distinguishing unset values.
  *
  *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogEntry.severity
@@ -114,56 +114,56 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_LifecycleStat
  *
  *  Value: "ALERT"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Alert;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Alert;
 /**
  *  (600) Critical events cause more severe problems or outages.
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Critical;
 /**
  *  (100) Debug or trace information.
  *
  *  Value: "DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Debug;
 /**
  *  (0) The log entry has no assigned severity level.
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Default;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Default;
 /**
  *  (800) One or more systems are unusable.
  *
  *  Value: "EMERGENCY"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Emergency;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Emergency;
 /**
  *  (500) Error events are likely to cause problems.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Error;
 /**
  *  (200) Routine information, such as ongoing status or performance.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Info;
 /**
  *  (300) Normal but significant events, such as start up, shut down, or a
  *  configuration change.
  *
  *  Value: "NOTICE"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Notice;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Notice;
 /**
  *  (400) Warning events might cause problems.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogLine.severity
@@ -173,56 +173,56 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogEntry_Severity_Warning;
  *
  *  Value: "ALERT"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Alert;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Alert;
 /**
  *  (600) Critical events cause more severe problems or outages.
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Critical;
 /**
  *  (100) Debug or trace information.
  *
  *  Value: "DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Debug;
 /**
  *  (0) The log entry has no assigned severity level.
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Default;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Default;
 /**
  *  (800) One or more systems are unusable.
  *
  *  Value: "EMERGENCY"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Emergency;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Emergency;
 /**
  *  (500) Error events are likely to cause problems.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Error;
 /**
  *  (200) Routine information, such as ongoing status or performance.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Info;
 /**
  *  (300) Normal but significant events, such as start up, shut down, or a
  *  configuration change.
  *
  *  Value: "NOTICE"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Notice;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Notice;
 /**
  *  (400) Warning events might cause problems.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogMetric.version
@@ -232,13 +232,13 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogLine_Severity_Warning;
  *
  *  Value: "V1"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V1;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V1;
 /**
  *  Logging API v2.
  *
  *  Value: "V2"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V2;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V2;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LogSink.outputVersionFormat
@@ -248,19 +248,19 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogMetric_Version_V2;
  *
  *  Value: "V1"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V1;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V1;
 /**
  *  LogEntry version 2 format.
  *
  *  Value: "V2"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V2;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_V2;
 /**
  *  An unspecified format version that will default to V2.
  *
  *  Value: "VERSION_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MetricDescriptor.launchStage
@@ -277,7 +277,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_VersionFor
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -287,7 +287,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Alpha;
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -297,7 +297,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Beta;
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -307,32 +307,32 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Deprecate
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MetricDescriptor.metricKind
@@ -345,25 +345,25 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_LaunchStage_Unimpleme
  *
  *  Value: "CUMULATIVE"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Cumulative;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Cumulative;
 /**
  *  The change in a value during a time interval.
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Delta;
 /**
  *  An instantaneous measurement of a value.
  *
  *  Value: "GAUGE"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Gauge;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_Gauge;
 /**
  *  Do not use this default value.
  *
  *  Value: "METRIC_KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_MetricKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_MetricKindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MetricDescriptor.valueType
@@ -374,44 +374,44 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_MetricKind_MetricKind
  *
  *  Value: "BOOL"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Bool;
 /**
  *  The value is a Distribution.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Distribution;
 /**
  *  The value is a double precision floating point number.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Double;
 /**
  *  The value is a signed 64-bit integer.
  *
  *  Value: "INT64"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Int64;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Int64;
 /**
  *  The value is money.
  *
  *  Value: "MONEY"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Money;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Money;
 /**
  *  The value is a text string. This value type can be used only if the metric
  *  kind is GAUGE.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_String;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_String;
 /**
  *  Do not use this default value.
  *
  *  Value: "VALUE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MetricDescriptorMetadata.launchStage
@@ -428,7 +428,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_ValueTypeUn
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -438,7 +438,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_A
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -448,7 +448,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_B
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -458,32 +458,32 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_D
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_MonitoredResourceDescriptor.launchStage
@@ -500,7 +500,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_U
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Alpha;
 /**
  *  Beta is the point at which we are ready to open a release for any customer
  *  to use. There are no SLA or technical support obligations in a Beta release.
@@ -510,7 +510,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
  *  information, see the “Deprecation Policy” section of our Terms of Service
@@ -520,7 +520,7 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Deprecated;
 /**
  *  Early Access features are limited to a closed group of testers. To use these
  *  features, you must sign up in advance and sign a Trusted Tester agreement
@@ -530,32 +530,32 @@ GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStag
  *
  *  Value: "EARLY_ACCESS"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_EarlyAccess;
 /**
  *  GA features are open to all developers and are considered stable and fully
  *  qualified for production use.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Ga;
 /**
  *  Do not use this default value.
  *
  *  Value: "LAUNCH_STAGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStageUnspecified;
 /**
  *  Prelaunch features are hidden from users and are only visible internally.
  *
  *  Value: "PRELAUNCH"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch;
 /**
  *  The feature is not yet implemented. Users can not use it.
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 /**
  *  Options that change functionality of a sink exporting data to BigQuery.

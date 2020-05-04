@@ -34,14 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/jobs"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTalentSolution;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudTalentSolution;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudTalentSolutionCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudTalentSolutionCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudTalentSolutionService

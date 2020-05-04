@@ -79,25 +79,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AGE_RANGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_AgeRangeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_AgeRangeUnspecified;
 /**
  *  Between eighteen and twenty.
  *
  *  Value: "EIGHTEEN_TO_TWENTY"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_EighteenToTwenty;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_EighteenToTwenty;
 /**
  *  Younger than eighteen.
  *
  *  Value: "LESS_THAN_EIGHTEEN"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_LessThanEighteen;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_LessThanEighteen;
 /**
  *  Twenty-one and older.
  *
  *  Value: "TWENTY_ONE_OR_OLDER"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_TwentyOneOrOlder;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_TwentyOneOrOlder;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Biography.contentType
@@ -107,19 +107,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_TwentyOneO
  *
  *  Value: "CONTENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_ContentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_ContentTypeUnspecified;
 /**
  *  HTML text.
  *
  *  Value: "TEXT_HTML"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextHtml;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextHtml;
 /**
  *  Plain text.
  *
  *  Value: "TEXT_PLAIN"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextPlain;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextPlain;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_ContactGroup.groupType
@@ -129,19 +129,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Biography_ContentType_TextPlain;
  *
  *  Value: "GROUP_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_GroupTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_GroupTypeUnspecified;
 /**
  *  System defined contact group.
  *
  *  Value: "SYSTEM_CONTACT_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_SystemContactGroup;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_SystemContactGroup;
 /**
  *  User defined contact group.
  *
  *  Value: "USER_CONTACT_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Nickname.type
@@ -151,44 +151,44 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserConta
  *
  *  Value: "ALTERNATE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_AlternateName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_AlternateName;
 /**
  *  Generic nickname.
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Default;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Default;
 /**
  *  Google+ profile nickname.
  *
  *  Value: "GPLUS"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Gplus;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Gplus;
 /**
  *  Initials.
  *
  *  Value: "INITIALS"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Initials;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_Initials;
 /**
  *  Maiden name or birth family name. Used when the person's family name has
  *  changed as a result of marriage.
  *
  *  Value: "MAIDEN_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_MaidenName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_MaidenName;
 /**
  *  A professional affiliation or other name; for example, `Dr. Smith.`
  *
  *  Value: "OTHER_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_OtherName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_OtherName;
 /**
  *  A shorter version of the person's name.
  *
  *  Value: "SHORT_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_ShortName;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_ShortName;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Person.ageRange
@@ -198,25 +198,25 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Nickname_Type_ShortName;
  *
  *  Value: "AGE_RANGE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_AgeRangeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_AgeRangeUnspecified;
 /**
  *  Between eighteen and twenty.
  *
  *  Value: "EIGHTEEN_TO_TWENTY"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_EighteenToTwenty;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_EighteenToTwenty;
 /**
  *  Younger than eighteen.
  *
  *  Value: "LESS_THAN_EIGHTEEN"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_LessThanEighteen;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_LessThanEighteen;
 /**
  *  Twenty-one and older.
  *
  *  Value: "TWENTY_ONE_OR_OLDER"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_TwentyOneOrOlder;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_TwentyOneOrOlder;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_PersonMetadata.objectType
@@ -226,19 +226,19 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_TwentyOneOrOlder
  *
  *  Value: "OBJECT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_ObjectTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_ObjectTypeUnspecified;
 /**
  *  [Google+ Page.](http://www.google.com/+/brands/)
  *
  *  Value: "PAGE"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_Page;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_Page;
 /**
  *  Person.
  *
  *  Value: "PERSON"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_Person;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_Person;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_ProfileMetadata.objectType
@@ -248,31 +248,31 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_Person
  *
  *  Value: "OBJECT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified;
 /**
  *  [Google+ Page.](http://www.google.com/+/brands/)
  *
  *  Value: "PAGE"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Page;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Page;
 /**
  *  Person.
  *
  *  Value: "PERSON"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Person;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_Person;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_ProfileMetadata.userTypes
 
 /** Value: "GOOGLE_APPS_USER" */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleAppsUser;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleAppsUser;
 /** Value: "GOOGLE_USER" */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleUser;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleUser;
 /** Value: "GPLUS_USER" */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GplusUser;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GplusUser;
 /** Value: "USER_TYPE_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_UserTypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_UserTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Source.type
@@ -282,7 +282,7 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_UserTy
  *
  *  Value: "ACCOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
 /**
  *  [Google contact](https://contacts.google.com). You can view the
  *  contact at
@@ -291,13 +291,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
  *
  *  Value: "CONTACT"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
 /**
  *  [G Suite domain profile](https://support.google.com/a/answer/1628008).
  *
  *  Value: "DOMAIN_PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainProfile;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainProfile;
 /**
  *  [Google profile](https://profiles.google.com). You can view the
  *  profile at
@@ -306,13 +306,13 @@ GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainProfile;
  *
  *  Value: "PROFILE"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_Profile;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Profile;
 /**
  *  Unspecified.
  *
  *  Value: "SOURCE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified;
 
 /**
  *  A person's physical address. May be a P.O. box or street address. All fields

@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/indexing"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeIndexing;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeIndexing;
 
 // ----------------------------------------------------------------------------
 //   GTLRIndexingService

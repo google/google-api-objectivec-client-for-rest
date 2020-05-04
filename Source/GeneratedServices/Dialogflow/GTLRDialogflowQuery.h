@@ -52,9 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 // intentView
 
 /** Value: "INTENT_VIEW_FULL" */
-GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewFull;
 /** Value: "INTENT_VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

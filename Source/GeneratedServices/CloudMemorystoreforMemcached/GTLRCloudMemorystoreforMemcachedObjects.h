@@ -71,25 +71,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
@@ -99,43 +99,43 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_Lo
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating;
 /**
  *  Instance is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting;
 /**
  *  Instance encountered an error and is in indeterministic state.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error;
 /**
  *  Instance has been created and is ready to use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready;
 /**
  *  Instance is unheathy and under repair.
  *
  *  Value: "REPAIRING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified;
 /**
  *  Instance is being updated.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_Instance.memcacheVersion
@@ -145,9 +145,9 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasac
  *
  *  Value: "MEMCACHE_1_5"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_Memcache15;
 /** Value: "MEMCACHE_VERSION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_MemcacheVersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_MemcacheVersion_MemcacheVersionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_Instance.state
@@ -157,31 +157,31 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_Memcache
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Creating;
 /**
  *  Memcached instance is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting;
 /**
  *  Memcached instance is going through maintenance, e.g. data plane rollout.
  *
  *  Value: "PERFORMING_MAINTENANCE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_PerformingMaintenance;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_PerformingMaintenance;
 /**
  *  Memcached instance has been created and ready to be used.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Ready;
 /**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_InstanceMessage.code
@@ -191,13 +191,13 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_St
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_CodeUnspecified;
 /**
  *  Memcached nodes are distributed unevenly.
  *
  *  Value: "ZONE_DISTRIBUTION_UNBALANCED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_ZoneDistributionUnbalanced;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_ZoneDistributionUnbalanced;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_Node.state
@@ -207,31 +207,31 @@ GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_C
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Creating;
 /**
  *  Node is being deleted.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Deleting;
 /**
  *  Node has been created and ready to be used.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Ready;
 /**
  *  Node state is not set.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_StateUnspecified;
 /**
  *  Node is being updated.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating;
 
 /**
  *  Request for ApplyParameters.

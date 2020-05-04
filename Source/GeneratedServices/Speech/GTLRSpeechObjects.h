@@ -50,19 +50,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AMR"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Amr;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Amr;
 /**
  *  Adaptive Multi-Rate Wideband codec. `sample_rate_hertz` must be 16000.
  *
  *  Value: "AMR_WB"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb;
 /**
  *  Not specified.
  *
  *  Value: "ENCODING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified;
 /**
  *  `FLAC` (Free Lossless Audio
  *  Codec) is the recommended encoding because it is
@@ -73,19 +73,19 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnsp
  *
  *  Value: "FLAC"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Flac;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Flac;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
  *
  *  Value: "LINEAR16"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16;
 /**
  *  8-bit samples that compand 14-bit audio samples using G.711 PCMU/mu-law.
  *
  *  Value: "MULAW"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 /**
  *  Opus encoded audio frames in Ogg container
  *  ([OggOpus](https://wiki.xiph.org/OggOpus)).
@@ -93,7 +93,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
  *
  *  Value: "OGG_OPUS"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus;
 /**
  *  Although the use of lossy encodings is not recommended, if a very low
  *  bitrate encoding is required, `OGG_OPUS` is highly preferred over
@@ -111,7 +111,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus;
  *
  *  Value: "SPEEX_WITH_HEADER_BYTE"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte;
 
 // ----------------------------------------------------------------------------
 // GTLRSpeech_RecognitionMetadata.interactionType
@@ -122,7 +122,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHea
  *
  *  Value: "DICTATION"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation;
 /**
  *  Multiple people in a conversation or discussion. For example in a
  *  meeting with two or more people actively participating. Typically
@@ -131,52 +131,52 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dic
  *
  *  Value: "DISCUSSION"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Discussion;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Discussion;
 /**
  *  Use case is either unknown or is something other than one of the other
  *  values below.
  *
  *  Value: "INTERACTION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified;
 /**
  *  A phone-call or video-conference in which two or more people, who are
  *  not in the same room, are actively participating.
  *
  *  Value: "PHONE_CALL"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_PhoneCall;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_PhoneCall;
 /**
  *  One or more persons lecturing or presenting to others, mostly
  *  uninterrupted.
  *
  *  Value: "PRESENTATION"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Presentation;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Presentation;
 /**
  *  Professionally produced audio (eg. TV Show, Podcast).
  *
  *  Value: "PROFESSIONALLY_PRODUCED"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_ProfessionallyProduced;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_ProfessionallyProduced;
 /**
  *  Transcribe voice commands, such as for controlling a device.
  *
  *  Value: "VOICE_COMMAND"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceCommand;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceCommand;
 /**
  *  A recorded message intended for another person to listen to.
  *
  *  Value: "VOICEMAIL"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Voicemail;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Voicemail;
 /**
  *  Transcribe spoken questions and queries into text.
  *
  *  Value: "VOICE_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceSearch;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_VoiceSearch;
 
 // ----------------------------------------------------------------------------
 // GTLRSpeech_RecognitionMetadata.microphoneDistance
@@ -186,19 +186,19 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Voi
  *
  *  Value: "FARFIELD"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Farfield;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Farfield;
 /**
  *  Audio type is not known.
  *
  *  Value: "MICROPHONE_DISTANCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_MicrophoneDistanceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_MicrophoneDistanceUnspecified;
 /**
  *  The speaker if within 3 meters of the microphone.
  *
  *  Value: "MIDFIELD"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Midfield;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Midfield;
 /**
  *  The audio was captured from a closely placed microphone. Eg. phone,
  *  dictaphone, or handheld microphone. Generally if there speaker is within
@@ -206,7 +206,7 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_
  *
  *  Value: "NEARFIELD"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Nearfield;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Nearfield;
 
 // ----------------------------------------------------------------------------
 // GTLRSpeech_RecognitionMetadata.originalMediaType
@@ -216,19 +216,19 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_
  *
  *  Value: "AUDIO"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Audio;
 /**
  *  Unknown original media type.
  *
  *  Value: "ORIGINAL_MEDIA_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_OriginalMediaTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_OriginalMediaTypeUnspecified;
 /**
  *  The speech data originally recorded on a video.
  *
  *  Value: "VIDEO"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Video;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRSpeech_RecognitionMetadata.recordingDeviceType
@@ -238,43 +238,43 @@ GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_OriginalMediaType_V
  *
  *  Value: "OTHER_INDOOR_DEVICE"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherIndoorDevice;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherIndoorDevice;
 /**
  *  Speech was recorded outdoors.
  *
  *  Value: "OTHER_OUTDOOR_DEVICE"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherOutdoorDevice;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_OtherOutdoorDevice;
 /**
  *  Speech was recorded using a personal computer or tablet.
  *
  *  Value: "PC"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Pc;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Pc;
 /**
  *  Speech was recorded over a phone line.
  *
  *  Value: "PHONE_LINE"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_PhoneLine;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_PhoneLine;
 /**
  *  The recording device is unknown.
  *
  *  Value: "RECORDING_DEVICE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_RecordingDeviceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_RecordingDeviceTypeUnspecified;
 /**
  *  Speech was recorded on a smartphone.
  *
  *  Value: "SMARTPHONE"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Smartphone;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Smartphone;
 /**
  *  Speech was recorded in a vehicle.
  *
  *  Value: "VEHICLE"
  */
-GTLR_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle;
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle;
 
 /**
  *  Provides "hints" to the speech recognizer to favor specific words and

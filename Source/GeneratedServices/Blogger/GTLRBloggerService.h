@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/blogger"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBlogger;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBlogger;
 /**
  *  Authorization scope: View your Blogger account
  *
  *  Value "https://www.googleapis.com/auth/blogger.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBloggerReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBloggerReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRBloggerService

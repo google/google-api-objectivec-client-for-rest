@@ -53,25 +53,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_BindingDelta.action
@@ -81,19 +81,19 @@ GTLR_EXTERN NSString * const kGTLRIam_AuditLogConfig_LogType_LogTypeUnspecified;
  *
  *  Value: "ACTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_BindingDelta_Action_ActionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_BindingDelta_Action_ActionUnspecified;
 /**
  *  Addition of a Binding.
  *
  *  Value: "ADD"
  */
-GTLR_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Add;
+FOUNDATION_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Add;
 /**
  *  Removal of a Binding.
  *
  *  Value: "REMOVE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Remove;
+FOUNDATION_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Remove;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_CreateServiceAccountKeyRequest.keyAlgorithm
@@ -103,19 +103,19 @@ GTLR_EXTERN NSString * const kGTLRIam_BindingDelta_Action_Remove;
  *
  *  Value: "KEY_ALG_RSA_1024"
  */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa1024;
+FOUNDATION_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa1024;
 /**
  *  2k RSA Key.
  *
  *  Value: "KEY_ALG_RSA_2048"
  */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa2048;
+FOUNDATION_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgRsa2048;
 /**
  *  An unspecified key algorithm.
  *
  *  Value: "KEY_ALG_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorithm_KeyAlgUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_CreateServiceAccountKeyRequest.privateKeyType
@@ -125,7 +125,7 @@ GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_KeyAlgorith
  *
  *  Value: "TYPE_GOOGLE_CREDENTIALS_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeGoogleCredentialsFile;
+FOUNDATION_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeGoogleCredentialsFile;
 /**
  *  PKCS12 format.
  *  The password for the PKCS12 file is `notasecret`.
@@ -133,13 +133,13 @@ GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyT
  *
  *  Value: "TYPE_PKCS12_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypePkcs12File;
+FOUNDATION_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypePkcs12File;
 /**
  *  Unspecified. Equivalent to `TYPE_GOOGLE_CREDENTIALS_FILE`.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_LintResult.level
@@ -150,13 +150,13 @@ GTLR_EXTERN NSString * const kGTLRIam_CreateServiceAccountKeyRequest_PrivateKeyT
  *
  *  Value: "CONDITION"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_Condition;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Level_Condition;
 /**
  *  Level is unspecified.
  *
  *  Value: "LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_LevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Level_LevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_LintResult.severity
@@ -166,7 +166,7 @@ GTLR_EXTERN NSString * const kGTLRIam_LintResult_Level_LevelUnspecified;
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_Deprecated;
 /**
  *  A validation unit returns an error only for critical issues. If an
  *  attempt is made to set the problematic policy without rectifying the
@@ -174,7 +174,7 @@ GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Deprecated;
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_Error;
 /**
  *  Any informative statement which is not severe enough to raise
  *  `ERROR`/`WARNING`/`NOTICE`, like auto-correction recommendations on the
@@ -183,7 +183,7 @@ GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Error;
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_Info;
 /**
  *  Reserved for the issues that are not severe as `ERROR`/`WARNING`, but
  *  need special handling. For instance, messages about skipped validation
@@ -191,13 +191,13 @@ GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Info;
  *
  *  Value: "NOTICE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Notice;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_Notice;
 /**
  *  Severity is unspecified.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_SeverityUnspecified;
 /**
  *  Any issue which is severe enough but does not cause an error.
  *  For example, suspicious constructs in the input object will not
@@ -210,7 +210,7 @@ GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_SeverityUnspecified;
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_Permission.customRolesSupportLevel
@@ -220,19 +220,19 @@ GTLR_EXTERN NSString * const kGTLRIam_LintResult_Severity_Warning;
  *
  *  Value: "NOT_SUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported;
 /**
  *  Permission is fully supported for custom role use.
  *
  *  Value: "SUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Supported;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Supported;
 /**
  *  Permission is being tested to check custom role compatibility.
  *
  *  Value: "TESTING"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Testing;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Testing;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_Permission.stage
@@ -242,25 +242,25 @@ GTLR_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_Testing
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_Stage_Alpha;
 /**
  *  The permission is currently in a beta phase.
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_Stage_Beta;
 /**
  *  The permission is being deprecated.
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_Stage_Deprecated;
 /**
  *  The permission is generally available.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_Stage_Ga;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_QueryGrantableRolesRequest.view
@@ -271,13 +271,13 @@ GTLR_EXTERN NSString * const kGTLRIam_Permission_Stage_Ga;
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Basic;
 /**
  *  Returns all fields.
  *
  *  Value: "FULL"
  */
-GTLR_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full;
+FOUNDATION_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_Role.stage
@@ -289,38 +289,38 @@ GTLR_EXTERN NSString * const kGTLRIam_QueryGrantableRolesRequest_View_Full;
  *
  *  Value: "ALPHA"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Alpha;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Role_Stage_Alpha;
 /**
  *  The user has indicated this role is currently in a Beta phase.
  *
  *  Value: "BETA"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Beta;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Role_Stage_Beta;
 /**
  *  The user has indicated this role is being deprecated.
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Role_Stage_Deprecated;
 /**
  *  This role is disabled and will not contribute permissions to any members
  *  it is granted to in policies.
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Role_Stage_Disabled;
 /**
  *  The user has indicated this role is currently in an EAP phase.
  *
  *  Value: "EAP"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Eap;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Role_Stage_Eap;
 /**
  *  The user has indicated this role is generally available.
  *
  *  Value: "GA"
  */
-GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Ga;
+FOUNDATION_EXTERN NSString * const kGTLRIam_Role_Stage_Ga;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.keyAlgorithm
@@ -330,19 +330,19 @@ GTLR_EXTERN NSString * const kGTLRIam_Role_Stage_Ga;
  *
  *  Value: "KEY_ALG_RSA_1024"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa1024;
 /**
  *  2k RSA Key.
  *
  *  Value: "KEY_ALG_RSA_2048"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgRsa2048;
 /**
  *  An unspecified key algorithm.
  *
  *  Value: "KEY_ALG_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.keyOrigin
@@ -352,19 +352,19 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyAlgorithm_KeyAlgUnspe
  *
  *  Value: "GOOGLE_PROVIDED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_GoogleProvided;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_GoogleProvided;
 /**
  *  Unspecified key origin.
  *
  *  Value: "ORIGIN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_OriginUnspecified;
 /**
  *  Key is provided by user.
  *
  *  Value: "USER_PROVIDED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.keyType
@@ -375,19 +375,19 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyOrigin_UserProvided;
  *
  *  Value: "KEY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_KeyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_KeyTypeUnspecified;
 /**
  *  System-managed keys (managed and rotated by Google).
  *
  *  Value: "SYSTEM_MANAGED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_SystemManaged;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_SystemManaged;
 /**
  *  User-managed keys (managed and rotated by the user).
  *
  *  Value: "USER_MANAGED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_UserManaged;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_UserManaged;
 
 // ----------------------------------------------------------------------------
 // GTLRIam_ServiceAccountKey.privateKeyType
@@ -397,7 +397,7 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_KeyType_UserManaged;
  *
  *  Value: "TYPE_GOOGLE_CREDENTIALS_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeGoogleCredentialsFile;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeGoogleCredentialsFile;
 /**
  *  PKCS12 format.
  *  The password for the PKCS12 file is `notasecret`.
@@ -405,13 +405,13 @@ GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeGoogl
  *
  *  Value: "TYPE_PKCS12_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypePkcs12File;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypePkcs12File;
 /**
  *  Unspecified. Equivalent to `TYPE_GOOGLE_CREDENTIALS_FILE`.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified;
 
 /**
  *  Audit log information specific to Cloud IAM admin APIs. This message is

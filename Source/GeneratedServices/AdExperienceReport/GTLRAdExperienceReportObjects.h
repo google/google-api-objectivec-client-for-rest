@@ -40,25 +40,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "FAILING"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Failing;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Failing;
 /**
  *  Passing.
  *
  *  Value: "PASSING"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Passing;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Passing;
 /**
  *  Not reviewed.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Unknown;
 /**
  *  Warning. No longer a possible status.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsStatus_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.filterStatus
@@ -68,43 +68,43 @@ GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_BetterAdsSt
  *
  *  Value: "OFF"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Off;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Off;
 /**
  *  Ad filtering is on.
  *
  *  Value: "ON"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_On;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_On;
 /**
  *  Ad filtering is paused.
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Paused;
 /**
  *  Ad filtering is pending.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Pending;
 /**
  *  N/A.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_FilterStatus_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.region
 
 /** Value: "REGION_A" */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionA;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionA;
 /** Value: "REGION_B" */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionB;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionB;
 /** Value: "REGION_C" */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionC;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionC;
 /** Value: "REGION_UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown;
 
 /**
  *  A site's Ad Experience Report summary on a single platform.

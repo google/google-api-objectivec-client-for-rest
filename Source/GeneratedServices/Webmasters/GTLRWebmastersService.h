@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/webmasters"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeWebmasters;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWebmasters;
 /**
  *  Authorization scope: View Search Console data for your verified sites
  *
  *  Value "https://www.googleapis.com/auth/webmasters.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeWebmastersReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWebmastersReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRWebmastersService

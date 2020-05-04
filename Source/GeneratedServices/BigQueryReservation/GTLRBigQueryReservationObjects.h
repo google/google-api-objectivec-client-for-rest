@@ -46,19 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "JOB_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified;
 /**
  *  Pipeline (load/export) jobs from the project will use the reservation.
  *
  *  Value: "PIPELINE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Pipeline;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Pipeline;
 /**
  *  Query jobs from the project will use the reservation.
  *
  *  Value: "QUERY"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Query;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Query;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_Assignment.state
@@ -68,20 +68,20 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Query;
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Active;
 /**
  *  Queries from assignee will be executed as on-demand, if related
  *  assignment is pending.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Pending;
 /**
  *  Invalid state value.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.plan
@@ -93,14 +93,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnsp
  *
  *  Value: "ANNUAL"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual;
 /**
  *  Invalid plan value. Requests with this value will be rejected with
  *  error code `google.rpc.Code.INVALID_ARGUMENT`.
  *
  *  Value: "COMMITMENT_PLAN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified;
 /**
  *  Flex commitments have committed period of 1 minute after becoming ACTIVE.
  *  After that, they are not in a committed period anymore and can be removed
@@ -108,7 +108,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Co
  *
  *  Value: "FLEX"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex;
 /**
  *  Monthly commitments have a committed period of 30 days after becoming
  *  ACTIVE. After that, they are not in a committed period anymore and can be
@@ -116,7 +116,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Fl
  *
  *  Value: "MONTHLY"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.renewalPlan
@@ -128,14 +128,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Mo
  *
  *  Value: "ANNUAL"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual;
 /**
  *  Invalid plan value. Requests with this value will be rejected with
  *  error code `google.rpc.Code.INVALID_ARGUMENT`.
  *
  *  Value: "COMMITMENT_PLAN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified;
 /**
  *  Flex commitments have committed period of 1 minute after becoming ACTIVE.
  *  After that, they are not in a committed period anymore and can be removed
@@ -143,7 +143,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Renewal
  *
  *  Value: "FLEX"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex;
 /**
  *  Monthly commitments have a committed period of 30 days after becoming
  *  ACTIVE. After that, they are not in a committed period anymore and can be
@@ -151,7 +151,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Renewal
  *
  *  Value: "MONTHLY"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.state
@@ -162,26 +162,26 @@ GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Renewal
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Active;
 /**
  *  Capacity commitment is failed to be activated by the backend.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed;
 /**
  *  Capacity commitment is pending provisioning. Pending capacity commitment
  *  does not contribute to the parent's slot_capacity.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Pending;
 /**
  *  Invalid state value.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
 
 /**
  *  A Assignment allows a project to submit jobs

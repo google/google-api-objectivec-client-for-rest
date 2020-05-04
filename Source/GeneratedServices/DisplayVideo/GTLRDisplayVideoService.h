@@ -35,13 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/display-video"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo;
 /**
  *  Authorization scope: View and manage your reports in DoubleClick Bid Manager
  *
  *  Value "https://www.googleapis.com/auth/doubleclickbidmanager"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDoubleclickbidmanager;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDoubleclickbidmanager;
 
 // ----------------------------------------------------------------------------
 //   GTLRDisplayVideoService

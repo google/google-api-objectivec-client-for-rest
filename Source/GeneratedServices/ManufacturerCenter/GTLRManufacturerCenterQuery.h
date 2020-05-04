@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 // include
 
 /** Value: "ATTRIBUTES" */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeAttributes;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeAttributes;
 /** Value: "DESTINATION_STATUSES" */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeDestinationStatuses;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeDestinationStatuses;
 /** Value: "ISSUES" */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeIssues;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeIssues;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 
 // ----------------------------------------------------------------------------
 // Query Classes

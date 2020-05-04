@@ -40,15 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
 // filter
 
 /** Value: "CPU" */
-GTLR_EXTERN NSString * const kGTLRToolResultsFilterCpu;
+FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterCpu;
 /** Value: "GRAPHICS" */
-GTLR_EXTERN NSString * const kGTLRToolResultsFilterGraphics;
+FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterGraphics;
 /** Value: "MEMORY" */
-GTLR_EXTERN NSString * const kGTLRToolResultsFilterMemory;
+FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterMemory;
 /** Value: "NETWORK" */
-GTLR_EXTERN NSString * const kGTLRToolResultsFilterNetwork;
+FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterNetwork;
 /** Value: "PERF_METRIC_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

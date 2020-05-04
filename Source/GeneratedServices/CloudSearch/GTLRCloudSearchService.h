@@ -35,63 +35,63 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud_search"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearch;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearch;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.debug"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchDebug;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchDebug;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.indexing"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchIndexing;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchIndexing;
 /**
  *  Authorization scope: Search your organization's data in the Cloud Search
  *  index
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.query"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchQuery;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchQuery;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.settings"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettings;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettings;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.settings.indexing"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettingsIndexing;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettingsIndexing;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.settings.query"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettingsQuery;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchSettingsQuery;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.stats"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchStats;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchStats;
 /**
  *  Authorization scope: Index and serve your organization's data with Cloud
  *  Search
  *
  *  Value "https://www.googleapis.com/auth/cloud_search.stats.indexing"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudSearchService

@@ -34,14 +34,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTranslateCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTranslateCloudPlatform;
 /**
  *  Authorization scope: Translate text from one language to another using
  *  Google Translate
  *
  *  Value "https://www.googleapis.com/auth/cloud-translation"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeTranslateCloudTranslation;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTranslateCloudTranslation;
 
 // ----------------------------------------------------------------------------
 //   GTLRTranslateService

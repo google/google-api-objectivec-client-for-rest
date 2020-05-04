@@ -35,14 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloudkms"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudKMS;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudKMS;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudKMSCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudKMSCloudPlatform;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudKMSService

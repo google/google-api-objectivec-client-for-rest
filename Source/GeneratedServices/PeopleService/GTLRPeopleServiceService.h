@@ -34,68 +34,68 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/contacts"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
 /**
  *  Authorization scope: See and download your contacts
  *
  *  Value "https://www.googleapis.com/auth/contacts.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsReadonly;
 /**
  *  Authorization scope: See and download your organization's GSuite directory
  *
  *  Value "https://www.googleapis.com/auth/directory.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceDirectoryReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceDirectoryReadonly;
 /**
  *  Authorization scope: View your street addresses
  *
  *  Value "https://www.googleapis.com/auth/user.addresses.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserAddressesRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserAddressesRead;
 /**
  *  Authorization scope: View your complete date of birth
  *
  *  Value "https://www.googleapis.com/auth/user.birthday.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserBirthdayRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserBirthdayRead;
 /**
  *  Authorization scope: View your email addresses
  *
  *  Value "https://www.googleapis.com/auth/user.emails.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead;
 /**
  *  Authorization scope: See your gender
  *
  *  Value "https://www.googleapis.com/auth/user.gender.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserGenderRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserGenderRead;
 /**
  *  Authorization scope: View your email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoEmail;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoEmail;
 /**
  *  Authorization scope: See your personal info, including any personal info
  *  you've made publicly available
  *
  *  Value "https://www.googleapis.com/auth/userinfo.profile"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoProfile;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoProfile;
 /**
  *  Authorization scope: See your education, work history and org info
  *
  *  Value "https://www.googleapis.com/auth/user.organization.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserOrganizationRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserOrganizationRead;
 /**
  *  Authorization scope: View your phone numbers
  *
  *  Value "https://www.googleapis.com/auth/user.phonenumbers.read"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserPhonenumbersRead;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserPhonenumbersRead;
 
 // ----------------------------------------------------------------------------
 //   GTLRPeopleServiceService

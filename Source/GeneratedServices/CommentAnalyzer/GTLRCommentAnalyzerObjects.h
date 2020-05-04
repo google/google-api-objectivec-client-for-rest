@@ -55,34 +55,34 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "PERCENTILE"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_Percentile;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_Percentile;
 /**
  *  Probability scores are in the range [0, 1] and indicate level of confidence
  *  in the attribute label.
  *
  *  Value: "PROBABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_Probability;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_Probability;
 /**
  *  Raw scores are the raw values from the model, and may take any value. This
  *  is primarily for debugging/testing, and not generally recommended.
  *
  *  Value: "RAW"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_Raw;
 /**
  *  Unspecified. Defaults to PROBABILITY scores if available, and otherwise
  *  RAW. Every model has a RAW score.
  *
  *  Value: "SCORE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_ScoreTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_ScoreTypeUnspecified;
 /**
  *  Standard deviation scores are in the range (-inf, +inf).
  *
  *  Value: "STD_DEV_SCORE"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_StdDevScore;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_StdDevScore;
 
 // ----------------------------------------------------------------------------
 // GTLRCommentAnalyzer_Score.type
@@ -95,34 +95,34 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_AttributeParameters_ScoreType_
  *
  *  Value: "PERCENTILE"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_Percentile;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_Percentile;
 /**
  *  Probability scores are in the range [0, 1] and indicate level of confidence
  *  in the attribute label.
  *
  *  Value: "PROBABILITY"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_Probability;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_Probability;
 /**
  *  Raw scores are the raw values from the model, and may take any value. This
  *  is primarily for debugging/testing, and not generally recommended.
  *
  *  Value: "RAW"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_Raw;
 /**
  *  Unspecified. Defaults to PROBABILITY scores if available, and otherwise
  *  RAW. Every model has a RAW score.
  *
  *  Value: "SCORE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_ScoreTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_ScoreTypeUnspecified;
 /**
  *  Standard deviation scores are in the range (-inf, +inf).
  *
  *  Value: "STD_DEV_SCORE"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_StdDevScore;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_StdDevScore;
 
 // ----------------------------------------------------------------------------
 // GTLRCommentAnalyzer_TextEntry.type
@@ -132,20 +132,20 @@ GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_Score_Type_StdDevScore;
  *
  *  Value: "HTML"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_Html;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_Html;
 /**
  *  Plain text.
  *
  *  Value: "PLAIN_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_PlainText;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_PlainText;
 /**
  *  The content type is not specified. Text will be interpreted as plain text
  *  by default.
  *
  *  Value: "TEXT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCommentAnalyzer_TextEntry_Type_TextTypeUnspecified;
 
 /**
  *  The comment analysis request message.

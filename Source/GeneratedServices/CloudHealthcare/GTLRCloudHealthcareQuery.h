@@ -52,15 +52,15 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewBasic;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewFull;
 /** Value: "MESSAGE_VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewMessageViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewMessageViewUnspecified;
 /** Value: "PARSED_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewParsedOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewParsedOnly;
 /** Value: "RAW_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 // ----------------------------------------------------------------------------
 // Query Classes

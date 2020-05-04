@@ -54,25 +54,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecretManager_SecretVersion.state
@@ -83,7 +83,7 @@ GTLR_EXTERN NSString * const kGTLRSecretManager_AuditLogConfig_LogType_LogTypeUn
  *
  *  Value: "DESTROYED"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Destroyed;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Destroyed;
 /**
  *  The SecretVersion may not be accessed, but the secret data
  *  is still available and can be placed back into the ENABLED
@@ -91,19 +91,19 @@ GTLR_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Destroyed;
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Disabled;
 /**
  *  The SecretVersion may be accessed.
  *
  *  Value: "ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_Enabled;
 /**
  *  Not specified. This value is unused and invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified;
 
 /**
  *  Response message for SecretManagerService.AccessSecretVersion.

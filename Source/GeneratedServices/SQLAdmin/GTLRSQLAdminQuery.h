@@ -48,11 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
 // syncMode
 
 /** Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified;
 /** Value: "OFFLINE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdminSyncModeOffline;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOffline;
 /** Value: "ONLINE" */
-GTLR_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 
 // ----------------------------------------------------------------------------
 // Query Classes

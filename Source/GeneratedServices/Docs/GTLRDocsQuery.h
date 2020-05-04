@@ -35,13 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 // suggestionsViewMode
 
 /** Value: "DEFAULT_FOR_CURRENT_ACCESS" */
-GTLR_EXTERN NSString * const kGTLRDocsSuggestionsViewModeDefaultForCurrentAccess;
+FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeDefaultForCurrentAccess;
 /** Value: "PREVIEW_SUGGESTIONS_ACCEPTED" */
-GTLR_EXTERN NSString * const kGTLRDocsSuggestionsViewModePreviewSuggestionsAccepted;
+FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModePreviewSuggestionsAccepted;
 /** Value: "PREVIEW_WITHOUT_SUGGESTIONS" */
-GTLR_EXTERN NSString * const kGTLRDocsSuggestionsViewModePreviewWithoutSuggestions;
+FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModePreviewWithoutSuggestions;
 /** Value: "SUGGESTIONS_INLINE" */
-GTLR_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline;
+FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline;
 
 // ----------------------------------------------------------------------------
 // Query Classes

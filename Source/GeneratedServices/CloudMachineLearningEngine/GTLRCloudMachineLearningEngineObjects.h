@@ -98,81 +98,81 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACCELERATOR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified;
 /**
  *  Nvidia Tesla K80 GPU.
  *
  *  Value: "NVIDIA_TESLA_K80"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80;
 /**
  *  Nvidia Tesla P100 GPU.
  *
  *  Value: "NVIDIA_TESLA_P100"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100;
 /**
  *  Nvidia Tesla P4 GPU.
  *
  *  Value: "NVIDIA_TESLA_P4"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
 /**
  *  Nvidia Tesla T4 GPU.
  *
  *  Value: "NVIDIA_TESLA_T4"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4;
 /**
  *  Nvidia Tesla V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100;
 /**
  *  TPU v2.
  *
  *  Value: "TPU_V2"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2;
 /**
  *  TPU v3.
  *
  *  Value: "TPU_V3"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
 
 /** Value: "ACCELERATOR_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified;
 /** Value: "NVIDIA_TESLA_K80" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80;
 /** Value: "NVIDIA_TESLA_P100" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
 /** Value: "NVIDIA_TESLA_P4" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
 /** Value: "NVIDIA_TESLA_T4" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
 /** Value: "NVIDIA_TESLA_V100" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
 /** Value: "TPU_V2" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
 /** Value: "TPU_V3" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
 
 /** Value: "BATCH_PREDICTION" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_BatchPrediction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_BatchPrediction;
 /** Value: "ONLINE_PREDICTION" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_OnlinePrediction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_OnlinePrediction;
 /** Value: "TRAINING" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_Training;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_Training;
 /** Value: "TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput.state
@@ -183,51 +183,51 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capa
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled;
 /**
  *  The job is being cancelled.
  *  `error_message` should describe the reason for the cancellation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling;
 /**
  *  The job failed.
  *  `error_message` should contain the details of the failure.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Failed;
 /**
  *  The service is preparing to run the job.
  *
  *  Value: "PREPARING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Preparing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Preparing;
 /**
  *  The job has been just created and processing has not yet begun.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Queued;
 /**
  *  The job is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Running;
 /**
  *  The job state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_StateUnspecified;
 /**
  *  The job completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
@@ -238,20 +238,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Hype
  *
  *  Value: "ALGORITHM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified;
 /**
  *  Simple grid search within the feasible space. To use grid search,
  *  all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
  *
  *  Value: "GRID_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch;
 /**
  *  Simple random search within the feasible space.
  *
  *  Value: "RANDOM_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_RandomSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_RandomSearch;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.goal
@@ -261,19 +261,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Hype
  *
  *  Value: "GOAL_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified;
 /**
  *  Maximize the goal metric.
  *
  *  Value: "MAXIMIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Maximize;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Maximize;
 /**
  *  Minimize the goal metric.
  *
  *  Value: "MINIMIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Minimize;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_Minimize;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job.state
@@ -284,51 +284,51 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Hype
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelled;
 /**
  *  The job is being cancelled.
  *  `error_message` should describe the reason for the cancellation.
  *
  *  Value: "CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelling;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelling;
 /**
  *  The job failed.
  *  `error_message` should contain the details of the failure.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Failed;
 /**
  *  The service is preparing to run the job.
  *
  *  Value: "PREPARING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Preparing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Preparing;
 /**
  *  The job has been just created and processing has not yet begun.
  *
  *  Value: "QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Queued;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Queued;
 /**
  *  The job is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Running;
 /**
  *  The job state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_StateUnspecified;
 /**
  *  The job completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata.operationType
@@ -338,43 +338,43 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_
  *
  *  Value: "CREATE_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_CreateVersion;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_CreateVersion;
 /**
  *  An operation to delete an existing model.
  *
  *  Value: "DELETE_MODEL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteModel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteModel;
 /**
  *  An operation to delete an existing version.
  *
  *  Value: "DELETE_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteVersion;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_DeleteVersion;
 /**
  *  Unspecified operation type.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_OperationTypeUnspecified;
 /**
  *  An operation to update project configuration.
  *
  *  Value: "UPDATE_CONFIG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateConfig;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateConfig;
 /**
  *  An operation to update an existing model.
  *
  *  Value: "UPDATE_MODEL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateModel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateModel;
 /**
  *  An operation to update an existing version.
  *
  *  Value: "UPDATE_VERSION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateVersion;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_UpdateVersion;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec.scaleType
@@ -384,20 +384,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Oper
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_None;
 /**
  *  Scales the feasible space to (0, 1) linearly.
  *
  *  Value: "UNIT_LINEAR_SCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLinearScale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLinearScale;
 /**
  *  Scales the feasible space logarithmically to (0, 1). The entire feasible
  *  space must be strictly positive.
  *
  *  Value: "UNIT_LOG_SCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLogScale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLogScale;
 /**
  *  Scales the feasible space "reverse" logarithmically to (0, 1). The result
  *  is that values close to the top of the feasible space are spread out more
@@ -406,7 +406,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
  *
  *  Value: "UNIT_REVERSE_LOG_SCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitReverseLogScale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitReverseLogScale;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec.type
@@ -417,7 +417,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
  *
  *  Value: "CATEGORICAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Categorical;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Categorical;
 /**
  *  The parameter is real valued, with a fixed set of feasible points. If
  *  `type==DISCRETE`, feasible_points must be provided, and
@@ -425,26 +425,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
  *
  *  Value: "DISCRETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Discrete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Discrete;
 /**
  *  Type for real-valued parameters.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Double;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Double;
 /**
  *  Type for integral parameters.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Integer;
 /**
  *  You must specify a valid type. Using this unspecified type will result in
  *  an error.
  *
  *  Value: "PARAMETER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_ParameterTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_ParameterTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.dataFormat
@@ -455,39 +455,39 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Para
  *
  *  Value: "CSV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Csv;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Csv;
 /**
  *  Unspecified format.
  *
  *  Value: "DATA_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_DataFormatUnspecified;
 /**
  *  Each line of the file is a JSON dictionary representing one record.
  *
  *  Value: "JSON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Json;
 /**
  *  Deprecated. Use JSON instead.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text;
 /**
  *  The source file is a TFRecord file.
  *  Currently available only for input data.
  *
  *  Value: "TF_RECORD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord;
 /**
  *  The source file is a GZIP-compressed TFRecord file.
  *  Currently available only for input data.
  *
  *  Value: "TF_RECORD_GZIP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.outputDataFormat
@@ -498,39 +498,39 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
  *
  *  Value: "CSV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Csv;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Csv;
 /**
  *  Unspecified format.
  *
  *  Value: "DATA_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_DataFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_DataFormatUnspecified;
 /**
  *  Each line of the file is a JSON dictionary representing one record.
  *
  *  Value: "JSON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Json;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Json;
 /**
  *  Deprecated. Use JSON instead.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text;
 /**
  *  The source file is a TFRecord file.
  *  Currently available only for input data.
  *
  *  Value: "TF_RECORD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord;
 /**
  *  The source file is a GZIP-compressed TFRecord file.
  *  Currently available only for input data.
  *
  *  Value: "TF_RECORD_GZIP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study.state
@@ -540,26 +540,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Pred
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Active;
 /**
  *  The study is done when the service exhausts the parameter search space
  *  or max_trial_count is reached.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Completed;
 /**
  *  The study is stopped due to an internal error.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Inactive;
 /**
  *  The study state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig.algorithm
@@ -569,26 +569,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "ALGORITHM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_AlgorithmUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_AlgorithmUnspecified;
 /**
  *  Gaussian Process Bandit.
  *
  *  Value: "GAUSSIAN_PROCESS_BANDIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GaussianProcessBandit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GaussianProcessBandit;
 /**
  *  Simple grid search within the feasible space. To use grid search,
  *  all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
  *
  *  Value: "GRID_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GridSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GridSearch;
 /**
  *  Simple random search within the feasible space.
  *
  *  Value: "RANDOM_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_RandomSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_RandomSearch;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec.goal
@@ -598,19 +598,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "GOAL_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_GoalTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_GoalTypeUnspecified;
 /**
  *  Maximize the goal metric.
  *
  *  Value: "MAXIMIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Maximize;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Maximize;
 /**
  *  Minimize the goal metric.
  *
  *  Value: "MINIMIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Minimize;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigMetricSpec_Goal_Minimize;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec.scaleType
@@ -620,20 +620,20 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "SCALE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_ScaleTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_ScaleTypeUnspecified;
 /**
  *  Scales the feasible space to (0, 1) linearly.
  *
  *  Value: "UNIT_LINEAR_SCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLinearScale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLinearScale;
 /**
  *  Scales the feasible space logarithmically to (0, 1). The entire
  *  feasible space must be strictly positive.
  *
  *  Value: "UNIT_LOG_SCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLogScale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLogScale;
 /**
  *  Scales the feasible space "reverse" logarithmically to (0, 1). The
  *  result is that values close to the top of the feasible space are spread
@@ -642,7 +642,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "UNIT_REVERSE_LOG_SCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitReverseLogScale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitReverseLogScale;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec.type
@@ -653,7 +653,7 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "CATEGORICAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Categorical;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Categorical;
 /**
  *  The parameter is real valued, with a fixed set of feasible points. If
  *  `type==DISCRETE`, feasible_points must be provided, and
@@ -661,26 +661,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "DISCRETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Discrete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Discrete;
 /**
  *  Type for real-valued parameters.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Double;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Double;
 /**
  *  Type for integral parameters.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Integer;
 /**
  *  You must specify a valid type. Using this unspecified type will result
  *  in an error.
  *
  *  Value: "PARAMETER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_ParameterTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_ParameterTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse.studyState
@@ -690,26 +690,26 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Stud
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Active;
 /**
  *  The study is done when the service exhausts the parameter search space
  *  or max_trial_count is reached.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Completed;
 /**
  *  The study is stopped due to an internal error.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Inactive;
 /**
  *  The study state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput.scaleTier
@@ -720,21 +720,21 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Sugg
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic;
 /**
  *  A single worker instance [with a
  *  GPU](/ai-platform/training/docs/using-gpus).
  *
  *  Value: "BASIC_GPU"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu;
 /**
  *  A single worker instance with a
  *  [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus).
  *
  *  Value: "BASIC_TPU"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu;
 /**
  *  The CUSTOM tier is not a set tier, but rather enables you to use your
  *  own cluster specification. When you use this tier, set values to
@@ -758,19 +758,19 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom;
 /**
  *  A large number of workers with many parameter servers.
  *
  *  Value: "PREMIUM_1"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Premium1;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Premium1;
 /**
  *  Many workers and a few parameter servers.
  *
  *  Value: "STANDARD_1"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Standard1;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.state
@@ -780,33 +780,33 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trai
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active;
 /**
  *  Indicates that the trial is done, and either has a final_measurement
  *  set, or is marked as trial_infeasible.
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed;
 /**
  *  Indicates that a specific trial has been requested, but it has not yet
  *  been suggested by the service.
  *
  *  Value: "REQUESTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Requested;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Requested;
 /**
  *  The trial state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_StateUnspecified;
 /**
  *  Indicates that the trial should stop according to the service.
  *
  *  Value: "STOPPING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Stopping;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Stopping;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.framework
@@ -816,25 +816,25 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Tria
  *
  *  Value: "FRAMEWORK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified;
 /**
  *  Scikit-learn framework.
  *
  *  Value: "SCIKIT_LEARN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_ScikitLearn;
 /**
  *  Tensorflow framework.
  *
  *  Value: "TENSORFLOW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Tensorflow;
 /**
  *  XGBoost framework.
  *
  *  Value: "XGBOOST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_Xgboost;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
@@ -845,40 +845,40 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Vers
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating;
 /**
  *  The version is being deleted. New UpdateVersion and DeleteVersion
  *  requests will fail if a version is in the DELETING state.
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Deleting;
 /**
  *  The version failed to be created, possibly cancelled.
  *  `error_message` should contain the details of the failure.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed;
 /**
  *  The version is ready for prediction.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready;
 /**
  *  The version state is unspecified.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown;
 /**
  *  The version is being updated. New UpdateVersion and DeleteVersion
  *  requests will fail if a version is in the UPDATING state.
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig.logType
@@ -888,25 +888,25 @@ GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Vers
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for

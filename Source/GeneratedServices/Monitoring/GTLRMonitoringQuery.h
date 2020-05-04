@@ -51,87 +51,87 @@ NS_ASSUME_NONNULL_BEGIN
 // aggregationCrossSeriesReducer
 
 /** Value: "REDUCE_COUNT" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount;
 /** Value: "REDUCE_COUNT_FALSE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse;
 /** Value: "REDUCE_COUNT_TRUE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue;
 /** Value: "REDUCE_FRACTION_TRUE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue;
 /** Value: "REDUCE_MAX" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMax;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMax;
 /** Value: "REDUCE_MEAN" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMean;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMean;
 /** Value: "REDUCE_MIN" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMin;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMin;
 /** Value: "REDUCE_NONE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceNone;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceNone;
 /** Value: "REDUCE_PERCENTILE_05" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05;
 /** Value: "REDUCE_PERCENTILE_50" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile50;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile50;
 /** Value: "REDUCE_PERCENTILE_95" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile95;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile95;
 /** Value: "REDUCE_PERCENTILE_99" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99;
 /** Value: "REDUCE_STDDEV" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev;
 /** Value: "REDUCE_SUM" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceSum;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceSum;
 
 // ----------------------------------------------------------------------------
 // aggregationPerSeriesAligner
 
 /** Value: "ALIGN_COUNT" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCount;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCount;
 /** Value: "ALIGN_COUNT_FALSE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse;
 /** Value: "ALIGN_COUNT_TRUE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue;
 /** Value: "ALIGN_DELTA" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta;
 /** Value: "ALIGN_FRACTION_TRUE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue;
 /** Value: "ALIGN_INTERPOLATE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate;
 /** Value: "ALIGN_MAX" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMax;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMax;
 /** Value: "ALIGN_MEAN" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMean;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMean;
 /** Value: "ALIGN_MIN" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin;
 /** Value: "ALIGN_NEXT_OLDER" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder;
 /** Value: "ALIGN_NONE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNone;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNone;
 /** Value: "ALIGN_PERCENT_CHANGE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange;
 /** Value: "ALIGN_PERCENTILE_05" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05;
 /** Value: "ALIGN_PERCENTILE_50" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50;
 /** Value: "ALIGN_PERCENTILE_95" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95;
 /** Value: "ALIGN_PERCENTILE_99" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99;
 /** Value: "ALIGN_RATE" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignRate;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignRate;
 /** Value: "ALIGN_STDDEV" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev;
 /** Value: "ALIGN_SUM" */
-GTLR_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "EXPLICIT" */
-GTLR_EXTERN NSString * const kGTLRMonitoringViewExplicit;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewExplicit;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRMonitoringViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewFull;
 /** Value: "HEADERS" */
-GTLR_EXTERN NSString * const kGTLRMonitoringViewHeaders;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewHeaders;
 /** Value: "VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

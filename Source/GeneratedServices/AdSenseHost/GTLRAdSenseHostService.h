@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/adsensehost"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdSenseHost;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdSenseHost;
 
 // ----------------------------------------------------------------------------
 //   GTLRAdSenseHostService

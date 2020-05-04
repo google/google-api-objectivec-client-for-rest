@@ -34,116 +34,116 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.group"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryGroup;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryGroup;
 /**
  *  Authorization scope: View and manage the provisioning of users on your
  *  domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryUser;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptAdminDirectoryUser;
 /**
  *  Authorization scope: See, edit, share, and permanently delete all the
  *  calendars you can access using Google Calendar
  *
  *  Value "https://www.google.com/calendar/feeds"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptCalendarFeeds;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptCalendarFeeds;
 /**
  *  Authorization scope: Create and update Google Apps Script deployments
  *
  *  Value "https://www.googleapis.com/auth/script.deployments"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptDeployments;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDeployments;
 /**
  *  Authorization scope: View Google Apps Script deployments
  *
  *  Value "https://www.googleapis.com/auth/script.deployments.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptDeploymentsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDeploymentsReadonly;
 /**
  *  Authorization scope: View and manage your Google Docs documents
  *
  *  Value "https://www.googleapis.com/auth/documents"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptDocuments;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDocuments;
 /**
  *  Authorization scope: See, edit, create, and delete all of your Google Drive
  *  files
  *
  *  Value "https://www.googleapis.com/auth/drive"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptDrive;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDrive;
 /**
  *  Authorization scope: View and manage your forms in Google Drive
  *
  *  Value "https://www.googleapis.com/auth/forms"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptForms;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptForms;
 /**
  *  Authorization scope: View and manage forms that this application has been
  *  installed in
  *
  *  Value "https://www.googleapis.com/auth/forms.currentonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptFormsCurrentonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptFormsCurrentonly;
 /**
  *  Authorization scope: View and manage your Google Groups
  *
  *  Value "https://www.googleapis.com/auth/groups"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptGroups;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptGroups;
 /**
  *  Authorization scope: See, edit, download, and permanently delete your
  *  contacts
  *
  *  Value "https://www.google.com/m8/feeds"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptM8Feeds;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptM8Feeds;
 /**
  *  Authorization scope: Read, compose, send, and permanently delete all your
  *  email from Gmail
  *
  *  Value "https://mail.google.com/"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptMailGoogleCom;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptMailGoogleCom;
 /**
  *  Authorization scope: View Google Apps Script project's metrics
  *
  *  Value "https://www.googleapis.com/auth/script.metrics"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptMetrics;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptMetrics;
 /**
  *  Authorization scope: View Google Apps Script processes
  *
  *  Value "https://www.googleapis.com/auth/script.processes"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptProcesses;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProcesses;
 /**
  *  Authorization scope: Create and update Google Apps Script projects
  *
  *  Value "https://www.googleapis.com/auth/script.projects"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptProjects;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjects;
 /**
  *  Authorization scope: View Google Apps Script projects
  *
  *  Value "https://www.googleapis.com/auth/script.projects.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptProjectsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjectsReadonly;
 /**
  *  Authorization scope: See, edit, create, and delete your spreadsheets in
  *  Google Drive
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptSpreadsheets;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptSpreadsheets;
 /**
  *  Authorization scope: View your email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeScriptUserinfoEmail;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptUserinfoEmail;
 
 // ----------------------------------------------------------------------------
 //   GTLRScriptService

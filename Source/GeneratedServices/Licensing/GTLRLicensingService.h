@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/apps.licensing"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeLicensingAppsLicensing;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLicensingAppsLicensing;
 
 // ----------------------------------------------------------------------------
 //   GTLRLicensingService

@@ -42,23 +42,23 @@ NS_ASSUME_NONNULL_BEGIN
 // overrideStrategy
 
 /** Value: "OVERRIDE" */
-GTLR_EXTERN NSString * const kGTLRAppengineOverrideStrategyOverride;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineOverrideStrategyOverride;
 /** Value: "STRICT" */
-GTLR_EXTERN NSString * const kGTLRAppengineOverrideStrategyStrict;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineOverrideStrategyStrict;
 /** Value: "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY" */
-GTLR_EXTERN NSString * const kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRAppengineViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineViewBasic;
 /** Value: "BASIC_CERTIFICATE" */
-GTLR_EXTERN NSString * const kGTLRAppengineViewBasicCertificate;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineViewBasicCertificate;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRAppengineViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFull;
 /** Value: "FULL_CERTIFICATE" */
-GTLR_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
+FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 // ----------------------------------------------------------------------------
 // Query Classes

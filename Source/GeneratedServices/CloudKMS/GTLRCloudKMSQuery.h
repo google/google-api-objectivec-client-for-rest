@@ -48,17 +48,17 @@ NS_ASSUME_NONNULL_BEGIN
 // versionView
 
 /** Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRCloudKMSVersionViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSVersionViewFull;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudKMSViewCryptoKeyVersionViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewCryptoKeyVersionViewUnspecified;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRCloudKMSViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 // ----------------------------------------------------------------------------
 // Query Classes

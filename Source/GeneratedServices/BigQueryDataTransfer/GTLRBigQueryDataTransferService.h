@@ -34,26 +34,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/bigquery"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigquery;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigquery;
 /**
  *  Authorization scope: View your data in Google BigQuery
  *
  *  Value "https://www.googleapis.com/auth/bigquery.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatform;
 /**
  *  Authorization scope: View your data across Google Cloud Platform services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRBigQueryDataTransferService

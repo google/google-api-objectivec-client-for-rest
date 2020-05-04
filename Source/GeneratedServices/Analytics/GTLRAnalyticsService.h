@@ -33,44 +33,44 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/analytics"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalytics;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalytics;
 /**
  *  Authorization scope: Edit Google Analytics management entities
  *
  *  Value "https://www.googleapis.com/auth/analytics.edit"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsEdit;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsEdit;
 /**
  *  Authorization scope: Manage Google Analytics Account users by email address
  *
  *  Value "https://www.googleapis.com/auth/analytics.manage.users"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsManageUsers;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsManageUsers;
 /**
  *  Authorization scope: View Google Analytics user permissions
  *
  *  Value "https://www.googleapis.com/auth/analytics.manage.users.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsManageUsersReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsManageUsersReadonly;
 /**
  *  Authorization scope: Create a new Google Analytics account along with its
  *  default property and view
  *
  *  Value "https://www.googleapis.com/auth/analytics.provision"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsProvision;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsProvision;
 /**
  *  Authorization scope: View your Google Analytics data
  *
  *  Value "https://www.googleapis.com/auth/analytics.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsReadonly;
 /**
  *  Authorization scope: Manage Google Analytics user deletion requests
  *
  *  Value "https://www.googleapis.com/auth/analytics.user.deletion"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAnalyticsUserDeletion;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAnalyticsUserDeletion;
 
 // ----------------------------------------------------------------------------
 //   GTLRAnalyticsService

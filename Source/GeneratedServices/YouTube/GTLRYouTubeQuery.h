@@ -56,32 +56,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "active"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusActive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusActive;
 /**
  *  Return all broadcasts.
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusAll;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusAll;
 /**
  *  The broadcast is over. YouTube stops transmitting video.
  *
  *  Value: "complete"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusComplete;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusComplete;
 /**
  *  Return broadcasts that have already ended.
  *
  *  Value: "completed"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusCompleted;
 /**
  *  The broadcast is visible to its audience. YouTube transmits video to the
  *  broadcast's monitor stream and its broadcast stream.
  *
  *  Value: "live"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusLive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusLive;
 /**
  *  Start testing the broadcast. YouTube transmits video to the broadcast's
  *  monitor stream. Note that you can only transition a broadcast to the testing
@@ -90,13 +90,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusLive;
  *
  *  Value: "testing"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusTesting;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusTesting;
 /**
  *  Return broadcasts that have not yet started.
  *
  *  Value: "upcoming"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusUpcoming;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastStatusUpcoming;
 
 // ----------------------------------------------------------------------------
 // broadcastType
@@ -106,19 +106,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastStatusUpcoming;
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastTypeAll;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastTypeAll;
 /**
  *  Return only scheduled event broadcasts.
  *
  *  Value: "event"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastTypeEvent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastTypeEvent;
 /**
  *  Return only persistent broadcasts.
  *
  *  Value: "persistent"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastTypePersistent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeBroadcastTypePersistent;
 
 // ----------------------------------------------------------------------------
 // channelType
@@ -128,13 +128,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeBroadcastTypePersistent;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeChannelTypeAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeChannelTypeAny;
 /**
  *  Only retrieve shows.
  *
  *  Value: "show"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeChannelTypeShow;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeChannelTypeShow;
 
 // ----------------------------------------------------------------------------
 // chart
@@ -145,7 +145,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeChannelTypeShow;
  *
  *  Value: "mostPopular"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeChartMostPopular;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeChartMostPopular;
 
 // ----------------------------------------------------------------------------
 // eventType
@@ -155,19 +155,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeChartMostPopular;
  *
  *  Value: "completed"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeEventTypeCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeCompleted;
 /**
  *  Only include active broadcasts.
  *
  *  Value: "live"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeEventTypeLive;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeLive;
 /**
  *  Only include upcoming broadcasts.
  *
  *  Value: "upcoming"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeEventTypeUpcoming;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeUpcoming;
 
 // ----------------------------------------------------------------------------
 // filter
@@ -177,13 +177,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeEventTypeUpcoming;
  *
  *  Value: "all"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeFilterAll;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeFilterAll;
 /**
  *  Return the most recent sponsors, from newest to oldest.
  *
  *  Value: "newest"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeFilterNewest;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeFilterNewest;
 
 // ----------------------------------------------------------------------------
 // mode
@@ -193,20 +193,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeFilterNewest;
  *
  *  Value: "all_current"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeModeAllCurrent;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeModeAllCurrent;
 /**
  *  Return only members that joined after the first call with this mode was
  *  made.
  *
  *  Value: "updates"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeModeUpdates;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeModeUpdates;
 
 // ----------------------------------------------------------------------------
 // moderationStatus
 
 /** Value: "heldForReview" */
-GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusHeldForReview;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeModerationStatusHeldForReview;
 /**
  *  Retrieve comment threads classified as likely to be spam. A comment thread
  *  can be included in the response if the top-level comment or at least one of
@@ -214,9 +214,9 @@ GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusHeldForReview;
  *
  *  Value: "likelySpam"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusLikelySpam;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeModerationStatusLikelySpam;
 /** Value: "published" */
-GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusPublished;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeModerationStatusPublished;
 /**
  *  Rejects a comment as being unfit for display. This action also effectively
  *  hides all replies to the rejected comment.
@@ -228,7 +228,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusPublished;
  *
  *  Value: "rejected"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusRejected;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeModerationStatusRejected;
 
 // ----------------------------------------------------------------------------
 // myRating
@@ -238,13 +238,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeModerationStatusRejected;
  *
  *  Value: "dislike"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeMyRatingDislike;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeMyRatingDislike;
 /**
  *  Returns only video liked by the authenticated user.
  *
  *  Value: "like"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeMyRatingLike;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeMyRatingLike;
 
 // ----------------------------------------------------------------------------
 // order
@@ -254,52 +254,52 @@ GTLR_EXTERN NSString * const kGTLRYouTubeMyRatingLike;
  *
  *  Value: "alphabetical"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderAlphabetical;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderAlphabetical;
 /**
  *  Resources are sorted in reverse chronological order based on the date they
  *  were created.
  *
  *  Value: "date"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderDate;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderDate;
 /**
  *  Resources are sorted from highest to lowest rating.
  *
  *  Value: "rating"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderRating;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderRating;
 /** Value: "relevance" */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderRelevance;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderRelevance;
 /**
  *  Order by time.
  *
  *  Value: "time"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderTime;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderTime;
 /**
  *  Resources are sorted alphabetically by title.
  *
  *  Value: "title"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderTitle;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderTitle;
 /**
  *  Sort by order of activity.
  *
  *  Value: "unread"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderUnread;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderUnread;
 /**
  *  Channels are sorted in descending order of their number of uploaded videos.
  *
  *  Value: "videoCount"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderVideoCount;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderVideoCount;
 /**
  *  Resources are sorted from highest to lowest number of views.
  *
  *  Value: "viewCount"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeOrderViewCount;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeOrderViewCount;
 
 // ----------------------------------------------------------------------------
 // rating
@@ -309,20 +309,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeOrderViewCount;
  *
  *  Value: "dislike"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeRatingDislike;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingDislike;
 /**
  *  Records that the authenticated user liked the video.
  *
  *  Value: "like"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeRatingLike;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingLike;
 /**
  *  Removes any rating that the authenticated user had previously set for the
  *  video.
  *
  *  Value: "none"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeRatingNone;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeRatingNone;
 
 // ----------------------------------------------------------------------------
 // safeSearch
@@ -335,13 +335,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeRatingNone;
  *
  *  Value: "moderate"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeSafeSearchModerate;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeSafeSearchModerate;
 /**
  *  YouTube will not filter the search result set.
  *
  *  Value: "none"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeSafeSearchNone;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeSafeSearchNone;
 /**
  *  YouTube will try to exclude all restricted content from the search result
  *  set. Based on their content, search results could be removed from search
@@ -349,7 +349,7 @@ GTLR_EXTERN NSString * const kGTLRYouTubeSafeSearchNone;
  *
  *  Value: "strict"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeSafeSearchStrict;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeSafeSearchStrict;
 
 // ----------------------------------------------------------------------------
 // textFormat
@@ -359,13 +359,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeSafeSearchStrict;
  *
  *  Value: "html"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTextFormatHtml;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTextFormatHtml;
 /**
  *  Returns the comments in plain text format.
  *
  *  Value: "plainText"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTextFormatPlainText;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTextFormatPlainText;
 
 // ----------------------------------------------------------------------------
 // tfmt
@@ -375,31 +375,31 @@ GTLR_EXTERN NSString * const kGTLRYouTubeTextFormatPlainText;
  *
  *  Value: "sbv"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTfmtSbv;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTfmtSbv;
 /**
  *  Scenarist Closed Caption format.
  *
  *  Value: "scc"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTfmtScc;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTfmtScc;
 /**
  *  SubRip subtitle.
  *
  *  Value: "srt"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTfmtSrt;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTfmtSrt;
 /**
  *  Timed Text Markup Language caption.
  *
  *  Value: "ttml"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTfmtTtml;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTfmtTtml;
 /**
  *  Web Video Text Tracks caption.
  *
  *  Value: "vtt"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeTfmtVtt;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeTfmtVtt;
 
 // ----------------------------------------------------------------------------
 // videoCaption
@@ -409,19 +409,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeTfmtVtt;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoCaptionAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoCaptionAny;
 /**
  *  Only include videos that have captions.
  *
  *  Value: "closedCaption"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoCaptionClosedCaption;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoCaptionClosedCaption;
 /**
  *  Only include videos that do not have captions.
  *
  *  Value: "none"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoCaptionNone;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoCaptionNone;
 
 // ----------------------------------------------------------------------------
 // videoDefinition
@@ -431,19 +431,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoCaptionNone;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDefinitionAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDefinitionAny;
 /**
  *  Only retrieve HD videos.
  *
  *  Value: "high"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDefinitionHigh;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDefinitionHigh;
 /**
  *  Only retrieve videos in standard definition.
  *
  *  Value: "standard"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDefinitionStandard;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDefinitionStandard;
 
 // ----------------------------------------------------------------------------
 // videoDimension
@@ -454,19 +454,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoDefinitionStandard;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDimensionAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDimensionAny;
 /**
  *  Restrict search results to exclude 3D videos.
  *
  *  Value: "2d"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDimensionX2d;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDimensionX2d;
 /**
  *  Restrict search results to only include 3D videos.
  *
  *  Value: "3d"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDimensionX3d;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDimensionX3d;
 
 // ----------------------------------------------------------------------------
 // videoDuration
@@ -477,25 +477,25 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoDimensionX3d;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDurationAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDurationAny;
 /**
  *  Only include videos longer than 20 minutes.
  *
  *  Value: "long"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDurationLong;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDurationLong;
 /**
  *  Only include videos that are between four and 20 minutes long (inclusive).
  *
  *  Value: "medium"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDurationMedium;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDurationMedium;
 /**
  *  Only include videos that are less than four minutes long.
  *
  *  Value: "short"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoDurationShort;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDurationShort;
 
 // ----------------------------------------------------------------------------
 // videoEmbeddable
@@ -505,13 +505,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoDurationShort;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoEmbeddableAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoEmbeddableAny;
 /**
  *  Only retrieve embeddable videos.
  *
  *  Value: "true"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoEmbeddableTrue;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoEmbeddableTrue;
 
 // ----------------------------------------------------------------------------
 // videoLicense
@@ -522,20 +522,20 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoEmbeddableTrue;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoLicenseAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoLicenseAny;
 /**
  *  Only return videos that have a Creative Commons license. Users can reuse
  *  videos with this license in other videos that they create. Learn more.
  *
  *  Value: "creativeCommon"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoLicenseCreativeCommon;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoLicenseCreativeCommon;
 /**
  *  Only return videos that have the standard YouTube license.
  *
  *  Value: "youtube"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoLicenseYoutube;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoLicenseYoutube;
 
 // ----------------------------------------------------------------------------
 // videoSyndicated
@@ -545,13 +545,13 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoLicenseYoutube;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoSyndicatedAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoSyndicatedAny;
 /**
  *  Only retrieve syndicated videos.
  *
  *  Value: "true"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoSyndicatedTrue;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoSyndicatedTrue;
 
 // ----------------------------------------------------------------------------
 // videoType
@@ -561,19 +561,19 @@ GTLR_EXTERN NSString * const kGTLRYouTubeVideoSyndicatedTrue;
  *
  *  Value: "any"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeAny;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeAny;
 /**
  *  Only retrieve episodes of shows.
  *
  *  Value: "episode"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeEpisode;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeEpisode;
 /**
  *  Only retrieve movies.
  *
  *  Value: "movie"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeMovie;
 
 // ----------------------------------------------------------------------------
 // Query Classes

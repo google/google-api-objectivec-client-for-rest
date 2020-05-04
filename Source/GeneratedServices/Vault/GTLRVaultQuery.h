@@ -45,29 +45,29 @@ NS_ASSUME_NONNULL_BEGIN
 // state
 
 /** Value: "CLOSED" */
-GTLR_EXTERN NSString * const kGTLRVaultStateClosed;
+FOUNDATION_EXTERN NSString * const kGTLRVaultStateClosed;
 /** Value: "DELETED" */
-GTLR_EXTERN NSString * const kGTLRVaultStateDeleted;
+FOUNDATION_EXTERN NSString * const kGTLRVaultStateDeleted;
 /** Value: "OPEN" */
-GTLR_EXTERN NSString * const kGTLRVaultStateOpen;
+FOUNDATION_EXTERN NSString * const kGTLRVaultStateOpen;
 /** Value: "STATE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRVaultStateStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVaultStateStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // view
 
 /** Value: "BASIC" */
-GTLR_EXTERN NSString * const kGTLRVaultViewBasic;
+FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasic;
 /** Value: "BASIC_HOLD" */
-GTLR_EXTERN NSString * const kGTLRVaultViewBasicHold;
+FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasicHold;
 /** Value: "FULL" */
-GTLR_EXTERN NSString * const kGTLRVaultViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRVaultViewFull;
 /** Value: "FULL_HOLD" */
-GTLR_EXTERN NSString * const kGTLRVaultViewFullHold;
+FOUNDATION_EXTERN NSString * const kGTLRVaultViewFullHold;
 /** Value: "HOLD_VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRVaultViewHoldViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVaultViewHoldViewUnspecified;
 /** Value: "VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

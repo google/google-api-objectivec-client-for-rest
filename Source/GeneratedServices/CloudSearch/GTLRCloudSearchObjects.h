@@ -157,69 +157,69 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_And;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_And;
 /**
  *  NOT can only be applied on a single sub filter.
  *
  *  Value: "NOT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not;
 /** Value: "OR" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Or;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_DriveFollowUpRestrict.type
 
 /** Value: "FOLLOWUP_ACTION_ITEMS" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupActionItems;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupActionItems;
 /** Value: "FOLLOWUP_SUGGESTIONS" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupSuggestions;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_FollowupSuggestions;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveFollowUpRestrict_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_DriveLocationRestrict.type
 
 /** Value: "STARRED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Starred;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Starred;
 /** Value: "TRASHED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Trashed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Trashed;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveLocationRestrict_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_DriveMimeTypeRestrict.type
 
 /** Value: "ARCHIVE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Archive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Archive;
 /** Value: "AUDIO" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Audio;
 /** Value: "DOCUMENT" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Document;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Document;
 /** Value: "DRAWING" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Drawing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Drawing;
 /** Value: "FOLDER" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Folder;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Folder;
 /** Value: "FORM" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Form;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Form;
 /** Value: "IMAGE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Image;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Image;
 /** Value: "MAP" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Map;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Map;
 /** Value: "PDF" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Pdf;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Pdf;
 /** Value: "PRESENTATION" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Presentation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Presentation;
 /** Value: "SCRIPT" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Script;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Script;
 /** Value: "SITE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Site;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Site;
 /** Value: "SPREADSHEET" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Spreadsheet;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Spreadsheet;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Unspecified;
 /** Value: "VIDEO" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Video;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_DriveTimeSpanRestrict.type
@@ -229,21 +229,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveMimeTypeRestrict_Type_Video;
  *
  *  Value: "LAST_30_DAYS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Last30Days;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Last30Days;
 /** Value: "LAST_7_DAYS" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Last7Days;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Last7Days;
 /**
  *  Not Enabled
  *
  *  Value: "LAST_90_DAYS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Last90Days;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Last90Days;
 /** Value: "TODAY" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Today;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Today;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Unspecified;
 /** Value: "YESTERDAY" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Yesterday;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Yesterday;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_EnumPropertyOptions.orderedRanking
@@ -254,21 +254,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Yesterd
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending;
 /**
  *  This property is ranked in descending order. Lower values indicate
  *  higher ranking.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending;
 /**
  *  There is no ranking order for the property. Results aren't adjusted
  *  by this property's value.
  *
  *  Value: "NO_ORDER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_IndexItemRequest.mode
@@ -279,20 +279,20 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking
  *
  *  Value: "ASYNCHRONOUS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous;
 /**
  *  For real-time updates.
  *
  *  Value: "SYNCHRONOUS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous;
 /**
  *  Priority is not specified in the update request.
  *  Leaving priority unspecified results in an update failure.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_IntegerPropertyOptions.orderedRanking
@@ -303,21 +303,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified;
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Ascending;
 /**
  *  This property is ranked in descending order. Lower values indicate
  *  higher ranking.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Descending;
 /**
  *  There is no ranking order for the property. Results are not adjusted
  *  by this property's value.
  *
  *  Value: "NO_ORDER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_NoOrder;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_NoOrder;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_Interaction.type
@@ -327,19 +327,19 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRank
  *
  *  Value: "EDIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_Edit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_Edit;
 /**
  *  Invalid value.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_Unspecified;
 /**
  *  This interaction indicates the user viewed the item.
  *
  *  Value: "VIEW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_View;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_View;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_Item.itemType
@@ -350,7 +350,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_View;
  *
  *  Value: "CONTAINER_ITEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContainerItem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContainerItem;
 /**
  *  An item that is indexed for the only purpose of serving information.
  *  These items cannot be referred in
@@ -360,16 +360,16 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContainerItem;
  *
  *  Value: "CONTENT_ITEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContentItem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContentItem;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_Unspecified;
 /**
  *  An item that does not get indexed, but otherwise has the same purpose
  *  as CONTAINER_ITEM.
  *
  *  Value: "VIRTUAL_CONTAINER_ITEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_VirtualContainerItem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_VirtualContainerItem;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_ItemAcl.aclInheritanceType
@@ -381,14 +381,14 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_VirtualContainerItem
  *
  *  Value: "BOTH_PERMIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_BothPermit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_BothPermit;
 /**
  *  During an authorization conflict, the ACL of the child item determines
  *  its read access.
  *
  *  Value: "CHILD_OVERRIDE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ChildOverride;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ChildOverride;
 /**
  *  The default value when this item does not inherit an ACL.
  *  Use NOT_APPLICABLE when
@@ -399,7 +399,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ChildOv
  *
  *  Value: "NOT_APPLICABLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_NotApplicable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_NotApplicable;
 /**
  *  During an authorization conflict, the ACL of the parent item
  *  specified in the
@@ -408,7 +408,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_NotAppl
  *
  *  Value: "PARENT_OVERRIDE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ParentOverride;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ParentOverride;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_ItemContent.contentFormat
@@ -418,25 +418,25 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ParentO
  *
  *  Value: "HTML"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Html;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Html;
 /**
  *  contentFormat is raw bytes.
  *
  *  Value: "RAW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Raw;
 /**
  *  contentFormat is free text.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Text;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Text;
 /**
  *  Invalid value.
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_ItemCountByStatus.statusCode
@@ -446,7 +446,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Unspecif
  *
  *  Value: "ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Accepted;
 /**
  *  Input-only value. Used with
  *  Items.list
@@ -454,7 +454,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Accep
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_CodeUnspecified;
 /**
  *  Error encountered by Cloud Search while processing this item.
  *  Details of the error are in
@@ -462,14 +462,14 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_CodeU
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Error;
 /**
  *  Item has been modified in the repository, and is out of date with
  *  the version previously accepted into Cloud Search.
  *
  *  Value: "MODIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Modified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Modified;
 /**
  *  Item is known to exist in the repository, but is not yet accepted by
  *  Cloud Search.
@@ -480,7 +480,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Modif
  *
  *  Value: "NEW_ITEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_NewItem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_NewItem;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_ItemStatus.code
@@ -490,7 +490,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_NewIt
  *
  *  Value: "ACCEPTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Accepted;
 /**
  *  Input-only value. Used with
  *  Items.list
@@ -498,7 +498,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Accepted;
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_CodeUnspecified;
 /**
  *  Error encountered by Cloud Search while processing this item.
  *  Details of the error are in
@@ -506,14 +506,14 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_CodeUnspecified;
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Error;
 /**
  *  Item has been modified in the repository, and is out of date with
  *  the version previously accepted into Cloud Search.
  *
  *  Value: "MODIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified;
 /**
  *  Item is known to exist in the repository, but is not yet accepted by
  *  Cloud Search.
@@ -524,21 +524,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified;
  *
  *  Value: "NEW_ITEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_PollItemsRequest.statusCodes
 
 /** Value: "ACCEPTED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Accepted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Accepted;
 /** Value: "CODE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_CodeUnspecified;
 /** Value: "ERROR" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Error;
 /** Value: "MODIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Modified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Modified;
 /** Value: "NEW_ITEM" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_NewItem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_NewItem;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_ProcessingError.code
@@ -548,33 +548,33 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_NewIt
  *
  *  Value: "ACL_CYCLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_AclCycle;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_AclCycle;
 /**
  *  Items with incomplete ACL information due to inheriting other
  *  items with broken ACL or having groups with unmapped descendants.
  *
  *  Value: "INDIRECT_BROKEN_ACL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_IndirectBrokenAcl;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_IndirectBrokenAcl;
 /**
  *  Item's ACL, metadata, or content is malformed or in invalid state.
  *  FieldViolations contains more details on where the problem is.
  *
  *  Value: "MALFORMED_REQUEST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_MalformedRequest;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_MalformedRequest;
 /**
  *  Input only value. Use this value in Items.
  *
  *  Value: "PROCESSING_ERROR_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_ProcessingErrorCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_ProcessingErrorCodeUnspecified;
 /**
  *  Countent format is unsupported.
  *
  *  Value: "UNSUPPORTED_CONTENT_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_UnsupportedContentFormat;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_UnsupportedContentFormat;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_PushItem.type
@@ -591,7 +591,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_UnsupportedCo
  *
  *  Value: "MODIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Modified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Modified;
 /**
  *  Item in the repository has not been modified since the last update
  *  call. This push operation will set status to
@@ -599,7 +599,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Modified;
  *
  *  Value: "NOT_MODIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_NotModified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_NotModified;
 /**
  *  Connector is facing a repository error regarding this item. Change
  *  status to
@@ -609,7 +609,7 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_NotModified;
  *
  *  Value: "REPOSITORY_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_RepositoryError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_RepositoryError;
 /**
  *  Call push with REQUEUE only for items that have been reserved.
  *  This action unreserves the item and resets its available time to the
@@ -617,14 +617,14 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_RepositoryError;
  *
  *  Value: "REQUEUE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Requeue;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Requeue;
 /**
  *  Default UNSPECIFIED. Specifies that the push operation should not modify
  *  ItemStatus
  *
  *  Value: "UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_QueryInterpretation.interpretationType
@@ -636,21 +636,21 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Unspecified;
  *
  *  Value: "BLEND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Blend;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Blend;
 /**
  *  Neither the natural language interpretation, nor a broader version of the
  *  query is used to fetch the search results.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_None;
 /**
  *  The results from original query are replaced. The reason for replacing
  *  the results from original query is populated in the 'Reason' field below.
  *
  *  Value: "REPLACE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_QueryInterpretation.reason
@@ -663,42 +663,42 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpretation
  *
  *  Value: "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery;
 /**
  *  Natural language interpretation of the query is used to fetch the search
  *  results.
  *
  *  Value: "QUERY_HAS_NATURAL_LANGUAGE_INTENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent;
 /** Value: "UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_QueryOperator.type
 
 /** Value: "BOOLEAN" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Boolean;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Boolean;
 /** Value: "DATE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Date;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Date;
 /** Value: "DOUBLE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Double;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Double;
 /** Value: "ENUM" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Enum;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Enum;
 /** Value: "HTML" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Html;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Html;
 /** Value: "INTEGER" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Integer;
 /** Value: "TEXT" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Text;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Text;
 /** Value: "TIMESTAMP" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Timestamp;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Timestamp;
 /**
  *  Invalid value.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_RepositoryError.type
@@ -708,62 +708,62 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown;
  *
  *  Value: "AUTHENTICATION_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthenticationError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthenticationError;
 /**
  *  Service account is not authorized for the repository.
  *
  *  Value: "AUTHORIZATION_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthorizationError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthorizationError;
 /**
  *  Client-related error, such as an invalid request from the connector to
  *  the repository server.
  *
  *  Value: "CLIENT_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ClientError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ClientError;
 /**
  *  Cannot connect to the repository server.
  *
  *  Value: "CONNECTION_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ConnectionError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ConnectionError;
 /**
  *  DNS problem, such as the DNS server is not responding.
  *
  *  Value: "DNS_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_DnsError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_DnsError;
 /**
  *  Unknown or unreachable host.
  *
  *  Value: "NETWORK_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_NetworkError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_NetworkError;
 /**
  *  Quota exceeded.
  *
  *  Value: "QUOTA_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_QuotaExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_QuotaExceeded;
 /**
  *  Repository server error.
  *
  *  Value: "SERVER_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ServerError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ServerError;
 /**
  *  Server temporarily unavailable.
  *
  *  Value: "SERVICE_UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ServiceUnavailable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_ServiceUnavailable;
 /**
  *  Unknown error.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_RetrievalImportance.importance
@@ -773,25 +773,25 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Unknown;
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Default;
 /**
  *  Treat the match with higher importance than body text.
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_High;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_High;
 /**
  *  Treat the match like a match against title of the item.
  *
  *  Value: "HIGHEST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Highest;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Highest;
 /**
  *  Treat the match with lower importance than body text.
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low;
 /**
  *  Do not match against this field during retrieval. The property can still
  *  be used for operator matching, faceting, and suggest if
@@ -799,57 +799,57 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_SortOptions.sortOrder
 
 /** Value: "ASCENDING" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Ascending;
 /** Value: "DESCENDING" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Descending;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_Source.predefinedSource
 
 /** Value: "GOOGLE_CALENDAR" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleCalendar;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleCalendar;
 /** Value: "GOOGLE_DRIVE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleDrive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleDrive;
 /** Value: "GOOGLE_GMAIL" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleGmail;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleGmail;
 /** Value: "GOOGLE_GROUPS" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleGroups;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleGroups;
 /** Value: "GOOGLE_KEEP" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleKeep;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleKeep;
 /** Value: "GOOGLE_SITES" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleSites;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_GoogleSites;
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_None;
 /**
  *  Suggests people in the organization. Only valid when used
  *  with the suggest API. Results in an error when used in the query API.
  *
  *  Value: "PERSON"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_Person;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_Person;
 /**
  *  Suggests queries issued by the user in the past. Only valid when used
  *  with the suggest API. Ignored when used in the query API.
  *
  *  Value: "QUERY_HISTORY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_QueryHistory;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_QueryHistory;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_SourceScoringConfig.sourceImportance
 
 /** Value: "DEFAULT" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Default;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Default;
 /** Value: "HIGH" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_High;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_High;
 /** Value: "LOW" */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Low;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportance_Low;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
@@ -860,40 +860,40 @@ GTLR_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceImportan
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_CodeUnspecified;
 /**
  *  IDaaS does not understand the identity source, probably because the
  *  schema was modified in a non compatible way.
  *
  *  Value: "IDENTITY_SOURCE_MISCONFIGURED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceMisconfigured;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceMisconfigured;
 /**
  *  The identity source associated with the identity was either not found or
  *  deleted.
  *
  *  Value: "IDENTITY_SOURCE_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceNotFound;
 /**
  *  Internal error.
  *
  *  Value: "INTERNAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_InternalError;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_InternalError;
 /**
  *  The unmapped identity was not found in IDaaS, and needs to be provided by
  *  the user.
  *
  *  Value: "NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound;
 /**
  *  The number of users associated with the external identity is too large.
  *
  *  Value: "TOO_MANY_MAPPINGS_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound;
 
 /**
  *  Used to provide a search operator for boolean properties. This is

@@ -285,32 +285,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Cancelled;
 /**
  *  The request is done and no item has been successfully processed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Failed;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Processing;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_StateUnspecified;
 /**
  *  The request is done and at least one item has been successfully
  *  processed.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_Block.blockType
@@ -320,37 +320,37 @@ GTLR_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Successful
  *
  *  Value: "BARCODE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Barcode;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Barcode;
 /**
  *  Image block.
  *
  *  Value: "PICTURE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Picture;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Picture;
 /**
  *  Horizontal/vertical line box.
  *
  *  Value: "RULER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Ruler;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Ruler;
 /**
  *  Table block.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Table;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Table;
 /**
  *  Regular text block.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Text;
 /**
  *  Unknown block type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_DetectedBreak.type
@@ -360,38 +360,38 @@ GTLR_EXTERN NSString * const kGTLRVision_Block_BlockType_Unknown;
  *
  *  Value: "EOL_SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_EolSureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_EolSureSpace;
 /**
  *  End-line hyphen that is not present in text; does not co-occur with
  *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Hyphen;
+FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Hyphen;
 /**
  *  Line break that ends a paragraph.
  *
  *  Value: "LINE_BREAK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_LineBreak;
+FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_LineBreak;
 /**
  *  Regular space.
  *
  *  Value: "SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Space;
+FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Space;
 /**
  *  Sure space (very wide).
  *
  *  Value: "SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_SureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_SureSpace;
 /**
  *  Unknown break label type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.angerLikelihood
@@ -401,37 +401,37 @@ GTLR_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_Unknown;
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.blurredLikelihood
@@ -441,37 +441,37 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_AngerLikelihood_VeryUnli
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.headwearLikelihood
@@ -481,37 +481,37 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_BlurredLikelihood_VeryUn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.joyLikelihood
@@ -521,37 +521,37 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_HeadwearLikelihood_VeryU
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.sorrowLikelihood
@@ -561,37 +561,37 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_JoyLikelihood_VeryUnlike
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.surpriseLikelihood
@@ -601,37 +601,37 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SorrowLikelihood_VeryUnl
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_FaceAnnotation.underExposedLikelihood
@@ -641,37 +641,37 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_SurpriseLikelihood_VeryU
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_Feature.type
@@ -681,64 +681,64 @@ GTLR_EXTERN NSString * const kGTLRVision_FaceAnnotation_UnderExposedLikelihood_V
  *
  *  Value: "CROP_HINTS"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_CropHints;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_CropHints;
 /**
  *  Run dense text document OCR. Takes precedence when both
  *  `DOCUMENT_TEXT_DETECTION` and `TEXT_DETECTION` are present.
  *
  *  Value: "DOCUMENT_TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_DocumentTextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_DocumentTextDetection;
 /**
  *  Run face detection.
  *
  *  Value: "FACE_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_FaceDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_FaceDetection;
 /**
  *  Compute a set of image properties, such as the
  *  image's dominant colors.
  *
  *  Value: "IMAGE_PROPERTIES"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_ImageProperties;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_ImageProperties;
 /**
  *  Run label detection.
  *
  *  Value: "LABEL_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LabelDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_LabelDetection;
 /**
  *  Run landmark detection.
  *
  *  Value: "LANDMARK_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LandmarkDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_LandmarkDetection;
 /**
  *  Run logo detection.
  *
  *  Value: "LOGO_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_LogoDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_LogoDetection;
 /**
  *  Run localizer for object detection.
  *
  *  Value: "OBJECT_LOCALIZATION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_ObjectLocalization;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_ObjectLocalization;
 /**
  *  Run Product Search.
  *
  *  Value: "PRODUCT_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_ProductSearch;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_ProductSearch;
 /**
  *  Run Safe Search to detect potentially unsafe
  *  or undesirable content.
  *
  *  Value: "SAFE_SEARCH_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_SafeSearchDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_SafeSearchDetection;
 /**
  *  Run text detection / optical character recognition (OCR). Text detection
  *  is optimized for areas of text within a larger image; if the image is
@@ -746,19 +746,19 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_SafeSearchDetection;
  *
  *  Value: "TEXT_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_TextDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_TextDetection;
 /**
  *  Unspecified feature type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_TypeUnspecified;
 /**
  *  Run web detection.
  *
  *  Value: "WEB_DETECTION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_WebDetection;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_WebDetection;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1Block.blockType
@@ -768,37 +768,37 @@ GTLR_EXTERN NSString * const kGTLRVision_Feature_Type_WebDetection;
  *
  *  Value: "BARCODE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Barcode;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Barcode;
 /**
  *  Image block.
  *
  *  Value: "PICTURE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Picture;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Picture;
 /**
  *  Horizontal/vertical line box.
  *
  *  Value: "RULER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Ruler;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Ruler;
 /**
  *  Table block.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Table;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Table;
 /**
  *  Regular text block.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Text;
 /**
  *  Unknown block type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.angerLikelihood
@@ -808,37 +808,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1Block_BlockTy
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.blurredLikelihood
@@ -848,37 +848,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.headwearLikelihood
@@ -888,37 +888,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.joyLikelihood
@@ -928,37 +928,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.sorrowLikelihood
@@ -968,37 +968,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.surpriseLikelihood
@@ -1008,37 +1008,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation.underExposedLikelihood
@@ -1048,37 +1048,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark.type
@@ -1088,211 +1088,211 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "CHIN_GNATHION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinGnathion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinGnathion;
 /**
  *  Chin left gonion.
  *
  *  Value: "CHIN_LEFT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
 /**
  *  Chin right gonion.
  *
  *  Value: "CHIN_RIGHT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinRightGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinRightGonion;
 /**
  *  Forehead glabella.
  *
  *  Value: "FOREHEAD_GLABELLA"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEarTragion;
 /**
  *  Left eye.
  *
  *  Value: "LEFT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEye;
 /**
  *  Left eye, bottom boundary.
  *
  *  Value: "LEFT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
 /**
  *  Left eyebrow, upper midpoint.
  *
  *  Value: "LEFT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
 /**
  *  Left eye, left corner.
  *
  *  Value: "LEFT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
 /**
  *  Left eye pupil.
  *
  *  Value: "LEFT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyePupil;
 /**
  *  Left eye, right corner.
  *
  *  Value: "LEFT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
 /**
  *  Left eye, top boundary.
  *
  *  Value: "LEFT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
 /**
  *  Left of left eyebrow.
  *
  *  Value: "LEFT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
 /**
  *  Left of right eyebrow.
  *
  *  Value: "LEFT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
 /**
  *  Lower lip.
  *
  *  Value: "LOWER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LowerLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LowerLip;
 /**
  *  Midpoint between eyes.
  *
  *  Value: "MIDPOINT_BETWEEN_EYES"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
 /**
  *  Mouth center.
  *
  *  Value: "MOUTH_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MouthCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MouthCenter;
 /**
  *  Mouth left.
  *
  *  Value: "MOUTH_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MouthLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MouthLeft;
 /**
  *  Mouth right.
  *
  *  Value: "MOUTH_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MouthRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_MouthRight;
 /**
  *  Nose, bottom center.
  *
  *  Value: "NOSE_BOTTOM_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
 /**
  *  Nose, bottom left.
  *
  *  Value: "NOSE_BOTTOM_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
 /**
  *  Nose, bottom right.
  *
  *  Value: "NOSE_BOTTOM_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomRight;
 /**
  *  Nose tip.
  *
  *  Value: "NOSE_TIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseTip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseTip;
 /**
  *  Right ear tragion.
  *
  *  Value: "RIGHT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEarTragion;
 /**
  *  Right eye.
  *
  *  Value: "RIGHT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEye;
 /**
  *  Right eye, bottom boundary.
  *
  *  Value: "RIGHT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
 /**
  *  Right eyebrow, upper midpoint.
  *
  *  Value: "RIGHT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
 /**
  *  Right eye, left corner.
  *
  *  Value: "RIGHT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
 /**
  *  Right eye pupil.
  *
  *  Value: "RIGHT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyePupil;
 /**
  *  Right eye, right corner.
  *
  *  Value: "RIGHT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
 /**
  *  Right eye, top boundary.
  *
  *  Value: "RIGHT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
 /**
  *  Right of left eyebrow.
  *
  *  Value: "RIGHT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
 /**
  *  Right of right eyebrow.
  *
  *  Value: "RIGHT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
 /**
  *  Unknown face landmark detected. Should not be filled.
  *
  *  Value: "UNKNOWN_LANDMARK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_UnknownLandmark;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_UnknownLandmark;
 /**
  *  Upper lip.
  *
  *  Value: "UPPER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_UpperLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_UpperLip;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata.state
@@ -1302,31 +1302,31 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotatio
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Cancelled;
 /**
  *  Request is received.
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Created;
 /**
  *  The batch processing is done.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Done;
 /**
  *  Request is actively being processed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_Running;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation.adult
@@ -1336,37 +1336,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1OperationMeta
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation.medical
@@ -1376,37 +1376,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Medical_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation.racy
@@ -1416,37 +1416,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation.spoof
@@ -1456,37 +1456,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation.violence
@@ -1496,37 +1496,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Violence_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak.type
@@ -1536,38 +1536,38 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnn
  *
  *  Value: "EOL_SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
  *  End-line hyphen that is not present in text; does not co-occur with
  *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_Hyphen;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_Hyphen;
 /**
  *  Line break that ends a paragraph.
  *
  *  Value: "LINE_BREAK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_LineBreak;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_LineBreak;
 /**
  *  Regular space.
  *
  *  Value: "SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_Space;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_Space;
 /**
  *  Sure space (very wide).
  *
  *  Value: "SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_SureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_SureSpace;
 /**
  *  Unknown break label type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1Block.blockType
@@ -1577,37 +1577,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotatio
  *
  *  Value: "BARCODE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Barcode;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Barcode;
 /**
  *  Image block.
  *
  *  Value: "PICTURE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Picture;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Picture;
 /**
  *  Horizontal/vertical line box.
  *
  *  Value: "RULER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Ruler;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Ruler;
 /**
  *  Table block.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Table;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Table;
 /**
  *  Regular text block.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Text;
 /**
  *  Unknown block type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.angerLikelihood
@@ -1617,37 +1617,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1Block_BlockTy
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.blurredLikelihood
@@ -1657,37 +1657,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.headwearLikelihood
@@ -1697,37 +1697,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.joyLikelihood
@@ -1737,37 +1737,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.sorrowLikelihood
@@ -1777,37 +1777,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.surpriseLikelihood
@@ -1817,37 +1817,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation.underExposedLikelihood
@@ -1857,37 +1857,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark.type
@@ -1897,211 +1897,211 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "CHIN_GNATHION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinGnathion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinGnathion;
 /**
  *  Chin left gonion.
  *
  *  Value: "CHIN_LEFT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
 /**
  *  Chin right gonion.
  *
  *  Value: "CHIN_RIGHT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinRightGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinRightGonion;
 /**
  *  Forehead glabella.
  *
  *  Value: "FOREHEAD_GLABELLA"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEarTragion;
 /**
  *  Left eye.
  *
  *  Value: "LEFT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEye;
 /**
  *  Left eye, bottom boundary.
  *
  *  Value: "LEFT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
 /**
  *  Left eyebrow, upper midpoint.
  *
  *  Value: "LEFT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
 /**
  *  Left eye, left corner.
  *
  *  Value: "LEFT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
 /**
  *  Left eye pupil.
  *
  *  Value: "LEFT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyePupil;
 /**
  *  Left eye, right corner.
  *
  *  Value: "LEFT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
 /**
  *  Left eye, top boundary.
  *
  *  Value: "LEFT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
 /**
  *  Left of left eyebrow.
  *
  *  Value: "LEFT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
 /**
  *  Left of right eyebrow.
  *
  *  Value: "LEFT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
 /**
  *  Lower lip.
  *
  *  Value: "LOWER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LowerLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LowerLip;
 /**
  *  Midpoint between eyes.
  *
  *  Value: "MIDPOINT_BETWEEN_EYES"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
 /**
  *  Mouth center.
  *
  *  Value: "MOUTH_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MouthCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MouthCenter;
 /**
  *  Mouth left.
  *
  *  Value: "MOUTH_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MouthLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MouthLeft;
 /**
  *  Mouth right.
  *
  *  Value: "MOUTH_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MouthRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_MouthRight;
 /**
  *  Nose, bottom center.
  *
  *  Value: "NOSE_BOTTOM_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
 /**
  *  Nose, bottom left.
  *
  *  Value: "NOSE_BOTTOM_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
 /**
  *  Nose, bottom right.
  *
  *  Value: "NOSE_BOTTOM_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomRight;
 /**
  *  Nose tip.
  *
  *  Value: "NOSE_TIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseTip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseTip;
 /**
  *  Right ear tragion.
  *
  *  Value: "RIGHT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEarTragion;
 /**
  *  Right eye.
  *
  *  Value: "RIGHT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEye;
 /**
  *  Right eye, bottom boundary.
  *
  *  Value: "RIGHT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
 /**
  *  Right eyebrow, upper midpoint.
  *
  *  Value: "RIGHT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
 /**
  *  Right eye, left corner.
  *
  *  Value: "RIGHT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
 /**
  *  Right eye pupil.
  *
  *  Value: "RIGHT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyePupil;
 /**
  *  Right eye, right corner.
  *
  *  Value: "RIGHT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
 /**
  *  Right eye, top boundary.
  *
  *  Value: "RIGHT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
 /**
  *  Right of left eyebrow.
  *
  *  Value: "RIGHT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
 /**
  *  Right of right eyebrow.
  *
  *  Value: "RIGHT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
 /**
  *  Unknown face landmark detected. Should not be filled.
  *
  *  Value: "UNKNOWN_LANDMARK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_UnknownLandmark;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_UnknownLandmark;
 /**
  *  Upper lip.
  *
  *  Value: "UPPER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_UpperLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_UpperLip;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata.state
@@ -2111,31 +2111,31 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotatio
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Cancelled;
 /**
  *  Request is received.
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Created;
 /**
  *  The batch processing is done.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Done;
 /**
  *  Request is actively being processed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_Running;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation.adult
@@ -2145,37 +2145,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1OperationMeta
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation.medical
@@ -2185,37 +2185,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Medical_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation.racy
@@ -2225,37 +2225,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation.spoof
@@ -2265,37 +2265,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation.violence
@@ -2305,37 +2305,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Violence_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak.type
@@ -2345,38 +2345,38 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnn
  *
  *  Value: "EOL_SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
  *  End-line hyphen that is not present in text; does not co-occur with
  *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Hyphen;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Hyphen;
 /**
  *  Line break that ends a paragraph.
  *
  *  Value: "LINE_BREAK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_LineBreak;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_LineBreak;
 /**
  *  Regular space.
  *
  *  Value: "SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Space;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Space;
 /**
  *  Sure space (very wide).
  *
  *  Value: "SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_SureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_SureSpace;
 /**
  *  Unknown break label type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata.state
@@ -2388,32 +2388,32 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotatio
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Cancelled;
 /**
  *  The request is done and no item has been successfully processed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Failed;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Processing;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_StateUnspecified;
 /**
  *  The request is done and at least one item has been successfully
  *  processed.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1Block.blockType
@@ -2423,37 +2423,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperatio
  *
  *  Value: "BARCODE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Barcode;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Barcode;
 /**
  *  Image block.
  *
  *  Value: "PICTURE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Picture;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Picture;
 /**
  *  Horizontal/vertical line box.
  *
  *  Value: "RULER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Ruler;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Ruler;
 /**
  *  Table block.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Table;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Table;
 /**
  *  Regular text block.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Text;
 /**
  *  Unknown block type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.angerLikelihood
@@ -2463,37 +2463,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1Block_BlockTy
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.blurredLikelihood
@@ -2503,37 +2503,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.headwearLikelihood
@@ -2543,37 +2543,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.joyLikelihood
@@ -2583,37 +2583,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.sorrowLikelihood
@@ -2623,37 +2623,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.surpriseLikelihood
@@ -2663,37 +2663,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation.underExposedLikelihood
@@ -2703,37 +2703,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark.type
@@ -2743,211 +2743,211 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "CHIN_GNATHION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinGnathion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinGnathion;
 /**
  *  Chin left gonion.
  *
  *  Value: "CHIN_LEFT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
 /**
  *  Chin right gonion.
  *
  *  Value: "CHIN_RIGHT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinRightGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinRightGonion;
 /**
  *  Forehead glabella.
  *
  *  Value: "FOREHEAD_GLABELLA"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEarTragion;
 /**
  *  Left eye.
  *
  *  Value: "LEFT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEye;
 /**
  *  Left eye, bottom boundary.
  *
  *  Value: "LEFT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
 /**
  *  Left eyebrow, upper midpoint.
  *
  *  Value: "LEFT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
 /**
  *  Left eye, left corner.
  *
  *  Value: "LEFT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
 /**
  *  Left eye pupil.
  *
  *  Value: "LEFT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyePupil;
 /**
  *  Left eye, right corner.
  *
  *  Value: "LEFT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
 /**
  *  Left eye, top boundary.
  *
  *  Value: "LEFT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
 /**
  *  Left of left eyebrow.
  *
  *  Value: "LEFT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
 /**
  *  Left of right eyebrow.
  *
  *  Value: "LEFT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
 /**
  *  Lower lip.
  *
  *  Value: "LOWER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LowerLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LowerLip;
 /**
  *  Midpoint between eyes.
  *
  *  Value: "MIDPOINT_BETWEEN_EYES"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
 /**
  *  Mouth center.
  *
  *  Value: "MOUTH_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MouthCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MouthCenter;
 /**
  *  Mouth left.
  *
  *  Value: "MOUTH_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MouthLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MouthLeft;
 /**
  *  Mouth right.
  *
  *  Value: "MOUTH_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MouthRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_MouthRight;
 /**
  *  Nose, bottom center.
  *
  *  Value: "NOSE_BOTTOM_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
 /**
  *  Nose, bottom left.
  *
  *  Value: "NOSE_BOTTOM_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
 /**
  *  Nose, bottom right.
  *
  *  Value: "NOSE_BOTTOM_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomRight;
 /**
  *  Nose tip.
  *
  *  Value: "NOSE_TIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseTip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseTip;
 /**
  *  Right ear tragion.
  *
  *  Value: "RIGHT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEarTragion;
 /**
  *  Right eye.
  *
  *  Value: "RIGHT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEye;
 /**
  *  Right eye, bottom boundary.
  *
  *  Value: "RIGHT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
 /**
  *  Right eyebrow, upper midpoint.
  *
  *  Value: "RIGHT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
 /**
  *  Right eye, left corner.
  *
  *  Value: "RIGHT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
 /**
  *  Right eye pupil.
  *
  *  Value: "RIGHT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyePupil;
 /**
  *  Right eye, right corner.
  *
  *  Value: "RIGHT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
 /**
  *  Right eye, top boundary.
  *
  *  Value: "RIGHT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
 /**
  *  Right of left eyebrow.
  *
  *  Value: "RIGHT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
 /**
  *  Right of right eyebrow.
  *
  *  Value: "RIGHT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
 /**
  *  Unknown face landmark detected. Should not be filled.
  *
  *  Value: "UNKNOWN_LANDMARK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_UnknownLandmark;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_UnknownLandmark;
 /**
  *  Upper lip.
  *
  *  Value: "UPPER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_UpperLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_UpperLip;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata.state
@@ -2957,31 +2957,31 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotatio
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Cancelled;
 /**
  *  Request is received.
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Created;
 /**
  *  The batch processing is done.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Done;
 /**
  *  Request is actively being processed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_Running;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation.adult
@@ -2991,37 +2991,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1OperationMeta
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation.medical
@@ -3031,37 +3031,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Medical_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation.racy
@@ -3071,37 +3071,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation.spoof
@@ -3111,37 +3111,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation.violence
@@ -3151,37 +3151,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Violence_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak.type
@@ -3191,38 +3191,38 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnn
  *
  *  Value: "EOL_SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
  *  End-line hyphen that is not present in text; does not co-occur with
  *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Hyphen;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Hyphen;
 /**
  *  Line break that ends a paragraph.
  *
  *  Value: "LINE_BREAK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_LineBreak;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_LineBreak;
 /**
  *  Regular space.
  *
  *  Value: "SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Space;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Space;
 /**
  *  Sure space (very wide).
  *
  *  Value: "SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_SureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_SureSpace;
 /**
  *  Unknown break label type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata.state
@@ -3234,32 +3234,32 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotatio
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Cancelled;
 /**
  *  The request is done and no item has been successfully processed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Failed;
 /**
  *  Request is actively being processed.
  *
  *  Value: "PROCESSING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Processing;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Processing;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_StateUnspecified;
 /**
  *  The request is done and at least one item has been successfully
  *  processed.
  *
  *  Value: "SUCCESSFUL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Successful;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1Block.blockType
@@ -3269,37 +3269,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperatio
  *
  *  Value: "BARCODE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Barcode;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Barcode;
 /**
  *  Image block.
  *
  *  Value: "PICTURE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Picture;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Picture;
 /**
  *  Horizontal/vertical line box.
  *
  *  Value: "RULER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Ruler;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Ruler;
 /**
  *  Table block.
  *
  *  Value: "TABLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Table;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Table;
 /**
  *  Regular text block.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Text;
 /**
  *  Unknown block type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.angerLikelihood
@@ -3309,37 +3309,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1Block_BlockTy
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_AngerLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.blurredLikelihood
@@ -3349,37 +3349,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_BlurredLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.headwearLikelihood
@@ -3389,37 +3389,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_HeadwearLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.joyLikelihood
@@ -3429,37 +3429,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_JoyLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.sorrowLikelihood
@@ -3469,37 +3469,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SorrowLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.surpriseLikelihood
@@ -3509,37 +3509,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_SurpriseLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation.underExposedLikelihood
@@ -3549,37 +3549,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotation_UnderExposedLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark.type
@@ -3589,211 +3589,211 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "CHIN_GNATHION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinGnathion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinGnathion;
 /**
  *  Chin left gonion.
  *
  *  Value: "CHIN_LEFT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinLeftGonion;
 /**
  *  Chin right gonion.
  *
  *  Value: "CHIN_RIGHT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinRightGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinRightGonion;
 /**
  *  Forehead glabella.
  *
  *  Value: "FOREHEAD_GLABELLA"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEarTragion;
 /**
  *  Left eye.
  *
  *  Value: "LEFT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEye;
 /**
  *  Left eye, bottom boundary.
  *
  *  Value: "LEFT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary;
 /**
  *  Left eyebrow, upper midpoint.
  *
  *  Value: "LEFT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyebrowUpperMidpoint;
 /**
  *  Left eye, left corner.
  *
  *  Value: "LEFT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeLeftCorner;
 /**
  *  Left eye pupil.
  *
  *  Value: "LEFT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyePupil;
 /**
  *  Left eye, right corner.
  *
  *  Value: "LEFT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeRightCorner;
 /**
  *  Left eye, top boundary.
  *
  *  Value: "LEFT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeTopBoundary;
 /**
  *  Left of left eyebrow.
  *
  *  Value: "LEFT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfLeftEyebrow;
 /**
  *  Left of right eyebrow.
  *
  *  Value: "LEFT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftOfRightEyebrow;
 /**
  *  Lower lip.
  *
  *  Value: "LOWER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LowerLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LowerLip;
 /**
  *  Midpoint between eyes.
  *
  *  Value: "MIDPOINT_BETWEEN_EYES"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MidpointBetweenEyes;
 /**
  *  Mouth center.
  *
  *  Value: "MOUTH_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthCenter;
 /**
  *  Mouth left.
  *
  *  Value: "MOUTH_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthLeft;
 /**
  *  Mouth right.
  *
  *  Value: "MOUTH_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_MouthRight;
 /**
  *  Nose, bottom center.
  *
  *  Value: "NOSE_BOTTOM_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomCenter;
 /**
  *  Nose, bottom left.
  *
  *  Value: "NOSE_BOTTOM_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomLeft;
 /**
  *  Nose, bottom right.
  *
  *  Value: "NOSE_BOTTOM_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomRight;
 /**
  *  Nose tip.
  *
  *  Value: "NOSE_TIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip;
 /**
  *  Right ear tragion.
  *
  *  Value: "RIGHT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEarTragion;
 /**
  *  Right eye.
  *
  *  Value: "RIGHT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEye;
 /**
  *  Right eye, bottom boundary.
  *
  *  Value: "RIGHT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary;
 /**
  *  Right eyebrow, upper midpoint.
  *
  *  Value: "RIGHT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyebrowUpperMidpoint;
 /**
  *  Right eye, left corner.
  *
  *  Value: "RIGHT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeLeftCorner;
 /**
  *  Right eye pupil.
  *
  *  Value: "RIGHT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyePupil;
 /**
  *  Right eye, right corner.
  *
  *  Value: "RIGHT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeRightCorner;
 /**
  *  Right eye, top boundary.
  *
  *  Value: "RIGHT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeTopBoundary;
 /**
  *  Right of left eyebrow.
  *
  *  Value: "RIGHT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfLeftEyebrow;
 /**
  *  Right of right eyebrow.
  *
  *  Value: "RIGHT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightOfRightEyebrow;
 /**
  *  Unknown face landmark detected. Should not be filled.
  *
  *  Value: "UNKNOWN_LANDMARK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UnknownLandmark;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UnknownLandmark;
 /**
  *  Upper lip.
  *
  *  Value: "UPPER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UpperLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_UpperLip;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata.state
@@ -3803,31 +3803,31 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotatio
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Cancelled;
 /**
  *  Request is received.
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Created;
 /**
  *  The batch processing is done.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Done;
 /**
  *  Request is actively being processed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_Running;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.adult
@@ -3837,37 +3837,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1OperationMeta
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.medical
@@ -3877,37 +3877,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Medical_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.racy
@@ -3917,37 +3917,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.spoof
@@ -3957,37 +3957,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation.violence
@@ -3997,37 +3997,37 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnn
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Violence_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak.type
@@ -4037,38 +4037,38 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnn
  *
  *  Value: "EOL_SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
  *  End-line hyphen that is not present in text; does not co-occur with
  *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Hyphen;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Hyphen;
 /**
  *  Line break that ends a paragraph.
  *
  *  Value: "LINE_BREAK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_LineBreak;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_LineBreak;
 /**
  *  Regular space.
  *
  *  Value: "SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Space;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Space;
 /**
  *  Sure space (very wide).
  *
  *  Value: "SURE_SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_SureSpace;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_SureSpace;
 /**
  *  Unknown break label type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_Landmark.type
@@ -4078,211 +4078,211 @@ GTLR_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotatio
  *
  *  Value: "CHIN_GNATHION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinGnathion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinGnathion;
 /**
  *  Chin left gonion.
  *
  *  Value: "CHIN_LEFT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinLeftGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinLeftGonion;
 /**
  *  Chin right gonion.
  *
  *  Value: "CHIN_RIGHT_GONION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinRightGonion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinRightGonion;
 /**
  *  Forehead glabella.
  *
  *  Value: "FOREHEAD_GLABELLA"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_ForeheadGlabella;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_ForeheadGlabella;
 /**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEarTragion;
 /**
  *  Left eye.
  *
  *  Value: "LEFT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEye;
 /**
  *  Left eye, bottom boundary.
  *
  *  Value: "LEFT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeBottomBoundary;
 /**
  *  Left eyebrow, upper midpoint.
  *
  *  Value: "LEFT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyebrowUpperMidpoint;
 /**
  *  Left eye, left corner.
  *
  *  Value: "LEFT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeLeftCorner;
 /**
  *  Left eye pupil.
  *
  *  Value: "LEFT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyePupil;
 /**
  *  Left eye, right corner.
  *
  *  Value: "LEFT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeRightCorner;
 /**
  *  Left eye, top boundary.
  *
  *  Value: "LEFT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftEyeTopBoundary;
 /**
  *  Left of left eyebrow.
  *
  *  Value: "LEFT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftOfLeftEyebrow;
 /**
  *  Left of right eyebrow.
  *
  *  Value: "LEFT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftOfRightEyebrow;
 /**
  *  Lower lip.
  *
  *  Value: "LOWER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_LowerLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LowerLip;
 /**
  *  Midpoint between eyes.
  *
  *  Value: "MIDPOINT_BETWEEN_EYES"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_MidpointBetweenEyes;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_MidpointBetweenEyes;
 /**
  *  Mouth center.
  *
  *  Value: "MOUTH_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_MouthCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_MouthCenter;
 /**
  *  Mouth left.
  *
  *  Value: "MOUTH_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_MouthLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_MouthLeft;
 /**
  *  Mouth right.
  *
  *  Value: "MOUTH_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_MouthRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_MouthRight;
 /**
  *  Nose, bottom center.
  *
  *  Value: "NOSE_BOTTOM_CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomCenter;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomCenter;
 /**
  *  Nose, bottom left.
  *
  *  Value: "NOSE_BOTTOM_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomLeft;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomLeft;
 /**
  *  Nose, bottom right.
  *
  *  Value: "NOSE_BOTTOM_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomRight;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomRight;
 /**
  *  Nose tip.
  *
  *  Value: "NOSE_TIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseTip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseTip;
 /**
  *  Right ear tragion.
  *
  *  Value: "RIGHT_EAR_TRAGION"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEarTragion;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEarTragion;
 /**
  *  Right eye.
  *
  *  Value: "RIGHT_EYE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEye;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEye;
 /**
  *  Right eye, bottom boundary.
  *
  *  Value: "RIGHT_EYE_BOTTOM_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeBottomBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeBottomBoundary;
 /**
  *  Right eyebrow, upper midpoint.
  *
  *  Value: "RIGHT_EYEBROW_UPPER_MIDPOINT"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyebrowUpperMidpoint;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyebrowUpperMidpoint;
 /**
  *  Right eye, left corner.
  *
  *  Value: "RIGHT_EYE_LEFT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeLeftCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeLeftCorner;
 /**
  *  Right eye pupil.
  *
  *  Value: "RIGHT_EYE_PUPIL"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyePupil;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyePupil;
 /**
  *  Right eye, right corner.
  *
  *  Value: "RIGHT_EYE_RIGHT_CORNER"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeRightCorner;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeRightCorner;
 /**
  *  Right eye, top boundary.
  *
  *  Value: "RIGHT_EYE_TOP_BOUNDARY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeTopBoundary;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightEyeTopBoundary;
 /**
  *  Right of left eyebrow.
  *
  *  Value: "RIGHT_OF_LEFT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightOfLeftEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightOfLeftEyebrow;
 /**
  *  Right of right eyebrow.
  *
  *  Value: "RIGHT_OF_RIGHT_EYEBROW"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_RightOfRightEyebrow;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightOfRightEyebrow;
 /**
  *  Unknown face landmark detected. Should not be filled.
  *
  *  Value: "UNKNOWN_LANDMARK"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_UnknownLandmark;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_UnknownLandmark;
 /**
  *  Upper lip.
  *
  *  Value: "UPPER_LIP"
  */
-GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_UpperLip;
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_UpperLip;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_OperationMetadata.state
@@ -4292,31 +4292,31 @@ GTLR_EXTERN NSString * const kGTLRVision_Landmark_Type_UpperLip;
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Cancelled;
 /**
  *  Request is received.
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Created;
+FOUNDATION_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Created;
 /**
  *  The batch processing is done.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Done;
 /**
  *  Request is actively being processed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRVision_OperationMetadata_State_Running;
 /**
  *  Invalid.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVision_OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_SafeSearchAnnotation.adult
@@ -4326,37 +4326,37 @@ GTLR_EXTERN NSString * const kGTLRVision_OperationMetadata_State_StateUnspecifie
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_SafeSearchAnnotation.medical
@@ -4366,37 +4366,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Adult_VeryUnlikely
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_SafeSearchAnnotation.racy
@@ -4406,37 +4406,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Medical_VeryUnlike
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_SafeSearchAnnotation.spoof
@@ -4446,37 +4446,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Racy_VeryUnlikely;
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRVision_SafeSearchAnnotation.violence
@@ -4486,37 +4486,37 @@ GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Spoof_VeryUnlikely
  *
  *  Value: "LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Likely;
 /**
  *  It is possible.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Possible;
 /**
  *  Unknown likelihood.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Unknown;
 /**
  *  It is unlikely.
  *
  *  Value: "UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Unlikely;
 /**
  *  It is very likely.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryLikely;
 /**
  *  It is very unlikely.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely;
 
 /**
  *  Request message for the `AddProductToProductSet` method.

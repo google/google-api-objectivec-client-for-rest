@@ -76,21 +76,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "EXCLUDE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_Exclude;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_Exclude;
 /**
  *  Asset Discovery will capture only the resources within the projects
  *  specified. All other resources will be ignored.
  *
  *  Value: "INCLUDE_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_IncludeOnly;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_IncludeOnly;
 /**
  *  Unspecified. Setting the mode with this value will disable
  *  inclusion/exclusion filtering for Asset Discovery.
  *
  *  Value: "INCLUSION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_InclusionModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_InclusionModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_AuditLogConfig.logType
@@ -100,25 +100,25 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_Inc
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.state
@@ -128,20 +128,20 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_L
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Active;
 /**
  *  The finding has been fixed, triaged as a non-issue or otherwise addressed
  *  and is no longer active.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Inactive;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse.state
@@ -151,26 +151,26 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspe
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Completed;
 /**
  *  Asset discovery run state was unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_StateUnspecified;
 /**
  *  Asset discovery run was cancelled with tasks still pending, as another
  *  run for the same organization was started with a higher priority.
  *
  *  Value: "SUPERSEDED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded;
 /**
  *  Asset discovery run was killed and terminated.
  *
  *  Value: "TERMINATED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.state
@@ -180,20 +180,20 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycente
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Active;
 /**
  *  The finding has been fixed, triaged as a non-issue or otherwise addressed
  *  and is no longer active.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Inactive;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse.state
@@ -203,26 +203,26 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycente
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Completed;
 /**
  *  Asset discovery run state was unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_StateUnspecified;
 /**
  *  Asset discovery run was cancelled with tasks still pending, as another
  *  run for the same organization was started with a higher priority.
  *
  *  Value: "SUPERSEDED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded;
 /**
  *  Asset discovery run was killed and terminated.
  *
  *  Value: "TERMINATED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset.changeType
@@ -232,25 +232,25 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycente
  *
  *  Value: "CHANGE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified;
 /**
  *  Newly created Asset
  *
  *  Value: "CREATED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created;
 /**
  *  Asset was deleted.
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted;
 /**
  *  Asset was updated.
  *
  *  Value: "UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
@@ -260,26 +260,26 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycente
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed;
 /**
  *  Asset discovery run state was unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified;
 /**
  *  Asset discovery run was cancelled with tasks still pending, as another
  *  run for the same organization was started with a higher priority.
  *
  *  Value: "SUPERSEDED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Superseded;
 /**
  *  Asset discovery run was killed and terminated.
  *
  *  Value: "TERMINATED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Terminated;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_ListAssetsResult.stateChange
@@ -289,25 +289,25 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycente
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Active;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Active;
 /**
  *  Asset was added between the points in time.
  *
  *  Value: "ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Added;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Added;
 /**
  *  Asset was removed between the points in time.
  *
  *  Value: "REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Removed;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Removed;
 /**
  *  State change is unused, this is the canonical default for this enum.
  *
  *  Value: "UNUSED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Unused;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateChange_Unused;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_ListFindingsResult.stateChange
@@ -317,34 +317,34 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListAssetsResult_StateCh
  *
  *  Value: "ADDED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Added;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Added;
 /**
  *  The finding has changed state in some way between the points in time
  *  and existed at both points.
  *
  *  Value: "CHANGED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Changed;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Changed;
 /**
  *  The finding at timestamp does not match the filter specified, but it
  *  did at timestamp - compare_duration.
  *
  *  Value: "REMOVED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Removed;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Removed;
 /**
  *  The finding has not changed state between the points in time and
  *  existed at both points.
  *
  *  Value: "UNCHANGED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unchanged;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unchanged;
 /**
  *  State change is unused, this is the canonical default for this enum.
  *
  *  Value: "UNUSED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unused;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unused;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_SetFindingStateRequest.state
@@ -354,20 +354,20 @@ GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_State
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Active;
 /**
  *  The finding has been fixed, triaged as a non-issue or otherwise addressed
  *  and is no longer active.
  *
  *  Value: "INACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Inactive;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Inactive;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUnspecified;
 
 /**
  *  Security Command Center representation of a Google Cloud

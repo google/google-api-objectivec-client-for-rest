@@ -182,25 +182,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "API_VERSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified;
 /**
  *  Legacy V1 API.
  *
  *  Value: "API_VERSION_V1"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1;
 /**
  *  V2 API.
  *
  *  Value: "API_VERSION_V2"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2;
 /**
  *  V2beta1 API.
  *
  *  Value: "API_VERSION_V2_BETA_1"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2Beta1;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV2Beta1;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.matchMode
@@ -211,20 +211,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVer
  *
  *  Value: "MATCH_MODE_HYBRID"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeHybrid;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeHybrid;
 /**
  *  Can be used for agents with a large number of examples in intents,
  *  especially the ones using \@sys.any or very large custom entities.
  *
  *  Value: "MATCH_MODE_ML_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeMlOnly;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeMlOnly;
 /**
  *  Not specified.
  *
  *  Value: "MATCH_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchMode_MatchModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.tier
@@ -234,25 +234,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_MatchM
  *
  *  Value: "TIER_ENTERPRISE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprise;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprise;
 /**
  *  Enterprise tier (Plus).
  *
  *  Value: "TIER_ENTERPRISE_PLUS"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprisePlus;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierEnterprisePlus;
 /**
  *  Standard tier.
  *
  *  Value: "TIER_STANDARD"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierStandard;
 /**
  *  Not specified. This value should never be used.
  *
  *  Value: "TIER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_TierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest.intentView
@@ -262,13 +262,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_Tier_T
  *
  *  Value: "INTENT_VIEW_FULL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewFull;
 /**
  *  Training phrases field is not populated in the response.
  *
  *  Value: "INTENT_VIEW_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateIntentsRequest_IntentView_IntentViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
@@ -279,13 +279,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateI
  *
  *  Value: "AUTO_EXPANSION_MODE_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeDefault;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeDefault;
 /**
  *  Auto expansion disabled for the entity.
  *
  *  Value: "AUTO_EXPANSION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.kind
@@ -297,53 +297,53 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityT
  *
  *  Value: "KIND_LIST"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList;
 /**
  *  Map entity types allow mapping of a group of synonyms to a reference
  *  value.
  *
  *  Value: "KIND_MAP"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap;
 /**
  *  Regexp entity types allow to specify regular expressions in entries
  *  values.
  *
  *  Value: "KIND_REGEXP"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp;
 /**
  *  Not specified. This value should be never used.
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
 
 /** Value: "ACTIONS_ON_GOOGLE" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle;
 /** Value: "FACEBOOK" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Facebook;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Facebook;
 /** Value: "GOOGLE_HANGOUTS" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_GoogleHangouts;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_GoogleHangouts;
 /** Value: "KIK" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Kik;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Kik;
 /** Value: "LINE" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Line;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Line;
 /** Value: "PLATFORM_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_PlatformUnspecified;
 /** Value: "SKYPE" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Skype;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Skype;
 /** Value: "SLACK" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Slack;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Slack;
 /** Value: "TELEGRAM" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telegram;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telegram;
 /** Value: "TELEPHONY" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telephony;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telephony;
 /** Value: "VIBER" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Viber;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Viber;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.webhookState
@@ -353,20 +353,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_
  *
  *  Value: "WEBHOOK_STATE_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateEnabled;
 /**
  *  Webhook is enabled in the agent and in the intent. Also, each slot
  *  filling prompt is forwarded to the webhook.
  *
  *  Value: "WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateEnabledForSlotFilling;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateEnabledForSlotFilling;
 /**
  *  Webhook is disabled in the agent and in the intent.
  *
  *  Value: "WEBHOOK_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage.platform
@@ -378,67 +378,67 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_
  *
  *  Value: "ACTIONS_ON_GOOGLE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_ActionsOnGoogle;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_ActionsOnGoogle;
 /**
  *  Facebook.
  *
  *  Value: "FACEBOOK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook;
 /**
  *  Google Hangouts.
  *
  *  Value: "GOOGLE_HANGOUTS"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_GoogleHangouts;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_GoogleHangouts;
 /**
  *  Kik.
  *
  *  Value: "KIK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Kik;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Kik;
 /**
  *  Line.
  *
  *  Value: "LINE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Line;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Line;
 /**
  *  Not specified.
  *
  *  Value: "PLATFORM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_PlatformUnspecified;
 /**
  *  Skype.
  *
  *  Value: "SKYPE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Skype;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Skype;
 /**
  *  Slack.
  *
  *  Value: "SLACK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Slack;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Slack;
 /**
  *  Telegram.
  *
  *  Value: "TELEGRAM"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telegram;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telegram;
 /**
  *  Telephony Gateway.
  *
  *  Value: "TELEPHONY"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telephony;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Telephony;
 /**
  *  Viber.
  *
  *  Value: "VIBER"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Viber;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard.imageDisplayOptions
@@ -449,7 +449,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "BLURRED_BACKGROUND"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
 /**
  *  Image is scaled such that the image width and height match or exceed
  *  the container dimensions. This may crop the top and bottom of the
@@ -460,28 +460,28 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "CROPPED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
 /**
  *  Fill the gaps between the image and the image container with gray
  *  bars.
  *
  *  Value: "GRAY"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
 /**
  *  Fill the gaps between the image and the image container with gray
  *  bars.
  *
  *  Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
 /**
  *  Fill the gaps between the image and the image container with white
  *  bars.
  *
  *  Value: "WHITE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_White;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_White;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction.urlTypeHint
@@ -491,20 +491,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "AMP_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
 /**
  *  URL that points directly to AMP content, or to a canonical URL
  *  which refers to AMP content via <link rel="amphtml">.
  *
  *  Value: "AMP_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent;
 /**
  *  Unspecified
  *
  *  Value: "URL_TYPE_HINT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties.horizontalAlignment
@@ -514,25 +514,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Center;
 /**
  *  Text is aligned to the leading edge of the column.
  *
  *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified;
 /**
  *  Text is aligned to the leading edge of the column.
  *
  *  Value: "LEADING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Leading;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Leading;
 /**
  *  Text is aligned to the trailing edge of the column.
  *
  *  Value: "TRAILING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Trailing;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageColumnProperties_HorizontalAlignment_Trailing;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent.mediaType
@@ -542,13 +542,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "AUDIO"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_Audio;
 /**
  *  Unspecified.
  *
  *  Value: "RESPONSE_MEDIA_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia.height
@@ -558,26 +558,26 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "HEIGHT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_HeightUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_HeightUnspecified;
 /**
  *  168 DP.
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Medium;
 /**
  *  112 DP.
  *
  *  Value: "SHORT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Short;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Short;
 /**
  *  264 DP. Not available for rich card carousels when the card width
  *  is set to small.
  *
  *  Value: "TALL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Tall;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Tall;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard.cardWidth
@@ -587,19 +587,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "CARD_WIDTH_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_CardWidthUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_CardWidthUnspecified;
 /**
  *  232 DP.
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Medium;
 /**
  *  120 DP. Note that tall media cannot be used.
  *
  *  Value: "SMALL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Small;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard_CardWidth_Small;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard.cardOrientation
@@ -609,19 +609,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "CARD_ORIENTATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_CardOrientationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_CardOrientationUnspecified;
 /**
  *  Horizontal layout.
  *
  *  Value: "HORIZONTAL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Horizontal;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Horizontal;
 /**
  *  Vertical layout.
  *
  *  Value: "VERTICAL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Vertical;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_CardOrientation_Vertical;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard.thumbnailImageAlignment
@@ -631,19 +631,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Left;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Left;
 /**
  *  Thumbnail preview is right-aligned.
  *
  *  Value: "RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Right;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Right;
 /**
  *  Not specified.
  *
  *  Value: "THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_ThumbnailImageAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_ThumbnailImageAlignmentUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase.type
@@ -654,7 +654,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentM
  *
  *  Value: "EXAMPLE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Example;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Example;
 /**
  *  Templates are not annotated with entity types, but they can contain
  *  \@-prefixed entity type names as substrings.
@@ -665,13 +665,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentT
  *
  *  Value: "TEMPLATE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template;
 /**
  *  Not specified. This value should never be used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer.matchConfidenceLevel
@@ -681,25 +681,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentT
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_High;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_High;
 /**
  *  Indicates that the confidence is low.
  *
  *  Value: "LOW"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Low;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Low;
 /**
  *  Not specified.
  *
  *  Value: "MATCH_CONFIDENCE_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_MatchConfidenceLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_MatchConfidenceLevelUnspecified;
 /**
  *  Indicates our confidence is medium.
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Medium;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata.state
@@ -709,25 +709,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Knowled
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done;
 /**
  *  The operation has been created.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Pending;
 /**
  *  The operation is currently running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Running;
 /**
  *  State unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType.entityOverrideMode
@@ -738,7 +738,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Knowled
  *
  *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
 /**
  *  The collection of session entities extends the collection of entities in
  *  the corresponding custom entity type.
@@ -751,13 +751,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Session
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement;
 /**
  *  Not specified. This value should be never used.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent.type
@@ -768,21 +768,21 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Session
  *
  *  Value: "CONVERSATION_FINISHED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished;
 /**
  *  A new conversation has been opened. This is fired when a telephone call
  *  is answered, or a conversation is created via the API.
  *
  *  Value: "CONVERSATION_STARTED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted;
 /**
  *  An existing conversation has received notification from Dialogflow that
  *  human intervention is required.
  *
  *  Value: "HUMAN_INTERVENTION_NEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_HumanInterventionNeeded;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_HumanInterventionNeeded;
 /**
  *  An existing conversation has received a new message, either from API or
  *  telephony. It is configured in
@@ -790,13 +790,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conversation
  *
  *  Value: "NEW_MESSAGE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage;
 /**
  *  Type not set.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified;
 /**
  *  Unrecoverable error during a telephone call.
  *  In general non-recoverable errors only occur if something was
@@ -808,7 +808,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conversation
  *
  *  Value: "UNRECOVERABLE_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
@@ -819,13 +819,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conversation
  *
  *  Value: "AUTO_EXPANSION_MODE_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeDefault;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeDefault;
 /**
  *  Auto expansion disabled for the entity.
  *
  *  Value: "AUTO_EXPANSION_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.kind
@@ -837,27 +837,27 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_A
  *
  *  Value: "KIND_LIST"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList;
 /**
  *  Map entity types allow mapping of a group of synonyms to a reference
  *  value.
  *
  *  Value: "KIND_MAP"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap;
 /**
  *  Regexp entity types allow to specify regular expressions in entries
  *  values.
  *
  *  Value: "KIND_REGEXP"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp;
 /**
  *  Not specified. This value should be never used.
  *
  *  Value: "KIND_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Environment.state
@@ -867,25 +867,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_K
  *
  *  Value: "LOADING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Loading;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Loading;
 /**
  *  Running.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Running;
 /**
  *  Not specified. This value is not used.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_StateUnspecified;
 /**
  *  Stopped.
  *
  *  Value: "STOPPED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Stopped;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Stopped;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature.type
@@ -895,13 +895,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Environment_
  *
  *  Value: "SMALLTALK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_Smalltalk;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_Smalltalk;
 /**
  *  Feature type not specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentFeature_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.audioEncoding
@@ -911,13 +911,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2FulfillmentF
  *
  *  Value: "AUDIO_ENCODING_AMR"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingAmr;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingAmr;
 /**
  *  Adaptive Multi-Rate Wideband codec. `sample_rate_hertz` must be 16000.
  *
  *  Value: "AUDIO_ENCODING_AMR_WB"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingAmrWb;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingAmrWb;
 /**
  *  [`FLAC`](https://xiph.org/flac/documentation.html) (Free Lossless Audio
  *  Codec) is the recommended encoding because it is lossless (therefore
@@ -927,19 +927,19 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "AUDIO_ENCODING_FLAC"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingFlac;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingFlac;
 /**
  *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
  *
  *  Value: "AUDIO_ENCODING_LINEAR_16"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingLinear16;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingLinear16;
 /**
  *  8-bit samples that compand 14-bit audio samples using G.711 PCMU/mu-law.
  *
  *  Value: "AUDIO_ENCODING_MULAW"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingMulaw;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingMulaw;
 /**
  *  Opus encoded audio frames in Ogg container
  *  ([OggOpus](https://wiki.xiph.org/OggOpus)).
@@ -947,7 +947,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "AUDIO_ENCODING_OGG_OPUS"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingOggOpus;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingOggOpus;
 /**
  *  Although the use of lossy encodings is not recommended, if a very low
  *  bitrate encoding is required, `OGG_OPUS` is highly preferred over
@@ -965,13 +965,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingSpeexWithHeaderByte;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingSpeexWithHeaderByte;
 /**
  *  Not specified.
  *
  *  Value: "AUDIO_ENCODING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig.modelVariant
@@ -982,7 +982,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "SPEECH_MODEL_VARIANT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified;
 /**
  *  Use the best available variant of the Speech
  *  model that the caller is eligible for.
@@ -992,7 +992,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "USE_BEST_AVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable;
 /**
  *  Use an enhanced model variant:
  *  * If an enhanced variant does not exist for the given
@@ -1008,7 +1008,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "USE_ENHANCED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced;
 /**
  *  Use standard model variant even if an enhanced model is available. See the
  *  [Cloud Speech
@@ -1017,31 +1017,31 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioCo
  *
  *  Value: "USE_STANDARD"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Intent.defaultResponsePlatforms
 
 /** Value: "ACTIONS_ON_GOOGLE" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_ActionsOnGoogle;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_ActionsOnGoogle;
 /** Value: "FACEBOOK" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Facebook;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Facebook;
 /** Value: "GOOGLE_HANGOUTS" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_GoogleHangouts;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_GoogleHangouts;
 /** Value: "KIK" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Kik;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Kik;
 /** Value: "LINE" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Line;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Line;
 /** Value: "PLATFORM_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_PlatformUnspecified;
 /** Value: "SKYPE" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Skype;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Skype;
 /** Value: "SLACK" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Slack;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Slack;
 /** Value: "TELEGRAM" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Telegram;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Telegram;
 /** Value: "VIBER" */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Viber;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Viber;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Intent.webhookState
@@ -1051,20 +1051,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_Defau
  *
  *  Value: "WEBHOOK_STATE_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateEnabled;
 /**
  *  Webhook is enabled in the agent and in the intent. Also, each slot
  *  filling prompt is forwarded to the webhook.
  *
  *  Value: "WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateEnabledForSlotFilling;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateEnabledForSlotFilling;
 /**
  *  Webhook is disabled in the agent and in the intent.
  *
  *  Value: "WEBHOOK_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage.platform
@@ -1076,61 +1076,61 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_Webho
  *
  *  Value: "ACTIONS_ON_GOOGLE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_ActionsOnGoogle;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_ActionsOnGoogle;
 /**
  *  Facebook.
  *
  *  Value: "FACEBOOK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook;
 /**
  *  Google Hangouts.
  *
  *  Value: "GOOGLE_HANGOUTS"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_GoogleHangouts;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_GoogleHangouts;
 /**
  *  Kik.
  *
  *  Value: "KIK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Kik;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Kik;
 /**
  *  Line.
  *
  *  Value: "LINE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Line;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Line;
 /**
  *  Default platform.
  *
  *  Value: "PLATFORM_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_PlatformUnspecified;
 /**
  *  Skype.
  *
  *  Value: "SKYPE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Skype;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Skype;
 /**
  *  Slack.
  *
  *  Value: "SLACK"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Slack;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Slack;
 /**
  *  Telegram.
  *
  *  Value: "TELEGRAM"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Telegram;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Telegram;
 /**
  *  Viber.
  *
  *  Value: "VIBER"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Viber;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Viber;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard.imageDisplayOptions
@@ -1141,7 +1141,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *
  *  Value: "BLURRED_BACKGROUND"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
 /**
  *  Image is scaled such that the image width and height match or exceed
  *  the container dimensions. This may crop the top and bottom of the
@@ -1152,28 +1152,28 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *
  *  Value: "CROPPED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
 /**
  *  Fill the gaps between the image and the image container with gray
  *  bars.
  *
  *  Value: "GRAY"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
 /**
  *  Fill the gaps between the image and the image container with gray
  *  bars.
  *
  *  Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
 /**
  *  Fill the gaps between the image and the image container with white
  *  bars.
  *
  *  Value: "WHITE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_White;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_White;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction.urlTypeHint
@@ -1183,20 +1183,20 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *
  *  Value: "AMP_ACTION"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
 /**
  *  URL that points directly to AMP content, or to a canonical URL
  *  which refers to AMP content via <link rel="amphtml">.
  *
  *  Value: "AMP_CONTENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent;
 /**
  *  Unspecified
  *
  *  Value: "URL_TYPE_HINT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties.horizontalAlignment
@@ -1206,25 +1206,25 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Center;
 /**
  *  Text is aligned to the leading edge of the column.
  *
  *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_HorizontalAlignmentUnspecified;
 /**
  *  Text is aligned to the leading edge of the column.
  *
  *  Value: "LEADING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Leading;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Leading;
 /**
  *  Text is aligned to the trailing edge of the column.
  *
  *  Value: "TRAILING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Trailing;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageColumnProperties_HorizontalAlignment_Trailing;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent.mediaType
@@ -1234,13 +1234,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *
  *  Value: "AUDIO"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_Audio;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_Audio;
 /**
  *  Unspecified.
  *
  *  Value: "RESPONSE_MEDIA_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaContent_MediaType_ResponseMediaTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase.type
@@ -1251,7 +1251,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessag
  *
  *  Value: "EXAMPLE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Example;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Example;
 /**
  *  Templates are not annotated with entity types, but they can contain
  *  \@-prefixed entity type names as substrings.
@@ -1262,13 +1262,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
  *
  *  Value: "TEMPLATE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template;
 /**
  *  Not specified. This value should never be used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Message.participantRole
@@ -1278,26 +1278,26 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTraini
  *
  *  Value: "AUTOMATED_AGENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_AutomatedAgent;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_AutomatedAgent;
 /**
  *  Participant is an end user that has called or chatted with
  *  Dialogflow services.
  *
  *  Value: "END_USER"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_EndUser;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_EndUser;
 /**
  *  Participant is a human agent.
  *
  *  Value: "HUMAN_AGENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_HumanAgent;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_HumanAgent;
 /**
  *  Participant role not set.
  *
  *  Value: "ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_RoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_RoleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
@@ -1308,13 +1308,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_Part
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_LINEAR_16"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16;
 /**
  *  MP3 audio at 32kbps.
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_MP3"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3;
 /**
  *  Opus encoded audio wrapped in an ogg container. The result will be a
  *  file which can be played natively on Android, and in browsers (at least
@@ -1323,13 +1323,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioC
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_OGG_OPUS"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus;
 /**
  *  Not specified.
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.entityOverrideMode
@@ -1340,7 +1340,7 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioC
  *
  *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
 /**
  *  The collection of session entities extends the collection of entities in
  *  the corresponding custom entity type.
@@ -1353,13 +1353,13 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement;
 /**
  *  Not specified. This value should be never used.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2ValidationError.severity
@@ -1369,31 +1369,31 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntit
  *
  *  Value: "CRITICAL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Critical;
 /**
  *  The agent may experience partial failures.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Error;
 /**
  *  The agent doesn't follow Dialogflow best practicies.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Info;
 /**
  *  Not specified. This value should never be used.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_SeverityUnspecified;
 /**
  *  The agent may not behave as expected.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationError_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams.ssmlGender
@@ -1403,26 +1403,26 @@ GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ValidationEr
  *
  *  Value: "SSML_VOICE_GENDER_FEMALE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale;
 /**
  *  A male voice.
  *
  *  Value: "SSML_VOICE_GENDER_MALE"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderMale;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderMale;
 /**
  *  A gender-neutral voice.
  *
  *  Value: "SSML_VOICE_GENDER_NEUTRAL"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral;
 /**
  *  An unspecified gender, which means that the client doesn't care which
  *  gender the selected voice will have.
  *
  *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
 
 /**
  *  Represents a conversational agent.

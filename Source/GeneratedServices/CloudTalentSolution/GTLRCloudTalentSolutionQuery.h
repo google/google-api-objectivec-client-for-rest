@@ -41,37 +41,37 @@ NS_ASSUME_NONNULL_BEGIN
 // jobView
 
 /** Value: "JOB_VIEW_FULL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewFull;
 /** Value: "JOB_VIEW_ID_ONLY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewIdOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewIdOnly;
 /** Value: "JOB_VIEW_MINIMAL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewMinimal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewMinimal;
 /** Value: "JOB_VIEW_SMALL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewSmall;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewSmall;
 /** Value: "JOB_VIEW_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // scope
 
 /** Value: "COMPLETION_SCOPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionScopeCompletionScopeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionScopeCompletionScopeUnspecified;
 /** Value: "PUBLIC" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionScopePublic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionScopePublic;
 /** Value: "TENANT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionScopeTenant;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionScopeTenant;
 
 // ----------------------------------------------------------------------------
 // type
 
 /** Value: "COMBINED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCombined;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCombined;
 /** Value: "COMPANY_NAME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCompanyName;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCompanyName;
 /** Value: "COMPLETION_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCompletionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCompletionTypeUnspecified;
 /** Value: "JOB_TITLE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 
 // ----------------------------------------------------------------------------
 // Query Classes

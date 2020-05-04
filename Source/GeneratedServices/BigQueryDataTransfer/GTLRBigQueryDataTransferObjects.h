@@ -54,13 +54,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "AUTHORIZATION_CODE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationCode;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationCode;
 /**
  *  Type unspecified.
  *
  *  Value: "AUTHORIZATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified;
 /**
  *  Use First Party OAuth based on Loas Owned Clients. First Party OAuth
  *  doesn't require a refresh token to get an offline access token. Instead,
@@ -68,14 +68,14 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationT
  *
  *  Value: "FIRST_PARTY_OAUTH"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth;
 /**
  *  Return an authorization code for a given Google+ page that can then be
  *  exchanged for a refresh token on the backend.
  *
  *  Value: "GOOGLE_PLUS_AUTHORIZATION_CODE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_DataSource.dataRefreshType
@@ -87,13 +87,13 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationT
  *
  *  Value: "CUSTOM_SLIDING_WINDOW"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_CustomSlidingWindow;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_CustomSlidingWindow;
 /**
  *  The data source won't support data auto refresh, which is default value.
  *
  *  Value: "DATA_REFRESH_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_DataRefreshTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_DataRefreshTypeUnspecified;
 /**
  *  The data source supports data auto refresh, and runs will be scheduled
  *  for the past few days. Does not allow custom values to be set for each
@@ -101,7 +101,7 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshTyp
  *
  *  Value: "SLIDING_WINDOW"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_SlidingWindow;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_SlidingWindow;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_DataSource.transferType
@@ -111,20 +111,20 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshTyp
  *
  *  Value: "BATCH"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_Batch;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_Batch;
 /**
  *  Streaming data transfer. Streaming data source currently doesn't
  *  support multiple transfer configs per project.
  *
  *  Value: "STREAMING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_Streaming;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_Streaming;
 /**
  *  Invalid or Unknown transfer type placeholder.
  *
  *  Value: "TRANSFER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_TransferTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_TransferTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_DataSourceParameter.type
@@ -134,44 +134,44 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_T
  *
  *  Value: "BOOLEAN"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Boolean;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Boolean;
 /**
  *  Double precision floating point parameter.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Double;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Double;
 /**
  *  Integer parameter (64-bits).
  *  Will be serialized to json as string.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Integer;
 /**
  *  Page ID for a Google+ Page.
  *
  *  Value: "PLUS_PAGE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage;
 /**
  *  Deprecated. This field has no effect.
  *
  *  Value: "RECORD"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record;
 /**
  *  String parameter.
  *
  *  Value: "STRING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_String;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_String;
 /**
  *  Type unspecified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_TransferConfig.state
@@ -181,38 +181,38 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled;
 /**
  *  Data transfer failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by
  *  data transfer backend.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pending;
 /**
  *  Data transfer is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running;
 /**
  *  Data transfer completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded;
 /**
  *  State placeholder.
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_TransferMessage.severity
@@ -222,25 +222,25 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Tran
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Error;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Error;
 /**
  *  Informational message.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Info;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Info;
 /**
  *  No severity specified.
  *
  *  Value: "MESSAGE_SEVERITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_MessageSeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_MessageSeverityUnspecified;
 /**
  *  Warning message.
  *
  *  Value: "WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Warning;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_TransferRun.state
@@ -250,38 +250,38 @@ GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled;
 /**
  *  Data transfer failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by
  *  data transfer backend.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending;
 /**
  *  Data transfer is in progress.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running;
 /**
  *  Data transfer completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded;
 /**
  *  State placeholder.
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified;
 
 /**
  *  A request to determine whether the user has valid credentials. This method

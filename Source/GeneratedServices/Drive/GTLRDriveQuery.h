@@ -46,13 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "domain"
  */
-GTLR_EXTERN NSString * const kGTLRDriveCorpusDomain;
+FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusDomain;
 /**
  *  Files owned by or shared to the user.
  *
  *  Value: "user"
  */
-GTLR_EXTERN NSString * const kGTLRDriveCorpusUser;
+FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 // ----------------------------------------------------------------------------
 // Query Classes

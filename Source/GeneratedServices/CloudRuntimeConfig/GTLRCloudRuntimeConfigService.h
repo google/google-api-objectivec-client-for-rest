@@ -37,14 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudRuntimeConfigCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRuntimeConfigCloudPlatform;
 /**
  *  Authorization scope: Manage your Google Cloud Platform services' runtime
  *  configuration
  *
  *  Value "https://www.googleapis.com/auth/cloudruntimeconfig"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeCloudRuntimeConfigCloudruntimeconfig;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRuntimeConfigCloudruntimeconfig;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudRuntimeConfigService

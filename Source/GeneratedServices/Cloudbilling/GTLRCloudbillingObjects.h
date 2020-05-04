@@ -50,21 +50,21 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudbilling_AggregationInfo.aggregationInterval
 
 /** Value: "AGGREGATION_INTERVAL_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_AggregationIntervalUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_AggregationIntervalUnspecified;
 /** Value: "DAILY" */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_Daily;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_Daily;
 /** Value: "MONTHLY" */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationInterval_Monthly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudbilling_AggregationInfo.aggregationLevel
 
 /** Value: "ACCOUNT" */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Account;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Account;
 /** Value: "AGGREGATION_LEVEL_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_AggregationLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_AggregationLevelUnspecified;
 /** Value: "PROJECT" */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_Project;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudbilling_AuditLogConfig.logType
@@ -74,25 +74,25 @@ GTLR_EXTERN NSString * const kGTLRCloudbilling_AggregationInfo_AggregationLevel_
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified;
 
 /**
  *  Represents the aggregation level and interval for pricing of a single SKU.

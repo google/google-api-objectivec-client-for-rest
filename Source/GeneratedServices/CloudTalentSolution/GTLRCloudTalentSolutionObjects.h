@@ -86,20 +86,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "COMMUTE_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified;
 /**
  *  Commute time is calculated based on driving time.
  *
  *  Value: "DRIVING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving;
 /**
  *  Commute time is calculated based on public transit including bus, metro,
  *  subway, etc.
  *
  *  Value: "TRANSIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CommuteFilter.roadTraffic
@@ -109,19 +109,19 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMetho
  *
  *  Value: "BUSY_HOUR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_BusyHour;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_BusyHour;
 /**
  *  Road traffic situation is not specified.
  *
  *  Value: "ROAD_TRAFFIC_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_RoadTrafficUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_RoadTrafficUnspecified;
 /**
  *  Optimal commute time without considering any traffic impact.
  *
  *  Value: "TRAFFIC_FREE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_TrafficFree;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_TrafficFree;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Company.size
@@ -131,49 +131,49 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_
  *
  *  Value: "BIG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Big;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Big;
 /**
  *  The company has between 5,000 and 9,999 employees.
  *
  *  Value: "BIGGER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Bigger;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Bigger;
 /**
  *  Default value if the size is not specified.
  *
  *  Value: "COMPANY_SIZE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_CompanySizeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_CompanySizeUnspecified;
 /**
  *  The company has 10,000 or more employees.
  *
  *  Value: "GIANT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Giant;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Giant;
 /**
  *  The company has between 500 and 999 employees.
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Medium;
 /**
  *  The company has less than 50 employees.
  *
  *  Value: "MINI"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Mini;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Mini;
 /**
  *  The company has between 50 and 99 employees.
  *
  *  Value: "SMALL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Small;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Small;
 /**
  *  The company has between 100 and 499 employees.
  *
  *  Value: "SMEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Smedium;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Smedium;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompensationEntry.type
@@ -186,55 +186,55 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Smedium;
  *
  *  Value: "BASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Base;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Base;
 /**
  *  Bonus.
  *
  *  Value: "BONUS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Bonus;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Bonus;
 /**
  *  Commission.
  *
  *  Value: "COMMISSIONS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Commissions;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Commissions;
 /**
  *  Default value.
  *
  *  Value: "COMPENSATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_CompensationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_CompensationTypeUnspecified;
 /**
  *  Equity.
  *
  *  Value: "EQUITY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Equity;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Equity;
 /**
  *  Other compensation type.
  *
  *  Value: "OTHER_COMPENSATION_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_OtherCompensationType;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_OtherCompensationType;
 /**
  *  Profit sharing.
  *
  *  Value: "PROFIT_SHARING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_ProfitSharing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_ProfitSharing;
 /**
  *  Signing bonus.
  *
  *  Value: "SIGNING_BONUS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_SigningBonus;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_SigningBonus;
 /**
  *  Tips.
  *
  *  Value: "TIPS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Tips;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Tips;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompensationEntry.unit
@@ -244,49 +244,49 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Type_Tip
  *
  *  Value: "COMPENSATION_UNIT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_CompensationUnitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_CompensationUnitUnspecified;
 /**
  *  Daily.
  *
  *  Value: "DAILY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Daily;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Daily;
 /**
  *  Hourly.
  *
  *  Value: "HOURLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Hourly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Hourly;
 /**
  *  Monthly.
  *
  *  Value: "MONTHLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Monthly;
 /**
  *  One time.
  *
  *  Value: "ONE_TIME"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_OneTime;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_OneTime;
 /**
  *  Other compensation units.
  *
  *  Value: "OTHER_COMPENSATION_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_OtherCompensationUnit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_OtherCompensationUnit;
 /**
  *  Weekly
  *
  *  Value: "WEEKLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Weekly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Weekly;
 /**
  *  Yearly.
  *
  *  Value: "YEARLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Yearly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompensationFilter.type
@@ -297,20 +297,20 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationEntry_Unit_Yea
  *
  *  Value: "ANNUALIZED_BASE_AMOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedBaseAmount;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedBaseAmount;
 /**
  *  Filter by annualized total compensation amount and `base compensation
  *  entry's` unit . Populate range and zero or more units.
  *
  *  Value: "ANNUALIZED_TOTAL_AMOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedTotalAmount;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedTotalAmount;
 /**
  *  Filter type unspecified. Position holder, INVALID, should never be used.
  *
  *  Value: "FILTER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_FilterTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_FilterTypeUnspecified;
 /**
  *  Filter by `base compensation entry's` unit and amount / range. A job
  *  is a match if and only if the job contains a base CompensationEntry, and
@@ -322,7 +322,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_Fi
  *
  *  Value: "UNIT_AND_AMOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_UnitAndAmount;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_UnitAndAmount;
 /**
  *  Filter by `base compensation entry's` unit. A job is a match if and
  *  only if the job contains a base CompensationEntry and the base
@@ -333,27 +333,27 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_Un
  *
  *  Value: "UNIT_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_UnitOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Type_UnitOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompensationFilter.units
 
 /** Value: "COMPENSATION_UNIT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_CompensationUnitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_CompensationUnitUnspecified;
 /** Value: "DAILY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Daily;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Daily;
 /** Value: "HOURLY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Hourly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Hourly;
 /** Value: "MONTHLY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Monthly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Monthly;
 /** Value: "ONE_TIME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_OneTime;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_OneTime;
 /** Value: "OTHER_COMPENSATION_UNIT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_OtherCompensationUnit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_OtherCompensationUnit;
 /** Value: "WEEKLY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Weekly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Weekly;
 /** Value: "YEARLY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Yearly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompensationHistogramRequest.type
@@ -364,27 +364,27 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Y
  *
  *  Value: "ANNUALIZED_BASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedBase;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedBase;
 /**
  *  Histogram by job's annualized total compensation. See CompensationEntry
  *  for definition of annualized total compensation.
  *
  *  Value: "ANNUALIZED_TOTAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedTotal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedTotal;
 /**
  *  Histogram by job's base compensation. See CompensationEntry for
  *  definition of base compensation.
  *
  *  Value: "BASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_Base;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_Base;
 /**
  *  Default value. Invalid.
  *
  *  Value: "COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_CompensationHistogramRequestTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_CompensationHistogramRequestTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompensationHistogramResult.type
@@ -395,27 +395,27 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramReque
  *
  *  Value: "ANNUALIZED_BASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedBase;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedBase;
 /**
  *  Histogram by job's annualized total compensation. See CompensationEntry
  *  for definition of annualized total compensation.
  *
  *  Value: "ANNUALIZED_TOTAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedTotal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedTotal;
 /**
  *  Histogram by job's base compensation. See CompensationEntry for
  *  definition of base compensation.
  *
  *  Value: "BASE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_Base;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_Base;
 /**
  *  Default value. Invalid.
  *
  *  Value: "COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_CompensationHistogramRequestTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_CompensationHistogramRequestTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompletionResult.type
@@ -425,25 +425,25 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResul
  *
  *  Value: "COMBINED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_Combined;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_Combined;
 /**
  *  Only suggest company names.
  *
  *  Value: "COMPANY_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompanyName;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompanyName;
 /**
  *  Default value.
  *
  *  Value: "COMPLETION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompletionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompletionTypeUnspecified;
 /**
  *  Only suggest job titles.
  *
  *  Value: "JOB_TITLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_JobTitle;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_JobTitle;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_DeviceInfo.deviceType
@@ -453,84 +453,84 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_JobT
  *
  *  Value: "ANDROID"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Android;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Android;
 /**
  *  A bot, as opposed to a device operated by human beings, such as a web
  *  crawler.
  *
  *  Value: "BOT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Bot;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Bot;
 /**
  *  The device type isn't specified.
  *
  *  Value: "DEVICE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_DeviceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_DeviceTypeUnspecified;
 /**
  *  An iOS device native application.
  *
  *  Value: "IOS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Ios;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Ios;
 /**
  *  A mobile device web browser, such as a phone or tablet with a Chrome
  *  browser.
  *
  *  Value: "MOBILE_WEB"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_MobileWeb;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_MobileWeb;
 /**
  *  Other devices types.
  *
  *  Value: "OTHER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Other;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Other;
 /**
  *  A desktop web browser, such as, Chrome, Firefox, Safari, or Internet
  *  Explorer)
  *
  *  Value: "WEB"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Web;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_HistogramFacets.simpleHistogramFacets
 
 /** Value: "ADMIN_1" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1;
 /** Value: "ADMIN_1_COUNTRY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1Country;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1Country;
 /** Value: "BASE_COMPENSATION_UNIT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_BaseCompensationUnit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_BaseCompensationUnit;
 /** Value: "CATEGORY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Category;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Category;
 /** Value: "CITY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_City;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_City;
 /** Value: "CITY_COORDINATE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CityCoordinate;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CityCoordinate;
 /** Value: "COMPANY_DISPLAY_NAME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyDisplayName;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyDisplayName;
 /** Value: "COMPANY_ID" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyId;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyId;
 /** Value: "COMPANY_SIZE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanySize;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanySize;
 /** Value: "COUNTRY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Country;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Country;
 /** Value: "DATE_PUBLISHED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_DatePublished;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_DatePublished;
 /** Value: "EDUCATION_LEVEL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EducationLevel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EducationLevel;
 /** Value: "EMPLOYMENT_TYPE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EmploymentType;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EmploymentType;
 /** Value: "EXPERIENCE_LEVEL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_ExperienceLevel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_ExperienceLevel;
 /** Value: "LANGUAGE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Language;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Language;
 /** Value: "LOCALE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Locale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Locale;
 /** Value: "SEARCH_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_SearchTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_SearchTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_HistogramResult.searchType
@@ -544,33 +544,33 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHist
  *
  *  Value: "ADMIN_1"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1;
 /**
  *  A combination of state or province code with a country code. This field
  *  differs from `JOB_ADMIN1`, which can be used in multiple countries.
  *
  *  Value: "ADMIN_1_COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1Country;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1Country;
 /**
  *  Base compensation unit.
  *
  *  Value: "BASE_COMPENSATION_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_BaseCompensationUnit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_BaseCompensationUnit;
 /**
  *  Filter by the Category.
  *
  *  Value: "CATEGORY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Category;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Category;
 /**
  *  Filter by the "city name", "Admin1 code", for example,
  *  "Mountain View, CA" or "New York, NY".
  *
  *  Value: "CITY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_City;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_City;
 /**
  *  Filter by the city center GPS coordinate (latitude and longitude), for
  *  example, 37.4038522,-122.0987765. Since the coordinates of a city center
@@ -578,31 +578,31 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType
  *
  *  Value: "CITY_COORDINATE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CityCoordinate;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CityCoordinate;
 /**
  *  Company display name.
  *
  *  Value: "COMPANY_DISPLAY_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyDisplayName;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyDisplayName;
 /**
  *  Filter by the company id field.
  *
  *  Value: "COMPANY_ID"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyId;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyId;
 /**
  *  Filter by the company size type field, such as `BIG`, `SMALL` or `BIGGER`.
  *
  *  Value: "COMPANY_SIZE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanySize;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanySize;
 /**
  *  Filter by the country code of job, such as US, JP, FR.
  *
  *  Value: "COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Country;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Country;
 /**
  *  Filter by the date published field. Possible return values are:
  *  * PAST_24_HOURS (The past 24 hours)
@@ -613,32 +613,32 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType
  *
  *  Value: "DATE_PUBLISHED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_DatePublished;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_DatePublished;
 /**
  *  Filter by the required education level of the job.
  *
  *  Value: "EDUCATION_LEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EducationLevel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EducationLevel;
 /**
  *  Filter by the employment type field, such as `FULL_TIME` or `PART_TIME`.
  *
  *  Value: "EMPLOYMENT_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EmploymentType;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EmploymentType;
 /**
  *  Filter by the required experience level of the job.
  *
  *  Value: "EXPERIENCE_LEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_ExperienceLevel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_ExperienceLevel;
 /**
  *  Filter by the language code portion of the locale field, such as "en" or
  *  "fr".
  *
  *  Value: "LANGUAGE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Language;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Language;
 /**
  *  Filter by the locale field of a job, such as "en-US", "fr-FR".
  *  This is the BCP-47 language code, such as "en-US" or "sr-Latn".
@@ -647,89 +647,89 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType
  *
  *  Value: "LOCALE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Locale;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Locale;
 /**
  *  The default value if search type is not specified.
  *
  *  Value: "SEARCH_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_SearchTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_SearchTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.degreeTypes
 
 /** Value: "ADULT_REMEDIAL_EDUCATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_AdultRemedialEducation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_AdultRemedialEducation;
 /** Value: "ASSOCIATES_OR_EQUIVALENT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_AssociatesOrEquivalent;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_AssociatesOrEquivalent;
 /** Value: "BACHELORS_OR_EQUIVALENT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_BachelorsOrEquivalent;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_BachelorsOrEquivalent;
 /** Value: "DEGREE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_DegreeTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_DegreeTypeUnspecified;
 /** Value: "DOCTORAL_OR_EQUIVALENT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_DoctoralOrEquivalent;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_DoctoralOrEquivalent;
 /** Value: "LOWER_SECONDARY_EDUCATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_LowerSecondaryEducation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_LowerSecondaryEducation;
 /** Value: "MASTERS_OR_EQUIVALENT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_MastersOrEquivalent;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_MastersOrEquivalent;
 /** Value: "PRIMARY_EDUCATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_PrimaryEducation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_PrimaryEducation;
 /** Value: "UPPER_SECONDARY_EDUCATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_UpperSecondaryEducation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_UpperSecondaryEducation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.employmentTypes
 
 /** Value: "CONTRACTOR" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Contractor;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Contractor;
 /** Value: "CONTRACT_TO_HIRE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_ContractToHire;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_ContractToHire;
 /** Value: "EMPLOYMENT_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_EmploymentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_EmploymentTypeUnspecified;
 /** Value: "FLY_IN_FLY_OUT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_FlyInFlyOut;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_FlyInFlyOut;
 /** Value: "FULL_TIME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_FullTime;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_FullTime;
 /** Value: "INTERN" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Intern;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Intern;
 /** Value: "OTHER_EMPLOYMENT_TYPE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_OtherEmploymentType;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_OtherEmploymentType;
 /** Value: "PART_TIME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_PartTime;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_PartTime;
 /** Value: "PER_DIEM" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_PerDiem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_PerDiem;
 /** Value: "TEMPORARY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Temporary;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Temporary;
 /** Value: "VOLUNTEER" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Volunteer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_Volunteer;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.jobBenefits
 
 /** Value: "CHILD_CARE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_ChildCare;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_ChildCare;
 /** Value: "DENTAL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Dental;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Dental;
 /** Value: "DOMESTIC_PARTNER" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_DomesticPartner;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_DomesticPartner;
 /** Value: "FLEXIBLE_HOURS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_FlexibleHours;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_FlexibleHours;
 /** Value: "JOB_BENEFIT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_JobBenefitUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_JobBenefitUnspecified;
 /** Value: "LIFE_INSURANCE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_LifeInsurance;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_LifeInsurance;
 /** Value: "MEDICAL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Medical;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Medical;
 /** Value: "PARENTAL_LEAVE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_ParentalLeave;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_ParentalLeave;
 /** Value: "RETIREMENT_PLAN" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_RetirementPlan;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_RetirementPlan;
 /** Value: "SICK_DAYS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_SickDays;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_SickDays;
 /** Value: "VACATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Vacation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Vacation;
 /** Value: "VISION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Vision;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Vision;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.jobLevel
@@ -739,39 +739,39 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Vision;
  *
  *  Value: "DIRECTOR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Director;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Director;
 /**
  *  Entry-level individual contributors, typically with less than 2 years of
  *  experience in a similar role. Includes interns.
  *
  *  Value: "ENTRY_LEVEL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_EntryLevel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_EntryLevel;
 /**
  *  Executive-level managers and above, including C-level positions.
  *
  *  Value: "EXECUTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Executive;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Executive;
 /**
  *  Experienced individual contributors, typically with 2+ years of
  *  experience in a similar role.
  *
  *  Value: "EXPERIENCED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Experienced;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Experienced;
 /**
  *  The default value if the level is not specified.
  *
  *  Value: "JOB_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_JobLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_JobLevelUnspecified;
 /**
  *  Entry- to mid-level managers responsible for managing a team of people.
  *
  *  Value: "MANAGER"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Manager;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Manager;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.postingRegion
@@ -788,7 +788,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Manager;
  *
  *  Value: "ADMINISTRATIVE_AREA"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_AdministrativeArea;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_AdministrativeArea;
 /**
  *  In addition to exact location matching, job is returned when
  *  LocationFilter in search query is in the same country as this job.
@@ -797,14 +797,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Administ
  *
  *  Value: "NATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Nation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Nation;
 /**
  *  If the region is unspecified, the job is only returned if it
  *  matches the LocationFilter.
  *
  *  Value: "POSTING_REGION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_PostingRegionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_PostingRegionUnspecified;
 /**
  *  Job allows employees to work remotely (telecommute).
  *  If locations are provided with this value, the job is
@@ -812,7 +812,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_PostingR
  *
  *  Value: "TELECOMMUTE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Telecommute;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Telecommute;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.visibility
@@ -822,93 +822,93 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Telecomm
  *
  *  Value: "ACCOUNT_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_AccountOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_AccountOnly;
 /**
  *  The resource is visible to the owner and may be visible to other
  *  applications and processes at Google.
  *
  *  Value: "SHARED_WITH_GOOGLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_SharedWithGoogle;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_SharedWithGoogle;
 /**
  *  The resource is visible to the owner and may be visible to all other API
  *  clients.
  *
  *  Value: "SHARED_WITH_PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_SharedWithPublic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_SharedWithPublic;
 /**
  *  Default value.
  *
  *  Value: "VISIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_VisibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_Visibility_VisibilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_JobDerivedInfo.jobCategories
 
 /** Value: "ACCOUNTING_AND_FINANCE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AccountingAndFinance;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AccountingAndFinance;
 /** Value: "ADMINISTRATIVE_AND_OFFICE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AdministrativeAndOffice;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AdministrativeAndOffice;
 /** Value: "ADVERTISING_AND_MARKETING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AdvertisingAndMarketing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AdvertisingAndMarketing;
 /** Value: "ANIMAL_CARE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AnimalCare;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_AnimalCare;
 /** Value: "ART_FASHION_AND_DESIGN" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ArtFashionAndDesign;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ArtFashionAndDesign;
 /** Value: "BUSINESS_OPERATIONS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_BusinessOperations;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_BusinessOperations;
 /** Value: "CLEANING_AND_FACILITIES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_CleaningAndFacilities;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_CleaningAndFacilities;
 /** Value: "COMPUTER_AND_IT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ComputerAndIt;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ComputerAndIt;
 /** Value: "CONSTRUCTION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Construction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Construction;
 /** Value: "CUSTOMER_SERVICE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_CustomerService;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_CustomerService;
 /** Value: "EDUCATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Education;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Education;
 /** Value: "ENTERTAINMENT_AND_TRAVEL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_EntertainmentAndTravel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_EntertainmentAndTravel;
 /** Value: "FARMING_AND_OUTDOORS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_FarmingAndOutdoors;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_FarmingAndOutdoors;
 /** Value: "HEALTHCARE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Healthcare;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Healthcare;
 /** Value: "HUMAN_RESOURCES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_HumanResources;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_HumanResources;
 /** Value: "INSTALLATION_MAINTENANCE_AND_REPAIR" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_InstallationMaintenanceAndRepair;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_InstallationMaintenanceAndRepair;
 /** Value: "JOB_CATEGORY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_JobCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_JobCategoryUnspecified;
 /** Value: "LEGAL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Legal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Legal;
 /** Value: "MANAGEMENT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Management;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_Management;
 /** Value: "MANUFACTURING_AND_WAREHOUSE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ManufacturingAndWarehouse;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ManufacturingAndWarehouse;
 /** Value: "MEDIA_COMMUNICATIONS_AND_WRITING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_MediaCommunicationsAndWriting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_MediaCommunicationsAndWriting;
 /** Value: "OIL_GAS_AND_MINING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_OilGasAndMining;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_OilGasAndMining;
 /** Value: "PERSONAL_CARE_AND_SERVICES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_PersonalCareAndServices;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_PersonalCareAndServices;
 /** Value: "PROTECTIVE_SERVICES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ProtectiveServices;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ProtectiveServices;
 /** Value: "REAL_ESTATE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_RealEstate;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_RealEstate;
 /** Value: "RESTAURANT_AND_HOSPITALITY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_RestaurantAndHospitality;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_RestaurantAndHospitality;
 /** Value: "SALES_AND_RETAIL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SalesAndRetail;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SalesAndRetail;
 /** Value: "SCIENCE_AND_ENGINEERING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ScienceAndEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_ScienceAndEngineering;
 /** Value: "SOCIAL_SERVICES_AND_NON_PROFIT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SocialServicesAndNonProfit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SocialServicesAndNonProfit;
 /** Value: "SPORTS_FITNESS_AND_RECREATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SportsFitnessAndRecreation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_SportsFitnessAndRecreation;
 /** Value: "TRANSPORTATION_AND_LOGISTICS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_TransportationAndLogistics;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategories_TransportationAndLogistics;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_JobEvent.type
@@ -920,14 +920,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobDerivedInfo_JobCategori
  *
  *  Value: "APPLICATION_COMPANY_SUBMIT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationCompanySubmit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationCompanySubmit;
 /**
  *  The job seeker or other entity interacting with the service
  *  submitted an application for a job.
  *
  *  Value: "APPLICATION_FINISH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationFinish;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationFinish;
 /**
  *  The job seeker or other entity interacting with the service
  *  submitted an application for a job with a single click without
@@ -938,7 +938,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationF
  *
  *  Value: "APPLICATION_QUICK_SUBMISSION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationQuickSubmission;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationQuickSubmission;
 /**
  *  The job seeker or other entity interacting with the service
  *  performed an action to apply to a job and was redirected to a different
@@ -946,7 +946,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationQ
  *
  *  Value: "APPLICATION_REDIRECT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirect;
 /**
  *  The job seeker, or other entity interacting with the service, performs an
  *  action with a single click from the search results page to apply to a job
@@ -958,14 +958,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationR
  *
  *  Value: "APPLICATION_REDIRECT_FROM_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirectFromSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationRedirectFromSearch;
 /**
  *  The job seeker or other entity interacting with the service
  *  began the process or demonstrated the intention of applying for a job.
  *
  *  Value: "APPLICATION_START"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStart;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStart;
 /**
  *  The job seeker or other entity interacting with the service began the
  *  process or demonstrated the intention of applying for a job from the
@@ -974,14 +974,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationS
  *
  *  Value: "APPLICATION_START_FROM_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStartFromSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ApplicationStartFromSearch;
 /**
  *  The job seeker or other entity interacting with the service demonstrated
  *  an interest in a job by bookmarking or saving it.
  *
  *  Value: "BOOKMARK"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Bookmark;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Bookmark;
 /**
  *  The job seeker or other entity interacting with the service was
  *  employed by the hiring entity (employer). Send this event
@@ -991,7 +991,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Bookmark;
  *
  *  Value: "HIRED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Hired;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Hired;
 /**
  *  The job seeker or other entity interacting with the service has
  *  had a job rendered in their view, such as in a list of search results in
@@ -1000,7 +1000,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Hired;
  *
  *  Value: "IMPRESSION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Impression;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Impression;
 /**
  *  The entity interacting with the service (for example, the job seeker),
  *  was granted an initial interview by the hiring entity (employer). This
@@ -1010,13 +1010,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Impression;
  *
  *  Value: "INTERVIEW_GRANTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_InterviewGranted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_InterviewGranted;
 /**
  *  The event is unspecified by other provided values.
  *
  *  Value: "JOB_EVENT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEventTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEventTypeUnspecified;
 /**
  *  The job seeker or other entity interacting with the service was
  *  sent a notification, such as an email alert or device notification,
@@ -1024,14 +1024,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEventType
  *
  *  Value: "NOTIFICATION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Notification;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Notification;
 /**
  *  The job seeker or other entity interacting with the service showed
  *  no interest in the job.
  *
  *  Value: "NOT_INTERESTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotInterested;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotInterested;
 /**
  *  A recruiter or staffing agency submitted an application on behalf of the
  *  candidate after interacting with the service to identify a suitable job
@@ -1039,7 +1039,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotIntereste
  *
  *  Value: "SENT_CV"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_SentCv;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_SentCv;
 /**
  *  The job seeker, or other entity interacting with the service, has
  *  viewed the details of a job, including the full description. This
@@ -1049,7 +1049,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_SentCv;
  *
  *  Value: "VIEW"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_View;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_View;
 /**
  *  The job seeker or other entity interacting with the service
  *  performed an action to view a job and was redirected to a different
@@ -1057,99 +1057,99 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_View;
  *
  *  Value: "VIEW_REDIRECT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ViewRedirect;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ViewRedirect;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_JobQuery.employmentTypes
 
 /** Value: "CONTRACTOR" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Contractor;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Contractor;
 /** Value: "CONTRACT_TO_HIRE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_ContractToHire;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_ContractToHire;
 /** Value: "EMPLOYMENT_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_EmploymentTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_EmploymentTypeUnspecified;
 /** Value: "FLY_IN_FLY_OUT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_FlyInFlyOut;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_FlyInFlyOut;
 /** Value: "FULL_TIME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_FullTime;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_FullTime;
 /** Value: "INTERN" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Intern;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Intern;
 /** Value: "OTHER_EMPLOYMENT_TYPE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_OtherEmploymentType;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_OtherEmploymentType;
 /** Value: "PART_TIME" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_PartTime;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_PartTime;
 /** Value: "PER_DIEM" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_PerDiem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_PerDiem;
 /** Value: "TEMPORARY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Temporary;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Temporary;
 /** Value: "VOLUNTEER" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Volunteer;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_Volunteer;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_JobQuery.jobCategories
 
 /** Value: "ACCOUNTING_AND_FINANCE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AccountingAndFinance;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AccountingAndFinance;
 /** Value: "ADMINISTRATIVE_AND_OFFICE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AdministrativeAndOffice;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AdministrativeAndOffice;
 /** Value: "ADVERTISING_AND_MARKETING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AdvertisingAndMarketing;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AdvertisingAndMarketing;
 /** Value: "ANIMAL_CARE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AnimalCare;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_AnimalCare;
 /** Value: "ART_FASHION_AND_DESIGN" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ArtFashionAndDesign;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ArtFashionAndDesign;
 /** Value: "BUSINESS_OPERATIONS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_BusinessOperations;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_BusinessOperations;
 /** Value: "CLEANING_AND_FACILITIES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_CleaningAndFacilities;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_CleaningAndFacilities;
 /** Value: "COMPUTER_AND_IT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ComputerAndIt;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ComputerAndIt;
 /** Value: "CONSTRUCTION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Construction;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Construction;
 /** Value: "CUSTOMER_SERVICE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_CustomerService;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_CustomerService;
 /** Value: "EDUCATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Education;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Education;
 /** Value: "ENTERTAINMENT_AND_TRAVEL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_EntertainmentAndTravel;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_EntertainmentAndTravel;
 /** Value: "FARMING_AND_OUTDOORS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_FarmingAndOutdoors;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_FarmingAndOutdoors;
 /** Value: "HEALTHCARE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Healthcare;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Healthcare;
 /** Value: "HUMAN_RESOURCES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_HumanResources;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_HumanResources;
 /** Value: "INSTALLATION_MAINTENANCE_AND_REPAIR" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_InstallationMaintenanceAndRepair;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_InstallationMaintenanceAndRepair;
 /** Value: "JOB_CATEGORY_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_JobCategoryUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_JobCategoryUnspecified;
 /** Value: "LEGAL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Legal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Legal;
 /** Value: "MANAGEMENT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Management;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Management;
 /** Value: "MANUFACTURING_AND_WAREHOUSE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ManufacturingAndWarehouse;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ManufacturingAndWarehouse;
 /** Value: "MEDIA_COMMUNICATIONS_AND_WRITING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_MediaCommunicationsAndWriting;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_MediaCommunicationsAndWriting;
 /** Value: "OIL_GAS_AND_MINING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_OilGasAndMining;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_OilGasAndMining;
 /** Value: "PERSONAL_CARE_AND_SERVICES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_PersonalCareAndServices;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_PersonalCareAndServices;
 /** Value: "PROTECTIVE_SERVICES" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ProtectiveServices;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ProtectiveServices;
 /** Value: "REAL_ESTATE" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_RealEstate;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_RealEstate;
 /** Value: "RESTAURANT_AND_HOSPITALITY" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_RestaurantAndHospitality;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_RestaurantAndHospitality;
 /** Value: "SALES_AND_RETAIL" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_SalesAndRetail;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_SalesAndRetail;
 /** Value: "SCIENCE_AND_ENGINEERING" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ScienceAndEngineering;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_ScienceAndEngineering;
 /** Value: "SOCIAL_SERVICES_AND_NON_PROFIT" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_SocialServicesAndNonProfit;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_SocialServicesAndNonProfit;
 /** Value: "SPORTS_FITNESS_AND_RECREATION" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_SportsFitnessAndRecreation;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_SportsFitnessAndRecreation;
 /** Value: "TRANSPORTATION_AND_LOGISTICS" */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_TransportationAndLogistics;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_TransportationAndLogistics;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Location.locationType
@@ -1159,49 +1159,49 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_JobCategories_Tra
  *
  *  Value: "ADMINISTRATIVE_AREA"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_AdministrativeArea;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_AdministrativeArea;
 /**
  *  A country level location.
  *
  *  Value: "COUNTRY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Country;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Country;
 /**
  *  A city or equivalent level location.
  *
  *  Value: "LOCALITY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Locality;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Locality;
 /**
  *  Default value if the type is not specified.
  *
  *  Value: "LOCATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_LocationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_LocationTypeUnspecified;
 /**
  *  A neighborhood level location.
  *
  *  Value: "NEIGHBORHOOD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Neighborhood;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Neighborhood;
 /**
  *  A postal code level location.
  *
  *  Value: "POSTAL_CODE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_PostalCode;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_PostalCode;
 /**
  *  A street address level location.
  *
  *  Value: "STREET_ADDRESS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_StreetAddress;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_StreetAddress;
 /**
  *  A county or equivalent level location.
  *
  *  Value: "SUB_ADMINISTRATIVE_AREA"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubAdministrativeArea;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubAdministrativeArea;
 /**
  *  A sublocality is a subdivision of a locality, for example a city borough,
  *  ward, or arrondissement. Sublocalities are usually recognized by a local
@@ -1211,19 +1211,19 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubA
  *
  *  Value: "SUB_LOCALITY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality;
 /**
  *  A district or equivalent level location.
  *
  *  Value: "SUB_LOCALITY_1"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality1;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality1;
 /**
  *  A smaller district or equivalent level display.
  *
  *  Value: "SUB_LOCALITY_2"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality2;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubLocality2;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_LocationFilter.telecommutePreference
@@ -1233,19 +1233,19 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_SubL
  *
  *  Value: "TELECOMMUTE_ALLOWED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed;
 /**
  *  Exclude telecommute jobs.
  *
  *  Value: "TELECOMMUTE_EXCLUDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded;
 /**
  *  Default value if the telecommute preference is not specified.
  *
  *  Value: "TELECOMMUTE_PREFERENCE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_ProcessingOptions.htmlSanitization
@@ -1255,20 +1255,20 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_Telecommute
  *
  *  Value: "HTML_SANITIZATION_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled;
 /**
  *  Default value.
  *
  *  Value: "HTML_SANITIZATION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified;
 /**
  *  Sanitizes HTML input, only accepts bold, italic, ordered list, and
  *  unordered list markup tags.
  *
  *  Value: "SIMPLE_FORMATTING_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_SimpleFormattingOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_SimpleFormattingOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.diversificationLevel
@@ -1280,14 +1280,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSani
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled;
 /**
  *  The diversification level isn't specified. By default, jobs with this
  *  enum are ordered according to SIMPLE diversifying behavior.
  *
  *  Value: "DIVERSIFICATION_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified;
 /**
  *  Default diversifying behavior. The result list is ordered so that
  *  highly similar results are pushed to the end of the last page of search
@@ -1295,7 +1295,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Diversif
  *
  *  Value: "SIMPLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.jobView
@@ -1305,14 +1305,14 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Diversif
  *
  *  Value: "JOB_VIEW_FULL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewFull;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewFull;
 /**
  *  A ID only view of job, with following attributes:
  *  Job.name, Job.requisition_id, Job.language_code.
  *
  *  Value: "JOB_VIEW_ID_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewIdOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewIdOnly;
 /**
  *  A minimal view of the job, with the following attributes:
  *  Job.name, Job.requisition_id, Job.title,
@@ -1320,7 +1320,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_
  *
  *  Value: "JOB_VIEW_MINIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal;
 /**
  *  A small view of the job, with the following attributes in the search
  *  results: Job.name, Job.requisition_id, Job.title,
@@ -1329,13 +1329,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_
  *
  *  Value: "JOB_VIEW_SMALL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewSmall;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewSmall;
 /**
  *  Default value.
  *
  *  Value: "JOB_VIEW_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.searchMode
@@ -1349,21 +1349,21 @@ GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_
  *
  *  Value: "FEATURED_JOB_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_FeaturedJobSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_FeaturedJobSearch;
 /**
  *  The job search matches against all jobs, and featured jobs
  *  (jobs with promotionValue > 0) are not specially handled.
  *
  *  Value: "JOB_SEARCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_JobSearch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_JobSearch;
 /**
  *  The mode of the search method isn't specified. The default search
  *  behavior is identical to JOB_SEARCH search behavior.
  *
  *  Value: "SEARCH_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchModeUnspecified;
 
 /**
  *  Application related details of a job posting.

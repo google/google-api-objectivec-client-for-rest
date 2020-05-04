@@ -70,25 +70,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "COMPLETED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Export_Status_Completed;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Export_Status_Completed;
 /**
  *  The status is unspecified.
  *
  *  Value: "EXPORT_STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Export_Status_ExportStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Export_Status_ExportStatusUnspecified;
 /**
  *  The export failed.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Export_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Export_Status_Failed;
 /**
  *  The export is still being executed.
  *
  *  Value: "IN_PROGRESS"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Export_Status_InProgress;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Export_Status_InProgress;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_ExportOptions.region
@@ -98,25 +98,25 @@ GTLR_EXTERN NSString * const kGTLRVault_Export_Status_InProgress;
  *
  *  Value: "ANY"
  */
-GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Any;
+FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Any;
 /**
  *  Europe region.
  *
  *  Value: "EUROPE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Europe;
+FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Europe;
 /**
  *  The region is unspecified. Will be treated the same as ANY.
  *
  *  Value: "EXPORT_REGION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_ExportRegionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_ExportRegionUnspecified;
 /**
  *  US region.
  *
  *  Value: "US"
  */
-GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
+FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_GroupsExportOptions.exportFormat
@@ -126,19 +126,19 @@ GTLR_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
  *
  *  Value: "EXPORT_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
  *  MBOX as export format.
  *
  *  Value: "MBOX"
  */
-GTLR_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox;
+FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox;
 /**
  *  PST as export format
  *
  *  Value: "PST"
  */
-GTLR_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst;
+FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_HangoutsChatExportOptions.exportFormat
@@ -148,19 +148,19 @@ GTLR_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Pst;
  *
  *  Value: "EXPORT_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
  *  MBOX as export format.
  *
  *  Value: "MBOX"
  */
-GTLR_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox;
+FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox;
 /**
  *  PST as export format
  *
  *  Value: "PST"
  */
-GTLR_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst;
+FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Hold.corpus
@@ -170,31 +170,31 @@ GTLR_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_P
  *
  *  Value: "CORPUS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified;
 /**
  *  Drive.
  *
  *  Value: "DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
 /**
  *  Groups.
  *
  *  Value: "GROUPS"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_Groups;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Groups;
 /**
  *  Hangouts Chat.
  *
  *  Value: "HANGOUTS_CHAT"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_HangoutsChat;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_HangoutsChat;
 /**
  *  Mail.
  *
  *  Value: "MAIL"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_Mail;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Mail;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_MailExportOptions.exportFormat
@@ -204,19 +204,19 @@ GTLR_EXTERN NSString * const kGTLRVault_Hold_Corpus_Mail;
  *
  *  Value: "EXPORT_FORMAT_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
  *  MBOX as export format.
  *
  *  Value: "MBOX"
  */
-GTLR_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox;
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox;
 /**
  *  PST as export format
  *
  *  Value: "PST"
  */
-GTLR_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst;
+FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Matter.state
@@ -226,25 +226,25 @@ GTLR_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst;
  *
  *  Value: "CLOSED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Matter_State_Closed;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_Closed;
 /**
  *  This matter is deleted.
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Matter_State_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_Deleted;
 /**
  *  This matter is open.
  *
  *  Value: "OPEN"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Matter_State_Open;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_Open;
 /**
  *  The matter has no specified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Matter_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_MatterPermission.role
@@ -254,19 +254,19 @@ GTLR_EXTERN NSString * const kGTLRVault_Matter_State_StateUnspecified;
  *
  *  Value: "COLLABORATOR"
  */
-GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_Collaborator;
+FOUNDATION_EXTERN NSString * const kGTLRVault_MatterPermission_Role_Collaborator;
 /**
  *  The owner of the matter.
  *
  *  Value: "OWNER"
  */
-GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_Owner;
+FOUNDATION_EXTERN NSString * const kGTLRVault_MatterPermission_Role_Owner;
 /**
  *  No role assigned.
  *
  *  Value: "ROLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.corpus
@@ -276,31 +276,31 @@ GTLR_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecified;
  *
  *  Value: "CORPUS_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified;
 /**
  *  Drive.
  *
  *  Value: "DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Corpus_Drive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Drive;
 /**
  *  Groups.
  *
  *  Value: "GROUPS"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Corpus_Groups;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Groups;
 /**
  *  Hangouts Chat.
  *
  *  Value: "HANGOUTS_CHAT"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Corpus_HangoutsChat;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_HangoutsChat;
 /**
  *  Mail.
  *
  *  Value: "MAIL"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Corpus_Mail;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Mail;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.dataScope
@@ -310,25 +310,25 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_Corpus_Mail;
  *
  *  Value: "ALL_DATA"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_AllData;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_AllData;
 /**
  *  No data scope specified.
  *
  *  Value: "DATA_SCOPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_DataScopeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_DataScopeUnspecified;
 /**
  *  Data on hold.
  *
  *  Value: "HELD_DATA"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_HeldData;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_HeldData;
 /**
  *  Data not processed.
  *
  *  Value: "UNPROCESSED_DATA"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.method
@@ -338,48 +338,48 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
  *
  *  Value: "ACCOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_Account;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Account;
 /**
  *  Will search for all accounts in the organization.
  *  No need to set account_info or org_unit_info.
  *
  *  Value: "ENTIRE_ORG"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_EntireOrg;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_EntireOrg;
 /**
  *  Will search all accounts in the OU specified in org_unit_info.
  *
  *  Value: "ORG_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_OrgUnit;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_OrgUnit;
 /**
  *  Will search in the Room specified in
  *  hangout_chats_info. (read-only)
  *
  *  Value: "ROOM"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_Room;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Room;
 /**
  *  A search method must be specified. If a request does not specify a
  *  search method, it will be rejected.
  *
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified;
 /**
  *  Will search for all accounts in the shared drive specified in
  *  shared_drive_info.
  *
  *  Value: "SHARED_DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
 /**
  *  Will search for all accounts in the Team Drive specified in
  *  team_drive_info.
  *
  *  Value: "TEAM_DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.searchMethod
@@ -389,48 +389,48 @@ GTLR_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
  *
  *  Value: "ACCOUNT"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Account;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Account;
 /**
  *  Will search for all accounts in the organization.
  *  No need to set account_info or org_unit_info.
  *
  *  Value: "ENTIRE_ORG"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_EntireOrg;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_EntireOrg;
 /**
  *  Will search all accounts in the OU specified in org_unit_info.
  *
  *  Value: "ORG_UNIT"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_OrgUnit;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_OrgUnit;
 /**
  *  Will search in the Room specified in
  *  hangout_chats_info. (read-only)
  *
  *  Value: "ROOM"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
 /**
  *  A search method must be specified. If a request does not specify a
  *  search method, it will be rejected.
  *
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified;
 /**
  *  Will search for all accounts in the shared drive specified in
  *  shared_drive_info.
  *
  *  Value: "SHARED_DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
 /**
  *  Will search for all accounts in the Team Drive specified in
  *  team_drive_info.
  *
  *  Value: "TEAM_DRIVE"
  */
-GTLR_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  Accounts to search

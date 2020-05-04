@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/doubleclickbidmanager"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeDoubleClickBidManager;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDoubleClickBidManager;
 
 // ----------------------------------------------------------------------------
 //   GTLRDoubleClickBidManagerService

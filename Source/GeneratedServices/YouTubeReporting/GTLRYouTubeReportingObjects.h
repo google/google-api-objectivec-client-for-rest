@@ -51,31 +51,31 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "BIGSTORE_REF"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_BigstoreRef;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_BigstoreRef;
 /**
  *  gdata
  *
  *  Value: "BLOB_REF"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_BlobRef;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_BlobRef;
 /**
  *  gdata
  *
  *  Value: "COSMO_BINARY_REFERENCE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_CosmoBinaryReference;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_CosmoBinaryReference;
 /**
  *  gdata
  *
  *  Value: "INLINE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_Inline;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_Inline;
 /**
  *  gdata
  *
  *  Value: "PATH"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_Path;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_ReferenceType_Path;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTubeReporting_GdataMedia.referenceType
@@ -85,79 +85,79 @@ GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataCompositeMedia_Reference
  *
  *  Value: "ARBITRARY_BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_ArbitraryBytes;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_ArbitraryBytes;
 /**
  *  gdata
  *
  *  Value: "BIGSTORE_REF"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_BigstoreRef;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_BigstoreRef;
 /**
  *  gdata
  *
  *  Value: "BLOB_REF"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_BlobRef;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_BlobRef;
 /**
  *  gdata
  *
  *  Value: "COMPOSITE_MEDIA"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_CompositeMedia;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_CompositeMedia;
 /**
  *  gdata
  *
  *  Value: "COSMO_BINARY_REFERENCE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_CosmoBinaryReference;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_CosmoBinaryReference;
 /**
  *  gdata
  *
  *  Value: "DIFF_CHECKSUMS_RESPONSE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffChecksumsResponse;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffChecksumsResponse;
 /**
  *  gdata
  *
  *  Value: "DIFF_DOWNLOAD_RESPONSE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffDownloadResponse;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffDownloadResponse;
 /**
  *  gdata
  *
  *  Value: "DIFF_UPLOAD_REQUEST"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffUploadRequest;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffUploadRequest;
 /**
  *  gdata
  *
  *  Value: "DIFF_UPLOAD_RESPONSE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffUploadResponse;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffUploadResponse;
 /**
  *  gdata
  *
  *  Value: "DIFF_VERSION_RESPONSE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffVersionResponse;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_DiffVersionResponse;
 /**
  *  gdata
  *
  *  Value: "GET_MEDIA"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_GetMedia;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_GetMedia;
 /**
  *  gdata
  *
  *  Value: "INLINE"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Inline;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Inline;
 /**
  *  gdata
  *
  *  Value: "PATH"
  */
-GTLR_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Path;
+FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Path;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated

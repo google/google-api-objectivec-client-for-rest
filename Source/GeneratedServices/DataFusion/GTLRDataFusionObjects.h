@@ -65,20 +65,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACCELERATOR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified;
 /**
  *  Change Data Capture accelerator for CDF.
  *
  *  Value: "CDC"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc;
 /**
  *  Cloud Healthcare accelerator for CDF. This accelerator is to enable Cloud
  *  Healthcare specific CDF plugins developed by Healthcare team.
  *
  *  Value: "HEALTHCARE"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_AuditLogConfig.logType
@@ -88,25 +88,25 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthc
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_Instance.state
@@ -116,61 +116,61 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspe
  *
  *  Value: "AUTO_UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_AutoUpdating;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_AutoUpdating;
 /**
  *  Instance is being auto-upgraded
  *
  *  Value: "AUTO_UPGRADING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading;
 /**
  *  Instance is being created
  *
  *  Value: "CREATING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Creating;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Creating;
 /**
  *  Instance is being deleted
  *
  *  Value: "DELETING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Deleting;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Deleting;
 /**
  *  Instance creation failed
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Failed;
 /**
  *  Instance is being restarted
  *
  *  Value: "RESTARTING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Restarting;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Restarting;
 /**
  *  Instance is running and ready for requests
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Running;
 /**
  *  Instance does not have a state yet
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_StateUnspecified;
 /**
  *  Instance is being updated on customer request
  *
  *  Value: "UPDATING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Updating;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Updating;
 /**
  *  Instance is being upgraded
  *
  *  Value: "UPGRADING"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Upgrading;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Upgrading;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_Instance.type
@@ -183,7 +183,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_State_Upgrading;
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Basic;
 /**
  *  Developer Data Fusion instance. In Developer type, the user will have all
  *  features available but with restrictive capabilities. This is to help
@@ -192,7 +192,7 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Basic;
  *
  *  Value: "DEVELOPER"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Developer;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Developer;
 /**
  *  Enterprise Data Fusion instance. In Enterprise type, the user will have
  *  all features available, such as support for streaming pipelines, higher
@@ -200,13 +200,13 @@ GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Developer;
  *
  *  Value: "ENTERPRISE"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
 /**
  *  No type specified. The instance creation will fail.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
 
 /**
  *  Identifies Data Fusion accelerators for an instance.

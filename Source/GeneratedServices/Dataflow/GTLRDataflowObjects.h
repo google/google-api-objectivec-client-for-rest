@@ -209,14 +209,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACTUATION_FAILURE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_ActuationFailure;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_ActuationFailure;
 /**
  *  The CURRENT_NUM_WORKERS_CHANGED type should be used when actual worker
  *  pool size has been changed, but the target_num_workers has not changed.
  *
  *  Value: "CURRENT_NUM_WORKERS_CHANGED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_CurrentNumWorkersChanged;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_CurrentNumWorkersChanged;
 /**
  *  Used when we want to report to the user a reason why we are
  *  not currently adjusting the number of workers.
@@ -225,7 +225,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_CurrentNum
  *
  *  Value: "NO_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_NoChange;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_NoChange;
 /**
  *  The TARGET_NUM_WORKERS_CHANGED type should be used when the target
  *  worker pool size has changed at the start of an actuation. An event
@@ -234,13 +234,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_NoChange;
  *
  *  Value: "TARGET_NUM_WORKERS_CHANGED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TargetNumWorkersChanged;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TargetNumWorkersChanged;
 /**
  *  Default type for the enum. Value should never be returned.
  *
  *  Value: "TYPE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_AutoscalingSettings.algorithm
@@ -250,19 +250,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingEvent_EventType_TypeUnknow
  *
  *  Value: "AUTOSCALING_ALGORITHM_BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmBasic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmBasic;
 /**
  *  Disable autoscaling.
  *
  *  Value: "AUTOSCALING_ALGORITHM_NONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmNone;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmNone;
 /**
  *  The algorithm is unknown, or unspecified.
  *
  *  Value: "AUTOSCALING_ALGORITHM_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_AutoscalingAlgorithmUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterMetadata.kind
@@ -272,61 +272,61 @@ GTLR_EXTERN NSString * const kGTLRDataflow_AutoscalingSettings_Algorithm_Autosca
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_And;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_And;
 /**
  *  Aggregated value captures statistics about a distribution.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Distribution;
 /**
  *  Counter aggregation kind was not set.
  *
  *  Value: "INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Invalid;
 /**
  *  Aggregated value tracks the latest value of a variable.
  *
  *  Value: "LATEST_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_LatestValue;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_LatestValue;
 /**
  *  Aggregated value is the max of all contributed values.
  *
  *  Value: "MAX"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Max;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Max;
 /**
  *  Aggregated value is the mean of all contributed values.
  *
  *  Value: "MEAN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Mean;
 /**
  *  Aggregated value is the min of all contributed values.
  *
  *  Value: "MIN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Min;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Min;
 /**
  *  Aggregated value represents the logical 'or' of all contributed values.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Or;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Or;
 /**
  *  Aggregated value is a set of unique contributed values.
  *
  *  Value: "SET"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Set;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Set;
 /**
  *  Aggregated value is the sum of all contributed values.
  *
  *  Value: "SUM"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterMetadata.standardUnits
@@ -336,49 +336,49 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_Kind_Sum;
  *
  *  Value: "BYTES"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Bytes;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Bytes;
 /**
  *  Counter returns a value in bytes per second.
  *
  *  Value: "BYTES_PER_SEC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_BytesPerSec;
 /**
  *  Counter returns a value in microseconds.
  *
  *  Value: "MICROSECONDS"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Microseconds;
 /**
  *  Counter returns a value in milliseconds.
  *
  *  Value: "MILLISECONDS"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Milliseconds;
 /**
  *  Counter returns a value in nanoseconds.
  *
  *  Value: "NANOSECONDS"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Nanoseconds;
 /**
  *  Counter returns a timestamp in milliseconds.
  *
  *  Value: "TIMESTAMP_MSEC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampMsec;
 /**
  *  Counter returns a timestamp in nanoseconds.
  *
  *  Value: "TIMESTAMP_NSEC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampNsec;
 /**
  *  Counter returns a timestamp in microseconds.
  *
  *  Value: "TIMESTAMP_USEC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_TimestampUsec;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterStructuredName.origin
@@ -388,13 +388,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterMetadata_StandardUnits_Timesta
  *
  *  Value: "SYSTEM"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_System;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_System;
 /**
  *  Counter was created by the user.
  *
  *  Value: "USER"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_User;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_User;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_CounterStructuredName.portion
@@ -404,19 +404,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Origin_User;
  *
  *  Value: "ALL"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_All;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_All;
 /**
  *  Counter reports a key.
  *
  *  Value: "KEY"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Key;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Key;
 /**
  *  Counter reports a value.
  *
  *  Value: "VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_DerivedSource.derivationMode
@@ -426,25 +426,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_CounterStructuredName_Portion_Value;
  *
  *  Value: "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeChildOfCurrent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeChildOfCurrent;
 /**
  *  Produce a completely independent Source with no base.
  *
  *  Value: "SOURCE_DERIVATION_MODE_INDEPENDENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeIndependent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeIndependent;
 /**
  *  Produce a Source based on the base of the Source being split.
  *
  *  Value: "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeSiblingOfCurrent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeSiblingOfCurrent;
 /**
  *  The source derivation is unknown, or unspecified.
  *
  *  Value: "SOURCE_DERIVATION_MODE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDerivationModeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Environment.flexResourceSchedulingGoal
@@ -454,19 +454,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_DerivedSource_DerivationMode_SourceDe
  *
  *  Value: "FLEXRS_COST_OPTIMIZED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCostOptimized;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCostOptimized;
 /**
  *  Optimize for lower execution time.
  *
  *  Value: "FLEXRS_SPEED_OPTIMIZED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized;
 /**
  *  Run in the default mode.
  *
  *  Value: "FLEXRS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_ExecutionStageState.executionStageState
@@ -479,7 +479,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoa
  *
  *  Value: "JOB_STATE_CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled;
 /**
  *  `JOB_STATE_CANCELLING` indicates that the job has been explicitly cancelled
  *  and is in the process of stopping. Jobs that are cancelling may only
@@ -487,7 +487,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling;
 /**
  *  `JOB_STATE_DONE` indicates that the job has successfully completed.
  *  This is a terminal job state. This state may be set by the Cloud Dataflow
@@ -497,7 +497,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDone;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDone;
 /**
  *  `JOB_STATE_DRAINED` indicates that the job has been drained.
  *  A drained job terminated by stopping pulling from its input sources and
@@ -507,7 +507,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_DRAINED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDrained;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDrained;
 /**
  *  `JOB_STATE_DRAINING` indicates that the job is in the process of draining.
  *  A draining job has stopped pulling from its input sources and is processing
@@ -518,7 +518,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_DRAINING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDraining;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateDraining;
 /**
  *  `JOB_STATE_FAILED` indicates that the job has failed. This is a
  *  terminal job state. This state may only be set by the Cloud Dataflow
@@ -526,7 +526,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed;
 /**
  *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
@@ -534,7 +534,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending;
 /**
  *  `JOB_STATE_QUEUED` indicates that the job has been created but is being
  *  delayed until launch. Jobs that are queued may only transition to
@@ -542,26 +542,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateQueued;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateQueued;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
  *  Value: "JOB_STATE_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning;
 /**
  *  `JOB_STATE_STOPPED` indicates that the job has not
  *  yet started to run.
  *
  *  Value: "JOB_STATE_STOPPED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateStopped;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateStopped;
 /**
  *  The job's run state isn't specified.
  *
  *  Value: "JOB_STATE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUnknown;
 /**
  *  `JOB_STATE_UPDATED` indicates that the job was successfully updated,
  *  meaning that this job was stopped and another job was started, inheriting
@@ -571,7 +571,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "JOB_STATE_UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_ExecutionStageSummary.kind
@@ -581,55 +581,55 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageSta
  *
  *  Value: "CONSTANT_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ConstantKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ConstantKind;
 /**
  *  Flatten transform.
  *
  *  Value: "FLATTEN_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_FlattenKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_FlattenKind;
 /**
  *  Group By Key transform.
  *
  *  Value: "GROUP_BY_KEY_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_GroupByKeyKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_GroupByKeyKind;
 /**
  *  ParDo transform.
  *
  *  Value: "PAR_DO_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ParDoKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ParDoKind;
 /**
  *  Read transform.
  *
  *  Value: "READ_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ReadKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ReadKind;
 /**
  *  Opening or closing a shuffle session, often as part of a GroupByKey.
  *
  *  Value: "SHUFFLE_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ShuffleKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ShuffleKind;
 /**
  *  Creates a Singleton view of a collection.
  *
  *  Value: "SINGLETON_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind;
 /**
  *  Unrecognized transform type.
  *
  *  Value: "UNKNOWN_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind;
 /**
  *  Write transform.
  *
  *  Value: "WRITE_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_GetTemplateResponse.templateType
@@ -639,19 +639,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
  *
  *  Value: "FLEX"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Flex;
 /**
  *  Legacy Template.
  *
  *  Value: "LEGACY"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy;
 /**
  *  Unknown Template Type.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Job.currentState
@@ -664,7 +664,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Unkn
  *
  *  Value: "JOB_STATE_CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled;
 /**
  *  `JOB_STATE_CANCELLING` indicates that the job has been explicitly cancelled
  *  and is in the process of stopping. Jobs that are cancelling may only
@@ -672,7 +672,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelled;
  *
  *  Value: "JOB_STATE_CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelling;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelling;
 /**
  *  `JOB_STATE_DONE` indicates that the job has successfully completed.
  *  This is a terminal job state. This state may be set by the Cloud Dataflow
@@ -682,7 +682,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateCancelling;
  *
  *  Value: "JOB_STATE_DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDone;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDone;
 /**
  *  `JOB_STATE_DRAINED` indicates that the job has been drained.
  *  A drained job terminated by stopping pulling from its input sources and
@@ -692,7 +692,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDone;
  *
  *  Value: "JOB_STATE_DRAINED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDrained;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDrained;
 /**
  *  `JOB_STATE_DRAINING` indicates that the job is in the process of draining.
  *  A draining job has stopped pulling from its input sources and is processing
@@ -703,7 +703,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDrained;
  *
  *  Value: "JOB_STATE_DRAINING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraining;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraining;
 /**
  *  `JOB_STATE_FAILED` indicates that the job has failed. This is a
  *  terminal job state. This state may only be set by the Cloud Dataflow
@@ -711,7 +711,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraining;
  *
  *  Value: "JOB_STATE_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
 /**
  *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
@@ -719,7 +719,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
  *
  *  Value: "JOB_STATE_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePending;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePending;
 /**
  *  `JOB_STATE_QUEUED` indicates that the job has been created but is being
  *  delayed until launch. Jobs that are queued may only transition to
@@ -727,26 +727,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePending;
  *
  *  Value: "JOB_STATE_QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateQueued;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateQueued;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
  *  Value: "JOB_STATE_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateRunning;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateRunning;
 /**
  *  `JOB_STATE_STOPPED` indicates that the job has not
  *  yet started to run.
  *
  *  Value: "JOB_STATE_STOPPED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateStopped;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateStopped;
 /**
  *  The job's run state isn't specified.
  *
  *  Value: "JOB_STATE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUnknown;
 /**
  *  `JOB_STATE_UPDATED` indicates that the job was successfully updated,
  *  meaning that this job was stopped and another job was started, inheriting
@@ -756,7 +756,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUnknown;
  *
  *  Value: "JOB_STATE_UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Job.requestedState
@@ -769,7 +769,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateUpdated;
  *
  *  Value: "JOB_STATE_CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelled;
 /**
  *  `JOB_STATE_CANCELLING` indicates that the job has been explicitly cancelled
  *  and is in the process of stopping. Jobs that are cancelling may only
@@ -777,7 +777,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelled;
  *
  *  Value: "JOB_STATE_CANCELLING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelling;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelling;
 /**
  *  `JOB_STATE_DONE` indicates that the job has successfully completed.
  *  This is a terminal job state. This state may be set by the Cloud Dataflow
@@ -787,7 +787,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateCancelling
  *
  *  Value: "JOB_STATE_DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDone;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDone;
 /**
  *  `JOB_STATE_DRAINED` indicates that the job has been drained.
  *  A drained job terminated by stopping pulling from its input sources and
@@ -797,7 +797,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDone;
  *
  *  Value: "JOB_STATE_DRAINED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDrained;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDrained;
 /**
  *  `JOB_STATE_DRAINING` indicates that the job is in the process of draining.
  *  A draining job has stopped pulling from its input sources and is processing
@@ -808,7 +808,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDrained;
  *
  *  Value: "JOB_STATE_DRAINING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDraining;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDraining;
 /**
  *  `JOB_STATE_FAILED` indicates that the job has failed. This is a
  *  terminal job state. This state may only be set by the Cloud Dataflow
@@ -816,7 +816,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDraining;
  *
  *  Value: "JOB_STATE_FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
 /**
  *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
@@ -824,7 +824,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
  *
  *  Value: "JOB_STATE_PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePending;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePending;
 /**
  *  `JOB_STATE_QUEUED` indicates that the job has been created but is being
  *  delayed until launch. Jobs that are queued may only transition to
@@ -832,26 +832,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePending;
  *
  *  Value: "JOB_STATE_QUEUED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateQueued;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateQueued;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
  *  Value: "JOB_STATE_RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateRunning;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateRunning;
 /**
  *  `JOB_STATE_STOPPED` indicates that the job has not
  *  yet started to run.
  *
  *  Value: "JOB_STATE_STOPPED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateStopped;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateStopped;
 /**
  *  The job's run state isn't specified.
  *
  *  Value: "JOB_STATE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUnknown;
 /**
  *  `JOB_STATE_UPDATED` indicates that the job was successfully updated,
  *  meaning that this job was stopped and another job was started, inheriting
@@ -861,7 +861,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUnknown;
  *
  *  Value: "JOB_STATE_UPDATED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUpdated;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUpdated;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Job.type
@@ -872,20 +872,20 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateUpdated;
  *
  *  Value: "JOB_TYPE_BATCH"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeBatch;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeBatch;
 /**
  *  A continuously streaming job with no end: data is read,
  *  processed, and written continuously.
  *
  *  Value: "JOB_TYPE_STREAMING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeStreaming;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeStreaming;
 /**
  *  The type of the job is unspecified, or unknown.
  *
  *  Value: "JOB_TYPE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_JobMessage.messageImportance
@@ -899,7 +899,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Job_Type_JobTypeUnknown;
  *
  *  Value: "JOB_MESSAGE_BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageBasic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageBasic;
 /**
  *  The message is at the 'debug' level: typically only useful for
  *  software engineers working on the code the job is running.
@@ -908,7 +908,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
  *
  *  Value: "JOB_MESSAGE_DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDebug;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDebug;
 /**
  *  The message is at the 'detailed' level: somewhat verbose, but
  *  potentially useful to users. Typically, Dataflow pipeline
@@ -918,7 +918,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
  *
  *  Value: "JOB_MESSAGE_DETAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDetailed;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDetailed;
 /**
  *  The message is at the 'error' level: indicating a condition
  *  preventing a job from succeeding. Typically, Dataflow pipeline
@@ -927,13 +927,13 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
  *
  *  Value: "JOB_MESSAGE_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageError;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageError;
 /**
  *  The message importance isn't specified, or is unknown.
  *
  *  Value: "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown;
 /**
  *  The message is at the 'warning' level: indicating a condition
  *  pertaining to a job which may require human intervention.
@@ -943,7 +943,7 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
  *
  *  Value: "JOB_MESSAGE_WARNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_NameAndKind.kind
@@ -953,61 +953,61 @@ GTLR_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessa
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_And;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_And;
 /**
  *  Aggregated value captures statistics about a distribution.
  *
  *  Value: "DISTRIBUTION"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution;
 /**
  *  Counter aggregation kind was not set.
  *
  *  Value: "INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Invalid;
 /**
  *  Aggregated value tracks the latest value of a variable.
  *
  *  Value: "LATEST_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_LatestValue;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_LatestValue;
 /**
  *  Aggregated value is the max of all contributed values.
  *
  *  Value: "MAX"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Max;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Max;
 /**
  *  Aggregated value is the mean of all contributed values.
  *
  *  Value: "MEAN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Mean;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Mean;
 /**
  *  Aggregated value is the min of all contributed values.
  *
  *  Value: "MIN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Min;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Min;
 /**
  *  Aggregated value represents the logical 'or' of all contributed values.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Or;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Or;
 /**
  *  Aggregated value is a set of unique contributed values.
  *
  *  Value: "SET"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Set;
 /**
  *  Aggregated value is the sum of all contributed values.
  *
  *  Value: "SUM"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_ParameterMetadata.paramType
@@ -1017,61 +1017,61 @@ GTLR_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default;
 /**
  *  The parameter specifies a GCS Bucket to read from.
  *
  *  Value: "GCS_READ_BUCKET"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket;
 /**
  *  The parameter specifies a GCS file path to read from.
  *
  *  Value: "GCS_READ_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile;
 /**
  *  The parameter specifies a GCS folder path to read from.
  *
  *  Value: "GCS_READ_FOLDER"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder;
 /**
  *  The parameter specifies a GCS Bucket to write to.
  *
  *  Value: "GCS_WRITE_BUCKET"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket;
 /**
  *  The parameter specifies a GCS file path to write to.
  *
  *  Value: "GCS_WRITE_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile;
 /**
  *  The parameter specifies a GCS folder to write to.
  *
  *  Value: "GCS_WRITE_FOLDER"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder;
 /**
  *  The parameter specifies a Pub/Sub Subscription.
  *
  *  Value: "PUBSUB_SUBSCRIPTION"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription;
 /**
  *  The parameter specifies a Pub/Sub Topic.
  *
  *  Value: "PUBSUB_TOPIC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic;
 /**
  *  The parameter specifies generic text input.
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
@@ -1081,19 +1081,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
  *
  *  Value: "WORKER_IP_PRIVATE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate;
 /**
  *  Workers should have public IP addresses.
  *
  *  Value: "WORKER_IP_PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPublic;
 /**
  *  The configuration is unknown, or unspecified.
  *
  *  Value: "WORKER_IP_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SDKInfo.language
@@ -1103,19 +1103,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_Wo
  *
  *  Value: "JAVA"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Java;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Java;
 /**
  *  Python.
  *
  *  Value: "PYTHON"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Python;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Python;
 /**
  *  UNKNOWN Language.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SdkVersion.sdkSupportStatus
@@ -1126,31 +1126,31 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Unknown;
  *
  *  Value: "DEPRECATED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated;
 /**
  *  A newer version of the SDK family exists, and an update is recommended.
  *
  *  Value: "STALE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale;
 /**
  *  This is a known version of an SDK, and is supported.
  *
  *  Value: "SUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported;
 /**
  *  Cloud Dataflow is unaware of this version.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown;
 /**
  *  Support for this SDK version has ended and it should no longer be used.
  *
  *  Value: "UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_Snapshot.state
@@ -1160,38 +1160,38 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupport
  *
  *  Value: "DELETED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Deleted;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Deleted;
 /**
  *  Snapshot failed to be created.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Failed;
 /**
  *  Snapshot intent to create has been persisted, snapshotting of state has not
  *  yet started.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Pending;
 /**
  *  Snapshot has been created and is ready to be used.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Ready;
 /**
  *  Snapshotting is being performed.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Snapshot_State_Running;
 /**
  *  Unknown state.
  *
  *  Value: "UNKNOWN_SNAPSHOT_STATE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitResponse.outcome
@@ -1201,19 +1201,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_Snapshot_State_UnknownSnapshotState;
  *
  *  Value: "SOURCE_SPLIT_OUTCOME_SPLITTING_HAPPENED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeSplittingHappened;
 /**
  *  The source split outcome is unknown, or unspecified.
  *
  *  Value: "SOURCE_SPLIT_OUTCOME_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUnknown;
 /**
  *  The current source should be processed "as is" without splitting.
  *
  *  Value: "SOURCE_SPLIT_OUTCOME_USE_CURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUseCurrent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSplitOutcomeUseCurrent;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_SourceSplitShard.derivationMode
@@ -1223,25 +1223,25 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitResponse_Outcome_SourceSpl
  *
  *  Value: "SOURCE_DERIVATION_MODE_CHILD_OF_CURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeChildOfCurrent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeChildOfCurrent;
 /**
  *  Produce a completely independent Source with no base.
  *
  *  Value: "SOURCE_DERIVATION_MODE_INDEPENDENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeIndependent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeIndependent;
 /**
  *  Produce a Source based on the base of the Source being split.
  *
  *  Value: "SOURCE_DERIVATION_MODE_SIBLING_OF_CURRENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeSiblingOfCurrent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeSiblingOfCurrent;
 /**
  *  The source derivation is unknown, or unspecified.
  *
  *  Value: "SOURCE_DERIVATION_MODE_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationModeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_StreamingComputationTask.taskType
@@ -1251,19 +1251,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_Sourc
  *
  *  Value: "STREAMING_COMPUTATION_TASK_START"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStart;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStart;
 /**
  *  Stop processing specified streaming computation range(s).
  *
  *  Value: "STREAMING_COMPUTATION_TASK_STOP"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStop;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStop;
 /**
  *  The streaming computation task is unknown, or unspecified.
  *
  *  Value: "STREAMING_COMPUTATION_TASK_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_TransformSummary.kind
@@ -1273,55 +1273,55 @@ GTLR_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_Str
  *
  *  Value: "CONSTANT_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ConstantKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ConstantKind;
 /**
  *  Flatten transform.
  *
  *  Value: "FLATTEN_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_FlattenKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_FlattenKind;
 /**
  *  Group By Key transform.
  *
  *  Value: "GROUP_BY_KEY_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_GroupByKeyKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_GroupByKeyKind;
 /**
  *  ParDo transform.
  *
  *  Value: "PAR_DO_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ParDoKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ParDoKind;
 /**
  *  Read transform.
  *
  *  Value: "READ_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ReadKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ReadKind;
 /**
  *  Opening or closing a shuffle session, often as part of a GroupByKey.
  *
  *  Value: "SHUFFLE_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ShuffleKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_ShuffleKind;
 /**
  *  Creates a Singleton view of a collection.
  *
  *  Value: "SINGLETON_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_SingletonKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_SingletonKind;
 /**
  *  Unrecognized transform type.
  *
  *  Value: "UNKNOWN_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_UnknownKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_UnknownKind;
 /**
  *  Write transform.
  *
  *  Value: "WRITE_KIND"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_WriteKind;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerLifecycleEvent.event
@@ -1332,49 +1332,49 @@ GTLR_EXTERN NSString * const kGTLRDataflow_TransformSummary_Kind_WriteKind;
  *
  *  Value: "CONTAINER_START"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_ContainerStart;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_ContainerStart;
 /**
  *  The worker has a functional external network connection.
  *
  *  Value: "NETWORK_UP"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_NetworkUp;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_NetworkUp;
 /**
  *  The time the VM started.
  *
  *  Value: "OS_START"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_OsStart;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_OsStart;
 /**
  *  Finished installing SDK.
  *
  *  Value: "SDK_INSTALL_FINISH"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallFinish;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallFinish;
 /**
  *  For applicable SDKs, started installation of SDK and worker packages.
  *
  *  Value: "SDK_INSTALL_START"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallStart;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_SdkInstallStart;
 /**
  *  Finished downloading all staging files.
  *
  *  Value: "STAGING_FILES_DOWNLOAD_FINISH"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadFinish;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadFinish;
 /**
  *  Started downloading staging files.
  *
  *  Value: "STAGING_FILES_DOWNLOAD_START"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadStart;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_StagingFilesDownloadStart;
 /**
  *  Invalid event.
  *
  *  Value: "UNKNOWN_EVENT"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_UnknownEvent;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_UnknownEvent;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.defaultPackageSet
@@ -1384,26 +1384,26 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerLifecycleEvent_Event_UnknownEve
  *
  *  Value: "DEFAULT_PACKAGE_SET_JAVA"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetJava;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetJava;
 /**
  *  Indicates that no packages should be staged at the worker unless
  *  explicitly specified by the job.
  *
  *  Value: "DEFAULT_PACKAGE_SET_NONE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetNone;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetNone;
 /**
  *  Stage pacakges typically useful to workers written in Python.
  *
  *  Value: "DEFAULT_PACKAGE_SET_PYTHON"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetPython;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetPython;
 /**
  *  The default set of packages to stage is unknown, or unspecified.
  *
  *  Value: "DEFAULT_PACKAGE_SET_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.ipConfiguration
@@ -1413,19 +1413,19 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultP
  *
  *  Value: "WORKER_IP_PRIVATE"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPrivate;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPrivate;
 /**
  *  Workers should have public IP addresses.
  *
  *  Value: "WORKER_IP_PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPublic;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpPublic;
 /**
  *  The configuration is unknown, or unspecified.
  *
  *  Value: "WORKER_IP_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_WorkerPool.teardownPolicy
@@ -1435,27 +1435,27 @@ GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_IpConfiguration_WorkerIpUn
  *
  *  Value: "TEARDOWN_ALWAYS"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownAlways;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownAlways;
 /**
  *  Never teardown the resource. This is useful for debugging and
  *  development.
  *
  *  Value: "TEARDOWN_NEVER"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownNever;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownNever;
 /**
  *  Teardown the resource on success. This is useful for debugging
  *  failures.
  *
  *  Value: "TEARDOWN_ON_SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownOnSuccess;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownOnSuccess;
 /**
  *  The teardown policy isn't specified, or is unknown.
  *
  *  Value: "TEARDOWN_POLICY_UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown;
 
 /**
  *  Obsolete in favor of ApproximateReportedProgress and

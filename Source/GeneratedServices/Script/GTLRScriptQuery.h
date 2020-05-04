@@ -39,131 +39,131 @@ NS_ASSUME_NONNULL_BEGIN
 // metricsGranularity
 
 /** Value: "DAILY" */
-GTLR_EXTERN NSString * const kGTLRScriptMetricsGranularityDaily;
+FOUNDATION_EXTERN NSString * const kGTLRScriptMetricsGranularityDaily;
 /** Value: "UNSPECIFIED_GRANULARITY" */
-GTLR_EXTERN NSString * const kGTLRScriptMetricsGranularityUnspecifiedGranularity;
+FOUNDATION_EXTERN NSString * const kGTLRScriptMetricsGranularityUnspecifiedGranularity;
 /** Value: "WEEKLY" */
-GTLR_EXTERN NSString * const kGTLRScriptMetricsGranularityWeekly;
+FOUNDATION_EXTERN NSString * const kGTLRScriptMetricsGranularityWeekly;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterStatuses
 
 /** Value: "CANCELED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCanceled;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCanceled;
 /** Value: "COMPLETED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCompleted;
 /** Value: "DELAYED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesDelayed;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesDelayed;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesFailed;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesFailed;
 /** Value: "PAUSED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesPaused;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesPaused;
 /** Value: "PROCESS_STATUS_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesProcessStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesProcessStatusUnspecified;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesRunning;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesRunning;
 /** Value: "TIMED_OUT" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesTimedOut;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesTimedOut;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterTypes
 
 /** Value: "ADD_ON" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesAddOn;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesAddOn;
 /** Value: "BATCH_TASK" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesBatchTask;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesBatchTask;
 /** Value: "EDITOR" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesEditor;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesEditor;
 /** Value: "EXECUTION_API" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesExecutionApi;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesExecutionApi;
 /** Value: "MENU" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesMenu;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesMenu;
 /** Value: "PROCESS_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified;
 /** Value: "SIMPLE_TRIGGER" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesSimpleTrigger;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesSimpleTrigger;
 /** Value: "TIME_DRIVEN" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTimeDriven;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTimeDriven;
 /** Value: "TRIGGER" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTrigger;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTrigger;
 /** Value: "WEBAPP" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesWebapp;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesWebapp;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterUserAccessLevels
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsNone;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsNone;
 /** Value: "OWNER" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsOwner;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsOwner;
 /** Value: "READ" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsRead;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsRead;
 /** Value: "USER_ACCESS_LEVEL_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsUserAccessLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsUserAccessLevelUnspecified;
 /** Value: "WRITE" */
-GTLR_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsWrite;
+FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsWrite;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterStatuses
 
 /** Value: "CANCELED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCanceled;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCanceled;
 /** Value: "COMPLETED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCompleted;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCompleted;
 /** Value: "DELAYED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesDelayed;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesDelayed;
 /** Value: "FAILED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesFailed;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesFailed;
 /** Value: "PAUSED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesPaused;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesPaused;
 /** Value: "PROCESS_STATUS_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified;
 /** Value: "RUNNING" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesRunning;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesRunning;
 /** Value: "TIMED_OUT" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesTimedOut;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesTimedOut;
 /** Value: "UNKNOWN" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesUnknown;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesUnknown;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterTypes
 
 /** Value: "ADD_ON" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesAddOn;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesAddOn;
 /** Value: "BATCH_TASK" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesBatchTask;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesBatchTask;
 /** Value: "EDITOR" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesEditor;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesEditor;
 /** Value: "EXECUTION_API" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesExecutionApi;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesExecutionApi;
 /** Value: "MENU" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesMenu;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesMenu;
 /** Value: "PROCESS_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified;
 /** Value: "SIMPLE_TRIGGER" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesSimpleTrigger;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesSimpleTrigger;
 /** Value: "TIME_DRIVEN" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTimeDriven;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTimeDriven;
 /** Value: "TRIGGER" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTrigger;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTrigger;
 /** Value: "WEBAPP" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesWebapp;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesWebapp;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterUserAccessLevels
 
 /** Value: "NONE" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsNone;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsNone;
 /** Value: "OWNER" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsOwner;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsOwner;
 /** Value: "READ" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsRead;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsRead;
 /** Value: "USER_ACCESS_LEVEL_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsUserAccessLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsUserAccessLevelUnspecified;
 /** Value: "WRITE" */
-GTLR_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
+FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
 
 // ----------------------------------------------------------------------------
 // Query Classes

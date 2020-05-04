@@ -34,13 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/admin.reports.audit.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeReportsReportsAuditReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeReportsReportsAuditReadonly;
 /**
  *  Authorization scope: View usage reports for your G Suite domain
  *
  *  Value "https://www.googleapis.com/auth/admin.reports.usage.readonly"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeReportsReportsUsageReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeReportsReportsUsageReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRReportsService

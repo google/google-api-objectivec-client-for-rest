@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/apps.alerts"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAlertCenterAppsAlerts;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAlertCenterAppsAlerts;
 
 // ----------------------------------------------------------------------------
 //   GTLRAlertCenterService

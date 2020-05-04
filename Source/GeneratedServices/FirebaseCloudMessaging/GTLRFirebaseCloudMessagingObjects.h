@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_High;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_High;
 /**
  *  Default priority for data messages. Normal priority messages won't open
  *  network connections on a sleeping device, and their delivery may be
@@ -75,7 +75,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseCloudMessaging_AndroidNotification.notificationPriority
@@ -86,7 +86,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_
  *
  *  Value: "PRIORITY_DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault;
 /**
  *  Higher notification priority. Use this for more important notifications
  *  or alerts. The UI may choose to show these notifications larger, or at a
@@ -95,7 +95,7 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Not
  *
  *  Value: "PRIORITY_HIGH"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh;
 /**
  *  Lower notification priority. The UI may choose to show the notifications
  *  smaller, or at a different position in the list, compared with
@@ -103,14 +103,14 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Not
  *
  *  Value: "PRIORITY_LOW"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow;
 /**
  *  Highest notification priority. Use this for the application's most
  *  important items that require the user's prompt attention or input.
  *
  *  Value: "PRIORITY_MAX"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax;
 /**
  *  Lowest notification priority. Notifications with this `PRIORITY_MIN`
  *  might not be shown to the user except under special circumstances,
@@ -118,14 +118,14 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Not
  *
  *  Value: "PRIORITY_MIN"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMin;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMin;
 /**
  *  If priority is unspecified, notification priority is set to
  *  `PRIORITY_DEFAULT`.
  *
  *  Value: "PRIORITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseCloudMessaging_AndroidNotification.visibility
@@ -136,25 +136,25 @@ GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Not
  *
  *  Value: "PRIVATE"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Private;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Private;
 /**
  *  Show this notification in its entirety on all lockscreens.
  *
  *  Value: "PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Public;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Public;
 /**
  *  Do not reveal any part of this notification on a secure lockscreen.
  *
  *  Value: "SECRET"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Secret;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_Secret;
 /**
  *  If unspecified, default to `Visibility.PRIVATE`.
  *
  *  Value: "VISIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified;
 
 /**
  *  Android specific options for messages sent through

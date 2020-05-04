@@ -206,15 +206,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "RANDOM_START"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart;
 /** Value: "SAMPLE_METHOD_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified;
 /**
  *  Scan from the top (default).
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
@@ -224,61 +224,61 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMe
  *
  *  Value: "AVRO"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro;
 /**
  *  Unused
  *
  *  Value: "BYTES_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified;
 /**
  *  Any image type.
  *
  *  Value: "IMAGE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image;
 /**
  *  bmp
  *
  *  Value: "IMAGE_BMP"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp;
 /**
  *  jpeg
  *
  *  Value: "IMAGE_JPEG"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg;
 /**
  *  png
  *
  *  Value: "IMAGE_PNG"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng;
 /**
  *  svg
  *
  *  Value: "IMAGE_SVG"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg;
 /**
  *  pdf
  *
  *  Value: "PDF"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf;
 /**
  *  plain text
  *
  *  Value: "TEXT_UTF8"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8;
 /**
  *  docx, docm, dotx, dotm
  *
  *  Value: "WORD_DOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CharsToIgnore.commonCharactersToIgnore
@@ -288,55 +288,55 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Wor
  *
  *  Value: "ALPHA_LOWER_CASE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaLowerCase;
 /**
  *  A-Z
  *
  *  Value: "ALPHA_UPPER_CASE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_AlphaUpperCase;
 /**
  *  Unused.
  *
  *  Value: "COMMON_CHARS_TO_IGNORE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_CommonCharsToIgnoreUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_CommonCharsToIgnoreUnspecified;
 /**
  *  0-9
  *
  *  Value: "NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Numeric;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Numeric;
 /**
  *  US Punctuation, one of !"#$%&'()*+,-./:;<=>?\@[\\]^_`{|}~
  *
  *  Value: "PUNCTUATION"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Punctuation;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Punctuation;
 /**
  *  Whitespace character, one of [ \\t\\n\\x0B\\f\\r]
  *
  *  Value: "WHITESPACE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Whitespace;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgnore_Whitespace;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.fileTypes
 
 /** Value: "AVRO" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro;
 /** Value: "BINARY_FILE" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile;
 /** Value: "FILE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
 /** Value: "IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image;
 /** Value: "PDF" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
 /** Value: "TEXT_FILE" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
 /** Value: "WORD" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod
@@ -347,15 +347,15 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_File
  *
  *  Value: "RANDOM_START"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart;
 /** Value: "SAMPLE_METHOD_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified;
 /**
  *  Scan from the top (default).
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_Top;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Condition.operatorProperty
@@ -365,49 +365,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_Samp
  *
  *  Value: "EQUAL_TO"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_EqualTo;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_EqualTo;
 /**
  *  Exists
  *
  *  Value: "EXISTS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_Exists;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_Exists;
 /**
  *  Greater than.
  *
  *  Value: "GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThan;
 /**
  *  Greater than or equals.
  *
  *  Value: "GREATER_THAN_OR_EQUALS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThanOrEquals;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_GreaterThanOrEquals;
 /**
  *  Less than.
  *
  *  Value: "LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThan;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThan;
 /**
  *  Less than or equals.
  *
  *  Value: "LESS_THAN_OR_EQUALS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThanOrEquals;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_LessThanOrEquals;
 /**
  *  Not equal to. Attempts to match even with incompatible types.
  *
  *  Value: "NOT_EQUAL_TO"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_NotEqualTo;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_NotEqualTo;
 /**
  *  Unused
  *
  *  Value: "RELATIONAL_OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_RelationalOperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProperty_RelationalOperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig.commonAlphabet
@@ -417,31 +417,31 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_OperatorProper
  *
  *  Value: "ALPHA_NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric;
 /**
  *  Unused.
  *
  *  Value: "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified;
 /**
  *  [0-9A-F] (radix of 16)
  *
  *  Value: "HEXADECIMAL"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal;
 /**
  *  [0-9] (radix of 10)
  *
  *  Value: "NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric;
 /**
  *  [0-9A-Z] (radix of 36)
  *
  *  Value: "UPPER_CASE_ALPHA_NUMERIC"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CustomInfoType.exclusionType
@@ -452,13 +452,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfi
  *
  *  Value: "EXCLUSION_TYPE_EXCLUDE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude;
 /**
  *  A finding of this custom info type will not be excluded from results.
  *
  *  Value: "EXCLUSION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CustomInfoType.likelihood
@@ -468,29 +468,29 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Exclusion
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified;
 /** Value: "LIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Likely;
 /**
  *  Some matching elements.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Possible;
 /** Value: "UNLIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_Unlikely;
 /**
  *  Many matching elements.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryLikely;
 /**
  *  Few matching elements.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DateTime.dayOfWeek
@@ -500,49 +500,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihoo
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_DayOfWeekUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_DayOfWeekUnspecified;
 /**
  *  Friday
  *
  *  Value: "FRIDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Friday;
 /**
  *  Monday
  *
  *  Value: "MONDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Monday;
 /**
  *  Saturday
  *
  *  Value: "SATURDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Saturday;
 /**
  *  Sunday
  *
  *  Value: "SUNDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Sunday;
 /**
  *  Thursday
  *
  *  Value: "THURSDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Thursday;
 /**
  *  Tuesday
  *
  *  Value: "TUESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Tuesday;
 /**
  *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.state
@@ -555,44 +555,44 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek_Wedne
  *
  *  Value: "ACTIVE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active;
 /**
  *  The job was canceled before it could complete.
  *
  *  Value: "CANCELED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled;
 /**
  *  The job is no longer running.
  *
  *  Value: "DONE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done;
 /**
  *  The job had an error and did not complete.
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Failed;
 /**
  *  Unused.
  *
  *  Value: "JOB_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobStateUnspecified;
 /**
  *  The job has not yet started.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending;
 /**
  *  The job is currently running. Once a job has finished it will transition
  *  to FAILED or DONE.
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
@@ -602,19 +602,19 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running;
  *
  *  Value: "DLP_JOB_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified;
 /**
  *  The job inspected Google Cloud for sensitive data.
  *
  *  Value: "INSPECT_JOB"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob;
 /**
  *  The job executed a Risk Analysis computation.
  *
  *  Value: "RISK_ANALYSIS_JOB"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2ExclusionRule.matchingType
@@ -627,7 +627,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysis
  *
  *  Value: "MATCHING_TYPE_FULL_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch;
 /**
  *  Inverse match.
  *  - Dictionary: no tokens in the finding match the dictionary
@@ -636,7 +636,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingTy
  *
  *  Value: "MATCHING_TYPE_INVERSE_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch;
 /**
  *  Partial match.
  *  - Dictionary: at least one of the tokens in the finding matches
@@ -645,13 +645,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingTy
  *
  *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch;
 /**
  *  Invalid.
  *
  *  Value: "MATCHING_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Expressions.logicalOperator
@@ -661,13 +661,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingTy
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_And;
 /**
  *  Unused
  *
  *  Value: "LOGICAL_OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOperator_LogicalOperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Finding.likelihood
@@ -677,49 +677,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Expressions_LogicalOpera
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_LikelihoodUnspecified;
 /** Value: "LIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Likely;
 /**
  *  Some matching elements.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Possible;
 /** Value: "UNLIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_Unlikely;
 /**
  *  Many matching elements.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryLikely;
 /**
  *  Few matching elements.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
 
 /** Value: "ENUM_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_EnumTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_EnumTypeUnspecified;
 /** Value: "INSPECT" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_Inspect;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_Inspect;
 /** Value: "RISK_ANALYSIS" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_RiskAnalysis;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_RiskAnalysis;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InspectConfig.contentOptions
 
 /** Value: "CONTENT_IMAGE" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentImage;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentImage;
 /** Value: "CONTENT_TEXT" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentText;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentText;
 /** Value: "CONTENT_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InspectConfig.minLikelihood
@@ -729,29 +729,29 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOpt
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified;
 /** Value: "LIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Likely;
 /**
  *  Some matching elements.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Possible;
 /** Value: "UNLIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_Unlikely;
 /**
  *  Many matching elements.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryLikely;
 /**
  *  Few matching elements.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2JobTrigger.status
@@ -761,25 +761,25 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelih
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Cancelled;
 /**
  *  Trigger is healthy.
  *
  *  Value: "HEALTHY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Healthy;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Healthy;
 /**
  *  Trigger is temporarily paused.
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Paused;
 /**
  *  Unused.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment.fixedLikelihood
@@ -789,29 +789,29 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2JobTrigger_Status_Status
  *
  *  Value: "LIKELIHOOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_LikelihoodUnspecified;
 /** Value: "LIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Likely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Likely;
 /**
  *  Some matching elements.
  *
  *  Value: "POSSIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Possible;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Possible;
 /** Value: "UNLIKELY" */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Unlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_Unlikely;
 /**
  *  Many matching elements.
  *
  *  Value: "VERY_LIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely;
 /**
  *  Few matching elements.
  *
  *  Value: "VERY_UNLIKELY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
@@ -821,13 +821,13 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_Fix
  *
  *  Value: "METADATATYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified;
 /**
  *  General file metadata provided by GCS.
  *
  *  Value: "STORAGE_METADATA"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig.outputSchema
@@ -837,38 +837,38 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_St
  *
  *  Value: "ALL_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns;
 /**
  *  Basic schema including only `info_type`, `quote`, `certainty`, and
  *  `timestamp`.
  *
  *  Value: "BASIC_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_BasicColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_BasicColumns;
 /**
  *  Schema tailored to findings from scanning Google BigQuery.
  *
  *  Value: "BIG_QUERY_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_BigQueryColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_BigQueryColumns;
 /**
  *  Schema tailored to findings from scanning Google Datastore.
  *
  *  Value: "DATASTORE_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_DatastoreColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_DatastoreColumns;
 /**
  *  Schema tailored to findings from scanning Google Cloud Storage.
  *
  *  Value: "GCS_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_GcsColumns;
 /**
  *  Unused.
  *
  *  Value: "OUTPUT_SCHEMA_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_OutputSchemaUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion.state
@@ -879,7 +879,7 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_Outp
  *
  *  Value: "FAILED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed;
 /**
  *  StoredInfoType is no longer valid because artifacts stored in
  *  user-controlled storage were modified. To fix an invalid StoredInfoType,
@@ -887,25 +887,25 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_St
  *
  *  Value: "INVALID"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Invalid;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Invalid;
 /**
  *  StoredInfoType version is being created.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Pending;
 /**
  *  StoredInfoType version is ready for use.
  *
  *  Value: "READY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready;
 /**
  *  Unused
  *
  *  Value: "STORED_INFO_TYPE_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_StoredInfoTypeStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2SummaryResult.code
@@ -915,19 +915,19 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_St
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Error;
 /**
  *  Transformation completed without an error.
  *
  *  Value: "SUCCESS"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Success;
 /**
  *  Unused
  *
  *  Value: "TRANSFORMATION_RESULT_CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_TransformationResultCodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_TransformationResultCodeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2TimePartConfig.partToExtract
@@ -937,43 +937,43 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2SummaryResult_Code_Trans
  *
  *  Value: "DAY_OF_MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfMonth;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfMonth;
 /**
  *  [1-7]
  *
  *  Value: "DAY_OF_WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfWeek;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_DayOfWeek;
 /**
  *  [0-23]
  *
  *  Value: "HOUR_OF_DAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_HourOfDay;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_HourOfDay;
 /**
  *  [1-12]
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Month;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Month;
 /**
  *  Unused
  *
  *  Value: "TIME_PART_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_TimePartUnspecified;
 /**
  *  [1-53]
  *
  *  Value: "WEEK_OF_YEAR"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_WeekOfYear;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_WeekOfYear;
 /**
  *  [0-9999]
  *
  *  Value: "YEAR"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Year;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExtract_Year;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2Value.dayOfWeekValue
@@ -983,49 +983,49 @@ GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2TimePartConfig_PartToExt
  *
  *  Value: "DAY_OF_WEEK_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_DayOfWeekUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_DayOfWeekUnspecified;
 /**
  *  Friday
  *
  *  Value: "FRIDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Friday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Friday;
 /**
  *  Monday
  *
  *  Value: "MONDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Monday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Monday;
 /**
  *  Saturday
  *
  *  Value: "SATURDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Saturday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Saturday;
 /**
  *  Sunday
  *
  *  Value: "SUNDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Sunday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Sunday;
 /**
  *  Thursday
  *
  *  Value: "THURSDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Thursday;
 /**
  *  Tuesday
  *
  *  Value: "TUESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Tuesday;
 /**
  *  Wednesday
  *
  *  Value: "WEDNESDAY"
  */
-GTLR_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday;
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday;
 
 /**
  *  A task to execute on the completion of a job.

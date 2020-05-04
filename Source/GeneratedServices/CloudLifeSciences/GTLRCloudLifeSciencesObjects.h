@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ABORTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Aborted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Aborted;
 /**
  *  The entity that a client attempted to create (e.g., file or directory)
  *  already exists.
@@ -87,21 +87,21 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Aborted;
  *
  *  Value: "ALREADY_EXISTS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_AlreadyExists;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_AlreadyExists;
 /**
  *  The operation was cancelled, typically by the caller.
  *  HTTP Mapping: 499 Client Closed Request
  *
  *  Value: "CANCELLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Cancelled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Cancelled;
 /**
  *  Unrecoverable data loss or corruption.
  *  HTTP Mapping: 500 Internal Server Error
  *
  *  Value: "DATA_LOSS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DataLoss;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DataLoss;
 /**
  *  The deadline expired before the operation could complete. For operations
  *  that change the state of the system, this error may be returned
@@ -112,7 +112,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DataLoss;
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DeadlineExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DeadlineExceeded;
 /**
  *  The operation was rejected because the system is not in a state
  *  required for the operation's execution. For example, the directory
@@ -133,7 +133,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DeadlineExc
  *
  *  Value: "FAILED_PRECONDITION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_FailedPrecondition;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_FailedPrecondition;
 /**
  *  Internal errors. This means that some invariants expected by the
  *  underlying system have been broken. This error code is reserved
@@ -142,7 +142,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_FailedPreco
  *
  *  Value: "INTERNAL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Internal;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Internal;
 /**
  *  The client specified an invalid argument. Note that this differs
  *  from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
@@ -152,7 +152,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Internal;
  *
  *  Value: "INVALID_ARGUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_InvalidArgument;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_InvalidArgument;
 /**
  *  Some requested entity (e.g., file or directory) was not found.
  *  Note to server developers: if a request is denied for an entire class
@@ -164,14 +164,14 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_InvalidArgu
  *
  *  Value: "NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_NotFound;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_NotFound;
 /**
  *  Not an error; returned on success
  *  HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Ok;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Ok;
 /**
  *  The operation was attempted past the valid range. E.g., seeking or
  *  reading past end-of-file.
@@ -190,7 +190,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Ok;
  *
  *  Value: "OUT_OF_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_OutOfRange;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_OutOfRange;
 /**
  *  The caller does not have permission to execute the specified
  *  operation. `PERMISSION_DENIED` must not be used for rejections
@@ -204,7 +204,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_OutOfRange;
  *
  *  Value: "PERMISSION_DENIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_PermissionDenied;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_PermissionDenied;
 /**
  *  Some resource has been exhausted, perhaps a per-user quota, or
  *  perhaps the entire file system is out of space.
@@ -212,7 +212,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_PermissionD
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_ResourceExhausted;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_ResourceExhausted;
 /**
  *  The request does not have valid authentication credentials for the
  *  operation.
@@ -220,7 +220,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_ResourceExh
  *
  *  Value: "UNAUTHENTICATED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unauthenticated;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unauthenticated;
 /**
  *  The service is currently unavailable. This is most likely a
  *  transient condition, which can be corrected by retrying with
@@ -232,7 +232,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unauthentic
  *
  *  Value: "UNAVAILABLE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unavailable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unavailable;
 /**
  *  The operation is not implemented or is not supported/enabled in this
  *  service.
@@ -240,7 +240,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unavailable
  *
  *  Value: "UNIMPLEMENTED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unimplemented;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unimplemented;
 /**
  *  Unknown error. For example, this error may be returned when
  *  a `Status` value received from another address space belongs to
@@ -251,7 +251,7 @@ GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unimplement
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown;
 
 /**
  *  Carries information about an accelerator that can be attached to a VM.

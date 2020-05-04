@@ -223,19 +223,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BaselineValueFormat.comparisonType
@@ -245,19 +245,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_AppendDimensionRequest_Dimension_Rows;
  *
  *  Value: "ABSOLUTE_DIFFERENCE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_AbsoluteDifference;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_AbsoluteDifference;
 /**
  *  Default value, do not use.
  *
  *  Value: "COMPARISON_TYPE_UNDEFINED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_ComparisonTypeUndefined;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_ComparisonTypeUndefined;
 /**
  *  Use percentage difference between key and baseline value.
  *
  *  Value: "PERCENTAGE_DIFFERENCE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_PercentageDifference;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_PercentageDifference;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartAxis.position
@@ -267,7 +267,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BaselineValueFormat_ComparisonType_Perc
  *
  *  Value: "BASIC_CHART_AXIS_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_BasicChartAxisPositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_BasicChartAxisPositionUnspecified;
 /**
  *  The axis rendered at the bottom of a chart.
  *  For most charts, this is the standard major axis.
@@ -275,7 +275,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_BasicChartAxisP
  *
  *  Value: "BOTTOM_AXIS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_BottomAxis;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_BottomAxis;
 /**
  *  The axis rendered at the left of a chart.
  *  For most charts, this is a minor axis.
@@ -283,7 +283,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_BottomAxis;
  *
  *  Value: "LEFT_AXIS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_LeftAxis;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_LeftAxis;
 /**
  *  The axis rendered at the right of a chart.
  *  For most charts, this is a minor axis.
@@ -291,7 +291,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_LeftAxis;
  *
  *  Value: "RIGHT_AXIS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_RightAxis;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_RightAxis;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSeries.targetAxis
@@ -301,7 +301,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartAxis_Position_RightAxis;
  *
  *  Value: "BASIC_CHART_AXIS_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_BasicChartAxisPositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_BasicChartAxisPositionUnspecified;
 /**
  *  The axis rendered at the bottom of a chart.
  *  For most charts, this is the standard major axis.
@@ -309,7 +309,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_BasicChartA
  *
  *  Value: "BOTTOM_AXIS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_BottomAxis;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_BottomAxis;
 /**
  *  The axis rendered at the left of a chart.
  *  For most charts, this is a minor axis.
@@ -317,7 +317,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_BottomAxis;
  *
  *  Value: "LEFT_AXIS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_LeftAxis;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_LeftAxis;
 /**
  *  The axis rendered at the right of a chart.
  *  For most charts, this is a minor axis.
@@ -325,7 +325,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_LeftAxis;
  *
  *  Value: "RIGHT_AXIS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_RightAxis;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_RightAxis;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSeries.type
@@ -335,51 +335,51 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_TargetAxis_RightAxis;
  *
  *  Value: "AREA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Area;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Area;
 /**
  *  A <a href="/chart/interactive/docs/gallery/barchart">bar chart</a>.
  *
  *  Value: "BAR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Bar;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Bar;
 /**
  *  Default value, do not use.
  *
  *  Value: "BASIC_CHART_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_BasicChartTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_BasicChartTypeUnspecified;
 /**
  *  A <a href="/chart/interactive/docs/gallery/columnchart">column chart</a>.
  *
  *  Value: "COLUMN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Column;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Column;
 /**
  *  A <a href="/chart/interactive/docs/gallery/combochart">combo chart</a>.
  *
  *  Value: "COMBO"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Combo;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Combo;
 /**
  *  A <a href="/chart/interactive/docs/gallery/linechart">line chart</a>.
  *
  *  Value: "LINE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Line;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Line;
 /**
  *  A <a href="/chart/interactive/docs/gallery/scatterchart">scatter
  *  chart</a>.
  *
  *  Value: "SCATTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Scatter;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_Scatter;
 /**
  *  A <a href="/chart/interactive/docs/gallery/steppedareachart">stepped area
  *  chart</a>.
  *
  *  Value: "STEPPED_AREA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_SteppedArea;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_SteppedArea;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.chartType
@@ -389,51 +389,51 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSeries_Type_SteppedArea;
  *
  *  Value: "AREA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Area;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Area;
 /**
  *  A <a href="/chart/interactive/docs/gallery/barchart">bar chart</a>.
  *
  *  Value: "BAR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Bar;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Bar;
 /**
  *  Default value, do not use.
  *
  *  Value: "BASIC_CHART_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_BasicChartTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_BasicChartTypeUnspecified;
 /**
  *  A <a href="/chart/interactive/docs/gallery/columnchart">column chart</a>.
  *
  *  Value: "COLUMN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Column;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Column;
 /**
  *  A <a href="/chart/interactive/docs/gallery/combochart">combo chart</a>.
  *
  *  Value: "COMBO"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Combo;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Combo;
 /**
  *  A <a href="/chart/interactive/docs/gallery/linechart">line chart</a>.
  *
  *  Value: "LINE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Line;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Line;
 /**
  *  A <a href="/chart/interactive/docs/gallery/scatterchart">scatter
  *  chart</a>.
  *
  *  Value: "SCATTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Scatter;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_Scatter;
 /**
  *  A <a href="/chart/interactive/docs/gallery/steppedareachart">stepped area
  *  chart</a>.
  *
  *  Value: "STEPPED_AREA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.compareMode
@@ -443,20 +443,20 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_ChartType_SteppedArea;
  *
  *  Value: "BASIC_CHART_COMPARE_MODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_BasicChartCompareModeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_BasicChartCompareModeUnspecified;
 /**
  *  All data elements with the same category (e.g., domain value) are
  *  highlighted and shown in the tooltip.
  *
  *  Value: "CATEGORY"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Category;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Category;
 /**
  *  Only the focused data element is highlighted and shown in the tooltip.
  *
  *  Value: "DATUM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Datum;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Datum;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.legendPosition
@@ -466,37 +466,37 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_CompareMode_Datum;
  *
  *  Value: "BASIC_CHART_LEGEND_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BasicChartLegendPositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BasicChartLegendPositionUnspecified;
 /**
  *  The legend is rendered on the bottom of the chart.
  *
  *  Value: "BOTTOM_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BottomLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_BottomLegend;
 /**
  *  The legend is rendered on the left of the chart.
  *
  *  Value: "LEFT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_LeftLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_LeftLegend;
 /**
  *  No legend is rendered.
  *
  *  Value: "NO_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_NoLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_NoLegend;
 /**
  *  The legend is rendered on the right of the chart.
  *
  *  Value: "RIGHT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_RightLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_RightLegend;
 /**
  *  The legend is rendered on the top of the chart.
  *
  *  Value: "TOP_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_TopLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_TopLegend;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BasicChartSpec.stackedType
@@ -506,27 +506,27 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_LegendPosition_TopLegend
  *
  *  Value: "BASIC_CHART_STACKED_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_BasicChartStackedTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_BasicChartStackedTypeUnspecified;
 /**
  *  Series are not stacked.
  *
  *  Value: "NOT_STACKED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_NotStacked;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_NotStacked;
 /**
  *  Vertical stacks are stretched to reach the top of the chart, with
  *  values laid out as percentages of each other.
  *
  *  Value: "PERCENT_STACKED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_PercentStacked;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_PercentStacked;
 /**
  *  Series values are stacked, each value is rendered vertically beginning
  *  from the top of the value below it.
  *
  *  Value: "STACKED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacked;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacked;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchGetValuesByDataFilterRequest.dateTimeRenderOption
@@ -538,7 +538,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacked;
  *
  *  Value: "FORMATTED_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString;
 /**
  *  Instructs date, time, datetime, and duration fields to be output
  *  as doubles in "serial number" format, as popularized by Lotus 1-2-3.
@@ -552,7 +552,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateT
  *
  *  Value: "SERIAL_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_SerialNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_SerialNumber;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchGetValuesByDataFilterRequest.majorDimension
@@ -562,19 +562,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_DateT
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_MajorDimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchGetValuesByDataFilterRequest.valueRenderOption
@@ -588,7 +588,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_Major
  *
  *  Value: "FORMATTED_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue;
 /**
  *  Values will not be calculated. The reply will include the formulas.
  *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
@@ -596,7 +596,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_Value
  *
  *  Value: "FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_Formula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_Formula;
 /**
  *  Values will be calculated, but not formatted in the reply.
  *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
@@ -604,7 +604,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_Value
  *
  *  Value: "UNFORMATTED_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_UnformattedValue;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseDateTimeRenderOption
@@ -616,7 +616,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest_Value
  *
  *  Value: "FORMATTED_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString;
 /**
  *  Instructs date, time, datetime, and duration fields to be output
  *  as doubles in "serial number" format, as popularized by Lotus 1-2-3.
@@ -630,7 +630,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Re
  *
  *  Value: "SERIAL_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_SerialNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_SerialNumber;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesByDataFilterRequest.responseValueRenderOption
@@ -644,7 +644,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Re
  *
  *  Value: "FORMATTED_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue;
 /**
  *  Values will not be calculated. The reply will include the formulas.
  *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
@@ -652,7 +652,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Re
  *
  *  Value: "FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_Formula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_Formula;
 /**
  *  Values will be calculated, but not formatted in the reply.
  *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
@@ -660,7 +660,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Re
  *
  *  Value: "UNFORMATTED_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_UnformattedValue;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesByDataFilterRequest.valueInputOption
@@ -670,14 +670,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Re
  *
  *  Value: "INPUT_VALUE_OPTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_InputValueOptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_InputValueOptionUnspecified;
 /**
  *  The values the user has entered will not be parsed and will be stored
  *  as-is.
  *
  *  Value: "RAW"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_Raw;
 /**
  *  The values will be parsed as if the user typed them into the UI.
  *  Numbers will stay as numbers, but strings may be converted to numbers,
@@ -686,7 +686,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Va
  *
  *  Value: "USER_ENTERED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_UserEntered;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ValueInputOption_UserEntered;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesRequest.responseDateTimeRenderOption
@@ -698,7 +698,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequest_Va
  *
  *  Value: "FORMATTED_STRING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_FormattedString;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_FormattedString;
 /**
  *  Instructs date, time, datetime, and duration fields to be output
  *  as doubles in "serial number" format, as popularized by Lotus 1-2-3.
@@ -712,7 +712,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTi
  *
  *  Value: "SERIAL_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_SerialNumber;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_SerialNumber;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesRequest.responseValueRenderOption
@@ -726,7 +726,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTi
  *
  *  Value: "FORMATTED_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_FormattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_FormattedValue;
 /**
  *  Values will not be calculated. The reply will include the formulas.
  *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
@@ -734,7 +734,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueR
  *
  *  Value: "FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_Formula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_Formula;
 /**
  *  Values will be calculated, but not formatted in the reply.
  *  For example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency,
@@ -742,7 +742,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueR
  *
  *  Value: "UNFORMATTED_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_UnformattedValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_UnformattedValue;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BatchUpdateValuesRequest.valueInputOption
@@ -752,14 +752,14 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ResponseValueR
  *
  *  Value: "INPUT_VALUE_OPTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_InputValueOptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_InputValueOptionUnspecified;
 /**
  *  The values the user has entered will not be parsed and will be stored
  *  as-is.
  *
  *  Value: "RAW"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_Raw;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_Raw;
 /**
  *  The values will be parsed as if the user typed them into the UI.
  *  Numbers will stay as numbers, but strings may be converted to numbers,
@@ -768,7 +768,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOpti
  *
  *  Value: "USER_ENTERED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_UserEntered;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOption_UserEntered;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BooleanCondition.type
@@ -780,7 +780,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_ValueInputOpti
  *
  *  Value: "BLANK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Blank;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Blank;
 /**
  *  The cell's value must be TRUE/FALSE or in the list of condition values.
  *  Supported by data validation.
@@ -797,13 +797,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Blank;
  *
  *  Value: "BOOLEAN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Boolean;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Boolean;
 /**
  *  The default value, do not use.
  *
  *  Value: "CONDITION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_ConditionTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_ConditionTypeUnspecified;
 /**
  *  The condition's formula must evaluate to true.
  *  Supported by data validation, conditional formatting and filters.
@@ -811,7 +811,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_ConditionTypeUnsp
  *
  *  Value: "CUSTOM_FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_CustomFormula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_CustomFormula;
 /**
  *  The cell's value must be after the date of the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -820,7 +820,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_CustomFormula;
  *
  *  Value: "DATE_AFTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateAfter;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateAfter;
 /**
  *  The cell's value must be before the date of the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -829,7 +829,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateAfter;
  *
  *  Value: "DATE_BEFORE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBefore;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBefore;
 /**
  *  The cell's value must be between the dates of the two condition values.
  *  Supported by data validation.
@@ -837,7 +837,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBefore;
  *
  *  Value: "DATE_BETWEEN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBetween;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBetween;
 /**
  *  The cell's value must be the same date as the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -845,7 +845,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBetween;
  *
  *  Value: "DATE_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateEq;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateEq;
 /**
  *  The cell's value must be a date.
  *  Supported by data validation.
@@ -853,7 +853,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateEq;
  *
  *  Value: "DATE_IS_VALID"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateIsValid;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateIsValid;
 /**
  *  The cell's value must be outside the dates of the two condition values.
  *  Supported by data validation.
@@ -861,7 +861,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateIsValid;
  *
  *  Value: "DATE_NOT_BETWEEN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateNotBetween;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateNotBetween;
 /**
  *  The cell's value must be on or after the date of the condition's value.
  *  Supported by data validation.
@@ -870,7 +870,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateNotBetween;
  *
  *  Value: "DATE_ON_OR_AFTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAfter;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAfter;
 /**
  *  The cell's value must be on or before the date of the condition's value.
  *  Supported by data validation.
@@ -879,7 +879,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrAfter;
  *
  *  Value: "DATE_ON_OR_BEFORE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrBefore;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrBefore;
 /**
  *  The cell's value must not be empty.
  *  Supported by conditional formatting and filters.
@@ -887,7 +887,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateOnOrBefore;
  *
  *  Value: "NOT_BLANK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NotBlank;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NotBlank;
 /**
  *  The cell's value must be between the two condition values.
  *  Supported by data validation, conditional formatting and filters.
@@ -895,7 +895,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NotBlank;
  *
  *  Value: "NUMBER_BETWEEN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberBetween;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberBetween;
 /**
  *  The cell's value must be equal to the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -903,7 +903,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberBetween;
  *
  *  Value: "NUMBER_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberEq;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberEq;
 /**
  *  The cell's value must be greater than the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -911,7 +911,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberEq;
  *
  *  Value: "NUMBER_GREATER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberGreater;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberGreater;
 /**
  *  The cell's value must be greater than or equal to the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -919,7 +919,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberGreater;
  *
  *  Value: "NUMBER_GREATER_THAN_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberGreaterThanEq;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberGreaterThanEq;
 /**
  *  The cell's value must be less than the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -927,7 +927,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberGreaterThan
  *
  *  Value: "NUMBER_LESS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberLess;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberLess;
 /**
  *  The cell's value must be less than or equal to the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -935,7 +935,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberLess;
  *
  *  Value: "NUMBER_LESS_THAN_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberLessThanEq;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberLessThanEq;
 /**
  *  The cell's value must not be between the two condition values.
  *  Supported by data validation, conditional formatting and filters.
@@ -943,7 +943,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberLessThanEq;
  *
  *  Value: "NUMBER_NOT_BETWEEN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotBetween;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotBetween;
 /**
  *  The cell's value must be not equal to the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -951,7 +951,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotBetween;
  *
  *  Value: "NUMBER_NOT_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotEq;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotEq;
 /**
  *  The cell's value must be in the list of condition values.
  *  Supported by data validation.
@@ -961,7 +961,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotEq;
  *
  *  Value: "ONE_OF_LIST"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfList;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfList;
 /**
  *  The cell's value must be listed in the grid in condition value's range.
  *  Supported by data validation.
@@ -970,7 +970,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfList;
  *
  *  Value: "ONE_OF_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfRange;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfRange;
 /**
  *  The cell's value must contain the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -978,7 +978,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_OneOfRange;
  *
  *  Value: "TEXT_CONTAINS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextContains;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextContains;
 /**
  *  The cell's value must end with the condition's value.
  *  Supported by conditional formatting and filters.
@@ -986,7 +986,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextContains;
  *
  *  Value: "TEXT_ENDS_WITH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEndsWith;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEndsWith;
 /**
  *  The cell's value must be exactly the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -994,7 +994,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEndsWith;
  *
  *  Value: "TEXT_EQ"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEq;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEq;
 /**
  *  The cell's value must be a valid email address.
  *  Supported by data validation.
@@ -1002,7 +1002,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEq;
  *
  *  Value: "TEXT_IS_EMAIL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsEmail;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsEmail;
 /**
  *  The cell's value must be a valid URL.
  *  Supported by data validation.
@@ -1010,7 +1010,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsEmail;
  *
  *  Value: "TEXT_IS_URL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsUrl;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsUrl;
 /**
  *  The cell's value must not contain the condition's value.
  *  Supported by data validation, conditional formatting and filters.
@@ -1018,7 +1018,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextIsUrl;
  *
  *  Value: "TEXT_NOT_CONTAINS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextNotContains;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextNotContains;
 /**
  *  The cell's value must start with the condition's value.
  *  Supported by conditional formatting and filters.
@@ -1026,7 +1026,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextNotContains;
  *
  *  Value: "TEXT_STARTS_WITH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextStartsWith;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextStartsWith;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_Border.style
@@ -1036,50 +1036,50 @@ GTLR_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextStartsWith;
  *
  *  Value: "DASHED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_Dashed;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_Dashed;
 /**
  *  The border is dotted.
  *
  *  Value: "DOTTED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_Dotted;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_Dotted;
 /**
  *  The border is two solid lines.
  *
  *  Value: "DOUBLE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_Double;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_Double;
 /**
  *  No border.
  *  Used only when updating a border in order to erase it.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_None;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_None;
 /**
  *  The border is a thin solid line.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_Solid;
 /**
  *  The border is a medium solid line.
  *
  *  Value: "SOLID_MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_SolidMedium;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_SolidMedium;
 /**
  *  The border is a thick solid line.
  *
  *  Value: "SOLID_THICK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_SolidThick;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_SolidThick;
 /**
  *  The style is not specified. Do not use this.
  *
  *  Value: "STYLE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_StyleUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_Border_Style_StyleUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_BubbleChartSpec.legendPosition
@@ -1089,43 +1089,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_Border_Style_StyleUnspecified;
  *
  *  Value: "BOTTOM_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BottomLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BottomLegend;
 /**
  *  Default value, do not use.
  *
  *  Value: "BUBBLE_CHART_LEGEND_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BubbleChartLegendPositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_BubbleChartLegendPositionUnspecified;
 /**
  *  The legend is rendered inside the chart area.
  *
  *  Value: "INSIDE_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_InsideLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_InsideLegend;
 /**
  *  The legend is rendered on the left of the chart.
  *
  *  Value: "LEFT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_LeftLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_LeftLegend;
 /**
  *  No legend is rendered.
  *
  *  Value: "NO_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_NoLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_NoLegend;
 /**
  *  The legend is rendered on the right of the chart.
  *
  *  Value: "RIGHT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_RightLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_RightLegend;
 /**
  *  The legend is rendered on the top of the chart.
  *
  *  Value: "TOP_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_TopLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_TopLegend;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CellFormat.horizontalAlignment
@@ -1135,25 +1135,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_BubbleChartSpec_LegendPosition_TopLegen
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Center;
 /**
  *  The horizontal alignment is not specified. Do not use this.
  *
  *  Value: "HORIZONTAL_ALIGN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_HorizontalAlignUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_HorizontalAlignUnspecified;
 /**
  *  The text is explicitly aligned to the left of the cell.
  *
  *  Value: "LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Left;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Left;
 /**
  *  The text is explicitly aligned to the right of the cell.
  *
  *  Value: "RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Right;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Right;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CellFormat.hyperlinkDisplayType
@@ -1163,19 +1163,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HorizontalAlignment_Right;
  *
  *  Value: "HYPERLINK_DISPLAY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_HyperlinkDisplayTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_HyperlinkDisplayTypeUnspecified;
 /**
  *  A hyperlink should be explicitly rendered.
  *
  *  Value: "LINKED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_Linked;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_Linked;
 /**
  *  A hyperlink should not be rendered.
  *
  *  Value: "PLAIN_TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_PlainText;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_PlainText;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CellFormat.textDirection
@@ -1185,19 +1185,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_HyperlinkDisplayType_PlainTe
  *
  *  Value: "LEFT_TO_RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_LeftToRight;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_LeftToRight;
 /**
  *  The text direction of right-to-left was set by the user.
  *
  *  Value: "RIGHT_TO_LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_RightToLeft;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_RightToLeft;
 /**
  *  The text direction is not specified. Do not use this.
  *
  *  Value: "TEXT_DIRECTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_TextDirectionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_TextDirectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CellFormat.verticalAlignment
@@ -1207,25 +1207,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_TextDirection_TextDirectionU
  *
  *  Value: "BOTTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_Bottom;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_Bottom;
 /**
  *  The text is explicitly aligned to the middle of the cell.
  *
  *  Value: "MIDDLE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_Middle;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_Middle;
 /**
  *  The text is explicitly aligned to the top of the cell.
  *
  *  Value: "TOP"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_Top;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_Top;
 /**
  *  The vertical alignment is not specified. Do not use this.
  *
  *  Value: "VERTICAL_ALIGN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_VerticalAlignUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_VerticalAlignUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CellFormat.wrapStrategy
@@ -1241,7 +1241,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_VerticalAlignment_VerticalAl
  *
  *  Value: "CLIP"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_Clip;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_Clip;
 /**
  *  This wrap strategy represents the old Google Sheets wrap strategy where
  *  words that are longer than a line are clipped rather than broken. This
@@ -1253,7 +1253,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_Clip;
  *
  *  Value: "LEGACY_WRAP"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_LegacyWrap;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_LegacyWrap;
 /**
  *  Lines that are longer than the cell width will be written in the next
  *  cell over, so long as that cell is empty. If the next cell over is
@@ -1266,7 +1266,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_LegacyWrap;
  *
  *  Value: "OVERFLOW_CELL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_OverflowCell;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_OverflowCell;
 /**
  *  Words that are longer than a line are wrapped at the character level
  *  rather than clipped.
@@ -1277,13 +1277,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_OverflowCell;
  *
  *  Value: "WRAP"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_Wrap;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_Wrap;
 /**
  *  The default value, do not use.
  *
  *  Value: "WRAP_STRATEGY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_WrapStrategyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_WrapStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ChartAxisViewWindowOptions.viewWindowMode
@@ -1295,28 +1295,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_WrapStrategyUns
  *
  *  Value: "DEFAULT_VIEW_WINDOW_MODE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_DefaultViewWindowMode;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_DefaultViewWindowMode;
 /**
  *  Follows the min and max exactly if specified. If a value is unspecified,
  *  it will fall back to the `PRETTY` value.
  *
  *  Value: "EXPLICIT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Explicit;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Explicit;
 /**
  *  Chooses a min and max that make the chart look good. Both min and max are
  *  ignored in this mode.
  *
  *  Value: "PRETTY"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Pretty;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_Pretty;
 /**
  *  Do not use. Represents that the currently set mode is not supported by
  *  the API.
  *
  *  Value: "VIEW_WINDOW_MODE_UNSUPPORTED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_ViewWindowModeUnsupported;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMode_ViewWindowModeUnsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ChartSpec.hiddenDimensionStrategy
@@ -1326,31 +1326,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_ChartAxisViewWindowOptions_ViewWindowMo
  *
  *  Value: "CHART_HIDDEN_DIMENSION_STRATEGY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_ChartHiddenDimensionStrategyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_ChartHiddenDimensionStrategyUnspecified;
 /**
  *  Charts will not skip any hidden rows or columns.
  *
  *  Value: "SHOW_ALL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_ShowAll;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_ShowAll;
 /**
  *  Charts will skip hidden columns only.
  *
  *  Value: "SKIP_HIDDEN_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenColumns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenColumns;
 /**
  *  Charts will skip hidden rows only.
  *
  *  Value: "SKIP_HIDDEN_ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenRows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenRows;
 /**
  *  Charts will skip hidden rows and columns.
  *
  *  Value: "SKIP_HIDDEN_ROWS_AND_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenRowsAndColumns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipHiddenRowsAndColumns;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ColorStyle.themeColor
@@ -1360,61 +1360,61 @@ GTLR_EXTERN NSString * const kGTLRSheets_ChartSpec_HiddenDimensionStrategy_SkipH
  *
  *  Value: "ACCENT1"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent1;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent1;
 /**
  *  Represents the second accent color
  *
  *  Value: "ACCENT2"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent2;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent2;
 /**
  *  Represents the third accent color
  *
  *  Value: "ACCENT3"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent3;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent3;
 /**
  *  Represents the fourth accent color
  *
  *  Value: "ACCENT4"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent4;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent4;
 /**
  *  Represents the fifth accent color
  *
  *  Value: "ACCENT5"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent5;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent5;
 /**
  *  Represents the sixth accent color
  *
  *  Value: "ACCENT6"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent6;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Accent6;
 /**
  *  Represents the primary background color
  *
  *  Value: "BACKGROUND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Background;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Background;
 /**
  *  Represents the color to use for hyperlinks
  *
  *  Value: "LINK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Link;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Link;
 /**
  *  Represents the primary text color
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Text;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_Text;
 /**
  *  Unspecified theme color
  *
  *  Value: "THEME_COLOR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ConditionValue.relativeDate
@@ -1424,43 +1424,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_ColorStyle_ThemeColor_ThemeColorTypeUns
  *
  *  Value: "PAST_MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastMonth;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastMonth;
 /**
  *  The value is one week before today.
  *
  *  Value: "PAST_WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastWeek;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastWeek;
 /**
  *  The value is one year before today.
  *
  *  Value: "PAST_YEAR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastYear;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_PastYear;
 /**
  *  Default value, do not use.
  *
  *  Value: "RELATIVE_DATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_RelativeDateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_RelativeDateUnspecified;
 /**
  *  The value is today.
  *
  *  Value: "TODAY"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Today;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Today;
 /**
  *  The value is tomorrow.
  *
  *  Value: "TOMORROW"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Tomorrow;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Tomorrow;
 /**
  *  The value is yesterday.
  *
  *  Value: "YESTERDAY"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Yesterday;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Yesterday;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CopyPasteRequest.pasteOrientation
@@ -1470,13 +1470,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_ConditionValue_RelativeDate_Yesterday;
  *
  *  Value: "NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteOrientation_Normal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteOrientation_Normal;
 /**
  *  Paste transposed, where all rows become columns and vice versa.
  *
  *  Value: "TRANSPOSE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteOrientation_Transpose;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteOrientation_Transpose;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CopyPasteRequest.pasteType
@@ -1486,43 +1486,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteOrientation_Trans
  *
  *  Value: "PASTE_CONDITIONAL_FORMATTING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteConditionalFormatting;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteConditionalFormatting;
 /**
  *  Paste the data validation only.
  *
  *  Value: "PASTE_DATA_VALIDATION"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteDataValidation;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteDataValidation;
 /**
  *  Paste the format and data validation only.
  *
  *  Value: "PASTE_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteFormat;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteFormat;
 /**
  *  Paste the formulas only.
  *
  *  Value: "PASTE_FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula;
 /**
  *  Like PASTE_NORMAL but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteNoBorders;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteNoBorders;
 /**
  *  Paste values, formulas, formats, and merges.
  *
  *  Value: "PASTE_NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteNormal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteNormal;
 /**
  *  Paste the values ONLY without formats, formulas, or merges.
  *
  *  Value: "PASTE_VALUES"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteValues;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteValues;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_CutPasteRequest.pasteType
@@ -1532,43 +1532,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteValues;
  *
  *  Value: "PASTE_CONDITIONAL_FORMATTING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteConditionalFormatting;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteConditionalFormatting;
 /**
  *  Paste the data validation only.
  *
  *  Value: "PASTE_DATA_VALIDATION"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteDataValidation;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteDataValidation;
 /**
  *  Paste the format and data validation only.
  *
  *  Value: "PASTE_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFormat;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFormat;
 /**
  *  Paste the formulas only.
  *
  *  Value: "PASTE_FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFormula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFormula;
 /**
  *  Like PASTE_NORMAL but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNoBorders;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNoBorders;
 /**
  *  Paste values, formulas, formats, and merges.
  *
  *  Value: "PASTE_NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNormal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteNormal;
 /**
  *  Paste the values ONLY without formats, formulas, or merges.
  *
  *  Value: "PASTE_VALUES"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DataFilterValueRange.majorDimension
@@ -1578,19 +1578,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteValues;
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DateTimeRule.type
@@ -1600,46 +1600,46 @@ GTLR_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Row
  *
  *  Value: "DATE_TIME_RULE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DateTimeRuleTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DateTimeRuleTypeUnspecified;
 /**
  *  Group dates by day and month, for example 22-Nov. The month is
  *  translated based on the spreadsheet locale.
  *
  *  Value: "DAY_MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayMonth;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayMonth;
 /**
  *  Group dates by day of month, from 1 to 31.
  *
  *  Value: "DAY_OF_MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfMonth;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfMonth;
 /**
  *  Group dates by day of week, for example Sunday. The days of the week will
  *  be translated based on the spreadsheet locale.
  *
  *  Value: "DAY_OF_WEEK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfWeek;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfWeek;
 /**
  *  Group dates by day of year, from 1 to 366. Note that dates after Feb. 29
  *  fall in different buckets in leap years than in non-leap years.
  *
  *  Value: "DAY_OF_YEAR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfYear;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_DayOfYear;
 /**
  *  Group dates by hour using a 24-hour system, from 0 to 23.
  *
  *  Value: "HOUR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Hour;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Hour;
 /**
  *  Group dates by hour and minute using a 24-hour system, for example 19:45.
  *
  *  Value: "HOUR_MINUTE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinute;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinute;
 /**
  *  Group dates by hour and minute using a 12-hour system, for example 7:45
  *  PM. The AM/PM designation is translated based on the spreadsheet
@@ -1647,57 +1647,57 @@ GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinute;
  *
  *  Value: "HOUR_MINUTE_AMPM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinuteAmpm;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_HourMinuteAmpm;
 /**
  *  Group dates by minute, from 0 to 59.
  *
  *  Value: "MINUTE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Minute;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Minute;
 /**
  *  Group dates by month, for example Nov. The month is translated based
  *  on the spreadsheet locale.
  *
  *  Value: "MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Month;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Month;
 /**
  *  Group dates by quarter, for example Q1 (which represents Jan-Mar).
  *
  *  Value: "QUARTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Quarter;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Quarter;
 /**
  *  Group dates by second, from 0 to 59.
  *
  *  Value: "SECOND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Second;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Second;
 /**
  *  Group dates by year, for example 2008.
  *
  *  Value: "YEAR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Year;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_Year;
 /**
  *  Group dates by year and month, for example 2008-Nov. The month is
  *  translated based on the spreadsheet locale.
  *
  *  Value: "YEAR_MONTH"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearMonth;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearMonth;
 /**
  *  Group dates by year, month, and day, for example 2008-11-22.
  *
  *  Value: "YEAR_MONTH_DAY"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearMonthDay;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearMonthDay;
 /**
  *  Group dates by year and quarter, for example 2008 Q4.
  *
  *  Value: "YEAR_QUARTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearQuarter;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearQuarter;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeleteRangeRequest.shiftDimension
@@ -1707,19 +1707,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_DateTimeRule_Type_YearQuarter;
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeveloperMetadata.visibility
@@ -1729,21 +1729,21 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeleteRangeRequest_ShiftDimension_Rows;
  *
  *  Value: "DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_DeveloperMetadataVisibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_DeveloperMetadataVisibilityUnspecified;
 /**
  *  Document-visible metadata is accessible from any developer project with
  *  access to the document.
  *
  *  Value: "DOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Document;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Document;
 /**
  *  Project-visible metadata is only visible to and accessible by the developer
  *  project that created the metadata.
  *
  *  Value: "PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Project;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Project;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeveloperMetadataLocation.locationType
@@ -1753,31 +1753,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadata_Visibility_Project;
  *
  *  Value: "COLUMN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Column;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Column;
 /**
  *  Default value.
  *
  *  Value: "DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_DeveloperMetadataLocationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_DeveloperMetadataLocationTypeUnspecified;
 /**
  *  Developer metadata associated on an entire row dimension.
  *
  *  Value: "ROW"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Row;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Row;
 /**
  *  Developer metadata associated on an entire sheet.
  *
  *  Value: "SHEET"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Sheet;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Sheet;
 /**
  *  Developer metadata associated on the entire spreadsheet.
  *
  *  Value: "SPREADSHEET"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Spreadsheet;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_Spreadsheet;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeveloperMetadataLookup.locationMatchingStrategy
@@ -1787,7 +1787,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLocation_LocationType_
  *
  *  Value: "DEVELOPER_METADATA_LOCATION_MATCHING_STRATEGY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_DeveloperMetadataLocationMatchingStrategyUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_DeveloperMetadataLocationMatchingStrategyUnspecified;
 /**
  *  Indicates that a specified location should be matched exactly. For
  *  example, if row three were specified as a location this matching strategy
@@ -1796,7 +1796,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchin
  *
  *  Value: "EXACT_LOCATION"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_ExactLocation;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_ExactLocation;
 /**
  *  Indicates that a specified location should match that exact location as
  *  well as any intersecting locations. For example, if row three were
@@ -1808,7 +1808,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchin
  *
  *  Value: "INTERSECTING_LOCATION"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_IntersectingLocation;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchingStrategy_IntersectingLocation;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeveloperMetadataLookup.locationType
@@ -1818,31 +1818,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationMatchin
  *
  *  Value: "COLUMN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Column;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Column;
 /**
  *  Default value.
  *
  *  Value: "DEVELOPER_METADATA_LOCATION_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_DeveloperMetadataLocationTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_DeveloperMetadataLocationTypeUnspecified;
 /**
  *  Developer metadata associated on an entire row dimension.
  *
  *  Value: "ROW"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Row;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Row;
 /**
  *  Developer metadata associated on an entire sheet.
  *
  *  Value: "SHEET"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Sheet;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Sheet;
 /**
  *  Developer metadata associated on the entire spreadsheet.
  *
  *  Value: "SPREADSHEET"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Spreadsheet;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Spreadsheet;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DeveloperMetadataLookup.visibility
@@ -1852,21 +1852,21 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_LocationType_Sp
  *
  *  Value: "DEVELOPER_METADATA_VISIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_DeveloperMetadataVisibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_DeveloperMetadataVisibilityUnspecified;
 /**
  *  Document-visible metadata is accessible from any developer project with
  *  access to the document.
  *
  *  Value: "DOCUMENT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Document;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Document;
 /**
  *  Project-visible metadata is only visible to and accessible by the developer
  *  project that created the metadata.
  *
  *  Value: "PROJECT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Project;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Project;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_DimensionRange.dimension
@@ -1876,19 +1876,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_DeveloperMetadataLookup_Visibility_Proj
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ErrorValue.type
@@ -1898,61 +1898,61 @@ GTLR_EXTERN NSString * const kGTLRSheets_DimensionRange_Dimension_Rows;
  *
  *  Value: "DIVIDE_BY_ZERO"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_DivideByZero;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_DivideByZero;
 /**
  *  Corresponds to the `#ERROR!` error.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Error;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Error;
 /**
  *  The default error type, do not use this.
  *
  *  Value: "ERROR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_ErrorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_ErrorTypeUnspecified;
 /**
  *  Corresponds to the `Loading...` state.
  *
  *  Value: "LOADING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Loading;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Loading;
 /**
  *  Corresponds to the `#N/A` error.
  *
  *  Value: "N_A"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_NA;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_NA;
 /**
  *  Corresponds to the `#NAME?` error.
  *
  *  Value: "NAME"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Name;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Name;
 /**
  *  Corresponds to the `#NULL!` error.
  *
  *  Value: "NULL_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_NullValue;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_NullValue;
 /**
  *  Corresponds to the `#NUM`! error.
  *
  *  Value: "NUM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Num;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Num;
 /**
  *  Corresponds to the `#REF!` error.
  *
  *  Value: "REF"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Ref;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Ref;
 /**
  *  Corresponds to the `#VALUE!` error.
  *
  *  Value: "VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Value;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Value;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_HistogramChartSpec.legendPosition
@@ -1962,43 +1962,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Value;
  *
  *  Value: "BOTTOM_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_BottomLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_BottomLegend;
 /**
  *  Default value, do not use.
  *
  *  Value: "HISTOGRAM_CHART_LEGEND_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_HistogramChartLegendPositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_HistogramChartLegendPositionUnspecified;
 /**
  *  The legend is rendered inside the chart area.
  *
  *  Value: "INSIDE_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_InsideLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_InsideLegend;
 /**
  *  The legend is rendered on the left of the chart.
  *
  *  Value: "LEFT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_LeftLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_LeftLegend;
 /**
  *  No legend is rendered.
  *
  *  Value: "NO_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_NoLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_NoLegend;
 /**
  *  The legend is rendered on the right of the chart.
  *
  *  Value: "RIGHT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_RightLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_RightLegend;
 /**
  *  The legend is rendered on the top of the chart.
  *
  *  Value: "TOP_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_TopLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_TopLegend;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_InsertRangeRequest.shiftDimension
@@ -2008,19 +2008,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_HistogramChartSpec_LegendPosition_TopLe
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_InterpolationPoint.type
@@ -2030,28 +2030,28 @@ GTLR_EXTERN NSString * const kGTLRSheets_InsertRangeRequest_ShiftDimension_Rows;
  *
  *  Value: "INTERPOLATION_POINT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_InterpolationPointTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_InterpolationPointTypeUnspecified;
 /**
  *  The interpolation point uses the maximum value in the
  *  cells over the range of the conditional format.
  *
  *  Value: "MAX"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Max;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Max;
 /**
  *  The interpolation point uses the minimum value in the
  *  cells over the range of the conditional format.
  *
  *  Value: "MIN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Min;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Min;
 /**
  *  The interpolation point uses exactly the value in
  *  InterpolationPoint.value.
  *
  *  Value: "NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
 /**
  *  The interpolation point is the given percentage over
  *  all the cells in the range of the conditional format.
@@ -2062,7 +2062,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
  *
  *  Value: "PERCENT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percent;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percent;
 /**
  *  The interpolation point is the given percentile
  *  over all the cells in the range of the conditional format.
@@ -2072,7 +2072,7 @@ GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percent;
  *
  *  Value: "PERCENTILE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percentile;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percentile;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_LineStyle.type
@@ -2083,55 +2083,55 @@ GTLR_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percentile;
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Custom;
 /**
  *  A dotted line.
  *
  *  Value: "DOTTED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Dotted;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Dotted;
 /**
  *  No dash type, which is equivalent to a non-visible line.
  *
  *  Value: "INVISIBLE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Invisible;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Invisible;
 /**
  *  Default value, do not use.
  *
  *  Value: "LINE_DASH_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LineDashTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LineDashTypeUnspecified;
 /**
  *  A dashed line where the dashes have "long" length.
  *
  *  Value: "LONG_DASHED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LongDashed;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LongDashed;
 /**
  *  A line that alternates between a "long" dash and a dot.
  *
  *  Value: "LONG_DASHED_DOTTED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LongDashedDotted;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_LongDashedDotted;
 /**
  *  A dashed line where the dashes have "medium" length.
  *
  *  Value: "MEDIUM_DASHED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_MediumDashed;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_MediumDashed;
 /**
  *  A line that alternates between a "medium" dash and a dot.
  *
  *  Value: "MEDIUM_DASHED_DOTTED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_MediumDashedDotted;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_MediumDashedDotted;
 /**
  *  A solid line.
  *
  *  Value: "SOLID"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Solid;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Solid;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_MergeCellsRequest.mergeType
@@ -2141,19 +2141,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_LineStyle_Type_Solid;
  *
  *  Value: "MERGE_ALL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeAll;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeAll;
 /**
  *  Create a merge for each column in the range
  *
  *  Value: "MERGE_COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeColumns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeColumns;
 /**
  *  Create a merge for each row in the range
  *
  *  Value: "MERGE_ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeRows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeRows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_NumberFormat.type
@@ -2163,25 +2163,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_MergeCellsRequest_MergeType_MergeRows;
  *
  *  Value: "CURRENCY"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Currency;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Currency;
 /**
  *  Date formatting, e.g `9/26/2008`
  *
  *  Value: "DATE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Date;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Date;
 /**
  *  Date+Time formatting, e.g `9/26/08 15:59:00`
  *
  *  Value: "DATE_TIME"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_DateTime;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_DateTime;
 /**
  *  Number formatting, e.g, `1,000.12`
  *
  *  Value: "NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Number;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Number;
 /**
  *  The number format is not specified
  *  and is based on the contents of the cell.
@@ -2189,31 +2189,31 @@ GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Number;
  *
  *  Value: "NUMBER_FORMAT_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_NumberFormatTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_NumberFormatTypeUnspecified;
 /**
  *  Percent formatting, e.g `10.12%`
  *
  *  Value: "PERCENT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Percent;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Percent;
 /**
  *  Scientific number formatting, e.g `1.01E+03`
  *
  *  Value: "SCIENTIFIC"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Scientific;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Scientific;
 /**
  *  Text formatting, e.g `1000.12`
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Text;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Text;
 /**
  *  Time formatting, e.g `3:59:00 PM`
  *
  *  Value: "TIME"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Time;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Time;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_OrgChartSpec.nodeSize
@@ -2223,25 +2223,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_NumberFormat_Type_Time;
  *
  *  Value: "LARGE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Large;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Large;
 /**
  *  The medium org chart node size.
  *
  *  Value: "MEDIUM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Medium;
 /**
  *  Default value, do not use.
  *
  *  Value: "ORG_CHART_LABEL_SIZE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_OrgChartLabelSizeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_OrgChartLabelSizeUnspecified;
 /**
  *  The small org chart node size.
  *
  *  Value: "SMALL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Small;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Small;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PasteDataRequest.type
@@ -2251,43 +2251,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_OrgChartSpec_NodeSize_Small;
  *
  *  Value: "PASTE_CONDITIONAL_FORMATTING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteConditionalFormatting;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteConditionalFormatting;
 /**
  *  Paste the data validation only.
  *
  *  Value: "PASTE_DATA_VALIDATION"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteDataValidation;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteDataValidation;
 /**
  *  Paste the format and data validation only.
  *
  *  Value: "PASTE_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormat;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormat;
 /**
  *  Paste the formulas only.
  *
  *  Value: "PASTE_FORMULA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormula;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormula;
 /**
  *  Like PASTE_NORMAL but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNoBorders;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNoBorders;
 /**
  *  Paste values, formulas, formats, and merges.
  *
  *  Value: "PASTE_NORMAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNormal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteNormal;
 /**
  *  Paste the values ONLY without formats, formulas, or merges.
  *
  *  Value: "PASTE_VALUES"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteValues;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteValues;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PieChartSpec.legendPosition
@@ -2297,43 +2297,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteValues;
  *
  *  Value: "BOTTOM_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_BottomLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_BottomLegend;
 /**
  *  Each pie slice has a label attached to it.
  *
  *  Value: "LABELED_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_LabeledLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_LabeledLegend;
 /**
  *  The legend is rendered on the left of the chart.
  *
  *  Value: "LEFT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_LeftLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_LeftLegend;
 /**
  *  No legend is rendered.
  *
  *  Value: "NO_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_NoLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_NoLegend;
 /**
  *  Default value, do not use.
  *
  *  Value: "PIE_CHART_LEGEND_POSITION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_PieChartLegendPositionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_PieChartLegendPositionUnspecified;
 /**
  *  The legend is rendered on the right of the chart.
  *
  *  Value: "RIGHT_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_RightLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_RightLegend;
 /**
  *  The legend is rendered on the top of the chart.
  *
  *  Value: "TOP_LEGEND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_TopLegend;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_TopLegend;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PivotGroup.sortOrder
@@ -2343,19 +2343,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_PieChartSpec_LegendPosition_TopLegend;
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_Ascending;
 /**
  *  Sort descending.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_Descending;
 /**
  *  Default value, do not use this.
  *
  *  Value: "SORT_ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_SortOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_SortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PivotTable.valueLayout
@@ -2365,13 +2365,13 @@ GTLR_EXTERN NSString * const kGTLRSheets_PivotGroup_SortOrder_SortOrderUnspecifi
  *
  *  Value: "HORIZONTAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Horizontal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Horizontal;
 /**
  *  Values are laid out vertically (as rows).
  *
  *  Value: "VERTICAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Vertical;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Vertical;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PivotValue.calculatedDisplayType
@@ -2381,25 +2381,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_PivotTable_ValueLayout_Vertical;
  *
  *  Value: "PERCENT_OF_COLUMN_TOTAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfColumnTotal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfColumnTotal;
 /**
  *  Shows the pivot values as percentage of the grand total values.
  *
  *  Value: "PERCENT_OF_GRAND_TOTAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfGrandTotal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfGrandTotal;
 /**
  *  Shows the pivot values as percentage of the row total values.
  *
  *  Value: "PERCENT_OF_ROW_TOTAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfRowTotal;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PercentOfRowTotal;
 /**
  *  Default value, do not use.
  *
  *  Value: "PIVOT_VALUE_CALCULATED_DISPLAY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PivotValueCalculatedDisplayTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PivotValueCalculatedDisplayTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_PivotValue.summarizeFunction
@@ -2409,92 +2409,92 @@ GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_CalculatedDisplayType_PivotV
  *
  *  Value: "AVERAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Average;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Average;
 /**
  *  Corresponds to the `COUNT` function.
  *
  *  Value: "COUNT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Count;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Count;
 /**
  *  Corresponds to the `COUNTA` function.
  *
  *  Value: "COUNTA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Counta;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Counta;
 /**
  *  Corresponds to the `COUNTUNIQUE` function.
  *
  *  Value: "COUNTUNIQUE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Countunique;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Countunique;
 /**
  *  Indicates the formula should be used as-is.
  *  Only valid if PivotValue.formula was set.
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Custom;
 /**
  *  Corresponds to the `MAX` function.
  *
  *  Value: "MAX"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Max;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Max;
 /**
  *  Corresponds to the `MEDIAN` function.
  *
  *  Value: "MEDIAN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Median;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Median;
 /**
  *  Corresponds to the `MIN` function.
  *
  *  Value: "MIN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Min;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Min;
 /**
  *  The default, do not use.
  *
  *  Value: "PIVOT_STANDARD_VALUE_FUNCTION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_PivotStandardValueFunctionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_PivotStandardValueFunctionUnspecified;
 /**
  *  Corresponds to the `PRODUCT` function.
  *
  *  Value: "PRODUCT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Product;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Product;
 /**
  *  Corresponds to the `STDEV` function.
  *
  *  Value: "STDEV"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Stdev;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Stdev;
 /**
  *  Corresponds to the `STDEVP` function.
  *
  *  Value: "STDEVP"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Stdevp;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Stdevp;
 /**
  *  Corresponds to the `SUM` function.
  *
  *  Value: "SUM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Sum;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Sum;
 /**
  *  Corresponds to the `VAR` function.
  *
  *  Value: "VAR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Var;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Var;
 /**
  *  Corresponds to the `VARP` function.
  *
  *  Value: "VARP"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ScorecardChartSpec.aggregateType
@@ -2504,43 +2504,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp;
  *
  *  Value: "AVERAGE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Average;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Average;
 /**
  *  Default value, do not use.
  *
  *  Value: "CHART_AGGREGATE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_ChartAggregateTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_ChartAggregateTypeUnspecified;
 /**
  *  Count aggregate function.
  *
  *  Value: "COUNT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Count;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Count;
 /**
  *  Maximum aggregate function.
  *
  *  Value: "MAX"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Max;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Max;
 /**
  *  Median aggregate function.
  *
  *  Value: "MEDIAN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Median;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Median;
 /**
  *  Minimum aggregate function.
  *
  *  Value: "MIN"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Min;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Min;
 /**
  *  Sum aggregate function.
  *
  *  Value: "SUM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Sum;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ScorecardChartSpec.numberFormatSource
@@ -2550,19 +2550,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Sum;
  *
  *  Value: "CHART_NUMBER_FORMAT_SOURCE_UNDEFINED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_ChartNumberFormatSourceUndefined;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_ChartNumberFormatSourceUndefined;
 /**
  *  Apply custom formatting as specified by ChartCustomNumberFormatOptions.
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_Custom;
 /**
  *  Inherit number formatting from data.
  *
  *  Value: "FROM_DATA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_FromData;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_FromData;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_SheetProperties.sheetType
@@ -2572,19 +2572,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_ScorecardChartSpec_NumberFormatSource_F
  *
  *  Value: "GRID"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_Grid;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_Grid;
 /**
  *  The sheet has no grid and instead has an object like a chart or image.
  *
  *  Value: "OBJECT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_Object;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_Object;
 /**
  *  Default value, do not use.
  *
  *  Value: "SHEET_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_SheetTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_SheetTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_SlicerSpec.horizontalAlignment
@@ -2594,25 +2594,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_SheetProperties_SheetType_SheetTypeUnsp
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Center;
 /**
  *  The horizontal alignment is not specified. Do not use this.
  *
  *  Value: "HORIZONTAL_ALIGN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_HorizontalAlignUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_HorizontalAlignUnspecified;
 /**
  *  The text is explicitly aligned to the left of the cell.
  *
  *  Value: "LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Left;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Left;
 /**
  *  The text is explicitly aligned to the right of the cell.
  *
  *  Value: "RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Right;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Right;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_SortSpec.sortOrder
@@ -2622,19 +2622,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_SlicerSpec_HorizontalAlignment_Right;
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_Ascending;
 /**
  *  Sort descending.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_Descending;
 /**
  *  Default value, do not use this.
  *
  *  Value: "SORT_ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_SortOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_SortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_SourceAndDestination.dimension
@@ -2644,19 +2644,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_SortSpec_SortOrder_SortOrderUnspecified
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_SpreadsheetProperties.autoRecalc
@@ -2666,25 +2666,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_SourceAndDestination_Dimension_Rows;
  *
  *  Value: "HOUR"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Hour;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Hour;
 /**
  *  Volatile functions are updated on every change and every minute.
  *
  *  Value: "MINUTE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Minute;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Minute;
 /**
  *  Volatile functions are updated on every change.
  *
  *  Value: "ON_CHANGE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_OnChange;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_OnChange;
 /**
  *  Default value. This value must not be used.
  *
  *  Value: "RECALCULATION_INTERVAL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_RecalculationIntervalUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_RecalculationIntervalUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_TextPosition.horizontalAlignment
@@ -2694,25 +2694,25 @@ GTLR_EXTERN NSString * const kGTLRSheets_SpreadsheetProperties_AutoRecalc_Recalc
  *
  *  Value: "CENTER"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Center;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Center;
 /**
  *  The horizontal alignment is not specified. Do not use this.
  *
  *  Value: "HORIZONTAL_ALIGN_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_HorizontalAlignUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_HorizontalAlignUnspecified;
 /**
  *  The text is explicitly aligned to the left of the cell.
  *
  *  Value: "LEFT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Left;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Left;
 /**
  *  The text is explicitly aligned to the right of the cell.
  *
  *  Value: "RIGHT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_TextToColumnsRequest.delimiterType
@@ -2722,43 +2722,43 @@ GTLR_EXTERN NSString * const kGTLRSheets_TextPosition_HorizontalAlignment_Right;
  *
  *  Value: "AUTODETECT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Autodetect;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Autodetect;
 /**
  *  ","
  *
  *  Value: "COMMA"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Comma;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Comma;
 /**
  *  A custom value as defined in delimiter.
  *
  *  Value: "CUSTOM"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Custom;
 /**
  *  Default value. This value must not be used.
  *
  *  Value: "DELIMITER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_DelimiterTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_DelimiterTypeUnspecified;
 /**
  *  "."
  *
  *  Value: "PERIOD"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Period;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Period;
 /**
  *  ";"
  *
  *  Value: "SEMICOLON"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Semicolon;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Semicolon;
 /**
  *  " "
  *
  *  Value: "SPACE"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Space;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Space;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ThemeColorPair.colorType
@@ -2768,61 +2768,61 @@ GTLR_EXTERN NSString * const kGTLRSheets_TextToColumnsRequest_DelimiterType_Spac
  *
  *  Value: "ACCENT1"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent1;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent1;
 /**
  *  Represents the second accent color
  *
  *  Value: "ACCENT2"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent2;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent2;
 /**
  *  Represents the third accent color
  *
  *  Value: "ACCENT3"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent3;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent3;
 /**
  *  Represents the fourth accent color
  *
  *  Value: "ACCENT4"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent4;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent4;
 /**
  *  Represents the fifth accent color
  *
  *  Value: "ACCENT5"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent5;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent5;
 /**
  *  Represents the sixth accent color
  *
  *  Value: "ACCENT6"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent6;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Accent6;
 /**
  *  Represents the primary background color
  *
  *  Value: "BACKGROUND"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Background;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Background;
 /**
  *  Represents the color to use for hyperlinks
  *
  *  Value: "LINK"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Link;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Link;
 /**
  *  Represents the primary text color
  *
  *  Value: "TEXT"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Text;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_Text;
 /**
  *  Unspecified theme color
  *
  *  Value: "THEME_COLOR_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_ThemeColorTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_ThemeColorTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ValueRange.majorDimension
@@ -2832,19 +2832,19 @@ GTLR_EXTERN NSString * const kGTLRSheets_ThemeColorPair_ColorType_ThemeColorType
  *
  *  Value: "COLUMNS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Columns;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Columns;
 /**
  *  The default value, do not use.
  *
  *  Value: "DIMENSION_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_DimensionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_DimensionUnspecified;
 /**
  *  Operates on the rows of a sheet.
  *
  *  Value: "ROWS"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_WaterfallChartSpec.stackedType
@@ -2854,20 +2854,20 @@ GTLR_EXTERN NSString * const kGTLRSheets_ValueRange_MajorDimension_Rows;
  *
  *  Value: "SEQUENTIAL"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Sequential;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Sequential;
 /**
  *  Values corresponding to the same domain (horizontal axis) value will be
  *  stacked vertically.
  *
  *  Value: "STACKED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Stacked;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Stacked;
 /**
  *  Default value, do not use.
  *
  *  Value: "WATERFALL_STACKED_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedTypeUnspecified;
 
 /**
  *  Adds a new banded range to the spreadsheet.

@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/adexchange.buyer"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer;
 
 // ----------------------------------------------------------------------------
 //   GTLRAdExchangeBuyerIIService

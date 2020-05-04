@@ -59,32 +59,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Debug;
 /**
  *  Error events will be logged.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Error;
 /**
  *  Informational events will be logged, such as connections and
  *  disconnections.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Info;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Info;
 /**
  *  No logging specified. If not specified, logging will be disabled.
  *
  *  Value: "LOG_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_LogLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_LogLevelUnspecified;
 /**
  *  Disables logging.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_DeviceRegistry.logLevel
@@ -94,32 +94,32 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_None;
  *
  *  Value: "DEBUG"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Debug;
 /**
  *  Error events will be logged.
  *
  *  Value: "ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Error;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Error;
 /**
  *  Informational events will be logged, such as connections and
  *  disconnections.
  *
  *  Value: "INFO"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Info;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Info;
 /**
  *  No logging specified. If not specified, logging will be disabled.
  *
  *  Value: "LOG_LEVEL_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified;
 /**
  *  Disables logging.
  *
  *  Value: "NONE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_GatewayConfig.gatewayAuthMethod
@@ -131,28 +131,28 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_None;
  *
  *  Value: "ASSOCIATION_AND_DEVICE_AUTH_TOKEN"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationAndDeviceAuthToken;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationAndDeviceAuthToken;
 /**
  *  The device is authenticated through the gateway association only. Device
  *  credentials are ignored even if provided.
  *
  *  Value: "ASSOCIATION_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly;
 /**
  *  The device is authenticated through its own credentials. Gateway
  *  association is not checked.
  *
  *  Value: "DEVICE_AUTH_TOKEN_ONLY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_DeviceAuthTokenOnly;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_DeviceAuthTokenOnly;
 /**
  *  No authentication/authorization method specified. No devices are allowed to
  *  access the gateway.
  *
  *  Value: "GATEWAY_AUTH_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_GatewayAuthMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_GatewayAuthMethodUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_GatewayConfig.gatewayType
@@ -162,19 +162,19 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_Gatew
  *
  *  Value: "GATEWAY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_Gateway;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_Gateway;
 /**
  *  If unspecified, the device is considered a non-gateway device.
  *
  *  Value: "GATEWAY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_GatewayTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_GatewayTypeUnspecified;
 /**
  *  The device is not a gateway.
  *
  *  Value: "NON_GATEWAY"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_NonGateway;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_NonGateway;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_HttpConfig.httpEnabledState
@@ -184,20 +184,20 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayType_NonGateway;
  *
  *  Value: "HTTP_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpDisabled;
 /**
  *  Enables DeviceService (HTTP) service for the registry.
  *
  *  Value: "HTTP_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpEnabled;
 /**
  *  No HTTP state specified. If not specified, DeviceService will be
  *  enabled by default.
  *
  *  Value: "HTTP_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_MqttConfig.mqttEnabledState
@@ -207,19 +207,19 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpState
  *
  *  Value: "MQTT_DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttDisabled;
 /**
  *  Enables a MQTT connection.
  *
  *  Value: "MQTT_ENABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttEnabled;
 /**
  *  No MQTT state specified. If not specified, MQTT will be enabled by default.
  *
  *  Value: "MQTT_STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_PublicKeyCertificate.format
@@ -230,7 +230,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_MqttState
  *
  *  Value: "UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_UnspecifiedPublicKeyCertificateFormat;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_UnspecifiedPublicKeyCertificateFormat;
 /**
  *  An X.509v3 certificate ([RFC5280](https://www.ietf.org/rfc/rfc5280.txt)),
  *  encoded in base64, and wrapped by `-----BEGIN CERTIFICATE-----` and
@@ -238,7 +238,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_Unspecifi
  *
  *  Value: "X509_CERTIFICATE_PEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_X509CertificatePem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_X509CertificatePem;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIot_PublicKeyCredential.format
@@ -252,7 +252,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_X509Certi
  *
  *  Value: "ES256_PEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256Pem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256Pem;
 /**
  *  As ES256_PEM, but wrapped in an X.509v3 certificate ([RFC5280](
  *  https://www.ietf.org/rfc/rfc5280.txt)), encoded in base64, and wrapped by
@@ -260,7 +260,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256Pem;
  *
  *  Value: "ES256_X509_PEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256X509Pem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256X509Pem;
 /**
  *  An RSA public key encoded in base64, and wrapped by
  *  `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`. This can be
@@ -269,7 +269,7 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256X509P
  *
  *  Value: "RSA_PEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaPem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaPem;
 /**
  *  As RSA_PEM, but wrapped in an X.509v3 certificate ([RFC5280](
  *  https://www.ietf.org/rfc/rfc5280.txt)), encoded in base64, and wrapped by
@@ -277,14 +277,14 @@ GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaPem;
  *
  *  Value: "RSA_X509_PEM"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaX509Pem;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaX509Pem;
 /**
  *  The format has not been specified. This is an invalid default value and
  *  must not be used.
  *
  *  Value: "UNSPECIFIED_PUBLIC_KEY_FORMAT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFormat;
+FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFormat;
 
 /**
  *  Request for `BindDeviceToGateway`.

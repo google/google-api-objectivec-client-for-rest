@@ -84,38 +84,38 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ACTIVITY_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_ActivityTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_ActivityTypeUnspecified;
 /**
  *  An e-commerce transaction was performed by the visitor on the page.
  *
  *  Value: "ECOMMERCE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Ecommerce;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Ecommerce;
 /**
  *  Used when the activity is an event.
  *
  *  Value: "EVENT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Event;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Event;
 /**
  *  Used to denote that a goal type activity.
  *
  *  Value: "GOAL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Goal;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Goal;
 /**
  *  Used when the activity resulted out of a visitor viewing a page.
  *
  *  Value: "PAGEVIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Pageview;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Pageview;
 /**
  *  Used when the activity resulted out of a visitor using an application on a
  *  mobile device.
  *
  *  Value: "SCREENVIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Screenview;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Screenview;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_Cohort.type
@@ -125,13 +125,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Activity_ActivityType_Scree
  *
  *  Value: "FIRST_VISIT_DATE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Cohort_Type_FirstVisitDate;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Cohort_Type_FirstVisitDate;
 /**
  *  If unspecified it's treated as `FIRST_VISIT_DATE`.
  *
  *  Value: "UNSPECIFIED_COHORT_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Cohort_Type_UnspecifiedCohortType;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Cohort_Type_UnspecifiedCohortType;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_DimensionFilter.operatorProperty
@@ -141,19 +141,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Cohort_Type_UnspecifiedCoho
  *
  *  Value: "BEGINS_WITH"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_BeginsWith;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_BeginsWith;
 /**
  *  Matches the values which end with the match expression provided.
  *
  *  Value: "ENDS_WITH"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_EndsWith;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_EndsWith;
 /**
  *  The value should match the match expression entirely.
  *
  *  Value: "EXACT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Exact;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Exact;
 /**
  *  This option is used to specify a dimension filter whose expression can
  *  take any value from a selected list of values. This helps avoiding
@@ -165,7 +165,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorPro
  *
  *  Value: "IN_LIST"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_InList;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_InList;
 /**
  *  Integer comparison filters.
  *  case sensitivity is ignored for these and the expression
@@ -178,40 +178,40 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorPro
  *
  *  Value: "NUMERIC_EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericEqual;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericEqual;
 /**
  *  Checks if the dimension is numerically greater than the match
  *  expression. Read the description for `NUMERIC_EQUALS` for restrictions.
  *
  *  Value: "NUMERIC_GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericGreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericGreaterThan;
 /**
  *  Checks if the dimension is numerically less than the match expression.
  *  Read the description for `NUMERIC_EQUALS` for restrictions.
  *
  *  Value: "NUMERIC_LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericLessThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericLessThan;
 /**
  *  If the match type is unspecified, it is treated as a `REGEXP`.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_OperatorUnspecified;
 /**
  *  Substring match.
  *
  *  Value: "PARTIAL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Partial;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Partial;
 /**
  *  The match expression is treated as a regular expression. All match types
  *  are not treated as regular expressions.
  *
  *  Value: "REGEXP"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Regexp;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Regexp;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_DimensionFilterClause.operatorProperty
@@ -221,19 +221,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorPro
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_And;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_And;
 /**
  *  Unspecified operator. It is treated as an `OR`.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_OperatorUnspecified;
 /**
  *  The logical `OR` operator.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_Or;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_EcommerceData.actionType
@@ -243,55 +243,55 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilterClause_Opera
  *
  *  Value: "ADD_TO_CART"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_AddToCart;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_AddToCart;
 /**
  *  Check out.
  *
  *  Value: "CHECKOUT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Checkout;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Checkout;
 /**
  *  Checkout options.
  *
  *  Value: "CHECKOUT_OPTION"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_CheckoutOption;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_CheckoutOption;
 /**
  *  Click through of product lists.
  *
  *  Value: "CLICK"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Click;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Click;
 /**
  *  Product detail views.
  *
  *  Value: "DETAILS_VIEW"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_DetailsView;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_DetailsView;
 /**
  *  Completed purchase.
  *
  *  Value: "PAYMENT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Payment;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Payment;
 /**
  *  Refund of purchase.
  *
  *  Value: "REFUND"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Refund;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Refund;
 /**
  *  Remove product(s) from cart.
  *
  *  Value: "REMOVE_FROM_CART"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_RemoveFromCart;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_RemoveFromCart;
 /**
  *  Action type is not known.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_EcommerceData.ecommerceType
@@ -301,19 +301,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_ActionType_Un
  *
  *  Value: "CLASSIC"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_Classic;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_Classic;
 /**
  *  Used when the e-commerce activity type is unspecified.
  *
  *  Value: "ECOMMERCE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_EcommerceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_EcommerceTypeUnspecified;
 /**
  *  Used when activity has enhanced e-commerce information.
  *
  *  Value: "ENHANCED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_Enhanced;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType_Enhanced;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_Metric.formattingType
@@ -323,37 +323,37 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_EcommerceData_EcommerceType
  *
  *  Value: "CURRENCY"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Currency;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Currency;
 /**
  *  Float metric.
  *
  *  Value: "FLOAT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Float;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Float;
 /**
  *  Integer metric.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Integer;
 /**
  *  Metric type is unspecified.
  *
  *  Value: "METRIC_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_MetricTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_MetricTypeUnspecified;
 /**
  *  Percentage metric.
  *
  *  Value: "PERCENT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Percent;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Percent;
 /**
  *  Time metric in `HH:MM:SS` format.
  *
  *  Value: "TIME"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Time;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Time;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_MetricFilter.operatorProperty
@@ -363,32 +363,32 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_Metric_FormattingType_Time;
  *
  *  Value: "EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_Equal;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_Equal;
 /**
  *  Should the value of the metric be greater than to the comparison value.
  *
  *  Value: "GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_GreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_GreaterThan;
 /**
  *  Validates if the metric is missing.
  *  Doesn't take comparisonValue into account.
  *
  *  Value: "IS_MISSING"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_IsMissing;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_IsMissing;
 /**
  *  Should the value of the metric be less than to the comparison value.
  *
  *  Value: "LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_LessThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_LessThan;
 /**
  *  If the operator is not specified, it is treated as `EQUAL`.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_MetricFilterClause.operatorProperty
@@ -398,19 +398,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProper
  *
  *  Value: "AND"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_OperatorProperty_And;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_OperatorProperty_And;
 /**
  *  Unspecified operator. It is treated as an `OR`.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_OperatorProperty_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_OperatorProperty_OperatorUnspecified;
 /**
  *  The logical `OR` operator.
  *
  *  Value: "OR"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_OperatorProperty_Or;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_OperatorProperty_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_MetricHeaderEntry.type
@@ -420,37 +420,37 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilterClause_Operator
  *
  *  Value: "CURRENCY"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Currency;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Currency;
 /**
  *  Float metric.
  *
  *  Value: "FLOAT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Float;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Float;
 /**
  *  Integer metric.
  *
  *  Value: "INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Integer;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Integer;
 /**
  *  Metric type is unspecified.
  *
  *  Value: "METRIC_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_MetricTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_MetricTypeUnspecified;
 /**
  *  Percentage metric.
  *
  *  Value: "PERCENT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Percent;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Percent;
 /**
  *  Time metric in `HH:MM:SS` format.
  *
  *  Value: "TIME"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Time;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Time;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_OrderBy.orderType
@@ -462,7 +462,7 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Type_Time
  *
  *  Value: "DELTA"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Delta;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Delta;
 /**
  *  If the dimensions are fixed length numbers, ordinary sort would just
  *  work fine. `DIMENSION_AS_INTEGER` can be used if the dimensions are
@@ -470,20 +470,20 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Delta;
  *
  *  Value: "DIMENSION_AS_INTEGER"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_DimensionAsInteger;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_DimensionAsInteger;
 /**
  *  Histogram order type is applicable only to dimension columns with
  *  non-empty histogram-buckets.
  *
  *  Value: "HISTOGRAM_BUCKET"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_HistogramBucket;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_HistogramBucket;
 /**
  *  Unspecified order type will be treated as sort based on value.
  *
  *  Value: "ORDER_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_OrderTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_OrderTypeUnspecified;
 /**
  *  The sort order is based on weighted value of the chosen column. If
  *  column has n/d format, then weighted value of this ratio will
@@ -492,14 +492,14 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_OrderType
  *
  *  Value: "SMART"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Smart;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Smart;
 /**
  *  The sort order is based on the value of the chosen column; looks only at
  *  the first date range.
  *
  *  Value: "VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Value;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Value;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_OrderBy.sortOrder
@@ -509,19 +509,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Value;
  *
  *  Value: "ASCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_Ascending;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_Ascending;
 /**
  *  Descending sort. The field will be sorted in a descending manner.
  *
  *  Value: "DESCENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_Descending;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_Descending;
 /**
  *  If the sort order is unspecified, the default is ascending.
  *
  *  Value: "SORT_ORDER_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_SortOrderUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_SortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_ReportRequest.samplingLevel
@@ -532,43 +532,43 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_SortOrder
  *
  *  Value: "DEFAULT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Default;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Default;
 /**
  *  Returns a more accurate response using a large sampling size. But this
  *  may result in response being slower.
  *
  *  Value: "LARGE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Large;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Large;
 /**
  *  If the `samplingLevel` field is unspecified the `DEFAULT` sampling level
  *  is used.
  *
  *  Value: "SAMPLING_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_SamplingUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_SamplingUnspecified;
 /**
  *  It returns a fast response with a smaller sampling size.
  *
  *  Value: "SMALL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Small;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Small;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_SearchUserActivityRequest.activityTypes
 
 /** Value: "ACTIVITY_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_ActivityTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_ActivityTypeUnspecified;
 /** Value: "ECOMMERCE" */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Ecommerce;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Ecommerce;
 /** Value: "EVENT" */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Event;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Event;
 /** Value: "GOAL" */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Goal;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Goal;
 /** Value: "PAGEVIEW" */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Pageview;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Pageview;
 /** Value: "SCREENVIEW" */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Screenview;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Screenview;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_SegmentDimensionFilter.operatorProperty
@@ -578,19 +578,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_A
  *
  *  Value: "BEGINS_WITH"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_BeginsWith;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_BeginsWith;
 /**
  *  Matches the values which end with the match expression provided.
  *
  *  Value: "ENDS_WITH"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_EndsWith;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_EndsWith;
 /**
  *  The value should match the match expression entirely.
  *
  *  Value: "EXACT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Exact;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Exact;
 /**
  *  This option is used to specify a dimension filter whose expression can
  *  take any value from a selected list of values. This helps avoiding
@@ -602,21 +602,21 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_Oper
  *
  *  Value: "IN_LIST"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_InList;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_InList;
 /**
  *  Checks if the dimension is numerically between the minimum and maximum
  *  of the match expression, boundaries excluded.
  *
  *  Value: "NUMERIC_BETWEEN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericBetween;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericBetween;
 /**
  *  Checks if the dimension is numerically greater than the match
  *  expression.
  *
  *  Value: "NUMERIC_GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericGreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericGreaterThan;
 /**
  *  Integer comparison filters.
  *  case sensitivity is ignored for these and the expression
@@ -630,26 +630,26 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_Oper
  *
  *  Value: "NUMERIC_LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericLessThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericLessThan;
 /**
  *  If the match type is unspecified, it is treated as a REGEXP.
  *
  *  Value: "OPERATOR_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_OperatorUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_OperatorUnspecified;
 /**
  *  Substring match.
  *
  *  Value: "PARTIAL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Partial;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Partial;
 /**
  *  The match expression is treated as a regular expression. All other match
  *  types are not treated as regular expressions.
  *
  *  Value: "REGEXP"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Regexp;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Regexp;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_SegmentMetricFilter.operatorProperty
@@ -660,31 +660,31 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_Oper
  *
  *  Value: "BETWEEN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_Between;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_Between;
 /**
  *  Equals operator.
  *
  *  Value: "EQUAL"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_Equal;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_Equal;
 /**
  *  Checks if the metric value is greater than comparison value.
  *
  *  Value: "GREATER_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_GreaterThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_GreaterThan;
 /**
  *  Checks if the metric value is less than comparison value.
  *
  *  Value: "LESS_THAN"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_LessThan;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_LessThan;
 /**
  *  Unspecified operator is treated as `LESS_THAN` operator.
  *
  *  Value: "UNSPECIFIED_OPERATOR"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_UnspecifiedOperator;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_UnspecifiedOperator;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_SegmentMetricFilter.scope
@@ -694,19 +694,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Operato
  *
  *  Value: "HIT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Hit;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Hit;
 /**
  *  Product scope.
  *
  *  Value: "PRODUCT"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Product;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Product;
 /**
  *  Session scope.
  *
  *  Value: "SESSION"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Session;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Session;
 /**
  *  If the scope is unspecified, it defaults to the condition scope,
  *  `USER` or `SESSION` depending on if the segment is trying to choose
@@ -714,13 +714,13 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_S
  *
  *  Value: "UNSPECIFIED_SCOPE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_UnspecifiedScope;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_UnspecifiedScope;
 /**
  *  User scope.
  *
  *  Value: "USER"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_User;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_User;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_SegmentSequenceStep.matchType
@@ -731,19 +731,19 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_U
  *
  *  Value: "IMMEDIATELY_PRECEDES"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_ImmediatelyPrecedes;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_ImmediatelyPrecedes;
 /**
  *  Operator indicates that the previous step precedes the next step.
  *
  *  Value: "PRECEDES"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Precedes;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Precedes;
 /**
  *  Unspecified match type is treated as precedes.
  *
  *  Value: "UNSPECIFIED_MATCH_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_UnspecifiedMatchType;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_UnspecifiedMatchType;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_User.type
@@ -753,21 +753,21 @@ GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_MatchTy
  *
  *  Value: "CLIENT_ID"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_ClientId;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_ClientId;
 /**
  *  A single user, like a signed-in user account, that may interact with
  *  content across one or more devices and / or browser instances.
  *
  *  Value: "USER_ID"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserId;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserId;
 /**
  *  When the User Id Type is not specified, the default type used will be
  *  CLIENT_ID.
  *
  *  Value: "USER_ID_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspecified;
 
 /**
  *  An Activity represents data for an activity of a user. Note that an

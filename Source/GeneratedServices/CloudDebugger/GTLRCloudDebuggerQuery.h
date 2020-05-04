@@ -37,19 +37,19 @@ NS_ASSUME_NONNULL_BEGIN
 // actionValue
 
 /** Value: "CAPTURE" */
-GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueCapture;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerActionValueCapture;
 /** Value: "LOG" */
-GTLR_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 
 // ----------------------------------------------------------------------------
 // canaryOption
 
 /** Value: "CANARY_OPTION_TRY_DISABLE" */
-GTLR_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable;
 /** Value: "CANARY_OPTION_TRY_ENABLE" */
-GTLR_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable;
 /** Value: "CANARY_OPTION_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

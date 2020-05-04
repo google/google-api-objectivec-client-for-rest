@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "openid"
  */
-GTLR_EXTERN NSString * const kGTLRAuthScopePagespeedInsightsOpenid;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePagespeedInsightsOpenid;
 
 // ----------------------------------------------------------------------------
 //   GTLRPagespeedInsightsService

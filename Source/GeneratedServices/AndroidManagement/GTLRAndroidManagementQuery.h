@@ -41,11 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
 // wipeDataFlags
 
 /** Value: "PRESERVE_RESET_PROTECTION_DATA" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData;
 /** Value: "WIPE_DATA_FLAG_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified;
 /** Value: "WIPE_EXTERNAL_STORAGE" */
-GTLR_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage;
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage;
 
 // ----------------------------------------------------------------------------
 // Query Classes

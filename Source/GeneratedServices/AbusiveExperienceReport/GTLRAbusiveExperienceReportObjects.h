@@ -39,19 +39,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "FAILING"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Failing;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Failing;
 /**
  *  Passing.
  *
  *  Value: "PASSING"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Passing;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Passing;
 /**
  *  Not reviewed.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_AbusiveStatus_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAbusiveExperienceReport_SiteSummaryResponse.filterStatus
@@ -61,31 +61,31 @@ GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_Ab
  *
  *  Value: "OFF"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Off;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Off;
 /**
  *  Enforcement is on.
  *
  *  Value: "ON"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_On;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_On;
 /**
  *  Enforcement is paused.
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Paused;
 /**
  *  Enforcement is pending.
  *
  *  Value: "PENDING"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Pending;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Pending;
 /**
  *  N/A.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryResponse_FilterStatus_Unknown;
 
 /**
  *  Response message for GetSiteSummary.

@@ -36,21 +36,21 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudProfiler_CreateProfileRequest.profileType
 
 /** Value: "CONTENTION" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Contention;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Contention;
 /** Value: "CPU" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Cpu;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Cpu;
 /** Value: "HEAP" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Heap;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Heap;
 /** Value: "HEAP_ALLOC" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_HeapAlloc;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_HeapAlloc;
 /** Value: "PEAK_HEAP" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_PeakHeap;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_PeakHeap;
 /** Value: "PROFILE_TYPE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_ProfileTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_ProfileTypeUnspecified;
 /** Value: "THREADS" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Threads;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Threads;
 /** Value: "WALL" */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Wall;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Wall;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudProfiler_Profile.profileType
@@ -60,20 +60,20 @@ GTLR_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType
  *
  *  Value: "CONTENTION"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Contention;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Contention;
 /**
  *  Thread CPU time sampling.
  *
  *  Value: "CPU"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Cpu;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Cpu;
 /**
  *  In-use heap profile. Represents a snapshot of the allocations that are
  *  live at the time of the profiling.
  *
  *  Value: "HEAP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Heap;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Heap;
 /**
  *  Heap allocation profile. It represents the aggregation of all allocations
  *  made over the duration of the profile. All allocations are included,
@@ -84,31 +84,31 @@ GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Heap;
  *
  *  Value: "HEAP_ALLOC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_HeapAlloc;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_HeapAlloc;
 /**
  *  Peak heap profile.
  *
  *  Value: "PEAK_HEAP"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_PeakHeap;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_PeakHeap;
 /**
  *  Unspecified profile type.
  *
  *  Value: "PROFILE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_ProfileTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_ProfileTypeUnspecified;
 /**
  *  Single-shot collection of all thread stacks.
  *
  *  Value: "THREADS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Threads;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Threads;
 /**
  *  Wallclock time sampling. More expensive as stops all threads.
  *
  *  Value: "WALL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
+FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 
 /**
  *  CreateProfileRequest describes a profile resource online creation request.

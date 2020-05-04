@@ -41,11 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
 // status
 
 /** Value: "ACTIVE" */
-GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusActive;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHostingStatusActive;
 /** Value: "EXPECTED" */
-GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusExpected;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHostingStatusExpected;
 /** Value: "STATUS_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseHostingStatusStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

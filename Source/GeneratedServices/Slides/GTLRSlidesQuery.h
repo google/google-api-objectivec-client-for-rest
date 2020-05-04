@@ -35,19 +35,19 @@ NS_ASSUME_NONNULL_BEGIN
 // thumbnailPropertiesMimeType
 
 /** Value: "PNG" */
-GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng;
+FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng;
 
 // ----------------------------------------------------------------------------
 // thumbnailPropertiesThumbnailSize
 
 /** Value: "LARGE" */
-GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge;
+FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge;
 /** Value: "MEDIUM" */
-GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium;
+FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium;
 /** Value: "SMALL" */
-GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall;
+FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall;
 /** Value: "THUMBNAIL_SIZE_UNSPECIFIED" */
-GTLR_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes

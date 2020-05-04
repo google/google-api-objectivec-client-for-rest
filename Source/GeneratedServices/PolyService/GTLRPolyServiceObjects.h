@@ -52,19 +52,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ALL_RIGHTS_RESERVED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_License_AllRightsReserved;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_License_AllRightsReserved;
 /**
  *  Creative Commons CC-BY 3.0. https://creativecommons.org/licenses/by/3.0/
  *
  *  Value: "CREATIVE_COMMONS_BY"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_License_CreativeCommonsBy;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_License_CreativeCommonsBy;
 /**
  *  Unknown license value.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_License_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_License_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRPolyService_Asset.visibility
@@ -77,14 +77,14 @@ GTLR_EXTERN NSString * const kGTLRPolyService_Asset_License_Unknown;
  *
  *  Value: "PRIVATE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Private;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Private;
 /**
  *  Access to the asset and its underlying files and resources is available
  *  to anyone.
  *
  *  Value: "PUBLIC"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Public;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Public;
 /**
  *  Access to the asset and its underlying files and resources is available to
  *  anyone with the asset's name. Unlisted assets are **not**
@@ -92,13 +92,13 @@ GTLR_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Public;
  *
  *  Value: "UNLISTED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Unlisted;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Unlisted;
 /**
  *  Unknown (and invalid) visibility.
  *
  *  Value: "VISIBILITY_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_VisibilityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_VisibilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPolyService_AssetImportMessage.code
@@ -108,7 +108,7 @@ GTLR_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_VisibilityUnspeci
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_CodeUnspecified;
 /**
  *  Default materials are used in the model. This means that one or more
  *  faces is using default materials either because no usemtl statement was
@@ -118,53 +118,53 @@ GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_CodeUnspec
  *
  *  Value: "DEFAULT_MATERIALS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_DefaultMaterials;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_DefaultMaterials;
 /**
  *  When generating the preview for the import, no geometry was found.
  *
  *  Value: "EMPTY_MODEL"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_EmptyModel;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_EmptyModel;
 /**
  *  The importer was not able to import the model before the expiration time.
  *
  *  Value: "EXPIRED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_Expired;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_Expired;
 /**
  *  Multiple files were encountered in addition to a ZIP archive. When
  *  uploading an archive only one file is permitted.
  *
  *  Value: "EXTRA_FILES_WITH_ARCHIVE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ExtraFilesWithArchive;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ExtraFilesWithArchive;
 /**
  *  The importer encountered a fatal error and was unable to import the
  *  model.
  *
  *  Value: "FATAL_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_FatalError;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_FatalError;
 /**
  *  The importer encountered a problem reading an image file.
  *
  *  Value: "IMAGE_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ImageError;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ImageError;
 /**
  *  The import includes a file of an unsupported element type. The file path
  *  is specified.
  *
  *  Value: "INVALID_ELEMENT_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_InvalidElementType;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_InvalidElementType;
 /**
  *  The asset import did not include any file that we can import (i.e. an OBJ
  *  file).
  *
  *  Value: "NO_IMPORTABLE_FILE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_NoImportableFile;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_NoImportableFile;
 /**
  *  A problem was encountered while parsing the OBJ file. The converter makes
  *  a 'best effort' attempt to continue when encountering such issues. In
@@ -173,7 +173,7 @@ GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_NoImportab
  *
  *  Value: "OBJ_PARSE_ERROR"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ObjParseError;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ObjParseError;
 
 // ----------------------------------------------------------------------------
 // GTLRPolyService_ImageError.code
@@ -183,25 +183,25 @@ GTLR_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ObjParseEr
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ImageError_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ImageError_Code_CodeUnspecified;
 /**
  *  The image size is too large.
  *
  *  Value: "IMAGE_TOO_BIG"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ImageError_Code_ImageTooBig;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ImageError_Code_ImageTooBig;
 /**
  *  We were unable to read the image file.
  *
  *  Value: "INVALID_IMAGE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ImageError_Code_InvalidImage;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ImageError_Code_InvalidImage;
 /**
  *  The image data does not match the expected MIME type of the image.
  *
  *  Value: "WRONG_IMAGE_TYPE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ImageError_Code_WrongImageType;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ImageError_Code_WrongImageType;
 
 // ----------------------------------------------------------------------------
 // GTLRPolyService_ObjParseError.code
@@ -211,161 +211,161 @@ GTLR_EXTERN NSString * const kGTLRPolyService_ImageError_Code_WrongImageType;
  *
  *  Value: "CODE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_CodeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_CodeUnspecified;
 /**
  *  The specified file was not found in the import.
  *
  *  Value: "FILE_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_FileNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_FileNotFound;
 /**
  *  A missing file was found at a different file path.
  *
  *  Value: "FILE_SUBSTITUTION"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_FileSubstitution;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_FileSubstitution;
 /**
  *  Vertex references are specified in an inconsistent style for a face (e.g.
  *  some vertices specify texture vertices but some don't).
  *
  *  Value: "INCONSISTENT_VERTEX_REFS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InconsistentVertexRefs;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InconsistentVertexRefs;
 /**
  *  The command is invalid.
  *
  *  Value: "INVALID_COMMAND"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidCommand;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidCommand;
 /**
  *  The file path was invalid. Only relative paths are supported.
  *
  *  Value: "INVALID_FILE_PATH"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidFilePath;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidFilePath;
 /**
  *  A invalid number was specified.
  *
  *  Value: "INVALID_NUMBER"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidNumber;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidNumber;
 /**
  *  The smoothing group is not valid.
  *
  *  Value: "INVALID_SMOOTHING_GROUP"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidSmoothingGroup;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidSmoothingGroup;
 /**
  *  The specified texture option is not valid.
  *
  *  Value: "INVALID_TEXTURE_OPTION"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidTextureOption;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidTextureOption;
 /**
  *  The specified parameter value was not recognized.
  *
  *  Value: "INVALID_VALUE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidValue;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidValue;
 /**
  *  An invalid vertex reference was specified.
  *
  *  Value: "INVALID_VERTEX_REF"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidVertexRef;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_InvalidVertexRef;
 /**
  *  A line in an OBJ or MTL file exceeded the maximum line length.
  *
  *  Value: "LINE_TOO_LONG"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_LineTooLong;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_LineTooLong;
 /**
  *  An expected file name was not specified.
  *
  *  Value: "MISSING_FILE_NAME"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingFileName;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingFileName;
 /**
  *  A vertex reference does not specify a geometric vertex.
  *
  *  Value: "MISSING_GEOMETRIC_VERTEX"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingGeometricVertex;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingGeometricVertex;
 /**
  *  An expected token was not found.
  *
  *  Value: "MISSING_TOKEN"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingToken;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingToken;
 /**
  *  Vertex colors were specified for only some vertices of a face.
  *
  *  Value: "MISSING_VERTEX_COLORS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingVertexColors;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_MissingVertexColors;
 /**
  *  Material parameters were specified before the first material definition.
  *
  *  Value: "NO_MATERIAL_DEFINED"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_NoMaterialDefined;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_NoMaterialDefined;
 /**
  *  The specified number was too large or small for its usage.
  *
  *  Value: "NUMBER_OUT_OF_RANGE"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_NumberOutOfRange;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_NumberOutOfRange;
 /**
  *  The vertex specified too few dimensions for its usage.
  *
  *  Value: "TOO_FEW_DIMENSIONS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooFewDimensions;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooFewDimensions;
 /**
  *  The face specified too few vertices.
  *
  *  Value: "TOO_FEW_VERTICES"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooFewVertices;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooFewVertices;
 /**
  *  The vertex specified too many dimensions for its usage.
  *
  *  Value: "TOO_MANY_DIMENSIONS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooManyDimensions;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooManyDimensions;
 /**
  *  The maximum number of problems to report was reached. Parsing continues,
  *  but further problems will be ignored.
  *
  *  Value: "TOO_MANY_PROBLEMS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooManyProblems;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooManyProblems;
 /**
  *  The specified material was not found in any material definition in the
  *  import.
  *
  *  Value: "UNKNOWN_MATERIAL"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnknownMaterial;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnknownMaterial;
 /**
  *  This command is a valid OBJ command but is not supported. This error is
  *  only generated for the first instance of such a command.
  *
  *  Value: "UNSUPPORTED_COMMAND"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnsupportedCommand;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnsupportedCommand;
 /**
  *  This line ended with unparsed token characters.
  *
  *  Value: "UNUSED_TOKENS"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnusedTokens;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnusedTokens;
 /**
  *  The specified vertex was not found.
  *
  *  Value: "VERTEX_NOT_FOUND"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_VertexNotFound;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_VertexNotFound;
 
 // ----------------------------------------------------------------------------
 // GTLRPolyService_PresentationParams.colorSpace
@@ -375,19 +375,19 @@ GTLR_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_VertexNotFound;
  *
  *  Value: "GAMMA"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Gamma;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Gamma;
 /**
  *  Linear color values. Default.
  *
  *  Value: "LINEAR"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Linear;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Linear;
 /**
  *  Invalid color value.
  *
  *  Value: "UNKNOWN"
  */
-GTLR_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpace_Unknown;
 
 /**
  *  Represents and describes an asset in the Poly library. An asset is a 3D

@@ -59,49 +59,49 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Delete;
 /**
  *  HTTP GET
  *
  *  Value: "GET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Get;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Get;
 /**
  *  HTTP HEAD
  *
  *  Value: "HEAD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Head;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Head;
 /**
  *  HTTP method unspecified
  *
  *  Value: "HTTP_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_HttpMethodUnspecified;
 /**
  *  HTTP OPTIONS
  *
  *  Value: "OPTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Options;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Options;
 /**
  *  HTTP PATCH
  *
  *  Value: "PATCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Patch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Patch;
 /**
  *  HTTP POST
  *
  *  Value: "POST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Post;
 /**
  *  HTTP PUT
  *
  *  Value: "PUT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_CreateTaskRequest.responseView
@@ -117,7 +117,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_AppEngineHttpRequest_HttpMethod_Put
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Basic;
 /**
  *  All information is returned.
  *  Authorization for FULL requires
@@ -126,13 +126,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Basi
  *
  *  Value: "FULL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Full;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_Full;
 /**
  *  Unspecified. Defaults to BASIC.
  *
  *  Value: "VIEW_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_ViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_ViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_HttpRequest.httpMethod
@@ -142,49 +142,49 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_CreateTaskRequest_ResponseView_View
  *
  *  Value: "DELETE"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Delete;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Delete;
 /**
  *  HTTP GET
  *
  *  Value: "GET"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Get;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Get;
 /**
  *  HTTP HEAD
  *
  *  Value: "HEAD"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Head;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Head;
 /**
  *  HTTP method unspecified
  *
  *  Value: "HTTP_METHOD_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_HttpMethodUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_HttpMethodUnspecified;
 /**
  *  HTTP OPTIONS
  *
  *  Value: "OPTIONS"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Options;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Options;
 /**
  *  HTTP PATCH
  *
  *  Value: "PATCH"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Patch;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Patch;
 /**
  *  HTTP POST
  *
  *  Value: "POST"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Post;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Post;
 /**
  *  HTTP PUT
  *
  *  Value: "PUT"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_Queue.state
@@ -204,7 +204,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_HttpRequest_HttpMethod_Put;
  *
  *  Value: "DISABLED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Disabled;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Disabled;
 /**
  *  Tasks are paused by the user. If the queue is paused then Cloud
  *  Tasks will stop delivering tasks from it, but more tasks can
@@ -212,7 +212,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Disabled;
  *
  *  Value: "PAUSED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Paused;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Paused;
 /**
  *  The queue is running. Tasks can be dispatched.
  *  If the queue was created using Cloud Tasks and the queue has
@@ -224,13 +224,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Paused;
  *
  *  Value: "RUNNING"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Running;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Queue_State_Running;
 /**
  *  Unspecified state.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_StateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Queue_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_RunTaskRequest.responseView
@@ -246,7 +246,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Queue_State_StateUnspecified;
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_Basic;
 /**
  *  All information is returned.
  *  Authorization for FULL requires
@@ -255,13 +255,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_Basic;
  *
  *  Value: "FULL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_Full;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_Full;
 /**
  *  Unspecified. Defaults to BASIC.
  *
  *  Value: "VIEW_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_ViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_ViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTasks_Task.view
@@ -277,7 +277,7 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_RunTaskRequest_ResponseView_ViewUns
  *
  *  Value: "BASIC"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_Basic;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_Basic;
 /**
  *  All information is returned.
  *  Authorization for FULL requires
@@ -286,13 +286,13 @@ GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_Basic;
  *
  *  Value: "FULL"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_Full;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_Full;
 /**
  *  Unspecified. Defaults to BASIC.
  *
  *  Value: "VIEW_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 
 /**
  *  App Engine HTTP request.

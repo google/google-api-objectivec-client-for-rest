@@ -46,25 +46,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value: "ADMIN_READ"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_AdminRead;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_AdminRead;
 /**
  *  Data reads. Example: CloudSQL Users list
  *
  *  Value: "DATA_READ"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_DataRead;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_DataRead;
 /**
  *  Data writes. Example: CloudSQL Users create
  *
  *  Value: "DATA_WRITE"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_DataWrite;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_DataWrite;
 /**
  *  Default case. Should never be this.
  *
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_LogTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryConnectionService_CloudSqlProperties.type
@@ -74,19 +74,19 @@ GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_AuditLogConfig_LogTy
  *
  *  Value: "DATABASE_TYPE_UNSPECIFIED"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_DatabaseTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_DatabaseTypeUnspecified;
 /**
  *  Cloud SQL for MySQL.
  *
  *  Value: "MYSQL"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Mysql;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Mysql;
 /**
  *  Cloud SQL for PostgreSQL.
  *
  *  Value: "POSTGRES"
  */
-GTLR_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres;
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProperties_Type_Postgres;
 
 /**
  *  Specifies the audit configuration for a service.
