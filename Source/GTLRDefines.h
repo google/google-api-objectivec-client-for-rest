@@ -80,25 +80,3 @@
   #define GTLR_QUEUE_NAME(queue) \
       (strlen(dispatch_queue_get_label(queue)) > 0 ? dispatch_queue_get_label(queue) : "unnamed")
 #endif  // GTLR_ASSERT_CURRENT_QUEUE_DEBUG
-
-// Sanity check the min versions.
-
-#if (defined(TARGET_OS_TV) && TARGET_OS_TV) || (defined(TARGET_OS_WATCH) && TARGET_OS_WATCH)
-  // No min checks for these two.
-#elif TARGET_OS_IPHONE
-  #if !defined(__IPHONE_9_0) || (__IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0)
-    #error "This project expects to be compiled with the iOS 9.0 SDK (or later)."
-  #endif
-  #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-    #error "The minimum supported iOS version is 7.0."
-  #endif
-#elif TARGET_OS_MAC
-  #if !defined(MAC_OS_X_VERSION_10_10) || (MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_10)
-    #error "This project expects to be compiled with the OS X 10.10 SDK (or later)."
-  #endif
-  #if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_9
-    #error "The minimum supported OS X version is 10.9."
-  #endif
-#else
-  #error "Unknown target platform."
-#endif
