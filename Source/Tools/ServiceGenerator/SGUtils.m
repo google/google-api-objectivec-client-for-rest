@@ -421,70 +421,87 @@ static const NSUInteger kMaxWidth = 80;
                        handleHTMLTags:(BOOL)handleHTMLTags {
   if (str.length == 0) return nil;
 
-  // Support forced new line by letting them through as words.
-  // The strings from discovery likely contain something like "foo\n- bar", we
-  // want to tokenize to words, so we mainly use a split on spaces for that.
-  // But since we want the newline marks not to be attached to words, we first
-  // turn all of them into " \n ".  This way the split on spaces gives us
-  // words along with the newline markers (ie- ["foo", "\n", "-", "bar"]).
   NSCharacterSet *nlSet = [NSCharacterSet newlineCharacterSet];
-  NSArray *words = [str componentsSeparatedByCharactersInSet:nlSet];
-  if (words.count > 1) {
-    str = [words componentsJoinedByString:@" \n "];
-  }
-
   NSCharacterSet *wsSet = [NSCharacterSet whitespaceCharacterSet];
+
+  NSMutableArray *words = [NSMutableArray array];
+
+  // Helpper to add a chunk to the words list.
+  void (^addToWords)(NSString *) = ^(NSString *s) {
+    // Support forced new line by letting them through as words. The strings
+    // from discovery likely contain something like "foo\n- bar", we want to
+    // tokenize to words, so we mainly use a split on spaces for that. So we
+    // first split on newlines, and manually carry those newlines over so they
+    // can cause the desired breaks (ie- ["foo", "\n", "-", "bar"]).
+    NSArray *paragraphs = [s componentsSeparatedByCharactersInSet:nlSet];
+    BOOL addBreak = NO;
+    for (NSString *paragraph in paragraphs) {
+      if (addBreak) {
+        [words addObject:@"\n"];
+      } else {
+        addBreak = YES;
+      }
+      // Split on whitespace and add to words.
+      [words addObjectsFromArray:[paragraph componentsSeparatedByCharactersInSet:wsSet]];
+    }
+  };
+
   if (handleHTMLTags) {
-    // Clang's -Wdocumentation doesn't like word wrapping within an
-    // html tag. Xcode also seems to get confused by it when providing
-    // the contextual help. So this option looks for HTML tags and
-    // keeps them as a single thing to wordwrap.
+    // Clang's -Wdocumentation doesn't like word wrapping within an html tag.
+    // Xcode also seems to get confused by it when providing the contextual
+    // help. So this option looks for HTML tags and keeps them as a single item
+    // to wordwrap.
     static NSRegularExpression *regex;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
       // Match anything that isn't whitespace, '<', a letter, anything but '>',
       // anything that isn't whitespace.  This gets us anything before a tag and
       // attached to the tag, and anything attached after it.
-      // NOTE: This is a little fragile, in that we don't want to catch things
-      // like "<= 12" or "<10".
+      // NOTES:
+      //   - This is a little fragile, in that we don't want to catch things
+      //     like "<= 12" or "<10".
+      //   - This doesn't deal with '<' or '>' within tag attribute values, that
+      //     requires a more stateful parse than a regex.
+      //   - It also matches non spaces before/after the tag so if the tag was
+      //     "against" something, it stays connected to it instead of inserting
+      //     a space and allowing a break. This is added safety for when things
+      //     weren't really a tag and/or when a space around the tag looks odd.
       regex = [NSRegularExpression regularExpressionWithPattern:@"\\S*<[a-zA-Z][^<>]*>\\S*"
                                                         options:0
                                                           error:NULL];
       NSAssert(regex != nil, @"Ooops?");
     });
     __block NSUInteger lastOffset = 0;
-    NSMutableArray *collector = [NSMutableArray array];
     [regex enumerateMatchesInString:str
                             options:0
                               range:NSMakeRange(0, str.length)
                          usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
       if (lastOffset != result.range.location) {
-        // Everything before this match, split on whitespaces.
+        // Everything before this match.
         NSRange prevRange = NSMakeRange(lastOffset, result.range.location - lastOffset);
-        NSString *subStr = [str substringWithRange:prevRange];
-        [collector addObjectsFromArray:[subStr componentsSeparatedByCharactersInSet:wsSet]];
+        addToWords([str substringWithRange:prevRange]);
       }
-      // Add this tag match so it will be wrapped as one chunk.
-      NSString *tag = [str substringWithRange:result.range];
-      [collector addObject:tag];
+      // Add this tag match so it will be wrapped as one chunk. Except, some of
+      // the time the data from discovery already had newlines within the tags,
+      // so replace them with spaces.
+      NSString *tagBlock = [str substringWithRange:result.range];
+      tagBlock =
+          [[tagBlock componentsSeparatedByCharactersInSet:nlSet] componentsJoinedByString:@" "];
+      [words addObject:tagBlock];
       lastOffset = NSMaxRange(result.range);
     }];
-    // Add anything left after the last match split on whitespece.
-    NSString *subStr = [str substringFromIndex:lastOffset];
-    [collector addObjectsFromArray:[subStr componentsSeparatedByCharactersInSet:wsSet]];
-    words = collector;
+    addToWords([str substringFromIndex:lastOffset]);
   } else {
-    words = [str componentsSeparatedByCharactersInSet:wsSet];
+    addToWords(str);
   }
 
   // componentsSeparatedByCharactersInSet (and componentsSeparatedByString) is
   // documented to take adjacent occurrences of the separator and produce empty
   // strings in the result; remove those empty strings.
-  NSMutableArray *cleanedWords = [NSMutableArray arrayWithArray:words];
-  [cleanedWords removeObject:@""];
+  [words removeObject:@""];
 
   // Now word wrap it.
-  return [self stringOfLinesFromStrings:cleanedWords
+  return [self stringOfLinesFromStrings:words
                         firstLinePrefix:firstLinePrefix
                        extraLinesPrefix:extraLinesPrefix
                             linesSuffix:linesSuffix
