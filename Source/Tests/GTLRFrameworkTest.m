@@ -27,8 +27,6 @@
 @implementation GTLRFrameworkTest
 
 - (void)testFrameworkVersion {
-// It is not currently possible to specify the bundle version from `Package.swift`
-#if !SWIFT_PACKAGE
   NSUInteger major = NSUIntegerMax;
   NSUInteger minor = NSUIntegerMax;
   NSUInteger release = NSUIntegerMax;
@@ -38,7 +36,8 @@
   XCTAssertTrue(major != NSUIntegerMax, @"version unset");
   XCTAssertTrue(minor != NSUIntegerMax, @"version unset");
   XCTAssertTrue(release != NSUIntegerMax, @"version unset");
-
+// It is not currently possible to specify the bundle version from `Package.swift`
+#if !SWIFT_PACKAGE
   // Check that the Framework bundle's Info.plist has the proper version,
   // matching the GTLRFrameworkVersion call
   NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
