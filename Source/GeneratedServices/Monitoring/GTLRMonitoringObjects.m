@@ -102,6 +102,15 @@ NSString * const kGTLRMonitoring_Field_Kind_TypeUint32   = @"TYPE_UINT32";
 NSString * const kGTLRMonitoring_Field_Kind_TypeUint64   = @"TYPE_UINT64";
 NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown  = @"TYPE_UNKNOWN";
 
+// GTLRMonitoring_HttpCheck.contentType
+NSString * const kGTLRMonitoring_HttpCheck_ContentType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRMonitoring_HttpCheck_ContentType_UrlEncoded = @"URL_ENCODED";
+
+// GTLRMonitoring_HttpCheck.requestMethod
+NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_Get   = @"GET";
+NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_Post  = @"POST";
+
 // GTLRMonitoring_InternalChecker.state
 NSString * const kGTLRMonitoring_InternalChecker_State_Creating = @"CREATING";
 NSString * const kGTLRMonitoring_InternalChecker_State_Running = @"RUNNING";
@@ -762,7 +771,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_HttpCheck
-@dynamic authInfo, headers, maskHeaders, path, port, useSsl, validateSsl;
+@dynamic authInfo, body, contentType, headers, maskHeaders, path, port,
+         requestMethod, useSsl, validateSsl;
 @end
 
 

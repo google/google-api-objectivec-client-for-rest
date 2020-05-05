@@ -2276,7 +2276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Access control list information for the item. For more information see
- *  https://developers.google.com/cloud-search/docs/guides/index-your-data#acls
+ *  [Map ACLs](/cloud-search/docs/guides/acls).
  */
 @interface GTLRCloudSearch_ItemAcl : GTLRObject
 
@@ -3814,7 +3814,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/** Id of the application created using SearchApplicationsService. */
+/**
+ *  The ID generated when you create a search application using the
+ *  [admin console](https://support.google.com/a/answer/9043922).
+ */
 @property(nonatomic, copy, nullable) NSString *searchApplicationId;
 
 /**
@@ -4055,7 +4058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  IDs of the Long Running Operations (LROs) currently running for this
+ *  Output only. IDs of the Long Running Operations (LROs) currently running for
+ *  this
  *  schema. Output only field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;

@@ -31,7 +31,6 @@
 @class GTLRFirebaseHosting_Header_Headers;
 @class GTLRFirebaseHosting_Operation_Metadata;
 @class GTLRFirebaseHosting_Operation_Response;
-@class GTLRFirebaseHosting_PathFilter;
 @class GTLRFirebaseHosting_PopulateVersionFilesRequest_Files;
 @class GTLRFirebaseHosting_PreviewConfig;
 @class GTLRFirebaseHosting_Redirect;
@@ -398,41 +397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
  *  challenge.
  */
 @property(nonatomic, copy, nullable) NSString *token;
-
-@end
-
-
-/**
- *  The request sent to CloneVersion.
- */
-@interface GTLRFirebaseHosting_CloneVersionRequest : GTLRObject
-
-/**
- *  If provided, only paths that do not match any of the regexes in this
- *  list will be included in the new version.
- */
-@property(nonatomic, strong, nullable) GTLRFirebaseHosting_PathFilter *exclude;
-
-/**
- *  If true, immediately finalize the version after cloning is complete.
- *
- *  Remapped to 'finalizeProperty' to avoid NSObject's 'finalize'.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *finalizeProperty;
-
-/**
- *  If provided, only paths that match one or more regexes in this list
- *  will be included in the new version.
- */
-@property(nonatomic, strong, nullable) GTLRFirebaseHosting_PathFilter *include;
-
-/**
- *  Required. The name of the version to be cloned, in the format:
- *  `sites/{site}/versions/{version}`
- */
-@property(nonatomic, copy, nullable) NSString *sourceVersion;
 
 @end
 
@@ -857,17 +821,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
 
 
 /**
- *  A representation of filter path.
- */
-@interface GTLRFirebaseHosting_PathFilter : GTLRObject
-
-/** An array of regexes to filter by. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *regexes;
-
-@end
-
-
-/**
  *  The request to populate a Version's Files.
  */
 @interface GTLRFirebaseHosting_PopulateVersionFilesRequest : GTLRObject
@@ -1157,6 +1110,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
  *  controls Firebase Hosting serving behavior
  */
 @interface GTLRFirebaseHosting_SiteConfig : GTLRObject
+
+/**
+ *  Whether or not web requests made by site visitors are logged via Cloud
+ *  Logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cloudLoggingEnabled;
 
 /**
  *  The number of FINALIZED versions that will be held for a site before
