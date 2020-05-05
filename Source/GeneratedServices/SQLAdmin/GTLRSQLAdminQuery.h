@@ -83,8 +83,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 
 /**
  *  The ID of the Backup Run to delete. To find a Backup Run ID, use the
- *  <a 
- href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
+ *  <a href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
  *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -106,8 +105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *  @param identifier The ID of the Backup Run to delete. To find a Backup Run
  *    ID, use the
- *    <a 
- href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
+ *    <a href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
  *    method.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsDelete
@@ -1744,8 +1742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
  *  db-n1-standard-1. For related information, see
- *  <a 
- href="/sql/pricing">Pricing</a>.
+ *  <a href="/sql/pricing">Pricing</a>.
  *
  *  Method: sql.tiers.list
  *
@@ -1765,8 +1762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
  *  db-n1-standard-1. For related information, see
- *  <a 
- href="/sql/pricing">Pricing</a>.
+ *  <a href="/sql/pricing">Pricing</a>.
  *
  *  @param project Project ID of the project for which to list tiers.
  *

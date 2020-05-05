@@ -2925,8 +2925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. Command-line arguments passed to the training application when it
  *  starts. If your job uses a custom container, then the arguments are passed
  *  to the container's
- *  <a class="external" target="_blank" 
- href="https://docs.docker.com/engine/reference/builder/#entrypoint">
+ *  <a class="external" target="_blank" href="https://docs.docker.com/engine/reference/builder/#entrypoint">
  *  `ENTRYPOINT`</a> command.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;

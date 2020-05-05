@@ -87,8 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  request, the server will assign a random name for this snapshot on the same
  *  project as the subscription. Note that for REST API requests, you must
  *  specify a name. See the
- *  <a 
- href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
  *  resource
  *  name rules</a>. Format is `projects/{project}/snapshots/{snap}`.
  */
@@ -124,8 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    same
  *    project as the subscription. Note that for REST API requests, you must
  *    specify a name. See the
- *    <a 
- href="https://cloud.google.com/pubsub/docs/admin#resource_names">
+ *    <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
  *    resource
  *    name rules</a>. Format is `projects/{project}/snapshots/{snap}`.
  *
