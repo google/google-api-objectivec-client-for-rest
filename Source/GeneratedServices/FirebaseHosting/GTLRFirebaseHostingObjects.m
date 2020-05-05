@@ -104,21 +104,6 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseHosting_CloneVersionRequest
-//
-
-@implementation GTLRFirebaseHosting_CloneVersionRequest
-@dynamic exclude, finalizeProperty, include, sourceVersion;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"finalizeProperty" : @"finalize" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirebaseHosting_CloudRunRewrite
 //
 
@@ -329,24 +314,6 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseHosting_PathFilter
-//
-
-@implementation GTLRFirebaseHosting_PathFilter
-@dynamic regexes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"regexes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirebaseHosting_PopulateVersionFilesRequest
 //
 
@@ -454,7 +421,7 @@ NSString * const kGTLRFirebaseHosting_VersionFile_Status_StatusUnspecified = @"S
 //
 
 @implementation GTLRFirebaseHosting_SiteConfig
-@dynamic maxVersions;
+@dynamic cloudLoggingEnabled, maxVersions;
 @end
 
 

@@ -300,33 +300,6 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
 
 @end
 
-@implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsClone
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseHosting_CloneVersionRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/versions:clone";
-  GTLRFirebaseHostingQuery_ProjectsSitesVersionsClone *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseHosting_Operation class];
-  query.loggingName = @"firebasehosting.projects.sites.versions.clone";
-  return query;
-}
-
-@end
-
 @implementation GTLRFirebaseHostingQuery_ProjectsSitesVersionsCreate
 
 @dynamic parent, sizeBytes, versionId;
@@ -709,33 +682,6 @@ NSString * const kGTLRFirebaseHostingStatusStatusUnspecified = @"STATUS_UNSPECIF
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseHosting_SiteConfig class];
   query.loggingName = @"firebasehosting.sites.updateConfig";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseHostingQuery_SitesVersionsClone
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseHosting_CloneVersionRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/versions:clone";
-  GTLRFirebaseHostingQuery_SitesVersionsClone *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseHosting_Operation class];
-  query.loggingName = @"firebasehosting.sites.versions.clone";
   return query;
 }
 

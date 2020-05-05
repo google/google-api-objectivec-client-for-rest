@@ -686,6 +686,46 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUint64;
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_HttpCheck.contentType
+
+/**
+ *  No content type specified. If the request method is POST, an unspecified
+ *  content type results in a check creation rejection.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_ContentType_TypeUnspecified;
+/**
+ *  body is in URL-encoded form. Equivalent to setting the Content-Type to
+ *  application/x-www-form-urlencoded in the HTTP request.
+ *
+ *  Value: "URL_ENCODED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_ContentType_UrlEncoded;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_HttpCheck.requestMethod
+
+/**
+ *  GET request.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_Get;
+/**
+ *  No request method specified.
+ *
+ *  Value: "METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_MethodUnspecified;
+/**
+ *  POST request.
+ *
+ *  Value: "POST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_HttpCheck_RequestMethod_Post;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_InternalChecker.state
 
 /**
@@ -2934,6 +2974,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRMonitoring_BasicAuthentication *authInfo;
 
 /**
+ *  The request body associated with the HTTP request. If content_type is
+ *  URL_ENCODED, the body passed in must be URL-encoded. Users can provide a
+ *  Content-Length header via the headers field or the API will do so. The
+ *  maximum byte size is 1 megabyte. Note: As with all bytes fields JSON
+ *  representations are base64 encoded.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *body;
+
+/**
+ *  The content type to use for the check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_HttpCheck_ContentType_TypeUnspecified No content
+ *        type specified. If the request method is POST, an unspecified content
+ *        type results in a check creation rejection. (Value:
+ *        "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_HttpCheck_ContentType_UrlEncoded body is in
+ *        URL-encoded form. Equivalent to setting the Content-Type to
+ *        application/x-www-form-urlencoded in the HTTP request. (Value:
+ *        "URL_ENCODED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
  *  The list of headers to send as part of the Uptime check request. If two
  *  headers have the same key and different values, they should be entered as a
  *  single header, with the value being a comma-separated list of all the
@@ -2972,6 +3039,20 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  The HTTP request method to use for the check. If set to METHOD_UNSPECIFIED
+ *  then request_method defaults to GET.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_HttpCheck_RequestMethod_Get GET request. (Value:
+ *        "GET")
+ *    @arg @c kGTLRMonitoring_HttpCheck_RequestMethod_MethodUnspecified No
+ *        request method specified. (Value: "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_HttpCheck_RequestMethod_Post POST request. (Value:
+ *        "POST")
+ */
+@property(nonatomic, copy, nullable) NSString *requestMethod;
 
 /**
  *  If true, use HTTPS instead of HTTP to run the check.
@@ -5041,7 +5122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  For DELTA and CUMULATIVE metrics, the start time must be earlier than the
  *  end time.
  *  In all cases, the start time of the next interval must be at least a
- *  microsecond after the end time of the previous interval. Because the
+ *  millisecond after the end time of the previous interval. Because the
  *  interval is closed, if the start time of a new interval is the same as the
  *  end time of the previous interval, data written at the new start time could
  *  overwrite data written at the previous end time.

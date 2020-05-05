@@ -164,9 +164,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Required. The project in which to create the alerting policy. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]
  *  Note that this field names the parent container in which the alerting policy
- *  will be written, not the name of the created policy. The alerting policy
- *  that is returned will have a name that contains a normalized representation
- *  of this name as a prefix but adds a suffix of the form
+ *  will be written, not the name of the created policy. |name| must be a host
+ *  project of a workspace, otherwise INVALID_ARGUMENT error will return. The
+ *  alerting policy that is returned will have a name that contains a normalized
+ *  representation of this name as a prefix but adds a suffix of the form
  *  /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -181,10 +182,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    The format is:
  *    projects/[PROJECT_ID_OR_NUMBER]
  *    Note that this field names the parent container in which the alerting
- *    policy will be written, not the name of the created policy. The alerting
- *    policy that is returned will have a name that contains a normalized
- *    representation of this name as a prefix but adds a suffix of the form
- *    /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
+ *    policy will be written, not the name of the created policy. |name| must be
+ *    a host project of a workspace, otherwise INVALID_ARGUMENT error will
+ *    return. The alerting policy that is returned will have a name that
+ *    contains a normalized representation of this name as a prefix but adds a
+ *    suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the
+ *    policy in the container.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
  */
@@ -263,7 +266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Lists the existing alerting policies for the project.
+ *  Lists the existing alerting policies for the workspace.
  *
  *  Method: monitoring.projects.alertPolicies.list
  *
@@ -315,7 +318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_ListAlertPoliciesResponse.
  *
- *  Lists the existing alerting policies for the project.
+ *  Lists the existing alerting policies for the workspace.
  *
  *  @param name Required. The project whose alert policies are to be listed. The
  *    format is:

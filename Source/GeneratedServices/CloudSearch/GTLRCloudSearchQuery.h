@@ -1210,7 +1210,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsLanguageCode;
 
-/** Id of the application created using SearchApplicationsService. */
+/**
+ *  The ID generated when you create a search application using the
+ *  [admin console](https://support.google.com/a/answer/9043922).
+ */
 @property(nonatomic, copy, nullable) NSString *requestOptionsSearchApplicationId;
 
 /**
