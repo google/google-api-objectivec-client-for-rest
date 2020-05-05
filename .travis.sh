@@ -14,6 +14,9 @@ case "${TEST_TYPE}" in
   Xcode)
     exec Tests/xcode_tests.sh "$@"
     ;;
+  SwiftPM)
+    exec Tests/swiftpm_tests.sh "$@"
+    ;;
   Pod)
     exec Tests/pod_integration_tests.sh "$@"
     ;;
