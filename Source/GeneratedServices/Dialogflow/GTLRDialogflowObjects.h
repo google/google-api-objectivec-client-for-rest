@@ -1890,8 +1890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
  *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
  *  If `Environment ID` is not specified, we assume default 'draft'
@@ -2049,8 +2048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Events allow for matching intents by event name instead of the natural
  *  language input. For instance, input
- *  `<event: { name: "welcome_event", 
- parameters: { name: "Sam" } }>` can
+ *  `<event: { name: "welcome_event", parameters: { name: "Sam" } }>` can
  *  trigger a personalized welcome response.
  *  The parameter `name` may be used by the agent in the response:
  *  `"Hello #welcome_event.name! What can I do for you today?"`.
@@ -3285,8 +3283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  play, e.g., "gs://bucket/object". The object must contain a single
  *  channel (mono) of linear PCM audio (2 bytes / sample) at 8kHz.
  *  This object must be readable by the
- *  `service-<Project 
- Number>\@gcp-sa-dialogflow.iam.gserviceaccount.com`
+ *  `service-<Project Number>\@gcp-sa-dialogflow.iam.gserviceaccount.com`
  *  service account
  *  where <Project Number> is the number of the Telephony Gateway project
  *  (usually the same as the Dialogflow agent project). If the Google Cloud
@@ -3950,11 +3947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
+ *  ID>/entityTypes/<Entity Type Display Name>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session
+ *  ID>/users/<User ID>/sessions/<Session
  *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
@@ -3997,8 +3992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Can be used to identify end-user inside webhook implementation.
  *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -4128,8 +4122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
  *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
  *  If `Environment ID` is not specified, we assume default 'draft'
@@ -4501,8 +4494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Events allow for matching intents by event name instead of the natural
  *  language input. For instance, input
- *  `<event: { name: "welcome_event", 
- parameters: { name: "Sam" } }>` can
+ *  `<event: { name: "welcome_event", parameters: { name: "Sam" } }>` can
  *  trigger a personalized welcome response.
  *  The parameter `name` may be used by the agent in the response:
  *  `"Hello #welcome_event.name! What can I do for you today?"`.
@@ -6651,12 +6643,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
+ *  ID>/entityTypes/<Entity Type Display Name>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  *  `<Entity Type Display Name>` must be the display name of an existing entity
@@ -6795,13 +6785,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  agent.
  *  - "projects/<Project ID>/agent/intents/<Intent ID>", if the error is
  *  associated with certain intents.
- *  - "projects/<Project 
- ID>/agent/intents/<Intent
+ *  - "projects/<Project ID>/agent/intents/<Intent
  *  Id>/trainingPhrases/<Training Phrase ID>", if the
  *  error is associated with certain intent training phrases.
  *  - "projects/<Project ID>/agent/intents/<Intent
- *  Id>/parameters/<Parameter 
- ID>", if the error is associated with certain
+ *  Id>/parameters/<Parameter ID>", if the error is associated with certain
  *  intent parameters.
  *  - "projects/<Project ID>/agent/entities/<Entity ID>", if the error is
  *  associated with certain entities.
@@ -6907,8 +6895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Can be used to identify end-user inside webhook implementation.
  *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 

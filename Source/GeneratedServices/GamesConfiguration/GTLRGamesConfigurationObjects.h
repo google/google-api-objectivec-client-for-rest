@@ -377,8 +377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfigurat
 /**
  *  An optional suffix for the NUMERIC format type. These strings follow the
  *  same
- *  <a 
- href="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals">
+ *  <a href="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals">
  *  plural rules</a> as all Android string resources.
  */
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_GamesNumberAffixConfiguration *suffix;

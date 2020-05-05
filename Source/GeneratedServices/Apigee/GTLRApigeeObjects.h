@@ -474,8 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  - <a href="/api-platform/publish/create-api-products">Manage API
  *  products</a>
  *  -
- *  <a 
- href="/api-platform/monetization/create-transaction-recording-policy#spectrpcaapi">Managing
+ *  <a href="/api-platform/monetization/create-transaction-recording-policy#spectrpcaapi">Managing
  *  a transaction recording policy using the API</a>
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apiResources;
@@ -508,14 +507,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  can be accessed by external developers.
  *  For monetization, you can use the attributes field to:
  *  -
- *  <a 
- href="/api-platform/monetization/create-transaction-recording-policy#spectrpsuccessapi" 
- target="_blank">Specify
+ *  <a href="/api-platform/monetization/create-transaction-recording-policy#spectrpsuccessapi" target="_blank">Specify
  *  transaction success criteria</a>
  *  -
- *  <a 
- href="/api-platform/monetization/create-transaction-recording-policy#spectrpcaapi" 
- target="_blank">Specify
+ *  <a href="/api-platform/monetization/create-transaction-recording-policy#spectrpcaapi" target="_blank">Specify
  *  custom attributes</a> on which you base rate plan
  *  charges</a>.
  */

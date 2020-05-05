@@ -1003,8 +1003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time when this access control entry expires in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -1121,8 +1120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time the backup operation completed in UTC timezone in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -1130,8 +1128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time the run was enqueued in UTC timezone in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -1167,8 +1164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time the backup operation actually started in UTC timezone in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -1364,9 +1360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The name of the flag. These flags are passed at instance startup, so
  *  include both server options and system variables for MySQL. Flags should be
  *  specified with underscores, not hyphens. For more information, see
- *  <a 
- href="/sql/docs/mysql/flags">Configuring Database Flags</a> in the
- *  Cloud
+ *  <a href="/sql/docs/mysql/flags">Configuring Database Flags</a> in the Cloud
  *  SQL documentation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1388,8 +1382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  <code>FIRST_GEN</code>: First Generation instance. MySQL only.
- *  <br 
- /><code>SECOND_GEN</code>: Second Generation instance or PostgreSQL
+ *  <br /><code>SECOND_GEN</code>: Second Generation instance or PostgreSQL
  *  instance. <br /><code>EXTERNAL</code>: A database server that is not
  *  managed by Google. <br>This property is read-only; use the
  *  <code>tier</code> property in the <code>settings</code> object to determine
@@ -1416,8 +1409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  deprecated. Users should use the
  *  "cloudsql.googleapis.com/database/disk/bytes_used" metric in Cloud
  *  Monitoring API instead. Please see
- *  <a 
- href="https://groups.google.com/d/msg/google-cloud-sql-announce/I_7-F9EBhT0/BtvFtdFeAgAJ">this
+ *  <a href="https://groups.google.com/d/msg/google-cloud-sql-announce/I_7-F9EBhT0/BtvFtdFeAgAJ">this
  *  announcement</a> for details.
  *
  *  Uses NSNumber of longLongValue.
@@ -2291,8 +2283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /**
  *  The list of external networks that are allowed to connect to the instance
  *  using the IP. In
- *  <a 
- href="http://en.wikipedia.org/wiki/CIDR_notation#CIDR_notation">CIDR
+ *  <a href="http://en.wikipedia.org/wiki/CIDR_notation#CIDR_notation">CIDR
  *  notation</a>, also known as 'slash' notation (e.g.
  *  <code>192.168.100.0/24</code>).
  */
@@ -2333,8 +2324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The due time for this IP to be retired in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>. This field is only available when
  *  the IP is scheduled to be retired.
@@ -2557,8 +2547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time this operation finished in UTC timezone in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -2578,8 +2567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time this operation was enqueued in UTC timezone in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -2690,8 +2678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time this operation actually started in UTC timezone in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */
@@ -2848,8 +2835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /**
  *  Optional. Timestamp when the maintenance shall be rescheduled to if
  *  reschedule_type=SPECIFIC_TIME, in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example <code>2012-11-15T16:19:00.094Z</code>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
@@ -2940,8 +2926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Outages in that zone affect data accessibility. <br><code>REGIONAL</code>:
  *  The instance can serve data from more than one zone in a region (it is
  *  highly available). <br>For more information, see
- *  <a 
- href="https://cloud.google.com/sql/docs/postgres/high-availability">Overview
+ *  <a href="https://cloud.google.com/sql/docs/postgres/high-availability">Overview
  *  of the High Availability Configuration</a>.
  *
  *  Likely values:
@@ -3099,8 +3084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  <code>db-custom-1-3840</code> (PostgreSQL instances). For MySQL instances,
  *  this property determines whether the instance is First or Second
  *  Generation. For more information, see
- *  <a 
- href="/sql/docs/db_path/instance-settings">Instance Settings</a>.
+ *  <a href="/sql/docs/db_path/instance-settings">Instance Settings</a>.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -3269,8 +3253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time when the certificate was created in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>
  */
@@ -3278,8 +3261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The time when the certificate expires in
- *  <a 
- href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
+ *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
  *  <code>2012-11-15T16:19:00.094Z</code>.
  */

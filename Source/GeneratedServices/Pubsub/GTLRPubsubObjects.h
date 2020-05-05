@@ -1030,8 +1030,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
  *  window. This must be true if you would like to
- *  <a 
- href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
+ *  <a href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
  *  Seek to a timestamp</a>.
  *
  *  Uses NSNumber of boolValue.

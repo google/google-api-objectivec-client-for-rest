@@ -2085,8 +2085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  not map to external storage, the system will replace it with the external
  *  storage path prefix for that device and copy the file there.
  *  <p> It is strongly advised to use the
- *  <a href= 
- "http://developer.android.com/reference/android/os/Environment.html">
+ *  <a href= "http://developer.android.com/reference/android/os/Environment.html">
  *  Environment API</a> in app and test code to access files on the device in a
  *  portable way.
  */

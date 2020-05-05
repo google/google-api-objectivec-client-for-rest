@@ -574,8 +574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The session to create a context for.
  *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -592,8 +591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param parent Required. The session to create a context for.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *    `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -621,8 +619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The name of the context to delete. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -636,8 +633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The name of the context to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *    or `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -664,8 +660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The name of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -679,8 +674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The name of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *    or `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -718,8 +712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The session to list all contexts from.
  *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -733,8 +726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param parent Required. The session to list all contexts from.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *    `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -765,8 +757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
  *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
  *  If `Environment ID` is not specified, we assume default 'draft'
@@ -796,8 +787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The unique identifier of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *    or `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    The `Context ID` is always converted to lowercase, may only contain
  *    characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
  *    If `Environment ID` is not specified, we assume default 'draft'
@@ -831,8 +821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The name of the session to delete all contexts from. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project 
- ID>/agent/environments/<Environment
+ *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
  *  ID>`.
  *  If `Environment ID` is not specified we assume default 'draft' environment.
@@ -848,8 +837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param parent Required. The name of the session to delete all contexts from.
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project 
- ID>/agent/environments/<Environment
+ *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
  *    ID>`.
  *    If `Environment ID` is not specified we assume default 'draft'
@@ -882,8 +870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The name of the session this query is sent to. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *  ID>/users/<User ID>/sessions/<Session ID>`. If `Environment ID` is not
  *  specified, we assume
  *  default 'draft' environment. If `User ID` is not specified, we are using
  *  "-". It's up to the API caller to choose an appropriate `Session ID` and
@@ -908,8 +895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>`, or
  *    `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *    ID>/users/<User ID>/sessions/<Session ID>`. If `Environment ID` is not
  *    specified, we assume
  *    default 'draft' environment. If `User ID` is not specified, we are using
  *    "-". It's up to the API caller to choose an appropriate `Session ID` and
@@ -998,12 +984,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The name of the entity type to delete. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *  ID>/entityTypes/<Entity Type Display Name>` or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -1019,12 +1003,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *    ID>/entityTypes/<Entity Type Display Name>` or
  *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
- *    ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *    ID>/entityTypes/<Entity Type Display Name>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -1053,12 +1035,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The name of the session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *  ID>/entityTypes/<Entity Type Display Name>` or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -1074,12 +1054,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *
  *  @param name Required. The name of the session entity type. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *    ID>/entityTypes/<Entity Type Display Name>` or
  *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
- *    ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *    ID>/entityTypes/<Entity Type Display Name>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -1172,12 +1150,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
+ *  ID>/entityTypes/<Entity Type Display Name>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  *  `<Entity Type Display Name>` must be the display name of an existing entity
@@ -1205,12 +1181,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The unique identifier of this session entity type.
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>`, or
+ *    ID>/entityTypes/<Entity Type Display Name>`, or
  *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
- *    ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *    ID>/entityTypes/<Entity Type Display Name>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *    `<Entity Type Display Name>` must be the display name of an existing
@@ -1861,8 +1835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The session to create a context for.
  *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -1879,8 +1852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param parent Required. The session to create a context for.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *    `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -1908,8 +1880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The name of the context to delete. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -1923,8 +1894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The name of the context to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *    or `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -1951,8 +1921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The name of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -1966,8 +1935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The name of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
  *    or `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -2005,8 +1973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The session to list all contexts from.
  *  Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -2020,8 +1987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param parent Required. The session to list all contexts from.
  *    Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
  *    `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -2052,8 +2018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The unique identifier of the context. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *  The `Context ID` is always converted to lowercase, may only contain
  *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
  *  If `Environment ID` is not specified, we assume default 'draft'
@@ -2083,8 +2048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The unique identifier of the context. Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
  *    or `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>/contexts/<Context ID>`.
+ *    ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
  *    The `Context ID` is always converted to lowercase, may only contain
  *    characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
  *    If `Environment ID` is not specified, we assume default 'draft'
@@ -2118,8 +2082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The name of the session to delete all contexts from. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>` or
- *  `projects/<Project 
- ID>/agent/environments/<Environment
+ *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
  *  ID>`.
  *  If `Environment ID` is not specified we assume default 'draft' environment.
@@ -2135,8 +2098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param parent Required. The name of the session to delete all contexts from.
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>` or
- *    `projects/<Project 
- ID>/agent/environments/<Environment
+ *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
  *    ID>`.
  *    If `Environment ID` is not specified we assume default 'draft'
@@ -2169,8 +2131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  Required. The name of the session this query is sent to. Format:
  *  `projects/<Project ID>/agent/sessions/<Session ID>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User 
- ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *  ID>/users/<User ID>/sessions/<Session ID>`. If `Environment ID` is not
  *  specified, we assume
  *  default 'draft' environment. If `User ID` is not specified, we are using
  *  "-". It's up to the API caller to choose an appropriate `Session ID` and
@@ -2195,8 +2156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session ID>`, or
  *    `projects/<Project ID>/agent/environments/<Environment
- *    ID>/users/<User 
- ID>/sessions/<Session ID>`. If `Environment ID` is not
+ *    ID>/users/<User ID>/sessions/<Session ID>`. If `Environment ID` is not
  *    specified, we assume
  *    default 'draft' environment. If `User ID` is not specified, we are using
  *    "-". It's up to the API caller to choose an appropriate `Session ID` and
@@ -2285,12 +2245,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The name of the entity type to delete. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *  ID>/entityTypes/<Entity Type Display Name>` or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -2306,12 +2264,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *    ID>/entityTypes/<Entity Type Display Name>` or
  *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
- *    ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *    ID>/entityTypes/<Entity Type Display Name>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -2340,12 +2296,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The name of the session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *  ID>/entityTypes/<Entity Type Display Name>` or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  */
@@ -2361,12 +2315,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *
  *  @param name Required. The name of the session entity type. Format:
  *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>` or
+ *    ID>/entityTypes/<Entity Type Display Name>` or
  *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
- *    ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *    ID>/entityTypes/<Entity Type Display Name>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *
@@ -2459,12 +2411,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
 /**
  *  Required. The unique identifier of this session entity type. Format:
  *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type 
- Display Name>`, or
+ *  ID>/entityTypes/<Entity Type Display Name>`, or
  *  `projects/<Project ID>/agent/environments/<Environment
  *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *  ID>/entityTypes/<Entity Type Display Name>`.
  *  If `Environment ID` is not specified, we assume default 'draft'
  *  environment. If `User ID` is not specified, we assume default '-' user.
  *  `<Entity Type Display Name>` must be the display name of an existing entity
@@ -2492,12 +2442,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  @param name Required. The unique identifier of this session entity type.
  *    Format:
  *    `projects/<Project ID>/agent/sessions/<Session
- *    ID>/entityTypes/<Entity Type 
- Display Name>`, or
+ *    ID>/entityTypes/<Entity Type Display Name>`, or
  *    `projects/<Project ID>/agent/environments/<Environment
  *    ID>/users/<User ID>/sessions/<Session
- *    ID>/entityTypes/<Entity Type Display 
- Name>`.
+ *    ID>/entityTypes/<Entity Type Display Name>`.
  *    If `Environment ID` is not specified, we assume default 'draft'
  *    environment. If `User ID` is not specified, we assume default '-' user.
  *    `<Entity Type Display Name>` must be the display name of an existing

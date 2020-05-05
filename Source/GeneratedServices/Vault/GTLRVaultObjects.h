@@ -609,8 +609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 /**
  *  Set to true to include access level information for users
  *  with
- *  <a 
- href="https://support.google.com/vault/answer/6099459#metadata">indirect
+ *  <a href="https://support.google.com/vault/answer/6099459#metadata">indirect
  *  access</a> to files.
  *
  *  Uses NSNumber of boolValue.
@@ -1237,8 +1236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  The account ID, as provided by
- *  <a 
- href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
+ *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
@@ -1529,8 +1527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  List of Shared drive IDs, as provided by
- *  <a 
- href="https://developers.google.com/drive">Drive API</a>.
+ *  <a href="https://developers.google.com/drive">Drive API</a>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sharedDriveIds;
 
@@ -1589,8 +1586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  List of Team Drive IDs, as provided by
- *  <a 
- href="https://developers.google.com/drive">Drive API</a>.
+ *  <a href="https://developers.google.com/drive">Drive API</a>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *teamDriveIds;
 
