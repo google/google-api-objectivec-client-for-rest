@@ -1,0 +1,21 @@
+module GoogleAPIClientForRESTCore {
+    header "../GTLRDefines.h"
+
+    header "../Objects/GTLRBatchQuery.h"
+    header "../Objects/GTLRBatchResult.h"
+    header "../Objects/GTLRDateTime.h"
+    header "../Objects/GTLRDuration.h"
+    header "../Objects/GTLRErrorObject.h"
+    header "../Objects/GTLRObject.h"
+    header "../Objects/GTLRQuery.h"
+    header "../Objects/GTLRRuntimeCommon.h"
+    header "../Objects/GTLRService.h"
+    header "../Objects/GTLRUploadParameters.h"
+
+    header "../Utilities/GTLRBase64.h"
+    header "../Utilities/GTLRFramework.h"
+    header "../Utilities/GTLRURITemplate.h"
+    header "../Utilities/GTLRUtilities.h"
+
+    export *
+}

@@ -7,7 +7,9 @@
 //   Service for the GTLRService tests, based on Drive. Allows us to avoid break
 //   when Drive changes.
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
 #else
   #import "GTLRObject.h"

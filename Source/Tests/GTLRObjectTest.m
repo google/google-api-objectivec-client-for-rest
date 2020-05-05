@@ -17,11 +17,15 @@
 
 #import <objc/runtime.h>
 
+#if SWIFT_PACKAGE
+@import GoogleAPIClientForRESTCore;
+#else
 #import "GTLRObject.h"
 #import "GTLRBatchResult.h"
 #import "GTLRDateTime.h"
 #import "GTLRDuration.h"
 #import "GTLRErrorObject.h"
+#endif
 
 @interface GTLRObject (ExposedForTesting)
 - (NSString *)JSONDescription;

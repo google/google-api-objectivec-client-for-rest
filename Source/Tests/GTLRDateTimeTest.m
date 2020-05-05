@@ -15,7 +15,11 @@
 
 #import <XCTest/XCTest.h>
 
+#if SWIFT_PACKAGE
+@import GoogleAPIClientForRESTCore;
+#else
 #import "GTLRDateTime.h"
+#endif
 
 @interface GTLRDateTimeTest : XCTestCase
 @end

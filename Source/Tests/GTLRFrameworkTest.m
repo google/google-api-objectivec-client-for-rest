@@ -15,7 +15,11 @@
 
 #import <XCTest/XCTest.h>
 
+#if SWIFT_PACKAGE
+@import GoogleAPIClientForRESTCore;
+#else
 #import "GTLRFramework.h"
+#endif
 
 @interface GTLRFrameworkTest : XCTestCase
 @end
@@ -32,7 +36,8 @@
   XCTAssertTrue(major != NSUIntegerMax, @"version unset");
   XCTAssertTrue(minor != NSUIntegerMax, @"version unset");
   XCTAssertTrue(release != NSUIntegerMax, @"version unset");
-
+// It is not currently possible to specify the bundle version from `Package.swift`
+#if !SWIFT_PACKAGE
   // Check that the Framework bundle's Info.plist has the proper version,
   // matching the GTLRFrameworkVersion call
   NSBundle *testBundle = [NSBundle bundleForClass:[self class]];
@@ -45,6 +50,7 @@
 
     XCTAssertEqualObjects(binaryVersionStr, plistVersionStr);
   }
+#endif
 }
 
 @end

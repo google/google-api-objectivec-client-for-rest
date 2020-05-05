@@ -24,3 +24,10 @@ script:
   - ./.travis.sh "${TEST_TYPE}" "${MODE}" "${CFG}"
 notifications:
   email: false
+
+jobs:
+  - include:
+    - name: "Swift PM"
+      script:
+      - swift build --configuration release
+      - swift test --configuration release
