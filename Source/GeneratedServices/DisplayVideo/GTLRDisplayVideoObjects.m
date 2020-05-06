@@ -2608,7 +2608,7 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_InsertionOrderBudgetSegment
-@dynamic budgetAmountMicros, dateRange, descriptionProperty;
+@dynamic budgetAmountMicros, campaignBudgetId, dateRange, descriptionProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

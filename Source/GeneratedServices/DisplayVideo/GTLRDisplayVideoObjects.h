@@ -9,7 +9,9 @@
 // Documentation:
 //   https://developers.google.com/display-video/
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
 #else
   #import "GTLRObject.h"
@@ -13193,6 +13195,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *budgetAmountMicros;
+
+/**
+ *  The ID of the campaign budget linked to this insertion order budget
+ *  segment.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignBudgetId;
 
 /**
  *  Required. The start and end date settings of the budget segment. They are

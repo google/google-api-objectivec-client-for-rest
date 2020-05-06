@@ -386,7 +386,9 @@ NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailRespo
 
 // GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow.status
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered = @"AD_NOT_RENDERED";
+NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_FatalVastError = @"FATAL_VAST_ERROR";
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression = @"INVALID_IMPRESSION";
+NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation = @"LOST_IN_MEDIATION";
 NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAdExchangeBuyerII_Note.creatorRole
@@ -564,7 +566,8 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_BidMetricsRow
 @dynamic bids, bidsInAuction, billedImpressions, impressionsWon,
-         measurableImpressions, rowDimensions, viewableImpressions;
+         measurableImpressions, reachedQueries, rowDimensions,
+         viewableImpressions;
 @end
 
 

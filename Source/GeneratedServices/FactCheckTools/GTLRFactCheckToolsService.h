@@ -6,7 +6,9 @@
 // Documentation:
 //   https://developers.google.com/fact-check/tools/api/
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
 #else
   #import "GTLRService.h"
