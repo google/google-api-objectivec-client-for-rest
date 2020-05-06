@@ -10,7 +10,9 @@
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/reference/rest/
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
 #else
   #import "GTLRObject.h"
@@ -1856,12 +1858,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBrea
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered;
 /**
+ *  A video impression was served but a fatal error was reported from the
+ *  client during playback.
+ *
+ *  Value: "FATAL_VAST_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_FatalVastError;
+/**
  *  The buyer was not billed because the impression won by the bid was
  *  determined to be invalid.
  *
  *  Value: "INVALID_IMPRESSION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression;
+/**
+ *  The buyer was not billed because the ad was outplaced in the mediation
+ *  waterfall.
+ *
+ *  Value: "LOST_IN_MEDIATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation;
 /**
  *  A placeholder for an undefined status.
  *  This value will never be returned in responses.
@@ -2300,6 +2316,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  for viewability (as defined by Active View).
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *measurableImpressions;
+
+/**
+ *  The number of bids that won the auction and also won the mediation
+ *  waterfall (if any).
+ */
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *reachedQueries;
 
 /** The values of all dimensions associated with metric values in this row. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RowDimensions *rowDimensions;
@@ -5115,9 +5137,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered
  *        The buyer was not billed because the ad was not rendered by the
  *        publisher. (Value: "AD_NOT_RENDERED")
+ *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_FatalVastError
+ *        A video impression was served but a fatal error was reported from the
+ *        client during playback. (Value: "FATAL_VAST_ERROR")
  *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_InvalidImpression
  *        The buyer was not billed because the impression won by the bid was
  *        determined to be invalid. (Value: "INVALID_IMPRESSION")
+ *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation
+ *        The buyer was not billed because the ad was outplaced in the mediation
+ *        waterfall. (Value: "LOST_IN_MEDIATION")
  *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified
  *        A placeholder for an undefined status.
  *        This value will never be returned in responses. (Value:

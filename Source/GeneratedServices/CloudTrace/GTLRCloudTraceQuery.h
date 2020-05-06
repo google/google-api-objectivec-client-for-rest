@@ -12,7 +12,9 @@
 // Documentation:
 //   https://cloud.google.com/trace
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
 #else
   #import "GTLRQuery.h"

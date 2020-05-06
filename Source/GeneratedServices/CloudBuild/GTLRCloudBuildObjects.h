@@ -8,7 +8,9 @@
 // Documentation:
 //   https://cloud.google.com/cloud-build/docs/
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
 #else
   #import "GTLRObject.h"
@@ -1270,8 +1272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *branch;
 
 /**
- *  Whether to block builds on a "/gcbrun" comment from a repository admin or
- *  collaborator.
+ *  Configure builds to run only when a repository owner or collaborator
+ *  comments `/gcbrun`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled

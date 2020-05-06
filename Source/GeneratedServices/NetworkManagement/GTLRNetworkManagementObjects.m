@@ -16,6 +16,7 @@
 
 // GTLRNetworkManagement_AbortInfo.cause
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified = @"CAUSE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument = @"INVALID_ARGUMENT";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp = @"NO_EXTERNAL_IP";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation = @"NO_SOURCE_LOCATION";
@@ -97,6 +98,7 @@ NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Unreachable =
 
 // GTLRNetworkManagement_RouteInfo.nextHopType
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopBlackhole = @"NEXT_HOP_BLACKHOLE";
+NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIlb = @"NEXT_HOP_ILB";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInstance = @"NEXT_HOP_INSTANCE";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInterconnect = @"NEXT_HOP_INTERCONNECT";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInternetGateway = @"NEXT_HOP_INTERNET_GATEWAY";

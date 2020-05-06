@@ -9,7 +9,9 @@
 // Documentation:
 //   https://cloud.google.com/
 
-#if GTLR_BUILT_AS_FRAMEWORK
+#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+  @import GoogleAPIClientForRESTCore;
+#elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRQuery.h"
 #else
   #import "GTLRQuery.h"
@@ -151,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Connectivity Test resource name using the form:
- *  `projects/{project_id}/connectivityTests/{test_id}`
+ *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -161,7 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a specific `ConnectivityTest`.
  *
  *  @param name Required. Connectivity Test resource name using the form:
- *    `projects/{project_id}/connectivityTests/{test_id}`
+ *    `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsDelete
  */
@@ -222,6 +224,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Requests for policies with any conditional bindings must specify version 3.
  *  Policies without any conditional bindings may specify any valid value or
  *  leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
@@ -271,7 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  field, or a synthetic field. Field names can be camelCase or snake_case.
  *  Examples:
  *  - Filter by name:
- *  name = "projects/proj-1/connectivityTests/test-1
+ *  name = "projects/proj-1/locations/global/connectivityTests/test-1
  *  - Filter by labels:
  *  - Resources that have a key called `foo`
  *  labels.foo:*
@@ -338,7 +343,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique name of the resource using the form:
- *  `projects/{project_id}/tests/{test_id}`
+ *  `projects/{project_id}/locations/global/connectivityTests/{test}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -369,7 +374,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
  *    the query.
  *  @param name Required. Unique name of the resource using the form:
- *    `projects/{project_id}/tests/{test_id}`
+ *    `projects/{project_id}/locations/global/connectivityTests/{test}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch
  */
@@ -401,7 +406,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Connectivity Test resource name using the form:
- *  `projects/{project_id}/connectivityTests/{test_id}`
+ *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -422,7 +427,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkManagement_RerunConnectivityTestRequest to
  *    include in the query.
  *  @param name Required. Connectivity Test resource name using the form:
- *    `projects/{project_id}/connectivityTests/{test_id}`
+ *    `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsRerun
  */
@@ -434,7 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.setIamPolicy
  *
@@ -456,7 +461,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRNetworkManagement_SetIamPolicyRequest to include in
  *    the query.
@@ -474,7 +479,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  permissions, not a `NOT_FOUND` error.
  *  Note: This operation is designed to be used for building permission-aware
  *  UIs and command-line tools, not for authorization checking. This operation
  *  may "fail open" without warning.
@@ -499,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  permissions, not a `NOT_FOUND` error.
  *  Note: This operation is designed to be used for building permission-aware
  *  UIs and command-line tools, not for authorization checking. This operation
  *  may "fail open" without warning.
