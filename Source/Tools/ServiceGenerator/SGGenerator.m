@@ -29,6 +29,7 @@ static NSString *kCollectionObjectClass = @"GTLRCollectionObject";
 static NSString *kResultArrayClass      = @"GTLRResultArray";
 static NSString *kExternPrefix          = @"FOUNDATION_EXTERN";
 static NSString *kFrameworkIncludeGate  = @"GTLR_BUILT_AS_FRAMEWORK";
+static NSString *kModularIncludeGate    = @"GTLR_USE_MODULAR_IMPORT";
 static NSString *kSwiftPMPackageName    = @"GoogleAPIClientForRESTCore";
 
 static NSString *kFatalGeneration = @"FatalGeneration";
@@ -2921,7 +2922,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   }
 
   NSMutableString *result = [NSMutableString string];
-  [result appendString:@"#if SWIFT_PACKAGE\n"];
+  [result appendFormat:@"#if SWIFT_PACKAGE || %@\n", kModularIncludeGate];
   [result appendFormat:@"  @import %@;\n", kSwiftPMPackageName];
   [result appendFormat:@"#elif %@\n", kFrameworkIncludeGate];
   [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
