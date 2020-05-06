@@ -88,3 +88,8 @@ Banner "Running the ServiceGenerator..."
 
 Banner "Ensure the podspec is up to date..."
 "${ToolsDir}/update_podspec_services.py"
+
+# -----------------------------------------------------------------------------
+
+Banner "Ensure Package.swift is up to date..."
+"${ToolsDir}/update_swiftpm_services.py"
