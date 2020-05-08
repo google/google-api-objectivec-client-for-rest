@@ -20,7 +20,6 @@
 #import <objc/runtime.h>
 
 #import "SGUtils.h"
-#import "GTLRUtilities.h"
 
 @interface SGUtils ()
 + (NSString *)stringOfLinesFromString:(NSString *)str
