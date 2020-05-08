@@ -9,22 +9,28 @@ if [[ "$#" -ne 2 ]]; then
   exit 10
 fi
 
+readonly TestsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
+readonly RootDir="${TestsDir}/.."
+
 readonly BUILD_MODE="$1"
 readonly BUILD_CFG="$2"
 
 # Report then run the build
 RunSwift() {
+  echo "-------------------------------------------------------------------------------------"
   echo swift "$@"
   swift "$@"
 }
 
-declare -a CMD_MODES
+CMD_MODES=("build" "test")
 case "${BUILD_MODE}" in
-  Build|Test)
-    CMD_MODES+=("${BUILD_MODE}")
+  Lib)
+    BUILD_DIR="${RootDir}"
     ;;
-  Both)
-    CMD_MODES+=("Build" "Test")
+  ServiceGenerator)
+    BUILD_DIR="${RootDir}/Source/Tools"
+    # No tests.
+    CMD_MODES=("build")
     ;;
   *)
     echo "Unknown BUILD_MODE: ${BUILD_MODE}"
@@ -45,6 +51,9 @@ case "${BUILD_CFG}" in
     exit 12
     ;;
 esac
+
+# Move to the right build directory
+cd "${BUILD_DIR}"
 
 # Loop over the command configs (Debug|Release)
 for CMD_CONFIG in "${CMD_CONFIGS[@]}"; do
