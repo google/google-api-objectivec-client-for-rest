@@ -14,8 +14,8 @@ env:
   - TEST_TYPE=Xcode MODE=Example_DriveSample CFG=Both
   - TEST_TYPE=Xcode MODE=Example_YouTubeSample CFG=Both
   - TEST_TYPE=Xcode MODE=Example_StorageSample CFG=Both
-  - TEST_TYPE=SwiftPM MODE=Both CFG=Debug
-  - TEST_TYPE=SwiftPM MODE=Both CFG=Release
+  - TEST_TYPE=SwiftPM MODE=Lib CFG=Both
+  - TEST_TYPE=SwiftPM MODE=ServiceGenerator CFG=Both
   - TEST_TYPE=Pod MODE=ios CFG=Debug
   - TEST_TYPE=Pod MODE=ios CFG=Release
   - TEST_TYPE=Pod MODE=osx CFG=Debug
