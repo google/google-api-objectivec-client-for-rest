@@ -35,6 +35,7 @@ typedef NS_OPTIONS(NSUInteger, SGGeneratorOptions) {
   kSGGeneratorOptionAllowRootOverride       = 1 << 1,
   kSGGeneratorOptionAllowGuessFormattedName = 1 << 2,
   kSGGeneratorOptionImportPrefixIsFramework = 1 << 3,
+  kSGGeneratorOptionImportPrefixIsModular   = 1 << 4,
 };
 
 @interface SGGenerator : NSObject

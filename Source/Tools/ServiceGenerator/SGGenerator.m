@@ -342,6 +342,9 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                importPrefix:(NSString *)importPrefix {
   self = [super init];
   if (self != nil) {
+    NSAssert(((options & kSGGeneratorOptionImportPrefixIsFramework) != 0) &&
+             ((options & kSGGeneratorOptionImportPrefixIsModular) != 0),
+             @"Internal error, can't set both.");
     _api = api;
     _options = options;
     _verboseLevel = verboseLevel;
@@ -2921,9 +2924,11 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   if (self.importPrefix) {
     if ((_options & kSGGeneratorOptionImportPrefixIsFramework) != 0) {
       return [NSString stringWithFormat:@"#import <%@/%@.h>\n", self.importPrefix, headerName];
-    } else {
-      return [NSString stringWithFormat:@"#import \"%@/%@.h\"\n", self.importPrefix, headerName];
     }
+    if ((_options & kSGGeneratorOptionImportPrefixIsModular) != 0) {
+      return [NSString stringWithFormat:@"@import %@;\n", self.importPrefix];
+    }
+    return [NSString stringWithFormat:@"#import \"%@/%@.h\"\n", self.importPrefix, headerName];
   }
 
   NSMutableString *result = [NSMutableString string];

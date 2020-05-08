@@ -66,6 +66,13 @@ static ArgInfo optionalFlags[] = {
     " you'll likely want to pass \"GoogleApiClientForRest\" as the value for"
     " this."
   },
+  { "--gtlrModularFramework NAME",
+    "Will generate sources that include GTLR's headers as a modular import"
+    " (`@import`) with the given name.  If you are using GTLR via CocoaPods,"
+    " you'll likely want to pass \"GoogleApiClientForRest\" as the value for"
+    " this. If you are using SwiftPM, you like want"
+    " \"GoogleAPIClientForRESTCore\" as the value for this."
+  },
   { "--gtlrImportPrefix PREFIX",
     "Will generate sources that include GTLR's headers as if they are in the"
     " given directory."
@@ -211,6 +218,7 @@ typedef enum {
 @property(copy) NSString *outputDir;
 @property(copy) NSString *discoveryRootURLString;
 @property(copy) NSString *gtlrFrameworkName;
+@property(copy) NSString *gtlrModularFramework;
 @property(copy) NSString *gtlrImportPrefix;
 @property(copy) NSString *apiLogDir;
 @property(copy) NSString *httpLogDir;
@@ -286,6 +294,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             outputDir = _outputDir,
             discoveryRootURLString = _discoveryRootURLString,
             gtlrFrameworkName = _gtlrFrameworkName,
+            gtlrModularFramework = _gtlrModularFramework,
             gtlrImportPrefix = _gtlrImportPrefix,
             apiLogDir = _apiLogDir,
             httpLogDir = _httpLogDir,
@@ -764,6 +773,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "outputDir",           required_argument, NULL,                 'o' },
     { "discoveryRootURL",    required_argument, NULL,                 'd' },
     { "gtlrFrameworkName",   required_argument, NULL,                 'n' },
+    { "gtlrModularFramework",required_argument, NULL,                 'm' },
     { "gtlrImportPrefix",    required_argument, NULL,                 'i' },
     { "apiLogDir",           required_argument, NULL,                 'a' },
 #if !STRIP_GTM_FETCH_LOGGING
@@ -796,6 +806,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         break;
       case 'n':
         self.gtlrFrameworkName = @(optarg);
+        break;
+      case 'm':
+        self.gtlrModularFramework = @(optarg);
         break;
       case 'i':
         self.gtlrImportPrefix = @(optarg);
@@ -919,8 +932,17 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     self.gtlrImportPrefix = nil;
   }
 
-  if (self.gtlrFrameworkName && self.gtlrImportPrefix) {
-    [self reportError:@"Cannot use both --gtlrFrameworkName and --gtlrImportPrefix."];
+  if (self.gtlrModularFramework.length == 0) {
+    self.gtlrModularFramework = nil;
+  }
+
+  int exclusive = 0;
+  if (self.gtlrFrameworkName) { ++exclusive; }
+  if (self.gtlrModularFramework) { ++exclusive; }
+  if (self.gtlrImportPrefix) { ++exclusive; }
+  if (exclusive > 1) {
+    [self reportError:
+       @"Can only use one of --gtlrFrameworkName, --gtlrModularFramework, and --gtlrImportPrefix."];
     [self printUsage:stderr brief:NO];
     return;
   }
@@ -1377,6 +1399,10 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
         if (self.gtlrFrameworkName) {
           importPrefix = self.gtlrFrameworkName;
           options |= kSGGeneratorOptionImportPrefixIsFramework;
+        }
+        if (self.gtlrModularFramework) {
+          importPrefix = self.gtlrModularFramework;
+          options |= kSGGeneratorOptionImportPrefixIsModular;
         }
 
         SGGenerator *aGenerator = [SGGenerator generatorForApi:api
