@@ -17,9 +17,14 @@
 #error "This file needs to be compiled with ARC enabled."
 #endif
 
+#if SWIFT_PACKAGE
+  @import GoogleAPIClientForRESTCore;
+#else
+  #import "GTLRUtilities.h"
+#endif
+
 #import "SGGenerator.h"
 #import "SGUtils.h"
-#import "GTLRUtilities.h"
 
 static NSString *kProjectPrefix         = @"GTLR";
 static NSString *kServiceBaseClass      = @"GTLRService";
@@ -4294,7 +4299,7 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
                                   BOOL asObject) {
   // Find the match in the table
   for (uint32_t idx = 0; idx < ARRAY_COUNT(kObjectParameterMappings); ++idx) {
-    if (GTLR_AreEqualOrBothNil(kObjectParameterMappings[idx].type, typeString) &&
+    if ([typeString isEqual:kObjectParameterMappings[idx].type] &&
         GTLR_AreEqualOrBothNil(kObjectParameterMappings[idx].format, formatString)) {
       if (asObject) {
         return &(kObjectParameterMappings[idx].objectTypeInfo);

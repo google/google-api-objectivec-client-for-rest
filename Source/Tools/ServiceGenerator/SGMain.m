@@ -21,14 +21,23 @@
 // Google APIs Discovery Service documents.
 
 #import <Foundation/Foundation.h>
+#include <crt_externs.h>
 #include <getopt.h>
 #include <libgen.h>
 #include <mach-o/dyld.h>
 #include <unistd.h>
 
-#import "GTLRDiscovery.h"
-#import "GTMSessionFetcherService.h"
-#import "GTMSessionFetcherLogging.h"
+#import "Public/SGMain.h"
+
+#if SWIFT_PACKAGE
+  @import GoogleAPIClientForRESTCore;
+  @import GoogleAPIClientForREST_Discovery;
+  @import GTMSessionFetcherCore;
+#else
+  #import "GTLRDiscovery.h"
+  #import "GTMSessionFetcherService.h"
+  #import "GTMSessionFetcherLogging.h"
+#endif
 
 #import "SGGenerator.h"
 #import "SGUtils.h"
@@ -1567,7 +1576,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
 @end
 
-int main(int argc, char * const *argv) {
+static int SGMainInternal(int argc, char * const *argv) {
   int status;
   @autoreleasepool {
     // If stdout/stderr are ttys and "color" is in the terminal, assume color
@@ -1601,3 +1610,16 @@ int main(int argc, char * const *argv) {
   }
   return status;
 }
+
+void ServiceGeneratorMain(void) {
+  int status = SGMainInternal(*_NSGetArgc(), *_NSGetArgv());
+  exit(status);
+}
+
+#if !SWIFT_PACKAGE
+
+int main(int argc, char * const *argv) {
+  return SGMainInternal(argc, argv);
+}
+
+#endif

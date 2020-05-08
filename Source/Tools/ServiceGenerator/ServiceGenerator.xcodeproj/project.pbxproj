@@ -93,6 +93,7 @@
 		F480956F178A310E007D65F4 /* GTLRURITemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRURITemplate.h; path = ../../Utilities/GTLRURITemplate.h; sourceTree = "<group>"; };
 		F4809570178A310E007D65F4 /* GTLRURITemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRURITemplate.m; path = ../../Utilities/GTLRURITemplate.m; sourceTree = "<group>"; };
 		F483B88B13A7ACEB001F030B /* GTLRDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLRDiscovery.h; sourceTree = "<group>"; };
+		F4B4B0AE2465AEA3003689DF /* SGMain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGMain.h; sourceTree = "<group>"; };
 		F4BB4A7F12B7BF4F008B2FB4 /* GTLRDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDefines.h; path = ../../GTLRDefines.h; sourceTree = SOURCE_ROOT; };
 		F4CC66DD1237D33800522D45 /* SGGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGenerator.h; sourceTree = "<group>"; };
 		F4CC66DE1237D33800522D45 /* SGGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGenerator.m; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F4B4B0AE2465AEA3003689DF /* SGMain.h */,
 				08FB7796FE84155DC02AAC07 /* SGMain.m */,
 				F4CC66DD1237D33800522D45 /* SGGenerator.h */,
 				F4CC66DE1237D33800522D45 /* SGGenerator.m */,

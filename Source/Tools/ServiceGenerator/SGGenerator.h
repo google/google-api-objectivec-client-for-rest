@@ -15,7 +15,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GTLRDiscovery.h"
+#if SWIFT_PACKAGE
+  @import GoogleAPIClientForREST_Discovery;
+#else
+  #import "GTLRDiscovery.h"
+#endif
 
 typedef NS_ENUM(NSUInteger, SGGeneratorHandlerMessageType) {
   kSGGeneratorHandlerMessageError = 1,
