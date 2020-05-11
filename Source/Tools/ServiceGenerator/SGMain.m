@@ -27,7 +27,7 @@
 #include <mach-o/dyld.h>
 #include <unistd.h>
 
-#import "Public/SGMain.h"
+#import "SGMain.h"
 
 #if SWIFT_PACKAGE
   @import GoogleAPIClientForRESTCore;
