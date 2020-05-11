@@ -342,8 +342,8 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
                importPrefix:(NSString *)importPrefix {
   self = [super init];
   if (self != nil) {
-    NSAssert(((options & kSGGeneratorOptionImportPrefixIsFramework) != 0) &&
-             ((options & kSGGeneratorOptionImportPrefixIsModular) != 0),
+    NSAssert(!(((options & kSGGeneratorOptionImportPrefixIsFramework) != 0) &&
+               ((options & kSGGeneratorOptionImportPrefixIsModular) != 0)),
              @"Internal error, can't set both.");
     _api = api;
     _options = options;
