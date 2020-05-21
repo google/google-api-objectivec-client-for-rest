@@ -1585,6 +1585,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionIma
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_File.format
+
+/** Value: "CSV" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Format_Csv;
+/** Value: "EXCEL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Format_Excel;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_File.status
+
+/** Value: "CANCELLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Cancelled;
+/** Value: "FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Failed;
+/** Value: "PROCESSING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_Processing;
+/** Value: "REPORT_AVAILABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_File_Status_ReportAvailable;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.cacheBustingType
 
 /** Value: "ACTIVE_SERVER_PAGE" */
@@ -7265,7 +7285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_CustomEvent : GTLRObject
 
 /**
- *  Annotate an impression. This field is mutually exclusive with insertEvent
+ *  Annotate a click event. This field is mutually exclusive with insertEvent
  *  and annotateImpressionEvent. This or insertEvent and annotateImpressionEvent
  *  is a required field.
  */
@@ -7302,7 +7322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *floodlightConfigurationId;
 
 /**
- *  Annotate an impression. This field is mutually exclusive with
+ *  Insert custom event. This field is mutually exclusive with
  *  annotateClickEvent and annotateImpressionEvent. This or annotateClickEvent
  *  and annotateImpressionEvent is a required field.
  */
@@ -8676,6 +8696,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @interface GTLRDfareporting_File : GTLRObject
 
+/**
+ *  The date range for which the file has report data. The date range will
+ *  always be the absolute date range for which the report is run.
+ */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
 
 /** Etag of this resource. */
@@ -8686,6 +8710,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The output format of the report. Only available once the file is available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_File_Format_Csv Value "CSV"
+ *    @arg @c kGTLRDfareporting_File_Format_Excel Value "EXCEL"
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
@@ -8718,7 +8746,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *reportId;
 
-/** The status of the report file. */
+/**
+ *  The status of the report file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_File_Status_Cancelled Value "CANCELLED"
+ *    @arg @c kGTLRDfareporting_File_Status_Failed Value "FAILED"
+ *    @arg @c kGTLRDfareporting_File_Status_Processing Value "PROCESSING"
+ *    @arg @c kGTLRDfareporting_File_Status_ReportAvailable Value
+ *        "REPORT_AVAILABLE"
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** The URLs where the completed report file can be downloaded. */
@@ -8742,7 +8779,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  GTLRDfareporting_FileList
+ *  List of files for a report.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -8755,7 +8792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  items
+ *  The files returned in this response.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

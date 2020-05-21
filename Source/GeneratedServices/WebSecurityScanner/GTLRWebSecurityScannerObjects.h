@@ -6,7 +6,7 @@
 // Description:
 //   Scans your Compute and App Engine apps for common web vulnerabilities.
 // Documentation:
-//   https://cloud.google.com/security-scanner/
+//   https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -90,13 +90,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Finding_Severity_Seve
 // GTLRWebSecurityScanner_ScanConfig.exportToSecurityCommandCenter
 
 /**
- *  Do not export results of this scan to Cloud Security Command Center.
+ *  Do not export results of this scan to Security Command Center.
  *
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Disabled;
 /**
- *  Export results of this scan to Cloud Security Command Center.
+ *  Export results of this scan to Security Command Center.
  *
  *  Value: "ENABLED"
  */
@@ -386,7 +386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMappedToUnreservedAddress;
 /**
- *  The Cloud Security Scanner service account is not configured under the
+ *  The Web Security Scanner service account is not configured under the
  *  project.
  *
  *  Value: "SERVICE_ACCOUNT_NOT_CONFIGURED"
@@ -779,7 +779,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 /**
  *  Output only. The type of the Finding.
  *  Detailed and up-to-date information on findings can be found here:
- *  https://cloud.google.com/security-scanner/docs/scan-result-details
+ *  https://cloud.google.com/security-command-center/docs/how-to-remediate-web-security-scanner-findings
  */
 @property(nonatomic, copy, nullable) NSString *findingType;
 
@@ -1126,8 +1126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_Authentication *authentication;
 
 /**
- *  The blacklist URL patterns as described in
- *  https://cloud.google.com/security-scanner/docs/excluded-urls
+ *  The excluded URL patterns as described in
+ *  https://cloud.google.com/security-command-center/docs/how-to-use-web-security-scanner#excluding_urls
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blacklistPatterns;
 
@@ -1135,15 +1135,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Controls export of scan configurations and results to Cloud Security
+ *  Controls export of scan configurations and results to Security
  *  Command Center.
  *
  *  Likely values:
  *    @arg @c kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Disabled
- *        Do not export results of this scan to Cloud Security Command Center.
- *        (Value: "DISABLED")
+ *        Do not export results of this scan to Security Command Center. (Value:
+ *        "DISABLED")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Enabled
- *        Export results of this scan to Cloud Security Command Center. (Value:
+ *        Export results of this scan to Security Command Center. (Value:
  *        "ENABLED")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_ExportToSecurityCommandCenterUnspecified
  *        Use default, which is ENABLED. (Value:
@@ -1152,7 +1152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, copy, nullable) NSString *exportToSecurityCommandCenter;
 
 /**
- *  Whether the scan config is managed by Cloud Web Security Scanner, output
+ *  Whether the scan config is managed by Web Security Scanner, output
  *  only.
  *
  *  Uses NSNumber of boolValue.
@@ -1352,7 +1352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        for the current project. (Value:
  *        "SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ServiceAccountNotConfigured
- *        The Cloud Security Scanner service account is not configured under the
+ *        The Web Security Scanner service account is not configured under the
  *        project. (Value: "SERVICE_ACCOUNT_NOT_CONFIGURED")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_TooManyScans A
  *        project has reached the maximum number of scans. (Value:

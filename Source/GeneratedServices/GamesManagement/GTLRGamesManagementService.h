@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Management API (gamesManagement/v1management)
+//   Google Play Game Management (gamesManagement/v1management)
 // Description:
-//   The Management API for Google Play Game Services.
+//   The Google Play Game Management API allows developers to manage resources
+//   from the Google
+//   Play Game service.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -43,9 +45,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesManagementGames;
 //
 
 /**
- *  Service for executing Google Play Game Services Management API queries.
+ *  Service for executing Google Play Game Management queries.
  *
- *  The Management API for Google Play Game Services.
+ *  The Google Play Game Management API allows developers to manage resources
+ *  from the Google
+ *  Play Game service.
  */
 @interface GTLRGamesManagementService : GTLRService
 

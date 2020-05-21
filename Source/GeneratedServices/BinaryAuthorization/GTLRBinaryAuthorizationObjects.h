@@ -353,9 +353,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Expr *condition;
 
@@ -482,10 +487,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -500,7 +508,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -575,6 +585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -687,13 +700,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 @property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_AdmissionWhitelistPattern *> *admissionWhitelistPatterns;
 
 /**
- *  Optional. Per-cluster admission rules. Cluster spec format:
+ *  Optional. LINT.IfChange(cluster_regex)
+ *  Per-cluster admission rules. Cluster spec format:
  *  `location.clusterId`. There can be at most one admission rule per cluster
  *  spec.
  *  A `location` is either a compute zone (e.g. us-central1-a) or a region
  *  (e.g. us-central1).
  *  For `clusterId` syntax restrictions see
  *  https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.
+ *  LINT.ThenChange(//depot/google3/cloud/console/web/binary_authorization/api/models/admission_rule_type.ts:cluster_regex)
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_ClusterAdmissionRules *clusterAdmissionRules;
 
@@ -741,13 +756,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 
 
 /**
- *  Optional. Per-cluster admission rules. Cluster spec format:
+ *  Optional. LINT.IfChange(cluster_regex)
+ *  Per-cluster admission rules. Cluster spec format:
  *  `location.clusterId`. There can be at most one admission rule per cluster
  *  spec.
  *  A `location` is either a compute zone (e.g. us-central1-a) or a region
  *  (e.g. us-central1).
  *  For `clusterId` syntax restrictions see
  *  https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.
+ *  LINT.ThenChange(//depot/google3/cloud/console/web/binary_authorization/api/models/admission_rule_type.ts:cluster_regex)
  *
  *  @note This class is documented as having more properties of
  *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and

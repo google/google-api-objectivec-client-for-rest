@@ -1425,36 +1425,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
- *  Unimplemented. Do not use.
- *  The new name the selected proto elements should be renamed to.
- *  The package, the service and the method can all be renamed.
- *  The backend server should implement the renamed proto. However, clients
- *  should call the original method, and ESF routes the traffic to the renamed
- *  method.
- *  HTTP clients should call the URL mapped to the original method.
- *  gRPC and Stubby clients should call the original method with package name.
- *  For legacy reasons, ESF allows Stubby clients to call with the
- *  short name (without the package name). However, for API Versioning(or
- *  multiple methods mapped to the same short name), all Stubby clients must
- *  call the method's full name with the package name, otherwise the first one
- *  (selector) wins.
- *  If this `rename_to` is specified with a trailing `*`, the `selector` must
- *  be specified with a trailing `*` as well. The all element short names
- *  matched by the `*` in the selector will be kept in the `rename_to`.
- *  For example,
- *  rename_rules:
- *  - selector: |-
- *  google.example.library.v1.*
- *  rename_to: google.example.library.*
- *  The selector matches `google.example.library.v1.Library.CreateShelf` and
- *  `google.example.library.v1.Library.CreateBook`, they will be renamed to
- *  `google.example.library.Library.CreateShelf` and
- *  `google.example.library.Library.CreateBook`. It essentially renames the
- *  proto package name section of the matched proto service and methods.
- */
-@property(nonatomic, copy, nullable) NSString *renameTo;
-
-/**
  *  Selects the methods to which this rule applies.
  *  Refer to selector for syntax details.
  */
@@ -1466,21 +1436,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  Billing related configuration of the service.
  *  The following example shows how to configure monitored resources and metrics
- *  for billing:
+ *  for billing, `consumer_destinations` is the only supported destination and
+ *  the monitored resources need at least one label key
+ *  `cloud.googleapis.com/location` to indicate the location of the billing
+ *  usage, using different monitored resources between monitoring and billing is
+ *  recommended so they can be evolved independently:
  *  monitored_resources:
- *  - type: library.googleapis.com/branch
+ *  - type: library.googleapis.com/billing_branch
  *  labels:
- *  - key: /city
- *  description: The city where the library branch is located in.
- *  - key: /name
- *  description: The name of the branch.
+ *  - key: cloud.googleapis.com/location
+ *  description: |
+ *  Predefined label to support billing location restriction.
+ *  - key: city
+ *  description: |
+ *  Custom label to define the city where the library branch is located
+ *  in.
+ *  - key: name
+ *  description: Custom label to define the name of the library branch.
  *  metrics:
  *  - name: library.googleapis.com/book/borrowed_count
  *  metric_kind: DELTA
  *  value_type: INT64
+ *  unit: "1"
  *  billing:
  *  consumer_destinations:
- *  - monitored_resource: library.googleapis.com/branch
+ *  - monitored_resource: library.googleapis.com/billing_branch
  *  metrics:
  *  - library.googleapis.com/book/borrowed_count
  */
@@ -1525,9 +1505,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Expr *condition;
 
@@ -2498,7 +2483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  OPTIONAL: A `GetPolicyOptions` object for specifying options to
- *  `GetIamPolicy`. This field is only used by Cloud IAM.
+ *  `GetIamPolicy`.
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_GetPolicyOptions *options;
 
@@ -2517,6 +2502,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  Requests for policies with any conditional bindings must specify version 3.
  *  Policies without any conditional bindings may specify any valid value or
  *  leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -4052,10 +4040,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -4070,7 +4061,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -4148,6 +4141,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -4623,8 +4619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
  *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
+ *  `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */

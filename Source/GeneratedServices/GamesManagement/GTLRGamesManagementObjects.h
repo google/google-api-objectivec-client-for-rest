@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Management API (gamesManagement/v1management)
+//   Google Play Game Management (gamesManagement/v1management)
 // Description:
-//   The Management API for Google Play Game Services.
+//   The Google Play Game Management API allows developers to manage resources
+//   from the Google
+//   Play Game service.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -21,7 +23,6 @@
 #endif
 
 @class GTLRGamesManagement_AchievementResetResponse;
-@class GTLRGamesManagement_GamesPlayedResource;
 @class GTLRGamesManagement_GamesPlayerExperienceInfoResource;
 @class GTLRGamesManagement_GamesPlayerLevelResource;
 @class GTLRGamesManagement_HiddenPlayer;
@@ -38,13 +39,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  This is a JSON template for achievement reset all response.
+ *  Achievement reset all response.
  */
 @interface GTLRGamesManagement_AchievementResetAllResponse : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#achievementResetAllResponse.
+ *  string `gamesManagement#achievementResetAllResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -55,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for multiple achievements reset all request.
+ *  GTLRGamesManagement_AchievementResetMultipleForAllRequest
  */
 @interface GTLRGamesManagement_AchievementResetMultipleForAllRequest : GTLRObject
 
@@ -64,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#achievementResetMultipleForAllRequest.
+ *  string `gamesManagement#achievementResetMultipleForAllRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -72,17 +73,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement reset response.
+ *  An achievement reset response.
  */
 @interface GTLRGamesManagement_AchievementResetResponse : GTLRObject
 
 /**
- *  The current state of the achievement. This is the same as the initial state
- *  of the achievement.
- *  Possible values are:
- *  - "HIDDEN"- Achievement is hidden.
- *  - "REVEALED" - Achievement is revealed.
- *  - "UNLOCKED" - Achievement is unlocked.
+ *  The current state of the achievement. This is the same as the initial
+ *  state of the achievement. <br/>Possible values are: <ul>
+ *  <li>"`HIDDEN`"- Achievement is hidden.</li>
+ *  <li>"`REVEALED`" - Achievement is revealed.</li>
+ *  <li>"`UNLOCKED`" - Achievement is unlocked.</li> </ul>
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#achievementResetResponse.
+ *  string `gamesManagement#achievementResetResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for multiple events reset all request.
+ *  Multiple events reset all request.
  */
 @interface GTLRGamesManagement_EventsResetMultipleForAllRequest : GTLRObject
 
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#eventsResetMultipleForAllRequest.
+ *  string `gamesManagement#eventsResetMultipleForAllRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -123,31 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for metadata about a player playing a game with the
- *  currently authenticated user.
- */
-@interface GTLRGamesManagement_GamesPlayedResource : GTLRObject
-
-/**
- *  True if the player was auto-matched with the currently authenticated user.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoMatched;
-
-/**
- *  The last time the player played the game in milliseconds since the epoch in
- *  UTC.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *timeMillis;
-
-@end
-
-
-/**
- *  This is a JSON template for 1P/3P metadata about the player's experience.
+ *  1P/3P metadata about the player's experience.
  */
 @interface GTLRGamesManagement_GamesPlayerExperienceInfoResource : GTLRObject
 
@@ -179,7 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for 1P/3P metadata about a user's level.
+ *  1P/3P metadata about a user's level.
  */
 @interface GTLRGamesManagement_GamesPlayerLevelResource : GTLRObject
 
@@ -208,31 +184,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the HiddenPlayer resource.
+ *  The HiddenPlayer resource.
  */
 @interface GTLRGamesManagement_HiddenPlayer : GTLRObject
 
 /**
- *  The time this player was hidden.
+ *  Output only. The time this player was hidden.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hiddenTimeMillis;
 
 /**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#hiddenPlayer.
+ *  Output only. Uniquely identifies the type of this resource. Value is always
+ *  the fixed
+ *  string `gamesManagement#hiddenPlayer`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The player information. */
+/** Output only. The player information. */
 @property(nonatomic, strong, nullable) GTLRGamesManagement_Player *player;
 
 @end
 
 
 /**
- *  This is a JSON template for a list of hidden players.
+ *  A list of hidden players.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -251,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#hiddenPlayerList.
+ *  string `gamesManagement#hiddenPlayerList`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -262,7 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a Player resource.
+ *  A Player resource.
  */
 @interface GTLRGamesManagement_Player : GTLRObject
 
@@ -282,23 +259,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRGamesManagement_GamesPlayerExperienceInfoResource *experienceInfo;
 
 /**
- *  The friend status of the given player, relative to the requester. This is
- *  unset if the player is not sharing their friends list with the game.
- */
-@property(nonatomic, copy, nullable) NSString *friendStatus;
-
-/**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#player.
+ *  string `gamesManagement#player`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Details about the last time this player played a multiplayer game with the
- *  currently authenticated player. Populated for PLAYED_WITH player collection
- *  members.
- */
-@property(nonatomic, strong, nullable) GTLRGamesManagement_GamesPlayedResource *lastPlayedWith;
 
 /**
  *  An object representation of the individual components of the player's name.
@@ -308,9 +272,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The player ID that was used for this player the first time they signed into
- *  the game in question. This is only populated for calls to player.get for the
- *  requesting player, only if the player ID has subsequently changed, and only
- *  to clients that support remapping player IDs.
+ *  the game in question. This is only populated for calls to player.get for
+ *  the requesting player, only if the player ID has subsequently changed, and
+ *  only to clients that support remapping player IDs.
  */
 @property(nonatomic, copy, nullable) NSString *originalPlayerId;
 
@@ -351,13 +315,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of leaderboard reset resources.
+ *  A list of leaderboard reset resources.
  */
 @interface GTLRGamesManagement_PlayerScoreResetAllResponse : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#playerScoreResetResponse.
+ *  string `gamesManagement#playerScoreResetAllResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -368,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of reset leaderboard entry resources.
+ *  A list of reset leaderboard entry resources.
  */
 @interface GTLRGamesManagement_PlayerScoreResetResponse : GTLRObject
 
@@ -377,16 +341,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#playerScoreResetResponse.
+ *  string `gamesManagement#playerScoreResetResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The time spans of the updated score.
- *  Possible values are:
- *  - "ALL_TIME" - The score is an all-time score.
- *  - "WEEKLY" - The score is a weekly score.
- *  - "DAILY" - The score is a daily score.
+ *  The time spans of the updated score. <br/>Possible values are: <ul>
+ *  <li>"`ALL_TIME`" - The score is an all-time score.</li>
+ *  <li>"`WEEKLY`" - The score is a weekly score.</li>
+ *  <li>"`DAILY`" - The score is a daily score.</li> </ul>
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetScoreTimeSpans;
 
@@ -394,13 +357,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for profile settings
+ *  Profile settings
  */
 @interface GTLRGamesManagement_ProfileSettings : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#profileSettings.
+ *  string `gamesManagement#profileSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -415,13 +378,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for multiple scores reset all request.
+ *  GTLRGamesManagement_ScoresResetMultipleForAllRequest
  */
 @interface GTLRGamesManagement_ScoresResetMultipleForAllRequest : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string gamesManagement#scoresResetMultipleForAllRequest.
+ *  string `gamesManagement#scoresResetMultipleForAllRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

@@ -15,6 +15,7 @@
 // Constants
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec.tableSourceType
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView = @"BIGQUERY_MATERIALIZED_VIEW";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryTable = @"BIGQUERY_TABLE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView = @"BIGQUERY_VIEW";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified = @"TABLE_SOURCE_TYPE_UNSPECIFIED";
@@ -493,12 +494,14 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope
-@dynamic includeGcpPublicDatasets, includeOrgIds, includeProjectIds;
+@dynamic includeGcpPublicDatasets, includeOrgIds, includeProjectIds,
+         restrictedLocations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"includeOrgIds" : [NSString class],
-    @"includeProjectIds" : [NSString class]
+    @"includeProjectIds" : [NSString class],
+    @"restrictedLocations" : [NSString class]
   };
   return map;
 }
@@ -512,11 +515,12 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResponse
-@dynamic nextPageToken, results;
+@dynamic nextPageToken, results, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"results" : [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult class]
+    @"results" : [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -545,7 +549,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag
-@dynamic childPolicyTags, descriptionProperty, displayName;
+@dynamic childPolicyTags, descriptionProperty, displayName, policyTag;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

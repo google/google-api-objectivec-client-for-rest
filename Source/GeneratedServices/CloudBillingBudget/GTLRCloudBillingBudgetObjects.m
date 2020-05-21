@@ -83,14 +83,29 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Thresho
 //
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter
-@dynamic creditTypesTreatment, projects, services;
+@dynamic creditTypesTreatment, labels, projects, services, subaccounts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"projects" : [NSString class],
-    @"services" : [NSString class]
+    @"services" : [NSString class],
+    @"subaccounts" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

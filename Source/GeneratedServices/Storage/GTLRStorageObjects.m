@@ -222,8 +222,9 @@
 //
 
 @implementation GTLRStorage_Bucket_Lifecycle_Rule_Item_Condition
-@dynamic age, createdBefore, customTimeBefore, daysSinceCustomTime, isLive,
-         matchesPattern, matchesStorageClass, numNewerVersions;
+@dynamic age, createdBefore, customTimeBefore, daysSinceCustomTime,
+         daysSinceNoncurrentTime, isLive, matchesPattern, matchesStorageClass,
+         noncurrentTimeBefore, numNewerVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

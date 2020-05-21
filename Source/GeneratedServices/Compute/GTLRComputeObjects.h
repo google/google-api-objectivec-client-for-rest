@@ -284,6 +284,7 @@
 @class GTLRCompute_LogConfigCounterOptionsCustomField;
 @class GTLRCompute_LogConfigDataAccessOptions;
 @class GTLRCompute_MachineType;
+@class GTLRCompute_MachineType_Accelerators_Item;
 @class GTLRCompute_MachineType_ScratchDisks_Item;
 @class GTLRCompute_MachineTypeAggregatedList_Items;
 @class GTLRCompute_MachineTypeAggregatedList_Warning;
@@ -12291,7 +12292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  backend instance group. This parameter has no meaning if the backends are
  *  NEGs.
  *  Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP
- *  Load Blaancing).
+ *  Load Balancing).
  */
 @property(nonatomic, copy, nullable) NSString *portName;
 
@@ -12924,9 +12925,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding. NOTE: An unsatisfied
- *  condition will not allow user access via current binding. Different
- *  bindings, including their conditions, are examined independently.
+ *  The condition that is associated with this binding.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Expr *condition;
 
@@ -13736,15 +13743,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies the regualar expression patterns that match allowed origins. For
  *  regular expression grammar please see
  *  en.cppreference.com/w/cpp/regex/ecmascript
- *  An origin is allowed if it matches either allow_origins or
- *  allow_origin_regex.
+ *  An origin is allowed if it matches either an item in allowOrigins or an item
+ *  in allowOriginRegexes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowOriginRegexes;
 
 /**
  *  Specifies the list of origins that will be allowed to do CORS requests.
- *  An origin is allowed if it matches either allow_origins or
- *  allow_origin_regex.
+ *  An origin is allowed if it matches either an item in allowOrigins or an item
+ *  in allowOriginRegexes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowOrigins;
 
@@ -15451,12 +15458,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Represents an external VPN gateway.
  *  External VPN gateway is the on-premises VPN gateway(s) or another cloud
- *  provider's VPN gateway that connects to your Google Cloud VPN gateway. To
- *  create a highly available VPN from Google Cloud to your on-premises side or
- *  another Cloud provider's VPN gateway, you must create a external VPN gateway
- *  resource in GCP, which provides the information to GCP about your external
- *  VPN gateway.
+ *  provider's VPN gateway that connects to your Google Cloud VPN gateway.
+ *  To create a highly available VPN from Google Cloud Platform to your VPN
+ *  gateway or another cloud provider's VPN gateway, you must create a external
+ *  VPN gateway resource with information about the other gateway.
+ *  For more information about using external VPN gateways, see Creating an HA
+ *  VPN gateway and tunnel pair to a peer VPN. (== resource_for
+ *  {$api_version}.externalVpnGateways ==)
  */
 @interface GTLRCompute_ExternalVpnGateway : GTLRObject
 
@@ -15742,7 +15752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
- *  fileType
+ *  The file type of source file.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_FileContentBuffer_FileType_Bin Value "BIN"
@@ -24778,11 +24788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_LogConfigDataAccessOptions : GTLRObject
 
 /**
- *  Whether Gin logging should happen in a fail-closed manner at the caller.
- *  This is currently supported in the LocalIAM implementation, Stubby C++, and
- *  Stubby Java. For Apps Framework, see go/af-audit-logging#failclosed.
- *  TODO(b/77591626): Add support for Stubby Go. TODO(b/129671387): Add support
- *  for Scaffolding.
+ *  logMode
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogFailClosed
@@ -24802,6 +24808,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Types. (== resource_for {$api_version}.machineTypes ==)
  */
 @interface GTLRCompute_MachineType : GTLRObject
+
+/**
+ *  [Output Only] A list of accelerator configurations assigned to this machine
+ *  type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_MachineType_Accelerators_Item *> *accelerators;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -24895,6 +24907,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  GTLRCompute_MachineType_Accelerators_Item
+ */
+@interface GTLRCompute_MachineType_Accelerators_Item : GTLRObject
+
+/**
+ *  Number of accelerator cards exposed to the guest.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guestAcceleratorCount;
+
+/**
+ *  The accelerator type resource name, not a full URL, e.g. 'nvidia-tesla-k80'.
+ */
+@property(nonatomic, copy, nullable) NSString *guestAcceleratorType;
 
 @end
 
@@ -25803,8 +25835,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Represents a collection of network endpoints.
- *  For more information read Network endpoint groups overview. (== resource_for
- *  {$api_version}.networkEndpointGroups ==) Next ID: 21
+ *  A network endpoint group (NEG) defines how a set of endpoints should be
+ *  reached, whether they are reachable, and where they are located. For more
+ *  information about using NEGs, see Setting up internet NEGs or Setting up
+ *  zonal NEGs. (== resource_for {$api_version}.networkEndpointGroups ==) (==
+ *  resource_for {$api_version}.globalNetworkEndpointGroups ==)
  */
 @interface GTLRCompute_NetworkEndpointGroup : GTLRObject
 
@@ -26217,7 +26252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Optional query parameter for showing the health status of each network
- *  endpoint. Valid options are SKIP or SHOW. If you don't specifiy this
+ *  endpoint. Valid options are SKIP or SHOW. If you don't specify this
  *  parameter, the health status of network endpoints will not be provided.
  *
  *  Likely values:
@@ -29472,7 +29507,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a PacketMirroring resource.
+ *  Represents a Packet Mirroring resource.
+ *  Packet Mirroring clones the traffic of specified instances in your Virtual
+ *  Private Cloud (VPC) network and forwards it to a collector destination, such
+ *  as an instance group of an internal TCP/UDP load balancer, for analysis or
+ *  examination. For more information about setting up Packet Mirroring, see
+ *  Using Packet Mirroring. (== resource_for {$api_version}.packetMirrorings ==)
  */
 @interface GTLRCompute_PacketMirroring : GTLRObject
 
@@ -30259,17 +30299,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  accounts, Google groups, and domains (such as G Suite). A `role` is a named
  *  list of permissions; each `role` can be an IAM predefined role or a
  *  user-created custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  { "bindings": [ { "role": "roles/resourcemanager.organizationAdmin",
  *  "members": [ "user:mike\@example.com", "group:admins\@example.com",
  *  "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
- *  "roles/resourcemanager.organizationViewer", "members":
- *  ["user:eve\@example.com"], "condition": { "title": "expirable access",
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
  *  "BwWWja0YfJA=", "version": 3 }
@@ -30349,6 +30391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -34812,7 +34857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Sets the scheduling options for an Instance. NextID: 10
+ *  Sets the scheduling options for an Instance. NextID: 11
  */
 @interface GTLRCompute_Scheduling : GTLRObject
 
@@ -35311,21 +35356,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_ShieldedInstanceConfig : GTLRObject
 
 /**
- *  Defines whether the instance has integrity monitoring enabled.
+ *  Defines whether the instance has integrity monitoring enabled. Enabled by
+ *  default.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableIntegrityMonitoring;
 
 /**
- *  Defines whether the instance has Secure Boot enabled.
+ *  Defines whether the instance has Secure Boot enabled. Disabled by default.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
 
 /**
- *  Defines whether the instance has the vTPM enabled.
+ *  Defines whether the instance has the vTPM enabled. Enabled by default.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -36797,7 +36843,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Whether to enable flow logging for this subnetwork. If this field is not
  *  explicitly set, it will not appear in get listings. If not set the default
- *  behavior is to disable flow logging.
+ *  behavior is to disable flow logging. This field isn't supported with the
+ *  purpose field set to INTERNAL_HTTPS_LOAD_BALANCER.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -36887,7 +36934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to
  *  INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved
  *  for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to
- *  PRIVATE_RFC_1918.
+ *  PRIVATE_RFC_1918. The enableFlowLogs field isn't supported with the purpose
+ *  field set to INTERNAL_HTTPS_LOAD_BALANCER.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer Value
@@ -41641,7 +41689,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a VPN gateway resource. Next ID: 13
+ *  Represents a HA VPN gateway.
+ *  HA VPN is a high-availability (HA) Cloud VPN solution that lets you securely
+ *  connect your on-premises network to your Google Cloud Virtual Private Cloud
+ *  network through an IPsec VPN connection in a single region. For more
+ *  information about Cloud HA VPN solutions, see Cloud VPN topologies . (==
+ *  resource_for {$api_version}.vpnGateways ==)
  */
 @interface GTLRCompute_VpnGateway : GTLRObject
 

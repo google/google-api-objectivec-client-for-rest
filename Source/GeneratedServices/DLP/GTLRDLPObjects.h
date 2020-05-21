@@ -825,7 +825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustme
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified;
 /**
- *  General file metadata provided by GCS.
+ *  General file metadata provided by Cloud Storage.
  *
  *  Value: "STORAGE_METADATA"
  */
@@ -3195,7 +3195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Required. Lower bound value of buckets. All values less than `lower_bound`
  *  are
  *  grouped together into a single bucket; for example if `lower_bound` = 10,
- *  then all values less than 10 are replaced with the value “-10”.
+ *  then all values less than 10 are replaced with the value "-10".
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *lowerBound;
 
@@ -3203,7 +3203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Required. Upper bound value of buckets. All values greater than upper_bound
  *  are
  *  grouped together into a single bucket; for example if `upper_bound` = 89,
- *  then all values greater than 89 are replaced with the value “89+”.
+ *  then all values greater than 89 are replaced with the value "89+".
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *upperBound;
 
@@ -4655,7 +4655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified
  *        Unused (Value: "METADATATYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata
- *        General file metadata provided by GCS. (Value: "STORAGE_METADATA")
+ *        General file metadata provided by Cloud Storage. (Value:
+ *        "STORAGE_METADATA")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

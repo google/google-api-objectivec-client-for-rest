@@ -164,11 +164,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIAMCredentials_SignBlobResponse : GTLRObject
 
-/** The ID of the key used to sign the blob. */
+/**
+ *  The ID of the key used to sign the blob. The key used for signing will
+ *  remain valid for at least 12 hours after the blob is signed. To verify the
+ *  signature, you can retrieve the public key in several formats from the
+ *  following endpoints:
+ *  - RSA public key wrapped in an X.509 v3 certificate:
+ *  `https://www.googleapis.com/service_accounts/v1/metadata/x509/{ACCOUNT_EMAIL}`
+ *  - Raw key in JSON format:
+ *  `https://www.googleapis.com/service_accounts/v1/metadata/raw/{ACCOUNT_EMAIL}`
+ *  - JSON Web Key (JWK):
+ *  `https://www.googleapis.com/service_accounts/v1/metadata/jwk/{ACCOUNT_EMAIL}`
+ */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
  *  The signature for the blob. Does not include the original blob.
+ *  After the key pair referenced by the `key_id` response field expires,
+ *  Google no longer exposes the public key that can be used to verify the
+ *  blob. As a result, the receiver can no longer verify the signature.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -213,13 +227,27 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRIAMCredentials_SignJwtResponse : GTLRObject
 
-/** The ID of the key used to sign the JWT. */
+/**
+ *  The ID of the key used to sign the JWT. The key used for signing will
+ *  remain valid for at least 12 hours after the JWT is signed. To verify the
+ *  signature, you can retrieve the public key in several formats from the
+ *  following endpoints:
+ *  - RSA public key wrapped in an X.509 v3 certificate:
+ *  `https://www.googleapis.com/service_accounts/v1/metadata/x509/{ACCOUNT_EMAIL}`
+ *  - Raw key in JSON format:
+ *  `https://www.googleapis.com/service_accounts/v1/metadata/raw/{ACCOUNT_EMAIL}`
+ *  - JSON Web Key (JWK):
+ *  `https://www.googleapis.com/service_accounts/v1/metadata/jwk/{ACCOUNT_EMAIL}`
+ */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
  *  The signed JWT. Contains the automatically generated header; the
  *  client-supplied payload; and the signature, which is generated using the
  *  key referenced by the `kid` field in the header.
+ *  After the key pair referenced by the `key_id` response field expires,
+ *  Google no longer exposes the public key that can be used to verify the JWT.
+ *  As a result, the receiver can no longer verify the signature.
  */
 @property(nonatomic, copy, nullable) NSString *signedJwt;
 

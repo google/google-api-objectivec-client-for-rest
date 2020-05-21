@@ -813,7 +813,17 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig
-@dynamic acceleratorConfig, imageUri, tpuTfVersion;
+@dynamic acceleratorConfig, containerArgs, containerCommand, imageUri,
+         tpuTfVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containerArgs" : [NSString class],
+    @"containerCommand" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -843,7 +853,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling
-@dynamic maxRunningTime;
+@dynamic maxRunningTime, maxWaitTime;
 @end
 
 
@@ -1079,10 +1089,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput
 @dynamic args, encryptionConfig, evaluatorConfig, evaluatorCount, evaluatorType,
-         hyperparameters, jobDir, masterConfig, masterType, packageUris,
-         parameterServerConfig, parameterServerCount, parameterServerType,
-         pythonModule, pythonVersion, region, runtimeVersion, scaleTier,
-         scheduling, useChiefInTfConfig, workerConfig, workerCount, workerType;
+         hyperparameters, jobDir, masterConfig, masterType, network,
+         packageUris, parameterServerConfig, parameterServerCount,
+         parameterServerType, pythonModule, pythonVersion, region,
+         runtimeVersion, scaleTier, scheduling, useChiefInTfConfig,
+         workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

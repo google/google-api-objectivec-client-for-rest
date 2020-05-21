@@ -112,6 +112,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appsactivity/*.{h,m}'
   end
+  s.subspec 'ArtifactRegistry' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ArtifactRegistry/*.{h,m}'
+  end
   s.subspec 'BigQueryConnectionService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/BigQueryConnectionService/*.{h,m}'
@@ -299,6 +303,10 @@ Pod::Spec.new do |s|
   s.subspec 'ContainerAnalysis' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ContainerAnalysis/*.{h,m}'
+  end
+  s.subspec 'CustomSearch' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CustomSearch/*.{h,m}'
   end
   s.subspec 'DLP' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

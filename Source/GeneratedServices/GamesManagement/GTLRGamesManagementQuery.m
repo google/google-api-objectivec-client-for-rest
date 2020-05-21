@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Management API (gamesManagement/v1management)
+//   Google Play Game Management (gamesManagement/v1management)
 // Description:
-//   The Management API for Google Play Game Services.
+//   The Google Play Game Management API allows developers to manage resources
+//   from the Google
+//   Play Game service.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #import "GTLRGamesManagementQuery.h"
 
@@ -24,7 +26,7 @@
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}/reset";
+  NSString *pathURITemplate = @"games/v1management/achievements/{achievementId}/reset";
   GTLRGamesManagementQuery_AchievementsReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -40,7 +42,7 @@
 @implementation GTLRGamesManagementQuery_AchievementsResetAll
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"achievements/reset";
+  NSString *pathURITemplate = @"games/v1management/achievements/reset";
   GTLRGamesManagementQuery_AchievementsResetAll *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -55,7 +57,7 @@
 @implementation GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"achievements/resetAllForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/achievements/resetAllForAllPlayers";
   GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -72,7 +74,7 @@
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}/resetForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/achievements/{achievementId}/resetForAllPlayers";
   GTLRGamesManagementQuery_AchievementsResetForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -93,7 +95,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"achievements/resetMultipleForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/achievements/resetMultipleForAllPlayers";
   GTLRGamesManagementQuery_AchievementsResetMultipleForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -111,7 +113,7 @@
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}/players/hidden";
+  NSString *pathURITemplate = @"games/v1management/applications/{applicationId}/players/hidden";
   GTLRGamesManagementQuery_ApplicationsListHidden *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -130,7 +132,7 @@
 
 + (instancetype)queryWithEventId:(NSString *)eventId {
   NSArray *pathParams = @[ @"eventId" ];
-  NSString *pathURITemplate = @"events/{eventId}/reset";
+  NSString *pathURITemplate = @"games/v1management/events/{eventId}/reset";
   GTLRGamesManagementQuery_EventsReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -145,7 +147,7 @@
 @implementation GTLRGamesManagementQuery_EventsResetAll
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"events/reset";
+  NSString *pathURITemplate = @"games/v1management/events/reset";
   GTLRGamesManagementQuery_EventsResetAll *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -159,7 +161,7 @@
 @implementation GTLRGamesManagementQuery_EventsResetAllForAllPlayers
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"events/resetAllForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/events/resetAllForAllPlayers";
   GTLRGamesManagementQuery_EventsResetAllForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -176,7 +178,7 @@
 
 + (instancetype)queryWithEventId:(NSString *)eventId {
   NSArray *pathParams = @[ @"eventId" ];
-  NSString *pathURITemplate = @"events/{eventId}/resetForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/events/{eventId}/resetForAllPlayers";
   GTLRGamesManagementQuery_EventsResetForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -197,7 +199,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"events/resetMultipleForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/events/resetMultipleForAllPlayers";
   GTLRGamesManagementQuery_EventsResetMultipleForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -218,7 +220,7 @@
   NSArray *pathParams = @[
     @"applicationId", @"playerId"
   ];
-  NSString *pathURITemplate = @"applications/{applicationId}/players/hidden/{playerId}";
+  NSString *pathURITemplate = @"games/v1management/applications/{applicationId}/players/hidden/{playerId}";
   GTLRGamesManagementQuery_PlayersHide *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -240,7 +242,7 @@
   NSArray *pathParams = @[
     @"applicationId", @"playerId"
   ];
-  NSString *pathURITemplate = @"applications/{applicationId}/players/hidden/{playerId}";
+  NSString *pathURITemplate = @"games/v1management/applications/{applicationId}/players/hidden/{playerId}";
   GTLRGamesManagementQuery_PlayersUnhide *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -253,41 +255,13 @@
 
 @end
 
-@implementation GTLRGamesManagementQuery_RoomsReset
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"rooms/reset";
-  GTLRGamesManagementQuery_RoomsReset *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.loggingName = @"gamesManagement.rooms.reset";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesManagementQuery_RoomsResetForAllPlayers
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"rooms/resetForAllPlayers";
-  GTLRGamesManagementQuery_RoomsResetForAllPlayers *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.loggingName = @"gamesManagement.rooms.resetForAllPlayers";
-  return query;
-}
-
-@end
-
 @implementation GTLRGamesManagementQuery_ScoresReset
 
 @dynamic leaderboardId;
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId {
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}/scores/reset";
+  NSString *pathURITemplate = @"games/v1management/leaderboards/{leaderboardId}/scores/reset";
   GTLRGamesManagementQuery_ScoresReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -303,7 +277,7 @@
 @implementation GTLRGamesManagementQuery_ScoresResetAll
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"scores/reset";
+  NSString *pathURITemplate = @"games/v1management/scores/reset";
   GTLRGamesManagementQuery_ScoresResetAll *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -318,7 +292,7 @@
 @implementation GTLRGamesManagementQuery_ScoresResetAllForAllPlayers
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"scores/resetAllForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/scores/resetAllForAllPlayers";
   GTLRGamesManagementQuery_ScoresResetAllForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -335,7 +309,7 @@
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId {
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}/scores/resetForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/leaderboards/{leaderboardId}/scores/resetForAllPlayers";
   GTLRGamesManagementQuery_ScoresResetForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -356,41 +330,13 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"scores/resetMultipleForAllPlayers";
+  NSString *pathURITemplate = @"games/v1management/scores/resetMultipleForAllPlayers";
   GTLRGamesManagementQuery_ScoresResetMultipleForAllPlayers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
   query.loggingName = @"gamesManagement.scores.resetMultipleForAllPlayers";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesManagementQuery_TurnBasedMatchesReset
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"turnbasedmatches/reset";
-  GTLRGamesManagementQuery_TurnBasedMatchesReset *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.loggingName = @"gamesManagement.turnBasedMatches.reset";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"turnbasedmatches/resetForAllPlayers";
-  GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.loggingName = @"gamesManagement.turnBasedMatches.resetForAllPlayers";
   return query;
 }
 

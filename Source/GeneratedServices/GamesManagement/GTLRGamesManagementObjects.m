@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Management API (gamesManagement/v1management)
+//   Google Play Game Management (gamesManagement/v1management)
 // Description:
-//   The Management API for Google Play Game Services.
+//   The Google Play Game Management API allows developers to manage resources
+//   from the Google
+//   Play Game service.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #import "GTLRGamesManagementObjects.h"
 
@@ -23,6 +25,12 @@
     @"results" : [GTLRGamesManagement_AchievementResetResponse class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -47,6 +55,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -57,6 +71,13 @@
 
 @implementation GTLRGamesManagement_AchievementResetResponse
 @dynamic currentState, definitionId, kind, updateOccurred;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -79,16 +100,12 @@
   return map;
 }
 
-@end
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGamesManagement_GamesPlayedResource
-//
-
-@implementation GTLRGamesManagement_GamesPlayedResource
-@dynamic autoMatched, timeMillis;
 @end
 
 
@@ -120,6 +137,13 @@
 
 @implementation GTLRGamesManagement_HiddenPlayer
 @dynamic hiddenTimeMillis, kind, player;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -138,6 +162,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -148,8 +178,15 @@
 
 @implementation GTLRGamesManagement_Player
 @dynamic avatarImageUrl, bannerUrlLandscape, bannerUrlPortrait, displayName,
-         experienceInfo, friendStatus, kind, lastPlayedWith, name,
-         originalPlayerId, playerId, profileSettings, title;
+         experienceInfo, kind, name, originalPlayerId, playerId,
+         profileSettings, title;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -178,6 +215,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -196,6 +239,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -206,6 +255,13 @@
 
 @implementation GTLRGamesManagement_ProfileSettings
 @dynamic kind, profileVisible;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -226,6 +282,12 @@
     @"leaderboard_ids" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

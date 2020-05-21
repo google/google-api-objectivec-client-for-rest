@@ -42,6 +42,12 @@ NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_SeasonalPeriodTypeUns
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Weekly = @"WEEKLY";
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly = @"YEARLY";
 
+// GTLRBigquery_AuditLogConfig.logType
+NSString * const kGTLRBigquery_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRBigquery_Model.modelType
 NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier = @"AUTOML_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
@@ -221,6 +227,42 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_AuditConfig
+//
+
+@implementation GTLRBigquery_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRBigquery_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_AuditLogConfig
+//
+
+@implementation GTLRBigquery_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_BigtableColumn
 //
 
@@ -294,6 +336,24 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @dynamic accuracy, f1Score, falseNegatives, falsePositives,
          positiveClassThreshold, precision, recall, trueNegatives,
          truePositives;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_Binding
+//
+
+@implementation GTLRBigquery_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -720,6 +780,21 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_Expr
+//
+
+@implementation GTLRBigquery_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ExternalDataConfiguration
 //
 
@@ -745,6 +820,26 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_FeatureValue
 @dynamic categoricalValue, featureColumn, numericalValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_GetIamPolicyRequest
+//
+
+@implementation GTLRBigquery_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_GetPolicyOptions
+//
+
+@implementation GTLRBigquery_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 
@@ -1365,6 +1460,29 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_Policy
+//
+
+@implementation GTLRBigquery_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRBigquery_AuditConfig class],
+    @"bindings" : [GTLRBigquery_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ProjectList
 //
 
@@ -1684,6 +1802,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SetIamPolicyRequest
+//
+
+@implementation GTLRBigquery_SetIamPolicyRequest
+@dynamic policy, updateMask;
 @end
 
 
@@ -2034,6 +2162,42 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fields" : [GTLRBigquery_TableFieldSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TestIamPermissionsRequest
+//
+
+@implementation GTLRBigquery_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TestIamPermissionsResponse
+//
+
+@implementation GTLRBigquery_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
   };
   return map;
 }

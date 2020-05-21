@@ -546,7 +546,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  The cloud storage bucket name of this export file.
- *  Can be used in cloud storage JSON/XML API.
+ *  Can be used in cloud storage JSON/XML API, but not to list the bucket
+ *  contents. Instead, you can
+ *  <a href="https://cloud.google.com/storage/docs/json_api/v1/objects/get">
+ *  get individual export files</a> by object name.
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 

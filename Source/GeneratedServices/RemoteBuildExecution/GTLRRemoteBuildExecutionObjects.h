@@ -241,6 +241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError;
 /**
+ *  Docker failed to create process because of file not found.
+ *
+ *  Value: "DOCKER_CREATE_PROCESS_FILE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateProcessFileNotFound;
+/**
  *  Docker failed to create OCI runtime because of file not found.
  *
  *  Value: "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND"
@@ -336,6 +342,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "DUPLICATE_INPUTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DuplicateInputs;
+/**
+ *  The command failed because the system is not in a state required for the
+ *  command, e.g. the command inputs cannot be found on the server.
+ *
+ *  Value: "FAILED_PRECONDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_FailedPrecondition;
 /**
  *  The command failed because of some invariants expected by the underlying
  *  system have been broken. This usually indicates a bug wit the system.
@@ -2164,6 +2177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError
  *        The bot couldn't start the container. (Value:
  *        "DOCKER_CREATE_CONTAINER_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateProcessFileNotFound
+ *        Docker failed to create process because of file not found. (Value:
+ *        "DOCKER_CREATE_PROCESS_FILE_NOT_FOUND")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound
  *        Docker failed to create OCI runtime because of file not found. (Value:
  *        "DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND")
@@ -2206,6 +2222,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *        "DOWNLOAD_INPUTS_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DuplicateInputs
  *        The inputs contain duplicate files. (Value: "DUPLICATE_INPUTS")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_FailedPrecondition
+ *        The command failed because the system is not in a state required for
+ *        the
+ *        command, e.g. the command inputs cannot be found on the server.
+ *        (Value: "FAILED_PRECONDITION")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal
  *        The command failed because of some invariants expected by the
  *        underlying
@@ -2719,6 +2740,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @property(nonatomic, strong, nullable) NSNumber *reserved;
 
+/** Output only. The name of the image used by each VM. */
+@property(nonatomic, copy, nullable) NSString *vmImage;
+
 @end
 
 
@@ -2746,6 +2770,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /** The autoscale policy to apply on a pool. */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale *autoscale;
+
+/** Channel specifies the release channel of the pool. */
+@property(nonatomic, copy, nullable) NSString *channel;
 
 /**
  *  WorkerPool resource name formatted as:

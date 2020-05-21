@@ -67,6 +67,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec.tableSourceType
 
 /**
+ *  BigQuery materialized view.
+ *
+ *  Value: "BIGQUERY_MATERIALIZED_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView;
+/**
  *  BigQuery native table.
  *
  *  Value: "BIGQUERY_TABLE"
@@ -222,9 +228,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_Expr *condition;
 
@@ -368,6 +379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Requests for policies with any conditional bindings must specify version 3.
  *  Policies without any conditional bindings may specify any valid value or
  *  leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -418,6 +432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Output only. The table source type.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView
+ *        BigQuery materialized view. (Value: "BIGQUERY_MATERIALIZED_VIEW")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryTable
  *        BigQuery native table. (Value: "BIGQUERY_TABLE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView
@@ -805,7 +821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest : GTLRObject
 
-/** Inline source used for taxonomies import */
+/** Inline source used for taxonomies to be imported. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1InlineSource *inlineSource;
 
 @end
@@ -1141,6 +1157,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeProjectIds;
 
+/**
+ *  Optional. The list of locations to search within.
+ *  1. If empty, search will be performed in all locations;
+ *  2. If any of the locations are NOT in the valid locations list, error
+ *  will be returned;
+ *  3. Otherwise, search only the given locations for matching results.
+ *  Typical usage is to leave this field empty. When a location is
+ *  unreachable as returned in the `SearchCatalogResponse.unreachable` field,
+ *  users can repeat the search request with this parameter set to get
+ *  additional information on the error.
+ *  Valid locations:
+ *  * asia-east1
+ *  * asia-east2
+ *  * asia-northeast1
+ *  * asia-northeast2
+ *  * asia-northeast3
+ *  * asia-south1
+ *  * asia-southeast1
+ *  * australia-southeast1
+ *  * eu
+ *  * europe-north1
+ *  * europe-west1
+ *  * europe-west2
+ *  * europe-west3
+ *  * europe-west4
+ *  * europe-west6
+ *  * global
+ *  * northamerica-northeast1
+ *  * southamerica-east1
+ *  * us
+ *  * us-central1
+ *  * us-east1
+ *  * us-east4
+ *  * us-west1
+ *  * us-west2
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedLocations;
+
 @end
 
 
@@ -1165,6 +1219,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult *> *results;
+
+/**
+ *  Unreachable locations. Search result does not include data from those
+ *  locations. Users can get additional information on the error by repeating
+ *  the search request with a more restrictive parameter -- setting the value
+ *  for `SearchDataCatalogRequest.scope.include_locations`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1242,6 +1304,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource name of the policy tag.
+ *  This field will be ignored when calling ImportTaxonomies.
+ */
+@property(nonatomic, copy, nullable) NSString *policyTag;
 
 @end
 
@@ -1598,10 +1666,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -1616,7 +1687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -1691,6 +1764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */

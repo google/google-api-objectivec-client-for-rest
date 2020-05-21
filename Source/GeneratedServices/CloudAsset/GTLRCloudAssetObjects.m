@@ -190,6 +190,30 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_Explanation
+//
+
+@implementation GTLRCloudAsset_Explanation
+@dynamic matchedPermissions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Explanation_MatchedPermissions
+//
+
+@implementation GTLRCloudAsset_Explanation_MatchedPermissions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAsset_Permissions class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_ExportAssetsRequest
 //
 
@@ -483,6 +507,16 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_IamPolicySearchResult
+//
+
+@implementation GTLRCloudAsset_IamPolicySearchResult
+@dynamic explanation, policy, project, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_ListFeedsResponse
 //
 
@@ -549,6 +583,24 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_Permissions
+//
+
+@implementation GTLRCloudAsset_Permissions
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_Policy
 //
 
@@ -586,8 +638,8 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 //
 
 @implementation GTLRCloudAsset_Resource
-@dynamic data, discoveryDocumentUri, discoveryName, parent, resourceUrl,
-         version;
+@dynamic data, discoveryDocumentUri, discoveryName, location, parent,
+         resourceUrl, version;
 @end
 
 
@@ -600,6 +652,101 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePeri
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ResourceSearchResult
+//
+
+@implementation GTLRCloudAsset_ResourceSearchResult
+@dynamic additionalAttributes, assetType, descriptionProperty, displayName,
+         labels, location, name, networkTags, project;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes
+//
+
+@implementation GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ResourceSearchResult_Labels
+//
+
+@implementation GTLRCloudAsset_ResourceSearchResult_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_SearchAllIamPoliciesResponse
+//
+
+@implementation GTLRCloudAsset_SearchAllIamPoliciesResponse
+@dynamic nextPageToken, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRCloudAsset_IamPolicySearchResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"results";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_SearchAllResourcesResponse
+//
+
+@implementation GTLRCloudAsset_SearchAllResourcesResponse
+@dynamic nextPageToken, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRCloudAsset_ResourceSearchResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"results";
 }
 
 @end

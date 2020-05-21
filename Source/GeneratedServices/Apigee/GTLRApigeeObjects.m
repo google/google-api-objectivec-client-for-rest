@@ -316,24 +316,6 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView
-@dynamic code, error, metadata, rows, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rows" : [NSObject class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRApigee_GoogleCloudApigeeV1Attribute
 //
 
@@ -409,70 +391,6 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRApigee_GoogleCloudApigeeV1Company
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1Company
-@dynamic apps, attributes, createdAt, displayName, lastModifiedAt, name,
-         organization, status;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"apps" : [NSString class],
-    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_GoogleCloudApigeeV1CompanyApp
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1CompanyApp
-@dynamic apiProducts, appFamily, appId, attributes, callbackUrl, companyName,
-         createdAt, credentials, keyExpiresIn, lastModifiedAt, name, scopes,
-         status;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"apiProducts" : [NSString class],
-    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
-    @"credentials" : [GTLRApigee_GoogleCloudApigeeV1Credential class],
-    @"scopes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_GoogleCloudApigeeV1CompanyAppKey
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1CompanyAppKey
-@dynamic apiProducts, attributes, consumerKey, consumerSecret, expiresAt,
-         issuedAt, scopes, status;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"apiProducts" : [NSObject class],
-    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
-    @"scopes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRApigee_GoogleCloudApigeeV1ConfigVersion
 //
 
@@ -535,16 +453,6 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1CustomReportMetric
 @dynamic function, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_GoogleCloudApigeeV1DataLocation
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1DataLocation
-@dynamic url;
 @end
 
 
@@ -980,42 +888,6 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRApigee_GoogleCloudApigeeV1ListCompaniesResponse
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1ListCompaniesResponse
-@dynamic company;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"company" : [GTLRApigee_GoogleCloudApigeeV1Company class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_GoogleCloudApigeeV1ListCompanyAppsResponse
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1ListCompanyAppsResponse
-@dynamic app;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"app" : [GTLRApigee_GoogleCloudApigeeV1CompanyApp class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRApigee_GoogleCloudApigeeV1ListCustomReportsResponse
 //
 
@@ -1038,13 +910,17 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ListDebugSessionsResponse
-@dynamic sessions;
+@dynamic nextPageToken, sessions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"sessions" : [GTLRApigee_GoogleCloudApigeeV1Session class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sessions";
 }
 
 @end

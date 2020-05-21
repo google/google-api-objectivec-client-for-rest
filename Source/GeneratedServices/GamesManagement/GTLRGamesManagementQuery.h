@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Management API (gamesManagement/v1management)
+//   Google Play Game Management (gamesManagement/v1management)
 // Description:
-//   The Management API for Google Play Game Services.
+//   The Google Play Game Management API allows developers to manage resources
+//   from the Google
+//   Play Game service.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -101,8 +103,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Resets all draft achievements for all players. This method is only available
- *  to user accounts for your developer console.
+ *  Resets all draft achievements for all players. This method is only
+ *  available to user accounts for your developer console.
  *
  *  Method: gamesManagement.achievements.resetAllForAllPlayers
  *
@@ -117,8 +119,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Resets all draft achievements for all players. This method is only available
- *  to user accounts for your developer console.
+ *  Resets all draft achievements for all players. This method is only
+ *  available to user accounts for your developer console.
  *
  *  @return GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers
  */
@@ -209,10 +211,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of player resources to return in the response, used for
- *  paging. For any response, the actual number of player resources returned may
- *  be less than the specified maxResults.
- *
- *  @note The documented range is 1..50.
+ *  paging. For any response, the actual number of player resources returned
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -327,8 +327,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resets the event with the given ID for all players. This method is only
- *  available to user accounts for your developer console. Only draft events can
- *  be reset.
+ *  available to user accounts for your developer console. Only draft events
+ *  can be reset.
  *
  *  Method: gamesManagement.events.resetForAllPlayers
  *
@@ -347,8 +347,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be nil. This query does not fetch an object.
  *
  *  Resets the event with the given ID for all players. This method is only
- *  available to user accounts for your developer console. Only draft events can
- *  be reset.
+ *  available to user accounts for your developer console. Only draft events
+ *  can be reset.
  *
  *  @param eventId The ID of the event.
  *
@@ -360,8 +360,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resets events with the given IDs for all players. This method is only
- *  available to user accounts for your developer console. Only draft events may
- *  be reset.
+ *  available to user accounts for your developer console. Only draft events
+ *  may be reset.
  *
  *  Method: gamesManagement.events.resetMultipleForAllPlayers
  *
@@ -377,8 +377,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be nil. This query does not fetch an object.
  *
  *  Resets events with the given IDs for all players. This method is only
- *  available to user accounts for your developer console. Only draft events may
- *  be reset.
+ *  available to user accounts for your developer console. Only draft events
+ *  may be reset.
  *
  *  @param object The @c GTLRGamesManagement_EventsResetMultipleForAllRequest to
  *    include in the query.
@@ -406,8 +406,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
- *  player's ID.
+ *  A player ID. A value of `me` may be used in place of the
+ *  authenticated player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -420,7 +420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param applicationId The application ID from the Google Play developer
  *    console.
- *  @param playerId A player ID. A value of me may be used in place of the
+ *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *
  *  @return GTLRGamesManagementQuery_PlayersHide
@@ -447,8 +447,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
- *  player's ID.
+ *  A player ID. A value of `me` may be used in place of the
+ *  authenticated player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -461,69 +461,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param applicationId The application ID from the Google Play developer
  *    console.
- *  @param playerId A player ID. A value of me may be used in place of the
+ *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *
  *  @return GTLRGamesManagementQuery_PlayersUnhide
  */
 + (instancetype)queryWithApplicationId:(NSString *)applicationId
                               playerId:(NSString *)playerId;
-
-@end
-
-/**
- *  Reset all rooms for the currently authenticated player for your application.
- *  This method is only accessible to whitelisted tester accounts for your
- *  application.
- *
- *  Method: gamesManagement.rooms.reset
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesManagementGames
- */
-@interface GTLRGamesManagementQuery_RoomsReset : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForRoomsReset]
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Reset all rooms for the currently authenticated player for your application.
- *  This method is only accessible to whitelisted tester accounts for your
- *  application.
- *
- *  @return GTLRGamesManagementQuery_RoomsReset
- */
-+ (instancetype)query;
-
-@end
-
-/**
- *  Deletes rooms where the only room participants are from whitelisted tester
- *  accounts for your application. This method is only available to user
- *  accounts for your developer console.
- *
- *  Method: gamesManagement.rooms.resetForAllPlayers
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesManagementGames
- */
-@interface GTLRGamesManagementQuery_RoomsResetForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForRoomsResetForAllPlayers]
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes rooms where the only room participants are from whitelisted tester
- *  accounts for your application. This method is only available to user
- *  accounts for your developer console.
- *
- *  @return GTLRGamesManagementQuery_RoomsResetForAllPlayers
- */
-+ (instancetype)query;
 
 @end
 
@@ -673,60 +617,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGamesManagementQuery_ScoresResetMultipleForAllPlayers
  */
 + (instancetype)queryWithObject:(GTLRGamesManagement_ScoresResetMultipleForAllRequest *)object;
-
-@end
-
-/**
- *  Reset all turn-based match data for a user. This method is only accessible
- *  to whitelisted tester accounts for your application.
- *
- *  Method: gamesManagement.turnBasedMatches.reset
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesManagementGames
- */
-@interface GTLRGamesManagementQuery_TurnBasedMatchesReset : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForTurnBasedMatchesReset]
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Reset all turn-based match data for a user. This method is only accessible
- *  to whitelisted tester accounts for your application.
- *
- *  @return GTLRGamesManagementQuery_TurnBasedMatchesReset
- */
-+ (instancetype)query;
-
-@end
-
-/**
- *  Deletes turn-based matches where the only match participants are from
- *  whitelisted tester accounts for your application. This method is only
- *  available to user accounts for your developer console.
- *
- *  Method: gamesManagement.turnBasedMatches.resetForAllPlayers
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGamesManagementGames
- */
-@interface GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForTurnBasedMatchesResetForAllPlayers]
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes turn-based matches where the only match participants are from
- *  whitelisted tester accounts for your application. This method is only
- *  available to user accounts for your developer console.
- *
- *  @return GTLRGamesManagementQuery_TurnBasedMatchesResetForAllPlayers
- */
-+ (instancetype)query;
 
 @end
 

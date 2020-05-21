@@ -2462,6 +2462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  Numerical identifier of the client entity.
  *  The entity can be an advertiser, a brand, or an agency.
  *  This identifier is unique among all the entities with the same type.
+ *  The value of this field is ignored if the entity type is not provided.
  *  A list of all known advertisers with their identifiers is available in the
  *  [advertisers.txt](https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt)
  *  file.
@@ -2486,7 +2487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *entityNameProperty;
 
 /**
- *  The type of the client entity: `ADVERTISER`, `BRAND`, or `AGENCY`.
+ *  An optional field for specifying the type of the client entity:
+ *  `ADVERTISER`, `BRAND`, or `AGENCY`.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_Advertiser An advertiser.

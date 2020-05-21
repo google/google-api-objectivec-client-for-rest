@@ -6,7 +6,7 @@
 // Description:
 //   Scans your Compute and App Engine apps for common web vulnerabilities.
 // Documentation:
-//   https://cloud.google.com/security-scanner/
+//   https://cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview/
 
 #import "GTLRWebSecurityScannerObjects.h"
 #import "GTLRWebSecurityScannerQuery.h"

@@ -2976,11 +2976,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRMonitoring_BasicAuthentication *authInfo;
 
 /**
- *  The request body associated with the HTTP request. If content_type is
+ *  The request body associated with the HTTP POST request. If content_type is
  *  URL_ENCODED, the body passed in must be URL-encoded. Users can provide a
- *  Content-Length header via the headers field or the API will do so. The
- *  maximum byte size is 1 megabyte. Note: As with all bytes fields JSON
- *  representations are base64 encoded.
+ *  Content-Length header via the headers field or the API will do so. If the
+ *  request_method is GET and body is not empty, the API will return an error.
+ *  The maximum byte size is 1 megabyte. Note: As with all bytes fields JSON
+ *  representations are base64 encoded. e.g.: "foo=bar" in URL-encoded form is
+ *  "foo%3Dbar" and in base64 encoding is "Zm9vJTI1M0RiYXI=".
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3014,7 +3016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRMonitoring_HttpCheck_Headers *headers;
 
 /**
- *  Boolean specifiying whether to encrypt the header information. Encryption
+ *  Boolean specifying whether to encrypt the header information. Encryption
  *  should be specified for any headers related to authentication that you do
  *  not wish to be seen when retrieving the configuration. The server will be
  *  responsible for encrypting the headers. On Get/List calls, if mask_headers
@@ -5153,7 +5155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_TimeSeries : GTLRObject
 
 /**
- *  Output only. The associated monitored resource metadata. When reading a a
+ *  Output only. The associated monitored resource metadata. When reading a
  *  timeseries, this field will include metadata labels that are explicitly
  *  named in the reduction. When creating a timeseries, this field is ignored.
  */

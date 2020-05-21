@@ -9647,10 +9647,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_MachineType
-@dynamic creationTimestamp, deprecated, descriptionProperty, guestCpus,
-         identifier, imageSpaceGb, isSharedCpu, kind, maximumPersistentDisks,
-         maximumPersistentDisksSizeGb, memoryMb, name, scratchDisks, selfLink,
-         zoneProperty;
+@dynamic accelerators, creationTimestamp, deprecated, descriptionProperty,
+         guestCpus, identifier, imageSpaceGb, isSharedCpu, kind,
+         maximumPersistentDisks, maximumPersistentDisksSizeGb, memoryMb, name,
+         scratchDisks, selfLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -9663,11 +9663,22 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accelerators" : [GTLRCompute_MachineType_Accelerators_Item class],
     @"scratchDisks" : [GTLRCompute_MachineType_ScratchDisks_Item class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_MachineType_Accelerators_Item
+//
+
+@implementation GTLRCompute_MachineType_Accelerators_Item
+@dynamic guestAcceleratorCount, guestAcceleratorType;
 @end
 
 

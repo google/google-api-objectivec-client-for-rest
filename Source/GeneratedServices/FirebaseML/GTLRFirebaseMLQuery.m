@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase ML API (firebaseml/v1beta2)
+//   Firebase ML API (firebaseml/v1)
 // Description:
 //   Access custom machine learning models hosted via Firebase ML.
 // Documentation:
@@ -18,95 +18,11 @@
 
 @end
 
-@implementation GTLRFirebaseMLQuery_ProjectsModelsCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseML_Model *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/models";
-  GTLRFirebaseMLQuery_ProjectsModelsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseML_Operation class];
-  query.loggingName = @"firebaseml.projects.models.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseMLQuery_ProjectsModelsDelete
+@implementation GTLRFirebaseMLQuery_OperationsCancel
 
 @dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRFirebaseMLQuery_ProjectsModelsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseML_Empty class];
-  query.loggingName = @"firebaseml.projects.models.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseMLQuery_ProjectsModelsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRFirebaseMLQuery_ProjectsModelsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseML_Model class];
-  query.loggingName = @"firebaseml.projects.models.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseMLQuery_ProjectsModelsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/models";
-  GTLRFirebaseMLQuery_ProjectsModelsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRFirebaseML_ListModelsResponse class];
-  query.loggingName = @"firebaseml.projects.models.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRFirebaseMLQuery_ProjectsModelsPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRFirebaseML_Model *)object
++ (instancetype)queryWithObject:(GTLRFirebaseML_CancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -115,34 +31,53 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRFirebaseMLQuery_ProjectsModelsPatch *query =
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRFirebaseMLQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseML_Operation class];
-  query.loggingName = @"firebaseml.projects.models.patch";
+  query.expectedObjectClass = [GTLRFirebaseML_Empty class];
+  query.loggingName = @"firebaseml.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRFirebaseMLQuery_ProjectsOperationsGet
+@implementation GTLRFirebaseMLQuery_OperationsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRFirebaseMLQuery_ProjectsOperationsGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseMLQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseML_Empty class];
+  query.loggingName = @"firebaseml.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseMLQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirebaseMLQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRFirebaseML_Operation class];
-  query.loggingName = @"firebaseml.projects.operations.get";
+  query.expectedObjectClass = [GTLRFirebaseML_ListOperationsResponse class];
+  query.loggingName = @"firebaseml.operations.list";
   return query;
 }
 

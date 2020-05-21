@@ -1792,8 +1792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Queries time series using the time series query language. This method does
- *  not require a Workspace.
+ *  Queries time series using Monitoring Query Language. This method does not
+ *  require a Workspace.
  *
  *  Method: monitoring.projects.timeSeries.query
  *
@@ -1815,8 +1815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_QueryTimeSeriesResponse.
  *
- *  Queries time series using the time series query language. This method does
- *  not require a Workspace.
+ *  Queries time series using Monitoring Query Language. This method does not
+ *  require a Workspace.
  *
  *  @param object The @c GTLRMonitoring_QueryTimeSeriesRequest to include in the
  *    query.

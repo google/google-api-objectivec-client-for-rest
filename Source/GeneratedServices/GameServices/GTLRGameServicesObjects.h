@@ -555,9 +555,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_Expr *condition;
 
@@ -844,7 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The Game Server Cluster changes made by the Game Server Deployment.
+ *  The game server cluster changes made by the game server deployment.
  */
 @interface GTLRGameServices_DeployedClusterState : GTLRObject
 
@@ -853,7 +858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The details about the Agones fleets and autoscalers created in the
- *  Game Server Cluster.
+ *  game server cluster.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_DeployedFleetDetails *> *fleetDetails;
 
@@ -1041,10 +1046,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @interface GTLRGameServices_FetchDeploymentStateResponse : GTLRObject
 
-/** The state of the Game Server Deployment in each Game Server Cluster. */
+/** The state of the game server deployment in each game server cluster. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_DeployedClusterState *> *clusterState;
 
-/** List of Locations that could not be reached. */
+/** List of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unavailable;
 
 @end
@@ -1068,13 +1073,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  A Game Server Cluster resource.
+ *  A game server cluster resource.
  */
 @interface GTLRGameServices_GameServerCluster : GTLRObject
 
 /**
- *  Game Server Cluster connection information. This information is used to
- *  manage Game Server Clusters.
+ *  The game server cluster connection information. This information is used to
+ *  manage game server clusters.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerClusterConnectionInfo *connectionInfo;
 
@@ -1092,13 +1097,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The labels associated with this Game Server Cluster. Each label is a
+ *  The labels associated with this game server cluster. Each label is a
  *  key-value pair.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerCluster_Labels *labels;
 
 /**
- *  Required. The resource name of the Game Server Cluster. Uses the form:
+ *  Required. The resource name of the game server cluster. Uses the form:
  *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  *  For example,
  *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
@@ -1112,7 +1117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The labels associated with this Game Server Cluster. Each label is a
+ *  The labels associated with this game server cluster. Each label is a
  *  key-value pair.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1125,7 +1130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The Game Server Cluster connection information.
+ *  The game server cluster connection information.
  */
 @interface GTLRGameServices_GameServerClusterConnectionInfo : GTLRObject
 
@@ -1133,7 +1138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_GkeClusterReference *gkeClusterReference;
 
 /**
- *  Namespace designated on the Game Server Cluster where the Agones game
+ *  Namespace designated on the game server cluster where the Agones game
  *  server instances will be created. Existence of the namespace will be
  *  validated during creation.
  *
@@ -1145,7 +1150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  A Game Server Config resource.
+ *  A game server config resource.
  */
 @interface GTLRGameServices_GameServerConfig : GTLRObject
 
@@ -1153,7 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The description of the Game Server Config.
+ *  The description of the game server config.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1166,13 +1171,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_FleetConfig *> *fleetConfigs;
 
 /**
- *  The labels associated with this Game Server Config. Each label is a
+ *  The labels associated with this game server config. Each label is a
  *  key-value pair.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerConfig_Labels *labels;
 
 /**
- *  The resource name of the Game Server Config. Uses the form:
+ *  The resource name of the game server config. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
@@ -1189,7 +1194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The labels associated with this Game Server Config. Each label is a
+ *  The labels associated with this game server config. Each label is a
  *  key-value pair.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1202,7 +1207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  A Game Server Config override.
+ *  A game server config override.
  */
 @interface GTLRGameServices_GameServerConfigOverride : GTLRObject
 
@@ -1216,7 +1221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  A Game Server Deployment resource.
+ *  A game server deployment resource.
  */
 @interface GTLRGameServices_GameServerDeployment : GTLRObject
 
@@ -1224,7 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Human readable description of the Game Server Deployment.
+ *  Human readable description of the game server delpoyment.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1234,13 +1239,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The labels associated with this Game Server Deployment. Each label is a
+ *  The labels associated with this game server deployment. Each label is a
  *  key-value pair.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerDeployment_Labels *labels;
 
 /**
- *  The resource name of the Game Server Deployment. Uses the form:
+ *  The resource name of the game server deployment. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *  For example,
  *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment`.
@@ -1254,7 +1259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The labels associated with this Game Server Deployment. Each label is a
+ *  The labels associated with this game server deployment. Each label is a
  *  key-value pair.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1267,7 +1272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The Game Server Deployment Rollout which represents the desired rollout
+ *  The game server deployment rollout which represents the desired rollout
  *  state.
  */
 @interface GTLRGameServices_GameServerDeploymentRollout : GTLRObject
@@ -1276,8 +1281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The default Game Server Config is applied to all Realms unless overridden
- *  in the Rollout. For example,
+ *  The default game server config is applied to all realms unless overridden
+ *  in the rollout. For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
  */
 @property(nonatomic, copy, nullable) NSString *defaultGameServerConfig;
@@ -1286,14 +1291,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Contains the Game Server Config Rollout overrides. Overrides are processed
- *  in the order they are listed. Once a match is found for a Realm, the rest
+ *  Contains the game server config rollout overrides. Overrides are processed
+ *  in the order they are listed. Once a match is found for a realm, the rest
  *  of the list is not processed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerConfigOverride *> *gameServerConfigOverrides;
 
 /**
- *  The resource name of the Game Server Deployment Rollout. Uses the form:
+ *  The resource name of the game server deployment rollout. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
  *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
@@ -1360,7 +1365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_ListGameServerClustersResponse : GTLRCollectionObject
 
 /**
- *  The list of Game Server Clusters.
+ *  The list of game server clusters.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1373,7 +1378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** List of Locations that could not be reached. */
+/** List of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1390,7 +1395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_ListGameServerConfigsResponse : GTLRCollectionObject
 
 /**
- *  The list of Game Server Configs.
+ *  The list of game server configs.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1403,7 +1408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** List of Locations that could not be reached. */
+/** List of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1420,7 +1425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_ListGameServerDeploymentsResponse : GTLRCollectionObject
 
 /**
- *  The list of Game Server Delpoyments.
+ *  The list of game server deployments.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1433,7 +1438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** List of Locations that could not be reached. */
+/** List of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1504,14 +1509,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of Realms.
+ *  The list of realms.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Realm *> *realms;
 
-/** List of Locations that could not be reached. */
+/** List of locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1692,7 +1697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only. Operation status for gameservices API operations. Operation
+ *  Output only. Operation status for Game Services API operations. Operation
  *  status is in
  *  the form of key-value pairs where keys are resource IDs and the values show
  *  the status of the operation. In case of failures, the value includes an
@@ -1728,7 +1733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  Output only. Operation status for gameservices API operations. Operation
+ *  Output only. Operation status for Game Services API operations. Operation
  *  status is in
  *  the form of key-value pairs where keys are resource IDs and the values show
  *  the status of the operation. In case of failures, the value includes an
@@ -1785,10 +1790,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -1803,7 +1811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -1901,6 +1911,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1945,7 +1958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @interface GTLRGameServices_PreviewGameServerDeploymentRolloutResponse : GTLRObject
 
-/** ETag of the Game Server Deployment. */
+/** ETag of the game server deployment. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /** The target state. */
@@ -1987,7 +2000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  A Realm resource.
+ *  A realm resource.
  */
 @interface GTLRGameServices_Realm : GTLRObject
 
@@ -1995,7 +2008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Human readable description of the Realm.
+ *  Human readable description of the realm.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2004,18 +2017,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** The labels associated with this Realm. Each label is a key-value pair. */
+/** The labels associated with this realm. Each label is a key-value pair. */
 @property(nonatomic, strong, nullable) GTLRGameServices_Realm_Labels *labels;
 
 /**
- *  The resource name of the Realm. Uses the form:
+ *  The resource name of the realm. Uses the form:
  *  `projects/{project}/locations/{location}/realms/{realm}`. For
  *  example, `projects/my-project/locations/{location}/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Time zone where all policies targeting this Realm are evaluated.
+ *  Required. Time zone where all policies targeting this realm are evaluated.
  *  The value
  *  of this field must be from the IANA time zone database:
  *  https://www.iana.org/time-zones.
@@ -2029,7 +2042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The labels associated with this Realm. Each label is a key-value pair.
+ *  The labels associated with this realm. Each label is a key-value pair.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2041,11 +2054,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  The Realm selector, used to match Realm resources.
+ *  The realm selector, used to match realm resources.
  */
 @interface GTLRGameServices_RealmSelector : GTLRObject
 
-/** List of Realms to match. */
+/** List of realms to match. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *realms;
 
 @end
@@ -2140,8 +2153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Schedule *> *schedules;
 
 /**
- *  Labels used to identify the Game Server Clusters to which this Agones
- *  scaling config applies. A Game Server Cluster is subject to this Agones
+ *  Labels used to identify the game server clusters to which this Agones
+ *  scaling config applies. A game server cluster is subject to this Agones
  *  scaling config if its labels match any of the selector entries.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_LabelSelector *> *selectors;
@@ -2169,7 +2182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /**
  *  The cron definition of the scheduled event. See
  *  https://en.wikipedia.org/wiki/Cron. Cron spec specifies the local time as
- *  defined by the Realm.
+ *  defined by the realm.
  */
 @property(nonatomic, copy, nullable) NSString *cronSpec;
 
@@ -2214,7 +2227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_SpecSource : GTLRObject
 
 /**
- *  The Game Server Config resource. Uses the form:
+ *  The game server config resource. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment_id}/configs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *gameServerConfigName;
@@ -2279,18 +2292,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_TargetDetails : GTLRObject
 
 /**
- *  Agones fleet details for Game Server Clusters and Game Server Deployments.
+ *  Agones fleet details for game server clusters and game server deployments.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_TargetFleetDetails *> *fleetDetails;
 
 /**
- *  The Game Server Cluster name. Uses the form:
+ *  The game server cluster name. Uses the form:
  *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *gameServerClusterName;
 
 /**
- *  The Game Server Deployment name. Uses the form:
+ *  The game server deployment name. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *gameServerDeploymentName;

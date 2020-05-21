@@ -298,8 +298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.locations.autoscalingPolicies.setIamPolicy
  *
@@ -320,8 +320,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.
@@ -814,8 +814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.locations.workflowTemplates.setIamPolicy
  *
@@ -836,8 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.
@@ -1176,8 +1176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.regions.autoscalingPolicies.setIamPolicy
  *
@@ -1198,8 +1198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.
@@ -1732,8 +1732,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.regions.clusters.setIamPolicy
  *
@@ -1754,8 +1754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.
@@ -2126,8 +2126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.regions.jobs.setIamPolicy
  *
@@ -2148,8 +2148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.
@@ -2493,8 +2493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.regions.operations.setIamPolicy
  *
@@ -2515,8 +2515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.
@@ -2961,8 +2961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  Method: dataproc.projects.regions.workflowTemplates.setIamPolicy
  *
@@ -2983,8 +2983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Fetches a @c GTLRDataproc_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and
- *  PERMISSION_DENIED
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
  *
  *  @param object The @c GTLRDataproc_SetIamPolicyRequest to include in the
  *    query.

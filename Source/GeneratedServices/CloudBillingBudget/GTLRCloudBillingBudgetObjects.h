@@ -25,6 +25,7 @@
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1BudgetAmount;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter;
+@class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1LastPeriodAmount;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule;
 @class GTLRCloudBillingBudget_GoogleTypeMoney;
@@ -223,6 +224,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, copy, nullable) NSString *creditTypesTreatment;
 
 /**
+ *  Optional. A single label and value pair specifying that usage from only this
+ *  set of
+ *  labeled resources should be included in the budget. Multiple entries or
+ *  multiple values per entry are not allowed. If omitted, the report will
+ *  include all labeled and unlabeled usage.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels *labels;
+
+/**
  *  Optional. A set of projects of the form `projects/{project}`,
  *  specifying that usage from only this set of projects should be
  *  included in the budget. If omitted, the report will include all usage for
@@ -241,6 +251,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
+/**
+ *  Optional. A set of subaccounts of the form `billingAccounts/{account_id}`,
+ *  specifying
+ *  that usage from only this set of subaccounts should be included in the
+ *  budget. If a subaccount is set to the name of the master account, usage
+ *  from the master account will be included. If omitted, the report will
+ *  include usage from the master account and all subaccounts, if they exist.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subaccounts;
+
+@end
+
+
+/**
+ *  Optional. A single label and value pair specifying that usage from only this
+ *  set of
+ *  labeled resources should be included in the budget. Multiple entries or
+ *  multiple values per entry are not allowed. If omitted, the report will
+ *  include all labeled and unlabeled usage.
+ *
+ *  @note This class is documented as having more properties of NSArrays of any
+ *        valid JSON type. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels : GTLRObject
 @end
 
 

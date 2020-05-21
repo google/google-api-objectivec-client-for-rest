@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Management API (networkmanagement/v1beta1)
+//   Network Management API (networkmanagement/v1)
 // Description:
 //   The Network Management API provides a collection of network performance
 //   monitoring and diagnostic capabilities.

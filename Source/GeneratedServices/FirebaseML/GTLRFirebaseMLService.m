@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase ML API (firebaseml/v1beta2)
+//   Firebase ML API (firebaseml/v1)
 // Description:
 //   Access custom machine learning models hosted via Firebase ML.
 // Documentation:

@@ -568,6 +568,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *daysSinceCustomTime;
 
 /**
+ *  Number of days elapsed since the noncurrent timestamp of an object. The
+ *  condition is satisfied if the days elapsed is at least this number. This
+ *  condition is relevant only for versioned objects. The value of the field
+ *  must be a nonnegative integer. If it's zero, the object version will become
+ *  eligible for Lifecycle action as soon as it becomes noncurrent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daysSinceNoncurrentTime;
+
+/**
  *  Relevant only for versioned objects. If the value is true, this condition
  *  matches live objects; if the value is false, it matches archived objects.
  *
@@ -591,6 +602,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  ARCHIVE, STANDARD, and DURABLE_REDUCED_AVAILABILITY.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *matchesStorageClass;
+
+/**
+ *  A timestamp in RFC 3339 format. This condition is satisfied when the
+ *  noncurrent time on an object is before this timestamp. This condition is
+ *  relevant only for versioned objects.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *noncurrentTimeBefore;
 
 /**
  *  Relevant only for versioned objects. If the value is N, this condition is

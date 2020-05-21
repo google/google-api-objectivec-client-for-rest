@@ -230,6 +230,141 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesDnsRecordSetsAdd
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_AddDnsRecordSetRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsRecordSets:add";
+  GTLRServiceNetworkingQuery_ServicesDnsRecordSetsAdd *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.dnsRecordSets.add";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesDnsRecordSetsRemove
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_RemoveDnsRecordSetRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsRecordSets:remove";
+  GTLRServiceNetworkingQuery_ServicesDnsRecordSetsRemove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.dnsRecordSets.remove";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesDnsRecordSetsUpdate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_UpdateDnsRecordSetRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsRecordSets:update";
+  GTLRServiceNetworkingQuery_ServicesDnsRecordSetsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.dnsRecordSets.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesDnsZonesAdd
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_AddDnsZoneRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsZones:add";
+  GTLRServiceNetworkingQuery_ServicesDnsZonesAdd *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.dnsZones.add";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesDnsZonesRemove
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_RemoveDnsZoneRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsZones:remove";
+  GTLRServiceNetworkingQuery_ServicesDnsZonesRemove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.dnsZones.remove";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls
 
 @dynamic parent;

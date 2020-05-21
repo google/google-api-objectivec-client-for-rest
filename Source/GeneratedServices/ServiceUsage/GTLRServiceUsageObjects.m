@@ -240,7 +240,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 @implementation GTLRServiceUsage_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, renameTo, selector;
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 

@@ -130,6 +130,59 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_AddDnsRecordSetMetadata
+//
+
+@implementation GTLRServiceNetworking_AddDnsRecordSetMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AddDnsRecordSetRequest
+//
+
+@implementation GTLRServiceNetworking_AddDnsRecordSetRequest
+@dynamic consumerNetwork, dnsRecordSet, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AddDnsZoneMetadata
+//
+
+@implementation GTLRServiceNetworking_AddDnsZoneMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AddDnsZoneRequest
+//
+
+@implementation GTLRServiceNetworking_AddDnsZoneRequest
+@dynamic consumerNetwork, dnsSuffix, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AddDnsZoneResponse
+//
+
+@implementation GTLRServiceNetworking_AddDnsZoneResponse
+@dynamic consumerPeeringZone, producerPrivateZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_AddRolesMetadata
 //
 
@@ -311,7 +364,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_BackendRule
 @dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, renameTo, selector;
+         operationDeadline, pathTranslation, protocol, selector;
 @end
 
 
@@ -491,6 +544,34 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_DisableVpcServiceControlsRequest
 @dynamic consumerNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_DnsRecordSet
+//
+
+@implementation GTLRServiceNetworking_DnsRecordSet
+@dynamic data, domain, ttl, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_DnsZone
+//
+
+@implementation GTLRServiceNetworking_DnsZone
+@dynamic dnsSuffix, name;
 @end
 
 
@@ -1128,6 +1209,67 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_RemoveDnsRecordSetMetadata
+//
+
+@implementation GTLRServiceNetworking_RemoveDnsRecordSetMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_RemoveDnsRecordSetRequest
+//
+
+@implementation GTLRServiceNetworking_RemoveDnsRecordSetRequest
+@dynamic consumerNetwork, dnsRecordSet, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_RemoveDnsRecordSetResponse
+//
+
+@implementation GTLRServiceNetworking_RemoveDnsRecordSetResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_RemoveDnsZoneMetadata
+//
+
+@implementation GTLRServiceNetworking_RemoveDnsZoneMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_RemoveDnsZoneRequest
+//
+
+@implementation GTLRServiceNetworking_RemoveDnsZoneRequest
+@dynamic consumerNetwork, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_RemoveDnsZoneResponse
+//
+
+@implementation GTLRServiceNetworking_RemoveDnsZoneResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Route
 //
 
@@ -1339,6 +1481,30 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
     @"options" : [GTLRServiceNetworking_Option class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_UpdateDnsRecordSetMetadata
+//
+
+@implementation GTLRServiceNetworking_UpdateDnsRecordSetMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_UpdateDnsRecordSetRequest
+//
+
+@implementation GTLRServiceNetworking_UpdateDnsRecordSetRequest
+@dynamic consumerNetwork, existingDnsRecordSet, newDnsRecordSet, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
 }
 
 @end

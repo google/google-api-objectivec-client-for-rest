@@ -1216,36 +1216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
- *  Unimplemented. Do not use.
- *  The new name the selected proto elements should be renamed to.
- *  The package, the service and the method can all be renamed.
- *  The backend server should implement the renamed proto. However, clients
- *  should call the original method, and ESF routes the traffic to the renamed
- *  method.
- *  HTTP clients should call the URL mapped to the original method.
- *  gRPC and Stubby clients should call the original method with package name.
- *  For legacy reasons, ESF allows Stubby clients to call with the
- *  short name (without the package name). However, for API Versioning(or
- *  multiple methods mapped to the same short name), all Stubby clients must
- *  call the method's full name with the package name, otherwise the first one
- *  (selector) wins.
- *  If this `rename_to` is specified with a trailing `*`, the `selector` must
- *  be specified with a trailing `*` as well. The all element short names
- *  matched by the `*` in the selector will be kept in the `rename_to`.
- *  For example,
- *  rename_rules:
- *  - selector: |-
- *  google.example.library.v1.*
- *  rename_to: google.example.library.*
- *  The selector matches `google.example.library.v1.Library.CreateShelf` and
- *  `google.example.library.v1.Library.CreateBook`, they will be renamed to
- *  `google.example.library.Library.CreateShelf` and
- *  `google.example.library.Library.CreateBook`. It essentially renames the
- *  proto package name section of the matched proto service and methods.
- */
-@property(nonatomic, copy, nullable) NSString *renameTo;
-
-/**
  *  Selects the methods to which this rule applies.
  *  Refer to selector for syntax details.
  */
@@ -1257,21 +1227,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Billing related configuration of the service.
  *  The following example shows how to configure monitored resources and metrics
- *  for billing:
+ *  for billing, `consumer_destinations` is the only supported destination and
+ *  the monitored resources need at least one label key
+ *  `cloud.googleapis.com/location` to indicate the location of the billing
+ *  usage, using different monitored resources between monitoring and billing is
+ *  recommended so they can be evolved independently:
  *  monitored_resources:
- *  - type: library.googleapis.com/branch
+ *  - type: library.googleapis.com/billing_branch
  *  labels:
- *  - key: /city
- *  description: The city where the library branch is located in.
- *  - key: /name
- *  description: The name of the branch.
+ *  - key: cloud.googleapis.com/location
+ *  description: |
+ *  Predefined label to support billing location restriction.
+ *  - key: city
+ *  description: |
+ *  Custom label to define the city where the library branch is located
+ *  in.
+ *  - key: name
+ *  description: Custom label to define the name of the library branch.
  *  metrics:
  *  - name: library.googleapis.com/book/borrowed_count
  *  metric_kind: DELTA
  *  value_type: INT64
+ *  unit: "1"
  *  billing:
  *  consumer_destinations:
- *  - monitored_resource: library.googleapis.com/branch
+ *  - monitored_resource: library.googleapis.com/billing_branch
  *  metrics:
  *  - library.googleapis.com/book/borrowed_count
  */

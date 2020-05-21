@@ -31,9 +31,6 @@
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
 @class GTLRApigee_GoogleCloudApigeeV1Attributes;
-@class GTLRApigee_GoogleCloudApigeeV1Company;
-@class GTLRApigee_GoogleCloudApigeeV1CompanyApp;
-@class GTLRApigee_GoogleCloudApigeeV1CompanyAppKey;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
 @class GTLRApigee_GoogleCloudApigeeV1DebugMask;
 @class GTLRApigee_GoogleCloudApigeeV1DebugSession;
@@ -1198,497 +1195,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRApigeeQuery_OrganizationsAppsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates an app for a company.
- *
- *  Method: apigee.organizations.companies.apps.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsCreateWithObject:parent:]
-
-/**
- *  Resource path of the parent: `organizations/{org}/companies/{company_name}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyApp.
- *
- *  Creates an app for a company.
- *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1CompanyApp to include in
- *    the query.
- *  @param parent Resource path of the parent:
- *    `organizations/{org}/companies/{company_name}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsCreate
- */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CompanyApp *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a company app.
- *
- *  Method: apigee.organizations.companies.apps.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsDeleteWithname:]
-
-/**
- *  name of the app resource:
- *  `organizations/{org}/companies/{company_name}/apps/{app_name}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyApp.
- *
- *  Deletes a company app.
- *
- *  @param name name of the app resource:
- *    `organizations/{org}/companies/{company_name}/apps/{app_name}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the profile of a specific company app.
- *
- *  Method: apigee.organizations.companies.apps.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsGetWithname:]
-
-/**
- *  name of the app resource:
- *  `organizations/{org}/companies/{company_name}/apps/{app_name}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyApp.
- *
- *  Gets the profile of a specific company app.
- *
- *  @param name name of the app resource:
- *    `organizations/{org}/companies/{company_name}/apps/{app_name}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Deletes a key for a company app and removes all API products associated
- *  with the app. The key can no longer be used to access any APIs.
- *
- *  Method: apigee.organizations.companies.apps.keys.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsKeysDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsKeysDeleteWithname:]
-
-/**
- *  Resource name of a company app key
- *  `organizations/{org}/companies/{company}/apps/{app}/keys/{key}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyAppKey.
- *
- *  Deletes a key for a company app and removes all API products associated
- *  with the app. The key can no longer be used to access any APIs.
- *
- *  @param name Resource name of a company app key
- *    `organizations/{org}/companies/{company}/apps/{app}/keys/{key}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsKeysDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets information about the consumer key issued to a specific company app.
- *
- *  Method: apigee.organizations.companies.apps.keys.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsKeysGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsKeysGetWithname:]
-
-/**
- *  Resource name of a company app key
- *  `organizations/{org}/companies/{company}/apps/{app}/keys/{key}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyAppKey.
- *
- *  Gets information about the consumer key issued to a specific company app.
- *
- *  @param name Resource name of a company app key
- *    `organizations/{org}/companies/{company}/apps/{app}/keys/{key}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsKeysGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Updates an existing company app key to add additional API products or
- *  attributes. Note that only a single API product can be resolved per app
- *  key at runtime. API products are resolved by name, in alphabetical order.
- *  The first API product found in the list will be returned.
- *
- *  Method: apigee.organizations.companies.apps.keys.updateCompanyAppKey
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsKeysUpdateCompanyAppKey : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsKeysUpdateCompanyAppKeyWithObject:name:]
-
-/** Set action to approve or revoke. */
-@property(nonatomic, copy, nullable) NSString *action;
-
-/**
- *  Resource name of a company app key
- *  `organizations/{org}/companies/{company}/apps/{app}/keys/{key}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyAppKey.
- *
- *  Updates an existing company app key to add additional API products or
- *  attributes. Note that only a single API product can be resolved per app
- *  key at runtime. API products are resolved by name, in alphabetical order.
- *  The first API product found in the list will be returned.
- *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1CompanyAppKey to include
- *    in the query.
- *  @param name Resource name of a company app key
- *    `organizations/{org}/companies/{company}/apps/{app}/keys/{key}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsKeysUpdateCompanyAppKey
- */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CompanyAppKey *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  List company apps in an organization. You can optionally expand the
- *  response to include the profile for each app.
- *
- *  Method: apigee.organizations.companies.apps.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsListWithparent:]
-
-/** Limits the list to the number you specify. The limit is 100. */
-@property(nonatomic, assign) long long count;
-
-/** Set expand to true to return a full profile */
-@property(nonatomic, assign) BOOL expand;
-
-/**
- *  The name of a company resource:
- *  `organizations/{org}/companies/{company_name}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Lets you return a list of app starting with a specific app name in the
- *  list.
- */
-@property(nonatomic, copy, nullable) NSString *startKey;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListCompanyAppsResponse.
- *
- *  List company apps in an organization. You can optionally expand the
- *  response to include the profile for each app.
- *
- *  @param parent The name of a company resource:
- *    `organizations/{org}/companies/{company_name}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsList
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates an existing company app.
- *
- *  Method: apigee.organizations.companies.apps.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesAppsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesAppsUpdateWithObject:name:]
-
-/**
- *  Resource path of the app:
- *  `organizations/{org}/companies/{company_name}/apps/{app_name}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CompanyApp.
- *
- *  Updates an existing company app.
- *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1CompanyApp to include in
- *    the query.
- *  @param name Resource path of the app:
- *    `organizations/{org}/companies/{company_name}/apps/{app_name}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesAppsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CompanyApp *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates an app for a company. Note that you must first create a profile
- *  for the company in your organization before you can register apps that
- *  are associated with the company.
- *
- *  Method: apigee.organizations.companies.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesCreateWithObject:parent:]
-
-/**
- *  Name of org that the company will be created in
- *  `{parent=organizations/ *}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Company.
- *
- *  Creates an app for a company. Note that you must first create a profile
- *  for the company in your organization before you can register apps that
- *  are associated with the company.
- *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Company to include in the
- *    query.
- *  @param parent Name of org that the company will be created in
- *    `{parent=organizations/ *}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesCreate
- */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Company *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes an existing company.
- *
- *  Method: apigee.organizations.companies.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesDeleteWithname:]
-
-/**
- *  The company resource name
- *  `organizations/{org}/companies/{company}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Company.
- *
- *  Deletes an existing company.
- *
- *  @param name The company resource name
- *    `organizations/{org}/companies/{company}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List details for a company.
- *
- *  Method: apigee.organizations.companies.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesGetWithname:]
-
-/**
- *  The company resource name
- *  `organizations/{org}/companies/{company}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Company.
- *
- *  List details for a company.
- *
- *  @param name The company resource name
- *    `organizations/{org}/companies/{company}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List all companies in an organization, and optionally returns an
- *  expanded list of companies, displaying a full profile for each company in
- *  the organization.
- *
- *  Method: apigee.organizations.companies.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesListWithparent:]
-
-/** Limits the list to the number you specify. The limit is 100. */
-@property(nonatomic, assign) long long count;
-
-/** Set expand to true to return a full profile for each company. */
-@property(nonatomic, assign) BOOL expand;
-
-/** Optional. include developers in the response. */
-@property(nonatomic, assign) BOOL includeDevelopers;
-
-/**
- *  The parent organization name
- *  `organizations/{org}`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  To filter the keys that are returned, enter the email of a developer
- *  that the list will start with.
- */
-@property(nonatomic, copy, nullable) NSString *startKey;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListCompaniesResponse.
- *
- *  List all companies in an organization, and optionally returns an
- *  expanded list of companies, displaying a full profile for each company in
- *  the organization.
- *
- *  @param parent The parent organization name
- *    `organizations/{org}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesList
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates an existing company.
- *  Send the complete company record as a payload with any changes you want to
- *  make. Note that to change the status of the Company you use Set the Status
- *  of a Company. The attributes in the sample payload below apply to company
- *  configuration in monetization. For non-monetized companies, you need send
- *  only displayName.
- *
- *  Method: apigee.organizations.companies.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsCompaniesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCompaniesUpdateWithObject:name:]
-
-/** Specify the status as active or inactive. */
-@property(nonatomic, copy, nullable) NSString *action;
-
-/**
- *  Name of the company to be updated.
- *  `{name=organizations/ * /companies/ *}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Company.
- *
- *  Updates an existing company.
- *  Send the complete company record as a payload with any changes you want to
- *  make. Note that to change the status of the Company you use Set the Status
- *  of a Company. The attributes in the sample payload below apply to company
- *  configuration in monetization. For non-monetized companies, you need send
- *  only displayName.
- *
- *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Company to include in the
- *    query.
- *  @param name Name of the company to be updated.
- *    `{name=organizations/ * /companies/ *}`
- *
- *  @return GTLRApigeeQuery_OrganizationsCompaniesUpdate
- */
-+ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Company *)object
-                           name:(NSString *)name;
 
 @end
 
@@ -3525,6 +3031,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves a debug session.
+ *
+ *  Method: apigee.organizations.environments.apis.revisions.debugsessions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsGetWithname:]
+
+/**
+ *  Required. The name of the debug session to retrieve.
+ *  Must be of the form:
+ *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DebugSession.
+ *
+ *  Retrieves a debug session.
+ *
+ *  @param name Required. The name of the debug session to retrieve.
+ *    Must be of the form:
+ *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists debug sessions that are currently active in the given API Proxy
  *  revision.
  *
@@ -3536,6 +3076,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList : GTLRApigeeQuery
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsListWithparent:]
+
+/**
+ *  Maximum number of debug sessions to return. The page size defaults
+ *  to 25.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned from a previous ListDebugSessions call, that you
+ *  can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The name of the API Proxy revision deployment for which
@@ -3556,6 +3108,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -3934,55 +3490,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get Google Cloud Storage (GCS) signed url for specific organization and
- *  environment. Collection agent uses this signed url to upload data
- *  to GCS bucket.
- *
- *  Method: apigee.organizations.environments.getDatalocation
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsEnvironmentsGetDatalocation : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetDatalocationWithname:]
-
-/** Content-Type for uploaded file. */
-@property(nonatomic, copy, nullable) NSString *contentType;
-
-/** Required. Dataset could be one of `api`, `mint`, `trace` and `event` */
-@property(nonatomic, copy, nullable) NSString *dataset;
-
-/**
- *  Required. The parent organization and environment names. Must be of the
- *  form `organizations/{org}/environments/{env}/datalocation`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. Relative path to the GCS bucket */
-@property(nonatomic, copy, nullable) NSString *relativeFilePath;
-
-/** Required. Repository name */
-@property(nonatomic, copy, nullable) NSString *repo;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DataLocation.
- *
- *  Get Google Cloud Storage (GCS) signed url for specific organization and
- *  environment. Collection agent uses this signed url to upload data
- *  to GCS bucket.
- *
- *  @param name Required. The parent organization and environment names. Must be
- *    of the
- *    form `organizations/{org}/environments/{env}/datalocation`.
- *
- *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetDatalocation
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Gets the debug mask singleton resource for an environment.
  *
  *  Method: apigee.organizations.environments.getDebugmask
@@ -4075,6 +3582,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Requests for policies with any conditional bindings must specify version 3.
  *  Policies without any conditional bindings may specify any valid value or
  *  leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
@@ -4789,38 +4299,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    form `organizations/{org}/environments/{env}/queries/{queryId}/result`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResult
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResultView
- *
- *  Method: apigee.organizations.environments.queries.getResultView
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeApigeeCloudPlatform
- */
-@interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResultView : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesGetResultViewWithname:]
-
-/**
- *  Required. Name of the asynchronous query result view to get. Must be of the
- *  form `organizations/{org}/environments/{env}/queries/{queryId}/resultView`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView.
- *
- *  @param name Required. Name of the asynchronous query result view to get.
- *    Must be of the
- *    form
- *    `organizations/{org}/environments/{env}/queries/{queryId}/resultView`.
- *
- *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResultView
  */
 + (instancetype)queryWithName:(NSString *)name;
 

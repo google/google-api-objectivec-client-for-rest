@@ -323,8 +323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Dm;
 /**
- *  A chat space where memberships are free to change. Messages in rooms are
- *  threaded.
+ *  Multi-user spaces such as rooms and DMs between humans.
  *
  *  Value: "ROOM"
  */
@@ -1062,15 +1061,29 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Whether the space is a DM between a bot and a single human.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleUserBotDm;
+
+/**
+ *  Whether the messages are threaded in this space.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threaded;
+
+/**
  *  Output only. The type of a space.
+ *  This is deprecated. Use `single_user_bot_dm` instead.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
  *        and a bot, where all messages are
  *        flat. (Value: "DM")
- *    @arg @c kGTLRHangoutsChat_Space_Type_Room A chat space where memberships
- *        are free to change. Messages in rooms are
- *        threaded. (Value: "ROOM")
+ *    @arg @c kGTLRHangoutsChat_Space_Type_Room Multi-user spaces such as rooms
+ *        and DMs between humans. (Value: "ROOM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  */

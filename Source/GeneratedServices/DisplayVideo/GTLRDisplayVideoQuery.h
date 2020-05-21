@@ -698,8 +698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  * Between `(` and `)` there can only be restrictions combined by `OR`
  *  for the same field.
  *  * A restriction has the form of `{field} {operator} {value}`.
- *  * The operator must be `EQUALS (=)`.
- *  * Supported fields:
+ *  * The operator must be `EQUALS (=)` for the following fields:
  *  - `entityStatus`
  *  - `creativeType`.
  *  - `dimensions`
@@ -708,6 +707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  - `approvalStatus`
  *  - `exchangeReviewStatus`
  *  - `dynamic`
+ *  * The operator must be `HAS (:)` for the following fields:
+ *  - `lineItemIds`
  *  * For `entityStatus`, `minDuration`, `maxDuration`, and `dynamic` there may
  *  be at most one restriction.
  *  * For `dimensions`, the value is in the form of `"{width}x{height}"`.
@@ -715,6 +716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `{exchange}-{reviewStatus}`.
  *  * For `minDuration` and `maxDuration`, the value is in the form of
  *  `"{duration}s"`. Only seconds are supported with millisecond granularity.
+ *  * There may be multiple `lineItemIds` restrictions in order to search
+ *  against multiple possible line item IDs.
  *  Examples:
  *  * All native creatives: `creativeType="CREATIVE_TYPE_NATIVE"`
  *  * All active creatives with 300x400 or 50x100 dimensions:
@@ -725,6 +728,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `dynamic="true" AND minDuration="5.2s" AND
  *  (exchangeReviewStatus="EXCHANGE_GOOGLE_AD_MANAGER-REVIEW_STATUS_APPROVED"
  *  OR exchangeReviewStatus="EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED")`
+ *  * All video creatives that are associated with line item ID 1 or 2:
+ *  creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)
  *  The length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;

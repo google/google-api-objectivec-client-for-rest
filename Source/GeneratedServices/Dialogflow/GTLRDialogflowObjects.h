@@ -2174,7 +2174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<NSString *> *events;
 
 /**
- *  Read-only. Information about all followup intents that have this intent as
+ *  Output only. Information about all followup intents that have this intent as
  *  a direct or indirect parent. We populate this field only in the output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo *> *followupIntentInfo;
@@ -2227,7 +2227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *mlEnabled;
 
 /**
- *  The unique identifier of this intent.
+ *  Optional. The unique identifier of this intent.
  *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
  *  methods.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
@@ -2247,7 +2247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentParameter *> *parameters;
 
 /**
- *  Read-only after creation. The unique identifier of the parent intent in the
+ *  Optional. The unique identifier of the parent intent in the
  *  chain of followup intents. You can set this field when creating an intent,
  *  for example with CreateIntent or
  *  BatchUpdateIntents, in order to make this
@@ -2258,7 +2258,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
 
 /**
- *  The priority of this intent. Higher numbers represent higher
+ *  Optional. The priority of this intent. Higher numbers represent higher
  *  priorities.
  *  - If the supplied value is unspecified or 0, the service
  *  translates the value to 500,000, which corresponds to the
@@ -2279,9 +2279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  Read-only. The unique identifier of the root intent in the chain of
+ *  Output only. The unique identifier of the root intent in the chain of
  *  followup intents. It identifies the correct followup intents chain for
- *  this intent. We populate this field only in the output.
+ *  this intent.
  *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
  */
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
@@ -3578,7 +3578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
 
 /**
- *  Required. The current state of this operation.
+ *  Required. Output only. The current state of this operation.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done
@@ -4026,37 +4026,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *endInteraction;
 
 /**
- *  Optional. Makes the platform immediately invoke another `DetectIntent` call
- *  internally with the specified event as input.
+ *  Optional. Invokes the supplied events.
  *  When this field is set, Dialogflow ignores the `fulfillment_text`,
  *  `fulfillment_messages`, and `payload` fields.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput *followupEventInput;
 
 /**
- *  Optional. The collection of rich messages to present to the user. This
- *  value is passed directly to `QueryResult.fulfillment_messages`.
+ *  Optional. The rich response messages intended for the end-user.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.fulfillment_messages sent to the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage *> *fulfillmentMessages;
 
 /**
- *  Optional. The text to be shown on the screen. This value is passed directly
- *  to `QueryResult.fulfillment_text`.
+ *  Optional. The text response message intended for the end-user.
+ *  It is recommended to use `fulfillment_messages.text.text[0]` instead.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.fulfillment_text sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
- *  Optional. The collection of output contexts. This value is passed directly
- *  to `QueryResult.output_contexts`.
+ *  Optional. The collection of output contexts that will overwrite currently
+ *  active contexts for the session and reset their lifespans.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.output_contexts sent to the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *> *outputContexts;
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the API
- *  caller. Arbitrary JSON objects are supported.
+ *  the
+ *  integration or API caller. Arbitrary JSON objects are supported.
  *  When provided, Dialogflow uses this field to populate
- *  `QueryResult.webhook_payload` sent to the API caller.
+ *  QueryResult.webhook_payload sent to the integration or API caller.
  *  This field is also used by the
  *  [Google Assistant
  *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
@@ -4069,14 +4073,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Optional. Additional session entity types to replace or extend developer
  *  entity types with. The entity synonyms apply to all languages and persist
- *  for the session of this query. Setting the session entity types inside
- *  webhook overwrites the session entity types that have been set through
- *  `DetectIntentRequest.query_params.session_entity_types`.
+ *  for the session. Setting this data from a webhook overwrites
+ *  the session entity types that have been set using `detectIntent`,
+ *  `streamingDetectIntent` or SessionEntityType management methods.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  Optional. This value is passed directly to `QueryResult.webhook_source`.
+ *  Optional. A custom field used to identify the webhook source.
+ *  Arbitrary strings are supported.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.webhook_source sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -4085,10 +4092,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the API
- *  caller. Arbitrary JSON objects are supported.
+ *  the
+ *  integration or API caller. Arbitrary JSON objects are supported.
  *  When provided, Dialogflow uses this field to populate
- *  `QueryResult.webhook_payload` sent to the API caller.
+ *  QueryResult.webhook_payload sent to the integration or API caller.
  *  This field is also used by the
  *  [Google Assistant
  *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
@@ -4679,7 +4686,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders *requestHeaders;
 
-/** Required. The fulfillment URI for receiving POST requests. */
+/**
+ *  Required. The fulfillment URI for receiving POST requests.
+ *  It must use https protocol.
+ */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /** Optional. The user name for HTTP Basic authentication. */
@@ -6920,37 +6930,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse : GTLRObject
 
 /**
- *  Optional. Makes the platform immediately invoke another `DetectIntent` call
- *  internally with the specified event as input.
+ *  Optional. Invokes the supplied events.
  *  When this field is set, Dialogflow ignores the `fulfillment_text`,
  *  `fulfillment_messages`, and `payload` fields.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput *followupEventInput;
 
 /**
- *  Optional. The collection of rich messages to present to the user. This
- *  value is passed directly to `QueryResult.fulfillment_messages`.
+ *  Optional. The rich response messages intended for the end-user.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.fulfillment_messages sent to the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage *> *fulfillmentMessages;
 
 /**
- *  Optional. The text to be shown on the screen. This value is passed directly
- *  to `QueryResult.fulfillment_text`.
+ *  Optional. The text response message intended for the end-user.
+ *  It is recommended to use `fulfillment_messages.text.text[0]` instead.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.fulfillment_text sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
- *  Optional. The collection of output contexts. This value is passed directly
- *  to `QueryResult.output_contexts`.
+ *  Optional. The collection of output contexts that will overwrite currently
+ *  active contexts for the session and reset their lifespans.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.output_contexts sent to the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *outputContexts;
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the API
- *  caller. Arbitrary JSON objects are supported.
+ *  the
+ *  integration or API caller. Arbitrary JSON objects are supported.
  *  When provided, Dialogflow uses this field to populate
- *  `QueryResult.webhook_payload` sent to the API caller.
+ *  QueryResult.webhook_payload sent to the integration or API caller.
  *  This field is also used by the
  *  [Google Assistant
  *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
@@ -6963,14 +6977,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Optional. Additional session entity types to replace or extend developer
  *  entity types with. The entity synonyms apply to all languages and persist
- *  for the session of this query. Setting the session entity types inside
- *  webhook overwrites the session entity types that have been set through
- *  `DetectIntentRequest.query_params.session_entity_types`.
+ *  for the session. Setting this data from a webhook overwrites
+ *  the session entity types that have been set using `detectIntent`,
+ *  `streamingDetectIntent` or SessionEntityType management methods.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  Optional. This value is passed directly to `QueryResult.webhook_source`.
+ *  Optional. A custom field used to identify the webhook source.
+ *  Arbitrary strings are supported.
+ *  When provided, Dialogflow uses this field to populate
+ *  QueryResult.webhook_source sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -6979,10 +6996,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the API
- *  caller. Arbitrary JSON objects are supported.
+ *  the
+ *  integration or API caller. Arbitrary JSON objects are supported.
  *  When provided, Dialogflow uses this field to populate
- *  `QueryResult.webhook_payload` sent to the API caller.
+ *  QueryResult.webhook_payload sent to the integration or API caller.
  *  This field is also used by the
  *  [Google Assistant
  *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
@@ -6996,6 +7013,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload : GTLRObject
+@end
+
+
+/**
+ *  The response message for Agents.ExportAgent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse : GTLRObject
+
+/**
+ *  Uncompressed raw byte content for agent.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *agentContent;
+
+/**
+ *  The URI to a file containing the exported agent. This field is populated
+ *  only if `agent_uri` is specified in ExportAgentRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *agentUri;
+
 @end
 
 

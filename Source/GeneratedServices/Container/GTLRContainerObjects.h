@@ -794,7 +794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, operation id) of the operation to cancel.
- *  Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ *  Specified in the format `projects/ * /locations/ * /operations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1414,7 +1414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster id) of the cluster to complete IP
- *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1468,7 +1468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The parent (project and location) where the cluster will be created.
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  Specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1509,7 +1509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The parent (project, location, cluster id) where the node pool will be
  *  created. Specified in the format
- *  'projects/ * /locations/ * /clusters/ *'.
+ *  `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2663,8 +2663,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Kubernetes taint is comprised of three fields: key, value, and effect.
  *  Effect
  *  can only be one of three types: NoSchedule, PreferNoSchedule or NoExecute.
- *  For more information, including usage and the valid values, see:
- *  https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+ *  See
+ *  [here](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration)
+ *  for more information, including usage and the valid values.
  */
 @interface GTLRContainer_NodeTaint : GTLRObject
 
@@ -3043,8 +3044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The name (project, location, cluster, node pool id) of the node poll to
  *  rollback upgrade.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3136,7 +3137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to set addons.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3185,7 +3186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster id) of the cluster to set labels.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3246,7 +3247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster id) of the cluster to set legacy abac.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3293,7 +3294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to set locations.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3343,7 +3344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to set logging.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3384,7 +3385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The name (project, location, cluster id) of the cluster to set maintenance
  *  policy.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3440,7 +3441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to set auth.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3493,7 +3494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to set monitoring.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3530,7 +3531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster id) of the cluster to set networking
- *  policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3574,7 +3575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The name (project, location, cluster, node pool) of the node pool to set
  *  autoscaler settings. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3622,7 +3623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
  *  management properties. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3667,8 +3668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
  *  size.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3763,7 +3764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster id) of the cluster to start IP
- *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3861,7 +3862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to update.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3913,7 +3914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name (project, location, cluster) of the cluster to update.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3963,7 +3964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The name (project, location, cluster, node pool) of the node pool to
  *  update. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -119,6 +119,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  *  Value: "MONTHLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
+/**
+ *  Trial commitments have a committed period of 182 days after becoming
+ *  ACTIVE. After that, they are converted to a new commitment based on the
+ *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
+ *  that it can be deleted right after committed period ends.
+ *
+ *  Value: "TRIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.renewalPlan
@@ -154,6 +163,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  *  Value: "MONTHLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
+/**
+ *  Trial commitments have a committed period of 182 days after becoming
+ *  ACTIVE. After that, they are converted to a new commitment based on the
+ *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
+ *  that it can be deleted right after committed period ends.
+ *
+ *  Value: "TRIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial;
 
 // ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.state
@@ -193,7 +211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  The resource which will use the reservation. E.g.
- *  projects/myproject, folders/123, organizations/456.
+ *  `projects/myproject`, `folders/123`, or `organizations/456`.
  */
 @property(nonatomic, copy, nullable) NSString *assignee;
 
@@ -215,7 +233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  Output only. Name of the resource. E.g.:
- *  projects/myproject/locations/US/reservations/team1-prod/assignments/123.
+ *  `projects/myproject/locations/US/reservations/team1-prod/assignments/123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -265,8 +283,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Capacity commitment is a way to purchase compute capacity for BigQuery jobs
  *  (in the form of slots) with some committed period of usage. Annual
  *  commitments renew by default. Commitments can be removed after their
- *  commitment end time passes. In order to remove annual commitment, its plan
- *  needs to be changed to monthly or flex first.
+ *  commitment end time passes.
+ *  In order to remove annual commitment, its plan needs to be changed
+ *  to monthly or flex first.
  *  A capacity commitment resource exists as a child resource of the admin
  *  project.
  */
@@ -286,7 +305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  Output only. The resource name of the capacity commitment, e.g.,
- *  projects/myproject/locations/US/capacityCommitments/123
+ *  `projects/myproject/locations/US/capacityCommitments/123`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -312,13 +331,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *        ACTIVE. After that, they are not in a committed period anymore and can
  *        be
  *        removed any time. (Value: "MONTHLY")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial Trial
+ *        commitments have a committed period of 182 days after becoming
+ *        ACTIVE. After that, they are converted to a new commitment based on
+ *        the
+ *        `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
+ *        that it can be deleted right after committed period ends. (Value:
+ *        "TRIAL")
  */
 @property(nonatomic, copy, nullable) NSString *plan;
 
 /**
  *  The plan this capacity commitment is converted to after commitment_end_time
  *  passes. Once the plan is changed, committed period is extended according to
- *  commitment plan. Only applicable for ANNUAL commitments.
+ *  commitment plan. Only applicable for ANNUAL and TRIAL commitments.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual
@@ -339,6 +365,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *        ACTIVE. After that, they are not in a committed period anymore and can
  *        be
  *        removed any time. (Value: "MONTHLY")
+ *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial
+ *        Trial commitments have a committed period of 182 days after becoming
+ *        ACTIVE. After that, they are converted to a new commitment based on
+ *        the
+ *        `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
+ *        that it can be deleted right after committed period ends. (Value:
+ *        "TRIAL")
  */
 @property(nonatomic, copy, nullable) NSString *renewalPlan;
 
@@ -520,16 +553,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 /**
  *  The request for
  *  ReservationService.MoveAssignment.
- *  Note: "bigquery.reservationAssignments.create" permission is required on the
- *  destination_id. Note: "bigquery.reservationAssignments.create" and
- *  "bigquery.reservationAssignments.delete" permission is required on the
+ *  **Note**: "bigquery.reservationAssignments.create" permission is required on
+ *  the destination_id.
+ *  **Note**: "bigquery.reservationAssignments.create" and
+ *  "bigquery.reservationAssignments.delete" permission are required on the
  *  related assignee.
  */
 @interface GTLRBigQueryReservation_MoveAssignmentRequest : GTLRObject
 
 /**
  *  The new reservation ID, e.g.:
- *  projects/myotherproject/locations/US/reservations/team2-prod
+ *  `projects/myotherproject/locations/US/reservations/team2-prod`
  */
 @property(nonatomic, copy, nullable) NSString *destinationId;
 
@@ -634,7 +668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  The resource name of the reservation, e.g.,
- *  "projects/ * /locations/ * /reservations/team1-prod".
+ *  `projects/ * /locations/ * /reservations/team1-prod`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

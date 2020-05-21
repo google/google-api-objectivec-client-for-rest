@@ -142,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Path to create the client in.
  *  In the following format:
  *  projects/{project_number/id}/brands/{brand}.
- *  The project must belong to a GSuite account.
+ *  The project must belong to a G Suite account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. Path to create the client in.
  *    In the following format:
  *    projects/{project_number/id}/brands/{brand}.
- *    The project must belong to a GSuite account.
+ *    The project must belong to a G Suite account.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate
  */

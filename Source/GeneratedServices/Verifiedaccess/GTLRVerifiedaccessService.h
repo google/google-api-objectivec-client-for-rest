@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Verified Access API (verifiedaccess/v1)
+//   Chrome Verified Access API (verifiedaccess/v1)
 // Description:
 //   API for Verified Access chrome extension to provide credential verification
 //   for chrome devices connecting to an enterprise network
 // Documentation:
-//   https://www.google.com/work/chrome/
+//   https://developers.google.com/chrome/verified-access
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -43,7 +43,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeVerifiedaccess;
 //
 
 /**
- *  Service for executing Verified Access API queries.
+ *  Service for executing Chrome Verified Access API queries.
  *
  *  API for Verified Access chrome extension to provide credential verification
  *  for chrome devices connecting to an enterprise network

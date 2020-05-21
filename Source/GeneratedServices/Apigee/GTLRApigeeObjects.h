@@ -44,8 +44,6 @@
 @class GTLRApigee_GoogleCloudApigeeV1Certificate;
 @class GTLRApigee_GoogleCloudApigeeV1CertInfo;
 @class GTLRApigee_GoogleCloudApigeeV1CommonNameConfig;
-@class GTLRApigee_GoogleCloudApigeeV1Company;
-@class GTLRApigee_GoogleCloudApigeeV1CompanyApp;
 @class GTLRApigee_GoogleCloudApigeeV1ConfigVersion;
 @class GTLRApigee_GoogleCloudApigeeV1Credential;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
@@ -925,41 +923,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView
- */
-@interface GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView : GTLRObject
-
-/**
- *  Error code when there is a failure.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *code;
-
-/** Error message when there is a failure. */
-@property(nonatomic, copy, nullable) NSString *error;
-
-/**
- *  Metadata contains information like metrics, dimenstions etc
- *  of the AsyncQuery
- */
-@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1QueryMetadata *metadata;
-
-/**
- *  Rows of query result. Each row is a JSON object.
- *  Example: {sum(message_count): 1, developer_app: "(not set)",…}
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) NSArray *rows;
-
-/** State of retrieving ResultView. */
-@property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
  *  Key-value pair to store extra metadata.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Attribute : GTLRObject
@@ -1065,174 +1028,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *matchWildCards;
 
 @property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  GTLRApigee_GoogleCloudApigeeV1Company
- */
-@interface GTLRApigee_GoogleCloudApigeeV1Company : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *apps;
-
-/** A list of attributes */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
-
-/**
- *  Output only. Created time as milliseconds since epoch.
- *  json key: createdAt
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *createdAt;
-
-/** company name displayed in the UI */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. Modified time as milliseconds since epoch.
- *  json key: lastModifiedAt
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
-
-/**
- *  Name of the company. Characters you can use in the name are restricted to:
- *  A-Z0-9._\\-$ %.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** the org that the company is created */
-@property(nonatomic, copy, nullable) NSString *organization;
-
-/** The status of the company */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  GTLRApigee_GoogleCloudApigeeV1CompanyApp
- */
-@interface GTLRApigee_GoogleCloudApigeeV1CompanyApp : GTLRObject
-
-/** Any API Products the app consumes */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
-
-@property(nonatomic, copy, nullable) NSString *appFamily;
-
-/** The id of the app. */
-@property(nonatomic, copy, nullable) NSString *appId;
-
-/** A list of attributes. */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
-
-/**
- *  The callbackUrl is used by OAuth 2.0 authorization servers to communicate
- *  authorization codes back to apps.
- */
-@property(nonatomic, copy, nullable) NSString *callbackUrl;
-
-/** The name of the company owns the app */
-@property(nonatomic, copy, nullable) NSString *companyName;
-
-/**
- *  Output only. created time of this environment as milliseconds since epoch.
- *  JSON key: createdAt
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *createdAt;
-
-/**
- *  Output only. A set of credentials for the app
- *  credentials are key/secret pairs
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Credential *> *credentials;
-
-/**
- *  A setting, in milliseconds, for the lifetime of the consumer key that will
- *  be generated for the developer app. The default value, -1, indicates an
- *  infinite validity period. Once set, the expiration can't be updated.
- *  json key: keyExpiresIn
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *keyExpiresIn;
-
-/**
- *  Output only. Modified time as milliseconds since epoch.
- *  json key: lastModifiedAt
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
-
-/**
- *  The resoure id of the app.
- *  JSON key: name
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The scopes to apply to the app. The specified scope names must already
- *  exist on the API product that you associate with the app.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
-
-/** The status of the credential. */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  GTLRApigee_GoogleCloudApigeeV1CompanyAppKey
- */
-@interface GTLRApigee_GoogleCloudApigeeV1CompanyAppKey : GTLRObject
-
-/**
- *  A list of api products this credential can be used for.
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) NSArray *apiProducts;
-
-/** A list of attributes tied to the credential. */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
-
-/** The consumer key. */
-@property(nonatomic, copy, nullable) NSString *consumerKey;
-
-/** The secret key. */
-@property(nonatomic, copy, nullable) NSString *consumerSecret;
-
-/**
- *  Unix time when the app was created
- *  json key: expiresAt
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *expiresAt;
-
-/**
- *  Unix time when the app was issued
- *  json key: issuedAt
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *issuedAt;
-
-/**
- *  The scopes to apply to the app. The specified scope names must already
- *  exist on the API product that you associate with the app.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
-
-/** The status of the credential. */
-@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -1419,21 +1214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** name of the metric */
 @property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  GTLRApigee_GoogleCloudApigeeV1DataLocation
- */
-@interface GTLRApigee_GoogleCloudApigeeV1DataLocation : GTLRObject
-
-/**
- *  GCS signed url. Signed URLs provide a way to give time-limited
- *  read or write access to anyone in possession of the URL, regardless of
- *  whether they have a Google account.
- */
-@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -2207,28 +1987,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1ListCompaniesResponse
- */
-@interface GTLRApigee_GoogleCloudApigeeV1ListCompaniesResponse : GTLRObject
-
-/** A list of company. */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Company *> *company;
-
-@end
-
-
-/**
- *  GTLRApigee_GoogleCloudApigeeV1ListCompanyAppsResponse
- */
-@interface GTLRApigee_GoogleCloudApigeeV1ListCompanyAppsResponse : GTLRObject
-
-/** A list of apps for a company. */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1CompanyApp *> *app;
-
-@end
-
-
-/**
  *  This message encapsulates a list of custom report definitions
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListCustomReportsResponse : GTLRObject
@@ -2240,12 +1998,26 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  GTLRApigee_GoogleCloudApigeeV1ListDebugSessionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRApigee_GoogleCloudApigeeV1ListDebugSessionsResponse : GTLRObject
+@interface GTLRApigee_GoogleCloudApigeeV1ListDebugSessionsResponse : GTLRCollectionObject
+
+/**
+ *  Page token that you can include in a ListDebugSessionsRequest to
+ *  retrieve the next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  Session info that includes debug session ID and the first transaction
  *  creation timestamp.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Session *> *sessions;
 
@@ -2583,7 +2355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
 
-/** Required. Name of the Apigee organization. */
+/** Output only. Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Properties defined in the Apigee organization profile. */
@@ -3805,9 +3577,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeExpr *condition;
 
@@ -3864,10 +3641,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -3882,7 +3662,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -3960,6 +3742,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
