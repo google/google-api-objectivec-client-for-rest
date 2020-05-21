@@ -300,10 +300,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ContainerAnalysis/*.{h,m}'
   end
-  s.subspec 'Customsearch' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Customsearch/*.{h,m}'
-  end
   s.subspec 'DLP' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DLP/*.{h,m}'
