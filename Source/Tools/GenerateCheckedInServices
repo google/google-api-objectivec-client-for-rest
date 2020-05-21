@@ -2,7 +2,7 @@
 # This script does work currently needed to regenerate the sources found
 # in Source/GeneratedServices.
 
-set -e
+set -eu
 
 # Where does this script live so we can hit things in the tree.
 readonly ToolsDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
