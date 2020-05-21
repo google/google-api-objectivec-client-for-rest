@@ -376,16 +376,6 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_IntOrString
-//
-
-@implementation GTLRCloudRun_IntOrString
-@dynamic intVal, strVal, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRun_KeyToPath
 //
 

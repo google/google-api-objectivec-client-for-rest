@@ -1296,18 +1296,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The unique Google-assigned identifier of the Google Analytics web stream
- *  associated with the Firebase Web App. Firebase SDKs use this ID to interact
- *  with Google Analytics APIs.
- *  <br>
- *  <br>This field is only present if the App is linked to a web stream in a
- *  Google Analytics App + Web property. Learn more about this ID and Google
- *  Analytics web streams in the [Analytics
- *  documentation](https://support.google.com/analytics/topic/9303475).
- *  <br>
- *  <br>To generate a `measurementId` and link the Web App with a Google
- *  Analytics web stream, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics).
+ *  This field will no longer be provided here. Instead, use
+ *  `GetAnalyticsDetails`
  */
 @property(nonatomic, copy, nullable) NSString *measurementId;
 

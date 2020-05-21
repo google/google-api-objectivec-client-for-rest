@@ -49,6 +49,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DeadlineExceeded = @"DEADLINE_EXCEEDED";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError = @"DOCKER_CREATE_COMPUTE_SYSTEM_ERROR";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError = @"DOCKER_CREATE_CONTAINER_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateProcessFileNotFound = @"DOCKER_CREATE_PROCESS_FILE_NOT_FOUND";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimeFileNotFound = @"DOCKER_CREATE_RUNTIME_FILE_NOT_FOUND";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateRuntimePermissionDenied = @"DOCKER_CREATE_RUNTIME_PERMISSION_DENIED";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageExistError = @"DOCKER_IMAGE_EXIST_ERROR";
@@ -65,6 +66,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownRuntime = @"DOCKER_UNKNOWN_RUNTIME";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DownloadInputsError = @"DOWNLOAD_INPUTS_ERROR";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DuplicateInputs = @"DUPLICATE_INPUTS";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_FailedPrecondition = @"FAILED_PRECONDITION";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal = @"INTERNAL";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument = @"INVALID_ARGUMENT";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning = @"LOCAL_CASPROXY_NOT_RUNNING";
@@ -959,7 +961,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig
 @dynamic accelerator, diskSizeGb, diskType, labels, machineType,
-         maxConcurrentActions, minCpuPlatform, networkAccess, reserved;
+         maxConcurrentActions, minCpuPlatform, networkAccess, reserved, vmImage;
 @end
 
 
@@ -983,7 +985,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool
-@dynamic autoscale, name, state, workerConfig, workerCount;
+@dynamic autoscale, channel, name, state, workerConfig, workerCount;
 @end
 
 

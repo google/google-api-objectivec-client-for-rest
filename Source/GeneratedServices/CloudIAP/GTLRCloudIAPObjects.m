@@ -36,7 +36,7 @@
 //
 
 @implementation GTLRCloudIAP_ApplicationSettings
-@dynamic accessDeniedPageSettings, csmSettings;
+@dynamic accessDeniedPageSettings, cookieDomain, csmSettings;
 @end
 
 

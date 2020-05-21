@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase ML API (firebaseml/v1beta2)
+//   Firebase ML API (firebaseml/v1)
 // Description:
 //   Access custom machine learning models hosted via Firebase ML.
 // Documentation:
@@ -20,6 +20,15 @@ NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_Bas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseML_CancelOperationRequest
+//
+
+@implementation GTLRFirebaseML_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseML_Empty
 //
 
@@ -29,45 +38,21 @@ NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_Bas
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseML_ListModelsResponse
+//   GTLRFirebaseML_ListOperationsResponse
 //
 
-@implementation GTLRFirebaseML_ListModelsResponse
-@dynamic models, nextPageToken;
+@implementation GTLRFirebaseML_ListOperationsResponse
+@dynamic nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"models" : [GTLRFirebaseML_Model class]
+    @"operations" : [GTLRFirebaseML_Operation class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"models";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseML_Model
-//
-
-@implementation GTLRFirebaseML_Model
-@dynamic activeOperations, createTime, displayName, ETag, modelHash, name,
-         state, tags, tfliteModel, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"activeOperations" : [GTLRFirebaseML_Operation class],
-    @"tags" : [NSString class]
-  };
-  return map;
+  return @"operations";
 }
 
 @end
@@ -80,16 +65,6 @@ NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_Bas
 
 @implementation GTLRFirebaseML_ModelOperationMetadata
 @dynamic basicOperationStatus, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseML_ModelState
-//
-
-@implementation GTLRFirebaseML_ModelState
-@dynamic published, validationError;
 @end
 
 
@@ -160,14 +135,4 @@ NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicOperationStatus_Bas
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRFirebaseML_TfLiteModel
-//
-
-@implementation GTLRFirebaseML_TfLiteModel
-@dynamic gcsTfliteUri, sizeBytes;
 @end

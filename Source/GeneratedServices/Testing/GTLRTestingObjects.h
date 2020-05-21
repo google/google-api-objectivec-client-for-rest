@@ -1082,7 +1082,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
-/** URL of a thumbnail image of the device. */
+/**
+ *  URL of a thumbnail image (photo) of the device.
+ *  e.g. https://lh3.googleusercontent.com/90WcauuJiCYABEl8U0lcZeuS5STUbf2yW...
+ */
 @property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
 @end
@@ -1695,7 +1698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A description of an iOS device tests may be run on.
- *  Next tag: 12
+ *  Next tag: 13
  */
 @interface GTLRTesting_IosModel : GTLRObject
 

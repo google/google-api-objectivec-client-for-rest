@@ -2159,9 +2159,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @interface GTLRCloudTalentSolution_CustomAttribute : GTLRObject
 
 /**
- *  Optional. If the `filterable` flag is true, custom field values are
- *  searchable.
- *  If false, values are not searchable.
+ *  Optional. If the `filterable` flag is true, the custom field values may be
+ *  used for
+ *  custom attribute filters JobQuery.custom_attribute_filter.
+ *  If false, these values may not be used for custom attribute filters.
  *  Default is false.
  *
  *  Uses NSNumber of boolValue.

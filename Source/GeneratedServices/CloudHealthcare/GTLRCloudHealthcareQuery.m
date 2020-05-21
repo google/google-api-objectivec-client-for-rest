@@ -1355,25 +1355,6 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
-@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSearch
-
-@dynamic parent, resourceType;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/fhir";
-  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSearch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
-  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.search";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy
 
 @dynamic resource;

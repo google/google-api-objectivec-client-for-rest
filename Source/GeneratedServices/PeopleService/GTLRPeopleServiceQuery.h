@@ -342,7 +342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 /**
  *  Optional. The number of connections to include in the response. Valid values
  *  are
- *  between 1 and 2000, inclusive. Defaults to 100 if not set or set to 0.
+ *  between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

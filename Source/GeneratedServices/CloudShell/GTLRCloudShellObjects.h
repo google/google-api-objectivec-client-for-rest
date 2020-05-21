@@ -65,6 +65,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspec
 // GTLRCloudShell_Environment.state
 
 /**
+ *  The environment is being deleted and can't be connected to.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudShell_Environment_State_Deleting;
+/**
  *  The environment is not running and can't be connected to. Starting the
  *  environment will transition it to the STARTING state.
  *
@@ -283,6 +289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_Stat
  *  Output only. Current execution state of this environment.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudShell_Environment_State_Deleting The environment is
+ *        being deleted and can't be connected to. (Value: "DELETING")
  *    @arg @c kGTLRCloudShell_Environment_State_Disabled The environment is not
  *        running and can't be connected to. Starting the
  *        environment will transition it to the STARTING state. (Value:

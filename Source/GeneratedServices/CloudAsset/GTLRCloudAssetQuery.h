@@ -308,13 +308,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 //   +[GTLQueryCloudAsset queryForBatchGetAssetsHistoryWithparent:]
 
 /**
- *  A list of the full names of the assets. For example:
+ *  A list of the full names of the assets.
+ *  See: https://cloud.google.com/asset-inventory/docs/resource-name-format
+ *  Example:
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
- *  See [Resource
- *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
- *  and [Resource Name
- *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- *  for more info.
  *  The request becomes a no-op if the asset name list is empty, and the max
  *  size of the asset name list is 100 in one request.
  */
@@ -374,9 +371,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Exports assets with time and resource types to a given Cloud Storage
- *  location. The output format is newline-delimited JSON.
+ *  location. The output format is newline-delimited JSON. Each line represents
+ *  a google.cloud.asset.v1.Asset in the JSON format.
  *  This API implements the google.longrunning.Operation API allowing you
- *  to keep track of the export.
+ *  to keep track of the export. We recommend intervals of at least 2 seconds
+ *  with exponential retry to poll the export operation result. For
+ *  regular-size resource parent, the export operation usually finishes within
+ *  5 minutes.
  *
  *  Method: cloudasset.exportAssets
  *
@@ -399,9 +400,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  Fetches a @c GTLRCloudAsset_Operation.
  *
  *  Exports assets with time and resource types to a given Cloud Storage
- *  location. The output format is newline-delimited JSON.
+ *  location. The output format is newline-delimited JSON. Each line represents
+ *  a google.cloud.asset.v1.Asset in the JSON format.
  *  This API implements the google.longrunning.Operation API allowing you
- *  to keep track of the export.
+ *  to keep track of the export. We recommend intervals of at least 2 seconds
+ *  with exponential retry to poll the export operation result. For
+ *  regular-size resource parent, the export operation usually finishes within
+ *  5 minutes.
  *
  *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
  *    query.
@@ -415,6 +420,226 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  */
 + (instancetype)queryWithObject:(GTLRCloudAsset_ExportAssetsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Searches all the IAM policies within the given accessible scope (e.g., a
+ *  project, a folder or an organization). Callers should have
+ *  cloud.assets.SearchAllIamPolicies permission upon the requested scope,
+ *  otherwise the request will be rejected.
+ *
+ *  Method: cloudasset.searchAllIamPolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_V1SearchAllIamPolicies : GTLRCloudAssetQuery
+// Previous library name was
+//   +[GTLQueryCloudAsset queryForSearchAllIamPoliciesWithscope:]
+
+/**
+ *  Optional. The page size for search result pagination. Page size is capped at
+ *  500 even
+ *  if a larger value is given. If set to zero, server will pick an appropriate
+ *  default. Returned results may be fewer than requested. When this happens,
+ *  there could be more results as long as `next_page_token` is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieve the next batch of results from the preceding
+ *  call to
+ *  this method. `page_token` must be the value of `next_page_token` from the
+ *  previous response. The values of all other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The query statement. An empty query can be specified to search all
+ *  the IAM
+ *  policies within the given `scope`.
+ *  Examples:
+ *  * `policy : "amy\@gmail.com"` to find Cloud IAM policy bindings that
+ *  specify user "amy\@gmail.com".
+ *  * `policy : "roles/compute.admin"` to find Cloud IAM policy bindings that
+ *  specify the Compute Admin role.
+ *  * `policy.role.permissions : "storage.buckets.update"` to find Cloud IAM
+ *  policy bindings that specify a role containing "storage.buckets.update"
+ *  permission.
+ *  * `resource : "organizations/123"` to find Cloud IAM policy bindings that
+ *  are set on "organizations/123".
+ *  * `(resource : ("organizations/123" OR "folders/1234") AND policy : "amy")`
+ *  to find Cloud IAM policy bindings that are set on "organizations/123" or
+ *  "folders/1234", and also specify user "amy".
+ *  See [how to construct a
+ *  query](https://cloud.google.com/asset-inventory/docs/searching-iam-policies#how_to_construct_a_query)
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Required. A scope can be a project, a folder or an organization. The search
+ *  is
+ *  limited to the IAM policies within the `scope`.
+ *  The allowed values are:
+ *  * projects/{PROJECT_ID}
+ *  * projects/{PROJECT_NUMBER}
+ *  * folders/{FOLDER_NUMBER}
+ *  * organizations/{ORGANIZATION_NUMBER}
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_SearchAllIamPoliciesResponse.
+ *
+ *  Searches all the IAM policies within the given accessible scope (e.g., a
+ *  project, a folder or an organization). Callers should have
+ *  cloud.assets.SearchAllIamPolicies permission upon the requested scope,
+ *  otherwise the request will be rejected.
+ *
+ *  @param scope Required. A scope can be a project, a folder or an
+ *    organization. The search is
+ *    limited to the IAM policies within the `scope`.
+ *    The allowed values are:
+ *    * projects/{PROJECT_ID}
+ *    * projects/{PROJECT_NUMBER}
+ *    * folders/{FOLDER_NUMBER}
+ *    * organizations/{ORGANIZATION_NUMBER}
+ *
+ *  @return GTLRCloudAssetQuery_V1SearchAllIamPolicies
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithScope:(NSString *)scope;
+
+@end
+
+/**
+ *  Searches all the resources within the given accessible scope (e.g., a
+ *  project, a folder or an organization). Callers should have
+ *  cloud.assets.SearchAllResources permission upon the requested scope,
+ *  otherwise the request will be rejected.
+ *
+ *  Method: cloudasset.searchAllResources
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_V1SearchAllResources : GTLRCloudAssetQuery
+// Previous library name was
+//   +[GTLQueryCloudAsset queryForSearchAllResourcesWithscope:]
+
+/**
+ *  Optional. A list of asset types that this request searches for. If empty, it
+ *  will
+ *  search all the [searchable asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
+
+/**
+ *  Optional. A comma separated list of fields specifying the sorting order of
+ *  the
+ *  results. The default order is ascending. Add " DESC" after the field name
+ *  to indicate descending order. Redundant space characters are ignored.
+ *  Example: "location DESC, name". See [supported resource metadata
+ *  fields](https://cloud.google.com/asset-inventory/docs/searching-resources#query_on_resource_metadata_fields)
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The page size for search result pagination. Page size is capped at
+ *  500 even
+ *  if a larger value is given. If set to zero, server will pick an appropriate
+ *  default. Returned results may be fewer than requested. When this happens,
+ *  there could be more results as long as `next_page_token` is returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call
+ *  to this method. `page_token` must be the value of `next_page_token` from
+ *  the previous response. The values of all other method parameters, must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The query statement. An empty query can be specified to search all
+ *  the
+ *  resources of certain `asset_types` within the given `scope`.
+ *  Examples:
+ *  * `name : "Important"` to find Cloud resources whose name contains
+ *  "Important" as a word.
+ *  * `displayName : "Impor*"` to find Cloud resources whose display name
+ *  contains "Impor" as a word prefix.
+ *  * `description : "*por*"` to find Cloud resources whose description
+ *  contains "por" as a substring.
+ *  * `location : "us-west*"` to find Cloud resources whose location is
+ *  prefixed with "us-west".
+ *  * `labels : "prod"` to find Cloud resources whose labels contain "prod" as
+ *  a key or value.
+ *  * `labels.env : "prod"` to find Cloud resources which have a label "env"
+ *  and its value is "prod".
+ *  * `labels.env : *` to find Cloud resources which have a label "env".
+ *  * `"Important"` to find Cloud resources which contain "Important" as a word
+ *  in any of the searchable fields.
+ *  * `"Impor*"` to find Cloud resources which contain "Impor" as a word prefix
+ *  in any of the searchable fields.
+ *  * `"*por*"` to find Cloud resources which contain "por" as a substring in
+ *  any of the searchable fields.
+ *  * `("Important" AND location : ("us-west1" OR "global"))` to find Cloud
+ *  resources which contain "Important" as a word in any of the searchable
+ *  fields and are also located in the "us-west1" region or the "global"
+ *  location.
+ *  See [how to construct a
+ *  query](https://cloud.google.com/asset-inventory/docs/searching-resources#how_to_construct_a_query)
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Required. A scope can be a project, a folder or an organization. The search
+ *  is
+ *  limited to the resources within the `scope`.
+ *  The allowed values are:
+ *  * projects/{PROJECT_ID}
+ *  * projects/{PROJECT_NUMBER}
+ *  * folders/{FOLDER_NUMBER}
+ *  * organizations/{ORGANIZATION_NUMBER}
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_SearchAllResourcesResponse.
+ *
+ *  Searches all the resources within the given accessible scope (e.g., a
+ *  project, a folder or an organization). Callers should have
+ *  cloud.assets.SearchAllResources permission upon the requested scope,
+ *  otherwise the request will be rejected.
+ *
+ *  @param scope Required. A scope can be a project, a folder or an
+ *    organization. The search is
+ *    limited to the resources within the `scope`.
+ *    The allowed values are:
+ *    * projects/{PROJECT_ID}
+ *    * projects/{PROJECT_NUMBER}
+ *    * folders/{FOLDER_NUMBER}
+ *    * organizations/{ORGANIZATION_NUMBER}
+ *
+ *  @return GTLRCloudAssetQuery_V1SearchAllResources
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithScope:(NSString *)scope;
 
 @end
 

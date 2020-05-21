@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Management API (networkmanagement/v1beta1)
+//   Network Management API (networkmanagement/v1)
 // Description:
 //   The Network Management API provides a collection of network performance
 //   monitoring and diagnostic capabilities.
@@ -1094,7 +1094,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Required. Unique name of the resource using the form:
- *  `projects/{project_id}/locations/global/connectivityTests/{test}`
+ *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

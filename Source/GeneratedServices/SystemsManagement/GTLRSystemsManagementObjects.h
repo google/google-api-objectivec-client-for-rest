@@ -523,7 +523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowedSuccessCodes;
 
-/** A Google Cloud Storage object containing the executable. */
+/** A Cloud Storage object containing the executable. */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_GcsObject *gcsObject;
 
 /**
@@ -554,7 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  A request message to initiate patching across Google Compute Engine
+ *  A request message to initiate patching across Compute Engine
  *  instances.
  */
 @interface GTLRSystemsManagement_ExecutePatchJobRequest : GTLRObject
@@ -601,23 +601,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Google Cloud Storage object representation.
+ *  Cloud Storage object representation.
  */
 @interface GTLRSystemsManagement_GcsObject : GTLRObject
 
-/** Required. Bucket of the Google Cloud Storage object. */
+/** Required. Bucket of the Cloud Storage object. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  Required. Generation number of the Google Cloud Storage object. This is used
- *  to
+ *  Required. Generation number of the Cloud Storage object. This is used to
  *  ensure that the ExecStep specified by this PatchJob does not change.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generationNumber;
 
-/** Required. Name of the Google Cloud Storage object. */
+/** Required. Name of the Cloud Storage object. */
 @property(nonatomic, copy, nullable) NSString *object;
 
 @end
@@ -729,8 +728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Sets the time for a one time patch deployment. Timestamp is in
- *  <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
- *  text format.
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @interface GTLRSystemsManagement_OneTimeSchedule : GTLRObject
 
@@ -808,14 +806,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *  complete a patch. These configurations include instance filter, package
  *  repository settings, and a schedule. For more information about creating and
  *  managing patch deployments, see [Scheduling patch
- *  jobs](/compute/docs/os-patch-management/schedule-patch-jobs).
+ *  jobs](https://cloud.google.com/compute/docs/os-patch-management/schedule-patch-jobs).
  */
 @interface GTLRSystemsManagement_PatchDeployment : GTLRObject
 
 /**
  *  Output only. Time the patch deployment was created. Timestamp is in
- *  <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
- *  text format.
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -839,9 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Output only. The last time a patch job was started by this deployment.
- *  Timestamp is in
- *  <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
- *  text format.
+ *  Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+ *  format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastExecuteTime;
 
@@ -864,8 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Output only. Time the patch deployment was last updated. Timestamp is in
- *  <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
- *  text format.
+ *  [RFC3339]("https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -889,8 +884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSNumber *all;
 
 /**
- *  Targets VM instances matching at least one of these label sets. This allows
- *  targeting of disparate groups, for example "env=prod or env=staging".
+ *  Targets VM instances matching ANY of these GroupLabels. This allows
+ *  targeting of disparate groups of VM instances.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSystemsManagement_PatchInstanceFilterGroupLabel *> *groupLabels;
 
@@ -919,13 +914,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Represents a group of VMs that can be identified as having all these
- *  labels, for example "env=prod and app=web".
+ *  Targets a group of VM instances by using their [assigned
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources). Labels
+ *  are key-value pairs. A `GroupLabel` is a combination of labels
+ *  that is used to target VMs for a patch job.
+ *  For example, a patch job can target VMs that have the following
+ *  `GroupLabel`: `{"env":"test", "app":"web"}`. This means that the patch job
+ *  is applied to VMs that have both the labels `env=test` and `app=web`.
  */
 @interface GTLRSystemsManagement_PatchInstanceFilterGroupLabel : GTLRObject
 
 /**
- *  Google Compute Engine instance labels that must be present for a VM
+ *  Compute Engine instance labels that must be present for a VM
  *  instance to be targeted by this filter.
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchInstanceFilterGroupLabel_Labels *labels;
@@ -934,7 +934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Google Compute Engine instance labels that must be present for a VM
+ *  Compute Engine instance labels that must be present for a VM
  *  instance to be targeted by this filter.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -952,7 +952,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *  Instances details are not included in the job. To paginate through instance
  *  details, use ListPatchJobInstanceDetails.
  *  For more information about patch jobs, see
- *  [Creating patch jobs](/compute/docs/os-patch-management/create-patch-job).
+ *  [Creating patch
+ *  jobs](https://cloud.google.com/compute/docs/os-patch-management/create-patch-job).
  */
 @interface GTLRSystemsManagement_PatchJob : GTLRObject
 
@@ -1050,7 +1051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *  Patch details for a VM instance. For more information about reviewing VM
  *  instance details, see
  *  [Listing all VM instance details for a specific patch
- *  job](/compute/docs/os-patch-management/manage-patch-jobs#list-instance-details).
+ *  job](https://cloud.google.com/compute/docs/os-patch-management/manage-patch-jobs#list-instance-details).
  */
 @interface GTLRSystemsManagement_PatchJobInstanceDetails : GTLRObject
 

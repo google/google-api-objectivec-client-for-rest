@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Management API (networkmanagement/v1beta1)
+//   Network Management API (networkmanagement/v1)
 // Description:
 //   The Network Management API provides a collection of network performance
 //   monitoring and diagnostic capabilities.
@@ -25,7 +25,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRNetworkManagementQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -51,7 +51,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/connectivityTests";
+  NSString *pathURITemplate = @"v1/{+parent}/connectivityTests";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -71,7 +71,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -90,7 +90,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -113,7 +113,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -132,7 +132,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/connectivityTests";
+  NSString *pathURITemplate = @"v1/{+parent}/connectivityTests";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -158,7 +158,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -185,7 +185,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:rerun";
+  NSString *pathURITemplate = @"v1/{+name}:rerun";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsRerun *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -212,7 +212,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -239,7 +239,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -266,7 +266,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -286,7 +286,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -305,7 +305,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -324,7 +324,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -343,7 +343,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRNetworkManagementQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

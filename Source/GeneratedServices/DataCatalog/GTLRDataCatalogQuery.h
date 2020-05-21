@@ -2151,8 +2151,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesImportWithObject:parent:]
 
 /**
- *  Required. Resource name of project that the newly created taxonomies will
- *  belong to.
+ *  Required. Resource name of project that the imported taxonomies will belong
+ *  to.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2168,9 +2168,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest to
  *    include in the query.
- *  @param parent Required. Resource name of project that the newly created
- *    taxonomies will
- *    belong to.
+ *  @param parent Required. Resource name of project that the imported
+ *    taxonomies will belong to.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesImport
  */

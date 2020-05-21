@@ -705,6 +705,16 @@ NSString * const kGTLRDfareporting_EventTag_Type_ClickThroughEventTag = @"CLICK_
 NSString * const kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag = @"IMPRESSION_IMAGE_EVENT_TAG";
 NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag = @"IMPRESSION_JAVASCRIPT_EVENT_TAG";
 
+// GTLRDfareporting_File.format
+NSString * const kGTLRDfareporting_File_Format_Csv   = @"CSV";
+NSString * const kGTLRDfareporting_File_Format_Excel = @"EXCEL";
+
+// GTLRDfareporting_File.status
+NSString * const kGTLRDfareporting_File_Status_Cancelled       = @"CANCELLED";
+NSString * const kGTLRDfareporting_File_Status_Failed          = @"FAILED";
+NSString * const kGTLRDfareporting_File_Status_Processing      = @"PROCESSING";
+NSString * const kGTLRDfareporting_File_Status_ReportAvailable = @"REPORT_AVAILABLE";
+
 // GTLRDfareporting_FloodlightActivity.cacheBustingType
 NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_ActiveServerPage = @"ACTIVE_SERVER_PAGE";
 NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_ColdFusion = @"COLD_FUSION";

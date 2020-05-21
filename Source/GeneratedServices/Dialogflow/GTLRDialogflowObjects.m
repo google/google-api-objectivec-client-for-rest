@@ -2803,6 +2803,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse
+@dynamic agentContent, agentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleLongrunningListOperationsResponse
 //
 

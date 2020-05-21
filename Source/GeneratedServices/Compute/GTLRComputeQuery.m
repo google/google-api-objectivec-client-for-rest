@@ -8518,6 +8518,31 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionDisksGetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{resource}/getIamPolicy";
+  GTLRComputeQuery_RegionDisksGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.regionDisks.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionDisksInsert
 
 @dynamic project, region, requestId, sourceImage;
@@ -8633,6 +8658,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.disk = disk;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionDisks.resize";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionDisksSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{resource}/setIamPolicy";
+  GTLRComputeQuery_RegionDisksSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.regionDisks.setIamPolicy";
   return query;
 }
 

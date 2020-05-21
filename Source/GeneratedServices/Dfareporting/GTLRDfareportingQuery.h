@@ -8618,10 +8618,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** The value of the nextToken from the previous result page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The DFA user profile ID. */
+/** The DFA profile ID. */
 @property(nonatomic, assign) long long profileId;
 
-/** The ID of the report. */
+/** The ID of the parent report. */
 @property(nonatomic, assign) long long reportId;
 
 /**
@@ -8654,8 +8654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Lists files for a report.
  *
- *  @param profileId The DFA user profile ID.
- *  @param reportId The ID of the report.
+ *  @param profileId The DFA profile ID.
+ *  @param reportId The ID of the parent report.
  *
  *  @return GTLRDfareportingQuery_ReportsFilesList
  *

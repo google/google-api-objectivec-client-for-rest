@@ -2437,7 +2437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  A UTF-8 encoded string value.
  *  When `exclude_from_indexes` is false (it is indexed) , may have at most 1500
  *  bytes.
- *  Otherwise, may be set to at least 1,000,000 bytes.
+ *  Otherwise, may be set to at most 1,000,000 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 

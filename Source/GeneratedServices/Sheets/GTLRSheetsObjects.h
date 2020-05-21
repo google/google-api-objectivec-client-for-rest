@@ -1938,7 +1938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_Name;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_ErrorValue_Type_NullValue;
 /**
- *  Corresponds to the `#NUM`! error.
+ *  Corresponds to the `#NUM!` error.
  *
  *  Value: "NUM"
  */
@@ -6516,7 +6516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        error. (Value: "NAME")
  *    @arg @c kGTLRSheets_ErrorValue_Type_NullValue Corresponds to the `#NULL!`
  *        error. (Value: "NULL_VALUE")
- *    @arg @c kGTLRSheets_ErrorValue_Type_Num Corresponds to the `#NUM`! error.
+ *    @arg @c kGTLRSheets_ErrorValue_Type_Num Corresponds to the `#NUM!` error.
  *        (Value: "NUM")
  *    @arg @c kGTLRSheets_ErrorValue_Type_Ref Corresponds to the `#REF!` error.
  *        (Value: "REF")

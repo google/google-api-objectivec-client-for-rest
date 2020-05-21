@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent project where subnetworks are usable.
- *  Specified in the format 'projects/ *'.
+ *  Specified in the format `projects/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists subnetworks that are usable for creating clusters in a project.
  *
  *  @param parent The parent project where subnetworks are usable.
- *    Specified in the format 'projects/ *'.
+ *    Specified in the format `projects/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList
  *
@@ -132,7 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to complete IP
- *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -145,8 +145,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name The name (project, location, cluster id) of the cluster to
  *    complete IP
- *    rotation. Specified in the format 'projects/ * /locations/ * /clusters/
- *    *'.
+ *    rotation. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
  */
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the cluster will be created.
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  Specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param parent The parent (project and location) where the cluster will be
  *    created.
- *    Specified in the format 'projects/ * /locations/ *'.
+ *    Specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersCreate
  */
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to delete.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -270,7 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the cluster was initially created.
  *
  *  @param name The name (project, location, cluster) of the cluster to delete.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersDelete
  */
@@ -298,7 +298,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to retrieve.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name (project, location, cluster) of the cluster to
  *    retrieve.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersGet
  */
@@ -348,7 +348,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The cluster (project, location, cluster id) to get keys for. Specified in
- *  the format 'projects/ * /locations/ * /clusters/ *'.
+ *  the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -362,7 +362,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent The cluster (project, location, cluster id) to get keys for.
  *    Specified in
- *    the format 'projects/ * /locations/ * /clusters/ *'.
+ *    the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersGetJwks
  */
@@ -385,7 +385,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the clusters will be listed.
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  Specified in the format `projects/ * /locations/ *`.
  *  Location "-" matches all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -415,7 +415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent The parent (project and location) where the clusters will be
  *    listed.
- *    Specified in the format 'projects/ * /locations/ *'.
+ *    Specified in the format `projects/ * /locations/ *`.
  *    Location "-" matches all zones and all regions.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersList
@@ -439,7 +439,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The parent (project, location, cluster id) where the node pool will be
  *  created. Specified in the format
- *  'projects/ * /locations/ * /clusters/ *'.
+ *  `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -453,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent The parent (project, location, cluster id) where the node pool
  *    will be
  *    created. Specified in the format
- *    'projects/ * /locations/ * /clusters/ *'.
+ *    `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
  */
@@ -483,7 +483,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
  *  delete. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -518,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool id) of the node
  *    pool to
  *    delete. Specified in the format
- *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
  */
@@ -547,7 +547,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
  *  get. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -582,7 +582,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool id) of the node
  *    pool to
  *    get. Specified in the format
- *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet
  */
@@ -610,7 +610,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project, location, cluster id) where the node pools will be
- *  listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  listed. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -638,7 +638,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent The parent (project, location, cluster id) where the node
  *    pools will be
- *    listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    listed. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList
  */
@@ -662,8 +662,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node poll to
  *  rollback upgrade.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -678,8 +678,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool id) of the node
  *    poll to
  *    rollback upgrade.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *
+ *    /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsRollback
  */
@@ -703,7 +703,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool) of the node pool to set
  *  autoscaler settings. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -717,7 +717,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool) of the node
  *    pool to set
  *    autoscaler settings. Specified in the format
- *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetAutoscaling
  */
@@ -741,7 +741,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
  *  management properties. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -755,7 +755,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool id) of the node
  *    pool to set
  *    management properties. Specified in the format
- *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetManagement
  */
@@ -779,8 +779,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
  *  size.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ * /nodePools/
- *  *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -794,8 +794,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool id) of the node
  *    pool to set
  *    size.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *
+ *    /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetSize
  */
@@ -819,7 +819,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool) of the node pool to
  *  update. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -833,7 +833,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster, node pool) of the node
  *    pool to
  *    update. Specified in the format
- *    'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate
  */
@@ -856,7 +856,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to set addons.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -869,7 +869,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to set
  *    addons.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetAddons
  */
@@ -892,7 +892,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to set legacy abac.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -905,7 +905,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to set
  *    legacy abac.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac
  */
@@ -931,7 +931,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to set locations.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -947,7 +947,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to set
  *    locations.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLocations
  */
@@ -970,7 +970,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to set logging.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -983,7 +983,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name The name (project, location, cluster) of the cluster to set
  *    logging.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLogging
  */
@@ -1007,7 +1007,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster id) of the cluster to set maintenance
  *  policy.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1021,7 +1021,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name (project, location, cluster id) of the cluster to set
  *    maintenance
  *    policy.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy
  */
@@ -1046,7 +1046,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to set auth.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1061,7 +1061,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to set
  *    auth.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMasterAuth
  */
@@ -1084,7 +1084,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to set monitoring.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1097,7 +1097,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the query.
  *  @param name The name (project, location, cluster) of the cluster to set
  *    monitoring.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMonitoring
  */
@@ -1120,7 +1120,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to set networking
- *  policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1133,7 +1133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to set
  *    networking
- *    policy. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy
  */
@@ -1156,7 +1156,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to set labels.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1168,7 +1168,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetLabelsRequest to include in the query.
  *  @param name The name (project, location, cluster id) of the cluster to set
  *    labels.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels
  */
@@ -1191,7 +1191,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to start IP
- *  rotation. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1204,8 +1204,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to start
  *    IP
- *    rotation. Specified in the format 'projects/ * /locations/ * /clusters/
- *    *'.
+ *    rotation. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation
  */
@@ -1228,7 +1228,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to update.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1240,7 +1240,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateClusterRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to update.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersUpdate
  */
@@ -1263,7 +1263,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to update.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1275,7 +1275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateMasterRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to update.
- *    Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersUpdateMaster
  */
@@ -1301,7 +1301,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The cluster (project, location, cluster id) to get the discovery document
- *  for. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  for. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1318,7 +1318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent The cluster (project, location, cluster id) to get the
  *    discovery document
- *    for. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *    for. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration
  */
@@ -1340,7 +1340,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project and location) of the server config to get,
- *  specified in the format 'projects/ * /locations/ *'.
+ *  specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1367,7 +1367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns configuration info about the Google Kubernetes Engine service.
  *
  *  @param name The name (project and location) of the server config to get,
- *    specified in the format 'projects/ * /locations/ *'.
+ *    specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsGetServerConfig
  */
@@ -1389,7 +1389,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, operation id) of the operation to cancel.
- *  Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ *  Specified in the format `projects/ * /locations/ * /operations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1402,7 +1402,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name (project, location, operation id) of the operation to
  *    cancel.
- *    Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ *    Specified in the format `projects/ * /locations/ * /operations/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsOperationsCancel
  */
@@ -1425,7 +1425,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, operation id) of the operation to get.
- *  Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ *  Specified in the format `projects/ * /locations/ * /operations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1459,7 +1459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name (project, location, operation id) of the operation to
  *    get.
- *    Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ *    Specified in the format `projects/ * /locations/ * /operations/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsOperationsGet
  */
@@ -1481,7 +1481,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the operations will be listed.
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  Specified in the format `projects/ * /locations/ *`.
  *  Location "-" matches all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1510,7 +1510,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent The parent (project and location) where the operations will be
  *    listed.
- *    Specified in the format 'projects/ * /locations/ *'.
+ *    Specified in the format `projects/ * /locations/ *`.
  *    Location "-" matches all zones and all regions.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsOperationsList
@@ -1742,7 +1742,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to delete.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1813,7 +1813,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster) of the cluster to retrieve.
- *  Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1935,7 +1935,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the clusters will be listed.
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  Specified in the format `projects/ * /locations/ *`.
  *  Location "-" matches all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2387,7 +2387,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
  *  delete. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2462,7 +2462,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
  *  get. Specified in the format
- *  'projects/ * /locations/ * /clusters/ * /nodePools/ *'.
+ *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2536,7 +2536,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project, location, cluster id) where the node pools will be
- *  listed. Specified in the format 'projects/ * /locations/ * /clusters/ *'.
+ *  listed. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3248,7 +3248,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project and location) of the server config to get,
- *  specified in the format 'projects/ * /locations/ *'.
+ *  specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3366,7 +3366,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, operation id) of the operation to get.
- *  Specified in the format 'projects/ * /locations/ * /operations/ *'.
+ *  Specified in the format `projects/ * /locations/ * /operations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3431,7 +3431,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the operations will be listed.
- *  Specified in the format 'projects/ * /locations/ *'.
+ *  Specified in the format `projects/ * /locations/ *`.
  *  Location "-" matches all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;

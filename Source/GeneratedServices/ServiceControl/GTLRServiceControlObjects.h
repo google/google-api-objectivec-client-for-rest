@@ -1343,9 +1343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKi
 /**
  *  Subject to whom this error applies. See the specific code enum for more
  *  details on this field. For example:
- *  - “project:<project-id or project-number>”
- *  - “folder:<folder-id>”
- *  - “organization:<organization-id>”
+ *  - "project:<project-id or project-number>"
+ *  - "folder:<folder-id>"
+ *  - "organization:<organization-id>"
  */
 @property(nonatomic, copy, nullable) NSString *subject;
 

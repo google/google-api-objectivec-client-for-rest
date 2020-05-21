@@ -226,13 +226,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKno
 // GTLRBigtableAdmin_Instance.type
 
 /**
- *  The instance is meant for development and testing purposes only; it has
- *  no performance or uptime guarantees and is not covered by SLA.
- *  After a development instance is created, it can be upgraded by
- *  updating the instance to type `PRODUCTION`. An instance created
- *  as a production instance cannot be changed to a development instance.
- *  When creating a development instance, `serve_nodes` on the cluster must
- *  not be set.
+ *  DEPRECATED: Prefer PRODUCTION for all use cases, as it no longer enforces
+ *  a higher minimum node count than DEVELOPMENT.
  *
  *  Value: "DEVELOPMENT"
  */
@@ -1098,15 +1093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Required. The type of the instance. Defaults to `PRODUCTION`.
  *
  *  Likely values:
- *    @arg @c kGTLRBigtableAdmin_Instance_Type_Development The instance is meant
- *        for development and testing purposes only; it has
- *        no performance or uptime guarantees and is not covered by SLA.
- *        After a development instance is created, it can be upgraded by
- *        updating the instance to type `PRODUCTION`. An instance created
- *        as a production instance cannot be changed to a development instance.
- *        When creating a development instance, `serve_nodes` on the cluster
- *        must
- *        not be set. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRBigtableAdmin_Instance_Type_Development DEPRECATED: Prefer
+ *        PRODUCTION for all use cases, as it no longer enforces
+ *        a higher minimum node count than DEVELOPMENT. (Value: "DEVELOPMENT")
  *    @arg @c kGTLRBigtableAdmin_Instance_Type_Production An instance meant for
  *        production use. `serve_nodes` must be set
  *        on the cluster. (Value: "PRODUCTION")

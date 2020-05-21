@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Management API (networkmanagement/v1beta1)
+//   Network Management API (networkmanagement/v1)
 // Description:
 //   The Network Management API provides a collection of network performance
 //   monitoring and diagnostic capabilities.
@@ -343,7 +343,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique name of the resource using the form:
- *  `projects/{project_id}/locations/global/connectivityTests/{test}`
+ *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -374,7 +374,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
  *    the query.
  *  @param name Required. Unique name of the resource using the form:
- *    `projects/{project_id}/locations/global/connectivityTests/{test}`
+ *    `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch
  */

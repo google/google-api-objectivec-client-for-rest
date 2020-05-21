@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services Management API (gamesManagement/v1management)
+//   Google Play Game Management (gamesManagement/v1management)
 // Description:
-//   The Management API for Google Play Game Services.
+//   The Google Play Game Management API allows developers to manage resources
+//   from the Google
+//   Play Game service.
 // Documentation:
-//   https://developers.google.com/games/services
+//   https://developers.google.com/games/
 
 #import "GTLRGamesManagement.h"
 
@@ -26,27 +28,10 @@ NSString * const kGTLRAuthScopeGamesManagementGames = @"https://www.googleapis.c
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"games/v1management/";
-    self.batchPath = @"batch/gamesManagement/v1management";
+    self.batchPath = @"batch/games/v1management";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"gamesManagement#achievementResetAllResponse" : [GTLRGamesManagement_AchievementResetAllResponse class],
-    @"gamesManagement#achievementResetMultipleForAllRequest" : [GTLRGamesManagement_AchievementResetMultipleForAllRequest class],
-    @"gamesManagement#achievementResetResponse" : [GTLRGamesManagement_AchievementResetResponse class],
-    @"gamesManagement#eventsResetMultipleForAllRequest" : [GTLRGamesManagement_EventsResetMultipleForAllRequest class],
-    @"gamesManagement#hiddenPlayer" : [GTLRGamesManagement_HiddenPlayer class],
-    @"gamesManagement#hiddenPlayerList" : [GTLRGamesManagement_HiddenPlayerList class],
-    @"gamesManagement#player" : [GTLRGamesManagement_Player class],
-    @"gamesManagement#playerScoreResetAllResponse" : [GTLRGamesManagement_PlayerScoreResetAllResponse class],
-    @"gamesManagement#playerScoreResetResponse" : [GTLRGamesManagement_PlayerScoreResetResponse class],
-    @"gamesManagement#profileSettings" : [GTLRGamesManagement_ProfileSettings class],
-    @"gamesManagement#scoresResetMultipleForAllRequest" : [GTLRGamesManagement_ScoresResetMultipleForAllRequest class],
-  };
 }
 
 @end

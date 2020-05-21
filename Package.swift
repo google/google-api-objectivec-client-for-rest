@@ -98,6 +98,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Appsactivity"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ArtifactRegistry",
+            targets: ["GoogleAPIClientForREST_ArtifactRegistry"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_BigQueryConnectionService",
             targets: ["GoogleAPIClientForREST_BigQueryConnectionService"]
         ),
@@ -284,6 +288,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_ContainerAnalysis",
             targets: ["GoogleAPIClientForREST_ContainerAnalysis"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CustomSearch",
+            targets: ["GoogleAPIClientForREST_CustomSearch"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DLP",
@@ -864,6 +872,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_ArtifactRegistry",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/ArtifactRegistry",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_BigQueryConnectionService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/BigQueryConnectionService",
@@ -1143,6 +1157,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ContainerAnalysis",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/ContainerAnalysis",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CustomSearch",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CustomSearch",
             publicHeadersPath: "."
         ),
         .target(

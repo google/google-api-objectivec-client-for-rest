@@ -3615,8 +3615,8 @@
 //
 
 @implementation GTLRShoppingContent_SettlementTransactionIdentifiers
-@dynamic adjustmentId, merchantOrderId, settlementEntryId, shipmentIds,
-         transactionId;
+@dynamic adjustmentId, merchantOrderId, orderItemId, settlementEntryId,
+         shipmentIds, transactionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

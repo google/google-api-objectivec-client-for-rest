@@ -8269,6 +8269,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** The merchant provided order ID. */
 @property(nonatomic, copy, nullable) NSString *merchantOrderId;
 
+/** The identifier of the item. */
+@property(nonatomic, copy, nullable) NSString *orderItemId;
+
 /** The unique ID of the settlement transaction entry. */
 @property(nonatomic, copy, nullable) NSString *settlementEntryId;
 

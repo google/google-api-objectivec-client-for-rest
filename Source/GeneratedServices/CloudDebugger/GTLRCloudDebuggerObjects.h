@@ -189,12 +189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_Canary
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled;
 /**
- *  Before "use_breakpoint_canary" is deprecated:
- *  CANARY_MODE_UNSPECIFIED = use_breakpoint_canary ?
- *  CANARY_MODE_DEFAULT_ENABLED :
- *  CANARY_MODE_DEFAULT_DISABLED;
- *  After "use_breakpoint_canary" is deprecated:
- *  CANARY_MODE_UNSPECIFIED = CANARY_MODE_DEFAULT_ENABLED;
+ *  CANARY_MODE_UNSPECIFIED is equivalent to CANARY_MODE_ALWAYS_DISABLED so
+ *  that if the debuggee is not configured to use the canary feature, the
+ *  feature will be disabled.
  *
  *  Value: "CANARY_MODE_UNSPECIFIED"
  */
@@ -560,13 +557,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
  *        the breakpoint's canary option is not specified. (Value:
  *        "CANARY_MODE_DEFAULT_ENABLED")
  *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified
- *        Before "use_breakpoint_canary" is deprecated:
- *        CANARY_MODE_UNSPECIFIED = use_breakpoint_canary ?
- *        CANARY_MODE_DEFAULT_ENABLED :
- *        CANARY_MODE_DEFAULT_DISABLED;
- *        After "use_breakpoint_canary" is deprecated:
- *        CANARY_MODE_UNSPECIFIED = CANARY_MODE_DEFAULT_ENABLED; (Value:
- *        "CANARY_MODE_UNSPECIFIED")
+ *        CANARY_MODE_UNSPECIFIED is equivalent to CANARY_MODE_ALWAYS_DISABLED
+ *        so
+ *        that if the debuggee is not configured to use the canary feature, the
+ *        feature will be disabled. (Value: "CANARY_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *canaryMode;
 

@@ -28,12 +28,14 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual = @"ANN
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex = @"FLEX";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly = @"MONTHLY";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial = @"TRIAL";
 
 // GTLRBigQueryReservation_CapacityCommitment.renewalPlan
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual = @"ANNUAL";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_CommitmentPlanUnspecified = @"COMMITMENT_PLAN_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex = @"FLEX";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly = @"MONTHLY";
+NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial = @"TRIAL";
 
 // GTLRBigQueryReservation_CapacityCommitment.state
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Active = @"ACTIVE";

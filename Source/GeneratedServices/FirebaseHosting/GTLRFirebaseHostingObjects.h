@@ -285,13 +285,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSl
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Abandoned;
 /**
- *  The version is being cloned from another version. All content is still
- *  being copied over.
- *
- *  Value: "CLONING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_Version_Status_Cloning;
-/**
  *  The version has been created, and content is currently being added to the
  *  version.
  *
@@ -664,7 +657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
 
 
 /**
- *  The response when listing Releases.
+ *  GTLRFirebaseHosting_ListReleasesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "releases" property. If returned as the result of a query, it
@@ -693,7 +686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
 
 
 /**
- *  The response when listing a Version's Files..
+ *  GTLRFirebaseHosting_ListVersionFilesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "files" property. If returned as the result of a query, it should
@@ -717,7 +710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
 
 
 /**
- *  The response when listing Versions.
+ *  GTLRFirebaseHosting_ListVersionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "versions" property. If returned as the result of a query, it
@@ -854,7 +847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
 
 
 /**
- *  The response to a PopulateVersionFilesRequest.
+ *  GTLRFirebaseHosting_PopulateVersionFilesResponse
  */
 @interface GTLRFirebaseHosting_PopulateVersionFilesResponse : GTLRObject
 
@@ -1257,9 +1250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseHosting_VersionFile_Status_Statu
  *    @arg @c kGTLRFirebaseHosting_Version_Status_Abandoned The version was not
  *        updated to `FINALIZED` within 12&nbsp;hours and was
  *        automatically deleted. (Value: "ABANDONED")
- *    @arg @c kGTLRFirebaseHosting_Version_Status_Cloning The version is being
- *        cloned from another version. All content is still
- *        being copied over. (Value: "CLONING")
  *    @arg @c kGTLRFirebaseHosting_Version_Status_Created The version has been
  *        created, and content is currently being added to the
  *        version. (Value: "CREATED")

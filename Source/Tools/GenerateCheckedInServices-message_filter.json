@@ -1,6 +1,7 @@
 {
   "INFO": [
     "Discovery included 'prod_tt_sasportal:v1alpha1', but skipping as requested.",
+    "Guessed formatted name 'CustomSearch' from API title 'Custom Search API'",
     "Guessed formatted name 'DigitalAssetLinks' from API title 'Digital Asset Links API'",
     "Guessed formatted name 'GroupsSettings' from API title 'Groups Settings API'",
     "Guessed formatted name 'SafeBrowsing' from API title 'Safe Browsing API'",

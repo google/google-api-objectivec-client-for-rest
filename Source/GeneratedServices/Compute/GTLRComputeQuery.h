@@ -18478,6 +18478,48 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.regionDisks.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionDisksGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionDisksGetIamPolicyWithproject:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionDisksGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a persistent regional disk in the specified project using the data
  *  included in the request.
  *
@@ -18731,6 +18773,50 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                            disk:(NSString *)disk;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.regionDisks.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionDisksSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionDisksSetIamPolicyWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionDisksSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 

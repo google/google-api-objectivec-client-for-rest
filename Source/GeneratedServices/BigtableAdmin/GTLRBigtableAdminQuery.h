@@ -513,7 +513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for a Table or Backup resource.
+ *  Gets the access control policy for a Table resource.
  *  Returns an empty policy if the resource exists but does not have a policy
  *  set.
  *
@@ -539,7 +539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for a Table or Backup resource.
+ *  Gets the access control policy for a Table resource.
  *  Returns an empty policy if the resource exists but does not have a policy
  *  set.
  *
@@ -557,7 +557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Sets the access control policy on a Table or Backup resource.
+ *  Sets the access control policy on a Table resource.
  *  Replaces any existing policy.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.setIamPolicy
@@ -582,7 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Sets the access control policy on a Table or Backup resource.
+ *  Sets the access control policy on a Table resource.
  *  Replaces any existing policy.
  *
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
@@ -1438,7 +1438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for a Table or Backup resource.
+ *  Gets the access control policy for a Table resource.
  *  Returns an empty policy if the resource exists but does not have a policy
  *  set.
  *
@@ -1464,7 +1464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for a Table or Backup resource.
+ *  Gets the access control policy for a Table resource.
  *  Returns an empty policy if the resource exists but does not have a policy
  *  set.
  *
@@ -1599,7 +1599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Sets the access control policy on a Table or Backup resource.
+ *  Sets the access control policy on a Table resource.
  *  Replaces any existing policy.
  *
  *  Method: bigtableadmin.projects.instances.tables.setIamPolicy
@@ -1624,7 +1624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Sets the access control policy on a Table or Backup resource.
+ *  Sets the access control policy on a Table resource.
  *  Replaces any existing policy.
  *
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the

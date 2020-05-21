@@ -20,6 +20,7 @@ NSString * const kGTLRCloudShell_Environment_Size_Default      = @"DEFAULT";
 NSString * const kGTLRCloudShell_Environment_Size_VmSizeUnspecified = @"VM_SIZE_UNSPECIFIED";
 
 // GTLRCloudShell_Environment.state
+NSString * const kGTLRCloudShell_Environment_State_Deleting    = @"DELETING";
 NSString * const kGTLRCloudShell_Environment_State_Disabled    = @"DISABLED";
 NSString * const kGTLRCloudShell_Environment_State_Running     = @"RUNNING";
 NSString * const kGTLRCloudShell_Environment_State_Starting    = @"STARTING";

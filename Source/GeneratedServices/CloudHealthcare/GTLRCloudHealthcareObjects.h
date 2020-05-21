@@ -279,6 +279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_C
 /**
  *  Analytics schema defined by the FHIR community.
  *  See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
+ *  BigQuery only allows a maximum of 10,000 columns per table. Due to this
+ *  limitation, the server will not generate schemas for fields of type
+ *  `Resource`, which can hold any resource type. The affected fields are
+ *  `Parameters.parameter.resource`, `Bundle.entry.resource`, and
+ *  `Bundle.entry.response.outcome`.
  *
  *  Value: "ANALYTICS"
  */
@@ -407,9 +412,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Expr *condition;
 
@@ -1361,7 +1371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The [Cloud Pubsub](https://cloud.google.com/pubsub/docs/) topic that
+ *  The [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
  *  notifications of changes are published on. Supplied by the client. The
  *  notification is a `PubsubMessage` with the following fields:
  *  * `PubsubMessage.Data` contains the resource name.
@@ -1371,12 +1381,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  published.
  *  Note that notifications are only sent if the topic is non-empty. [Topic
  *  names](https://cloud.google.com/pubsub/docs/overview#names) must be
- *  scoped to a project. cloud-healthcare\@system.gserviceaccount.com must
- *  have publisher permissions on the given Pubsub topic. Not having adequate
+ *  scoped to a project. Cloud Healthcare API service account must have
+ *  publisher permissions on the given Pub/Sub topic. Not having adequate
  *  permissions causes the calls that send notifications to fail.
  *  If a notification cannot be published to Cloud Pub/Sub, errors will be
- *  logged to Stackdriver (see [Viewing logs](/healthcare/docs/how-
- *  tos/stackdriver-logging)).
+ *  logged to Cloud Logging (see [Viewing logs](/healthcare/docs/how-
+ *  tos/logging)).
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -1951,12 +1961,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Notifications are only sent if the topic is
  *  non-empty. [Topic
  *  names](https://cloud.google.com/pubsub/docs/overview#names) must be scoped
- *  to a project. cloud-healthcare\@system.gserviceaccount.com must have
- *  publisher permissions on the given Cloud Pub/Sub topic. Not having adequate
+ *  to a project. Cloud Healthcare API service account must have publisher
+ *  permissions on the given Cloud Pub/Sub topic. Not having adequate
  *  permissions causes the calls that send notifications to fail.
  *  If a notification can't be published to Cloud Pub/Sub, errors are logged to
- *  Stackdriver (see [Viewing
- *  logs](/healthcare/docs/how-tos/stackdriver-logging)). If the number of
+ *  Cloud Logging (see [Viewing
+ *  logs](/healthcare/docs/how-tos/logging)). If the number of
  *  errors exceeds a certain rate, some aren't submitted.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
@@ -2073,7 +2083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  A link to audit and error logs in the log viewer. Error logs are generated
  *  only by some operations, listed at
- *  https://cloud.google.com/healthcare/docs/how-tos/stackdriver-logging.
+ *  [Viewing logs](/healthcare/docs/how-tos/logging).
  */
 @property(nonatomic, copy, nullable) NSString *logsUrl;
 
@@ -2138,10 +2148,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -2156,7 +2169,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -2234,6 +2249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -2327,7 +2345,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics Analytics
  *        schema defined by the FHIR community.
  *        See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
- *        (Value: "ANALYTICS")
+ *        BigQuery only allows a maximum of 10,000 columns per table. Due to
+ *        this
+ *        limitation, the server will not generate schemas for fields of type
+ *        `Resource`, which can hold any resource type. The affected fields are
+ *        `Parameters.parameter.resource`, `Bundle.entry.resource`, and
+ *        `Bundle.entry.response.outcome`. (Value: "ANALYTICS")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
  *        No schema type specified. (Value: "SCHEMA_TYPE_UNSPECIFIED")
  */
@@ -2426,8 +2449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
  *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
+ *  `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2509,9 +2531,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  The tables contain all historical resource versions since streaming was
  *  enabled. For query convenience, the server also creates one view per
  *  table of the same name containing only the current resource version.
+ *  The streamed data in the BigQuery dataset is not guaranteed to be
+ *  completely unique. The combination of the id and meta.versionId columns
+ *  should ideally identify a single unique row. But in rare cases,
+ *  duplicates may exist. At query time, users may use the SQL select
+ *  statement to keep only one of the duplicate rows given an id and
+ *  meta.versionId pair. Alternatively, the server created view mentioned
+ *  above also filters out duplicates.
  *  If a resource mutation cannot be streamed to BigQuery, errors will be
- *  logged to Stackdriver (see [Viewing logs](/healthcare/docs/how-
- *  tos/stackdriver-logging)).
+ *  logged to Cloud Logging (see
+ *  [Viewing logs](/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 

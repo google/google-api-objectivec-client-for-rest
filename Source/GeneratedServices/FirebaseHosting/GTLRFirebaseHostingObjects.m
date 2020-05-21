@@ -60,7 +60,6 @@ NSString * const kGTLRFirebaseHosting_ServingConfig_TrailingSlashBehavior_Traili
 
 // GTLRFirebaseHosting_Version.status
 NSString * const kGTLRFirebaseHosting_Version_Status_Abandoned = @"ABANDONED";
-NSString * const kGTLRFirebaseHosting_Version_Status_Cloning   = @"CLONING";
 NSString * const kGTLRFirebaseHosting_Version_Status_Created   = @"CREATED";
 NSString * const kGTLRFirebaseHosting_Version_Status_Deleted   = @"DELETED";
 NSString * const kGTLRFirebaseHosting_Version_Status_Expired   = @"EXPIRED";

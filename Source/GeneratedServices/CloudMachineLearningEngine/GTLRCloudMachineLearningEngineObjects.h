@@ -1324,7 +1324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  There are two feature attribution methods supported for TensorFlow models:
  *  integrated gradients and sampled Shapley.
  *  [Learn more about feature
- *  attributions.](/ml-engine/docs/ai-explanations/overview)
+ *  attributions.](/ai-platform/prediction/docs/ai-explanations/overview)
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig : GTLRObject
 
@@ -1590,7 +1590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Attributes credit by computing the Aumann-Shapley value taking advantage
  *  of the model's fully differentiable structure. Refer to this paper for
- *  more details: http://proceedings.mlr.press/v70/sundararajan17a.html
+ *  more details: https://arxiv.org/abs/1703.01365
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution : GTLRObject
 
@@ -2393,6 +2393,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
 
 /**
+ *  Arguments to the entrypoint command.
+ *  The following rules apply for container_command and container_args:
+ *  - If you do not supply command or args:
+ *  The defaults defined in the Docker image are used.
+ *  - If you supply a command but no args:
+ *  The default EntryPoint and the default Cmd defined in the Docker image
+ *  are ignored. Your command is run without any arguments.
+ *  - If you supply only args:
+ *  The default Entrypoint defined in the Docker image is run with the args
+ *  that you supplied.
+ *  - If you supply a command and args:
+ *  The default Entrypoint and the default Cmd defined in the Docker image
+ *  are ignored. Your command is run with your args.
+ *  It cannot be set if custom container image is
+ *  not provided.
+ *  Note that this field and [TrainingInput.args] are mutually exclusive, i.e.,
+ *  both cannot be set at the same time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *containerArgs;
+
+/**
+ *  The command with which the replica's custom container is run.
+ *  If provided, it will override default ENTRYPOINT of the docker image.
+ *  If not provided, the docker image's ENTRYPOINT is used.
+ *  It cannot be set if custom container image is
+ *  not provided.
+ *  Note that this field and [TrainingInput.args] are mutually exclusive, i.e.,
+ *  both cannot be set at the same time.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *containerCommand;
+
+/**
  *  The Docker image to run on the replica. This image must be in Container
  *  Registry. Learn more about [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
@@ -2491,8 +2523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. The maximum job running time, expressed in seconds. The field can
- *  contain up to nine fractional digits, terminated by `s`. By default there
- *  is no limit to the running time.
+ *  contain up to nine fractional digits, terminated by `s`. If not specified,
+ *  this field defaults to `604800s` (seven days).
  *  If the training job is still running after this duration, AI Platform
  *  Training cancels it.
  *  For example, if you want to ensure your job runs for no more than 2 hours,
@@ -2511,6 +2543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  ```
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunningTime;
+
+@property(nonatomic, strong, nullable) GTLRDuration *maxWaitTime;
 
 @end
 
@@ -3054,6 +3088,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  TPUs](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
+
+/**
+ *  Optional. The full name of the Google Compute Engine
+ *  [network](/compute/docs/networks-and-firewalls#networks) to which the Job
+ *  is peered. For example, projects/12345/global/networks/myVPC. Format is of
+ *  the form projects/{project}/global/networks/{network}. Where {project} is a
+ *  project number, as in '12345', and {network} is network name.".
+ *  Private services access must already be configured for the network. If left
+ *  unspecified, the Job is not peered with any network. Learn more -
+ *  Connecting Job to user network over private
+ *  IP.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Required. The Google Cloud Storage location of the packages with
@@ -3846,9 +3893,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  The condition that is associated with this binding.
- *  NOTE: An unsatisfied condition will not allow user access via current
- *  binding. Different bindings, including their conditions, are examined
- *  independently.
+ *  If the condition evaluates to `true`, then this binding applies to the
+ *  current request.
+ *  If the condition evaluates to `false`, then this binding does not apply to
+ *  the current request. However, a different role binding might grant the same
+ *  role to one or more of the members in this binding.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleTypeExpr *condition;
 
@@ -3905,10 +3957,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Google groups, and domains (such as G Suite). A `role` is a named list of
  *  permissions; each `role` can be an IAM predefined role or a user-created
  *  custom role.
- *  Optionally, a `binding` can specify a `condition`, which is a logical
- *  expression that allows access to a resource only if the expression evaluates
- *  to `true`. A condition can add constraints based on attributes of the
- *  request, the resource, or both.
+ *  For some types of Google Cloud resources, a `binding` can also specify a
+ *  `condition`, which is a logical expression that allows access to a resource
+ *  only if the expression evaluates to `true`. A condition can add constraints
+ *  based on attributes of the request, the resource, or both. To learn which
+ *  resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:**
  *  {
  *  "bindings": [
@@ -3923,7 +3978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  },
  *  {
  *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": ["user:eve\@example.com"],
+ *  "members": [
+ *  "user:eve\@example.com"
+ *  ],
  *  "condition": {
  *  "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020",
@@ -4001,6 +4058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  the conditions in the version `3` policy are lost.
  *  If a policy does not include any conditions, operations on that policy may
  *  specify any valid version or leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
  */
@@ -4026,8 +4086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
  *  following default mask is used:
- *  paths: "bindings, etag"
- *  This field is only used by Cloud IAM.
+ *  `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
