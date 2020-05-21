@@ -347,7 +347,6 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 }
 
 - (int)run {
-
   while (self.state != SGMain_Done) {
     @autoreleasepool {
       switch (self.state) {
@@ -685,6 +684,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       if (parseErr) {
         [self reportError:@"(reply was JSON, but it failed to parse: %@)", parseErr];
       }
+      if (self.status == 0) {
+        self.status = 14;
+      }
       self.state = SGMain_Done;
       return;
     }
@@ -692,6 +694,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     if (parseErr != nil) {
       [self reportError:@"Failed to parse the api description %@, error: %@",
        reportingName, parseErr];
+      if (self.status == 0) {
+        self.status = 15;
+      }
       self.state = SGMain_Done;
       return;
     }
@@ -699,6 +704,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     if (json == nil) {
       // At this point, the data wasn't typed as json and there were no other errors, give up.
       [self reportError:@"Response didn't appear to be JSON."];
+      if (self.status == 0) {
+        self.status = 16;
+      }
       self.state = SGMain_Done;
       return;
     }
@@ -712,6 +720,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
     if (![api isKindOfClass:[GTLRDiscovery_RestDescription class]]) {
       [self reportError:@"The api description doesn't appear to be a discovery REST description"];
+      if (self.status == 0) {
+        self.status = 17;
+      }
       self.state = SGMain_Done;
       return;
     }
@@ -1111,6 +1122,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       NSURL *asURL = [NSURL URLWithString:urlString];
       if (asURL == nil) {
         [self reportError:@"Failed to make an url out of %@", urlString];
+        if (self.status == 0) {
+          self.status = 40;
+        }
         self.state = SGMain_Done;
         return;
       }
@@ -1249,6 +1263,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       NSURL *discoveryRestURL = [NSURL URLWithString:discoveryRestURLString];
       if (discoveryRestURL == nil) {
         [self reportError:@"Failed to make an url out of %@", discoveryRestURLString];
+        if (self.status == 0) {
+          self.status = 41;
+        }
         self.state = SGMain_Done;
         return;
       } else {
@@ -1632,6 +1649,10 @@ static int SGMainInternal(int argc, char * const *argv) {
       fprintf(stderr,
               "%s There were one or more errors; check the full output for details.\n",
               kERROR);
+    }
+    // Safety net to ensure printing any error fails the tool.
+    if (sg.printedError && !status) {
+      status = 99;
     }
   }
   return status;
