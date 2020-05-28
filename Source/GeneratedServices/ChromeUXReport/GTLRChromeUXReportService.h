@@ -2,9 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Tasks API (tasks/v1)
+//   Chrome UX Report API (chromeuxreport/v1)
 // Description:
-//   The Google Tasks API lets you manage your tasks and task lists.
+//   The Chrome UX Report API lets you view real user experience data for
+//   millions of websites.
+// Documentation:
+//   https://developers.google.com/web/tools/chrome-user-experience-report/api/reference
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -25,38 +28,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
 /**
- *  Authorization scope: Create, edit, organize, and delete all your tasks
+ *  Service for executing Chrome UX Report API queries.
  *
- *  Value "https://www.googleapis.com/auth/tasks"
+ *  The Chrome UX Report API lets you view real user experience data for
+ *  millions of websites.
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTasks;
-/**
- *  Authorization scope: View your tasks
- *
- *  Value "https://www.googleapis.com/auth/tasks.readonly"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTasksReadonly;
-
-// ----------------------------------------------------------------------------
-//   GTLRTasksService
-//
-
-/**
- *  Service for executing Tasks API queries.
- *
- *  The Google Tasks API lets you manage your tasks and task lists.
- */
-@interface GTLRTasksService : GTLRService
+@interface GTLRChromeUXReportService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRTasksQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRChromeUXReportQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

@@ -713,12 +713,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 
 /**
- *  GTLRTPU_SchedulingConfig
+ *  Sets the scheduling options for this node.
  */
 @interface GTLRTPU_SchedulingConfig : GTLRObject
 
 /**
- *  preemptible
+ *  Defines whether the node is preemptible.
  *
  *  Uses NSNumber of boolValue.
  */

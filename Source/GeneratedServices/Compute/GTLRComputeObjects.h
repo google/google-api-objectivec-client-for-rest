@@ -2953,6 +2953,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Undeclare
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Instance.privateIpv6GoogleAccess
+
+/** Value: "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle;
+/** Value: "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle;
+/** Value: "INHERIT_FROM_SUBNETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_InheritFromSubnetwork;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Instance.status
 
 /** Value: "DEPROVISIONING" */
@@ -3565,6 +3575,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanc
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting;
 /** Value: "VERIFYING" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_InstanceProperties.privateIpv6GoogleAccess
+
+/** Value: "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle;
+/** Value: "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle;
+/** Value: "INHERIT_FROM_SUBNETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_InheritFromSubnetwork;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstancesScopedList_Warning.code
@@ -7457,6 +7477,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Sin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Subnetwork.privateIpv6GoogleAccess
+
+/** Value: "DISABLE_GOOGLE_ACCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_DisableGoogleAccess;
+/** Value: "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle;
+/** Value: "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Subnetwork.purpose
@@ -19648,6 +19678,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
 
+/**
+ *  The private IPv6 google access type for the VM. If not specified, use
+ *  INHERIT_FROM_SUBNETWORK as default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle
+ *        Value "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE"
+ *    @arg @c kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle
+ *        Value "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE"
+ *    @arg @c kGTLRCompute_Instance_PrivateIpv6GoogleAccess_InheritFromSubnetwork
+ *        Value "INHERIT_FROM_SUBNETWORK"
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
+
 /** Specifies the reservations that this instance can consume from. */
 @property(nonatomic, strong, nullable) GTLRCompute_ReservationAffinity *reservationAffinity;
 
@@ -19682,8 +19726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] The status of the instance. One of the following values:
- *  PROVISIONING, STAGING, RUNNING, STOPPING, STOPPED, SUSPENDING, SUSPENDED,
- *  and TERMINATED.
+ *  PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, and
+ *  TERMINATED.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Instance_Status_Deprovisioning Value "DEPROVISIONING"
@@ -22139,6 +22183,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** An array of network access configurations for this interface. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
+
+/**
+ *  The private IPv6 google access type for the VM. If not specified, use
+ *  INHERIT_FROM_SUBNETWORK as default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle
+ *        Value "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE"
+ *    @arg @c kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle
+ *        Value "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE"
+ *    @arg @c kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_InheritFromSubnetwork
+ *        Value "INHERIT_FROM_SUBNETWORK"
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
 
 /** Specifies the reservations that this instance can consume from. */
 @property(nonatomic, strong, nullable) GTLRCompute_ReservationAffinity *reservationAffinity;
@@ -26563,6 +26621,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  [Output Only] An IPv6 internal network address for this network interface.
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6Address;
 
 /**
  *  [Output Only] Type of the resource. Always compute#networkInterface for
@@ -36890,6 +36953,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
 /**
+ *  [Output Only] The range of internal IPv6 addresses that are owned by this
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *ipv6CidrRange;
+
+/**
  *  [Output Only] Type of the resource. Always compute#subnetwork for Subnetwork
  *  resources.
  */
@@ -36928,6 +36997,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
+
+/**
+ *  The private IPv6 google access type for the VMs in this subnet. This is an
+ *  expanded field of enablePrivateV6Access. If both fields are set,
+ *  privateIpv6GoogleAccess will take priority.
+ *  This field can be both set at resource creation time and updated using
+ *  patch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_DisableGoogleAccess
+ *        Value "DISABLE_GOOGLE_ACCESS"
+ *    @arg @c kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle
+ *        Value "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE"
+ *    @arg @c kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle
+ *        Value "ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE"
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
 
 /**
  *  The purpose of the resource. This field can be either PRIVATE_RFC_1918 or

@@ -23,6 +23,7 @@
 @class GTLRDataflow_ApproximateProgress;
 @class GTLRDataflow_ApproximateReportedProgress;
 @class GTLRDataflow_ApproximateSplitRequest;
+@class GTLRDataflow_Artifact;
 @class GTLRDataflow_AutoscalingEvent;
 @class GTLRDataflow_AutoscalingSettings;
 @class GTLRDataflow_BigQueryIODetails;
@@ -88,6 +89,7 @@
 @class GTLRDataflow_MetricStructuredName;
 @class GTLRDataflow_MetricStructuredName_Context;
 @class GTLRDataflow_MetricUpdate;
+@class GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels;
 @class GTLRDataflow_MountedDataDisk;
 @class GTLRDataflow_MultiOutputInfo;
 @class GTLRDataflow_NameAndKind;
@@ -105,6 +107,7 @@
 @class GTLRDataflow_PubSubIODetails;
 @class GTLRDataflow_PubsubLocation;
 @class GTLRDataflow_PubsubSnapshotMetadata;
+@class GTLRDataflow_QueryInfo;
 @class GTLRDataflow_ReadInstruction;
 @class GTLRDataflow_ReportedParallelism;
 @class GTLRDataflow_ReportWorkItemStatusRequest_UnifiedWorkerRequest;
@@ -165,6 +168,8 @@
 @class GTLRDataflow_StructuredMessage;
 @class GTLRDataflow_TaskRunnerSettings;
 @class GTLRDataflow_TemplateMetadata;
+@class GTLRDataflow_TemplateVersion;
+@class GTLRDataflow_TemplateVersion_Labels;
 @class GTLRDataflow_TopologyConfig;
 @class GTLRDataflow_TopologyConfig_UserStageToComputationNameMap;
 @class GTLRDataflow_TransformSummary;
@@ -948,6 +953,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_Jo
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_ModifyTemplateVersionLabelRequest.op
+
+/**
+ *  Add the label to the TemplateVersion object.
+ *
+ *  Value: "ADD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Add;
+/**
+ *  Default value.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_OperationUnspecified;
+/**
+ *  Remove the label from the TemplateVersion object.
+ *
+ *  Value: "REMOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Remove;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_NameAndKind.kind
 
 /**
@@ -1074,6 +1101,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Pub
  *  Value: "TEXT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_QueryInfo.queryProperty
+
+/** Value: "HAS_UNBOUNDED_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_QueryInfo_QueryProperty_HasUnboundedSource;
+/** Value: "QUERY_PROPERTY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_QueryInfo_QueryProperty_QueryPropertyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
@@ -1266,6 +1301,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskTy
  *  Value: "STREAMING_COMPUTATION_TASK_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_TemplateVersion.type
+
+/**
+ *  Flex Template.
+ *
+ *  Value: "FLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TemplateVersion_Type_Flex;
+/**
+ *  Legacy Template.
+ *
+ *  Value: "LEGACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TemplateVersion_Type_Legacy;
+/**
+ *  Default value. Not a useful zero case.
+ *
+ *  Value: "TEMPLATE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_TemplateVersion_Type_TemplateTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_TransformSummary.kind
@@ -1565,6 +1622,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 
 /**
+ *  Job information for templates.
+ */
+@interface GTLRDataflow_Artifact : GTLRObject
+
+/** Container image path set for flex Template. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ContainerSpec *containerSpec;
+
+/** job_graph_gcs_path set for legacy Template. */
+@property(nonatomic, copy, nullable) NSString *jobGraphGcsPath;
+
+/** Metadata set for legacy Template. */
+@property(nonatomic, strong, nullable) GTLRDataflow_TemplateMetadata *metadata;
+
+@end
+
+
+/**
  *  A structured message reporting an autoscaling decision made by the Dataflow
  *  service.
  */
@@ -1702,6 +1776,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 /** TableId accessed in the connection. */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  Commit will add a new TemplateVersion to an existing template.
+ */
+@interface GTLRDataflow_CommitTemplateVersionRequest : GTLRObject
+
+/** TemplateVersion obejct to create. */
+@property(nonatomic, strong, nullable) GTLRDataflow_TemplateVersion *templateVersion;
 
 @end
 
@@ -2125,6 +2210,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 
 /**
+ *  Creates a new Template with TemplateVersions.
+ */
+@interface GTLRDataflow_CreateTemplateVersionRequest : GTLRObject
+
+/** The TemplateVersion object to create. */
+@property(nonatomic, strong, nullable) GTLRDataflow_TemplateVersion *templateVersion;
+
+@end
+
+
+/**
  *  Identifies the location of a custom souce.
  */
 @interface GTLRDataflow_CustomSourceLocation : GTLRObject
@@ -2384,6 +2480,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_DerivedSource *residual;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRDataflow_Empty : GTLRObject
 @end
 
 
@@ -3875,6 +3984,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 
 /**
+ *  Respond a list of TemplateVersions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "templateVersions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDataflow_ListTemplateVersionsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of TemplateVersions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_TemplateVersion *> *templateVersions;
+
+@end
+
+
+/**
  *  MapTask consists of an ordered set of instructions, each of which
  *  describes one particular low-level operation for the worker to
  *  perform in order to accomplish the MapTask's WorkItem.
@@ -4102,6 +4238,91 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
  *  metrics API.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Either add the label to TemplateVersion or remove it from the
+ *  TemplateVersion.
+ */
+@interface GTLRDataflow_ModifyTemplateVersionLabelRequest : GTLRObject
+
+/** The label key for update. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Requests for add label to TemplateVersion or remove label from
+ *  TemplateVersion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Add Add the
+ *        label to the TemplateVersion object. (Value: "ADD")
+ *    @arg @c kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_OperationUnspecified
+ *        Default value. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Remove Remove
+ *        the label from the TemplateVersion object. (Value: "REMOVE")
+ */
+@property(nonatomic, copy, nullable) NSString *op;
+
+/** The label value for update. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Respond the labels in the TemplateVersion.
+ */
+@interface GTLRDataflow_ModifyTemplateVersionLabelResponse : GTLRObject
+
+/** All the label in the TemplateVersion. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels *labels;
+
+@end
+
+
+/**
+ *  All the label in the TemplateVersion.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels : GTLRObject
+@end
+
+
+/**
+ *  Add a tag to the current TemplateVersion. If tag exist in another
+ *  TemplateVersion in the Template, remove the tag before add it to the current
+ *  TemplateVersion. If remove_only set, remove the tag from the current
+ *  TemplateVersion.
+ */
+@interface GTLRDataflow_ModifyTemplateVersionTagRequest : GTLRObject
+
+/**
+ *  The flag that indicates if the request is only for remove tag from
+ *  TemplateVersion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *removeOnly;
+
+/** The tag for update. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Respond the current tags in the TemplateVersion.
+ */
+@interface GTLRDataflow_ModifyTemplateVersionTagResponse : GTLRObject
+
+/** All the tags in the TemplateVersion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
 
@@ -4562,6 +4783,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 /** The name of the Pubsub topic. */
 @property(nonatomic, copy, nullable) NSString *topicName;
+
+@end
+
+
+/**
+ *  Information about a validated query.
+ */
+@interface GTLRDataflow_QueryInfo : GTLRObject
+
+/** Includes an entry for each satisfied QueryProperty. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *queryProperty;
 
 @end
 
@@ -6196,6 +6428,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 
 /**
+ *  /////////////////////////////////////////////////////////////////////////////
+ *  //// Template Catalog is used to organize user TemplateVersions.
+ *  //// TemplateVersions that have the same project_id and display_name are
+ *  //// belong to the same Template.
+ *  //// Templates with the same project_id belong to the same Project.
+ *  //// TemplateVersion may have labels and multiple labels are allowed.
+ *  //// Duplicated labels in the same `TemplateVersion` are not allowed.
+ *  //// TemplateVersion may have tags and multiple tags are allowed. Duplicated
+ *  //// tags in the same `Template` are not allowed!
+ */
+@interface GTLRDataflow_TemplateVersion : GTLRObject
+
+/**
+ *  Job graph and metadata if it is a legacy Template.
+ *  Container image path and metadata if it is flex Template.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Artifact *artifact;
+
+/** Creation time of this TemplateVersion. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Template description from the user.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A customized name for Template. Multiple TemplateVersions per Template. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Labels for the Template Version. Labels can be duplicate within Template.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_TemplateVersion_Labels *labels;
+
+/** A unique project_id. Multiple Templates per Project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Alias for version_id, helps locate a TemplateVersion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/**
+ *  Either LEGACY or FLEX. This should match with the type of artifact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_TemplateVersion_Type_Flex Flex Template. (Value:
+ *        "FLEX")
+ *    @arg @c kGTLRDataflow_TemplateVersion_Type_Legacy Legacy Template. (Value:
+ *        "LEGACY")
+ *    @arg @c kGTLRDataflow_TemplateVersion_Type_TemplateTypeUnspecified Default
+ *        value. Not a useful zero case. (Value: "TEMPLATE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** An auto generated version_id for TemplateVersion. */
+@property(nonatomic, copy, nullable) NSString *versionId;
+
+@end
+
+
+/**
+ *  Labels for the Template Version. Labels can be duplicate within Template.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_TemplateVersion_Labels : GTLRObject
+@end
+
+
+/**
  *  Global topology of the streaming Dataflow job, including all
  *  computations and their sharded locations.
  */
@@ -6299,6 +6605,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 /** Will be empty if validation succeeds. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Information about the validated query. Not defined if validation fails. */
+@property(nonatomic, strong, nullable) GTLRDataflow_QueryInfo *queryInfo;
 
 @end
 

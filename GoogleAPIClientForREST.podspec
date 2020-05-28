@@ -152,6 +152,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Calendar/*.{h,m}'
   end
+  s.subspec 'ChromeUXReport' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ChromeUXReport/*.{h,m}'
+  end
   s.subspec 'CivicInfo' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CivicInfo/*.{h,m}'

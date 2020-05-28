@@ -865,10 +865,6 @@ NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent = @"fa
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent = @"messageDeletedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent = @"messageRetractedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent = @"newSponsorEvent";
-NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent = @"pollClosedEvent";
-NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent = @"pollEditedEvent";
-NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent = @"pollOpenedEvent";
-NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent = @"pollVotedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent = @"sponsorOnlyModeEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent = @"sponsorOnlyModeStartedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SuperChatEvent = @"superChatEvent";
@@ -959,6 +955,16 @@ NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcastContent_Upcoming 
 // GTLRYouTube_SubscriptionContentDetails.activityType
 NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_All = @"all";
 NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_Uploads = @"uploads";
+
+// GTLRYouTube_ThirdPartyLinkSnippet.type
+NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToStoreLink = @"channelToStoreLink";
+NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_UnknownLink = @"unknownLink";
+
+// GTLRYouTube_ThirdPartyLinkStatus.linkStatus
+NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Failed = @"failed";
+NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Linked = @"linked";
+NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Pending = @"pending";
+NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Unknown = @"unknown";
 
 // GTLRYouTube_VideoAgeGating.videoGameRating
 NSString * const kGTLRYouTube_VideoAgeGating_VideoGameRating_Anyone = @"anyone";
@@ -1745,6 +1751,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_ChannelToStoreLinkDetails
+//
+
+@implementation GTLRYouTube_ChannelToStoreLinkDetails
+@dynamic storeName, storeUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_Comment
 //
 
@@ -2090,7 +2106,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_IngestionInfo
-@dynamic backupIngestionAddress, ingestionAddress, streamName;
+@dynamic backupIngestionAddress, ingestionAddress, rtmpsBackupIngestionAddress,
+         rtmpsIngestionAddress, streamName;
 @end
 
 
@@ -2376,8 +2393,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @implementation GTLRYouTube_LiveChatMessageSnippet
 @dynamic authorChannelId, displayMessage, fanFundingEventDetails,
          hasDisplayContent, liveChatId, messageDeletedDetails,
-         messageRetractedDetails, pollClosedDetails, pollEditedDetails,
-         pollOpenedDetails, pollVotedDetails, publishedAt, superChatDetails,
+         messageRetractedDetails, publishedAt, superChatDetails,
          superStickerDetails, textMessageDetails, type, userBannedDetails;
 @end
 
@@ -2431,85 +2447,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatModeratorSnippet
 @dynamic liveChatId, moderatorDetails;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveChatPollClosedDetails
-//
-
-@implementation GTLRYouTube_LiveChatPollClosedDetails
-@dynamic pollId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveChatPollEditedDetails
-//
-
-@implementation GTLRYouTube_LiveChatPollEditedDetails
-@dynamic identifier, items, prompt;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRYouTube_LiveChatPollItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveChatPollItem
-//
-
-@implementation GTLRYouTube_LiveChatPollItem
-@dynamic descriptionProperty, itemId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveChatPollOpenedDetails
-//
-
-@implementation GTLRYouTube_LiveChatPollOpenedDetails
-@dynamic identifier, items, prompt;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRYouTube_LiveChatPollItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_LiveChatPollVotedDetails
-//
-
-@implementation GTLRYouTube_LiveChatPollVotedDetails
-@dynamic itemId, pollId;
 @end
 
 
@@ -3381,6 +3318,63 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_SuperStickerMetadata
 @dynamic altText, altTextLanguage, stickerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ThirdPartyLink
+//
+
+@implementation GTLRYouTube_ThirdPartyLink
+@dynamic ETag, kind, linkingToken, snippet, status;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ThirdPartyLinkListResponse
+//
+
+@implementation GTLRYouTube_ThirdPartyLinkListResponse
+@dynamic ETag, eventId, kind, links, visitorId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRYouTube_ThirdPartyLink class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ThirdPartyLinkSnippet
+//
+
+@implementation GTLRYouTube_ThirdPartyLinkSnippet
+@dynamic channelToStoreLink, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ThirdPartyLinkStatus
+//
+
+@implementation GTLRYouTube_ThirdPartyLinkStatus
+@dynamic linkStatus;
 @end
 
 

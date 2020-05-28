@@ -34,7 +34,7 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_InfoTypesList
 
-@dynamic filter, languageCode, locationId;
+@dynamic filter, languageCode, locationId, parent;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v2/infoTypes";
@@ -51,16 +51,16 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_LocationsInfoTypesList
 
-@dynamic filter, languageCode, locationId;
+@dynamic filter, languageCode, locationId, parent;
 
-+ (instancetype)queryWithLocationId:(NSString *)locationId {
-  NSArray *pathParams = @[ @"locationId" ];
-  NSString *pathURITemplate = @"v2/locations/{locationId}/infoTypes";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/infoTypes";
   GTLRDLPQuery_LocationsInfoTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.locationId = locationId;
+  query.parent = parent;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse class];
   query.loggingName = @"dlp.locations.infoTypes.list";
   return query;
@@ -292,28 +292,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/deidentifyTemplates";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/deidentifyTemplates";
   GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate class];
   query.loggingName = @"dlp.organizations.locations.deidentifyTemplates.create";
   return query;
@@ -363,18 +359,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/deidentifyTemplates";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/deidentifyTemplates";
   GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse class];
   query.loggingName = @"dlp.organizations.locations.deidentifyTemplates.list";
   return query;
@@ -411,28 +403,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/inspectTemplates";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/inspectTemplates";
   GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2InspectTemplate class];
   query.loggingName = @"dlp.organizations.locations.inspectTemplates.create";
   return query;
@@ -482,18 +470,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/inspectTemplates";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/inspectTemplates";
   GTLRDLPQuery_OrganizationsLocationsInspectTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse class];
   query.loggingName = @"dlp.organizations.locations.inspectTemplates.list";
   return query;
@@ -530,28 +514,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/storedInfoTypes";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
   GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
   query.loggingName = @"dlp.organizations.locations.storedInfoTypes.create";
   return query;
@@ -601,18 +581,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/storedInfoTypes";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
   GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse class];
   query.loggingName = @"dlp.organizations.locations.storedInfoTypes.list";
   return query;
@@ -1339,28 +1315,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsContentDeidentify
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/content:deidentify";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/content:deidentify";
   GTLRDLPQuery_ProjectsLocationsContentDeidentify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse class];
   query.loggingName = @"dlp.projects.locations.content.deidentify";
   return query;
@@ -1370,28 +1342,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsContentInspect
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2InspectContentRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/content:inspect";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/content:inspect";
   GTLRDLPQuery_ProjectsLocationsContentInspect *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2InspectContentResponse class];
   query.loggingName = @"dlp.projects.locations.content.inspect";
   return query;
@@ -1401,28 +1369,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsContentReidentify
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/content:reidentify";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/content:reidentify";
   GTLRDLPQuery_ProjectsLocationsContentReidentify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse class];
   query.loggingName = @"dlp.projects.locations.content.reidentify";
   return query;
@@ -1432,28 +1396,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/deidentifyTemplates";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/deidentifyTemplates";
   GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate class];
   query.loggingName = @"dlp.projects.locations.deidentifyTemplates.create";
   return query;
@@ -1503,18 +1463,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/deidentifyTemplates";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/deidentifyTemplates";
   GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse class];
   query.loggingName = @"dlp.projects.locations.deidentifyTemplates.list";
   return query;
@@ -1578,28 +1534,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsDlpJobsCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/dlpJobs";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/dlpJobs";
   GTLRDLPQuery_ProjectsLocationsDlpJobsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2DlpJob class];
   query.loggingName = @"dlp.projects.locations.dlpJobs.create";
   return query;
@@ -1703,18 +1655,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic filter, locationId, orderBy, pageSize, pageToken, parent, type;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/dlpJobs";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/dlpJobs";
   GTLRDLPQuery_ProjectsLocationsDlpJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse class];
   query.loggingName = @"dlp.projects.locations.dlpJobs.list";
   return query;
@@ -1724,28 +1672,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsImageRedact
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2RedactImageRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/image:redact";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/image:redact";
   GTLRDLPQuery_ProjectsLocationsImageRedact *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2RedactImageResponse class];
   query.loggingName = @"dlp.projects.locations.image.redact";
   return query;
@@ -1755,28 +1699,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/inspectTemplates";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/inspectTemplates";
   GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2InspectTemplate class];
   query.loggingName = @"dlp.projects.locations.inspectTemplates.create";
   return query;
@@ -1826,18 +1766,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/inspectTemplates";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/inspectTemplates";
   GTLRDLPQuery_ProjectsLocationsInspectTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse class];
   query.loggingName = @"dlp.projects.locations.inspectTemplates.list";
   return query;
@@ -1901,28 +1837,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsJobTriggersCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/jobTriggers";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/jobTriggers";
   GTLRDLPQuery_ProjectsLocationsJobTriggersCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2JobTrigger class];
   query.loggingName = @"dlp.projects.locations.jobTriggers.create";
   return query;
@@ -1999,18 +1931,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic filter, locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/jobTriggers";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/jobTriggers";
   GTLRDLPQuery_ProjectsLocationsJobTriggersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse class];
   query.loggingName = @"dlp.projects.locations.jobTriggers.list";
   return query;
@@ -2047,28 +1975,24 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @implementation GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate
 
-@dynamic locationId, parent;
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId {
+                         parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/storedInfoTypes";
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
   GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2StoredInfoType class];
   query.loggingName = @"dlp.projects.locations.storedInfoTypes.create";
   return query;
@@ -2118,18 +2042,14 @@ NSString * const kGTLRDLPTypeRiskAnalysisJob       = @"RISK_ANALYSIS_JOB";
 
 @dynamic locationId, orderBy, pageSize, pageToken, parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId {
-  NSArray *pathParams = @[
-    @"locationId", @"parent"
-  ];
-  NSString *pathURITemplate = @"v2/{+parent}/locations/{locationId}/storedInfoTypes";
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/storedInfoTypes";
   GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.locationId = locationId;
   query.expectedObjectClass = [GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse class];
   query.loggingName = @"dlp.projects.locations.storedInfoTypes.list";
   return query;

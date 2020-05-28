@@ -46,6 +46,152 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsCatalogTemplatesCommit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataflow_CommitTemplateVersionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}:commit";
+  GTLRDataflowQuery_ProjectsCatalogTemplatesCommit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_TemplateVersion class];
+  query.loggingName = @"dataflow.projects.catalogTemplates.commit";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsCatalogTemplatesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_ProjectsCatalogTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_Empty class];
+  query.loggingName = @"dataflow.projects.catalogTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsCatalogTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}";
+  GTLRDataflowQuery_ProjectsCatalogTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_TemplateVersion class];
+  query.loggingName = @"dataflow.projects.catalogTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsCatalogTemplatesLabel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ModifyTemplateVersionLabelRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}:label";
+  GTLRDataflowQuery_ProjectsCatalogTemplatesLabel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ModifyTemplateVersionLabelResponse class];
+  query.loggingName = @"dataflow.projects.catalogTemplates.label";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsCatalogTemplatesTag
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataflow_ModifyTemplateVersionTagRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1b3/{+name}:tag";
+  GTLRDataflowQuery_ProjectsCatalogTemplatesTag *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataflow_ModifyTemplateVersionTagResponse class];
+  query.loggingName = @"dataflow.projects.catalogTemplates.tag";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsCatalogTemplatesTemplateVersionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataflow_CreateTemplateVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/templateVersions";
+  GTLRDataflowQuery_ProjectsCatalogTemplatesTemplateVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_TemplateVersion class];
+  query.loggingName = @"dataflow.projects.catalogTemplates.templateVersions.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsDeleteSnapshots
 
 @dynamic location, projectId, snapshotId;
@@ -1110,6 +1256,25 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
   query.projectId = projectId;
   query.expectedObjectClass = [GTLRDataflow_LaunchTemplateResponse class];
   query.loggingName = @"dataflow.projects.templates.launch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsTemplateVersionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1b3/{+parent}/templateVersions";
+  GTLRDataflowQuery_ProjectsTemplateVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataflow_ListTemplateVersionsResponse class];
+  query.loggingName = @"dataflow.projects.templateVersions.list";
   return query;
 }
 

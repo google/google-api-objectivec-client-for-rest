@@ -29,6 +29,7 @@
 @class GTLRDisplayVideo_AdvertiserDataAccessConfig;
 @class GTLRDisplayVideo_AdvertiserGeneralConfig;
 @class GTLRDisplayVideo_AdvertiserSdfConfig;
+@class GTLRDisplayVideo_AdvertiserTargetingConfig;
 @class GTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_AgeRangeTargetingOptionDetails;
 @class GTLRDisplayVideo_AppAssignedTargetingOptionDetails;
@@ -1016,13 +1017,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeParentalStatus;
 /**
- *  Target ads to business chains, individual points of interests (POIs),
- *  street addresses, and latitude/longitude coordinates.
- *
- *  Value: "TARGETING_TYPE_PROXIMITY_LOCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeProximityLocation;
-/**
  *  Target ads to the specified points of interest on a proximity location
  *  list.
  *
@@ -1562,13 +1556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus;
-/**
- *  Target ads to business chains, individual points of interests (POIs),
- *  street addresses, and latitude/longitude coordinates.
- *
- *  Value: "TARGETING_TYPE_PROXIMITY_LOCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocation;
 /**
  *  Target ads to the specified points of interest on a proximity location
  *  list.
@@ -2358,13 +2345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus;
-/**
- *  Target ads to business chains, individual points of interests (POIs),
- *  street addresses, and latitude/longitude coordinates.
- *
- *  Value: "TARGETING_TYPE_PROXIMITY_LOCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocation;
 /**
  *  Target ads to the specified points of interest on a proximity location
  *  list.
@@ -7238,13 +7218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeParentalStatus;
 /**
- *  Target ads to business chains, individual points of interests (POIs),
- *  street addresses, and latitude/longitude coordinates.
- *
- *  Value: "TARGETING_TYPE_PROXIMITY_LOCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeProximityLocation;
-/**
  *  Target ads to the specified points of interest on a proximity location
  *  list.
  *
@@ -7930,6 +7903,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, strong, nullable) NSNumber *partnerId;
 
+/** Targeting settings related to ad serving of the advertiser. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserTargetingConfig *servingConfig;
+
 /**
  *  Output only. The timestamp when the advertiser was last updated. Assigned by
  *  the system.
@@ -8118,6 +8094,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  is `false`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_SdfConfig *sdfConfig;
+
+@end
+
+
+/**
+ *  Targeting settings related to ad serving of an advertiser.
+ */
+@interface GTLRDisplayVideo_AdvertiserTargetingConfig : GTLRObject
+
+/**
+ *  Whether or not connected TV devices are exempt from viewability targeting
+ *  for all video line items under the advertiser.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exemptTvFromViewabilityTargeting;
 
 @end
 
@@ -8832,10 +8824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
- *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeProximityLocation
- *        Target ads to business chains, individual points of interests (POIs),
- *        street addresses, and latitude/longitude coordinates. (Value:
- *        "TARGETING_TYPE_PROXIMITY_LOCATION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
@@ -9147,6 +9135,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Request message for
+ *  BulkEditAdvertiserAssignedTargetingOptions.
+ */
+@interface GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest : GTLRObject
+
+/**
+ *  The assigned targeting options to create in batch, specified as a list of
+ *  `CreateAssignedTargetingOptionsRequest`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
+
+/**
+ *  The assigned targeting options to delete in batch, specified as a list of
+ *  `DeleteAssignedTargetingOptionsRequest`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
+
+@end
+
+
+/**
+ *  GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse
+ */
+@interface GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse : GTLRObject
+
+/**
+ *  The list of assigned targeting options that have been successfully created.
+ *  This list will be absent if empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *createdAssignedTargetingOptions;
+
+@end
+
+
+/**
+ *  Request message for
  *  BulkEditLineItemAssignedTargetingOptions.
  */
 @interface GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest : GTLRObject
@@ -9176,6 +9199,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  This list will be absent if empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *createdAssignedTargetingOptions;
+
+@end
+
+
+/**
+ *  GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options.
+ *  This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be
+ *  specified as the
+ *  pageToken
+ *  in a subsequent BulkListAdvertiserAssignedTargetingOptionsRequest to
+ *  fetch the next page of results. This token will be absent if there are no
+ *  more
+ *  assigned_targeting_options
+ *  to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -10022,10 +10079,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
- *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocation
- *        Target ads to business chains, individual points of interests (POIs),
- *        street addresses, and latitude/longitude coordinates. (Value:
- *        "TARGETING_TYPE_PROXIMITY_LOCATION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
@@ -11140,10 +11193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
- *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocation
- *        Target ads to business chains, individual points of interests (POIs),
- *        street addresses, and latitude/longitude coordinates. (Value:
- *        "TARGETING_TYPE_PROXIMITY_LOCATION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
@@ -14247,6 +14296,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Response message for
+ *  ListAdvertiserAssignedTargetingOptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListAdvertiserAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options.
+ *  This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be
+ *  specified as the
+ *  pageToken in a
+ *  subsequent ListAdvertiserAssignedTargetingOptionsRequest to fetch the
+ *  next page of results. This token will be absent if there are no more
+ *  assigned_targeting_options
+ *  to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRDisplayVideo_ListAdvertisersResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -16580,10 +16663,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
- *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeProximityLocation
- *        Target ads to business chains, individual points of interests (POIs),
- *        street addresses, and latitude/longitude coordinates. (Value:
- *        "TARGETING_TYPE_PROXIMITY_LOCATION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")

@@ -61,6 +61,7 @@
 @class GTLRYouTube_ChannelStatistics;
 @class GTLRYouTube_ChannelStatus;
 @class GTLRYouTube_ChannelTopicDetails;
+@class GTLRYouTube_ChannelToStoreLinkDetails;
 @class GTLRYouTube_Comment;
 @class GTLRYouTube_CommentSnippet;
 @class GTLRYouTube_CommentThread;
@@ -95,11 +96,6 @@
 @class GTLRYouTube_LiveChatMessageSnippet;
 @class GTLRYouTube_LiveChatModerator;
 @class GTLRYouTube_LiveChatModeratorSnippet;
-@class GTLRYouTube_LiveChatPollClosedDetails;
-@class GTLRYouTube_LiveChatPollEditedDetails;
-@class GTLRYouTube_LiveChatPollItem;
-@class GTLRYouTube_LiveChatPollOpenedDetails;
-@class GTLRYouTube_LiveChatPollVotedDetails;
 @class GTLRYouTube_LiveChatSuperChatDetails;
 @class GTLRYouTube_LiveChatSuperStickerDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
@@ -149,6 +145,9 @@
 @class GTLRYouTube_SuperChatEvent;
 @class GTLRYouTube_SuperChatEventSnippet;
 @class GTLRYouTube_SuperStickerMetadata;
+@class GTLRYouTube_ThirdPartyLink;
+@class GTLRYouTube_ThirdPartyLinkSnippet;
+@class GTLRYouTube_ThirdPartyLinkStatus;
 @class GTLRYouTube_Thumbnail;
 @class GTLRYouTube_ThumbnailDetails;
 @class GTLRYouTube_TokenPagination;
@@ -1895,14 +1894,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Mess
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent;
 /** Value: "newSponsorEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent;
-/** Value: "pollClosedEvent" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent;
-/** Value: "pollEditedEvent" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent;
-/** Value: "pollOpenedEvent" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent;
-/** Value: "pollVotedEvent" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent;
 /** Value: "sponsorOnlyModeEndedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent;
 /** Value: "sponsorOnlyModeStartedEvent" */
@@ -2083,6 +2074,26 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_SearchResultSnippet_LiveBroadcas
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_All;
 /** Value: "uploads" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_SubscriptionContentDetails_ActivityType_Uploads;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ThirdPartyLinkSnippet.type
+
+/** Value: "channelToStoreLink" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToStoreLink;
+/** Value: "unknownLink" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkSnippet_Type_UnknownLink;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ThirdPartyLinkStatus.linkStatus
+
+/** Value: "failed" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Failed;
+/** Value: "linked" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Linked;
+/** Value: "pending" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Pending;
+/** Value: "unknown" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_VideoAgeGating.videoGameRating
@@ -2827,7 +2838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the video was uploaded. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -3014,7 +3025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time when the caption track was last updated. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
 
@@ -3336,7 +3347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time of when the channel was linked to the content owner. The
- *  value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  value is specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeLinked;
 
@@ -3798,7 +3809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the channel was created. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -3940,6 +3951,21 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  Information specific to a store on a merchandising platform linked to a
+ *  YouTube channel.
+ */
+@interface GTLRYouTube_ChannelToStoreLinkDetails : GTLRObject
+
+/** Name of the store. */
+@property(nonatomic, copy, nullable) NSString *storeName;
+
+/** Landing page of the store. */
+@property(nonatomic, copy, nullable) NSString *storeUrl;
+
+@end
+
+
+/**
  *  A comment represents a single YouTube comment.
  */
 @interface GTLRYouTube_Comment : GTLRObject
@@ -4074,7 +4100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time when the comment was orignally published. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -4095,7 +4121,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time when was last updated . The value is specified in ISO 8601
- *  (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updatedAt;
 
@@ -5805,6 +5831,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *ingestionAddress;
 
+/**
+ *  This ingestion url may be used instead of backupIngestionAddress in order to
+ *  stream via RTMPS. Not applicable to non-RTMP streams.
+ */
+@property(nonatomic, copy, nullable) NSString *rtmpsBackupIngestionAddress;
+
+/**
+ *  This ingestion url may be used instead of ingestionAddress in order to
+ *  stream via RTMPS. Not applicable to non-RTMP streams.
+ */
+@property(nonatomic, copy, nullable) NSString *rtmpsIngestionAddress;
+
 /** The HTTP or RTMP stream name that YouTube assigns to the video stream. */
 @property(nonatomic, copy, nullable) NSString *streamName;
 
@@ -6253,14 +6291,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /**
  *  The date and time that the broadcast actually ended. This information is
  *  only available once the broadcast's state is complete. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
 
 /**
  *  The date and time that the broadcast actually started. This information is
  *  only available once the broadcast's state is live. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
@@ -6318,20 +6356,19 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the broadcast was added to YouTube's live broadcast
- *  schedule. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ)
- *  format.
+ *  schedule. The value is specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The date and time that the broadcast is scheduled to end. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
 /**
  *  The date and time that the broadcast is scheduled to start. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
@@ -6755,14 +6792,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *liveChatId;
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollClosedDetails *pollClosedDetails;
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollEditedDetails *pollEditedDetails;
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollOpenedDetails *pollOpenedDetails;
-@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatPollVotedDetails *pollVotedDetails;
 
 /**
  *  The date and time when the message was orignally published. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -6799,14 +6832,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *        Value "messageRetractedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent Value
  *        "newSponsorEvent"
- *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollClosedEvent Value
- *        "pollClosedEvent"
- *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollEditedEvent Value
- *        "pollEditedEvent"
- *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollOpenedEvent Value
- *        "pollOpenedEvent"
- *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_PollVotedEvent Value
- *        "pollVotedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeEndedEvent
  *        Value "sponsorOnlyModeEndedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_SponsorOnlyModeStartedEvent
@@ -6920,104 +6945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** Details about the moderator. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *moderatorDetails;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveChatPollClosedDetails
- */
-@interface GTLRYouTube_LiveChatPollClosedDetails : GTLRObject
-
-/** The id of the poll that was closed. */
-@property(nonatomic, copy, nullable) NSString *pollId;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveChatPollEditedDetails
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRYouTube_LiveChatPollEditedDetails : GTLRCollectionObject
-
-/**
- *  identifier
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  items
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
-
-@property(nonatomic, copy, nullable) NSString *prompt;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveChatPollItem
- */
-@interface GTLRYouTube_LiveChatPollItem : GTLRObject
-
-/**
- *  Plain text description of the item.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-@property(nonatomic, copy, nullable) NSString *itemId;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveChatPollOpenedDetails
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRYouTube_LiveChatPollOpenedDetails : GTLRCollectionObject
-
-/**
- *  identifier
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  items
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_LiveChatPollItem *> *items;
-
-@property(nonatomic, copy, nullable) NSString *prompt;
-
-@end
-
-
-/**
- *  GTLRYouTube_LiveChatPollVotedDetails
- */
-@interface GTLRYouTube_LiveChatPollVotedDetails : GTLRObject
-
-/** The poll item the user chose. */
-@property(nonatomic, copy, nullable) NSString *itemId;
-
-/** The poll the user voted on. */
-@property(nonatomic, copy, nullable) NSString *pollId;
 
 @end
 
@@ -7423,7 +7350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the stream was created. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -7994,7 +7921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the video was published to YouTube. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *videoPublishedAt;
 
@@ -8091,7 +8018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the item was added to the playlist. The value is
- *  specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -8245,7 +8172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the playlist was created. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -8538,8 +8465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The creation date and time of the resource that the search result
- *  identifies. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ)
- *  format.
+ *  identifies. The value is specified in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -8643,7 +8569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time when the user became a sponsor. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *sponsorSince;
 
@@ -8799,7 +8725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the subscription was created. The value is specified
- *  in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  in ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -8941,7 +8867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time when the event occurred. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createdAt;
 
@@ -9014,6 +8940,113 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  sticker.
  */
 @property(nonatomic, copy, nullable) NSString *stickerId;
+
+@end
+
+
+/**
+ *  A third party account link resource represents a link between a YouTube
+ *  account or a channel and an account on a third-party service.
+ */
+@interface GTLRYouTube_ThirdPartyLink : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#thirdPartyLink".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The linking_token object identifies a YouTube account and channel with which
+ *  the third-party account is linked.
+ */
+@property(nonatomic, copy, nullable) NSString *linkingToken;
+
+/** The snippet object contains basic details about the third-party link. */
+@property(nonatomic, strong, nullable) GTLRYouTube_ThirdPartyLinkSnippet *snippet;
+
+/** The status object contains information about the status of the link. */
+@property(nonatomic, strong, nullable) GTLRYouTube_ThirdPartyLinkStatus *status;
+
+@end
+
+
+/**
+ *  GTLRYouTube_ThirdPartyLinkListResponse
+ */
+@interface GTLRYouTube_ThirdPartyLinkListResponse : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Serialized EventId of the request which produced this response. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#thirdPartyLinkListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A link between an account on a third-party service and a YouTube account or
+ *  channel relevant for the calling thid party.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_ThirdPartyLink *> *links;
+
+/** The visitorId identifies the visitor. */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
+ *  Basic information about a third-party account link, including its type and
+ *  type-specific information.
+ */
+@interface GTLRYouTube_ThirdPartyLinkSnippet : GTLRObject
+
+/**
+ *  Information specific to a link between a channel and a store on a
+ *  merchandising platform.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelToStoreLinkDetails *channelToStoreLink;
+
+/**
+ *  Type of the link named after the entities that are being linked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkSnippet_Type_ChannelToStoreLink Value
+ *        "channelToStoreLink"
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkSnippet_Type_UnknownLink Value
+ *        "unknownLink"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The third-party link status object contains information about the status of
+ *  the link.
+ */
+@interface GTLRYouTube_ThirdPartyLinkStatus : GTLRObject
+
+/**
+ *  linkStatus
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Failed Value "failed"
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Linked Value "linked"
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Pending Value
+ *        "pending"
+ *    @arg @c kGTLRYouTube_ThirdPartyLinkStatus_LinkStatus_Unknown Value
+ *        "unknown"
+ */
+@property(nonatomic, copy, nullable) NSString *linkStatus;
 
 @end
 
@@ -9917,15 +9950,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The time that the broadcast actually ended. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format. This value will not be available until
- *  the broadcast is over.
+ *  8601 format. This value will not be available until the broadcast is over.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
 
 /**
  *  The time that the broadcast actually started. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format. This value will not be available until
- *  the broadcast begins.
+ *  8601 format. This value will not be available until the broadcast begins.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
@@ -9943,15 +9974,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The time that the broadcast is scheduled to end. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format. If the value is empty or the
- *  property is not present, then the broadcast is scheduled to continue
- *  indefinitely.
+ *  ISO 8601 format. If the value is empty or the property is not present, then
+ *  the broadcast is scheduled to continue indefinitely.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
 /**
  *  The time that the broadcast is scheduled to begin. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  ISO 8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
@@ -10245,7 +10275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the video was uploaded. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -10381,7 +10411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /**
  *  The date and time when the video is scheduled to publish. It can be set only
  *  if the privacy status of the video is private. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  8601 format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishAt;
 

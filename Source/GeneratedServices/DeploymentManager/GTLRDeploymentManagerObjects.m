@@ -36,7 +36,7 @@
 //
 
 @implementation GTLRDeploymentManager_AuditLogConfig
-@dynamic exemptedMembers, logType;
+@dynamic exemptedMembers, ignoreChildExemptions, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -82,7 +82,7 @@
 //
 
 @implementation GTLRDeploymentManager_Condition
-@dynamic iam, op, svc, sys, value, values;
+@dynamic iam, op, svc, sys, values;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -288,7 +288,25 @@
 //
 
 @implementation GTLRDeploymentManager_LogConfigCounterOptions
-@dynamic field, metric;
+@dynamic customFields, field, metric;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customFields" : [GTLRDeploymentManager_LogConfigCounterOptionsCustomField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_LogConfigCounterOptionsCustomField
+//
+
+@implementation GTLRDeploymentManager_LogConfigCounterOptionsCustomField
+@dynamic name, value;
 @end
 
 

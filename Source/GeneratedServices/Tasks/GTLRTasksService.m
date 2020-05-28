@@ -4,9 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Manages your tasks and task lists.
-// Documentation:
-//   https://developers.google.com/google-apps/tasks/firstapp
+//   The Google Tasks API lets you manage your tasks and task lists.
 
 #import "GTLRTasks.h"
 
@@ -27,20 +25,10 @@ NSString * const kGTLRAuthScopeTasksReadonly = @"https://www.googleapis.com/auth
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"tasks/v1/";
     self.batchPath = @"batch/tasks/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"tasks#task" : [GTLRTasks_Task class],
-    @"tasks#taskList" : [GTLRTasks_TaskList class],
-    @"tasks#taskLists" : [GTLRTasks_TaskLists class],
-    @"tasks#tasks" : [GTLRTasks_Tasks class],
-  };
 }
 
 @end

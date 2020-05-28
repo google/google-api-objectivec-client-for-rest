@@ -138,6 +138,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Calendar"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ChromeUXReport",
+            targets: ["GoogleAPIClientForREST_ChromeUXReport"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CivicInfo",
             targets: ["GoogleAPIClientForREST_CivicInfo"]
         ),
@@ -929,6 +933,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Calendar",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Calendar",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ChromeUXReport",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/ChromeUXReport",
             publicHeadersPath: "."
         ),
         .target(

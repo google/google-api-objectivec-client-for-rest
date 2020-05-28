@@ -57,9 +57,17 @@ NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off    = @"off";
 NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On     = @"on";
 NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer = @"transfer";
 
+// GTLRDns_ManagedZoneForwardingConfigNameServerTarget.forwardingPath
+NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default = @"default";
+NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private = @"private";
+
 // GTLRDns_Operation.status
 NSString * const kGTLRDns_Operation_Status_Done    = @"done";
 NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
+
+// GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer.forwardingPath
+NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default = @"default";
+NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private = @"private";
 
 // ----------------------------------------------------------------------------
 //
@@ -183,7 +191,8 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 @implementation GTLRDns_ManagedZone
 @dynamic creationTime, descriptionProperty, dnsName, dnssecConfig,
          forwardingConfig, identifier, kind, labels, name, nameServers,
-         nameServerSet, peeringConfig, privateVisibilityConfig, visibility;
+         nameServerSet, peeringConfig, privateVisibilityConfig,
+         reverseLookupConfig, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -259,7 +268,7 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 //
 
 @implementation GTLRDns_ManagedZoneForwardingConfigNameServerTarget
-@dynamic ipv4Address, kind;
+@dynamic forwardingPath, ipv4Address, kind;
 @end
 
 
@@ -330,6 +339,16 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 
 @implementation GTLRDns_ManagedZonePrivateVisibilityConfigNetwork
 @dynamic kind, networkUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneReverseLookupConfig
+//
+
+@implementation GTLRDns_ManagedZoneReverseLookupConfig
+@dynamic kind;
 @end
 
 
@@ -485,7 +504,7 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 //
 
 @implementation GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer
-@dynamic ipv4Address, kind;
+@dynamic forwardingPath, ipv4Address, kind;
 @end
 
 

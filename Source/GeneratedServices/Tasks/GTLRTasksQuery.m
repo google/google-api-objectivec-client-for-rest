@@ -4,9 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Manages your tasks and task lists.
-// Documentation:
-//   https://developers.google.com/google-apps/tasks/firstapp
+//   The Google Tasks API lets you manage your tasks and task lists.
 
 #import "GTLRTasksQuery.h"
 
@@ -24,7 +22,7 @@
 
 + (instancetype)queryWithTasklist:(NSString *)tasklist {
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"users/@me/lists/{tasklist}";
+  NSString *pathURITemplate = @"tasks/v1/users/@me/lists/{tasklist}";
   GTLRTasksQuery_TasklistsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -42,7 +40,7 @@
 
 + (instancetype)queryWithTasklist:(NSString *)tasklist {
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"users/@me/lists/{tasklist}";
+  NSString *pathURITemplate = @"tasks/v1/users/@me/lists/{tasklist}";
   GTLRTasksQuery_TasklistsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -64,7 +62,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"users/@me/lists";
+  NSString *pathURITemplate = @"tasks/v1/users/@me/lists";
   GTLRTasksQuery_TasklistsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -82,7 +80,7 @@
 @dynamic maxResults, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"users/@me/lists";
+  NSString *pathURITemplate = @"tasks/v1/users/@me/lists";
   GTLRTasksQuery_TasklistsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -107,7 +105,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"users/@me/lists/{tasklist}";
+  NSString *pathURITemplate = @"tasks/v1/users/@me/lists/{tasklist}";
   GTLRTasksQuery_TasklistsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -134,7 +132,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"users/@me/lists/{tasklist}";
+  NSString *pathURITemplate = @"tasks/v1/users/@me/lists/{tasklist}";
   GTLRTasksQuery_TasklistsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -154,7 +152,7 @@
 
 + (instancetype)queryWithTasklist:(NSString *)tasklist {
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"lists/{tasklist}/clear";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/clear";
   GTLRTasksQuery_TasksClear *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -175,7 +173,7 @@
   NSArray *pathParams = @[
     @"task", @"tasklist"
   ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks/{task}";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks/{task}";
   GTLRTasksQuery_TasksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -197,7 +195,7 @@
   NSArray *pathParams = @[
     @"task", @"tasklist"
   ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks/{task}";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks/{task}";
   GTLRTasksQuery_TasksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -224,7 +222,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks";
   GTLRTasksQuery_TasksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -245,7 +243,7 @@
 
 + (instancetype)queryWithTasklist:(NSString *)tasklist {
   NSArray *pathParams = @[ @"tasklist" ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks";
   GTLRTasksQuery_TasksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -267,7 +265,7 @@
   NSArray *pathParams = @[
     @"task", @"tasklist"
   ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks/{task}/move";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks/{task}/move";
   GTLRTasksQuery_TasksMove *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -297,7 +295,7 @@
   NSArray *pathParams = @[
     @"task", @"tasklist"
   ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks/{task}";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks/{task}";
   GTLRTasksQuery_TasksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -328,7 +326,7 @@
   NSArray *pathParams = @[
     @"task", @"tasklist"
   ];
-  NSString *pathURITemplate = @"lists/{tasklist}/tasks/{task}";
+  NSString *pathURITemplate = @"tasks/v1/lists/{tasklist}/tasks/{task}";
   GTLRTasksQuery_TasksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

@@ -102,11 +102,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/**
- *  The geographic location to list info types. Reserved for future
- *  extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
+
+/** The parent resource name, for example locations/{location_id}. */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
@@ -133,7 +133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_LocationsInfoTypesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForLocationsInfoTypesListWithlocationId:]
+//   +[GTLQueryDLP queryForLocationsInfoTypesListWithparent:]
 
 /**
  *  filter to only return infoTypes supported by certain parts of the
@@ -148,11 +148,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/**
- *  The geographic location to list info types. Reserved for future
- *  extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
+
+/** The parent resource name, for example locations/{location_id}. */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
@@ -161,13 +161,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
  *  learn more.
  *
- *  @param locationId The geographic location to list info types. Reserved for
- *    future
- *    extensions.
+ *  @param parent The parent resource name, for example locations/{location_id}.
  *
  *  @return GTLRDLPQuery_LocationsInfoTypesList
  */
-+ (instancetype)queryWithLocationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -308,10 +306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesListWithparent:]
 
-/**
- *  The geographic location where deidentifications templates will be retrieved
- *  from. Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -540,10 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForOrganizationsInspectTemplatesListWithparent:]
 
-/**
- *  The geographic location where inspection templates will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -652,13 +644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the deidentification template. Reserved
- *  for future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, for example projects/my-project-id or
@@ -680,15 +666,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location to store the deidentification
- *    template. Reserved
- *    for future extensions.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -784,12 +766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesListWithparent:locationId:]
+//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesListWithparent:]
 
-/**
- *  The geographic location where deidentifications templates will be retrieved
- *  from. Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -834,9 +813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location where deidentifications templates
- *    will be retrieved
- *    from. Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesList
  *
@@ -844,8 +820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -905,13 +880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the inspection template. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, for example projects/my-project-id or
@@ -931,15 +900,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location to store the inspection template.
- *    Reserved for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -1030,12 +995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesListWithparent:locationId:]
+//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesListWithparent:]
 
-/**
- *  The geographic location where inspection templates will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -1079,9 +1041,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location where inspection templates will be
- *    retrieved from.
- *    Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesList
  *
@@ -1089,8 +1048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1147,13 +1105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the stored infoType. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, for example projects/my-project-id or
@@ -1173,15 +1125,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location to store the stored infoType.
- *    Reserved for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -1277,12 +1225,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesListWithparent:locationId:]
+//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesListWithparent:]
 
-/**
- *  The geographic location where stored infoTypes will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -1328,9 +1273,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location where stored infoTypes will be
- *    retrieved from.
- *    Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList
  *
@@ -1338,8 +1280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1522,10 +1463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesListWithparent:]
 
-/**
- *  The geographic location where stored infoTypes will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -1887,10 +1825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesListWithparent:]
 
-/**
- *  The geographic location where deidentifications templates will be retrieved
- *  from. Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -2180,10 +2115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  The geographic location where jobs will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -2411,10 +2343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsInspectTemplatesListWithparent:]
 
-/**
- *  The geographic location where inspection templates will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -2689,10 +2618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  The geographic location where job triggers will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -2799,13 +2725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsContentDeidentify : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsContentDeidentifyWithObject:parent:locationId:]
-
-/**
- *  The geographic location to process de-identification. Reserved for future
- *  extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsContentDeidentifyWithObject:parent:]
 
 /** The parent resource name, for example projects/my-project-id. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2824,15 +2744,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
  *    include in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
- *  @param locationId The geographic location to process de-identification.
- *    Reserved for future
- *    extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentDeidentify
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -2852,15 +2768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsContentInspect : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsContentInspectWithObject:parent:locationId:]
-
-/**
- *  The geographic location to process content inspection. Reserved for future
- *  extensions.
- *  When inspecting images location is restricted to 'global', 'us', 'asia',
- *  and 'europe'.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsContentInspectWithObject:parent:]
 
 /** The parent resource name, for example projects/my-project-id. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2879,17 +2787,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
- *  @param locationId The geographic location to process content inspection.
- *    Reserved for future
- *    extensions.
- *    When inspecting images location is restricted to 'global', 'us', 'asia',
- *    and 'europe'.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentInspect
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2InspectContentRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -2906,13 +2808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsContentReidentify : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsContentReidentifyWithObject:parent:locationId:]
-
-/**
- *  The geographic location to process content reidentification. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsContentReidentifyWithObject:parent:]
 
 /** Required. The parent resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2928,15 +2824,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
  *  @param parent Required. The parent resource name.
- *  @param locationId The geographic location to process content
- *    reidentification. Reserved for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentReidentify
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -2953,13 +2845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the deidentification template. Reserved
- *  for future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, for example projects/my-project-id or
@@ -2981,15 +2867,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location to store the deidentification
- *    template. Reserved
- *    for future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -3085,12 +2967,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesListWithparent:locationId:]
+//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesListWithparent:]
 
-/**
- *  The geographic location where deidentifications templates will be retrieved
- *  from. Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -3135,9 +3014,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location where deidentifications templates
- *    will be retrieved
- *    from. Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesList
  *
@@ -3145,8 +3021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3248,13 +3123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store and process the job. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsCreateWithObject:parent:]
 
 /** Required. The parent resource name, for example projects/my-project-id. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3273,15 +3142,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id.
- *  @param locationId The geographic location to store and process the job.
- *    Reserved for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -3451,7 +3316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsListWithparent:locationId:]
+//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsListWithparent:]
 
 /**
  *  Allows filtering.
@@ -3480,10 +3345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  The geographic location where jobs will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -3528,8 +3390,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id.
- *  @param locationId The geographic location where jobs will be retrieved from.
- *    Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsList
  *
@@ -3537,8 +3397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3558,14 +3417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsImageRedact : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsImageRedactWithObject:parent:locationId:]
-
-/**
- *  The geographic location to process the request. Reserved for future
- *  extensions.
- *  Location is restricted to 'global', 'us', 'asia', and 'europe'.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsImageRedactWithObject:parent:]
 
 /** The parent resource name, for example projects/my-project-id. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3584,16 +3436,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
  *  @param parent The parent resource name, for example projects/my-project-id.
- *  @param locationId The geographic location to process the request. Reserved
- *    for future
- *    extensions.
- *    Location is restricted to 'global', 'us', 'asia', and 'europe'.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsImageRedact
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2RedactImageRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -3609,13 +3456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the inspection template. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, for example projects/my-project-id or
@@ -3635,15 +3476,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location to store the inspection template.
- *    Reserved for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -3734,12 +3571,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesListWithparent:locationId:]
+//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesListWithparent:]
 
-/**
- *  The geographic location where inspection templates will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -3783,9 +3617,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location where inspection templates will be
- *    retrieved from.
- *    Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesList
  *
@@ -3793,8 +3624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3888,13 +3718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the job trigger. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersCreateWithObject:parent:]
 
 /** Required. The parent resource name, for example projects/my-project-id. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3910,15 +3734,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    include in the query.
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id.
- *  @param locationId The geographic location to store the job trigger. Reserved
- *    for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -4051,7 +3871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersListWithparent:locationId:]
+//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersListWithparent:]
 
 /**
  *  Allows filtering.
@@ -4076,10 +3896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  The geographic location where job triggers will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -4121,9 +3938,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param parent Required. The parent resource name, for example
  *    `projects/my-project-id`.
- *  @param locationId The geographic location where job triggers will be
- *    retrieved from.
- *    Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersList
  *
@@ -4131,8 +3945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4186,13 +3999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesCreateWithObject:parent:locationId:]
-
-/**
- *  The geographic location to store the stored infoType. Reserved for
- *  future extensions.
- */
-@property(nonatomic, copy, nullable) NSString *locationId;
+//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, for example projects/my-project-id or
@@ -4212,15 +4019,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location to store the stored infoType.
- *    Reserved for
- *    future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest *)object
-                         parent:(NSString *)parent
-                     locationId:(NSString *)locationId;
+                         parent:(NSString *)parent;
 
 @end
 
@@ -4316,12 +4119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList : GTLRDLPQuery
 // Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesListWithparent:locationId:]
+//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesListWithparent:]
 
-/**
- *  The geographic location where stored infoTypes will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -4367,9 +4167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param parent Required. The parent resource name, for example
  *    projects/my-project-id or
  *    organizations/my-org-id.
- *  @param locationId The geographic location where stored infoTypes will be
- *    retrieved from.
- *    Use `-` for all locations. Reserved for future extensions.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList
  *
@@ -4377,8 +4174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent
-                     locationId:(NSString *)locationId;
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4561,10 +4357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsStoredInfoTypesListWithparent:]
 
-/**
- *  The geographic location where stored infoTypes will be retrieved from.
- *  Use `-` for all locations. Reserved for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**

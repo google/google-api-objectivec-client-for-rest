@@ -4,9 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Manages your tasks and task lists.
-// Documentation:
-//   https://developers.google.com/google-apps/tasks/firstapp
+//   The Google Tasks API lets you manage your tasks and task lists.
 
 #import "GTLRTasksObjects.h"
 
@@ -32,6 +30,12 @@
     @"links" : [GTLRTasks_Task_Links_Item class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -68,6 +72,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -90,6 +100,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -110,6 +126,12 @@
     @"items" : [GTLRTasks_Task class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

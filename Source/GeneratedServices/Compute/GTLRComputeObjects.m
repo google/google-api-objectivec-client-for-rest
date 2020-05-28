@@ -1174,6 +1174,11 @@ NSString * const kGTLRCompute_ImageList_Warning_Code_SingleInstancePropertyTempl
 NSString * const kGTLRCompute_ImageList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_Instance.privateIpv6GoogleAccess
+NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle = @"ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE";
+NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle = @"ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE";
+NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_InheritFromSubnetwork = @"INHERIT_FROM_SUBNETWORK";
+
 // GTLRCompute_Instance.status
 NSString * const kGTLRCompute_Instance_Status_Deprovisioning = @"DEPROVISIONING";
 NSString * const kGTLRCompute_Instance_Status_Provisioning   = @"PROVISIONING";
@@ -1480,6 +1485,11 @@ NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Act
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Refreshing = @"REFRESHING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting = @"RESTARTING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying = @"VERIFYING";
+
+// GTLRCompute_InstanceProperties.privateIpv6GoogleAccess
+NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle = @"ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE";
+NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle = @"ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE";
+NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_InheritFromSubnetwork = @"INHERIT_FROM_SUBNETWORK";
 
 // GTLRCompute_InstancesScopedList_Warning.code
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -3426,6 +3436,11 @@ NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SchemaValidationIgnor
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_Subnetwork.privateIpv6GoogleAccess
+NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_DisableGoogleAccess = @"DISABLE_GOOGLE_ACCESS";
+NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle = @"ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE";
+NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle = @"ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE";
 
 // GTLRCompute_Subnetwork.purpose
 NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
@@ -7701,8 +7716,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          descriptionProperty, disks, displayDevice, fingerprint,
          guestAccelerators, hostname, identifier, kind, labelFingerprint,
          labels, machineType, metadata, minCpuPlatform, name, networkInterfaces,
-         reservationAffinity, resourcePolicies, scheduling, selfLink,
-         serviceAccounts, shieldedInstanceConfig,
+         privateIpv6GoogleAccess, reservationAffinity, resourcePolicies,
+         scheduling, selfLink, serviceAccounts, shieldedInstanceConfig,
          shieldedInstanceIntegrityPolicy, startRestricted, status,
          statusMessage, tags, zoneProperty;
 
@@ -8651,8 +8666,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_InstanceProperties
 @dynamic canIpForward, descriptionProperty, disks, guestAccelerators, labels,
          machineType, metadata, minCpuPlatform, networkInterfaces,
-         reservationAffinity, resourcePolicies, scheduling, serviceAccounts,
-         shieldedInstanceConfig, tags;
+         privateIpv6GoogleAccess, reservationAffinity, resourcePolicies,
+         scheduling, serviceAccounts, shieldedInstanceConfig, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -10326,8 +10341,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkInterface
-@dynamic accessConfigs, aliasIpRanges, fingerprint, kind, name, network,
-         networkIP, subnetwork;
+@dynamic accessConfigs, aliasIpRanges, fingerprint, ipv6Address, kind, name,
+         network, networkIP, subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -14276,9 +14291,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Subnetwork
 @dynamic creationTimestamp, descriptionProperty, enableFlowLogs, fingerprint,
-         gatewayAddress, identifier, ipCidrRange, kind, logConfig, name,
-         network, privateIpGoogleAccess, purpose, region, role,
-         secondaryIpRanges, selfLink, state;
+         gatewayAddress, identifier, ipCidrRange, ipv6CidrRange, kind,
+         logConfig, name, network, privateIpGoogleAccess,
+         privateIpv6GoogleAccess, purpose, region, role, secondaryIpRanges,
+         selfLink, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

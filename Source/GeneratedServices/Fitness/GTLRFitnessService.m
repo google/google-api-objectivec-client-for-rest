@@ -2,12 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Fitness (fitness/v1)
+//   Fitness API (fitness/v1)
 // Description:
-//   Stores and accesses user data in the fitness store from apps on any
-//   platform.
+//   The Fitness API for managing users' fitness tracking data.
 // Documentation:
-//   https://developers.google.com/fit/rest/
+//   https://developers.google.com/fit/rest/v1/get-started
 
 #import "GTLRFitness.h"
 
@@ -44,7 +43,6 @@ NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite = @"https://www.go
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"fitness/v1/users/";
     self.batchPath = @"batch/fitness/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

@@ -151,7 +151,6 @@ NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_Targeti
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeOnScreenPosition = @"TARGETING_TYPE_ON_SCREEN_POSITION";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeOperatingSystem = @"TARGETING_TYPE_OPERATING_SYSTEM";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeParentalStatus = @"TARGETING_TYPE_PARENTAL_STATUS";
-NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeProximityLocation = @"TARGETING_TYPE_PROXIMITY_LOCATION";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeProximityLocationList = @"TARGETING_TYPE_PROXIMITY_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeRegionalLocationList = @"TARGETING_TYPE_REGIONAL_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeSensitiveCategoryExclusion = @"TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION";
@@ -250,7 +249,6 @@ NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeOnScreenPosition = @"TARGETING_TYPE_ON_SCREEN_POSITION";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeOperatingSystem = @"TARGETING_TYPE_OPERATING_SYSTEM";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus = @"TARGETING_TYPE_PARENTAL_STATUS";
-NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocation = @"TARGETING_TYPE_PROXIMITY_LOCATION";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocationList = @"TARGETING_TYPE_PROXIMITY_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeRegionalLocationList = @"TARGETING_TYPE_REGIONAL_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSensitiveCategoryExclusion = @"TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION";
@@ -385,7 +383,6 @@ NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeOnScreenPosition = @"TARGETING_TYPE_ON_SCREEN_POSITION";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeOperatingSystem = @"TARGETING_TYPE_OPERATING_SYSTEM";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus = @"TARGETING_TYPE_PARENTAL_STATUS";
-NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocation = @"TARGETING_TYPE_PROXIMITY_LOCATION";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocationList = @"TARGETING_TYPE_PROXIMITY_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeRegionalLocationList = @"TARGETING_TYPE_REGIONAL_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeSensitiveCategoryExclusion = @"TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION";
@@ -1311,7 +1308,6 @@ NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeNe
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeOnScreenPosition = @"TARGETING_TYPE_ON_SCREEN_POSITION";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeOperatingSystem = @"TARGETING_TYPE_OPERATING_SYSTEM";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeParentalStatus = @"TARGETING_TYPE_PARENTAL_STATUS";
-NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeProximityLocation = @"TARGETING_TYPE_PROXIMITY_LOCATION";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeProximityLocationList = @"TARGETING_TYPE_PROXIMITY_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeRegionalLocationList = @"TARGETING_TYPE_REGIONAL_LOCATION_LIST";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeSensitiveCategoryExclusion = @"TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION";
@@ -1434,7 +1430,7 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 @implementation GTLRDisplayVideo_Advertiser
 @dynamic adServerConfig, advertiserId, creativeConfig, dataAccessConfig,
          displayName, entityStatus, generalConfig, integrationDetails, name,
-         partnerId, updateTime;
+         partnerId, servingConfig, updateTime;
 @end
 
 
@@ -1486,6 +1482,16 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_AdvertiserSdfConfig
 @dynamic overridePartnerSdfConfig, sdfConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdvertiserTargetingConfig
+//
+
+@implementation GTLRDisplayVideo_AdvertiserTargetingConfig
+@dynamic exemptTvFromViewabilityTargeting;
 @end
 
 
@@ -1666,6 +1672,43 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest
+//
+
+@implementation GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest
+@dynamic createRequests, deleteRequests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"createRequests" : [GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest class],
+    @"deleteRequests" : [GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse
+@dynamic createdAssignedTargetingOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"createdAssignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest
 //
 
@@ -1696,6 +1739,28 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
     @"createdAssignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
 }
 
 @end
@@ -2811,6 +2876,28 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_LineItemFlight
 @dynamic dateRange, flightDateType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ListAdvertiserAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_ListAdvertiserAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
+}
+
 @end
 
 

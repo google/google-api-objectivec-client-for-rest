@@ -4,9 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Manages your tasks and task lists.
-// Documentation:
-//   https://developers.google.com/google-apps/tasks/firstapp
+//   The Google Tasks API lets you manage your tasks and task lists.
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -100,8 +98,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new task list and adds it to the authenticated user's task lists.
- *  Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000
- *  lists.
  *
  *  Method: tasks.tasklists.insert
  *
@@ -116,8 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRTasks_TaskList.
  *
  *  Creates a new task list and adds it to the authenticated user's task lists.
- *  Fails with HTTP code 403 or 429 after reaching the storage limit of 2,000
- *  lists.
  *
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *
@@ -144,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Maximum number of task lists returned on one page. Optional. The default is
  *  20 (max allowed: 100).
  */
-@property(nonatomic, assign) long long maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token specifying the result page to return. Optional. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -328,8 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new task on the specified task list. Fails with HTTP code 403 or
- *  429 after reaching the storage limit of 100,000 tasks per account.
+ *  Creates a new task on the specified task list.
  *
  *  Method: tasks.tasks.insert
  *
@@ -358,8 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Task.
  *
- *  Creates a new task on the specified task list. Fails with HTTP code 403 or
- *  429 after reaching the storage limit of 100,000 tasks per account.
+ *  Creates a new task on the specified task list.
  *
  *  @param object The @c GTLRTasks_Task to include in the query.
  *  @param tasklist Task list identifier.
@@ -385,14 +377,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksListWithtasklist:]
 
 /**
- *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter
- *  by. Optional. The default is not to filter by completion date.
+ *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to
+ *  filter by. Optional. The default is not to filter by completion date.
  */
 @property(nonatomic, copy, nullable) NSString *completedMax;
 
 /**
- *  Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter
- *  by. Optional. The default is not to filter by completion date.
+ *  Lower bound for a task's completion date (as a RFC 3339 timestamp) to
+ *  filter by. Optional. The default is not to filter by completion date.
  */
 @property(nonatomic, copy, nullable) NSString *completedMin;
 
@@ -412,7 +404,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Maximum number of task lists returned on one page. Optional. The default is
  *  20 (max allowed: 100).
  */
-@property(nonatomic, assign) long long maxResults;
+@property(nonatomic, assign) NSInteger maxResults;
 
 /** Token specifying the result page to return. Optional. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -439,8 +431,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
- *  Lower bound for a task's last modification time (as a RFC 3339 timestamp) to
- *  filter by. Optional. The default is not to filter by last modification time.
+ *  Lower bound for a task's last modification time (as a RFC 3339 timestamp)
+ *  to filter by. Optional. The default is not to filter by last modification
+ *  time.
  */
 @property(nonatomic, copy, nullable) NSString *updatedMin;
 
