@@ -384,9 +384,9 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DoubleClickBidManager/*.{h,m}'
   end
-  s.subspec 'DoubleClickSearch' do |sp|
+  s.subspec 'Doubleclicksearch' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/DoubleClickSearch/*.{h,m}'
+    sp.source_files = 'Source/GeneratedServices/Doubleclicksearch/*.{h,m}'
   end
   s.subspec 'Drive' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
