@@ -370,8 +370,8 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DoubleClickBidManager"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_DoubleClickSearch",
-            targets: ["GoogleAPIClientForREST_DoubleClickSearch"]
+            name: "GoogleAPIClientForREST_Doubleclicksearch",
+            targets: ["GoogleAPIClientForREST_Doubleclicksearch"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Drive",
@@ -1284,9 +1284,9 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
-            name: "GoogleAPIClientForREST_DoubleClickSearch",
+            name: "GoogleAPIClientForREST_Doubleclicksearch",
             dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/DoubleClickSearch",
+            path: "Source/GeneratedServices/Doubleclicksearch",
             publicHeadersPath: "."
         ),
         .target(

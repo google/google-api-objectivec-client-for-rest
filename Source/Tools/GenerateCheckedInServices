@@ -71,11 +71,6 @@ SERVICE_GENERATOR_COMMAND+=(
   # Not sure why this is in discovery, turn it off.
   prod_tt_sasportal:-
 
-  # doubleclicksearch got retitled to "Search Ads 360 API" so we no longer guess
-  # a good formatted name. Force the name to keep things in sync (can revisit
-  # this in the future).
-  --formattedName doubleclicksearch:v2=DoubleClickSearch
-
   # Include a filter so there are no warnings/infos during normal generation.
   --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"
 )
