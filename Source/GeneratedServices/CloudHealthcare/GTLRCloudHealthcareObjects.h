@@ -172,7 +172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3;
 /**
- *  Users must specify a version on store creation or an error will be
+ *  Users must specify a version on store creation or an error is
  *  returned.
  *
  *  Value: "VERSION_UNSPECIFIED"
@@ -240,7 +240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactio
 
 /**
  *  The source file contains one or more lines of newline-delimited JSON
- *  (ndjson). Each line is a bundle, which contains one or more resources.
+ *  (ndjson). Each line is a bundle that contains one or more resources.
  *  Set the bundle type to `history` to import resource versions.
  *
  *  Value: "BUNDLE"
@@ -254,7 +254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_C
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty;
 /**
  *  If the content structure is not specified, the default value `BUNDLE`
- *  will be used.
+ *  is used.
  *
  *  Value: "CONTENT_STRUCTURE_UNSPECIFIED"
  */
@@ -863,7 +863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  The BigQuery output destination.
  *  The BigQuery location requires two IAM roles:
  *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
- *  The output will be one BigQuery table per resource type.
+ *  The output is one BigQuery table per resource type.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 
@@ -872,7 +872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  The Cloud Storage location requires the `roles/storage.objectAdmin` Cloud
  *  IAM role.
  *  The exported outputs are
- *  organized by FHIR resource types. The server will create one object per
+ *  organized by FHIR resource types. The server creates one object per
  *  resource type. Each object contains newline delimited JSON, and each line
  *  is a FHIR resource.
  */
@@ -883,9 +883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Response when all resources export successfully.
- *  This structure will be included in the
+ *  This structure is included in the
  *  response to describe the detailed
- *  outcome. It will only be included when the operation finishes successfully.
+ *  outcome after the operation finishes successfully.
  */
 @interface GTLRCloudHealthcare_ExportResourcesResponse : GTLRObject
 @end
@@ -1083,7 +1083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Stu3 Standard for Trial
  *        Use, [Release 3](https://www.hl7.org/fhir/STU3) (Value: "STU3")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified Users
- *        must specify a version on store creation or an error will be
+ *        must specify a version on store creation or an error is
  *        returned. (Value: "VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -1142,6 +1142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Supported types are: AdministrativeGenderCode, Code, Date, DateTime,
  *  Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid,
  *  Xhtml.
+ *  Base64Binary is also supported, but may only be kept as-is or have all
+ *  the content removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -1280,7 +1282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *datasetUri;
 
 /**
- *  If this flag is `TRUE`, all tables will be deleted from the dataset before
+ *  If this flag is `TRUE`, all tables are deleted from the dataset before
  *  the new exported tables are written. If the flag is not set and the
  *  destination dataset contains tables, the export call returns an error.
  *
@@ -1300,9 +1302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination : GTLRObject
 
 /**
- *  URI for a Cloud Storage directory where result files should be written (in
- *  the format `gs://{bucket-id}/{path/to/destination/dir}`). If there is no
- *  trailing slash, the service will append one when composing the object path.
+ *  URI for a Cloud Storage directory where result files should be written, in
+ *  the format of `gs://{bucket-id}/{path/to/destination/dir}`. If there is no
+ *  trailing slash, the service appends one when composing the object path.
  *  The user is responsible for creating the Cloud Storage bucket referenced in
  *  `uri_prefix`.
  */
@@ -1348,7 +1350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Restricts notifications sent for messages matching a filter. If this is
  *  empty, all messages are matched. Syntax:
  *  https://cloud.google.com/appengine/docs/standard/python/search/query_strings
- *  Fields/functions available for filtering are:
+ *  The following fields and functions are available for filtering:
  *  * `message_type`, from the MSH-9.1 field. For example,
  *  `NOT message_type = "ADT"`.
  *  * `send_date` or `sendDate`, the YYYY-MM-DD date the message was sent in
@@ -1372,21 +1374,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  The [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
- *  notifications of changes are published on. Supplied by the client. The
- *  notification is a `PubsubMessage` with the following fields:
+ *  notifications of changes are published on. Supplied by the client.
+ *  The notification is a `PubsubMessage` with the following fields:
  *  * `PubsubMessage.Data` contains the resource name.
- *  * `PubsubMessage.MessageId` is the ID of this notification. It is
+ *  * `PubsubMessage.MessageId` is the ID of this notification. It's
  *  guaranteed to be unique within the topic.
- *  * `PubsubMessage.PublishTime` is the time at which the message was
+ *  * `PubsubMessage.PublishTime` is the time when the message was
  *  published.
  *  Note that notifications are only sent if the topic is non-empty. [Topic
  *  names](https://cloud.google.com/pubsub/docs/overview#names) must be
- *  scoped to a project. Cloud Healthcare API service account must have
+ *  scoped to a project.
+ *  The Cloud Healthcare API service account,
+ *  service-PROJECT_NUMBER\@gcp-sa-healthcare.iam.gserviceaccount.com,
+ *  must have
  *  publisher permissions on the given Pub/Sub topic. Not having adequate
  *  permissions causes the calls that send notifications to fail.
- *  If a notification cannot be published to Cloud Pub/Sub, errors will be
- *  logged to Cloud Logging (see [Viewing logs](/healthcare/docs/how-
- *  tos/logging)).
+ *  If a notification cannot be published to Cloud Pub/Sub, errors are
+ *  logged to Cloud Logging. For more information, see
+ *  [Viewing error logs in Cloud Logging](/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -1432,7 +1437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ParserConfig *parserConfig;
 
 /**
- *  Determines whether duplicate messages should be rejected. A duplicate
+ *  Determines whether to reject duplicate messages. A duplicate
  *  message is a message with the same raw bytes as a message that has already
  *  been ingested/created in this HL7v2 store.
  *  The default value is false, meaning that the store accepts the duplicate
@@ -1599,7 +1604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle
  *        The source file contains one or more lines of newline-delimited JSON
- *        (ndjson). Each line is a bundle, which contains one or more resources.
+ *        (ndjson). Each line is a bundle that contains one or more resources.
  *        Set the bundle type to `history` to import resource versions. (Value:
  *        "BUNDLE")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty
@@ -1607,7 +1612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *        (Value: "BUNDLE_PRETTY")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ContentStructureUnspecified
  *        If the content structure is not specified, the default value `BUNDLE`
- *        will be used. (Value: "CONTENT_STRUCTURE_UNSPECIFIED")
+ *        is used. (Value: "CONTENT_STRUCTURE_UNSPECIFIED")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource
  *        The source file contains one or more lines of newline-delimited JSON
  *        (ndjson). Each line is a single resource. (Value: "RESOURCE")
@@ -1631,9 +1636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Final response of importing resources.
- *  This structure will be included in the
+ *  This structure is included in the
  *  response to describe the detailed
- *  outcome. It will only be included when the operation finishes successfully.
+ *  outcome after the operation finishes successfully.
  */
 @interface GTLRCloudHealthcare_ImportResourcesResponse : GTLRObject
 @end
@@ -1867,8 +1872,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  A complete HL7v2 message.
- *  See http://www.hl7.org/implement/standards/index.cfm?ref=common for details
- *  on the standard.
+ *  See [Introduction to HL7 Standards]
+ *  (https://www.hl7.org/implement/standards/index.cfm?ref=common) for
+ *  details on the standard.
  */
 @interface GTLRCloudHealthcare_Message : GTLRObject
 
@@ -2504,7 +2510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  This structure contains configuration for streaming FHIR export.
+ *  Contains configuration for streaming FHIR export.
  */
 @interface GTLRCloudHealthcare_StreamConfig : GTLRObject
 
@@ -2513,14 +2519,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  location and corresponding schema config.
  *  The output is organized in one table per resource type. The server
  *  reuses the existing tables (if any) that are named after the resource
- *  types, e.g. "Patient", "Observation". When there is no existing table
- *  for a given resource type, the server attempts to create one.
+ *  types. For example, "Patient", "Observation". When there is no existing
+ *  table for a given resource type, the server attempts to create one.
  *  When a table schema doesn't align with the schema config, either
  *  because of existing incompatible schema or out of band incompatible
  *  modification, the server does not stream in new data.
  *  BigQuery imposes a 1 MB limit on streaming insert row size, therefore
  *  any resource mutation that generates more than 1 MB of BigQuery data
- *  will not be streamed.
+ *  is not streamed.
  *  One resolution in this case is to delete the incompatible
  *  table and let the server recreate one, though the newly created table
  *  only contains data after the table recreation.
@@ -2538,9 +2544,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  statement to keep only one of the duplicate rows given an id and
  *  meta.versionId pair. Alternatively, the server created view mentioned
  *  above also filters out duplicates.
- *  If a resource mutation cannot be streamed to BigQuery, errors will be
- *  logged to Cloud Logging (see
- *  [Viewing logs](/healthcare/docs/how-tos/logging)).
+ *  If a resource mutation cannot be streamed to BigQuery, errors are
+ *  logged to Cloud Logging. For more information, see
+ *  [Viewing error logs in Cloud
+ *  Logging](/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 

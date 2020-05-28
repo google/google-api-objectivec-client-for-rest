@@ -31,6 +31,12 @@ NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureNever = @"S
 NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureOptional = @"SECURE_OPTIONAL";
 NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureUnspecified = @"SECURE_UNSPECIFIED";
 
+// GTLRAppengine_Application.databaseType
+NSString * const kGTLRAppengine_Application_DatabaseType_CloudDatastore = @"CLOUD_DATASTORE";
+NSString * const kGTLRAppengine_Application_DatabaseType_CloudDatastoreCompatibility = @"CLOUD_DATASTORE_COMPATIBILITY";
+NSString * const kGTLRAppengine_Application_DatabaseType_CloudFirestore = @"CLOUD_FIRESTORE";
+NSString * const kGTLRAppengine_Application_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+
 // GTLRAppengine_Application.servingStatus
 NSString * const kGTLRAppengine_Application_ServingStatus_Serving = @"SERVING";
 NSString * const kGTLRAppengine_Application_ServingStatus_SystemDisabled = @"SYSTEM_DISABLED";
@@ -152,9 +158,10 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Application
-@dynamic authDomain, codeBucket, defaultBucket, defaultCookieExpiration,
-         defaultHostname, dispatchRules, featureSettings, gcrDomain, iap,
-         identifier, locationId, name, servingStatus;
+@dynamic authDomain, codeBucket, databaseType, defaultBucket,
+         defaultCookieExpiration, defaultHostname, dispatchRules,
+         featureSettings, gcrDomain, iap, identifier, locationId, name,
+         servingStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

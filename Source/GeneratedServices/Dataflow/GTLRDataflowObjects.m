@@ -138,6 +138,11 @@ NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageError = @"
 NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown = @"JOB_MESSAGE_IMPORTANCE_UNKNOWN";
 NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning = @"JOB_MESSAGE_WARNING";
 
+// GTLRDataflow_ModifyTemplateVersionLabelRequest.op
+NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Add = @"ADD";
+NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Remove = @"REMOVE";
+
 // GTLRDataflow_NameAndKind.kind
 NSString * const kGTLRDataflow_NameAndKind_Kind_And          = @"AND";
 NSString * const kGTLRDataflow_NameAndKind_Kind_Distribution = @"DISTRIBUTION";
@@ -161,6 +166,10 @@ NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder = @"GC
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription = @"PUBSUB_SUBSCRIPTION";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_PubsubTopic = @"PUBSUB_TOPIC";
 NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Text = @"TEXT";
+
+// GTLRDataflow_QueryInfo.queryProperty
+NSString * const kGTLRDataflow_QueryInfo_QueryProperty_HasUnboundedSource = @"HAS_UNBOUNDED_SOURCE";
+NSString * const kGTLRDataflow_QueryInfo_QueryProperty_QueryPropertyUnspecified = @"QUERY_PROPERTY_UNSPECIFIED";
 
 // GTLRDataflow_RuntimeEnvironment.ipConfiguration
 NSString * const kGTLRDataflow_RuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
@@ -202,6 +211,11 @@ NSString * const kGTLRDataflow_SourceSplitShard_DerivationMode_SourceDerivationM
 NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStart = @"STREAMING_COMPUTATION_TASK_START";
 NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStop = @"STREAMING_COMPUTATION_TASK_STOP";
 NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown = @"STREAMING_COMPUTATION_TASK_UNKNOWN";
+
+// GTLRDataflow_TemplateVersion.type
+NSString * const kGTLRDataflow_TemplateVersion_Type_Flex       = @"FLEX";
+NSString * const kGTLRDataflow_TemplateVersion_Type_Legacy     = @"LEGACY";
+NSString * const kGTLRDataflow_TemplateVersion_Type_TemplateTypeUnspecified = @"TEMPLATE_TYPE_UNSPECIFIED";
 
 // GTLRDataflow_TransformSummary.kind
 NSString * const kGTLRDataflow_TransformSummary_Kind_ConstantKind = @"CONSTANT_KIND";
@@ -273,6 +287,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_Artifact
+//
+
+@implementation GTLRDataflow_Artifact
+@dynamic containerSpec, jobGraphGcsPath, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_AutoscalingEvent
 //
 
@@ -314,6 +338,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_BigTableIODetails
 @dynamic instanceId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_CommitTemplateVersionRequest
+//
+
+@implementation GTLRDataflow_CommitTemplateVersionRequest
+@dynamic templateVersion;
 @end
 
 
@@ -470,6 +504,16 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_CreateTemplateVersionRequest
+//
+
+@implementation GTLRDataflow_CreateTemplateVersionRequest
+@dynamic templateVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_CustomSourceLocation
 //
 
@@ -573,6 +617,15 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_DynamicSourceSplit
 @dynamic primary, residual;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_Empty
+//
+
+@implementation GTLRDataflow_Empty
 @end
 
 
@@ -1284,6 +1337,28 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_ListTemplateVersionsResponse
+//
+
+@implementation GTLRDataflow_ListTemplateVersionsResponse
+@dynamic nextPageToken, templateVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"templateVersions" : [GTLRDataflow_TemplateVersion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"templateVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_MapTask
 //
 
@@ -1357,6 +1432,68 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ModifyTemplateVersionLabelRequest
+//
+
+@implementation GTLRDataflow_ModifyTemplateVersionLabelRequest
+@dynamic key, op, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ModifyTemplateVersionLabelResponse
+//
+
+@implementation GTLRDataflow_ModifyTemplateVersionLabelResponse
+@dynamic labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels
+//
+
+@implementation GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ModifyTemplateVersionTagRequest
+//
+
+@implementation GTLRDataflow_ModifyTemplateVersionTagRequest
+@dynamic removeOnly, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ModifyTemplateVersionTagResponse
+//
+
+@implementation GTLRDataflow_ModifyTemplateVersionTagResponse
+@dynamic tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1594,6 +1731,24 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 @implementation GTLRDataflow_PubsubSnapshotMetadata
 @dynamic expireTime, snapshotName, topicName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_QueryInfo
+//
+
+@implementation GTLRDataflow_QueryInfo
+@dynamic queryProperty;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queryProperty" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2542,6 +2697,43 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_TemplateVersion
+//
+
+@implementation GTLRDataflow_TemplateVersion
+@dynamic artifact, createTime, descriptionProperty, displayName, labels,
+         projectId, tags, type, versionId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_TemplateVersion_Labels
+//
+
+@implementation GTLRDataflow_TemplateVersion_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_TopologyConfig
 //
 
@@ -2611,7 +2803,7 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_ValidateResponse
-@dynamic errorMessage;
+@dynamic errorMessage, queryInfo;
 @end
 
 

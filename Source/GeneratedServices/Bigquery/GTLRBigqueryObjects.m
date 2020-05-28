@@ -799,7 +799,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_ExternalDataConfiguration
-@dynamic autodetect, bigtableOptions, compression, csvOptions,
+@dynamic autodetect, bigtableOptions, compression, connectionId, csvOptions,
          googleSheetsOptions, hivePartitioningOptions, ignoreUnknownValues,
          maxBadRecords, schema, sourceFormat, sourceUris;
 

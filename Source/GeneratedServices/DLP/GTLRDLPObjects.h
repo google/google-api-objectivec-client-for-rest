@@ -1918,10 +1918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Required. The DeidentifyTemplate to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *deidentifyTemplate;
 
-/**
- *  The geographic location to store the deidentification template. Reserved
- *  for future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -1953,10 +1950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
-/**
- *  The geographic location to store and process the job. Reserved for
- *  future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /** Set to choose what metric to calculate. */
@@ -1973,10 +1967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Required. The InspectTemplate to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *inspectTemplate;
 
-/**
- *  The geographic location to store the inspection template. Reserved for
- *  future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -1998,10 +1989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Required. The JobTrigger to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobTrigger *jobTrigger;
 
-/**
- *  The geographic location to store the job trigger. Reserved for
- *  future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -2023,10 +2011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Required. Configuration of the storedInfoType to create. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
 
-/**
- *  The geographic location to store the stored infoType. Reserved for
- *  future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
@@ -2504,10 +2489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The item to de-identify. Will be treated as text. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
 
-/**
- *  The geographic location to process de-identification. Reserved for future
- *  extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 @end
@@ -3727,12 +3709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The item to inspect. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
 
-/**
- *  The geographic location to process content inspection. Reserved for future
- *  extensions.
- *  When inspecting images location is restricted to 'global', 'us', 'asia',
- *  and 'europe'.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 @end
@@ -5171,11 +5148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
-/**
- *  The geographic location to process the request. Reserved for future
- *  extensions.
- *  Location is restricted to 'global', 'us', 'asia', and 'europe'.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 @end
@@ -5250,10 +5223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The item to re-identify. Will be treated as text. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentItem *item;
 
-/**
- *  The geographic location to process content reidentification. Reserved for
- *  future extensions.
- */
+/** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**

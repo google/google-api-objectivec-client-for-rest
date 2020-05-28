@@ -23,6 +23,7 @@
 
 @class GTLRDisplayVideo_Advertiser;
 @class GTLRDisplayVideo_AssignedTargetingOption;
+@class GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest;
 @class GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest;
 @class GTLRDisplayVideo_Campaign;
 @class GTLRDisplayVideo_CreateAssetRequest;
@@ -101,8 +102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOn
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem;
 /** Value: "TARGETING_TYPE_PARENTAL_STATUS" */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus;
-/** Value: "TARGETING_TYPE_PROXIMITY_LOCATION" */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation;
 /** Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST" */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList;
 /** Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST" */
@@ -176,6 +175,125 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 + (instancetype)queryWithObject:(GTLRDisplayVideo_CreateAssetRequest *)object
                    advertiserId:(long long)advertiserId
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Bulk edits targeting options under a single advertiser.
+ *  The operation will delete the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and
+ *  then create the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
+ *
+ *  Method: displayvideo.advertisers.bulkEditAdvertiserAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersBulkEditAdvertiserAssignedTargetingOptions : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersBulkEditAdvertiserAssignedTargetingOptionsWithObject:advertiserId:]
+
+/** Required. The ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsResponse.
+ *
+ *  Bulk edits targeting options under a single advertiser.
+ *  The operation will delete the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.delete_requests and
+ *  then create the assigned targeting options provided in
+ *  BulkEditAdvertiserAssignedTargetingOptionsRequest.create_requests .
+ *
+ *  @param object The @c
+ *    GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest to
+ *    include in the query.
+ *  @param advertiserId Required. The ID of the advertiser.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersBulkEditAdvertiserAssignedTargetingOptions
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Lists assigned targeting options of an advertiser across targeting types.
+ *
+ *  Method: displayvideo.advertisers.bulkListAdvertiserAssignedTargetingOptions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersBulkListAdvertiserAssignedTargetingOptions : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersBulkListAdvertiserAssignedTargetingOptionsWithadvertiserId:]
+
+/** Required. The ID of the advertiser the line item belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned targeting option properties.
+ *  Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions.
+ *  * Restrictions can be combined by the logical operator `OR`..
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `EQUALS (=)`.
+ *  * Supported fields:
+ *  - `targetingType`
+ *  Examples:
+ *  * targetingType with value TARGETING_TYPE_CHANNEL
+ *  `targetingType="TARGETING_TYPE_CHANNEL"`
+ *  The length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `targetingType` (default)
+ *  The default sorting order is ascending. To specify descending order for
+ *  a field, a suffix "desc" should be added to the field name. Example:
+ *  `targetingType desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size.
+ *  The size must be an integer between `1` and `5000`. If unspecified,
+ *  the default is '5000'. Returns error code `INVALID_ARGUMENT` if an invalid
+ *  value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token that lets the client fetch the next page of results.
+ *  Typically, this is the value of
+ *  next_page_token
+ *  returned from the previous call to
+ *  `BulkListAdvertiserAssignedTargetingOptions` method.
+ *  If not specified, the first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse.
+ *
+ *  Lists assigned targeting options of an advertiser across targeting types.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the line item belongs
+ *    to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersBulkListAdvertiserAssignedTargetingOptions
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
 
 @end
 
@@ -1640,8 +1758,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -1737,8 +1853,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -1852,8 +1966,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -1948,8 +2060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -2066,8 +2176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -2163,8 +2271,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -2321,8 +2427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -2415,8 +2519,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -2770,6 +2872,842 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  */
 + (instancetype)queryWithObject:(GTLRDisplayVideo_Advertiser *)object
                    advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Assigns a targeting option to an advertiser.
+ *  Returns the assigned targeting option if successful.
+ *
+ *  Method: displayvideo.advertisers.targetingTypes.assignedTargetingOptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersTargetingTypesAssignedTargetingOptionsCreateWithObject:advertiserId:targetingType:]
+
+/** Required. The ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. Identifies the type of this assigned targeting option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AssignedTargetingOption.
+ *
+ *  Assigns a targeting option to an advertiser.
+ *  Returns the assigned targeting option if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
+ *    the query.
+ *  @param advertiserId Required. The ID of the advertiser.
+ *  @param targetingType Required. Identifies the type of this assigned
+ *    targeting option.
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AssignedTargetingOption *)object
+                   advertiserId:(long long)advertiserId
+                  targetingType:(NSString *)targetingType;
+
+@end
+
+/**
+ *  Deletes an assigned targeting option from an advertiser.
+ *
+ *  Method: displayvideo.advertisers.targetingTypes.assignedTargetingOptions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersTargetingTypesAssignedTargetingOptionsDeleteWithadvertiserId:targetingType:assignedTargetingOptionId:]
+
+/** Required. The ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the assigned targeting option to delete. */
+@property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
+
+/**
+ *  Required. Identifies the type of this assigned targeting option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes an assigned targeting option from an advertiser.
+ *
+ *  @param advertiserId Required. The ID of the advertiser.
+ *  @param targetingType Required. Identifies the type of this assigned
+ *    targeting option.
+ *  @param assignedTargetingOptionId Required. The ID of the assigned targeting
+ *    option to delete.
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId;
+
+@end
+
+/**
+ *  Gets a single targeting option assigned to an advertiser.
+ *
+ *  Method: displayvideo.advertisers.targetingTypes.assignedTargetingOptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersTargetingTypesAssignedTargetingOptionsGetWithadvertiserId:targetingType:assignedTargetingOptionId:]
+
+/** Required. The ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. An identifier unique to the targeting type in this advertiser that
+ *  identifies the assigned targeting option being requested.
+ */
+@property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
+
+/**
+ *  Required. Identifies the type of this assigned targeting option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AssignedTargetingOption.
+ *
+ *  Gets a single targeting option assigned to an advertiser.
+ *
+ *  @param advertiserId Required. The ID of the advertiser.
+ *  @param targetingType Required. Identifies the type of this assigned
+ *    targeting option.
+ *  @param assignedTargetingOptionId Required. An identifier unique to the
+ *    targeting type in this advertiser that
+ *    identifies the assigned targeting option being requested.
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId;
+
+@end
+
+/**
+ *  Lists the targeting options assigned to an advertiser.
+ *
+ *  Method: displayvideo.advertisers.targetingTypes.assignedTargetingOptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersTargetingTypesAssignedTargetingOptionsListWithadvertiserId:targetingType:]
+
+/** Required. The ID of the advertiser. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned targeting option properties.
+ *  Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions.
+ *  * Restrictions can be combined by the logical operator `OR`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `EQUALS (=)`.
+ *  * Supported fields:
+ *  - `assignedTargetingOptionId`
+ *  Examples:
+ *  * AssignedTargetingOption with ID 123456
+ *  `assignedTargetingOptionId="123456"`
+ *  The length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `assignedTargetingOptionId` (default)
+ *  The default sorting order is ascending. To specify descending order for
+ *  a field, a suffix "desc" should be added to the field name. Example:
+ *  `assignedTargetingOptionId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  next_page_token
+ *  returned from the previous call to `ListAdvertiserAssignedTargetingOptions`
+ *  method. If not specified, the first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Identifies the type of assigned targeting options to list.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Fetches a @c
+ *  GTLRDisplayVideo_ListAdvertiserAssignedTargetingOptionsResponse.
+ *
+ *  Lists the targeting options assigned to an advertiser.
+ *
+ *  @param advertiserId Required. The ID of the advertiser.
+ *  @param targetingType Required. Identifies the type of assigned targeting
+ *    options to list.
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Value
+ *        "TARGETING_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Value
+ *        "TARGETING_TYPE_CHANNEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Value
+ *        "TARGETING_TYPE_APP_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Value
+ *        "TARGETING_TYPE_APP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Value
+ *        "TARGETING_TYPE_URL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Value
+ *        "TARGETING_TYPE_DAY_AND_TIME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Value
+ *        "TARGETING_TYPE_AGE_RANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Value "TARGETING_TYPE_REGIONAL_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Value "TARGETING_TYPE_PROXIMITY_LOCATION_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Value
+ *        "TARGETING_TYPE_GENDER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Value
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Value "TARGETING_TYPE_USER_REWARDED_CONTENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Value
+ *        "TARGETING_TYPE_PARENTAL_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_INSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Value "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Value
+ *        "TARGETING_TYPE_DEVICE_TYPE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Value
+ *        "TARGETING_TYPE_AUDIENCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Value
+ *        "TARGETING_TYPE_BROWSER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Value
+ *        "TARGETING_TYPE_HOUSEHOLD_INCOME"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Value
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Value "TARGETING_TYPE_THIRD_PARTY_VERIFIER"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Value "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Value "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Value
+ *        "TARGETING_TYPE_ENVIRONMENT"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Value
+ *        "TARGETING_TYPE_CARRIER_AND_ISP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Value
+ *        "TARGETING_TYPE_OPERATING_SYSTEM"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Value
+ *        "TARGETING_TYPE_DEVICE_MAKE_MODEL"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Value
+ *        "TARGETING_TYPE_KEYWORD"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Value "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Value
+ *        "TARGETING_TYPE_VIEWABILITY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Value
+ *        "TARGETING_TYPE_CATEGORY"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource Value
+ *        "TARGETING_TYPE_INVENTORY_SOURCE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Value
+ *        "TARGETING_TYPE_LANGUAGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Value "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Value
+ *        "TARGETING_TYPE_GEO_REGION"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
+ *        "TARGETING_TYPE_EXCHANGE"
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
+ *        "TARGETING_TYPE_SUB_EXCHANGE"
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                        targetingType:(NSString *)targetingType;
 
 @end
 
@@ -3937,8 +4875,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -4028,8 +4964,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -4172,8 +5106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value
@@ -4261,8 +5193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_GEO_REGION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
  *        Value "TARGETING_TYPE_INVENTORY_SOURCE_GROUP"
- *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocation Value
- *        "TARGETING_TYPE_PROXIMITY_LOCATION"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Value
  *        "TARGETING_TYPE_EXCHANGE"
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Value

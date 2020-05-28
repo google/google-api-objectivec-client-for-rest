@@ -188,6 +188,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ApiConfigHandler_SecurityLevel_SecureUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_Application.databaseType
+
+/**
+ *  Cloud Datastore
+ *
+ *  Value: "CLOUD_DATASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_DatabaseType_CloudDatastore;
+/**
+ *  Cloud Firestore in Datastore Mode
+ *
+ *  Value: "CLOUD_DATASTORE_COMPATIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_DatabaseType_CloudDatastoreCompatibility;
+/**
+ *  Cloud Firestore Native
+ *
+ *  Value: "CLOUD_FIRESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_DatabaseType_CloudFirestore;
+/**
+ *  Database type is unspecified.
+ *
+ *  Value: "DATABASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_DatabaseType_DatabaseTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_Application.servingStatus
 
 /**
@@ -724,6 +752,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  can be used by the gcloud deployment commands.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *codeBucket;
+
+/**
+ *  The type of the Cloud Firestore or Cloud Datastore database associated with
+ *  this application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Application_DatabaseType_CloudDatastore Cloud
+ *        Datastore (Value: "CLOUD_DATASTORE")
+ *    @arg @c kGTLRAppengine_Application_DatabaseType_CloudDatastoreCompatibility
+ *        Cloud Firestore in Datastore Mode (Value:
+ *        "CLOUD_DATASTORE_COMPATIBILITY")
+ *    @arg @c kGTLRAppengine_Application_DatabaseType_CloudFirestore Cloud
+ *        Firestore Native (Value: "CLOUD_FIRESTORE")
+ *    @arg @c kGTLRAppengine_Application_DatabaseType_DatabaseTypeUnspecified
+ *        Database type is unspecified. (Value: "DATABASE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseType;
 
 /**
  *  Google Cloud Storage bucket that can be used by this application to store

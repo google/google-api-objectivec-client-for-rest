@@ -2438,6 +2438,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, copy, nullable) NSString *compression;
 
+/** [Optional, Trusted Tester] Connection for external data source. */
+@property(nonatomic, copy, nullable) NSString *connectionId;
+
 /** Additional properties to set if sourceFormat is set to CSV. */
 @property(nonatomic, strong, nullable) GTLRBigquery_CsvOptions *csvOptions;
 
@@ -6389,7 +6392,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  GTLRBigquery_UserDefinedFunctionResource
+ *  This is used for defining User Defined Function (UDF) resources only when
+ *  using legacy SQL. Users of Standard SQL should leverage either DDL (e.g.
+ *  CREATE [TEMPORARY] FUNCTION ... ) or the Routines API to define UDF
+ *  resources. For additional information on migrating, see:
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql#differences_in_user-defined_javascript_functions
  */
 @interface GTLRBigquery_UserDefinedFunctionResource : GTLRObject
 

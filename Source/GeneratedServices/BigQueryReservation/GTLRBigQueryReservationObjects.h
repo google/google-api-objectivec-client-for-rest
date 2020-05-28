@@ -544,6 +544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Ids of capacity commitments to merge.
  *  These capacity commitments must exist under admin project and location
  *  specified in the parent.
+ *  ID is the last portion of capacity commitment name e.g., 'abc' for
+ *  projects/myproject/locations/US/capacityCommitments/abc
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *capacityCommitmentIds;
 

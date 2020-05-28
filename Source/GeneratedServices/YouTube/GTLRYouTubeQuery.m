@@ -92,6 +92,9 @@ NSString * const kGTLRYouTubeTfmtSrt  = @"srt";
 NSString * const kGTLRYouTubeTfmtTtml = @"ttml";
 NSString * const kGTLRYouTubeTfmtVtt  = @"vtt";
 
+// type
+NSString * const kGTLRYouTubeTypeChannelToStoreLink = @"channelToStoreLink";
+
 // videoCaption
 NSString * const kGTLRYouTubeVideoCaptionAny           = @"any";
 NSString * const kGTLRYouTubeVideoCaptionClosedCaption = @"closedCaption";
@@ -138,32 +141,6 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 @implementation GTLRYouTubeQuery
 
 @dynamic fields;
-
-@end
-
-@implementation GTLRYouTubeQuery_ActivitiesInsert
-
-@dynamic part;
-
-+ (instancetype)queryWithObject:(GTLRYouTube_Activity *)object
-                           part:(NSString *)part {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"activities";
-  GTLRYouTubeQuery_ActivitiesInsert *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_Activity class];
-  query.loggingName = @"youtube.activities.insert";
-  return query;
-}
 
 @end
 
@@ -1565,6 +1542,95 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_SuperChatEventListResponse class];
   query.loggingName = @"youtube.superChatEvents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_ThirdPartyLinkDelete
+
+@dynamic linkingToken, type;
+
++ (instancetype)queryWithLinkingToken:(NSString *)linkingToken
+                                 type:(NSString *)type {
+  NSString *pathURITemplate = @"thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinkDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:nil];
+  query.linkingToken = linkingToken;
+  query.type = type;
+  query.loggingName = @"youtube.thirdPartyLink.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_ThirdPartyLinkInsert
+
+@dynamic debugProjectIdOverride, part;
+
++ (instancetype)queryWithObject:(GTLRYouTube_ThirdPartyLink *)object
+                           part:(NSString *)part {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinkInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLink class];
+  query.loggingName = @"youtube.thirdPartyLink.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_ThirdPartyLinksList
+
+@dynamic linkingToken, part, type;
+
++ (instancetype)queryWithPart:(NSString *)part {
+  NSString *pathURITemplate = @"thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLinkListResponse class];
+  query.loggingName = @"youtube.thirdPartyLinks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_ThirdPartyLinkUpdate
+
+@dynamic part;
+
++ (instancetype)queryWithObject:(GTLRYouTube_ThirdPartyLink *)object
+                           part:(NSString *)part {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinkUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLink class];
+  query.loggingName = @"youtube.thirdPartyLink.update";
   return query;
 }
 

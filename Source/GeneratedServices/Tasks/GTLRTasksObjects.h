@@ -4,9 +4,7 @@
 // API:
 //   Tasks API (tasks/v1)
 // Description:
-//   Manages your tasks and task lists.
-// Documentation:
-//   https://developers.google.com/google-apps/tasks/firstapp
+//   The Google Tasks API lets you manage your tasks and task lists.
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -37,13 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasks_Task : GTLRObject
 
 /**
- *  Completion date of the task (as a RFC 3339 timestamp). This field is omitted
- *  if the task has not been completed.
+ *  Completion date of the task (as a RFC 3339 timestamp). This field is
+ *  omitted if the task has not been completed.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *completed;
+@property(nonatomic, copy, nullable) NSString *completed;
 
 /**
- *  Flag indicating whether the task has been deleted. The default if False.
+ *  Flag indicating whether the task has been deleted. The default is False.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -55,15 +53,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  when setting the due date. It isn't possible to read or write the time that
  *  a task is due via the API.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *due;
+@property(nonatomic, copy, nullable) NSString *due;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Flag indicating whether the task is hidden. This is the case if the task had
- *  been marked completed when the task list was last cleared. The default is
- *  False. This field is read-only.
+ *  Flag indicating whether the task is hidden. This is the case if the task
+ *  had been marked completed when the task list was last cleared. The default
+ *  is False. This field is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -93,12 +91,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  String indicating the position of the task among its sibling tasks under the
- *  same parent task or at the top level. If this string is greater than another
- *  task's corresponding position string according to lexicographical ordering,
- *  the task is positioned after the other task under the same parent task (or
- *  at the top level). This field is read-only. Use the "move" method to move
- *  the task to another position.
+ *  String indicating the position of the task among its sibling tasks under
+ *  the same parent task or at the top level. If this string is greater than
+ *  another task's corresponding position string according to lexicographical
+ *  ordering, the task is positioned after the other task under the same parent
+ *  task (or at the top level). This field is read-only. Use the "move" method
+ *  to move the task to another position.
  */
 @property(nonatomic, copy, nullable) NSString *position;
 
@@ -114,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** Last modification time of the task (as a RFC 3339 timestamp). */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 @end
 
@@ -125,7 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasks_Task_Links_Item : GTLRObject
 
 /**
- *  The description. In HTML speak: Everything between <a> and </a>.
+ *  The description. In HTML speak: Everything between &lt;a&gt; and
+ *  &lt;/a&gt;.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -168,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** Last modification time of the task list (as a RFC 3339 timestamp). */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 @end
 
