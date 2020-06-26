@@ -33,8 +33,6 @@
 		4F3E9C931C6C32B7004192DE /* Drive1BatchPaging2.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8E1C6C32B7004192DE /* Drive1BatchPaging2.response.txt */; };
 		4F3E9C941C6C32B7004192DE /* Drive1BatchPaging3.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */; };
 		4F3E9C951C6C32B7004192DE /* Drive1BatchPaging3.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */; };
-		4F6F2E721C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2E701C615492001065A5 /* Drive1BatchCorrupt.response.txt */; };
-		4F6F2E731C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2E701C615492001065A5 /* Drive1BatchCorrupt.response.txt */; };
 		4F6F2E7A1C6154AA001065A5 /* Drive1Corrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2E771C6154AA001065A5 /* Drive1Corrupt.response.txt */; };
 		4F6F2E7B1C6154AA001065A5 /* Drive1Corrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F6F2E771C6154AA001065A5 /* Drive1Corrupt.response.txt */; };
 		4F934E671512712100C4EA34 /* GTLRBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F934E651512712100C4EA34 /* GTLRBase64.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -389,6 +387,11 @@
 		F4D9D52A1D833D7C000EBBED /* GTLRDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9D51E1D832DB5000EBBED /* GTLRDuration.m */; };
 		F4D9D52B1D833D7C000EBBED /* GTLRDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9D51E1D832DB5000EBBED /* GTLRDuration.m */; };
 		F4D9D52C1D833D7D000EBBED /* GTLRDuration.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D9D51E1D832DB5000EBBED /* GTLRDuration.m */; };
+		F4F2CFDA24A6530900F1B3A7 /* NoPayloadsBatch.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4F2CFD924A6530900F1B3A7 /* NoPayloadsBatch.response.txt */; };
+		F4F2CFDB24A6530900F1B3A7 /* NoPayloadsBatch.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4F2CFD924A6530900F1B3A7 /* NoPayloadsBatch.response.txt */; };
+		F4F2CFDC24A6530900F1B3A7 /* NoPayloadsBatch.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4F2CFD924A6530900F1B3A7 /* NoPayloadsBatch.response.txt */; };
+		F4F2CFDD24A6674B00F1B3A7 /* Drive1BatchCorrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4ACE7E91DAD217700053F91 /* Drive1BatchCorrupt.response.txt */; };
+		F4F2CFDE24A6674C00F1B3A7 /* Drive1BatchCorrupt.response.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4ACE7E91DAD217700053F91 /* Drive1BatchCorrupt.response.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,7 +424,6 @@
 		4F3E9C8D1C6C32B7004192DE /* Drive1BatchPaging1.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchPaging1.response.txt; path = Tests/Data/Drive1BatchPaging1.response.txt; sourceTree = "<group>"; };
 		4F3E9C8E1C6C32B7004192DE /* Drive1BatchPaging2.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchPaging2.response.txt; path = Tests/Data/Drive1BatchPaging2.response.txt; sourceTree = "<group>"; };
 		4F3E9C8F1C6C32B7004192DE /* Drive1BatchPaging3.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchPaging3.response.txt; path = Tests/Data/Drive1BatchPaging3.response.txt; sourceTree = "<group>"; };
-		4F6F2E701C615492001065A5 /* Drive1BatchCorrupt.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1BatchCorrupt.response.txt; path = Tests/Data/Drive1BatchCorrupt.response.txt; sourceTree = "<group>"; };
 		4F6F2E771C6154AA001065A5 /* Drive1Corrupt.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Drive1Corrupt.response.txt; path = Tests/Data/Drive1Corrupt.response.txt; sourceTree = "<group>"; };
 		4F934E651512712100C4EA34 /* GTLRBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRBase64.h; path = Utilities/GTLRBase64.h; sourceTree = "<group>"; };
 		4F934E661512712100C4EA34 /* GTLRBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRBase64.m; path = Utilities/GTLRBase64.m; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 		F4D9D51D1D832DB5000EBBED /* GTLRDuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDuration.h; path = Objects/GTLRDuration.h; sourceTree = "<group>"; };
 		F4D9D51E1D832DB5000EBBED /* GTLRDuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRDuration.m; path = Objects/GTLRDuration.m; sourceTree = "<group>"; };
 		F4D9D5251D833D5D000EBBED /* GTLRDurationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRDurationTest.m; path = Tests/GTLRDurationTest.m; sourceTree = "<group>"; };
+		F4F2CFD924A6530900F1B3A7 /* NoPayloadsBatch.response.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NoPayloadsBatch.response.txt; path = Tests/Data/NoPayloadsBatch.response.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,7 +618,6 @@
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 				F4A872741DAD1ED800D69E09 /* Frameworks */,
-				34AF73421FB4E3C80022335F /* Recovered References */,
 			);
 			name = GoogleBundle;
 			sourceTree = "<group>";
@@ -676,14 +678,6 @@
 				4F346DD20D7500C9006033E0 /* Common */,
 			);
 			name = "GTLR Source";
-			sourceTree = "<group>";
-		};
-		34AF73421FB4E3C80022335F /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				4F6F2E701C615492001065A5 /* Drive1BatchCorrupt.response.txt */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		4F346DD20D7500C9006033E0 /* Common */ = {
@@ -818,6 +812,7 @@
 				4FA824881C6BDAC700E11CCC /* Drive1Paging3.response.txt */,
 				4F3AA9161C600013008497BC /* Drive1ParamError.response.txt */,
 				F4A07B1B1E4293990035678A /* Drive1ParamErrorAsList.response.txt */,
+				F4F2CFD924A6530900F1B3A7 /* NoPayloadsBatch.response.txt */,
 				F4469DFE1C45757E00BCFAA1 /* URITemplateExtraTests.json */,
 				F4469DFF1C45757E00BCFAA1 /* URITemplateRFCTests.json */,
 			);
@@ -1188,6 +1183,7 @@
 				F4469E051C45758700BCFAA1 /* URITemplateRFCTests.json in Resources */,
 				F4469E041C45758700BCFAA1 /* URITemplateExtraTests.json in Resources */,
 				4F3AA91A1C600013008497BC /* Drive1ParamError.response.txt in Resources */,
+				F4F2CFDA24A6530900F1B3A7 /* NoPayloadsBatch.response.txt in Resources */,
 				4F3E9C931C6C32B7004192DE /* Drive1BatchPaging2.response.txt in Resources */,
 				4F3E9C811C6C12A1004192DE /* Classroom1NotFoundError.response.txt in Resources */,
 				4F3E9C911C6C32B7004192DE /* Drive1BatchPaging1.response.txt in Resources */,
@@ -1196,10 +1192,10 @@
 				4FA8248E1C6BDAC700E11CCC /* Drive1Paging3.response.txt in Resources */,
 				F4A07B1F1E4293A10035678A /* Drive1ParamErrorAsList.response.txt in Resources */,
 				4F3AA9181C600013008497BC /* Drive1AuthError.response.txt in Resources */,
-				4F6F2E731C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA8248A1C6BDAC700E11CCC /* Drive1Paging1.response.txt in Resources */,
 				4F6F2E7B1C6154AA001065A5 /* Drive1Corrupt.response.txt in Resources */,
 				4F2591411C5C3338009E0240 /* Drive1.response.txt in Resources */,
+				F4F2CFDE24A6674C00F1B3A7 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA8248C1C6BDAC700E11CCC /* Drive1Paging2.response.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1219,6 +1215,7 @@
 				F4469E031C45758600BCFAA1 /* URITemplateRFCTests.json in Resources */,
 				4F3AA9191C600013008497BC /* Drive1ParamError.response.txt in Resources */,
 				F4469E021C45758600BCFAA1 /* URITemplateExtraTests.json in Resources */,
+				F4F2CFDB24A6530900F1B3A7 /* NoPayloadsBatch.response.txt in Resources */,
 				4F3E9C921C6C32B7004192DE /* Drive1BatchPaging2.response.txt in Resources */,
 				4F3E9C801C6C12A1004192DE /* Classroom1NotFoundError.response.txt in Resources */,
 				4F3E9C901C6C32B7004192DE /* Drive1BatchPaging1.response.txt in Resources */,
@@ -1227,10 +1224,10 @@
 				4FA8248D1C6BDAC700E11CCC /* Drive1Paging3.response.txt in Resources */,
 				F4A07B201E4293A20035678A /* Drive1ParamErrorAsList.response.txt in Resources */,
 				4F3AA9171C600013008497BC /* Drive1AuthError.response.txt in Resources */,
-				4F6F2E721C615492001065A5 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA824891C6BDAC700E11CCC /* Drive1Paging1.response.txt in Resources */,
 				4F6F2E7A1C6154AA001065A5 /* Drive1Corrupt.response.txt in Resources */,
 				4F2591401C5C3338009E0240 /* Drive1.response.txt in Resources */,
+				F4F2CFDD24A6674B00F1B3A7 /* Drive1BatchCorrupt.response.txt in Resources */,
 				4FA8248B1C6BDAC700E11CCC /* Drive1Paging2.response.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1256,6 +1253,7 @@
 				F4ACE7DA1DAD20E100053F91 /* Classroom1NotFoundError.response.txt in Resources */,
 				F4ACE7DF1DAD20E100053F91 /* Drive1BatchPaging3.response.txt in Resources */,
 				F4ACE7E61DAD20E100053F91 /* Drive1Paging3.response.txt in Resources */,
+				F4F2CFDC24A6530900F1B3A7 /* NoPayloadsBatch.response.txt in Resources */,
 				F4ACE7E41DAD20E100053F91 /* Drive1Paging1.response.txt in Resources */,
 				F4ACE7E31DAD20E100053F91 /* Drive1Corrupt.response.txt in Resources */,
 				F4ACE7E51DAD20E100053F91 /* Drive1Paging2.response.txt in Resources */,

@@ -1566,32 +1566,37 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                     targetBytes:"\r\n"
                    targetLength:2
                    foundOffsets:&offsets];
-    if (offsets.count < 2) {
-      // Lack of status line and inner headers is strange, but not fatal since
-      // if the JSON was delivered.
-      GTLR_DEBUG_LOG(@"GTLRService: Batch result cannot parse headers for request %@:\n%@",
-                     responseContentID,
-                     [[NSString alloc] initWithData:innerHeaderData
-                                           encoding:NSUTF8StringEncoding]);
-    } else {
-      NSString *statusString;
-      NSInteger statusCode;
-      [self getResponseLineFromData:innerHeaderData
-                         statusCode:&statusCode
-                       statusString:&statusString];
-      responsePart.statusCode = statusCode;
-      responsePart.statusString = statusString;
+    NSData *statusLine;
+    NSData *actualInnerHeaderData;
+    if (offsets.count) {
+      NSRange statusRange = NSMakeRange(0, offsets[0].unsignedIntegerValue);
+      statusLine = [innerHeaderData subdataWithRange:statusRange];
 
       NSUInteger actualInnerHeaderOffset = offsets[0].unsignedIntegerValue + 2;
-      NSData *actualInnerHeaderData;
       if (innerHeaderData.length - actualInnerHeaderOffset > 0) {
         NSRange actualInnerHeaderRange =
             NSMakeRange(actualInnerHeaderOffset,
                         innerHeaderData.length - actualInnerHeaderOffset);
         actualInnerHeaderData = [innerHeaderData subdataWithRange:actualInnerHeaderRange];
       }
-      responsePart.headers = [GTMMIMEDocument headersWithData:actualInnerHeaderData];
+    } else {
+      // There appears to only be a status line.
+      //
+      // This means there were no reponse headers. "Date" seems like it should
+      // be required, but https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+      // lets even that be left off if a server doesn't have a clock it knows
+      // to be correct.
+      statusLine = innerHeaderData;
     }
+
+    NSString *statusString;
+    NSInteger statusCode;
+    [self getResponseLineFromData:statusLine
+                       statusCode:&statusCode
+                     statusString:&statusString];
+    responsePart.statusCode = statusCode;
+    responsePart.statusString = statusString;
+    responsePart.headers = [GTMMIMEDocument headersWithData:actualInnerHeaderData];
 
     // Create JSON from the body.
     // (if there is any, methods like delete return nothing)
@@ -1644,6 +1649,11 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
       && [scanner scanInteger:outStatusCode]
       && [scanner scanUpToCharactersFromSet:newlineSet intoString:outStatusString]) {
     // Got it all.
+    #if DEBUG
+      if (![httpVersion hasPrefix:@"HTTP/"]) {
+        GTLR_DEBUG_LOG(@"GTLRService: Non-standard HTTP Version: %@", httpVersion);
+      }
+    #endif
   }
 }
 
