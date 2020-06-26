@@ -56,7 +56,10 @@
 // Internal methods redeclared for testing.
 
 @interface GTLRBatchResponsePart : NSObject
+@property(nonatomic, assign) NSInteger statusCode;
+@property(nonatomic, copy) NSString *statusString;
 @property(nonatomic, strong) NSDictionary *headers;
+@property(nonatomic, strong) NSError *parseError;
 @end
 
 @interface GTLRService (InternalMethods)
@@ -147,7 +150,8 @@
   "  \"Drive1Empty.response.txt\": \"ewp9Cg==\","\
   "  \"Drive1Batch.response.txt\": \"LS1iYXRjaF8zYWpONDBZcFhaUV9BQmY1d3dfZ3h5Zw0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9odHRwDQpDb250ZW50LUlEOiByZXNwb25zZS1ndGxyXzQNCg0KSFRUUC8xLjEgNDA0IE5vdCBGb3VuZA0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9qc29uOyBjaGFyc2V0PVVURi04DQpEYXRlOiBNb24sIDAxIEZlYiAyMDE2IDIyOjUwOjU3IEdNVA0KRXhwaXJlczogTW9uLCAwMSBGZWIgMjAxNiAyMjo1MDo1NyBHTVQNCkNhY2hlLUNvbnRyb2w6IHByaXZhdGUsIG1heC1hZ2U9MA0KQ29udGVudC1MZW5ndGg6IDE3MDgyDQpYLVJlamVjdGVkLVJlYXNvbjogRmFpbGVkIHRvIHJlbW92ZSBFeGNhbGlidXIgZnJvbSBzdG9uZQ0KDQp7DQogImVycm9yIjogew0KICAiZXJyb3JzIjogWw0KICAgew0KICAgICJkb21haW4iOiAiZ2xvYmFsIiwNCiAgICAicmVhc29uIjogIm5vdEZvdW5kIiwNCiAgICAibWVzc2FnZSI6ICJGaWxlIG5vdCBmb3VuZDogYmFkSUQuIiwNCiAgICAibG9jYXRpb25UeXBlIjogInBhcmFtZXRlciIsDQogICAgImxvY2F0aW9uIjogImZpbGVJZCIsDQogICAgImRlYnVnSW5mbyI6ICJjb2RlOiBOT1RfRk9VTkQiDQogICB9DQogIF0sDQogICJjb2RlIjogNDA0LA0KICAibWVzc2FnZSI6ICJGaWxlIG5vdCBmb3VuZDogYmFkSUQuIg0KIH0NCn0NCg0KLS1iYXRjaF8zYWpONDBZcFhaUV9BQmY1d3dfZ3h5Zw0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9odHRwDQpDb250ZW50LUlEOiByZXNwb25zZS1ndGxyXzUNCg0KSFRUUC8xLjEgMjAwIE9LDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9VVRGLTgNCkRhdGU6IE1vbiwgMDEgRmViIDIwMTYgMjI6NTA6NTcgR01UDQpFeHBpcmVzOiBNb24sIDAxIEZlYiAyMDE2IDIyOjUwOjU3IEdNVA0KQ2FjaGUtQ29udHJvbDogcHJpdmF0ZSwgbWF4LWFnZT0wDQpDb250ZW50LUxlbmd0aDogNDQNClJldHJ5LUFmdGVyOiAzMDANCg0Kew0KICJraW5kIjogImRyaXZlI2ZpbGVMaXN0IiwNCiAiZmlsZXMiOiBbXQ0KfQ0KDQotLWJhdGNoXzNhak40MFlwWFpRX0FCZjV3d19neHlnDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL2h0dHANCkNvbnRlbnQtSUQ6IHJlc3BvbnNlLWd0bHJfNg0KDQpIVFRQLzEuMSAyMDAgT0sNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbjsgY2hhcnNldD1VVEYtOA0KRGF0ZTogTW9uLCAwMSBGZWIgMjAxNiAyMjo1MDo1NyBHTVQNCkV4cGlyZXM6IE1vbiwgMDEgRmViIDIwMTYgMjI6NTA6NTcgR01UDQpDYWNoZS1Db250cm9sOiBwcml2YXRlLCBtYXgtYWdlPTANCkNvbnRlbnQtTGVuZ3RoOiA0NQ0KDQp7DQogInBhcmVudHMiOiBbDQogICIwQUxzdlpERHd0S3JoVWs5UFZBIg0KIF0NCn0NCg0KLS1iYXRjaF8zYWpONDBZcFhaUV9BQmY1d3dfZ3h5Zy0tDQo=\","\
   "  \"Drive1Corrupt.response.txt\": \"eyBhYmMgOjo9PSB9Cg==\","\
-  "  \"Drive1Paging3.response.txt\": \"ewogICJraW5kIiA6ICJkcml2ZSNmaWxlTGlzdCIsCiAgImZpbGVzIiA6IFsKICAgIHsKICAgICAgIm1pbWVUeXBlIiA6ICJhcHBsaWNhdGlvblwvdm5kLmdvb2dsZS1hcHBzLnNwcmVhZHNoZWV0IiwKICAgICAgImlkIiA6ICIxZEtjQWJic3Y2UHJMYWdvTDJEX3I2IiwKICAgICAgImtpbmQiIDogImRyaXZlI2ZpbGUiLAogICAgICAibmFtZSIgOiAiMjAwNiB0YXggZGVkdWN0aW9ucyIsCiAgICAgICJ0cmFzaGVkIiA6IGZhbHNlCiAgICB9LAogICAgewogICAgICAibWltZVR5cGUiIDogImFwcGxpY2F0aW9uXC92bmQuZ29vZ2xlLWFwcHMuZG9jdW1lbnQiLAogICAgICAiaWQiIDogIjFNMFhZakdoRWJZMUJ6SHM1c3JPcFEiLAogICAgICAia2luZCIgOiAiZHJpdmUjZmlsZSIsCiAgICAgICJuYW1lIiA6ICJBbm90aGVyIGRvYyIsCiAgICAgICJ0cmFzaGVkIiA6IGZhbHNlCiAgICB9CiAgXQp9Cg==\""\
+  "  \"Drive1Paging3.response.txt\": \"ewogICJraW5kIiA6ICJkcml2ZSNmaWxlTGlzdCIsCiAgImZpbGVzIiA6IFsKICAgIHsKICAgICAgIm1pbWVUeXBlIiA6ICJhcHBsaWNhdGlvblwvdm5kLmdvb2dsZS1hcHBzLnNwcmVhZHNoZWV0IiwKICAgICAgImlkIiA6ICIxZEtjQWJic3Y2UHJMYWdvTDJEX3I2IiwKICAgICAgImtpbmQiIDogImRyaXZlI2ZpbGUiLAogICAgICAibmFtZSIgOiAiMjAwNiB0YXggZGVkdWN0aW9ucyIsCiAgICAgICJ0cmFzaGVkIiA6IGZhbHNlCiAgICB9LAogICAgewogICAgICAibWltZVR5cGUiIDogImFwcGxpY2F0aW9uXC92bmQuZ29vZ2xlLWFwcHMuZG9jdW1lbnQiLAogICAgICAiaWQiIDogIjFNMFhZakdoRWJZMUJ6SHM1c3JPcFEiLAogICAgICAia2luZCIgOiAiZHJpdmUjZmlsZSIsCiAgICAgICJuYW1lIiA6ICJBbm90aGVyIGRvYyIsCiAgICAgICJ0cmFzaGVkIiA6IGZhbHNlCiAgICB9CiAgXQp9Cg==\","\
+  "  \"NoPayloadsBatch.response.txt\": \"LS1iYXRjaF9oWExfM19VbkxzUV9BQVlXNmtRNExZVQ0KQ29udGVudC1UeXBlOiBhcHBsaWNhdGlvbi9odHRwDQpDb250ZW50LUlEOiByZXNwb25zZS1ndGxyXzM5DQoNCkhUVFAvMS4xIDIwNCBObyBDb250ZW50DQpEYXRlOiBXZWQsIDI0IEp1biAyMDIwIDA5OjIxOjI0IEdNVA0KDQoNCi0tYmF0Y2hfaFhMXzNfVW5Mc1FfQUFZVzZrUTRMWVUNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vaHR0cA0KQ29udGVudC1JRDogcmVzcG9uc2UtZ3Rscl80MA0KDQpIVFRQLzEuMSAyMDQgTm8gQ29udGVudA0KDQoNCi0tYmF0Y2hfaFhMXzNfVW5Mc1FfQUFZVzZrUTRMWVUNCg==\""\
   "}";
 
   static dispatch_once_t onceToken;
@@ -1710,6 +1714,37 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   // fetcher and GTLRService.
   [self verifyCountingUIAppWithExpectedCount:2
                          expectedExpirations:0];
+}
+
+- (void)testParsingMinimalBatchReplies {
+  // Deletes in a batch have no payload, ensure parsing works as expected.
+
+  NSData *responseData =
+      [[self class] dataForTestFileName:@"NoPayloadsBatch.response.txt"];;
+  XCTAssertNotNil(responseData);
+
+  GTLRService *service = [self driveServiceForTest];
+
+  NSArray *mimeParts =
+      [GTMMIMEDocument MIMEPartsWithBoundary:@"batch_hXL_3_UnLsQ_AAYW6kQ4LYU"
+                                        data:responseData];
+  XCTAssertNotNil(mimeParts);
+  XCTAssertEqual(mimeParts.count, 2U);
+
+  GTLRBatchResponsePart *part0 = [service responsePartWithMIMEPart:mimeParts[0]];
+  XCTAssertNotNil(part0);
+  XCTAssertEqual(part0.statusCode, 204);
+  XCTAssertEqualObjects(part0.statusString, @"No Content");
+  XCTAssertEqual(part0.headers.count, 1U);
+  XCTAssertEqualObjects(part0.headers[@"Date"], @"Wed, 24 Jun 2020 09:21:24 GMT");
+  XCTAssertNil(part0.parseError);
+
+  GTLRBatchResponsePart *part1 = [service responsePartWithMIMEPart:mimeParts[1]];
+  XCTAssertNotNil(part1);
+  XCTAssertEqual(part1.statusCode, 204);
+  XCTAssertEqualObjects(part1.statusString, @"No Content");
+  XCTAssertEqual(part1.headers.count, 0U);
+  XCTAssertNil(part1.parseError);
 }
 
 - (GTMSessionFetcherTestBlock)fetcherTestBlockForBatchPaging {
