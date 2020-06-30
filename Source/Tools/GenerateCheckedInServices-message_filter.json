@@ -9,7 +9,6 @@
     "Guessed formatted name 'StorageTransfer' from API title 'Storage Transfer API'",
   ],
   "WARNING": [
-    "Fetching sqladmin:v1beta4 (https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest) returned the discovery document for sql(v1beta4), dropping it.",
     "Method 'admin.channels.stop' had a 'path' that started with '/', removing it.",
     "Method 'admin.channels.stop' had a 'path' that started with '/', removing it.",
     "Method 'cloudsearch.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
