@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresPatchWithObject:name:]
 
 /**
- *  Output only. Resource name of the DICOM store, of the form
+ *  Resource name of the DICOM store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -605,7 +605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Updates the specified DICOM store.
  *
  *  @param object The @c GTLRCloudHealthcare_DicomStore to include in the query.
- *  @param name Output only. Resource name of the DICOM store, of the form
+ *  @param name Resource name of the DICOM store, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresPatch
@@ -1134,6 +1134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  DeleteInstance deletes an instance associated with the given study, series,
  *  and SOP Instance UID. Delete requests are equivalent to the GET requests
  *  specified in the Retrieve transaction.
+ *  Study and series search results can take a few seconds to be updated after
+ *  an instance is deleted using DeleteInstance.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.delete
  *
@@ -1162,6 +1164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  DeleteInstance deletes an instance associated with the given study, series,
  *  and SOP Instance UID. Delete requests are equivalent to the GET requests
  *  specified in the Retrieve transaction.
+ *  Study and series search results can take a few seconds to be updated after
+ *  an instance is deleted using DeleteInstance.
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -3681,7 +3685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresPatchWithObject:name:]
 
 /**
- *  Output only. Resource name of the HL7v2 store, of the form
+ *  Resource name of the HL7v2 store, of the form
  *  `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3701,7 +3705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Updates the HL7v2 store.
  *
  *  @param object The @c GTLRCloudHealthcare_Hl7V2Store to include in the query.
- *  @param name Output only. Resource name of the HL7v2 store, of the form
+ *  @param name Resource name of the HL7v2 store, of the form
  *    `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch
@@ -3995,7 +3999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 //   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsPatchWithObject:name:]
 
 /**
- *  Output only. Resource name of the dataset, of the form
+ *  Resource name of the dataset, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4015,7 +4019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Updates dataset metadata.
  *
  *  @param object The @c GTLRCloudHealthcare_Dataset to include in the query.
- *  @param name Output only. Resource name of the dataset, of the form
+ *  @param name Resource name of the dataset, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsPatch

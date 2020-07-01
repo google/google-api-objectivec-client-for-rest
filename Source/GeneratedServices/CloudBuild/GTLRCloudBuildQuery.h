@@ -126,63 +126,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
- *
- *  Method: cloudbuild.operations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_OperationsList : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForOperationsListWithname:]
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListOperationsResponse.
- *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
- *
- *  @param name The name of the operation's parent resource.
- *
- *  @return GTLRCloudBuildQuery_OperationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Cancels a build in progress.
  *
  *  Method: cloudbuild.projects.builds.cancel
@@ -498,63 +441,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the operation resource.
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
- *
- *  Method: cloudbuild.projects.locations.operations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudBuildCloudPlatform
- */
-@interface GTLRCloudBuildQuery_ProjectsLocationsOperationsList : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsOperationsListWithname:]
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRCloudBuild_ListOperationsResponse.
- *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
- *
- *  @param name The name of the operation's parent resource.
- *
- *  @return GTLRCloudBuildQuery_ProjectsLocationsOperationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 

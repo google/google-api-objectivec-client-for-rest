@@ -25,8 +25,6 @@
 @class GTLRCloudAsset_AuditLogConfig;
 @class GTLRCloudAsset_BigQueryDestination;
 @class GTLRCloudAsset_Binding;
-@class GTLRCloudAsset_Explanation;
-@class GTLRCloudAsset_Explanation_MatchedPermissions;
 @class GTLRCloudAsset_Expr;
 @class GTLRCloudAsset_Feed;
 @class GTLRCloudAsset_FeedOutputConfig;
@@ -45,18 +43,13 @@
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices;
-@class GTLRCloudAsset_IamPolicySearchResult;
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_OutputConfig;
-@class GTLRCloudAsset_Permissions;
 @class GTLRCloudAsset_Policy;
 @class GTLRCloudAsset_PubsubDestination;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
-@class GTLRCloudAsset_ResourceSearchResult;
-@class GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes;
-@class GTLRCloudAsset_ResourceSearchResult_Labels;
 @class GTLRCloudAsset_Status;
 @class GTLRCloudAsset_Status_Details_Item;
 @class GTLRCloudAsset_TemporalAsset;
@@ -297,11 +290,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
- *  Kubernetes Engine clusters and objects), or a Cloud IAM policy.
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
+ *  policy).
+ *  See [Supported asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
  */
 @interface GTLRCloudAsset_Asset : GTLRObject
 
+/**
+ *  Please also refer to the [access level user
+ *  guide](https://cloud.google.com/access-context-manager/docs/overview#access-levels).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel *accessLevel;
+
+/**
+ *  Please also refer to the [access policy user
+ *  guide](https://cloud.google.com/access-context-manager/docs/overview#access-policies).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy *accessPolicy;
 
 /**
@@ -316,7 +322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
 
 /**
- *  The type of the asset. Example: "compute.googleapis.com/Disk"
+ *  The type of the asset. Example: `compute.googleapis.com/Disk`
  *  See [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
@@ -338,7 +344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 /**
  *  The full name of the asset. Example:
- *  "//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1"
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
  *  See [Resource
  *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
  *  for more information.
@@ -356,7 +362,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 /** A representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
 
+/**
+ *  Please also refer to the [service perimeter user
+ *  guide](https://cloud.google.com/vpc-service-controls/docs/overview).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter *servicePerimeter;
+
+/**
+ *  The last update timestamp of an asset. update_time is updated when
+ *  create/update/delete operation is performed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -374,7 +390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -383,18 +399,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -437,7 +453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -483,7 +499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
- *  A BigQuery destination.
+ *  A BigQuery destination for exporting assets to.
  */
 @interface GTLRCloudAsset_BigQueryDestination : GTLRObject
 
@@ -615,43 +631,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
- *  Explanation about the IAM policy search result.
- */
-@interface GTLRCloudAsset_Explanation : GTLRObject
-
-/**
- *  The map from roles to their included permissions that match the
- *  permission query (i.e., a query containing `policy.role.permissions:`).
- *  Example: if query `policy.role.permissions : "compute.disk.get"`
- *  matches a policy binding that contains owner role, the
- *  matched_permissions will be {"roles/owner": ["compute.disk.get"]}. The
- *  roles can also be found in the returned `policy` bindings. Note that the
- *  map is populated only for requests with permission queries.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_Explanation_MatchedPermissions *matchedPermissions;
-
-@end
-
-
-/**
- *  The map from roles to their included permissions that match the
- *  permission query (i.e., a query containing `policy.role.permissions:`).
- *  Example: if query `policy.role.permissions : "compute.disk.get"`
- *  matches a policy binding that contains owner role, the
- *  matched_permissions will be {"roles/owner": ["compute.disk.get"]}. The
- *  roles can also be found in the returned `policy` bindings. Note that the
- *  map is populated only for requests with permission queries.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCloudAsset_Permissions. Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudAsset_Explanation_MatchedPermissions : GTLRObject
-@end
-
-
-/**
  *  Export asset request.
  */
 @interface GTLRCloudAsset_ExportAssetsRequest : GTLRObject
@@ -686,7 +665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 /**
  *  Required. Output configuration indicating where the results will be output
- *  to. All results will be in newline delimited JSON format.
+ *  to.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_OutputConfig *outputConfig;
 
@@ -975,7 +954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 /**
  *  Determines the inheritance behavior for this `Policy`.
- *  By default, a `ListPolicy` set at a resource supercedes any `Policy` set
+ *  By default, a `ListPolicy` set at a resource supersedes any `Policy` set
  *  anywhere up the resource hierarchy. However, if `inherit_from_parent` is
  *  set to `true`, then the values from the effective `Policy` of the parent
  *  resource are inherited, meaning the values set in this `Policy` are
@@ -1087,6 +1066,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 /**
  *  The name of the `Constraint` the `Policy` is configuring, for example,
  *  `constraints/serviceuser.services`.
+ *  A [list of available
+ *  constraints](/resource-manager/docs/organization-policy/org-policy-constraints)
+ *  is available.
  *  Immutable after creation.
  */
 @property(nonatomic, copy, nullable) NSString *constraint;
@@ -1575,59 +1557,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
- *  A result of IAM Policy search, containing information of an IAM policy.
- */
-@interface GTLRCloudAsset_IamPolicySearchResult : GTLRObject
-
-/**
- *  Explanation about the IAM policy search result. It contains additional
- *  information to explain why the search result matches the query.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_Explanation *explanation;
-
-/**
- *  The IAM policy directly set on the given resource. Note that the original
- *  IAM policy can contain multiple bindings. This only contains the bindings
- *  that match the given query. For queries that don't contain a constrain on
- *  policies (e.g., an empty query), this contains all the bindings.
- *  To search against the `policy` bindings:
- *  * use a field query, as following:
- *  - query by the policy contained members. Example:
- *  `policy : "amy\@gmail.com"`
- *  - query by the policy contained roles. Example:
- *  `policy : "roles/compute.admin"`
- *  - query by the policy contained roles' implied permissions. Example:
- *  `policy.role.permissions : "compute.instances.create"`
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
-
-/**
- *  The project that the associated GCP resource belongs to, in the form of
- *  projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource (like VM
- *  instance, Cloud Storage bucket), the project field will indicate the
- *  project that contains the resource. If an IAM policy is set on a folder or
- *  orgnization, the project field will be empty.
- *  To search against the `project`:
- *  * specify the `scope` field as this project in your search request.
- */
-@property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  The full resource name of the resource associated with this IAM policy.
- *  Example:
- *  "//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1".
- *  See [Cloud Asset Inventory Resource Name
- *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- *  for more information.
- *  To search against the `resource`:
- *  * use a field query. Example: `resource : "organizations/123"`
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-@end
-
-
-/**
  *  GTLRCloudAsset_ListFeedsResponse
  */
 @interface GTLRCloudAsset_ListFeedsResponse : GTLRObject
@@ -1727,25 +1656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 /**
  *  Destination on BigQuery. The output table stores the fields in asset
- *  proto as columns in BigQuery. The resource/iam_policy field is converted
- *  to a record with each field to a column, except metadata to a single JSON
- *  string.
+ *  proto as columns in BigQuery.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_BigQueryDestination *bigqueryDestination;
 
 /** Destination on Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GcsDestination *gcsDestination;
-
-@end
-
-
-/**
- *  IAM permissions
- */
-@interface GTLRCloudAsset_Permissions : GTLRObject
-
-/** A list of permissions. A sample permission string: "compute.disk.get". */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -1899,7 +1815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 /**
  *  The URL of the discovery document containing the resource's JSON schema.
  *  Example:
- *  "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest"
+ *  `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest`
  *  This value is unspecified for resources that do not have an API based on a
  *  discovery document, such as Cloud Bigtable.
  */
@@ -1907,7 +1823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 /**
  *  The JSON schema name listed in the discovery document. Example:
- *  "Project"
+ *  `Project`
  *  This value is unspecified for resources that do not have an API based on a
  *  discovery document, such as Cloud Bigtable.
  */
@@ -1928,7 +1844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  [Cloud IAM policy
  *  hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy).
  *  Example:
- *  "//cloudresourcemanager.googleapis.com/projects/my_project_123"
+ *  `//cloudresourcemanager.googleapis.com/projects/my_project_123`
  *  For third-party assets, this field may be set differently.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1936,12 +1852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 /**
  *  The REST URL for accessing the resource. An HTTP `GET` request using this
  *  URL returns the resource itself. Example:
- *  "https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123"
+ *  `https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123`
  *  This value is unspecified for resources without a REST API.
  */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
 
-/** The API version. Example: "v1" */
+/** The API version. Example: `v1` */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -1957,200 +1873,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAsset_Resource_Data : GTLRObject
-@end
-
-
-/**
- *  A result of Resource Search, containing information of a cloud resoure.
- */
-@interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
-
-/**
- *  The additional attributes of this resource. The attributes may vary from
- *  one resource type to another. Examples: "projectId" for Project,
- *  "dnsName" for DNS ManagedZone.
- *  To search against the `additional_attributes`:
- *  * use a free text query to match the attributes values. Example: to search
- *  additional_attributes = { dnsName: "foobar" }, you can issue a query
- *  `"foobar"`.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes *additionalAttributes;
-
-/**
- *  The type of this resource. Example: "compute.googleapis.com/Disk".
- *  To search against the `asset_type`:
- *  * specify the `asset_type` field in your search request.
- */
-@property(nonatomic, copy, nullable) NSString *assetType;
-
-/**
- *  One or more paragraphs of text description of this resource. Maximum length
- *  could be up to 1M bytes.
- *  To search against the `description`:
- *  * use a field query. Example: `description : "*important instance*"`
- *  * use a free text query. Example: `"*important instance*"`
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  The display name of this resource.
- *  To search against the `display_name`:
- *  * use a field query. Example: `displayName : "My Instance"`
- *  * use a free text query. Example: `"My Instance"`
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Labels associated with this resource. See [Labelling and grouping GCP
- *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information.
- *  To search against the `labels`:
- *  * use a field query, as following:
- *  - query on any label's key or value. Example: `labels : "prod"`
- *  - query by a given label. Example: `labels.env : "prod"`
- *  - query by a given label'sexistence. Example: `labels.env : *`
- *  * use a free text query. Example: `"prod"`
- */
-@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Labels *labels;
-
-/**
- *  Location can be "global", regional like "us-east1", or zonal like
- *  "us-west1-b".
- *  To search against the `location`:
- *  * use a field query. Example: `location : "us-west*"`
- *  * use a free text query. Example: `"us-west*"`
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/**
- *  The full resource name of this resource. Example:
- *  "//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1".
- *  See [Cloud Asset Inventory Resource Name
- *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- *  for more information.
- *  To search against the `name`:
- *  * use a field query. Example: `name : "instance1"`
- *  * use a free text query. Example: `"instance1"`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Network tags associated with this resource. Like labels, network tags are a
- *  type of annotations used to group GCP resources. See [Labelling GCP
- *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information.
- *  To search against the `network_tags`:
- *  * use a field query. Example: `networkTags : "internal"`
- *  * use a free text query. Example: `"internal"`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
-
-/**
- *  The project that this resource belongs to, in the form of
- *  projects/{PROJECT_NUMBER}.
- *  To search against the `project`:
- *  * specify the `scope` field as this project in your search request.
- */
-@property(nonatomic, copy, nullable) NSString *project;
-
-@end
-
-
-/**
- *  The additional attributes of this resource. The attributes may vary from
- *  one resource type to another. Examples: "projectId" for Project,
- *  "dnsName" for DNS ManagedZone.
- *  To search against the `additional_attributes`:
- *  * use a free text query to match the attributes values. Example: to search
- *  additional_attributes = { dnsName: "foobar" }, you can issue a query
- *  `"foobar"`.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes : GTLRObject
-@end
-
-
-/**
- *  Labels associated with this resource. See [Labelling and grouping GCP
- *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information.
- *  To search against the `labels`:
- *  * use a field query, as following:
- *  - query on any label's key or value. Example: `labels : "prod"`
- *  - query by a given label. Example: `labels.env : "prod"`
- *  - query by a given label'sexistence. Example: `labels.env : *`
- *  * use a free text query. Example: `"prod"`
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudAsset_ResourceSearchResult_Labels : GTLRObject
-@end
-
-
-/**
- *  Search all IAM policies response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "results" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudAsset_SearchAllIamPoliciesResponse : GTLRCollectionObject
-
-/**
- *  Set if there are more results than those appearing in this response; to get
- *  the next set of results, call this method again, using this value as the
- *  `page_token`.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of IamPolicy that match the search query. Related information such
- *  as the associated resource is returned along with the policy.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_IamPolicySearchResult *> *results;
-
-@end
-
-
-/**
- *  Search all resources response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "results" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudAsset_SearchAllResourcesResponse : GTLRCollectionObject
-
-/**
- *  If there are more results than those appearing in this response, then
- *  `next_page_token` is included. To get the next set of results, call this
- *  method again using the value of `next_page_token` as `page_token`.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of Resources that match the search query. It contains the resource
- *  standard metadata information.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_ResourceSearchResult *> *results;
-
 @end
 
 
@@ -2223,7 +1945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
- *  A time window specified by its "start_time" and "end_time".
+ *  A time window specified by its `start_time` and `end_time`.
  */
 @interface GTLRCloudAsset_TimeWindow : GTLRObject
 

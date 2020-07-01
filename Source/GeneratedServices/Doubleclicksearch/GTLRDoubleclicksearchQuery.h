@@ -4,10 +4,10 @@
 // API:
 //   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
-//   Reports and modifies your advertising data in DoubleClick Search (for
-//   example, campaigns, ad groups, keywords, and conversions).
+//   The Search Ads 360 API allows developers to automate uploading conversions
+//   and downloading reports from Search Ads 360.
 // Documentation:
-//   https://developers.google.com/doubleclick-search/
+//   https://developers.google.com/search-ads
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -90,7 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger rowCount;
 
 /**
- *  First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
+ *  First date (inclusive) on which to retrieve conversions. Format is
+ *  yyyymmdd.
  *
  *  @note The documented range is 20091101..99991231.
  */
@@ -112,7 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param rowCount The number of conversions to return per call. (Range
  *    1..1000)
  *  @param startDate First date (inclusive) on which to retrieve conversions.
- *    Format is yyyymmdd. (Range 20091101..99991231)
+ *    Format is
+ *    yyyymmdd. (Range 20091101..99991231)
  *  @param startRow The 0-based starting index for retrieving conversions
  *    results.
  *

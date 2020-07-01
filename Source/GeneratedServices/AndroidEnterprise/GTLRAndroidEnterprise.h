@@ -4,7 +4,7 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 

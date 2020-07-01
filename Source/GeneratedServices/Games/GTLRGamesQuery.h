@@ -60,6 +60,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionAll;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionConnected;
 /**
+ *  List only scores of friends.
+ *
+ *  Value: "FRIENDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriends;
+/**
  *  Retrieve a list of players who are friends of the user in alphabetical
  *  order.
  *
@@ -80,7 +86,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPlayedWith;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPublic;
 /**
- *  List only social scores.
+ *  (Obsolete) Legacy G+ social scores. Use the FRIENDS collection instead.
  *
  *  Value: "SOCIAL"
  */
@@ -97,7 +103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible;
 // includeRankType
 
 /**
- *  Retrieve public and social ranks.
+ *  Retrieve all supported ranks.
  *
  *  Value: "ALL"
  */
@@ -110,7 +116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeAll;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypePublic;
 /**
- *  Retrieve the social rank.
+ *  (Obsolete) Legacy G+ social leaderboards rank, always 1.
  *
  *  Value: "SOCIAL"
  */
@@ -1374,12 +1380,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesIncludeRankTypeAll Retrieve public and social ranks.
- *        (Value: "ALL")
+ *    @arg @c kGTLRGamesIncludeRankTypeAll Retrieve all supported ranks. (Value:
+ *        "ALL")
  *    @arg @c kGTLRGamesIncludeRankTypePublic Retrieve public ranks, if the
  *        player is sharing their gameplay activity publicly. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesIncludeRankTypeSocial Retrieve the social rank. (Value:
- *        "SOCIAL")
+ *    @arg @c kGTLRGamesIncludeRankTypeSocial (Obsolete) Legacy G+ social
+ *        leaderboards rank, always 1. (Value: "SOCIAL")
  */
 @property(nonatomic, copy, nullable) NSString *includeRankType;
 
@@ -1478,10 +1484,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
- *        "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
+ *        the FRIENDS collection instead. (Value: "SOCIAL")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1526,10 +1534,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c collection:
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
- *        "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
+ *        the FRIENDS collection instead. (Value: "SOCIAL")
  *
  *  Likely values for @c timeSpan:
  *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:
@@ -1567,10 +1577,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
- *        "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
+ *        the FRIENDS collection instead. (Value: "SOCIAL")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1629,10 +1641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c collection:
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
  *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial List only social scores. (Value:
- *        "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
+ *        the FRIENDS collection instead. (Value: "SOCIAL")
  *
  *  Likely values for @c timeSpan:
  *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:

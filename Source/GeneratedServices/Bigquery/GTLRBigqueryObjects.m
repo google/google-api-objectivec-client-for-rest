@@ -62,6 +62,11 @@ NSString * const kGTLRBigquery_Model_ModelType_MatrixFactorization = @"MATRIX_FA
 NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Model_ModelType_Tensorflow      = @"TENSORFLOW";
 
+// GTLRBigquery_Routine.determinismLevel
+NSString * const kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified = @"DETERMINISM_LEVEL_UNSPECIFIED";
+NSString * const kGTLRBigquery_Routine_DeterminismLevel_Deterministic = @"DETERMINISTIC";
+NSString * const kGTLRBigquery_Routine_DeterminismLevel_NotDeterministic = @"NOT_DETERMINISTIC";
+
 // GTLRBigquery_Routine.language
 NSString * const kGTLRBigquery_Routine_Language_Javascript     = @"JAVASCRIPT";
 NSString * const kGTLRBigquery_Routine_Language_LanguageUnspecified = @"LANGUAGE_UNSPECIFIED";
@@ -1072,7 +1077,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_JobConfigurationTableCopy
 @dynamic createDisposition, destinationEncryptionConfiguration,
-         destinationTable, sourceTable, sourceTables, writeDisposition;
+         destinationExpirationTime, destinationTable, operationType,
+         sourceTable, sourceTables, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1613,9 +1619,9 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_QueryRequest
-@dynamic connectionProperties, defaultDataset, dryRun, kind, location,
-         maxResults, parameterMode, preserveNulls, query, queryParameters,
-         timeoutMs, useLegacySql, useQueryCache;
+@dynamic connectionProperties, defaultDataset, dryRun, kind, labels, location,
+         maximumBytesBilled, maxResults, parameterMode, preserveNulls, query,
+         queryParameters, requestId, timeoutMs, useLegacySql, useQueryCache;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1623,6 +1629,20 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
     @"queryParameters" : [GTLRBigquery_QueryParameter class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_QueryRequest_Labels
+//
+
+@implementation GTLRBigquery_QueryRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1706,9 +1726,9 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_Routine
-@dynamic arguments, creationTime, definitionBody, descriptionProperty, ETag,
-         importedLibraries, language, lastModifiedTime, returnType,
-         routineReference, routineType;
+@dynamic arguments, creationTime, definitionBody, descriptionProperty,
+         determinismLevel, ETag, importedLibraries, language, lastModifiedTime,
+         returnType, routineReference, routineType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2228,7 +2248,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
          l1Regularization, l2Regularization, labelClassWeights, learnRate,
          learnRateStrategy, lossType, maxIterations, maxTreeDepth,
          minRelativeProgress, minSplitLoss, modelUri, numClusters, numFactors,
-         optimizationStrategy, subsample, userColumn, walsAlpha, warmStart;
+         optimizationStrategy, preserveInputStructs, subsample, userColumn,
+         walsAlpha, warmStart;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -24,6 +24,9 @@
 @class GTLRArtifactRegistry_Binding;
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_File;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package;
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_Location;
 @class GTLRArtifactRegistry_Location_Labels;
@@ -69,6 +72,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256;
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Repository.format
 
+/**
+ *  APT package format.
+ *
+ *  Value: "APT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Apt;
 /**
  *  Docker package format.
  *
@@ -255,6 +264,71 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
 @property(nonatomic, strong, nullable) NSNumber *sizeBytes;
 
 /** The time when the File was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Error information explaining why a package was not imported.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo : GTLRObject
+
+/** The detailed error status. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Status *error;
+
+/** Google Cloud Storage location requested. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  Google Cloud Storage location for the input content.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource : GTLRObject
+
+/** Cloud Storage paths URI (e.g., gs://my_bucket//my_object). */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+@end
+
+
+/**
+ *  The response message from importing artifacts.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ImportArtifactsResponse : GTLRObject
+
+/** Detailed error info for packages that were not imported. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo *> *errors;
+
+/** The packages updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package *> *packages;
+
+@end
+
+
+/**
+ *  Packages are named collections of versions.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package : GTLRObject
+
+/** The time when the package was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The display name of the package. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The name of the package, for example:
+ *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The time when the package was last updated. This includes publishing a new
+ *  version of the package.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -776,6 +850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
  *  The format of packages that are stored in the repository.
  *
  *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Apt APT package format.
+ *        (Value: "APT")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Docker Docker package
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
@@ -786,6 +862,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
  *        (Value: "NPM")
  */
 @property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  The Cloud KMS resource name of the customer managed encryption key that’s
+ *  used to encrypt the contents of the Repository. Has the form:
+ *  `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
+ *  This value may not be changed after the Repository has been created.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
  *  Labels with user-defined metadata.

@@ -194,7 +194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -203,18 +203,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -257,7 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }

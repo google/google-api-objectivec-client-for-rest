@@ -280,6 +280,25 @@
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsSubscriptionsDetach
+
+@dynamic subscription;
+
++ (instancetype)queryWithSubscription:(NSString *)subscription {
+  NSArray *pathParams = @[ @"subscription" ];
+  NSString *pathURITemplate = @"v1/{+subscription}:detach";
+  GTLRPubsubQuery_ProjectsSubscriptionsDetach *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.subscription = subscription;
+  query.expectedObjectClass = [GTLRPubsub_DetachSubscriptionResponse class];
+  query.loggingName = @"pubsub.projects.subscriptions.detach";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsSubscriptionsGet
 
 @dynamic subscription;

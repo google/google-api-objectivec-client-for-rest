@@ -15,11 +15,24 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// mergeSources
+NSString * const kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeContact = @"DIRECTORY_MERGE_SOURCE_TYPE_CONTACT";
+NSString * const kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeUnspecified = @"DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED";
+
 // sortOrder
 NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending = @"FIRST_NAME_ASCENDING";
 NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending = @"LAST_MODIFIED_ASCENDING";
 NSString * const kGTLRPeopleServiceSortOrderLastModifiedDescending = @"LAST_MODIFIED_DESCENDING";
 NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASCENDING";
+
+// sources
+NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact = @"DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile = @"DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE";
+NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified = @"DIRECTORY_SOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRPeopleServiceSourcesReadSourceTypeContact = @"READ_SOURCE_TYPE_CONTACT";
+NSString * const kGTLRPeopleServiceSourcesReadSourceTypeDomainContact = @"READ_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleServiceSourcesReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
+NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -186,13 +199,64 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @end
 
+@implementation GTLRPeopleServiceQuery_OtherContactsCopyOtherContactToMyContactsGroup
+
+@dynamic resourceName;
+
++ (instancetype)queryWithObject:(GTLRPeopleService_CopyOtherContactToMyContactsGroupRequest *)object
+                   resourceName:(NSString *)resourceName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resourceName" ];
+  NSString *pathURITemplate = @"v1/{+resourceName}:copyOtherContactToMyContactsGroup";
+  GTLRPeopleServiceQuery_OtherContactsCopyOtherContactToMyContactsGroup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resourceName = resourceName;
+  query.expectedObjectClass = [GTLRPeopleService_Person class];
+  query.loggingName = @"people.otherContacts.copyOtherContactToMyContactsGroup";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_OtherContactsList
+
+@dynamic pageSize, pageToken, readMask, requestSyncToken, syncToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/otherContacts";
+  GTLRPeopleServiceQuery_OtherContactsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_ListOtherContactsResponse class];
+  query.loggingName = @"people.otherContacts.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRPeopleServiceQuery_PeopleConnectionsList
 
 @dynamic pageSize, pageToken, personFields, requestMaskIncludeField,
-         requestSyncToken, resourceName, sortOrder, syncToken;
+         requestSyncToken, resourceName, sortOrder, sources, syncToken;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
 }
 
 + (instancetype)queryWithResourceName:(NSString *)resourceName {
@@ -211,6 +275,15 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 @end
 
 @implementation GTLRPeopleServiceQuery_PeopleCreateContact
+
+@dynamic personFields, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object {
   if (object == nil) {
@@ -253,7 +326,14 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleDeleteContactPhoto
 
-@dynamic personFields, resourceName;
+@dynamic personFields, resourceName, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithResourceName:(NSString *)resourceName {
   NSArray *pathParams = @[ @"resourceName" ];
@@ -272,10 +352,17 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleGet
 
-@dynamic personFields, requestMaskIncludeField, resourceName;
+@dynamic personFields, requestMaskIncludeField, resourceName, sources;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
 }
 
 + (instancetype)queryWithResourceName:(NSString *)resourceName {
@@ -295,7 +382,7 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @implementation GTLRPeopleServiceQuery_PeopleGetBatchGet
 
-@dynamic personFields, requestMaskIncludeField, resourceNames;
+@dynamic personFields, requestMaskIncludeField, resourceNames, sources;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"requestMaskIncludeField" : @"requestMask.includeField" };
@@ -303,7 +390,8 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"resourceNames" : [NSString class]
+    @"resourceNames" : [NSString class],
+    @"sources" : [NSString class]
   };
   return map;
 }
@@ -321,9 +409,67 @@ NSString * const kGTLRPeopleServiceSortOrderLastNameAscending  = @"LAST_NAME_ASC
 
 @end
 
+@implementation GTLRPeopleServiceQuery_PeopleListDirectoryPeople
+
+@dynamic mergeSources, pageSize, pageToken, readMask, requestSyncToken, sources,
+         syncToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mergeSources" : [NSString class],
+    @"sources" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/people:listDirectoryPeople";
+  GTLRPeopleServiceQuery_PeopleListDirectoryPeople *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_ListDirectoryPeopleResponse class];
+  query.loggingName = @"people.people.listDirectoryPeople";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleSearchDirectoryPeople
+
+@dynamic mergeSources, pageSize, pageToken, query, readMask, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mergeSources" : [NSString class],
+    @"sources" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/people:searchDirectoryPeople";
+  GTLRPeopleServiceQuery_PeopleSearchDirectoryPeople *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_SearchDirectoryPeopleResponse class];
+  query.loggingName = @"people.people.searchDirectoryPeople";
+  return query;
+}
+
+@end
+
 @implementation GTLRPeopleServiceQuery_PeopleUpdateContact
 
-@dynamic resourceName, updatePersonFields;
+@dynamic personFields, resourceName, sources, updatePersonFields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRPeopleService_Person *)object
                    resourceName:(NSString *)resourceName {

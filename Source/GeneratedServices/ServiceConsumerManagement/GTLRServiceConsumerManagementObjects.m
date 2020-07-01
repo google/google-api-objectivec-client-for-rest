@@ -494,12 +494,11 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Endpoint
-@dynamic aliases, allowCors, features, name, target;
+@dynamic aliases, allowCors, name, target;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class],
-    @"features" : [NSString class]
+    @"aliases" : [NSString class]
   };
   return map;
 }
@@ -1481,11 +1480,53 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceConsumerManagement_V1Beta1ImportProducerQuotaPoliciesResponse
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1ImportProducerQuotaPoliciesResponse
+@dynamic policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRServiceConsumerManagement_V1Beta1ProducerQuotaPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1ProducerQuotaPolicy
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1ProducerQuotaPolicy
+@dynamic container, dimensions, metric, name, policyValue, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_V1Beta1ProducerQuotaPolicy_Dimensions
+//
+
+@implementation GTLRServiceConsumerManagement_V1Beta1ProducerQuotaPolicy_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceConsumerManagement_V1Beta1QuotaOverride
 //
 
 @implementation GTLRServiceConsumerManagement_V1Beta1QuotaOverride
-@dynamic dimensions, metric, name, overrideValue, unit;
+@dynamic adminOverrideAncestor, dimensions, metric, name, overrideValue, unit;
 @end
 
 

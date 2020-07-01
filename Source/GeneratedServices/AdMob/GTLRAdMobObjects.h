@@ -812,8 +812,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  "header": {
  *  "date_range": {
  *  "start_date": {"year": 2018, "month": 9, "day": 1},
- *  "end_date": {"year": 2018, "month": 9, "day": 30}
- *  }
+ *  "end_date": {"year": 2018, "month": 9, "day": 1}
+ *  },
  *  "localization_settings": {
  *  "currency_code": "USD",
  *  "language_code": "en-US"
@@ -878,8 +878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  "header": {
  *  "dateRange": {
  *  "startDate": {"year": 2018, "month": 9, "day": 1},
- *  "endDate": {"year": 2018, "month": 9, "day": 30}
- *  }
+ *  "endDate": {"year": 2018, "month": 9, "day": 1}
+ *  },
  *  "localizationSettings": {
  *  "currencyCode": "USD",
  *  "languageCode": "en-US"
@@ -900,9 +900,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  }
  *  }
  *  },
- *  ...
  *  {
- *  "footer": {"matchingRowCount": 5}
+ *  "footer": {"matchingRowCount": 1}
  *  }]
  */
 @interface GTLRAdMob_GenerateNetworkReportResponse : GTLRObject

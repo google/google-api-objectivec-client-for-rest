@@ -37,6 +37,8 @@
 @class GTLRDisplayVideo_AppCategoryTargetingOptionDetails;
 @class GTLRDisplayVideo_Asset;
 @class GTLRDisplayVideo_AssetAssociation;
+@class GTLRDisplayVideo_AssignedInventorySource;
+@class GTLRDisplayVideo_AssignedLocation;
 @class GTLRDisplayVideo_AssignedTargetingOption;
 @class GTLRDisplayVideo_AudienceGroupAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_AudioVideoOffset;
@@ -133,6 +135,7 @@
 @class GTLRDisplayVideo_LookbackWindow;
 @class GTLRDisplayVideo_MaximizeSpendBidStrategy;
 @class GTLRDisplayVideo_Money;
+@class GTLRDisplayVideo_NegativeKeyword;
 @class GTLRDisplayVideo_NegativeKeywordList;
 @class GTLRDisplayVideo_NegativeKeywordListAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ObaIcon;
@@ -158,6 +161,7 @@
 @class GTLRDisplayVideo_SdfConfig;
 @class GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails;
+@class GTLRDisplayVideo_Site;
 @class GTLRDisplayVideo_Status;
 @class GTLRDisplayVideo_Status_Details_Item;
 @class GTLRDisplayVideo_SubExchangeAssignedTargetingOptionDetails;
@@ -3288,6 +3292,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOoyala;
 /**
+ *  Open8
+ *
+ *  Value: "EXCHANGE_OPEN8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOpen8;
+/**
  *  OpenX.
  *
  *  Value: "EXCHANGE_OPENX"
@@ -3402,6 +3412,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriplelift;
 /**
+ *  Triton.
+ *
+ *  Value: "EXCHANGE_TRITON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -3413,6 +3429,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_UNITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited;
+/**
+ *  UnrulyX
+ *
+ *  Value: "EXCHANGE_UNRULYX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnrulyx;
 /**
  *  Exchange is not specified or is unknown in this version.
  *
@@ -3662,6 +3684,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOoyala;
 /**
+ *  Open8
+ *
+ *  Value: "EXCHANGE_OPEN8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOpen8;
+/**
  *  OpenX.
  *
  *  Value: "EXCHANGE_OPENX"
@@ -3776,6 +3804,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriplelift;
 /**
+ *  Triton.
+ *
+ *  Value: "EXCHANGE_TRITON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -3787,6 +3821,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_UNITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited;
+/**
+ *  UnrulyX
+ *
+ *  Value: "EXCHANGE_UNRULYX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnrulyx;
 /**
  *  Exchange is not specified or is unknown in this version.
  *
@@ -3834,6 +3874,114 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExitEvent_Type_ExitEventTyp
  *  Value: "EXIT_EVENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExitEvent_Type_ExitEventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_FirstAndThirdPartyAudience.audienceSource
+
+/**
+ *  Originated from Google Ad Manager.
+ *
+ *  Value: "AD_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdManager;
+/**
+ *  Originated from Ads Data Hub.
+ *
+ *  Value: "ADS_DATA_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdsDataHub;
+/**
+ *  Default value when audience source is not specified or is unknown.
+ *
+ *  Value: "AUDIENCE_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AudienceSourceUnspecified;
+/**
+ *  Originated from Campaign Manager.
+ *
+ *  Value: "CAMPAIGN_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_CampaignManager;
+/**
+ *  Originated from Display & Video 360.
+ *
+ *  Value: "DISPLAY_VIDEO_360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_DisplayVideo360;
+/**
+ *  Originated from Search Ads 360.
+ *
+ *  Value: "SEARCH_ADS_360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_SearchAds360;
+/**
+ *  Originated from Youtube.
+ *
+ *  Value: "YOUTUBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_Youtube;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_FirstAndThirdPartyAudience.audienceType
+
+/**
+ *  Audience was created based on campaign activity.
+ *
+ *  Value: "ACTIVITY_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased;
+/**
+ *  Default value when type is not specified or is unknown.
+ *
+ *  Value: "AUDIENCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_AudienceTypeUnspecified;
+/**
+ *  Audience was generated through matching customers to known contact
+ *  information.
+ *
+ *  Value: "CUSTOMER_MATCH_CONTACT_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchContactInfo;
+/**
+ *  Audience was generated through matching customers to known Mobile device
+ *  IDs.
+ *
+ *  Value: "CUSTOMER_MATCH_DEVICE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchDeviceId;
+/**
+ *  Audience was generated through matching customers to known User IDs.
+ *
+ *  Value: "CUSTOMER_MATCH_USER_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchUserId;
+/**
+ *  Audience was created based on excluding the number of impressions they
+ *  were served.
+ *
+ *  Value: "FREQUENCY_CAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap;
+/**
+ *  Subtype of third party audience type.
+ *
+ *  Value: "LICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_Licensed;
+/**
+ *  Audience was created based on custom variables attached to pixel.
+ *
+ *  Value: "TAG_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_TagBased;
+/**
+ *  Audience was created based on past interactions with videos, TrueView
+ *  ads, or YouTube channel.
+ *
+ *  Value: "YOUTUBE_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_YoutubeUsers;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_FirstAndThirdPartyAudience.firstAndThirdPartyAudienceType
@@ -5332,6 +5480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOoyala;
 /**
+ *  Open8
+ *
+ *  Value: "EXCHANGE_OPEN8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOpen8;
+/**
  *  OpenX.
  *
  *  Value: "EXCHANGE_OPENX"
@@ -5446,6 +5600,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriplelift;
 /**
+ *  Triton.
+ *
+ *  Value: "EXCHANGE_TRITON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -5457,6 +5617,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_UNITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited;
+/**
+ *  UnrulyX
+ *
+ *  Value: "EXCHANGE_UNRULYX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnrulyx;
 /**
  *  Exchange is not specified or is unknown in this version.
  *
@@ -8479,9 +8645,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  An assignment between a targetable inventory source and an inventory source
+ *  group.
+ */
+@interface GTLRDisplayVideo_AssignedInventorySource : GTLRObject
+
+/**
+ *  Output only. The unique ID of the assigned inventory source. The ID is only
+ *  unique within a given inventory source group. It may be reused in other
+ *  contexts.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assignedInventorySourceId;
+
+/** Required. The ID of the inventory source entity being targeted. */
+@property(nonatomic, copy, nullable) NSString *inventorySourceId;
+
+/** Output only. The resource name of the assigned inventory source. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  An assignment between a location list and a relevant targeting option.
+ *  Currently, geo region targeting options are the only supported option for
+ *  assignment.
+ */
+@interface GTLRDisplayVideo_AssignedLocation : GTLRObject
+
+/**
+ *  Output only. The unique ID of the assigned location. The ID is only unique
+ *  within a
+ *  location list. It may be reused in other contexts.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assignedLocationId;
+
+/** Output only. The resource name of the assigned location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The ID of the targeting option assigned to the location list. Must
+ *  be of
+ *  type TARGETING_TYPE_GEO_REGION.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
  *  A single assigned targeting option, which defines the state of a targeting
- *  option for an entity with targeting settings, such as a Line Item or
- *  Insertion Order.
+ *  option for an entity with targeting settings.
  */
 @interface GTLRDisplayVideo_AssignedTargetingOption : GTLRObject
 
@@ -9169,6 +9387,96 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Request message for AssignedInventorySourceService.BulkEdit.
+ */
+@interface GTLRDisplayVideo_BulkEditAssignedInventorySourcesRequest : GTLRObject
+
+/**
+ *  The ID of the advertiser that owns the parent inventory source group.
+ *  The parent partner does not have access to these assigned inventory
+ *  sources.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+/**
+ *  The assigned inventory sources to create in bulk, specified as a list of
+ *  AssignedInventorySources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedInventorySource *> *createdAssignedInventorySources;
+
+/**
+ *  The IDs of the assigned inventory sources to delete in bulk, specified as a
+ *  list of
+ *  assigned_inventory_source_ids.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *deletedAssignedInventorySources;
+
+/**
+ *  The ID of the partner that owns the inventory source group.
+ *  Only this partner has write access to these assigned inventory sources.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+@end
+
+
+/**
+ *  Response message for AssignedInventorySourceService.BulkEdit.
+ */
+@interface GTLRDisplayVideo_BulkEditAssignedInventorySourcesResponse : GTLRObject
+
+/**
+ *  The list of assigned inventory sources that have been successfully created.
+ *  This list will be absent if empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedInventorySource *> *assignedInventorySources;
+
+@end
+
+
+/**
+ *  Request message for AssignedLocationService.BulkEditAssignedLocations.
+ */
+@interface GTLRDisplayVideo_BulkEditAssignedLocationsRequest : GTLRObject
+
+/**
+ *  The assigned locations to create in bulk, specified as a list of
+ *  AssignedLocations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedLocation *> *createdAssignedLocations;
+
+/**
+ *  The IDs of the assigned locations to delete in bulk, specified as a list of
+ *  assigned_location_ids.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *deletedAssignedLocations;
+
+@end
+
+
+/**
+ *  Response message for AssignedLocationService.BulkEditAssignedLocations.
+ */
+@interface GTLRDisplayVideo_BulkEditAssignedLocationsResponse : GTLRObject
+
+/**
+ *  The list of assigned locations that have been successfully created.
+ *  This list will be absent if empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedLocation *> *assignedLocations;
+
+@end
+
+
+/**
  *  Request message for
  *  BulkEditLineItemAssignedTargetingOptions.
  */
@@ -9199,6 +9507,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  This list will be absent if empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *createdAssignedTargetingOptions;
+
+@end
+
+
+/**
+ *  Request message for NegativeKeywordService.BulkEditNegativeKeywords.
+ */
+@interface GTLRDisplayVideo_BulkEditNegativeKeywordsRequest : GTLRObject
+
+/**
+ *  The negative keywords to create in batch, specified as a list of
+ *  NegativeKeywords.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_NegativeKeyword *> *createdNegativeKeywords;
+
+/**
+ *  The negative keywords to delete in batch, specified as a list of
+ *  keyword_values.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deletedNegativeKeywords;
+
+@end
+
+
+/**
+ *  Response message for NegativeKeywordService.BulkEditNegativeKeywords.
+ */
+@interface GTLRDisplayVideo_BulkEditNegativeKeywordsResponse : GTLRObject
+
+/**
+ *  The list of negative keywords that have been successfully created.
+ *  This list will be absent if empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_NegativeKeyword *> *negativeKeywords;
+
+@end
+
+
+/**
+ *  Request message for SiteService.BulkEditSites.
+ */
+@interface GTLRDisplayVideo_BulkEditSitesRequest : GTLRObject
+
+/**
+ *  The ID of the advertiser that owns the parent channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+/** The sites to create in batch, specified as a list of Sites. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Site *> *createdSites;
+
+/**
+ *  The sites to delete in batch, specified as a list of site
+ *  url_or_app_ids.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deletedSites;
+
+/**
+ *  The ID of the partner that owns the parent channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+@end
+
+
+/**
+ *  Response message for SiteService.BulkEditSites.
+ */
+@interface GTLRDisplayVideo_BulkEditSitesResponse : GTLRObject
+
+/**
+ *  The list of sites that have been successfully created.
+ *  This list will be absent if empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Site *> *sites;
 
 @end
 
@@ -10576,6 +10963,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *jsTrackerUrl;
 
 /**
+ *  Output only. The IDs of the line items this creative is associated with.
+ *  To associate a creative to a line item, use
+ *  LineItem.creative_ids instead.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *lineItemIds;
+
+/**
  *  Output only. Media duration of the creative.
  *  Applicable when creative_type
  *  is one of:
@@ -11923,6 +12319,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        ONE by AOL: Video. (Value: "EXCHANGE_ONE_BY_AOL_VIDEO")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOoyala
  *        Ooyala. (Value: "EXCHANGE_OOYALA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOpen8
+ *        Open8 (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOpenx
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePermodo
@@ -11961,10 +12359,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriplelift
  *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton
+ *        Triton. (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnrulyx
+ *        UnrulyX (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -12076,6 +12478,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        ONE by AOL: Video. (Value: "EXCHANGE_ONE_BY_AOL_VIDEO")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOoyala
  *        Ooyala. (Value: "EXCHANGE_OOYALA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOpen8
+ *        Open8 (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOpenx
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePermodo
@@ -12114,10 +12518,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriplelift
  *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton
+ *        Triton. (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnrulyx
+ *        UnrulyX (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -12188,6 +12596,129 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_FirstAndThirdPartyAudience : GTLRObject
 
 /**
+ *  Output only. The estimated audience size for the Display network in the past
+ *  month.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeDisplayAudienceSize;
+
+/**
+ *  Output only. The source of the audience.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdManager
+ *        Originated from Google Ad Manager. (Value: "AD_MANAGER")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdsDataHub
+ *        Originated from Ads Data Hub. (Value: "ADS_DATA_HUB")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AudienceSourceUnspecified
+ *        Default value when audience source is not specified or is unknown.
+ *        (Value: "AUDIENCE_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_CampaignManager
+ *        Originated from Campaign Manager. (Value: "CAMPAIGN_MANAGER")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_DisplayVideo360
+ *        Originated from Display & Video 360. (Value: "DISPLAY_VIDEO_360")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_SearchAds360
+ *        Originated from Search Ads 360. (Value: "SEARCH_ADS_360")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_Youtube
+ *        Originated from Youtube. (Value: "YOUTUBE")
+ */
+@property(nonatomic, copy, nullable) NSString *audienceSource;
+
+/**
+ *  Output only. The type of the audience.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased
+ *        Audience was created based on campaign activity. (Value:
+ *        "ACTIVITY_BASED")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_AudienceTypeUnspecified
+ *        Default value when type is not specified or is unknown. (Value:
+ *        "AUDIENCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchContactInfo
+ *        Audience was generated through matching customers to known contact
+ *        information. (Value: "CUSTOMER_MATCH_CONTACT_INFO")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchDeviceId
+ *        Audience was generated through matching customers to known Mobile
+ *        device
+ *        IDs. (Value: "CUSTOMER_MATCH_DEVICE_ID")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchUserId
+ *        Audience was generated through matching customers to known User IDs.
+ *        (Value: "CUSTOMER_MATCH_USER_ID")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap
+ *        Audience was created based on excluding the number of impressions they
+ *        were served. (Value: "FREQUENCY_CAP")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_Licensed
+ *        Subtype of third party audience type. (Value: "LICENSED")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_TagBased
+ *        Audience was created based on custom variables attached to pixel.
+ *        (Value: "TAG_BASED")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_YoutubeUsers
+ *        Audience was created based on past interactions with videos, TrueView
+ *        ads, or YouTube channel. (Value: "YOUTUBE_USERS")
+ */
+@property(nonatomic, copy, nullable) NSString *audienceType;
+
+/**
+ *  Output only. The description of the first and third party audience.
+ *  Only applicable to first party audiences.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The estimated audience size for the Display network.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayAudienceSize;
+
+/**
+ *  Output only. The estimated desktop audience size in Display network.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only applicable to first party audiences.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayDesktopAudienceSize;
+
+/**
+ *  Output only. The estimated mobile app audience size in Display network.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only applicable to first party audiences.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayMobileAppAudienceSize;
+
+/**
+ *  Output only. The estimated mobile web audience size in Display network.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only applicable to first party audiences.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *displayMobileWebAudienceSize;
+
+/**
  *  Output only. The display name of the first and third party audience.
  *  .
  */
@@ -12219,8 +12750,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, copy, nullable) NSString *firstAndThirdPartyAudienceType;
 
+/**
+ *  Output only. The estimated audience size for Gmail network.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only applicable to first party audiences.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gmailAudienceSize;
+
+/**
+ *  Output only. The duration in days that an entry remains in the audience
+ *  after the
+ *  qualifying event.
+ *  Only applicable to first party audiences.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *membershipDurationDays;
+
 /** Output only. The resource name of the first and third party audience. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The estimated audience size for YouTube network.
+ *  If the size is less than 1000, the number will be hidden and 0 will be
+ *  returned due to privacy reasons. Otherwise, the number will be rounded off
+ *  to two significant digits.
+ *  Only applicable to first party audiences.
+ *  Only returned in GET request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *youtubeAudienceSize;
 
 @end
 
@@ -13646,6 +14211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        ONE by AOL: Video. (Value: "EXCHANGE_ONE_BY_AOL_VIDEO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOoyala Ooyala.
  *        (Value: "EXCHANGE_OOYALA")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOpen8 Open8
+ *        (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOpenx OpenX.
  *        (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangePermodo
@@ -13684,10 +14251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriplelift
  *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton Triton.
+ *        (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited United.
  *        (Value: "EXCHANGE_UNITED")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnrulyx UnrulyX
+ *        (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -14361,6 +14932,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Response message for
+ *  AssignedInventorySourceService.ListAssignedInventorySources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedInventorySources" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListAssignedInventorySourcesResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned inventory sources.
+ *  This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedInventorySource *> *assignedInventorySources;
+
+/**
+ *  A token to retrieve the next page of results.
+ *  Pass this value in the
+ *  page_token field
+ *  in the subsequent call to `ListAssignedInventorySources` method to
+ *  retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for
+ *  AssignedLocationService.ListAssignedLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedLocations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListAssignedLocationsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned locations.
+ *  This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedLocation *> *assignedLocations;
+
+/**
+ *  A token to retrieve the next page of results.
+ *  Pass this value in the
+ *  page_token field
+ *  in the subsequent call to `ListAssignedLocations` method to
+ *  retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRDisplayVideo_ListCampaignsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -14796,6 +15431,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Response message for NegativeKeywordService.ListNegativeKeywords.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "negativeKeywords" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDisplayVideo_ListNegativeKeywordsResponse : GTLRCollectionObject
+
+/**
+ *  The list of negative keywords.
+ *  This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_NegativeKeyword *> *negativeKeywords;
+
+/**
+ *  A token to retrieve the next page of results.
+ *  Pass this value in the page_token
+ *  field in the subsequent call to `ListNegativeKeywords` method to retrieve
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for SiteService.ListSites.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sites" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDisplayVideo_ListSitesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results.
+ *  Pass this value in the page_token field
+ *  in the subsequent call to `ListSites` method to retrieve the next page
+ *  of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of sites.
+ *  This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Site *> *sites;
+
+@end
+
+
+/**
  *  Response message for
  *  ListTargetingOptions.
  *
@@ -14976,6 +15671,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  A negatively targeted keyword that belongs to a negative keyword list.
+ */
+@interface GTLRDisplayVideo_NegativeKeyword : GTLRObject
+
+/**
+ *  Required. Immutable. The negatively targeted keyword, for example `car
+ *  insurance`.
+ *  Must be UTF-8 encoded with a maximum size of 255 bytes. Maximum number
+ *  of characters is 80. Maximum number of words is 10.
+ *  Valid characters are restricted to ASCII characters only. The only
+ *  URL-escaping permitted is for representing whitespace between words.
+ *  Leading or trailing whitespace is ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *keywordValue;
+
+/** Output only. The resource name of the negative keyword. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -16407,6 +17124,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        "SENSITIVE_CATEGORY_WEAPONS")
  */
 @property(nonatomic, copy, nullable) NSString *sensitiveCategory;
+
+@end
+
+
+/**
+ *  A single site. Sites are apps or websites belonging to a channel.
+ */
+@interface GTLRDisplayVideo_Site : GTLRObject
+
+/** Output only. The resource name of the site. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The URL or app ID of the site.
+ *  Must be UTF-8 encoded with a maximum length of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *urlOrAppId;
 
 @end
 

@@ -209,6 +209,28 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_ListAvailableVersionsResponse
+//
+
+@implementation GTLRDataFusion_ListAvailableVersionsResponse
+@dynamic availableVersions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableVersions" : [GTLRDataFusion_Version class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"availableVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_ListInstancesResponse
 //
 
@@ -496,5 +518,5 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Version
-@dynamic versionNumber;
+@dynamic defaultVersion, versionNumber;
 @end

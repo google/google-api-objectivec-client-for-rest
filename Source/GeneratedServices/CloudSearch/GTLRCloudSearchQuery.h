@@ -1581,7 +1581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Name of the search application.
- *  <br />Format: applications/{application_id}.
+ *  <br />Format: searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1592,7 +1592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  **Note:** This API requires an admin account to execute.
  *
  *  @param name Name of the search application.
- *    <br />Format: applications/{application_id}.
+ *    <br />Format: searchapplications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsGet
  */

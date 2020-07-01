@@ -34,6 +34,7 @@
 @class GTLRPubsub_PushConfig;
 @class GTLRPubsub_PushConfig_Attributes;
 @class GTLRPubsub_ReceivedMessage;
+@class GTLRPubsub_RetryPolicy;
 @class GTLRPubsub_Snapshot;
 @class GTLRPubsub_Snapshot_Labels;
 @class GTLRPubsub_Subscription;
@@ -200,6 +201,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDeliveryAttempts;
 
+@end
+
+
+/**
+ *  Response for the DetachSubscription method.
+ *  Reserved for future use.
+ */
+@interface GTLRPubsub_DetachSubscriptionResponse : GTLRObject
 @end
 
 
@@ -404,7 +413,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** The names of the subscriptions that match the request. */
+/**
+ *  The names of subscriptions attached to the topic specified in the request.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subscriptions;
 
 @end
@@ -425,7 +436,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Attributes for this message. If this field is empty, the message must
- *  contain non-empty data.
+ *  contain non-empty data. This can be used to filter messages on the
+ *  subscription.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Message_Attributes *attributes;
 
@@ -458,7 +470,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Attributes for this message. If this field is empty, the message must
- *  contain non-empty data.
+ *  contain non-empty data. This can be used to filter messages on the
+ *  subscription.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -470,7 +483,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRPubsub_MessageStoragePolicy
+ *  A policy constraining the storage of messages published to the topic.
  */
 @interface GTLRPubsub_MessageStoragePolicy : GTLRObject
 
@@ -850,6 +863,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A policy that specifies how Cloud Pub/Sub retries message delivery.
+ *  Retry delay will be exponential based on provided minimum and maximum
+ *  backoffs. https://en.wikipedia.org/wiki/Exponential_backoff.
+ *  RetryPolicy will be triggered on NACKs or acknowledgement deadline exceeded
+ *  events for a given message.
+ *  Retry Policy is implemented on a best effort basis. At times, the delay
+ *  between consecutive deliveries may not match the configuration. That is,
+ *  delay can be more or less than configured backoff.
+ */
+@interface GTLRPubsub_RetryPolicy : GTLRObject
+
+/**
+ *  The maximum delay between consecutive deliveries of a given message.
+ *  Value should be between 0 and 600 seconds. Defaults to 600 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maximumBackoff;
+
+/**
+ *  The minimum delay between consecutive deliveries of a given message.
+ *  Value should be between 0 and 600 seconds. Defaults to 10 seconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minimumBackoff;
+
+@end
+
+
+/**
  *  Request for the `Seek` method.
  */
 @interface GTLRPubsub_SeekRequest : GTLRObject
@@ -1004,13 +1044,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_ExpirationPolicy *expirationPolicy;
 
 /**
- *  An expression written in the Cloud Pub/Sub filter language. If non-empty,
+ *  An expression written in the Pub/Sub [filter
+ *  language](https://cloud.google.com/pubsub/docs/filtering). If non-empty,
  *  then only `PubsubMessage`s whose `attributes` field matches the filter are
  *  delivered on this subscription. If empty, then no messages are filtered
  *  out.
- *  <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
- *  API might be changed in backward-incompatible ways and is not recommended
- *  for production use. It is not subject to any SLA or deprecation policy.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1058,6 +1096,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *retainAckedMessages;
+
+/**
+ *  A policy that specifies how Pub/Sub retries message delivery for this
+ *  subscription.
+ *  If not set, the default retry policy is applied. This generally implies
+ *  that messages will be retried as soon as possible for healthy subscribers.
+ *  RetryPolicy will be triggered on NACKs or acknowledgement deadline
+ *  exceeded events for a given message.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_RetryPolicy *retryPolicy;
 
 /**
  *  Required. The name of the topic from which this subscription is receiving

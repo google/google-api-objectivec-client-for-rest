@@ -83,6 +83,15 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_DetachSubscriptionResponse
+//
+
+@implementation GTLRPubsub_DetachSubscriptionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Empty
 //
 
@@ -419,6 +428,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_RetryPolicy
+//
+
+@implementation GTLRPubsub_RetryPolicy
+@dynamic maximumBackoff, minimumBackoff;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_SeekRequest
 //
 
@@ -477,7 +496,8 @@
 
 @implementation GTLRPubsub_Subscription
 @dynamic ackDeadlineSeconds, deadLetterPolicy, expirationPolicy, filter, labels,
-         messageRetentionDuration, name, pushConfig, retainAckedMessages, topic;
+         messageRetentionDuration, name, pushConfig, retainAckedMessages,
+         retryPolicy, topic;
 @end
 
 

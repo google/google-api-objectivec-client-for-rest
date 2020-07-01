@@ -851,7 +851,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ListAlertPoliciesResponse
-@dynamic alertPolicies, nextPageToken;
+@dynamic alertPolicies, nextPageToken, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1049,7 +1049,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ListTimeSeriesResponse
-@dynamic executionErrors, nextPageToken, timeSeries;
+@dynamic executionErrors, nextPageToken, timeSeries, unit;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

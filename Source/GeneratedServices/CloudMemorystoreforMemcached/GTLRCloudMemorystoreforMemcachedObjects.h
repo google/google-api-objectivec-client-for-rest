@@ -32,6 +32,7 @@
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
@@ -268,7 +269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -277,18 +278,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -331,7 +332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -611,6 +612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules *maintenanceSchedules;
 
+/** Optional. The MaintenanceSettings associated with instance. */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings *maintenanceSettings;
+
 /**
  *  Unique name of the resource. It uses the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
@@ -789,6 +793,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 
 
 /**
+ *  Maintenance settings associated with instance. Allows service producers and
+ *  end users to assign settings that controls maintenance on this instance.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings : GTLRObject
+
+/**
+ *  Optional. Exclude instance from maintenance. When true, rollout service will
+ *  not
+ *  attempt maintenance on the instance. Rollout service will include the
+ *  instance in reported rollout progress as not attempted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exclude;
+
+@end
+
+
+/**
  *  Node information for custom per-node SLO implementations.
  *  SSA does not support per-node SLO, but producers can populate per-node
  *  information in SloMetadata for custom precomputations.
@@ -954,7 +977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 @interface GTLRCloudMemorystoreforMemcached_Instance : GTLRObject
 
 /**
- *  Optional. The full name of the Google Compute Engine
+ *  The full name of the Google Compute Engine
  *  [network](/compute/docs/networks-and-firewalls#networks) to which the
  *  instance is connected. If left unspecified, the `default` network
  *  will be used.
@@ -968,7 +991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 @property(nonatomic, copy, nullable) NSString *discoveryEndpoint;
 
 /**
- *  Optional. User provided name for the instance only used for display
+ *  User provided name for the instance only used for display
  *  purposes. Cannot be more than 80 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -977,7 +1000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_InstanceMessage *> *instanceMessages;
 
 /**
- *  Optional. Resource labels to represent user-provided metadata.
+ *  Resource labels to represent user-provided metadata.
  *  Refer to cloud documentation on labels for more details.
  *  https://cloud.google.com/compute/docs/labeling-resources
  */
@@ -998,7 +1021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_Node *> *memcacheNodes;
 
 /**
- *  Optional. The major version of Memcached software.
+ *  The major version of Memcached software.
  *  If not provided, latest supported version will be used. Currently the
  *  latest supported major version is MEMCACHE_1_5.
  *  The minor version will be automatically determined by our system based on
@@ -1061,7 +1084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Optional. Zones where Memcached nodes should be provisioned in.
+ *  Zones where Memcached nodes should be provisioned in.
  *  Memcached nodes will be equally distributed across these zones. If not
  *  provided, the service will by default create nodes in all zones in the
  *  region for the instance.
@@ -1072,7 +1095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 
 
 /**
- *  Optional. Resource labels to represent user-provided metadata.
+ *  Resource labels to represent user-provided metadata.
  *  Refer to cloud documentation on labels for more details.
  *  https://cloud.google.com/compute/docs/labeling-resources
  *

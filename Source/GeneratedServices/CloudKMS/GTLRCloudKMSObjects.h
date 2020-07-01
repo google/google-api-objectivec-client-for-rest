@@ -787,6 +787,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  */
 @property(nonatomic, copy, nullable) NSString *ciphertext;
 
+/**
+ *  Optional. An optional CRC32C checksum of the
+ *  AsymmetricDecryptRequest.ciphertext.
+ *  If specified, KeyManagementService will verify the integrity of the
+ *  received AsymmetricDecryptRequest.ciphertext using this checksum.
+ *  KeyManagementService will report an error if the checksum verification
+ *  fails. If you receive a checksum error, your client should verify that
+ *  CRC32C(AsymmetricDecryptRequest.ciphertext) is equal to
+ *  AsymmetricDecryptRequest.ciphertext_crc32c, and if so, perform a
+ *  limited number of retries. A persistent mismatch may indicate an issue in
+ *  your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ciphertextCrc32c;
+
 @end
 
 
@@ -803,6 +824,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  */
 @property(nonatomic, copy, nullable) NSString *plaintext;
 
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  AsymmetricDecryptResponse.plaintext. An integrity check of
+ *  AsymmetricDecryptResponse.plaintext can be performed by computing the
+ *  CRC32C checksum of AsymmetricDecryptResponse.plaintext and comparing
+ *  your results to this field. Discard the response in case of non-matching
+ *  checksum values, and perform a limited number of retries. A persistent
+ *  mismatch may indicate an issue in your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  AsymmetricDecryptRequest.ciphertext_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of the
+ *  ciphertext. A false value of this
+ *  field indicates either that AsymmetricDecryptRequest.ciphertext_crc32c
+ *  was left unset or that it was not delivered to KeyManagementService. If
+ *  you've set AsymmetricDecryptRequest.ciphertext_crc32c but this field is
+ *  still false, discard the response and perform a limited number of retries.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedCiphertextCrc32c;
+
 @end
 
 
@@ -818,6 +872,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_Digest *digest;
 
+/**
+ *  Optional. An optional CRC32C checksum of the AsymmetricSignRequest.digest.
+ *  If
+ *  specified, KeyManagementService will verify the integrity of the
+ *  received AsymmetricSignRequest.digest using this checksum.
+ *  KeyManagementService will report an error if the checksum verification
+ *  fails. If you receive a checksum error, your client should verify that
+ *  CRC32C(AsymmetricSignRequest.digest) is equal to
+ *  AsymmetricSignRequest.digest_crc32c, and if so, perform a limited
+ *  number of retries. A persistent mismatch may indicate an issue in your
+ *  computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *digestCrc32c;
+
 @end
 
 
@@ -827,12 +902,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @interface GTLRCloudKMS_AsymmetricSignResponse : GTLRObject
 
 /**
+ *  The resource name of the CryptoKeyVersion used for signing. Check
+ *  this field to verify that the intended resource was used for signing.
+ *  NOTE: This field is in Beta.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  The created signature.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *signature;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  AsymmetricSignResponse.signature. An integrity check of
+ *  AsymmetricSignResponse.signature can be performed by computing the
+ *  CRC32C checksum of AsymmetricSignResponse.signature and comparing your
+ *  results to this field. Discard the response in case of non-matching
+ *  checksum values, and perform a limited number of retries. A persistent
+ *  mismatch may indicate an issue in your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signatureCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  AsymmetricSignRequest.digest_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of the
+ *  digest. A false value of this field
+ *  indicates either that AsymmetricSignRequest.digest_crc32c was left
+ *  unset or that it was not delivered to KeyManagementService. If you've
+ *  set AsymmetricSignRequest.digest_crc32c but this field is still false,
+ *  discard the response and perform a limited number of retries.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedDigestCrc32c;
 
 @end
 
@@ -850,7 +965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -859,18 +974,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -913,7 +1028,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -1022,7 +1137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 
 /**
  *  Labels with user-defined metadata. For more information, see
- *  [Labeling Keys](/kms/docs/labeling-keys).
+ *  [Labeling Keys](https://cloud.google.com/kms/docs/labeling-keys).
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_CryptoKey_Labels *labels;
 
@@ -1103,7 +1218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 
 /**
  *  Labels with user-defined metadata. For more information, see
- *  [Labeling Keys](/kms/docs/labeling-keys).
+ *  [Labeling Keys](https://cloud.google.com/kms/docs/labeling-keys).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1412,6 +1527,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @property(nonatomic, copy, nullable) NSString *additionalAuthenticatedData;
 
 /**
+ *  Optional. An optional CRC32C checksum of the
+ *  DecryptRequest.additional_authenticated_data. If specified,
+ *  KeyManagementService will verify the integrity of the received
+ *  DecryptRequest.additional_authenticated_data using this checksum.
+ *  KeyManagementService will report an error if the checksum verification
+ *  fails. If you receive a checksum error, your client should verify that
+ *  CRC32C(DecryptRequest.additional_authenticated_data) is equal to
+ *  DecryptRequest.additional_authenticated_data_crc32c, and if so, perform
+ *  a limited number of retries. A persistent mismatch may indicate an issue in
+ *  your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *additionalAuthenticatedDataCrc32c;
+
+/**
  *  Required. The encrypted data originally returned in
  *  EncryptResponse.ciphertext.
  *
@@ -1419,6 +1555,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *ciphertext;
+
+/**
+ *  Optional. An optional CRC32C checksum of the DecryptRequest.ciphertext. If
+ *  specified, KeyManagementService will verify the integrity of the
+ *  received DecryptRequest.ciphertext using this checksum.
+ *  KeyManagementService will report an error if the checksum verification
+ *  fails. If you receive a checksum error, your client should verify that
+ *  CRC32C(DecryptRequest.ciphertext) is equal to
+ *  DecryptRequest.ciphertext_crc32c, and if so, perform a limited number
+ *  of retries. A persistent mismatch may indicate an issue in your computation
+ *  of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ciphertextCrc32c;
 
 @end
 
@@ -1435,6 +1591,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *plaintext;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  DecryptResponse.plaintext. An integrity check of
+ *  DecryptResponse.plaintext can be performed by computing the CRC32C
+ *  checksum of DecryptResponse.plaintext and comparing your results to
+ *  this field. Discard the response in case of non-matching checksum values,
+ *  and perform a limited number of retries. A persistent mismatch may indicate
+ *  an issue in your computation of the CRC32C checksum. Note: receiving this
+ *  response message indicates that KeyManagementService is able to
+ *  successfully decrypt the ciphertext.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
 
 @end
 
@@ -1500,6 +1676,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @property(nonatomic, copy, nullable) NSString *additionalAuthenticatedData;
 
 /**
+ *  Optional. An optional CRC32C checksum of the
+ *  EncryptRequest.additional_authenticated_data. If specified,
+ *  KeyManagementService will verify the integrity of the received
+ *  EncryptRequest.additional_authenticated_data using this checksum.
+ *  KeyManagementService will report an error if the checksum verification
+ *  fails. If you receive a checksum error, your client should verify that
+ *  CRC32C(EncryptRequest.additional_authenticated_data) is equal to
+ *  EncryptRequest.additional_authenticated_data_crc32c, and if so, perform
+ *  a limited number of retries. A persistent mismatch may indicate an issue in
+ *  your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *additionalAuthenticatedDataCrc32c;
+
+/**
  *  Required. The data to encrypt. Must be no larger than 64KiB.
  *  The maximum size depends on the key version's
  *  protection_level. For
@@ -1512,6 +1709,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *plaintext;
+
+/**
+ *  Optional. An optional CRC32C checksum of the EncryptRequest.plaintext. If
+ *  specified, KeyManagementService will verify the integrity of the
+ *  received EncryptRequest.plaintext using this checksum.
+ *  KeyManagementService will report an error if the checksum verification
+ *  fails. If you receive a checksum error, your client should verify that
+ *  CRC32C(EncryptRequest.plaintext) is equal to
+ *  EncryptRequest.plaintext_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
 
 @end
 
@@ -1530,10 +1747,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @property(nonatomic, copy, nullable) NSString *ciphertext;
 
 /**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  EncryptResponse.ciphertext. An integrity check of
+ *  EncryptResponse.ciphertext can be performed by computing the CRC32C
+ *  checksum of EncryptResponse.ciphertext and comparing your results to
+ *  this field. Discard the response in case of non-matching checksum values,
+ *  and perform a limited number of retries. A persistent mismatch may indicate
+ *  an issue in your computation of the CRC32C checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ciphertextCrc32c;
+
+/**
  *  The resource name of the CryptoKeyVersion used in encryption. Check
  *  this field to verify that the intended resource was used for encryption.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  EncryptRequest.additional_authenticated_data_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of the
+ *  AAD. A false value of this
+ *  field indicates either that
+ *  EncryptRequest.additional_authenticated_data_crc32c was left unset or
+ *  that it was not delivered to KeyManagementService. If you've set
+ *  EncryptRequest.additional_authenticated_data_crc32c but this field is
+ *  still false, discard the response and perform a limited number of retries.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedAdditionalAuthenticatedDataCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  EncryptRequest.plaintext_crc32c was received by
+ *  KeyManagementService and used for the integrity verification of the
+ *  plaintext. A false value of this field
+ *  indicates either that EncryptRequest.plaintext_crc32c was left unset or
+ *  that it was not delivered to KeyManagementService. If you've set
+ *  EncryptRequest.plaintext_crc32c but this field is still false, discard
+ *  the response and perform a limited number of retries.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedPlaintextCrc32c;
 
 @end
 
@@ -2327,6 +2593,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
 /**
+ *  The name of the CryptoKeyVersion public key.
+ *  Provided here for verification.
+ *  NOTE: This field is in Beta.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  The public key, encoded in PEM format. For more information, see the
  *  [RFC 7468](https://tools.ietf.org/html/rfc7468) sections for
  *  [General Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
@@ -2334,6 +2607,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  (https://tools.ietf.org/html/rfc7468#section-13).
  */
 @property(nonatomic, copy, nullable) NSString *pem;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  PublicKey.pem. An integrity check of PublicKey.pem can be performed
+ *  by computing the CRC32C checksum of PublicKey.pem and
+ *  comparing your results to this field. Discard the response in case of
+ *  non-matching checksum values, and perform a limited number of retries. A
+ *  persistent mismatch may indicate an issue in your computation of the CRC32C
+ *  checksum.
+ *  Note: This field is defined as int64 for reasons of compatibility across
+ *  different languages. However, it is a non-negative integer, which will
+ *  never exceed 2^32-1, and can be safely downconverted to uint32 in languages
+ *  that support this type.
+ *  NOTE: This field is in Beta.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pemCrc32c;
 
 @end
 

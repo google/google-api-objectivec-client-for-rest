@@ -23,6 +23,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top = @
 // GTLRDLP_GooglePrivacyDlpV2ByteContentItem.type
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Avro = @"AVRO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified = @"BYTES_TYPE_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv = @"CSV";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image = @"IMAGE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp = @"IMAGE_BMP";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageJpeg = @"IMAGE_JPEG";
@@ -30,6 +31,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImagePng = @"IM
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageSvg = @"IMAGE_SVG";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Pdf = @"PDF";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 = @"TEXT_UTF8";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv = @"TSV";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument = @"WORD_DOCUMENT";
 
 // GTLRDLP_GooglePrivacyDlpV2CharsToIgnore.commonCharactersToIgnore
@@ -43,10 +45,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_CommonCharactersToIgno
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.fileTypes
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro = @"AVRO";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile = @"BINARY_FILE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Csv = @"CSV";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image = @"IMAGE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf = @"PDF";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile = @"TEXT_FILE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Tsv = @"TSV";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word = @"WORD";
 
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod

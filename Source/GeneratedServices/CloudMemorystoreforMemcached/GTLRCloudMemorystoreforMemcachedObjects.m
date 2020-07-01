@@ -198,9 +198,9 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance
 @dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
-         maintenanceSchedules, name, producerMetadata, provisionedResources,
-         slmInstanceTemplate, sloMetadata, softwareVersions, state,
-         tenantProjectId, updateTime;
+         maintenanceSchedules, maintenanceSettings, name, producerMetadata,
+         provisionedResources, slmInstanceTemplate, sloMetadata,
+         softwareVersions, state, tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -289,6 +289,16 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
 @dynamic canReschedule, endTime, rolloutManagementPolicy, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+@dynamic exclude;
 @end
 
 

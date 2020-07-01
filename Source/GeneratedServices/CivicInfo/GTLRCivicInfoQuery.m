@@ -7,7 +7,7 @@
 //   Provides polling places, early vote locations, contest data, election
 //   officials, and government representatives for U.S. residential addresses.
 // Documentation:
-//   https://developers.google.com/civic-information
+//   https://developers.google.com/civic-information/
 
 #import "GTLRCivicInfoQuery.h"
 
@@ -54,19 +54,12 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 
 @dynamic query;
 
-+ (instancetype)queryWithObject:(GTLRCivicInfo_DivisionSearchRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"divisions";
++ (instancetype)query {
+  NSString *pathURITemplate = @"civicinfo/v2/divisions";
   GTLRCivicInfoQuery_DivisionsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.bodyObject = object;
   query.expectedObjectClass = [GTLRCivicInfo_DivisionSearchResponse class];
   query.loggingName = @"civicinfo.divisions.search";
   return query;
@@ -76,19 +69,12 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 
 @implementation GTLRCivicInfoQuery_ElectionsElectionQuery
 
-+ (instancetype)queryWithObject:(GTLRCivicInfo_ElectionsQueryRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"elections";
++ (instancetype)query {
+  NSString *pathURITemplate = @"civicinfo/v2/elections";
   GTLRCivicInfoQuery_ElectionsElectionQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.bodyObject = object;
   query.expectedObjectClass = [GTLRCivicInfo_ElectionsQueryResponse class];
   query.loggingName = @"civicinfo.elections.electionQuery";
   return query;
@@ -100,20 +86,12 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 
 @dynamic address, electionId, officialOnly, returnAllAvailableData;
 
-+ (instancetype)queryWithObject:(GTLRCivicInfo_VoterInfoRequest *)object
-                        address:(NSString *)address {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"voterinfo";
++ (instancetype)queryWithAddress:(NSString *)address {
+  NSString *pathURITemplate = @"civicinfo/v2/voterinfo";
   GTLRCivicInfoQuery_ElectionsVoterInfoQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.bodyObject = object;
   query.address = address;
   query.expectedObjectClass = [GTLRCivicInfo_VoterInfoResponse class];
   query.loggingName = @"civicinfo.elections.voterInfoQuery";
@@ -134,19 +112,12 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
   return map;
 }
 
-+ (instancetype)queryWithObject:(GTLRCivicInfo_RepresentativeInfoRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"representatives";
++ (instancetype)query {
+  NSString *pathURITemplate = @"civicinfo/v2/representatives";
   GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.bodyObject = object;
   query.expectedObjectClass = [GTLRCivicInfo_RepresentativeInfoResponse class];
   query.loggingName = @"civicinfo.representatives.representativeInfoByAddress";
   return query;
@@ -166,21 +137,13 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
   return map;
 }
 
-+ (instancetype)queryWithObject:(GTLRCivicInfo_DivisionRepresentativeInfoRequest *)object
-                          ocdId:(NSString *)ocdId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
++ (instancetype)queryWithOcdId:(NSString *)ocdId {
   NSArray *pathParams = @[ @"ocdId" ];
-  NSString *pathURITemplate = @"representatives/{ocdId}";
+  NSString *pathURITemplate = @"civicinfo/v2/representatives/{ocdId}";
   GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.ocdId = ocdId;
   query.expectedObjectClass = [GTLRCivicInfo_RepresentativeInfoData class];
   query.loggingName = @"civicinfo.representatives.representativeInfoByDivision";

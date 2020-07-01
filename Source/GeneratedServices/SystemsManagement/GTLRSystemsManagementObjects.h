@@ -949,7 +949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 /**
  *  A high level representation of a patch job that is either in progress
  *  or has completed.
- *  Instances details are not included in the job. To paginate through instance
+ *  Instance details are not included in the job. To paginate through instance
  *  details, use ListPatchJobInstanceDetails.
  *  For more information about patch jobs, see
  *  [Creating patch
@@ -1018,7 +1018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSNumber *percentComplete;
 
 /**
- *  The current state of the PatchJob .
+ *  The current state of the PatchJob.
  *
  *  Likely values:
  *    @arg @c kGTLRSystemsManagement_PatchJob_State_Canceled The patch job was

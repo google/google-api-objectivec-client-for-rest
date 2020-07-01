@@ -14,6 +14,7 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopePeopleServiceContacts           = @"https://www.googleapis.com/auth/contacts";
+NSString * const kGTLRAuthScopePeopleServiceContactsOtherReadonly = @"https://www.googleapis.com/auth/contacts.other.readonly";
 NSString * const kGTLRAuthScopePeopleServiceContactsReadonly   = @"https://www.googleapis.com/auth/contacts.readonly";
 NSString * const kGTLRAuthScopePeopleServiceDirectoryReadonly  = @"https://www.googleapis.com/auth/directory.readonly";
 NSString * const kGTLRAuthScopePeopleServiceUserAddressesRead  = @"https://www.googleapis.com/auth/user.addresses.read";

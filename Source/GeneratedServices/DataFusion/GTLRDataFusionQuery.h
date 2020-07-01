@@ -203,6 +203,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Requests for policies with any conditional bindings must specify version 3.
  *  Policies without any conditional bindings may specify any valid value or
  *  leave the field unset.
+ *  To learn which resources support conditions in their IAM policies, see the
+ *  [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
@@ -374,7 +377,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
  *
  *  Method: datafusion.projects.locations.instances.setIamPolicy
  *
@@ -396,7 +399,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.
- *  Can return Public Errors: NOT_FOUND, INVALID_ARGUMENT and PERMISSION_DENIED
+ *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRDataFusion_SetIamPolicyRequest to include in the
  *    query.
@@ -414,7 +417,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  permissions, not a `NOT_FOUND` error.
  *  Note: This operation is designed to be used for building permission-aware
  *  UIs and command-line tools, not for authorization checking. This operation
  *  may "fail open" without warning.
@@ -439,7 +442,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns permissions that a caller has on the specified resource.
  *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  permissions, not a `NOT_FOUND` error.
  *  Note: This operation is designed to be used for building permission-aware
  *  UIs and command-line tools, not for authorization checking. This operation
  *  may "fail open" without warning.
@@ -715,6 +718,62 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists possible versions for Data Fusion instances in the specified project
+ *  and location.
+ *
+ *  Method: datafusion.projects.locations.versions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataFusionCloudPlatform
+ */
+@interface GTLRDataFusionQuery_ProjectsLocationsVersionsList : GTLRDataFusionQuery
+// Previous library name was
+//   +[GTLQueryDataFusion queryForProjectsLocationsVersionsListWithparent:]
+
+/**
+ *  Whether or not to return the latest patch of every available minor version.
+ *  If true, only the latest patch will be returned. Ex. if allowed versions is
+ *  [6.1.1, 6.1.2, 6.2.0] then response will be [6.1.2, 6.2.0]
+ */
+@property(nonatomic, assign) BOOL latestPatchOnly;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value to use if there are additional
+ *  results to retrieve for this list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve instance
+ *  information
+ *  in the format projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataFusion_ListAvailableVersionsResponse.
+ *
+ *  Lists possible versions for Data Fusion instances in the specified project
+ *  and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    instance information
+ *    in the format projects/{project}/locations/{location}.
+ *
+ *  @return GTLRDataFusionQuery_ProjectsLocationsVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

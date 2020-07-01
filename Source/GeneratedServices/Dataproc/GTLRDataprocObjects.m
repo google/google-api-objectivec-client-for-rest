@@ -228,9 +228,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic autoscalingConfig, configBucket, encryptionConfig, gceClusterConfig,
-         initializationActions, lifecycleConfig, masterConfig,
-         secondaryWorkerConfig, securityConfig, softwareConfig, workerConfig;
+@dynamic autoscalingConfig, configBucket, encryptionConfig, endpointConfig,
+         gceClusterConfig, initializationActions, lifecycleConfig, masterConfig,
+         secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
+         workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -422,6 +423,30 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_EncryptionConfig
 @dynamic gcePdKmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_EndpointConfig
+//
+
+@implementation GTLRDataproc_EndpointConfig
+@dynamic enableHttpPortAccess, httpPorts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_EndpointConfig_HttpPorts
+//
+
+@implementation GTLRDataproc_EndpointConfig_HttpPorts
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

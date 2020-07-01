@@ -308,7 +308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -317,18 +317,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -371,7 +371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -529,7 +529,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_Dataset : GTLRObject
 
 /**
- *  Output only. Resource name of the dataset, of the form
+ *  Resource name of the dataset, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -771,7 +771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomStore_Labels *labels;
 
 /**
- *  Output only. Resource name of the DICOM store, of the form
+ *  Resource name of the DICOM store, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1417,7 +1417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Hl7V2Store_Labels *labels;
 
 /**
- *  Output only. Resource name of the HL7v2 store, of the form
+ *  Resource name of the HL7v2 store, of the form
  *  `projects/{project_id}/datasets/{dataset_id}/hl7V2Stores/{hl7v2_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

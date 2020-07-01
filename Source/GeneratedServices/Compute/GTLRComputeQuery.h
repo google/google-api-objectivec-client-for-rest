@@ -43,6 +43,7 @@
 @class GTLRCompute_GlobalSetLabelsRequest;
 @class GTLRCompute_GlobalSetPolicyRequest;
 @class GTLRCompute_HealthCheck;
+@class GTLRCompute_HealthCheckService;
 @class GTLRCompute_HttpHealthCheck;
 @class GTLRCompute_HttpsHealthCheck;
 @class GTLRCompute_Image;
@@ -89,6 +90,7 @@
 @class GTLRCompute_NodeGroupsDeleteNodesRequest;
 @class GTLRCompute_NodeGroupsSetNodeTemplateRequest;
 @class GTLRCompute_NodeTemplate;
+@class GTLRCompute_NotificationEndpoint;
 @class GTLRCompute_PacketMirroring;
 @class GTLRCompute_ProjectsDisableXpnResourceRequest;
 @class GTLRCompute_ProjectsEnableXpnResourceRequest;
@@ -351,7 +353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves a list of accelerator types available to the specified project.
+ *  Retrieves a list of accelerator types that are available to the specified
+ *  project.
  *
  *  Method: compute.acceleratorTypes.list
  *
@@ -426,7 +429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_AcceleratorTypeList.
  *
- *  Retrieves a list of accelerator types available to the specified project.
+ *  Retrieves a list of accelerator types that are available to the specified
+ *  project.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -10000,8 +10004,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves the list of referrers to instances contained within the specified
- *  zone. For more information, read Viewing Referrers to VM Instances.
+ *  Retrieves a list of resources that refer to the VM instance specified in the
+ *  request. For example, if the VM instance is part of a managed instance
+ *  group, the referrers list includes the managed instance group. For more
+ *  information, read Viewing Referrers to VM Instances.
  *
  *  Method: compute.instances.listReferrers
  *
@@ -10082,8 +10088,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceListReferrers.
  *
- *  Retrieves the list of referrers to instances contained within the specified
- *  zone. For more information, read Viewing Referrers to VM Instances.
+ *  Retrieves a list of resources that refer to the VM instance specified in the
+ *  request. For example, if the VM instance is part of a managed instance
+ *  group, the referrers list includes the managed instance group. For more
+ *  information, read Viewing Referrers to VM Instances.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -10717,7 +10725,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Sets an instance's scheduling options.
+ *  Sets an instance's scheduling options. You can only call this method on a
+ *  stopped instance, that is, a VM instance that is in a `TERMINATED` state.
+ *  See Instance Life Cycle for more information on the possible instance
+ *  states.
  *
  *  Method: compute.instances.setScheduling
  *
@@ -10759,7 +10770,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets an instance's scheduling options.
+ *  Sets an instance's scheduling options. You can only call this method on a
+ *  stopped instance, that is, a VM instance that is in a `TERMINATED` state.
+ *  See Instance Life Cycle for more information on the possible instance
+ *  states.
  *
  *  @param object The @c GTLRCompute_Scheduling to include in the query.
  *  @param project Project ID for this request.
@@ -19103,6 +19117,312 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes the specified regional HealthCheckService.
+ *
+ *  Method: compute.regionHealthCheckServices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionHealthCheckServicesDeleteWithproject:region:healthCheckService:]
+
+/**
+ *  Name of the HealthCheckService to delete. The name must be 1-63 characters
+ *  long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheckService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified regional HealthCheckService.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthCheckService Name of the HealthCheckService to delete. The name
+ *    must be 1-63 characters long, and comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+              healthCheckService:(NSString *)healthCheckService;
+
+@end
+
+/**
+ *  Returns the specified regional HealthCheckService resource.
+ *
+ *  Method: compute.regionHealthCheckServices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionHealthCheckServicesGetWithproject:region:healthCheckService:]
+
+/**
+ *  Name of the HealthCheckService to update. The name must be 1-63 characters
+ *  long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheckService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthCheckService.
+ *
+ *  Returns the specified regional HealthCheckService resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthCheckService Name of the HealthCheckService to update. The name
+ *    must be 1-63 characters long, and comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+              healthCheckService:(NSString *)healthCheckService;
+
+@end
+
+/**
+ *  Creates a regional HealthCheckService resource in the specified project and
+ *  region using the data included in the request.
+ *
+ *  Method: compute.regionHealthCheckServices.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionHealthCheckServicesInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a regional HealthCheckService resource in the specified project and
+ *  region using the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_HealthCheckService to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheckService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists all the HealthCheckService resources that have been configured for the
+ *  specified project in the given region.
+ *
+ *  Method: compute.regionHealthCheckServices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionHealthCheckServicesListWithproject:region:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthCheckServicesList.
+ *
+ *  Lists all the HealthCheckService resources that have been configured for the
+ *  specified project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the specified regional HealthCheckService resource with the data
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
+ *
+ *  Method: compute.regionHealthCheckServices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionHealthCheckServicesPatchWithObject:project:region:healthCheckService:]
+
+/**
+ *  Name of the HealthCheckService to update. The name must be 1-63 characters
+ *  long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheckService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified regional HealthCheckService resource with the data
+ *  included in the request. This method supports PATCH semantics and uses the
+ *  JSON merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_HealthCheckService to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthCheckService Name of the HealthCheckService to update. The name
+ *    must be 1-63 characters long, and comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheckService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+             healthCheckService:(NSString *)healthCheckService;
+
+@end
+
+/**
  *  Returns the specified HealthCheck resource. Gets a list of available health
  *  checks by making a list() request.
  *
@@ -20750,6 +21070,242 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                   instanceGroup:(NSString *)instanceGroup;
+
+@end
+
+/**
+ *  Deletes the specified NotificationEndpoint in the given region
+ *
+ *  Method: compute.regionNotificationEndpoints.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNotificationEndpointsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNotificationEndpointsDeleteWithproject:region:notificationEndpoint:]
+
+/** Name of the NotificationEndpoint resource to delete. */
+@property(nonatomic, copy, nullable) NSString *notificationEndpoint;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified NotificationEndpoint in the given region
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param notificationEndpoint Name of the NotificationEndpoint resource to
+ *    delete.
+ *
+ *  @return GTLRComputeQuery_RegionNotificationEndpointsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            notificationEndpoint:(NSString *)notificationEndpoint;
+
+@end
+
+/**
+ *  Returns the specified NotificationEndpoint resource in the given region.
+ *
+ *  Method: compute.regionNotificationEndpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNotificationEndpointsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNotificationEndpointsGetWithproject:region:notificationEndpoint:]
+
+/** Name of the NotificationEndpoint resource to return. */
+@property(nonatomic, copy, nullable) NSString *notificationEndpoint;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_NotificationEndpoint.
+ *
+ *  Returns the specified NotificationEndpoint resource in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param notificationEndpoint Name of the NotificationEndpoint resource to
+ *    return.
+ *
+ *  @return GTLRComputeQuery_RegionNotificationEndpointsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            notificationEndpoint:(NSString *)notificationEndpoint;
+
+@end
+
+/**
+ *  Create a NotificationEndpoint in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.regionNotificationEndpoints.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNotificationEndpointsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNotificationEndpointsInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create a NotificationEndpoint in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_NotificationEndpoint to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionNotificationEndpointsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NotificationEndpoint *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the NotificationEndpoints for a project in the given region.
+ *
+ *  Method: compute.regionNotificationEndpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNotificationEndpointsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNotificationEndpointsListWithproject:region:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_NotificationEndpointList.
+ *
+ *  Lists the NotificationEndpoints for a project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionNotificationEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
 
 @end
 

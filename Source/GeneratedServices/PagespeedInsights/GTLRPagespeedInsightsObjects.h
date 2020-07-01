@@ -441,6 +441,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** The map of <metrics, data>. */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5_Metrics *metrics;
 
+/**
+ *  True if the result is an origin fallback from a page, false otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *originFallback;
+
 /** The human readable speed "category" of the id. */
 @property(nonatomic, copy, nullable) NSString *overallCategory;
 

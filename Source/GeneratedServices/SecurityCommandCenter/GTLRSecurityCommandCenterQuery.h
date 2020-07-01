@@ -125,8 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
 
 /**
- *  Optional. A field mask to specify the ListAssetsResult fields to be listed
- *  in the
+ *  A field mask to specify the ListAssetsResult fields to be listed in the
  *  response.
  *  An empty field mask will list all fields.
  *
@@ -159,13 +158,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  * update_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
  *  Examples:
- *  "update_time = \\"2019-06-10T16:07:18-07:00\\""
- *  "update_time = 1560208038000"
+ *  `update_time = "2019-06-10T16:07:18-07:00"`
+ *  `update_time = 1560208038000`
  *  * create_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
  *  Examples:
- *  "create_time = \\"2019-06-10T16:07:18-07:00\\""
- *  "create_time = 1560208038000"
+ *  `create_time = "2019-06-10T16:07:18-07:00"`
+ *  `create_time = 1560208038000`
  *  * iam_policy.policy_blob: `=`, `:`
  *  * resource_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  * security_marks.marks: `=`, `:`
@@ -179,9 +178,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
  *  Use a partial match on the empty string to filter based on a property
- *  existing: "resource_properties.my_property : \\"\\""
+ *  existing: `resource_properties.my_property : ""`
  *  Use a negated partial match on the empty string to filter based on a
- *  property not existing: "-resource_properties.my_property : \\"\\""
+ *  property not existing: `-resource_properties.my_property : ""`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -552,7 +551,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a notification config.
+ *  Updates a notification config. The following update
+ *  fields are allowed: description, pubsub_topic, streaming_config.filter
  *
  *  Method: securitycenter.organizations.notificationConfigs.patch
  *
@@ -582,7 +582,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_NotificationConfig.
  *
- *  Updates a notification config.
+ *  Updates a notification config. The following update
+ *  fields are allowed: description, pubsub_topic, streaming_config.filter
  *
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
@@ -938,8 +939,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
 
 /**
- *  Optional. A field mask to specify the Finding fields to be listed in the
- *  response.
+ *  A field mask to specify the Finding fields to be listed in the response.
  *  An empty field mask will list all fields.
  *
  *  String format is a comma-separated list of fields.
@@ -974,15 +974,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  event_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
  *  Examples:
- *  "event_time = \\"2019-06-10T16:07:18-07:00\\""
- *  "event_time = 1560208038000"
+ *  `event_time = "2019-06-10T16:07:18-07:00"`
+ *  `event_time = 1560208038000`
  *  security_marks.marks: `=`, `:`
  *  source_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  For example, `source_properties.size = 100` is a valid filter string.
  *  Use a partial match on the empty string to filter based on a property
- *  existing: "source_properties.my_property : \\"\\""
+ *  existing: `source_properties.my_property : ""`
  *  Use a negated partial match on the empty string to filter based on a
- *  property not existing: "-source_properties.my_property : \\"\\""
+ *  property not existing: `-source_properties.my_property : ""`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

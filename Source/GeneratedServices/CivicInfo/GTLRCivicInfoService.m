@@ -7,7 +7,7 @@
 //   Provides polling places, early vote locations, contest data, election
 //   officials, and government representatives for U.S. residential addresses.
 // Documentation:
-//   https://developers.google.com/civic-information
+//   https://developers.google.com/civic-information/
 
 #import "GTLRCivicInfo.h"
 
@@ -17,9 +17,8 @@
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"civicinfo/v2/";
-    self.batchPath = @"batch/civicinfo/v2";
+    self.rootURLString = @"https://civicinfo.googleapis.com/";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Fonts Developer API (webfonts/v1)
+//   Web Fonts Developer API (webfonts/v1)
 // Description:
-//   Accesses the metadata for all families served by Google Fonts, providing a
-//   list of families currently available (including available styles and a list
-//   of supported script subsets).
+//   The Google Web Fonts Developer API lets you retrieve information about web
+//   fonts served
+//   by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
@@ -35,35 +35,17 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // sort
 
-/**
- *  Sort alphabetically
- *
- *  Value: "alpha"
- */
+/** Value: "ALPHA" */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortAlpha;
-/**
- *  Sort by date added
- *
- *  Value: "date"
- */
+/** Value: "DATE" */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortDate;
-/**
- *  Sort by popularity
- *
- *  Value: "popularity"
- */
+/** Value: "POPULARITY" */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortPopularity;
-/**
- *  Sort by number of styles
- *
- *  Value: "style"
- */
+/** Value: "SORT_UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortSortUndefined;
+/** Value: "STYLE" */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortStyle;
-/**
- *  Sort by trending
- *
- *  Value: "trending"
- */
+/** Value: "TRENDING" */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 
 // ----------------------------------------------------------------------------
@@ -82,7 +64,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 
 /**
  *  Retrieves the list of fonts currently served by the Google Fonts Developer
- *  API
+ *  API.
  *
  *  Method: webfonts.webfonts.list
  */
@@ -91,15 +73,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 //   +[GTLQueryWebfonts queryForWebfontsList]
 
 /**
- *  Enables sorting of the list
+ *  Enables sorting of the list.
  *
  *  Likely values:
- *    @arg @c kGTLRWebfontsSortAlpha Sort alphabetically (Value: "alpha")
- *    @arg @c kGTLRWebfontsSortDate Sort by date added (Value: "date")
- *    @arg @c kGTLRWebfontsSortPopularity Sort by popularity (Value:
- *        "popularity")
- *    @arg @c kGTLRWebfontsSortStyle Sort by number of styles (Value: "style")
- *    @arg @c kGTLRWebfontsSortTrending Sort by trending (Value: "trending")
+ *    @arg @c kGTLRWebfontsSortSortUndefined Value "SORT_UNDEFINED"
+ *    @arg @c kGTLRWebfontsSortAlpha Value "ALPHA"
+ *    @arg @c kGTLRWebfontsSortDate Value "DATE"
+ *    @arg @c kGTLRWebfontsSortPopularity Value "POPULARITY"
+ *    @arg @c kGTLRWebfontsSortStyle Value "STYLE"
+ *    @arg @c kGTLRWebfontsSortTrending Value "TRENDING"
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
@@ -107,7 +89,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *  Fetches a @c GTLRWebfonts_WebfontList.
  *
  *  Retrieves the list of fonts currently served by the Google Fonts Developer
- *  API
+ *  API.
  *
  *  @return GTLRWebfontsQuery_WebfontsList
  */

@@ -45,6 +45,8 @@
 @class GTLRShoppingContent_OrdersCreateTestOrderRequest;
 @class GTLRShoppingContent_OrdersCreateTestReturnRequest;
 @class GTLRShoppingContent_OrdersInStoreRefundLineItemRequest;
+@class GTLRShoppingContent_OrdersRefundItemRequest;
+@class GTLRShoppingContent_OrdersRefundOrderRequest;
 @class GTLRShoppingContent_OrdersRejectReturnLineItemRequest;
 @class GTLRShoppingContent_OrdersReturnRefundLineItemRequest;
 @class GTLRShoppingContent_OrdersSetLineItemMetadataRequest;
@@ -158,6 +160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1b;
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 /** Value: "template3" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
+/** Value: "template4" */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -644,7 +648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Updates a Merchant Center account.
+ *  Updates a Merchant Center account. Any fields that are not provided are
+ *  deleted from the resource.
  *
  *  Method: content.accounts.update
  *
@@ -668,7 +673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_Account.
  *
- *  Updates a Merchant Center account.
+ *  Updates a Merchant Center account. Any fields that are not provided are
+ *  deleted from the resource.
  *
  *  @param object The @c GTLRShoppingContent_Account to include in the query.
  *  @param merchantId The ID of the managing account. If this parameter is not
@@ -793,7 +799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Updates the tax settings of the account.
+ *  Updates the tax settings of the account. Any fields that are not provided
+ *  are deleted from the resource.
  *
  *  Method: content.accounttax.update
  *
@@ -817,7 +824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_AccountTax.
  *
- *  Updates the tax settings of the account.
+ *  Updates the tax settings of the account. Any fields that are not provided
+ *  are deleted from the resource.
  *
  *  @param object The @c GTLRShoppingContent_AccountTax to include in the query.
  *  @param merchantId The ID of the managing account. If this parameter is not
@@ -1176,7 +1184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Updates a datafeed configuration of your Merchant Center account.
+ *  Updates a datafeed configuration of your Merchant Center account. Any fields
+ *  that are not provided are deleted from the resource.
  *
  *  Method: content.datafeeds.update
  *
@@ -1199,7 +1208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_Datafeed.
  *
- *  Updates a datafeed configuration of your Merchant Center account.
+ *  Updates a datafeed configuration of your Merchant Center account. Any fields
+ *  that are not provided are deleted from the resource.
  *
  *  @param object The @c GTLRShoppingContent_Datafeed to include in the query.
  *  @param merchantId The ID of the account that manages the datafeed. This
@@ -1607,7 +1617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Updates the LIA settings of the account.
+ *  Updates the LIA settings of the account. Any fields that are not provided
+ *  are deleted from the resource.
  *
  *  Method: content.liasettings.update
  *
@@ -1631,7 +1642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_LiaSettings.
  *
- *  Updates the LIA settings of the account.
+ *  Updates the LIA settings of the account. Any fields that are not provided
+ *  are deleted from the resource.
  *
  *  @param object The @c GTLRShoppingContent_LiaSettings to include in the
  *    query.
@@ -2566,6 +2578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "template3"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "template4"
  */
 @property(nonatomic, copy, nullable) NSString *templateName;
 
@@ -2585,6 +2598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
  *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "template3"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "template4"
  *
  *  @return GTLRShoppingContentQuery_OrdersGettestordertemplate
  */
@@ -2748,6 +2762,86 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
+ *  Issues a partial or total refund for items and shipment.
+ *
+ *  Method: content.orders.refunditem
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersRefunditem : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdersRefunditemWithObject:merchantId:orderId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the order to refund. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrdersRefundItemResponse.
+ *
+ *  Issues a partial or total refund for items and shipment.
+ *
+ *  @param object The @c GTLRShoppingContent_OrdersRefundItemRequest to include
+ *    in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param orderId The ID of the order to refund.
+ *
+ *  @return GTLRShoppingContentQuery_OrdersRefunditem
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersRefundItemRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
+ *  Issues a partial or total refund for an order.
+ *
+ *  Method: content.orders.refundorder
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersRefundorder : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdersRefundorderWithObject:merchantId:orderId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The ID of the order to refund. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrdersRefundOrderResponse.
+ *
+ *  Issues a partial or total refund for an order.
+ *
+ *  @param object The @c GTLRShoppingContent_OrdersRefundOrderRequest to include
+ *    in the query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *  @param orderId The ID of the order to refund.
+ *
+ *  @return GTLRShoppingContentQuery_OrdersRefundorder
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersRefundOrderRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
  *  Rejects return on an line item.
  *
  *  Method: content.orders.rejectreturnlineitem
@@ -2789,7 +2883,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 
 /**
  *  Returns and refunds a line item. Note that this method can only be called on
- *  fully shipped orders.
+ *  fully shipped orders. Please also note that the Orderreturns API is the
+ *  preferred way to handle returns after you receive a return from a customer.
+ *  You can use Orderreturns.list or Orderreturns.get to search for the return,
+ *  and then use Orderreturns.processreturn to issue the refund. If the return
+ *  cannot be found, then we recommend using this API to issue a refund.
  *
  *  Method: content.orders.returnrefundlineitem
  *
@@ -2813,7 +2911,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
  *  Fetches a @c GTLRShoppingContent_OrdersReturnRefundLineItemResponse.
  *
  *  Returns and refunds a line item. Note that this method can only be called on
- *  fully shipped orders.
+ *  fully shipped orders. Please also note that the Orderreturns API is the
+ *  preferred way to handle returns after you receive a return from a customer.
+ *  You can use Orderreturns.list or Orderreturns.get to search for the return,
+ *  and then use Orderreturns.processreturn to issue the refund. If the return
+ *  cannot be found, then we recommend using this API to issue a refund.
  *
  *  @param object The @c GTLRShoppingContent_OrdersReturnRefundLineItemRequest
  *    to include in the query.
@@ -4402,7 +4504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 @end
 
 /**
- *  Updates the shipping settings of the account.
+ *  Updates the shipping settings of the account. Any fields that are not
+ *  provided are deleted from the resource.
  *
  *  Method: content.shippingsettings.update
  *
@@ -4426,7 +4529,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /**
  *  Fetches a @c GTLRShoppingContent_ShippingSettings.
  *
- *  Updates the shipping settings of the account.
+ *  Updates the shipping settings of the account. Any fields that are not
+ *  provided are deleted from the resource.
  *
  *  @param object The @c GTLRShoppingContent_ShippingSettings to include in the
  *    query.

@@ -38,6 +38,7 @@
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
+@class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
@@ -655,6 +656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_CloudRunConfig *cloudRunConfig;
 
+/** Configuration for NodeLocalDNS, a dns cache running on cluster nodes */
+@property(nonatomic, strong, nullable) GTLRContainer_DnsCacheConfig *dnsCacheConfig;
+
 /**
  *  Configuration for the horizontal pod autoscaling feature, which
  *  increases or decreases the number of replica pods a replication controller
@@ -718,16 +722,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Specifies the node management options for NAP created node-pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
 
-/**
- *  Scopes that are used by NAP when creating node pools. If oauth_scopes are
- *  specified, service_account should be empty.
- */
+/** Scopes that are used by NAP when creating node pools. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
-/**
- *  The Google Cloud Platform Service Account to be used by the node VMs. If
- *  service_account is specified, scopes should be empty.
- */
+/** The Google Cloud Platform Service Account to be used by the node VMs. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /** Specifies the upgrade settings for NAP created node pools */
@@ -915,7 +913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  [Output only] Deprecated, use
- *  [NodePools.version](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools)
+ *  [NodePools.version](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools)
  *  instead. The current version of the node software components. If they are
  *  currently at multiple versions because they're in the process of being
  *  upgraded, this reflects the minimum version of all nodes.
@@ -1462,7 +1460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. A [cluster
- *  resource](https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters)
+ *  resource](https://cloud.google.com/container-engine/reference/rest/v1/projects.locations.clusters)
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster *cluster;
 
@@ -1581,6 +1579,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        set (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Configuration for NodeLocal DNSCache
+ */
+@interface GTLRContainer_DnsCacheConfig : GTLRObject
+
+/**
+ *  Whether NodeLocal DNSCache is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -3108,10 +3121,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** List of valid image types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validImageTypes;
 
-/** List of valid master versions. */
+/** List of valid master versions, in descending order. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validMasterVersions;
 
-/** List of valid node upgrade target versions. */
+/** List of valid node upgrade target versions, in descending order. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validNodeVersions;
 
 @end

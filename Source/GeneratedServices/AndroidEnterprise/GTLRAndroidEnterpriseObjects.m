@@ -4,11 +4,228 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
 #import "GTLRAndroidEnterpriseObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRAndroidEnterprise_AdministratorWebTokenSpec.permission
+NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ApproveApps = @"APPROVE_APPS";
+NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ManageMcm = @"MANAGE_MCM";
+NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_Unknown = @"UNKNOWN";
+
+// GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction.restrictionType
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool = @"BOOL";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle = @"BUNDLE";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray = @"BUNDLE_ARRAY";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice = @"CHOICE";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden = @"HIDDEN";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer = @"INTEGER";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect = @"MULTISELECT";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String = @"STRING";
+
+// GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue.type
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool = @"BOOL";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle = @"BUNDLE";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray = @"BUNDLE_ARRAY";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice = @"CHOICE";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden = @"HIDDEN";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer = @"INTEGER";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect = @"MULTISELECT";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String = @"STRING";
+
+// GTLRAndroidEnterprise_AppVersion.track
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Alpha = @"ALPHA";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Beta  = @"BETA";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Production = @"PRODUCTION";
+
+// GTLRAndroidEnterprise_AutoInstallConstraint.chargingStateConstraint
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired = @"CHARGING_NOT_REQUIRED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired = @"CHARGING_REQUIRED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified = @"CHARGING_STATE_CONSTRAINT_UNSPECIFIED";
+
+// GTLRAndroidEnterprise_AutoInstallConstraint.deviceIdleStateConstraint
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired = @"DEVICE_IDLE_NOT_REQUIRED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired = @"DEVICE_IDLE_REQUIRED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified = @"DEVICE_IDLE_STATE_CONSTRAINT_UNSPECIFIED";
+
+// GTLRAndroidEnterprise_AutoInstallConstraint.networkTypeConstraint
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork = @"ANY_NETWORK";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified = @"NETWORK_TYPE_CONSTRAINT_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork = @"UNMETERED_NETWORK";
+
+// GTLRAndroidEnterprise_AutoInstallPolicy.autoInstallMode
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified = @"AUTO_INSTALL_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce = @"AUTO_INSTALL_ONCE";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall = @"DO_NOT_AUTO_INSTALL";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall = @"FORCE_AUTO_INSTALL";
+
+// GTLRAndroidEnterprise_Device.managementType
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp = @"CONTAINER_APP";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice = @"MANAGED_DEVICE";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile = @"MANAGED_PROFILE";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile = @"UNMANAGED_PROFILE";
+
+// GTLRAndroidEnterprise_DeviceState.accountState
+NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled = @"DISABLED";
+NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled = @"ENABLED";
+
+// GTLRAndroidEnterprise_Entitlement.reason
+NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"FREE";
+NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"GROUP_LICENSE";
+NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase = @"USER_PURCHASE";
+
+// GTLRAndroidEnterprise_GroupLicense.acquisitionKind
+NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase = @"BULK_PURCHASE";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free = @"FREE";
+
+// GTLRAndroidEnterprise_GroupLicense.approval
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Approved = @"APPROVED";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved = @"UNAPPROVED";
+
+// GTLRAndroidEnterprise_GroupLicense.permissions
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved = @"ALL_CURRENT_AND_FUTURE_APPROVED";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved = @"CURRENT_APPROVED";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval = @"NEEDS_REAPPROVAL";
+
+// GTLRAndroidEnterprise_Install.installState
+NSString * const kGTLRAndroidEnterprise_Install_InstallState_Installed = @"INSTALLED";
+NSString * const kGTLRAndroidEnterprise_Install_InstallState_InstallPending = @"INSTALL_PENDING";
+
+// GTLRAndroidEnterprise_InstallFailureEvent.failureReason
+NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Timeout = @"TIMEOUT";
+NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown = @"UNKNOWN";
+
+// GTLRAndroidEnterprise_KeyedAppState.severity
+NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError = @"SEVERITY_ERROR";
+NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo = @"SEVERITY_INFO";
+NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown = @"SEVERITY_UNKNOWN";
+
+// GTLRAndroidEnterprise_NewDeviceEvent.managementType
+NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice = @"MANAGED_DEVICE";
+NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile = @"MANAGED_PROFILE";
+
+// GTLRAndroidEnterprise_Notification.notificationType
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange = @"APP_RESTRICIONS_SCHEMA_CHANGE";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate = @"APP_UPDATE";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate = @"DEVICE_REPORT_UPDATE";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure = @"INSTALL_FAILURE";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice = @"NEW_DEVICE";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions = @"NEW_PERMISSIONS";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval = @"PRODUCT_APPROVAL";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange = @"PRODUCT_AVAILABILITY_CHANGE";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification = @"TEST_NOTIFICATION";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_Unknown = @"UNKNOWN";
+
+// GTLRAndroidEnterprise_Policy.autoUpdatePolicy
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always = @"ALWAYS";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified = @"AUTO_UPDATE_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser = @"CHOICE_TO_THE_USER";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never = @"NEVER";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly = @"WIFI_ONLY";
+
+// GTLRAndroidEnterprise_Policy.deviceReportPolicy
+NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled = @"DEVICE_REPORT_DISABLED";
+NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled = @"DEVICE_REPORT_ENABLED";
+NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified = @"DEVICE_REPORT_POLICY_UNSPECIFIED";
+
+// GTLRAndroidEnterprise_Policy.productAvailabilityPolicy
+NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All = @"ALL";
+NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified = @"PRODUCT_AVAILABILITY_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist = @"WHITELIST";
+
+// GTLRAndroidEnterprise_Product.availableTracks
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Alpha = @"ALPHA";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Beta = @"BETA";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Production = @"PRODUCTION";
+
+// GTLRAndroidEnterprise_Product.contentRating
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_All = @"ALL";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Mature = @"MATURE";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_PreTeen = @"PRE_TEEN";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown = @"RATING_UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Teen = @"TEEN";
+
+// GTLRAndroidEnterprise_Product.distributionChannel
+NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted = @"PRIVATE_GOOGLE_HOSTED";
+NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted = @"PRIVATE_SELF_HOSTED";
+NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted = @"PUBLIC_GOOGLE_HOSTED";
+
+// GTLRAndroidEnterprise_Product.features
+NSString * const kGTLRAndroidEnterprise_Product_Features_FeatureUnknown = @"FEATURE_UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_Product_Features_VpnApp = @"VPN_APP";
+
+// GTLRAndroidEnterprise_Product.productPricing
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Free = @"FREE";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase = @"FREE_WITH_IN_APP_PURCHASE";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Paid = @"PAID";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Unknown = @"UNKNOWN";
+
+// GTLRAndroidEnterprise_ProductApprovalEvent.approved
+NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved = @"APPROVED";
+NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved = @"UNAPPROVED";
+NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown = @"UNKNOWN";
+
+// GTLRAndroidEnterprise_ProductAvailabilityChangeEvent.availabilityStatus
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available = @"AVAILABLE";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed = @"REMOVED";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished = @"UNPUBLISHED";
+
+// GTLRAndroidEnterprise_ProductPermission.state
+NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Accepted = @"ACCEPTED";
+NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required = @"REQUIRED";
+
+// GTLRAndroidEnterprise_ProductPolicy.tracks
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Alpha = @"ALPHA";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Beta = @"BETA";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Production = @"PRODUCTION";
+
+// GTLRAndroidEnterprise_ProductsApproveRequest.approvedPermissions
+NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions = @"ALL_PERMISSIONS";
+NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly = @"CURRENT_PERMISSIONS_ONLY";
+
+// GTLRAndroidEnterprise_ProductSet.productSetBehavior
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_AllApproved = @"ALL_APPROVED";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll = @"INCLUDE_ALL";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist = @"WHITELIST";
+
+// GTLRAndroidEnterprise_ProductVisibility.tracks
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Alpha = @"ALPHA";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Beta = @"BETA";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Production = @"PRODUCTION";
+
+// GTLRAndroidEnterprise_ServiceAccountKey.type
+NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials = @"GOOGLE_CREDENTIALS";
+NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12 = @"PKCS12";
+
+// GTLRAndroidEnterprise_StoreLayout.storeLayoutType
+NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic = @"BASIC";
+NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom = @"CUSTOM";
+NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown = @"UNKNOWN";
+
+// GTLRAndroidEnterprise_User.accountType
+NSString * const kGTLRAndroidEnterprise_User_AccountType_DeviceAccount = @"DEVICE_ACCOUNT";
+NSString * const kGTLRAndroidEnterprise_User_AccountType_UserAccount = @"USER_ACCOUNT";
+
+// GTLRAndroidEnterprise_User.managementType
+NSString * const kGTLRAndroidEnterprise_User_ManagementType_EmmManaged = @"EMM_MANAGED";
+NSString * const kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged = @"GOOGLE_MANAGED";
+
+// GTLRAndroidEnterprise_WebApp.displayMode
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified = @"DISPLAY_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen = @"FULL_SCREEN";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi = @"MINIMAL_UI";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"STANDALONE";
 
 // ----------------------------------------------------------------------------
 //
@@ -26,7 +243,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_AdministratorWebToken
-@dynamic kind, token;
+@dynamic token;
 @end
 
 
@@ -36,8 +253,8 @@
 //
 
 @implementation GTLRAndroidEnterprise_AdministratorWebTokenSpec
-@dynamic kind, managedConfigurations, parent, permission, playSearch,
-         privateApps, storeBuilder, webApps;
+@dynamic managedConfigurations, parent, permission, playSearch, privateApps,
+         storeBuilder, webApps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -182,7 +399,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ApprovalUrlInfo
-@dynamic approvalUrl, kind;
+@dynamic approvalUrl;
 @end
 
 
@@ -238,7 +455,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_AuthenticationToken
-@dynamic kind, token;
+@dynamic token;
 @end
 
 
@@ -278,7 +495,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ConfigurationVariables
-@dynamic kind, mcmId, variableSet;
+@dynamic mcmId, variableSet;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -296,7 +513,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Device
-@dynamic androidId, kind, managementType, policy, report;
+@dynamic androidId, managementType, policy, report;
 @end
 
 
@@ -334,7 +551,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_DevicesListResponse
-@dynamic device, kind;
+@dynamic device;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -352,7 +569,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_DeviceState
-@dynamic accountState, kind;
+@dynamic accountState;
 @end
 
 
@@ -362,7 +579,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Enterprise
-@dynamic administrator, identifier, kind, name, primaryDomain;
+@dynamic administrator, identifier, name, primaryDomain;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -384,7 +601,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_EnterpriseAccount
-@dynamic accountEmail, kind;
+@dynamic accountEmail;
 @end
 
 
@@ -394,7 +611,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_EnterprisesListResponse
-@dynamic enterprise, kind;
+@dynamic enterprise;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -422,7 +639,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Entitlement
-@dynamic kind, productId, reason;
+@dynamic productId, reason;
 @end
 
 
@@ -432,7 +649,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_EntitlementsListResponse
-@dynamic entitlement, kind;
+@dynamic entitlement;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -450,8 +667,8 @@
 //
 
 @implementation GTLRAndroidEnterprise_GroupLicense
-@dynamic acquisitionKind, approval, kind, numProvisioned, numPurchased,
-         permissions, productId;
+@dynamic acquisitionKind, approval, numProvisioned, numPurchased, permissions,
+         productId;
 @end
 
 
@@ -461,7 +678,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_GroupLicensesListResponse
-@dynamic groupLicense, kind;
+@dynamic groupLicense;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -479,7 +696,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_GroupLicenseUsersListResponse
-@dynamic kind, user;
+@dynamic user;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -497,7 +714,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Install
-@dynamic installState, kind, productId, versionCode;
+@dynamic installState, productId, versionCode;
 @end
 
 
@@ -517,7 +734,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_InstallsListResponse
-@dynamic install, kind;
+@dynamic install;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -589,7 +806,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse
-@dynamic kind, managedConfigurationForDevice;
+@dynamic managedConfigurationForDevice;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -607,7 +824,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse
-@dynamic kind, managedConfigurationForUser;
+@dynamic managedConfigurationForUser;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -625,7 +842,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfigurationsSettings
-@dynamic kind, lastUpdatedTimestampMillis, mcmId, name;
+@dynamic lastUpdatedTimestampMillis, mcmId, name;
 @end
 
 
@@ -635,7 +852,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse
-@dynamic kind, managedConfigurationsSettings;
+@dynamic managedConfigurationsSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -733,7 +950,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_NotificationSet
-@dynamic kind, notification, notificationSetId;
+@dynamic notification, notificationSetId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -761,7 +978,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_Permission
-@dynamic descriptionProperty, kind, name, permissionId;
+@dynamic descriptionProperty, name, permissionId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -797,11 +1014,10 @@
 @implementation GTLRAndroidEnterprise_Product
 @dynamic appTracks, appVersion, authorName, availableCountries, availableTracks,
          category, contentRating, descriptionProperty, detailsUrl,
-         distributionChannel, features, iconUrl, kind,
-         lastUpdatedTimestampMillis, minAndroidSdkVersion, permissions,
-         productId, productPricing, recentChanges, requiresContainerApp,
-         screenshotUrls, signingCertificate, smallIconUrl, title,
-         workDetailsUrl;
+         distributionChannel, features, iconUrl, lastUpdatedTimestampMillis,
+         minAndroidSdkVersion, permissions, productId, productPricing,
+         recentChanges, requiresContainerApp, screenshotUrls,
+         signingCertificate, smallIconUrl, title, workDetailsUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -859,7 +1075,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductPermissions
-@dynamic kind, permission, productId;
+@dynamic permission, productId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -906,7 +1122,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductSet
-@dynamic kind, productId, productSetBehavior, productVisibility;
+@dynamic productId, productSetBehavior, productVisibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -945,7 +1161,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ProductsListResponse
-@dynamic kind, pageInfo, product, tokenPagination;
+@dynamic pageInfo, product, tokenPagination;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -982,7 +1198,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ServiceAccount
-@dynamic key, kind, name;
+@dynamic key, name;
 @end
 
 
@@ -992,7 +1208,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_ServiceAccountKey
-@dynamic data, identifier, kind, publicData, type;
+@dynamic data, identifier, publicData, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1042,7 +1258,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_StoreCluster
-@dynamic identifier, kind, name, orderInPage, productId;
+@dynamic identifier, name, orderInPage, productId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1065,7 +1281,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_StoreLayout
-@dynamic homepageId, kind, storeLayoutType;
+@dynamic homepageId, storeLayoutType;
 @end
 
 
@@ -1075,7 +1291,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_StoreLayoutClustersListResponse
-@dynamic cluster, kind;
+@dynamic cluster;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1093,7 +1309,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_StoreLayoutPagesListResponse
-@dynamic kind, page;
+@dynamic page;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1111,7 +1327,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_StorePage
-@dynamic identifier, kind, link, name;
+@dynamic identifier, link, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1154,7 +1370,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_User
-@dynamic accountIdentifier, accountType, displayName, identifier, kind,
+@dynamic accountIdentifier, accountType, displayName, identifier,
          managementType, primaryEmail;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1170,7 +1386,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_UsersListResponse
-@dynamic kind, user;
+@dynamic user;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1184,21 +1400,11 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidEnterprise_UserToken
-//
-
-@implementation GTLRAndroidEnterprise_UserToken
-@dynamic kind, token, userId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidEnterprise_VariableSet
 //
 
 @implementation GTLRAndroidEnterprise_VariableSet
-@dynamic kind, placeholder, userValue;
+@dynamic placeholder, userValue;
 @end
 
 
@@ -1237,7 +1443,7 @@
 //
 
 @implementation GTLRAndroidEnterprise_WebAppsListResponse
-@dynamic kind, webApp;
+@dynamic webApp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

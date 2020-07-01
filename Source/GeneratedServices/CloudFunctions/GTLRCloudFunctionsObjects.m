@@ -21,6 +21,7 @@ NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_LogTypeUnspecified =
 
 // GTLRCloudFunctions_CloudFunction.ingressSettings
 NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll = @"ALLOW_ALL";
+NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalAndGclb = @"ALLOW_INTERNAL_AND_GCLB";
 NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly = @"ALLOW_INTERNAL_ONLY";
 NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_IngressSettingsUnspecified = @"INGRESS_SETTINGS_UNSPECIFIED";
 

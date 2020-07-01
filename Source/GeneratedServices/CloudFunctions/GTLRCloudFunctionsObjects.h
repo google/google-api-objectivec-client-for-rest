@@ -92,6 +92,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_AuditLogConfig_LogType_Lo
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll;
 /**
+ *  Allow HTTP traffic from private VPC sources and through GCLB.
+ *
+ *  Value: "ALLOW_INTERNAL_AND_GCLB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalAndGclb;
+/**
  *  Allow HTTP traffic from only private VPC sources.
  *
  *  Value: "ALLOW_INTERNAL_ONLY"
@@ -237,7 +243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -246,18 +252,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -300,7 +306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -481,6 +487,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowAll Allow
  *        HTTP traffic from public and private sources. (Value: "ALLOW_ALL")
+ *    @arg @c kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalAndGclb
+ *        Allow HTTP traffic from private VPC sources and through GCLB. (Value:
+ *        "ALLOW_INTERNAL_AND_GCLB")
  *    @arg @c kGTLRCloudFunctions_CloudFunction_IngressSettings_AllowInternalOnly
  *        Allow HTTP traffic from only private VPC sources. (Value:
  *        "ALLOW_INTERNAL_ONLY")

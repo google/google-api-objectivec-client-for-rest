@@ -29,6 +29,7 @@
 @class GTLRCloudbilling_Binding;
 @class GTLRCloudbilling_Category;
 @class GTLRCloudbilling_Expr;
+@class GTLRCloudbilling_GeoTaxonomy;
 @class GTLRCloudbilling_Money;
 @class GTLRCloudbilling_Policy;
 @class GTLRCloudbilling_PricingExpression;
@@ -96,6 +97,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_Data
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudbilling_GeoTaxonomy.type
+
+/**
+ *  The sku is global in nature, e.g. a license sku. Global skus are
+ *  available in all regions, and so have an empty region list.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_Global;
+/**
+ *  The sku is associated with multiple regions, e.g. "us-west2" and
+ *  "us-east1".
+ *
+ *  Value: "MULTI_REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_MultiRegional;
+/**
+ *  The sku is available in a specific region, e.g. "us-west2".
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_Regional;
+/**
+ *  The type is not specified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified;
+
 /**
  *  Represents the aggregation level and interval for pricing of a single SKU.
  */
@@ -152,7 +183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogT
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -161,18 +192,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogT
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -215,7 +246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogT
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -435,6 +466,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogT
  *  expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Encapsulates the geographic taxonomy data for a sku.
+ */
+@interface GTLRCloudbilling_GeoTaxonomy : GTLRObject
+
+/**
+ *  The list of regions associated with a sku. Empty for Global skus, which are
+ *  associated with all GCP regions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+/**
+ *  The type of Geo Taxonomy: GLOBAL, REGIONAL, or MULTI_REGIONAL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudbilling_GeoTaxonomy_Type_Global The sku is global in
+ *        nature, e.g. a license sku. Global skus are
+ *        available in all regions, and so have an empty region list. (Value:
+ *        "GLOBAL")
+ *    @arg @c kGTLRCloudbilling_GeoTaxonomy_Type_MultiRegional The sku is
+ *        associated with multiple regions, e.g. "us-west2" and
+ *        "us-east1". (Value: "MULTI_REGIONAL")
+ *    @arg @c kGTLRCloudbilling_GeoTaxonomy_Type_Regional The sku is available
+ *        in a specific region, e.g. "us-west2". (Value: "REGIONAL")
+ *    @arg @c kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified The type is not
+ *        specified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -930,6 +993,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogT
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The geographic taxonomy for this sku. */
+@property(nonatomic, strong, nullable) GTLRCloudbilling_GeoTaxonomy *geoTaxonomy;
 
 /**
  *  The resource name for the SKU.

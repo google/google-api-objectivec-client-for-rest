@@ -4,8 +4,7 @@
 // API:
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Creates short-lived, limited-privilege credentials for IAM service
-//   accounts.
+//   Creates short-lived credentials for impersonating IAM service accounts.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 

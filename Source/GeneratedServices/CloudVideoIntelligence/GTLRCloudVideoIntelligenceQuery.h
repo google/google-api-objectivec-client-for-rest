@@ -155,6 +155,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: videointelligence.projects.locations.corpura.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
+ */
+@interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsCorpuraOperationsGet : GTLRCloudVideoIntelligenceQuery
+// Previous library name was
+//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsCorpuraOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudVideoIntelligence_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudVideoIntelligenceQuery_ProjectsLocationsCorpuraOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not
  *  guaranteed. If the server doesn't support this method, it returns

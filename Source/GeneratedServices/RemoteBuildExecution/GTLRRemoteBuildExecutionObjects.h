@@ -2740,7 +2740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @property(nonatomic, strong, nullable) NSNumber *reserved;
 
-/** Output only. The name of the image used by each VM. */
+/** The name of the image used by each VM. */
 @property(nonatomic, copy, nullable) NSString *vmImage;
 
 @end

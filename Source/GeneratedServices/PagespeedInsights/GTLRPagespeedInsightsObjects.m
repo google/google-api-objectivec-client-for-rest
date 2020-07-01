@@ -214,12 +214,13 @@
 //
 
 @implementation GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5
-@dynamic identifier, initialUrl, metrics, overallCategory;
+@dynamic identifier, initialUrl, metrics, originFallback, overallCategory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"identifier" : @"id",
     @"initialUrl" : @"initial_url",
+    @"originFallback" : @"origin_fallback",
     @"overallCategory" : @"overall_category"
   };
   return map;

@@ -4,9 +4,9 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   The Google Books API allows clients to access the Google Books repository.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://code.google.com/apis/books/docs/v1/getting_started.html
 
 #import "GTLRBooksObjects.h"
 #import "GTLRBooksQuery.h"

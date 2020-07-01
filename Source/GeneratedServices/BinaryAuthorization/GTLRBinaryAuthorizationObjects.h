@@ -700,15 +700,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 @property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_AdmissionWhitelistPattern *> *admissionWhitelistPatterns;
 
 /**
- *  Optional. LINT.IfChange(cluster_regex)
- *  Per-cluster admission rules. Cluster spec format:
+ *  Optional. Per-cluster admission rules. Cluster spec format:
  *  `location.clusterId`. There can be at most one admission rule per cluster
  *  spec.
  *  A `location` is either a compute zone (e.g. us-central1-a) or a region
  *  (e.g. us-central1).
  *  For `clusterId` syntax restrictions see
  *  https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.
- *  LINT.ThenChange(//depot/google3/cloud/console/web/binary_authorization/api/models/admission_rule_type.ts:cluster_regex)
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_ClusterAdmissionRules *clusterAdmissionRules;
 
@@ -756,15 +754,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 
 
 /**
- *  Optional. LINT.IfChange(cluster_regex)
- *  Per-cluster admission rules. Cluster spec format:
+ *  Optional. Per-cluster admission rules. Cluster spec format:
  *  `location.clusterId`. There can be at most one admission rule per cluster
  *  spec.
  *  A `location` is either a compute zone (e.g. us-central1-a) or a region
  *  (e.g. us-central1).
  *  For `clusterId` syntax restrictions see
  *  https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.
- *  LINT.ThenChange(//depot/google3/cloud/console/web/binary_authorization/api/models/admission_rule_type.ts:cluster_regex)
  *
  *  @note This class is documented as having more properties of
  *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and

@@ -1822,12 +1822,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  particularly useful if you want to migrate existing consumer keys and
  *  secrets to Apigee hybrid from another system.
  *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed.
- *  **Note**: To avoid service disruptions, a consumer key and secret
- *  should not exceed 2 KBs each.
- *  After creating the consumer key and secret, associate the key with
- *  an API product using the
- *  UpdateDeveloperAppKey API.
+ *  hyphens. No other special characters are allowed. To avoid service
+ *  disruptions, a consumer key and secret should not exceed 2 KBs each.
+ *  **Note**: When creating the consumer key and secret, an association to
+ *  API products will not be made. Therefore, you should not specify the
+ *  associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to
+ *  make the association after the consumer key and secret are created.
  *  If a consumer key and secret already exist, you can keep them or
  *  delete them using the
  *  DeleteDeveloperAppKey API.
@@ -1855,12 +1856,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  particularly useful if you want to migrate existing consumer keys and
  *  secrets to Apigee hybrid from another system.
  *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed.
- *  **Note**: To avoid service disruptions, a consumer key and secret
- *  should not exceed 2 KBs each.
- *  After creating the consumer key and secret, associate the key with
- *  an API product using the
- *  UpdateDeveloperAppKey API.
+ *  hyphens. No other special characters are allowed. To avoid service
+ *  disruptions, a consumer key and secret should not exceed 2 KBs each.
+ *  **Note**: When creating the consumer key and secret, an association to
+ *  API products will not be made. Therefore, you should not specify the
+ *  associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to
+ *  make the association after the consumer key and secret are created.
  *  If a consumer key and secret already exist, you can keep them or
  *  delete them using the
  *  DeleteDeveloperAppKey API.
@@ -1884,12 +1886,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  particularly useful if you want to migrate existing consumer keys and
  *  secrets to Apigee hybrid from another system.
  *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed.
- *  **Note**: To avoid service disruptions, a consumer key and secret
- *  should not exceed 2 KBs each.
- *  After creating the consumer key and secret, associate the key with
- *  an API product using the
- *  UpdateDeveloperAppKey API.
+ *  hyphens. No other special characters are allowed. To avoid service
+ *  disruptions, a consumer key and secret should not exceed 2 KBs each.
+ *  **Note**: When creating the consumer key and secret, an association to
+ *  API products will not be made. Therefore, you should not specify the
+ *  associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to
+ *  make the association after the consumer key and secret are created.
  *  If a consumer key and secret already exist, you can keep them or
  *  delete them using the
  *  DeleteDeveloperAppKey API.
@@ -1917,12 +1920,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  particularly useful if you want to migrate existing consumer keys and
  *  secrets to Apigee hybrid from another system.
  *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed.
- *  **Note**: To avoid service disruptions, a consumer key and secret
- *  should not exceed 2 KBs each.
- *  After creating the consumer key and secret, associate the key with
- *  an API product using the
- *  UpdateDeveloperAppKey API.
+ *  hyphens. No other special characters are allowed. To avoid service
+ *  disruptions, a consumer key and secret should not exceed 2 KBs each.
+ *  **Note**: When creating the consumer key and secret, an association to
+ *  API products will not be made. Therefore, you should not specify the
+ *  associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to
+ *  make the association after the consumer key and secret are created.
  *  If a consumer key and secret already exist, you can keep them or
  *  delete them using the
  *  DeleteDeveloperAppKey API.
@@ -3239,7 +3243,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Name of the environment. Alternatively, the name may
  *  be specified in the request body in the
- *  environment_id field.
+ *  name field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4073,7 +4077,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsOptimizedStatsGetWithname:]
 
-/** Legacy field. not used anymore */
+/** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
 /**
@@ -4084,18 +4088,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *aggTable;
 
-/** Enables drill-down on specific dimension values */
+/** Enables drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  This parameter is used to limit the number of result items.
- *  Default and the max value is 14400
+ *  Default and the max value is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  Required. The organization and environment name for which the interactive
- *  query will be executed. Must be of the form
+ *  Required. The resource name for which the interactive query will be
+ *  executed.
+ *  Must be of the form
  *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *  target_host. The value of dimensions should be comma separated list as
@@ -4110,16 +4115,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
-/** Legacy field: not used anymore */
+/** Legacy field: not used anymore. */
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  Required. The select parameter contains a comma separated list of metrics
+ *  Required. The select parameter contains a comma separated list of metrics.
  *  E.g. sum(message_count),sum(error_count)
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
-/** This parameter routes the query to api monitoring service for last hour */
+/**
+ *  This parameter routes the query to api monitoring service for last hour.
+ */
 @property(nonatomic, assign) BOOL sonar;
 
 /**
@@ -4155,7 +4162,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
-/** This parameters contains the timezone offset value */
+/** This parameters contains the timezone offset value. */
 @property(nonatomic, copy, nullable) NSString *tzo;
 
 /**
@@ -4168,9 +4175,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  is not possible with protocol buffer and since this parameter is
  *  predominantly used by Edge UI, we are introducing a separate api.
  *
- *  @param name Required. The organization and environment name for which the
- *    interactive
- *    query will be executed. Must be of the form
+ *  @param name Required. The resource name for which the interactive query will
+ *    be executed.
+ *    Must be of the form
  *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *    target_host. The value of dimensions should be comma separated list as
@@ -4199,7 +4206,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesCreateWithObject:parent:]
 
 /**
- *  Required. The parent organization and environment names.
+ *  Required. The parent resource name.
  *  Must be of the form `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4214,7 +4221,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Query to include in the
  *    query.
- *  @param parent Required. The parent organization and environment names.
+ *  @param parent Required. The parent resource name.
  *    Must be of the form `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesCreate
@@ -4330,21 +4337,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *from;
 
 /**
- *  Flag to include asynchronous queries that don't have a report
- *  denifition.
+ *  Flag to include asynchronous queries that don't have a report denifition.
  */
 @property(nonatomic, copy, nullable) NSString *inclQueriesWithoutReport;
 
 /**
- *  Required. The parent organization and environment names.
+ *  Required. The parent resource name.
  *  Must be of the form `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Filter response list by asynchronous query status */
+/** Filter response list by asynchronous query status. */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Filter response list by user who submitted queries */
+/** Filter response list by user who submitted queries. */
 @property(nonatomic, copy, nullable) NSString *submittedBy;
 
 /**
@@ -4359,7 +4365,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Return a list of Asynchronous Queries
  *
- *  @param parent Required. The parent organization and environment names.
+ *  @param parent Required. The parent resource name.
  *    Must be of the form `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesList
@@ -4992,8 +4998,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsStatsGetWithname:]
 
 /**
- *  Legacy field. not used anymore
- *  This field is present to support UI calls which still use this parameter
+ *  Legacy field: not used anymore.
+ *  This field is present to support UI calls which still use this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
@@ -5010,13 +5016,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter is used to limit the number of result items.
- *  Default and the max value is 14400
+ *  Default and the max value is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  Required. The organization and environment name for which the interactive
- *  query will be executed. Must be of the form
+ *  Required. The resource name for which the interactive query will be
+ *  executed.
+ *  Must be of the form
  *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *  target_host. The value of dimensions should be comma separated list as
@@ -5031,16 +5038,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
-/** Legacy field: not used anymore */
+/** Legacy field: not used anymore. */
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  The select parameter contains a comma separated list of metrics
+ *  The select parameter contains a comma separated list of metrics.
  *  E.g. sum(message_count),sum(error_count)
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
-/** This parameter routes the query to api monitoring service for last hour */
+/**
+ *  This parameter routes the query to api monitoring service for last hour.
+ */
 @property(nonatomic, assign) BOOL sonar;
 
 /**
@@ -5076,7 +5085,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
-/** This parameters contains the timezone offset value */
+/** This parameters contains the timezone offset value. */
 @property(nonatomic, copy, nullable) NSString *tzo;
 
 /**
@@ -5090,9 +5099,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  optional in which case the metrics are computed on the entire data
  *  for the given timerange.
  *
- *  @param name Required. The organization and environment name for which the
- *    interactive
- *    query will be executed. Must be of the form
+ *  @param name Required. The resource name for which the interactive query will
+ *    be executed.
+ *    Must be of the form
  *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *    target_host. The value of dimensions should be comma separated list as

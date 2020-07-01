@@ -334,7 +334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 /**
  *  Specifies that data be aggregated by the type of activity being performed
  *  when the data was recorded. All data that was recorded during a certain
- *  activity type (for the given time range) will be aggregated into the same
+ *  activity type (.for the given time range) will be aggregated into the same
  *  bucket. Data that was recorded while the user was not active will not be
  *  included in the response. Mutually exclusive of other bucketing
  *  specifications.

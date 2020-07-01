@@ -36,10 +36,12 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamPolicy;
@@ -484,7 +486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -493,18 +495,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -547,7 +549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -901,6 +903,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 /** Name of the notification config that generated current notification. */
 @property(nonatomic, copy, nullable) NSString *notificationConfigName;
 
+/** The Cloud resource tied to this notification's Finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource *resource;
+
 @end
 
 
@@ -1115,11 +1120,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 /** Name of the notification config that generated current notification. */
 @property(nonatomic, copy, nullable) NSString *notificationConfigName;
 
+/** The Cloud resource tied to the notification. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource *resource;
+
 /**
  *  If it's an asset based notification config, this field will be
  *  populated.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset *temporalAsset;
+
+@end
+
+
+/**
+ *  Information related to the Google Cloud resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource : GTLRObject
+
+/**
+ *  The full resource name of the resource. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The full resource name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The human readable name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
+/** The full resource name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The human readable name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectDisplayName;
 
 @end
 
@@ -1280,6 +1314,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Information related to the Google Cloud resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
+
+/**
+ *  The full resource name of the resource. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The full resource name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The human readable name of resource's parent. */
+@property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
+/** The full resource name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The human readable name of project that the resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *projectDisplayName;
+
+@end
+
+
+/**
  *  Response of asset discovery run
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse : GTLRObject
@@ -1364,13 +1424,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  * update_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
  *  Examples:
- *  "update_time = \\"2019-06-10T16:07:18-07:00\\""
- *  "update_time = 1560208038000"
+ *  `update_time = "2019-06-10T16:07:18-07:00"`
+ *  `update_time = 1560208038000`
  *  * create_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
  *  Examples:
- *  "create_time = \\"2019-06-10T16:07:18-07:00\\""
- *  "create_time = 1560208038000"
+ *  `create_time = "2019-06-10T16:07:18-07:00"`
+ *  `create_time = 1560208038000`
  *  * iam_policy.policy_blob: `=`, `:`
  *  * resource_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  * security_marks.marks: `=`, `:`
@@ -1384,9 +1444,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  * security_center_properties.resource_owners: `=`, `:`
  *  For example, `resource_properties.size = 100` is a valid filter string.
  *  Use a partial match on the empty string to filter based on a property
- *  existing: "resource_properties.my_property : \\"\\""
+ *  existing: `resource_properties.my_property : ""`
  *  Use a negated partial match on the empty string to filter based on a
- *  property not existing: "-resource_properties.my_property : \\"\\""
+ *  property not existing: `-resource_properties.my_property : ""`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1538,15 +1598,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  * event_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
  *  Examples:
- *  "event_time = \\"2019-06-10T16:07:18-07:00\\""
- *  "event_time = 1560208038000"
+ *  `event_time = "2019-06-10T16:07:18-07:00"`
+ *  `event_time = 1560208038000`
  *  * security_marks.marks: `=`, `:`
  *  * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
  *  For example, `source_properties.size = 100` is a valid filter string.
  *  Use a partial match on the empty string to filter based on a property
- *  existing: "source_properties.my_property : \\"\\""
+ *  existing: `source_properties.my_property : ""`
  *  Use a negated partial match on the empty string to filter based on a
- *  property not existing: "-source_properties.my_property : \\"\\""
+ *  property not existing: `-source_properties.my_property : ""`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

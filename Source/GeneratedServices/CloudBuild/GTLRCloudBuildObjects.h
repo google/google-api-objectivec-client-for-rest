@@ -33,7 +33,13 @@
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_GitHubEventsConfig;
 @class GTLRCloudBuild_Hash;
-@class GTLRCloudBuild_Operation;
+@class GTLRCloudBuild_HTTPDelivery;
+@class GTLRCloudBuild_Notification;
+@class GTLRCloudBuild_Notification_StructDelivery;
+@class GTLRCloudBuild_NotifierMetadata;
+@class GTLRCloudBuild_NotifierSecret;
+@class GTLRCloudBuild_NotifierSecretRef;
+@class GTLRCloudBuild_NotifierSpec;
 @class GTLRCloudBuild_Operation_Metadata;
 @class GTLRCloudBuild_Operation_Response;
 @class GTLRCloudBuild_PullRequestFilter;
@@ -43,6 +49,8 @@
 @class GTLRCloudBuild_Results;
 @class GTLRCloudBuild_Secret;
 @class GTLRCloudBuild_Secret_SecretEnv;
+@class GTLRCloudBuild_SlackDelivery;
+@class GTLRCloudBuild_SMTPDelivery;
 @class GTLRCloudBuild_Source;
 @class GTLRCloudBuild_SourceProvenance;
 @class GTLRCloudBuild_SourceProvenance_FileHashes;
@@ -130,7 +138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
 /**
- *  Stackdriver logging and Cloud Storage logging are enabled.
+ *  Cloud Logging (Stackdriver) and Cloud Storage logging are enabled.
  *
  *  Value: "LEGACY"
  */
@@ -142,6 +150,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
  *  Value: "LOGGING_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
+/**
+ *  Turn off all logging. No build logs will be captured.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_None;
+/**
+ *  Only Cloud Logging (Stackdriver) is enabled. Note that logs for both the
+ *  Cloud Console UI and Cloud SDK are based on Cloud Storage logs, so
+ *  neither will provide logs if this option is chosen.
+ *
+ *  Value: "STACKDRIVER_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.logStreamingOption
@@ -623,6 +645,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
+ *  Option to specify whether or not to apply bash style string
+ *  operations to the substitutions.
+ *  NOTE: this is always enabled for triggered builds and cannot be
+ *  overridden in the build configuration file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicSubstitutions;
+
+/**
  *  A list of global environment variable definitions that will exist for all
  *  build steps in this build. If a variable is defined in both globally and in
  *  a build step, the variable will use the build step value.
@@ -632,18 +664,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSArray<NSString *> *env;
 
 /**
- *  Option to specify the logging mode, which determines where the logs are
- *  stored.
+ *  Option to specify the logging mode, which determines if and where build
+ *  logs are stored.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_GcsOnly Only Cloud Storage
  *        logging is enabled. (Value: "GCS_ONLY")
- *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Stackdriver logging
- *        and Cloud Storage logging are enabled. (Value: "LEGACY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Cloud Logging
+ *        (Stackdriver) and Cloud Storage logging are enabled. (Value: "LEGACY")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified The
  *        service determines the logging mode. The default is `LEGACY`. Do not
  *        rely on the default logging behavior as it may change in the future.
  *        (Value: "LOGGING_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_None Turn off all logging. No
+ *        build logs will be captured. (Value: "NONE")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly Only Cloud
+ *        Logging (Stackdriver) is enabled. Note that logs for both the
+ *        Cloud Console UI and Cloud SDK are based on Cloud Storage logs, so
+ *        neither will provide logs if this option is chosen. (Value:
+ *        "STACKDRIVER_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *logging;
 
@@ -701,6 +740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  Option to specify behavior when there is an error in the substitution
  *  checks.
+ *  NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
+ *  be overridden in the build configuration file.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose Do not
@@ -1106,6 +1147,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
+ *  HTTPDelivery is the delivery configuration for an HTTP notification.
+ */
+@interface GTLRCloudBuild_HTTPDelivery : GTLRObject
+
+/** The URI to which JSON-containing HTTP POST requests should be sent. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Response including listed builds.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1154,25 +1206,136 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
+ *  Notification is the container which holds the data that is relevant to this
+ *  particular notification.
  */
-@interface GTLRCloudBuild_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
+@interface GTLRCloudBuild_Notification : GTLRObject
 
 /**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
+ *  The filter string to use for notification filtering.
+ *  Currently, this is assumed to be a CEL program.
+ *  See https://opensource.google/projects/cel for more.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Operation *> *operations;
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Configuration for HTTP delivery. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_HTTPDelivery *httpDelivery;
+
+/** Configuration for Slack delivery. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_SlackDelivery *slackDelivery;
+
+/** Configuration for SMTP (email) delivery. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_SMTPDelivery *smtpDelivery;
+
+/** Escape hatch for users to supply custom delivery configs. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Notification_StructDelivery *structDelivery;
+
+@end
+
+
+/**
+ *  Escape hatch for users to supply custom delivery configs.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudBuild_Notification_StructDelivery : GTLRObject
+@end
+
+
+/**
+ *  NotifierConfig is the top-level configuration message.
+ */
+@interface GTLRCloudBuild_NotifierConfig : GTLRObject
+
+/** The API version of this configuration format. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** The type of notifier to use (e.g. SMTPNotifier). */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Metadata for referring to/handling/deploying this notifier. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierMetadata *metadata;
+
+/** The actual configuration for this notifier. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierSpec *spec;
+
+@end
+
+
+/**
+ *  NotifierMetadata contains the data which can be used to reference or
+ *  describe
+ *  this notifier.
+ */
+@interface GTLRCloudBuild_NotifierMetadata : GTLRObject
+
+/**
+ *  The human-readable and user-given name for the notifier.
+ *  For example: "repo-merge-email-notifier".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The string representing the name and version of notifier to deploy.
+ *  Expected to be of the form of "<registry-path>/<name>:<version>".
+ *  For example: "gcr.io/my-project/notifiers/smtp:1.2.34".
+ */
+@property(nonatomic, copy, nullable) NSString *notifier;
+
+@end
+
+
+/**
+ *  NotifierSecret is the container that maps a secret name (reference) to its
+ *  Google Cloud Secret Manager resource path.
+ */
+@interface GTLRCloudBuild_NotifierSecret : GTLRObject
+
+/**
+ *  Name is the local name of the secret, such as the verbatim string
+ *  "my-smtp-password".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Value is interpreted to be a resource path for fetching the actual
+ *  (versioned) secret data for this secret. For example, this would be a
+ *  Google Cloud Secret Manager secret version resource path like:
+ *  "projects/my-project/secrets/my-secret/versions/latest".
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  NotifierSecretRef contains the reference to a secret stored in the
+ *  corresponding NotifierSpec.
+ */
+@interface GTLRCloudBuild_NotifierSecretRef : GTLRObject
+
+/**
+ *  The value of `secret_ref` should be a `name` that is registered in a
+ *  `Secret` in the `secrets` list of the `Spec`.
+ */
+@property(nonatomic, copy, nullable) NSString *secretRef;
+
+@end
+
+
+/**
+ *  NotifierSpec is the configuration container for notifications.
+ */
+@interface GTLRCloudBuild_NotifierSpec : GTLRObject
+
+/** The configuration of this particular notifier. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Notification *notification;
+
+/** Configurations for secret resources used by this particular notifier. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_NotifierSecret *> *secrets;
 
 @end
 
@@ -1273,8 +1436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *branch;
 
 /**
- *  Configure builds to run only when a repository owner or collaborator
- *  comments `/gcbrun`.
+ *  Configure builds to run whether a repository owner or collaborator need to
+ *  comment `/gcbrun`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled
@@ -1480,6 +1643,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudBuild_Secret_SecretEnv : GTLRObject
+@end
+
+
+/**
+ *  SlackDelivery is the delivery configuration for delivering Slack messages
+ *  via
+ *  webhooks. See Slack webhook documentation at:
+ *  https://api.slack.com/messaging/webhooks.
+ */
+@interface GTLRCloudBuild_SlackDelivery : GTLRObject
+
+/**
+ *  The secret reference for the Slack webhook URI for sending messages to a
+ *  channel.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierSecretRef *webhookUri;
+
+@end
+
+
+/**
+ *  SMTPDelivery is the delivery configuration for an SMTP (email) notification.
+ */
+@interface GTLRCloudBuild_SMTPDelivery : GTLRObject
+
+/**
+ *  This is the SMTP account/email that appears in the `From:` of the email.
+ *  If empty, it is assumed to be sender.
+ */
+@property(nonatomic, copy, nullable) NSString *fromAddress;
+
+/** The SMTP sender's password. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_NotifierSecretRef *password;
+
+/** The SMTP port of the server. */
+@property(nonatomic, copy, nullable) NSString *port;
+
+/**
+ *  This is the list of addresses to which we send the email (i.e. in the `To:`
+ *  of the email).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *recipientAddresses;
+
+/** This is the SMTP account/email that is used to send the message. */
+@property(nonatomic, copy, nullable) NSString *senderAddress;
+
+/** The address of the SMTP server. */
+@property(nonatomic, copy, nullable) NSString *server;
+
 @end
 
 

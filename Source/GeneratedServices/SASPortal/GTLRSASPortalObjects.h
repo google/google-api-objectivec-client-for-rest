@@ -24,6 +24,7 @@
 @class GTLRSASPortal_DeviceAirInterface;
 @class GTLRSASPortal_DeviceConfig;
 @class GTLRSASPortal_DeviceGrant;
+@class GTLRSASPortal_DeviceMetadata;
 @class GTLRSASPortal_DeviceModel;
 @class GTLRSASPortal_DpaMoveList;
 @class GTLRSASPortal_FrequencyRange;
@@ -302,6 +303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_DeviceConfig *activeConfig;
 
+/**
+ *  Device parameters that can be overridden by both SAS Portal and SAS
+ *  registration requests.
+ */
+@property(nonatomic, strong, nullable) GTLRSASPortal_DeviceMetadata *deviceMetadata;
+
 /** Device display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -504,6 +511,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /** If the grant is suspended, the reason(s) for suspension. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReason;
 
+@end
+
+
+/**
+ *  Device data overridable by both SAS Portal and registration requests.
+ */
+@interface GTLRSASPortal_DeviceMetadata : GTLRObject
 @end
 
 

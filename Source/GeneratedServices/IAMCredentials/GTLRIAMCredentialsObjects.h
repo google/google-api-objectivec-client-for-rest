@@ -4,8 +4,7 @@
 // API:
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Creates short-lived, limited-privilege credentials for IAM service
-//   accounts.
+//   Creates short-lived credentials for impersonating IAM service accounts.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -213,9 +212,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The JWT payload to sign. Must be a serialized JSON object that
  *  contains a
- *  JWT Claim Set. For example: `{"sub": "user\@example.com", "iat": 313435}`
- *  If the claim set contains an `exp` claim, it must be an integer timestamp
- *  that is not in the past and at most 12 hours in the future.
+ *  JWT Claims Set. For example: `{"sub": "user\@example.com", "iat": 313435}`
+ *  If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
+ *  an integer timestamp that is not in the past and no more than 12 hours in
+ *  the future.
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 

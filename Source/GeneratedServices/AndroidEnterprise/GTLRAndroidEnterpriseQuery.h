@@ -4,7 +4,7 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
@@ -50,17 +50,17 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // keyType
 
-/** Value: "googleCredentials" */
+/** Value: "GOOGLE_CREDENTIALS" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials;
-/** Value: "pkcs12" */
+/** Value: "PKCS12" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12;
 
 // ----------------------------------------------------------------------------
 // requestMode
 
-/** Value: "returnImmediately" */
+/** Value: "RETURN_IMMEDIATELY" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately;
-/** Value: "waitForNotifications" */
+/** Value: "WAIT_FOR_NOTIFICATIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications;
 
 // ----------------------------------------------------------------------------
@@ -81,6 +81,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Uploads a report containing any changes in app states on the device since
  *  the last report was generated. You can call this method up to 3 times every
  *  24 hours for a given device.
+ *  If you exceed the quota, then the Google Play EMM API returns <code>HTTP
+ *  429 Too Many Requests</code>.
  *
  *  Method: androidenterprise.devices.forceReportUpload
  *
@@ -107,6 +109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Uploads a report containing any changes in app states on the device since
  *  the last report was generated. You can call this method up to 3 times every
  *  24 hours for a given device.
+ *  If you exceed the quota, then the Google Play EMM API returns <code>HTTP
+ *  429 Too Many Requests</code>.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -160,10 +164,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Retrieves whether a device's access to Google services is enabled or
- *  disabled. The device state takes effect only if enforcing EMM policies on
- *  Android devices is enabled in the Google Admin Console. Otherwise, the
- *  device state is ignored and all devices are allowed access to Google
- *  services. This is only supported for Google-managed users.
+ *  disabled.
+ *  The device state takes effect only if enforcing EMM policies on Android
+ *  devices is enabled in the Google Admin Console.
+ *  Otherwise, the device state is ignored and all devices are allowed access
+ *  to Google services.
+ *  This is only supported for Google-managed users.
  *
  *  Method: androidenterprise.devices.getState
  *
@@ -187,10 +193,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Fetches a @c GTLRAndroidEnterprise_DeviceState.
  *
  *  Retrieves whether a device's access to Google services is enabled or
- *  disabled. The device state takes effect only if enforcing EMM policies on
- *  Android devices is enabled in the Google Admin Console. Otherwise, the
- *  device state is ignored and all devices are allowed access to Google
- *  services. This is only supported for Google-managed users.
+ *  disabled.
+ *  The device state takes effect only if enforcing EMM policies on Android
+ *  devices is enabled in the Google Admin Console.
+ *  Otherwise, the device state is ignored and all devices are allowed access
+ *  to Google services.
+ *  This is only supported for Google-managed users.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -240,9 +248,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Sets whether a device's access to Google services is enabled or disabled.
  *  The device state takes effect only if enforcing EMM policies on Android
- *  devices is enabled in the Google Admin Console. Otherwise, the device state
- *  is ignored and all devices are allowed access to Google services. This is
- *  only supported for Google-managed users.
+ *  devices is enabled in the Google Admin Console.
+ *  Otherwise, the device state is ignored and all devices are allowed access
+ *  to Google services.
+ *  This is only supported for Google-managed users.
  *
  *  Method: androidenterprise.devices.setState
  *
@@ -267,9 +276,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *
  *  Sets whether a device's access to Google services is enabled or disabled.
  *  The device state takes effect only if enforcing EMM policies on Android
- *  devices is enabled in the Google Admin Console. Otherwise, the device state
- *  is ignored and all devices are allowed access to Google services. This is
- *  only supported for Google-managed users.
+ *  devices is enabled in the Google Admin Console.
+ *  Otherwise, the device state is ignored and all devices are allowed access
+ *  to Google services.
+ *  This is only supported for Google-managed users.
  *
  *  @param object The @c GTLRAndroidEnterprise_DeviceState to include in the
  *    query.
@@ -308,7 +318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Mask that identifies which fields to update. If not set, all modifiable
  *  fields will be modified.
  *  When set in a query parameter, this field should be specified as
- *  updateMask=<field1>,<field2>,...
+ *  <code>updateMask=&lt;field1&gt;,&lt;field2&gt;,...</code>
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
@@ -349,8 +359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesAcknowledgeNotificationSet]
 
 /**
- *  The notification set ID as returned by Enterprises.PullNotificationSet. This
- *  must be provided.
+ *  The notification set ID as returned by Enterprises.PullNotificationSet.
+ *  This must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *notificationSetId;
 
@@ -369,8 +379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Completes the signup flow, by specifying the Completion token and Enterprise
- *  token. This request must not be called multiple times for a given Enterprise
+ *  Completes the signup flow, by specifying the Completion token and
+ *  Enterprise token.
+ *  This request must not be called multiple times for a given Enterprise
  *  Token.
  *
  *  Method: androidenterprise.enterprises.completeSignup
@@ -391,8 +402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Enterprise.
  *
- *  Completes the signup flow, by specifying the Completion token and Enterprise
- *  token. This request must not be called multiple times for a given Enterprise
+ *  Completes the signup flow, by specifying the Completion token and
+ *  Enterprise token.
+ *  This request must not be called multiple times for a given Enterprise
  *  Token.
  *
  *  @return GTLRAndroidEnterpriseQuery_EnterprisesCompleteSignup
@@ -402,10 +414,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Returns a unique token to access an embeddable UI. To generate a web UI,
- *  pass the generated token into the managed Google Play javascript API. Each
- *  token may only be used to start one UI session. See the javascript API
- *  documentation for further information.
+ *  Returns a unique token to access an embeddable UI. To generate a
+ *  web UI, pass the generated token into the managed Google Play javascript
+ *  API. Each token may only be used to start one UI session. See the
+ *  javascript API documentation for further information.
  *
  *  Method: androidenterprise.enterprises.createWebToken
  *
@@ -422,10 +434,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_AdministratorWebToken.
  *
- *  Returns a unique token to access an embeddable UI. To generate a web UI,
- *  pass the generated token into the managed Google Play javascript API. Each
- *  token may only be used to start one UI session. See the javascript API
- *  documentation for further information.
+ *  Returns a unique token to access an embeddable UI. To generate a
+ *  web UI, pass the generated token into the managed Google Play javascript
+ *  API. Each token may only be used to start one UI session. See the
+ *  javascript API documentation for further information.
  *
  *  @param object The @c GTLRAndroidEnterprise_AdministratorWebTokenSpec to
  *    include in the query.
@@ -450,7 +462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 // Previous library name was
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesEnrollWithObject:token:]
 
-/** The token provided by the enterprise to register the EMM. */
+/** Required. The token provided by the enterprise to register the EMM. */
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
@@ -460,7 +472,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *
  *  @param object The @c GTLRAndroidEnterprise_Enterprise to include in the
  *    query.
- *  @param token The token provided by the enterprise to register the EMM.
+ *  @param token Required. The token provided by the enterprise to register the
+ *    EMM.
  *
  *  @return GTLRAndroidEnterpriseQuery_EnterprisesEnroll
  */
@@ -485,10 +498,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  The callback URL to which the Admin will be redirected after successfully
  *  creating an enterprise. Before redirecting there the system will add a
  *  single query parameter to this URL named "enterpriseToken" which will
- *  contain an opaque token to be used for the CompleteSignup request.
- *  Beware that this means that the URL will be parsed, the parameter added and
- *  then a new URL formatted, i.e. there may be some minor formatting changes
- *  and, more importantly, the URL must be well-formed so that it can be parsed.
+ *  contain an opaque token to be used for the CompleteSignup request.<br>
+ *  Beware that this means that the URL will be parsed, the parameter added
+ *  and then a new URL formatted, i.e. there may be some minor formatting
+ *  changes and, more importantly, the URL must be well-formed so that it can
+ *  be parsed.
  */
 @property(nonatomic, copy, nullable) NSString *callbackUrl;
 
@@ -532,17 +546,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Returns a service account and credentials. The service account can be bound
- *  to the enterprise by calling setAccount. The service account is unique to
- *  this enterprise and EMM, and will be deleted if the enterprise is unbound.
- *  The credentials contain private key data and are not stored server-side.
- *  This method can only be called after calling Enterprises.Enroll or
- *  Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other
- *  times it will return an error.
+ *  Returns a service account and credentials. The service account
+ *  can be bound to the enterprise by calling setAccount. The service account
+ *  is unique to this enterprise and EMM, and will be deleted if the enterprise
+ *  is unbound. The credentials contain private key data and are not stored
+ *  server-side.
+ *  <br> <br>
+ *  This method can only be called after calling
+ *  Enterprises.Enroll or Enterprises.CompleteSignup, and before
+ *  Enterprises.SetAccount; at other times it will return an error.
+ *  <br> <br>
  *  Subsequent calls after the first will generate a new, unique set of
  *  credentials, and invalidate the previously generated credentials.
- *  Once the service account is bound to the enterprise, it can be managed using
- *  the serviceAccountKeys resource.
+ *  <br> <br>
+ *  Once the service account is bound to the enterprise, it can be managed
+ *  using the serviceAccountKeys resource.
  *
  *  Method: androidenterprise.enterprises.getServiceAccount
  *
@@ -561,25 +579,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterpriseKeyTypeGoogleCredentials Value
- *        "googleCredentials"
- *    @arg @c kGTLRAndroidEnterpriseKeyTypePkcs12 Value "pkcs12"
+ *        "GOOGLE_CREDENTIALS"
+ *    @arg @c kGTLRAndroidEnterpriseKeyTypePkcs12 Value "PKCS12"
  */
 @property(nonatomic, copy, nullable) NSString *keyType;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ServiceAccount.
  *
- *  Returns a service account and credentials. The service account can be bound
- *  to the enterprise by calling setAccount. The service account is unique to
- *  this enterprise and EMM, and will be deleted if the enterprise is unbound.
- *  The credentials contain private key data and are not stored server-side.
- *  This method can only be called after calling Enterprises.Enroll or
- *  Enterprises.CompleteSignup, and before Enterprises.SetAccount; at other
- *  times it will return an error.
+ *  Returns a service account and credentials. The service account
+ *  can be bound to the enterprise by calling setAccount. The service account
+ *  is unique to this enterprise and EMM, and will be deleted if the enterprise
+ *  is unbound. The credentials contain private key data and are not stored
+ *  server-side.
+ *  <br> <br>
+ *  This method can only be called after calling
+ *  Enterprises.Enroll or Enterprises.CompleteSignup, and before
+ *  Enterprises.SetAccount; at other times it will return an error.
+ *  <br> <br>
  *  Subsequent calls after the first will generate a new, unique set of
  *  credentials, and invalidate the previously generated credentials.
- *  Once the service account is bound to the enterprise, it can be managed using
- *  the serviceAccountKeys resource.
+ *  <br> <br>
+ *  Once the service account is bound to the enterprise, it can be managed
+ *  using the serviceAccountKeys resource.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -590,8 +612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Returns the store layout for the enterprise. If the store layout has not
- *  been set, returns "basic" as the store layout type and no homepage.
+ *  Returns the store layout for the enterprise. If the store layout
+ *  has not been set, returns "basic" as the store layout type and no
+ *  homepage.
  *
  *  Method: androidenterprise.enterprises.getStoreLayout
  *
@@ -608,8 +631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayout.
  *
- *  Returns the store layout for the enterprise. If the store layout has not
- *  been set, returns "basic" as the store layout type and no homepage.
+ *  Returns the store layout for the enterprise. If the store layout
+ *  has not been set, returns "basic" as the store layout type and no
+ *  homepage.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -620,11 +644,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Looks up an enterprise by domain name. This is only supported for
- *  enterprises created via the Google-initiated creation flow. Lookup of the id
- *  is not needed for enterprises created via the EMM-initiated flow since the
- *  EMM learns the enterprise ID in the callback specified in the
- *  Enterprises.generateSignupUrl call.
+ *  Looks up an enterprise by domain name.
+ *  This is only supported for enterprises created via the Google-initiated
+ *  creation flow. Lookup of the id is not needed for enterprises created via
+ *  the EMM-initiated flow since the EMM learns the enterprise ID in the
+ *  callback specified in the Enterprises.generateSignupUrl call.
  *
  *  Method: androidenterprise.enterprises.list
  *
@@ -635,19 +659,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 // Previous library name was
 //   +[GTLQueryAndroidEnterprise queryForEnterprisesListWithdomain:]
 
-/** The exact primary domain name of the enterprise to look up. */
+/** Required. The exact primary domain name of the enterprise to look up. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_EnterprisesListResponse.
  *
- *  Looks up an enterprise by domain name. This is only supported for
- *  enterprises created via the Google-initiated creation flow. Lookup of the id
- *  is not needed for enterprises created via the EMM-initiated flow since the
- *  EMM learns the enterprise ID in the callback specified in the
- *  Enterprises.generateSignupUrl call.
+ *  Looks up an enterprise by domain name.
+ *  This is only supported for enterprises created via the Google-initiated
+ *  creation flow. Lookup of the id is not needed for enterprises created via
+ *  the EMM-initiated flow since the EMM learns the enterprise ID in the
+ *  callback specified in the Enterprises.generateSignupUrl call.
  *
- *  @param domain The exact primary domain name of the enterprise to look up.
+ *  @param domain Required. The exact primary domain name of the enterprise to
+ *    look up.
  *
  *  @return GTLRAndroidEnterpriseQuery_EnterprisesList
  */
@@ -656,19 +681,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Pulls and returns a notification set for the enterprises associated with the
- *  service account authenticated for the request. The notification set may be
- *  empty if no notification are pending.
- *  A notification set returned needs to be acknowledged within 20 seconds by
- *  calling Enterprises.AcknowledgeNotificationSet, unless the notification set
- *  is empty.
+ *  Pulls and returns a notification set for the enterprises associated with
+ *  the service account authenticated for the request. The notification set may
+ *  be empty if no notification are pending.
+ *  <br>
+ *  A notification set returned needs to be acknowledged within 20 seconds
+ *  by calling Enterprises.AcknowledgeNotificationSet, unless the
+ *  notification set is empty.
+ *  <br>
  *  Notifications that are not acknowledged within the 20 seconds will
  *  eventually be included again in the response to another PullNotificationSet
  *  request, and those that are never acknowledged will ultimately be deleted
  *  according to the Google Cloud Platform Pub/Sub system policy.
- *  Multiple requests might be performed concurrently to retrieve notifications,
- *  in which case the pending notifications (if any) will be split among each
- *  caller, if any are pending.
+ *  <br>
+ *  Multiple requests might be performed concurrently to retrieve
+ *  notifications, in which case the pending notifications (if any) will be
+ *  split among each caller, if any are pending.
+ *  <br>
  *  If no notifications are present, an empty notification list is returned.
  *  Subsequent requests may return more notifications once they become
  *  available.
@@ -684,37 +713,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  The request mode for pulling notifications.
- *  Specifying waitForNotifications will cause the request to block and wait
- *  until one or more notifications are present, or return an empty notification
- *  list if no notifications are present after some time.
- *  Speciying returnImmediately will cause the request to immediately return the
- *  pending notifications, or an empty list if no notifications are present.
- *  If omitted, defaults to waitForNotifications.
+ *  <br>
+ *  Specifying <code>waitForNotifications</code> will cause the request to
+ *  block and wait until one or more notifications are present, or return an
+ *  empty notification list if no notifications are present after some time.
+ *  <br>
+ *  Speciying <code>returnImmediately</code> will cause the request to
+ *  immediately return the pending notifications, or an empty list if no
+ *  notifications are present.
+ *  <br>
+ *  If omitted, defaults to <code>waitForNotifications</code>.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidEnterpriseRequestModeReturnImmediately Value
- *        "returnImmediately"
  *    @arg @c kGTLRAndroidEnterpriseRequestModeWaitForNotifications Value
- *        "waitForNotifications"
+ *        "WAIT_FOR_NOTIFICATIONS"
+ *    @arg @c kGTLRAndroidEnterpriseRequestModeReturnImmediately Value
+ *        "RETURN_IMMEDIATELY"
  */
 @property(nonatomic, copy, nullable) NSString *requestMode;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_NotificationSet.
  *
- *  Pulls and returns a notification set for the enterprises associated with the
- *  service account authenticated for the request. The notification set may be
- *  empty if no notification are pending.
- *  A notification set returned needs to be acknowledged within 20 seconds by
- *  calling Enterprises.AcknowledgeNotificationSet, unless the notification set
- *  is empty.
+ *  Pulls and returns a notification set for the enterprises associated with
+ *  the service account authenticated for the request. The notification set may
+ *  be empty if no notification are pending.
+ *  <br>
+ *  A notification set returned needs to be acknowledged within 20 seconds
+ *  by calling Enterprises.AcknowledgeNotificationSet, unless the
+ *  notification set is empty.
+ *  <br>
  *  Notifications that are not acknowledged within the 20 seconds will
  *  eventually be included again in the response to another PullNotificationSet
  *  request, and those that are never acknowledged will ultimately be deleted
  *  according to the Google Cloud Platform Pub/Sub system policy.
- *  Multiple requests might be performed concurrently to retrieve notifications,
- *  in which case the pending notifications (if any) will be split among each
- *  caller, if any are pending.
+ *  <br>
+ *  Multiple requests might be performed concurrently to retrieve
+ *  notifications, in which case the pending notifications (if any) will be
+ *  split among each caller, if any are pending.
+ *  <br>
  *  If no notifications are present, an empty notification list is returned.
  *  Subsequent requests may return more notifications once they become
  *  available.
@@ -726,8 +763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Sends a test notification to validate the EMM integration with the Google
- *  Cloud Pub/Sub service for this enterprise.
+ *  Sends a test notification to validate the EMM integration with
+ *  the Google Cloud Pub/Sub service for this enterprise.
  *
  *  Method: androidenterprise.enterprises.sendTestPushNotification
  *
@@ -745,8 +782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Fetches a @c
  *  GTLRAndroidEnterprise_EnterprisesSendTestPushNotificationResponse.
  *
- *  Sends a test notification to validate the EMM integration with the Google
- *  Cloud Pub/Sub service for this enterprise.
+ *  Sends a test notification to validate the EMM integration with
+ *  the Google Cloud Pub/Sub service for this enterprise.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -790,13 +827,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Sets the store layout for the enterprise. By default, storeLayoutType is set
- *  to "basic" and the basic store layout is enabled. The basic layout only
- *  contains apps approved by the admin, and that have been added to the
- *  available product set for a user (using the setAvailableProductSet call).
- *  Apps on the page are sorted in order of their product ID value. If you
- *  create a custom store layout (by setting storeLayoutType = "custom" and
- *  setting a homepage), the basic store layout is disabled.
+ *  Sets the store layout for the enterprise. By default, storeLayoutType
+ *  is set to "basic" and the basic store layout is enabled. The basic
+ *  layout only contains apps approved by the admin, and that have
+ *  been added to the available product set for a user (using the
+ *  <a href="/android/work/play/emm-api/v1/users/setAvailableProductSet">
+ *  setAvailableProductSet</a> call). Apps on the page are sorted in order of
+ *  their product ID value. If you create a custom store layout (by setting
+ *  storeLayoutType = "custom" and setting a homepage), the basic store
+ *  layout is disabled.
  *
  *  Method: androidenterprise.enterprises.setStoreLayout
  *
@@ -813,13 +852,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_StoreLayout.
  *
- *  Sets the store layout for the enterprise. By default, storeLayoutType is set
- *  to "basic" and the basic store layout is enabled. The basic layout only
- *  contains apps approved by the admin, and that have been added to the
- *  available product set for a user (using the setAvailableProductSet call).
- *  Apps on the page are sorted in order of their product ID value. If you
- *  create a custom store layout (by setting storeLayoutType = "custom" and
- *  setting a homepage), the basic store layout is disabled.
+ *  Sets the store layout for the enterprise. By default, storeLayoutType
+ *  is set to "basic" and the basic store layout is enabled. The basic
+ *  layout only contains apps approved by the admin, and that have
+ *  been added to the available product set for a user (using the
+ *  <a href="/android/work/play/emm-api/v1/users/setAvailableProductSet">
+ *  setAvailableProductSet</a> call). Apps on the page are sorted in order of
+ *  their product ID value. If you create a custom store layout (by setting
+ *  storeLayoutType = "custom" and setting a homepage), the basic store
+ *  layout is disabled.
  *
  *  @param object The @c GTLRAndroidEnterprise_StoreLayout to include in the
  *    query.
@@ -999,9 +1040,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 
 /**
  *  Set to true to also install the product on all the user's devices where
- *  possible. Failure to install on one or more devices will not prevent this
- *  operation from returning successfully, as long as the entitlement was
- *  successfully assigned to the user.
+ *  possible. Failure to install on one or more devices will not prevent
+ *  this operation from returning successfully, as long as the entitlement
+ *  was successfully assigned to the user.
  */
 @property(nonatomic, assign) BOOL install;
 
@@ -1095,8 +1136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Retrieves the IDs of the users who have been granted entitlements under the
- *  license.
+ *  Retrieves the IDs of the users who have been granted entitlements
+ *  under the license.
  *
  *  Method: androidenterprise.grouplicenseusers.list
  *
@@ -1119,8 +1160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_GroupLicenseUsersListResponse.
  *
- *  Retrieves the IDs of the users who have been granted entitlements under the
- *  license.
+ *  Retrieves the IDs of the users who have been granted entitlements
+ *  under the license.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param groupLicenseId The ID of the product the group license is for, e.g.
@@ -1134,8 +1175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Requests to remove an app from a device. A call to get or list will still
- *  show the app as installed on the device until it is actually removed.
+ *  Requests to remove an app from a device. A call to <code>get</code> or
+ *  <code>list</code> will still show the app as installed on the device until
+ *  it is actually removed.
  *
  *  Method: androidenterprise.installs.delete
  *
@@ -1165,8 +1207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests to remove an app from a device. A call to get or list will still
- *  show the app as installed on the device until it is actually removed.
+ *  Requests to remove an app from a device. A call to <code>get</code> or
+ *  <code>list</code> will still show the app as installed on the device until
+ *  it is actually removed.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
@@ -1269,8 +1312,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Requests to install the latest version of an app to a device. If the app is
- *  already installed, then it is updated to the latest version if necessary.
+ *  Requests to install the latest version of an app to a device. If the app
+ *  is already installed, then it is updated to the latest version if
+ *  necessary.
  *
  *  Method: androidenterprise.installs.update
  *
@@ -1299,8 +1343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Install.
  *
- *  Requests to install the latest version of an app to a device. If the app is
- *  already installed, then it is updated to the latest version if necessary.
+ *  Requests to install the latest version of an app to a device. If the app
+ *  is already installed, then it is updated to the latest version if
+ *  necessary.
  *
  *  @param object The @c GTLRAndroidEnterprise_Install to include in the query.
  *  @param enterpriseId The ID of the enterprise.
@@ -1358,7 +1403,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  @param userId The ID of the user.
  *  @param deviceId The Android ID of the device.
  *  @param managedConfigurationForDeviceId The ID of the managed configuration
- *    (a product ID), e.g. "app:com.google.android.gm".
+ *    (a product ID), e.g.
+ *    "app:com.google.android.gm".
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete
  */
@@ -1405,7 +1451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  @param userId The ID of the user.
  *  @param deviceId The Android ID of the device.
  *  @param managedConfigurationForDeviceId The ID of the managed configuration
- *    (a product ID), e.g. "app:com.google.android.gm".
+ *    (a product ID), e.g.
+ *    "app:com.google.android.gm".
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet
  */
@@ -1497,7 +1544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  @param userId The ID of the user.
  *  @param deviceId The Android ID of the device.
  *  @param managedConfigurationForDeviceId The ID of the managed configuration
- *    (a product ID), e.g. "app:com.google.android.gm".
+ *    (a product ID), e.g.
+ *    "app:com.google.android.gm".
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate
  */
@@ -1542,7 +1590,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
  *  @param managedConfigurationForUserId The ID of the managed configuration (a
- *    product ID), e.g. "app:com.google.android.gm".
+ *    product ID), e.g.
+ *    "app:com.google.android.gm".
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete
  */
@@ -1586,7 +1635,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
  *  @param managedConfigurationForUserId The ID of the managed configuration (a
- *    product ID), e.g. "app:com.google.android.gm".
+ *    product ID), e.g.
+ *    "app:com.google.android.gm".
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet
  */
@@ -1633,9 +1683,14 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Adds or updates the managed configuration settings for an app for the
- *  specified user. If you support the Managed configurations iframe, you can
- *  apply managed configurations to a user by specifying an mcmId and its
- *  associated configuration variables (if any) in the request. Alternatively,
+ *  specified user.
+ *  If you support the
+ *  <a href="https://developers.google.com/android/work/play/emm-api/managed-configurations-iframe">Managed
+ *  configurations iframe</a>,
+ *  you can apply managed configurations to a user by specifying an
+ *  <code>mcmId</code>
+ *  and its associated configuration variables (if any) in the request.
+ *  Alternatively,
  *  all EMMs can apply managed configurations by passing a list of managed
  *  properties.
  *
@@ -1664,9 +1719,14 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_ManagedConfiguration.
  *
  *  Adds or updates the managed configuration settings for an app for the
- *  specified user. If you support the Managed configurations iframe, you can
- *  apply managed configurations to a user by specifying an mcmId and its
- *  associated configuration variables (if any) in the request. Alternatively,
+ *  specified user.
+ *  If you support the
+ *  <a href="https://developers.google.com/android/work/play/emm-api/managed-configurations-iframe">Managed
+ *  configurations iframe</a>,
+ *  you can apply managed configurations to a user by specifying an
+ *  <code>mcmId</code>
+ *  and its associated configuration variables (if any) in the request.
+ *  Alternatively,
  *  all EMMs can apply managed configurations by passing a list of managed
  *  properties.
  *
@@ -1675,7 +1735,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  @param enterpriseId The ID of the enterprise.
  *  @param userId The ID of the user.
  *  @param managedConfigurationForUserId The ID of the managed configuration (a
- *    product ID), e.g. "app:com.google.android.gm".
+ *    product ID), e.g.
+ *    "app:com.google.android.gm".
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate
  */
@@ -1715,7 +1776,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product for which the managed configurations
- *    settings applies to.
+ *    settings applies
+ *    to.
  *
  *  @return GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList
  */
@@ -1758,11 +1820,13 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Approves the specified product and the relevant app permissions, if any. The
- *  maximum number of products that you can approve per enterprise customer is
- *  1,000.
- *  To learn how to use managed Google Play to design and create a store layout
- *  to display approved products to your users, see Store Layout Design.
+ *  <p>Approves the specified product and the relevant app permissions, if any.
+ *  The maximum number of products that you can approve per enterprise customer
+ *  is 1,000.</p>
+ *  <p>To learn how to use managed Google Play to design and create a store
+ *  layout to display approved products to your users,
+ *  see <a href="/android/work/play/emm-api/store-layout">Store Layout
+ *  Design</a>.</p>
  *
  *  Method: androidenterprise.products.approve
  *
@@ -1783,11 +1847,13 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Approves the specified product and the relevant app permissions, if any. The
- *  maximum number of products that you can approve per enterprise customer is
- *  1,000.
- *  To learn how to use managed Google Play to design and create a store layout
- *  to display approved products to your users, see Store Layout Design.
+ *  <p>Approves the specified product and the relevant app permissions, if any.
+ *  The maximum number of products that you can approve per enterprise customer
+ *  is 1,000.</p>
+ *  <p>To learn how to use managed Google Play to design and create a store
+ *  layout to display approved products to your users,
+ *  see <a href="/android/work/play/emm-api/store-layout">Store Layout
+ *  Design</a>.</p>
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductsApproveRequest to include
  *    in the query.
@@ -1803,15 +1869,16 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Generates a URL that can be rendered in an iframe to display the permissions
- *  (if any) of a product. An enterprise admin must view these permissions and
- *  accept them on behalf of their organization in order to approve that
- *  product.
- *  Admins should accept the displayed permissions by interacting with a
- *  separate UI element in the EMM console, which in turn should trigger the use
- *  of this URL as the approvalUrlInfo.approvalUrl property in a
- *  Products.approve call to approve the product. This URL can only be used to
- *  display permissions for up to 1 day.
+ *  Generates a URL that can be rendered in an iframe to display the
+ *  permissions (if any) of a product. An enterprise admin must view these
+ *  permissions and accept them on behalf of their organization in order to
+ *  approve that product. <br><br>
+ *  Admins should accept the displayed permissions by
+ *  interacting with a separate UI element in the EMM console, which in turn
+ *  should trigger the use of this URL as the
+ *  <code>approvalUrlInfo.approvalUrl</code> property in a
+ *  <code>Products.approve</code> call to approve the product.
+ *  This URL can only be used to display permissions for up to 1 day.
  *
  *  Method: androidenterprise.products.generateApprovalUrl
  *
@@ -1826,8 +1893,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
 
 /**
- *  The BCP 47 language code used for permission names and descriptions in the
- *  returned iframe, for instance "en-US".
+ *  The BCP 47 language code used for permission names and descriptions in
+ *  the returned iframe, for instance "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1837,15 +1904,16 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductsGenerateApprovalUrlResponse.
  *
- *  Generates a URL that can be rendered in an iframe to display the permissions
- *  (if any) of a product. An enterprise admin must view these permissions and
- *  accept them on behalf of their organization in order to approve that
- *  product.
- *  Admins should accept the displayed permissions by interacting with a
- *  separate UI element in the EMM console, which in turn should trigger the use
- *  of this URL as the approvalUrlInfo.approvalUrl property in a
- *  Products.approve call to approve the product. This URL can only be used to
- *  display permissions for up to 1 day.
+ *  Generates a URL that can be rendered in an iframe to display the
+ *  permissions (if any) of a product. An enterprise admin must view these
+ *  permissions and accept them on behalf of their organization in order to
+ *  approve that product. <br><br>
+ *  Admins should accept the displayed permissions by
+ *  interacting with a separate UI element in the EMM console, which in turn
+ *  should trigger the use of this URL as the
+ *  <code>approvalUrlInfo.approvalUrl</code> property in a
+ *  <code>Products.approve</code> call to approve the product.
+ *  This URL can only be used to display permissions for up to 1 day.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product.
@@ -1897,9 +1965,11 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Retrieves the schema that defines the configurable properties for this
  *  product. All products have a schema, but this schema may be empty if no
  *  managed configurations have been defined. This schema can be used to
- *  populate a UI that allows an admin to configure the product. To apply a
- *  managed configuration based on the schema obtained using this API, see
- *  Managed Configurations through Play.
+ *  populate a UI that allows an admin to configure the product.
+ *  To apply a managed configuration based on the schema obtained using this
+ *  API, see
+ *  <a href="/android/work/play/emm-api/managed-configurations">Managed
+ *  Configurations through Play</a>.
  *
  *  Method: androidenterprise.products.getAppRestrictionsSchema
  *
@@ -1925,9 +1995,11 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Retrieves the schema that defines the configurable properties for this
  *  product. All products have a schema, but this schema may be empty if no
  *  managed configurations have been defined. This schema can be used to
- *  populate a UI that allows an admin to configure the product. To apply a
- *  managed configuration based on the schema obtained using this API, see
- *  Managed Configurations through Play.
+ *  populate a UI that allows an admin to configure the product.
+ *  To apply a managed configuration based on the schema obtained using this
+ *  API, see
+ *  <a href="/android/work/play/emm-api/managed-configurations">Managed
+ *  Configurations through Play</a>.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param productId The ID of the product.
@@ -1973,8 +2045,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Finds approved products that match a query, or all approved products if
- *  there is no query.
+ *  Finds approved products that match a query, or all approved products
+ *  if there is no query.
  *
  *  Method: androidenterprise.products.list
  *
@@ -1986,9 +2058,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 //   +[GTLQueryAndroidEnterprise queryForProductsListWithenterpriseId:]
 
 /**
- *  Specifies whether to search among all products (false) or among only
- *  products that have been approved (true). Only "true" is supported, and
- *  should be specified.
+ *  Specifies whether to search among all products (false) or among
+ *  only products that have been approved (true). Only "true" is
+ *  supported, and should be specified.
  */
 @property(nonatomic, assign) BOOL approved;
 
@@ -1997,37 +2069,37 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  The BCP47 tag for the user's preferred language (e.g. "en-US", "de").
- *  Results are returned in the language best matching the preferred language.
+ *  Results are returned in the language best matching the preferred
+ *  language.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  Specifies the maximum number of products that can be returned per request.
- *  If not specified, uses a default value of 100, which is also the maximum
- *  retrievable within a single response.
+ *  Defines how many results the list operation should return.
+ *  The default number depends on the resource collection.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  The search query as typed in the Google Play store search box. If omitted,
- *  all approved apps will be returned (using the pagination parameters),
- *  including apps that are not available in the store (e.g. unpublished apps).
+ *  The search query as typed in the Google Play store search box.
+ *  If omitted, all approved apps will be returned (using the pagination
+ *  parameters), including apps that are not available in the store
+ *  (e.g. unpublished apps).
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  A pagination token is contained in a request's response when there are more
- *  products. The token can be used in a subsequent request to obtain more
- *  products, and so forth. This parameter cannot be used in the initial
- *  request.
+ *  Defines the token of the page to return, usually taken from
+ *  TokenPagination.
+ *  This can only be used if token paging is enabled.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidEnterprise_ProductsListResponse.
  *
- *  Finds approved products that match a query, or all approved products if
- *  there is no query.
+ *  Finds approved products that match a query, or all approved products
+ *  if there is no query.
  *
  *  @param enterpriseId The ID of the enterprise.
  *
@@ -2074,8 +2146,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Removes and invalidates the specified credentials for the service account
  *  associated with this enterprise. The calling service account must have been
- *  retrieved by calling Enterprises.GetServiceAccount and must have been set as
- *  the enterprise service account by calling Enterprises.SetAccount.
+ *  retrieved by calling Enterprises.GetServiceAccount and must have been set
+ *  as the enterprise service account by calling Enterprises.SetAccount.
  *
  *  Method: androidenterprise.serviceaccountkeys.delete
  *
@@ -2098,8 +2170,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *
  *  Removes and invalidates the specified credentials for the service account
  *  associated with this enterprise. The calling service account must have been
- *  retrieved by calling Enterprises.GetServiceAccount and must have been set as
- *  the enterprise service account by calling Enterprises.SetAccount.
+ *  retrieved by calling Enterprises.GetServiceAccount and must have been set
+ *  as the enterprise service account by calling Enterprises.SetAccount.
  *
  *  @param enterpriseId The ID of the enterprise.
  *  @param keyId The ID of the key.
@@ -2115,8 +2187,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Generates new credentials for the service account associated with this
  *  enterprise. The calling service account must have been retrieved by calling
  *  Enterprises.GetServiceAccount and must have been set as the enterprise
- *  service account by calling Enterprises.SetAccount.
- *  Only the type of the key should be populated in the resource to be inserted.
+ *  service account by calling Enterprises.SetAccount. <br><br>
+ *  Only the type of the key should be populated in the resource to be
+ *  inserted.
  *
  *  Method: androidenterprise.serviceaccountkeys.insert
  *
@@ -2136,8 +2209,9 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Generates new credentials for the service account associated with this
  *  enterprise. The calling service account must have been retrieved by calling
  *  Enterprises.GetServiceAccount and must have been set as the enterprise
- *  service account by calling Enterprises.SetAccount.
- *  Only the type of the key should be populated in the resource to be inserted.
+ *  service account by calling Enterprises.SetAccount. <br><br>
+ *  Only the type of the key should be populated in the resource to be
+ *  inserted.
  *
  *  @param object The @c GTLRAndroidEnterprise_ServiceAccountKey to include in
  *    the query.
@@ -2571,8 +2645,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Generates an authentication token which the device policy client can use to
- *  provision the given EMM-managed user account on a device. The generated
- *  token is single-use and expires after a few minutes.
+ *  provision the given EMM-managed user account on a device.
+ *  The generated token is single-use and expires after a few minutes.
  *  You can provision a maximum of 10 devices per user.
  *  This call only works with EMM-managed accounts.
  *
@@ -2595,8 +2669,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_AuthenticationToken.
  *
  *  Generates an authentication token which the device policy client can use to
- *  provision the given EMM-managed user account on a device. The generated
- *  token is single-use and expires after a few minutes.
+ *  provision the given EMM-managed user account on a device.
+ *  The generated token is single-use and expires after a few minutes.
  *  You can provision a maximum of 10 devices per user.
  *  This call only works with EMM-managed accounts.
  *
@@ -2604,45 +2678,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  @param userId The ID of the user.
  *
  *  @return GTLRAndroidEnterpriseQuery_UsersGenerateAuthenticationToken
- */
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
-                               userId:(NSString *)userId;
-
-@end
-
-/**
- *  Generates a token (activation code) to allow this user to configure their
- *  managed account in the Android Setup Wizard. Revokes any previously
- *  generated token.
- *  This call only works with Google managed accounts.
- *
- *  Method: androidenterprise.users.generateToken
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_UsersGenerateToken : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersGenerateTokenWithenterpriseId:userId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Fetches a @c GTLRAndroidEnterprise_UserToken.
- *
- *  Generates a token (activation code) to allow this user to configure their
- *  managed account in the Android Setup Wizard. Revokes any previously
- *  generated token.
- *  This call only works with Google managed accounts.
- *
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *
- *  @return GTLRAndroidEnterpriseQuery_UsersGenerateToken
  */
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
                                userId:(NSString *)userId;
@@ -2717,11 +2752,12 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Creates a new EMM-managed user.
- *  The Users resource passed in the body of the request should include an
- *  accountIdentifier and an accountType.
- *  If a corresponding user already exists with the same account identifier, the
- *  user will be updated with the resource. In this case only the displayName
- *  field can be changed.
+ *  The <a href="/android/work/play/emm-api/v1/users.html">Users</a> resource
+ *  passed in the body of the request should include an
+ *  <code>accountIdentifier</code> and an <code>accountType</code>.
+ *  <p>If a corresponding user already exists with the same account identifier,
+ *  the user will be updated with the resource. In this case only the
+ *  <code>displayName</code> field can be changed.
  *
  *  Method: androidenterprise.users.insert
  *
@@ -2739,11 +2775,12 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_User.
  *
  *  Creates a new EMM-managed user.
- *  The Users resource passed in the body of the request should include an
- *  accountIdentifier and an accountType.
- *  If a corresponding user already exists with the same account identifier, the
- *  user will be updated with the resource. In this case only the displayName
- *  field can be changed.
+ *  The <a href="/android/work/play/emm-api/v1/users.html">Users</a> resource
+ *  passed in the body of the request should include an
+ *  <code>accountIdentifier</code> and an <code>accountType</code>.
+ *  <p>If a corresponding user already exists with the same account identifier,
+ *  the user will be updated with the resource. In this case only the
+ *  <code>displayName</code> field can be changed.
  *
  *  @param object The @c GTLRAndroidEnterprise_User to include in the query.
  *  @param enterpriseId The ID of the enterprise.
@@ -2756,9 +2793,10 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Looks up a user by primary email address. This is only supported for
- *  Google-managed users. Lookup of the id is not needed for EMM-managed users
- *  because the id is already returned in the result of the Users.insert call.
+ *  Looks up a user by primary email address.
+ *  This is only supported for Google-managed users. Lookup of the id is not
+ *  needed for EMM-managed users because the id is already returned in the
+ *  result of the Users.insert call.
  *
  *  Method: androidenterprise.users.list
  *
@@ -2769,7 +2807,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 // Previous library name was
 //   +[GTLQueryAndroidEnterprise queryForUsersListWithenterpriseId:email:]
 
-/** The exact primary email address of the user to look up. */
+/** Required. The exact primary email address of the user to look up. */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /** The ID of the enterprise. */
@@ -2778,12 +2816,14 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 /**
  *  Fetches a @c GTLRAndroidEnterprise_UsersListResponse.
  *
- *  Looks up a user by primary email address. This is only supported for
- *  Google-managed users. Lookup of the id is not needed for EMM-managed users
- *  because the id is already returned in the result of the Users.insert call.
+ *  Looks up a user by primary email address.
+ *  This is only supported for Google-managed users. Lookup of the id is not
+ *  needed for EMM-managed users because the id is already returned in the
+ *  result of the Users.insert call.
  *
  *  @param enterpriseId The ID of the enterprise.
- *  @param email The exact primary email address of the user to look up.
+ *  @param email Required. The exact primary email address of the user to look
+ *    up.
  *
  *  @return GTLRAndroidEnterpriseQuery_UsersList
  */
@@ -2794,8 +2834,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Revokes access to all devices currently provisioned to the user. The user
- *  will no longer be able to use the managed Play store on any of their managed
- *  devices.
+ *  will no longer be able to use the managed Play store on any of their
+ *  managed devices.
  *  This call only works with EMM-managed accounts.
  *
  *  Method: androidenterprise.users.revokeDeviceAccess
@@ -2818,8 +2858,8 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  be nil. This query does not fetch an object.
  *
  *  Revokes access to all devices currently provisioned to the user. The user
- *  will no longer be able to use the managed Play store on any of their managed
- *  devices.
+ *  will no longer be able to use the managed Play store on any of their
+ *  managed devices.
  *  This call only works with EMM-managed accounts.
  *
  *  @param enterpriseId The ID of the enterprise.
@@ -2833,44 +2873,11 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 @end
 
 /**
- *  Revokes a previously generated token (activation code) for the user.
- *
- *  Method: androidenterprise.users.revokeToken
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAndroidEnterprise
- */
-@interface GTLRAndroidEnterpriseQuery_UsersRevokeToken : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersRevokeTokenWithenterpriseId:userId:]
-
-/** The ID of the enterprise. */
-@property(nonatomic, copy, nullable) NSString *enterpriseId;
-
-/** The ID of the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Revokes a previously generated token (activation code) for the user.
- *
- *  @param enterpriseId The ID of the enterprise.
- *  @param userId The ID of the user.
- *
- *  @return GTLRAndroidEnterpriseQuery_UsersRevokeToken
- */
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
-                               userId:(NSString *)userId;
-
-@end
-
-/**
  *  Modifies the set of products that a user is entitled to access (referred to
- *  as whitelisted products). Only products that are approved or products that
- *  were previously approved (products with revoked approval) can be
- *  whitelisted.
+ *  as <em>whitelisted</em> products). Only products that are
+ *  <a href="/android/work/play/emm-api/v1/products/approve">approved</a>
+ *  or products that were previously approved (products with revoked approval)
+ *  can be whitelisted.
  *
  *  Method: androidenterprise.users.setAvailableProductSet
  *
@@ -2891,9 +2898,10 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_ProductSet.
  *
  *  Modifies the set of products that a user is entitled to access (referred to
- *  as whitelisted products). Only products that are approved or products that
- *  were previously approved (products with revoked approval) can be
- *  whitelisted.
+ *  as <em>whitelisted</em> products). Only products that are
+ *  <a href="/android/work/play/emm-api/v1/products/approve">approved</a>
+ *  or products that were previously approved (products with revoked approval)
+ *  can be whitelisted.
  *
  *  @param object The @c GTLRAndroidEnterprise_ProductSet to include in the
  *    query.
@@ -2910,9 +2918,11 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
 
 /**
  *  Updates the details of an EMM-managed user.
- *  Can be used with EMM-managed users only (not Google managed users). Pass the
- *  new details in the Users resource in the request body. Only the displayName
- *  field can be changed. Other fields must either be unset or have the
+ *  Can be used with EMM-managed users only (not Google managed users).
+ *  Pass the new details in the
+ *  <a href="/android/work/play/emm-api/v1/users.html">Users</a>
+ *  resource in the request body. Only the <code>displayName</code> field
+ *  can be changed. Other fields must either be unset or have the
  *  currently active value.
  *
  *  Method: androidenterprise.users.update
@@ -2934,9 +2944,11 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *  Fetches a @c GTLRAndroidEnterprise_User.
  *
  *  Updates the details of an EMM-managed user.
- *  Can be used with EMM-managed users only (not Google managed users). Pass the
- *  new details in the Users resource in the request body. Only the displayName
- *  field can be changed. Other fields must either be unset or have the
+ *  Can be used with EMM-managed users only (not Google managed users).
+ *  Pass the new details in the
+ *  <a href="/android/work/play/emm-api/v1/users.html">Users</a>
+ *  resource in the request body. Only the <code>displayName</code> field
+ *  can be changed. Other fields must either be unset or have the
  *  currently active value.
  *
  *  @param object The @c GTLRAndroidEnterprise_User to include in the query.

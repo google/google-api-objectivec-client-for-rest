@@ -234,6 +234,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified;
 /**
+ *  csv
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv;
+/**
  *  Any image type.
  *
  *  Value: "IMAGE"
@@ -275,6 +281,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Ty
  *  Value: "TEXT_UTF8"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8;
+/**
+ *  tsv
+ *
+ *  Value: "TSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv;
 /**
  *  docx, docm, dotx, dotm
  *
@@ -329,6 +341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_Comm
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro;
 /** Value: "BINARY_FILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile;
+/** Value: "CSV" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Csv;
 /** Value: "FILE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
 /** Value: "IMAGE" */
@@ -337,6 +351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
 /** Value: "TEXT_FILE" */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
+/** Value: "TSV" */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Tsv;
 /** Value: "WORD" */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word;
 
@@ -415,7 +431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Condition_Operator
 // GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig.commonAlphabet
 
 /**
- *  [0-9A-Za-z] (radix of 62)
+ *  `[0-9A-Za-z]` (radix of 62)
  *
  *  Value: "ALPHA_NUMERIC"
  */
@@ -427,19 +443,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified;
 /**
- *  [0-9A-F] (radix of 16)
+ *  `[0-9A-F]` (radix of 16)
  *
  *  Value: "HEXADECIMAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal;
 /**
- *  [0-9] (radix of 10)
+ *  `[0-9]` (radix of 10)
  *
  *  Value: "NUMERIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric;
 /**
- *  [0-9A-Z] (radix of 36)
+ *  `[0-9A-Z]` (radix of 36)
  *
  *  Value: "UPPER_CASE_ALPHA_NUMERIC"
  */
@@ -1295,10 +1311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *min;
 
-/**
- *  Replacement value for this bucket. If not provided
- *  the default behavior will be to hyphenate the min-max range.
- */
+/** Required. Replacement value for this bucket. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *replacementValue;
 
 @end
@@ -1346,6 +1359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        "AVRO")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_BytesTypeUnspecified
  *        Unused (Value: "BYTES_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Csv csv (Value:
+ *        "CSV")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Image Any image
  *        type. (Value: "IMAGE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_ImageBmp bmp
@@ -1360,6 +1375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        "PDF")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_TextUtf8 plain
  *        text (Value: "TEXT_UTF8")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_Tsv tsv (Value:
+ *        "TSV")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ByteContentItem_Type_WordDocument docx,
  *        docm, dotx, dotm (Value: "WORD_DOCUMENT")
  */
@@ -2147,15 +2164,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_AlphaNumeric
- *        [0-9A-Za-z] (radix of 62) (Value: "ALPHA_NUMERIC")
+ *        `[0-9A-Za-z]` (radix of 62) (Value: "ALPHA_NUMERIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_FfxCommonNativeAlphabetUnspecified
  *        Unused. (Value: "FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Hexadecimal
- *        [0-9A-F] (radix of 16) (Value: "HEXADECIMAL")
+ *        `[0-9A-F]` (radix of 16) (Value: "HEXADECIMAL")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_Numeric
- *        [0-9] (radix of 10) (Value: "NUMERIC")
+ *        `[0-9]` (radix of 10) (Value: "NUMERIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig_CommonAlphabet_UpperCaseAlphaNumeric
- *        [0-9A-Z] (radix of 36) (Value: "UPPER_CASE_ALPHA_NUMERIC")
+ *        `[0-9A-Z]` (radix of 36) (Value: "UPPER_CASE_ALPHA_NUMERIC")
  */
 @property(nonatomic, copy, nullable) NSString *commonAlphabet;
 
@@ -2209,7 +2226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  will be: 'MY_TOKEN_INFO_TYPE(3):abc'
  *  This annotation identifies the surrogate when inspecting content using the
  *  custom infoType
- *  [`SurrogateType`](/dlp/docs/reference/rest/v2/InspectConfig#surrogatetype).
+ *  [`SurrogateType`](https://cloud.google.com/dlp/docs/reference/rest/v2/InspectConfig#surrogatetype).
  *  This facilitates reversal of the surrogate when it occurs in free text.
  *  In order for inspection to work properly, the name of this infoType must
  *  not occur naturally anywhere in your data; otherwise, inspection may
@@ -4911,7 +4928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Publish a message into given Pub/Sub topic when DlpJob has completed. The
  *  message contains a single field, `DlpJobName`, which is equal to the
  *  finished job's
- *  [`DlpJob.name`](/dlp/docs/reference/rest/v2/projects.dlpJobs#DlpJob).
+ *  [`DlpJob.name`](https://cloud.google.com/dlp/docs/reference/rest/v2/projects.dlpJobs#DlpJob).
  *  Compatible with: Inspect, Risk
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToPubSub : GTLRObject
@@ -5644,7 +5661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Message for detecting output from deidentification transformations
  *  such as
- *  [`CryptoReplaceFfxFpeConfig`](/dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#cryptoreplaceffxfpeconfig).
+ *  [`CryptoReplaceFfxFpeConfig`](https://cloud.google.com/dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#cryptoreplaceffxfpeconfig).
  *  These types of transformations are
  *  those that perform pseudonymization, thereby producing a "surrogate" as
  *  output. This should be used in conjunction with a field on the

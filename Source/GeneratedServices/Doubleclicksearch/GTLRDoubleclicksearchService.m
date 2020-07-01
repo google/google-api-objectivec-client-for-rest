@@ -4,10 +4,10 @@
 // API:
 //   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
-//   Reports and modifies your advertising data in DoubleClick Search (for
-//   example, campaigns, ad groups, keywords, and conversions).
+//   The Search Ads 360 API allows developers to automate uploading conversions
+//   and downloading reports from Search Ads 360.
 // Documentation:
-//   https://developers.google.com/doubleclick-search/
+//   https://developers.google.com/search-ads
 
 #import "GTLRDoubleclicksearch.h"
 
@@ -27,20 +27,10 @@ NSString * const kGTLRAuthScopeDoubleclicksearch = @"https://www.googleapis.com/
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"doubleclicksearch/v2/";
     self.batchPath = @"batch/doubleclicksearch/v2";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"doubleclicksearch#conversionList" : [GTLRDoubleclicksearch_ConversionList class],
-    @"doubleclicksearch#report" : [GTLRDoubleclicksearch_Report class],
-    @"doubleclicksearch#savedColumn" : [GTLRDoubleclicksearch_SavedColumn class],
-    @"doubleclicksearch#savedColumnList" : [GTLRDoubleclicksearch_SavedColumnList class],
-  };
 }
 
 @end

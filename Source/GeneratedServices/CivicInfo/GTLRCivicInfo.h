@@ -7,7 +7,7 @@
 //   Provides polling places, early vote locations, contest data, election
 //   officials, and government representatives for U.S. residential addresses.
 // Documentation:
-//   https://developers.google.com/civic-information
+//   https://developers.google.com/civic-information/
 
 #import "GTLRCivicInfoObjects.h"
 #import "GTLRCivicInfoQuery.h"

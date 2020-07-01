@@ -84,7 +84,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Female;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Male;
 /**
- *  A gender-neutral voice.
+ *  A gender-neutral voice. This voice is not yet supported.
  *
  *  Value: "NEUTRAL"
  */
@@ -116,7 +116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Male;
 /**
- *  A gender-neutral voice.
+ *  A gender-neutral voice. This voice is not yet supported.
  *
  *  Value: "NEUTRAL"
  */
@@ -243,7 +243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  The SSML document to be synthesized. The SSML document must be valid
  *  and well-formed. Otherwise the RPC will fail and return
  *  google.rpc.Code.INVALID_ARGUMENT. For more information, see
- *  [SSML](/speech/text-to-speech/docs/ssml).
+ *  [SSML](https://cloud.google.com/text-to-speech/docs/ssml).
  */
 @property(nonatomic, copy, nullable) NSString *ssml;
 
@@ -321,7 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *    @arg @c kGTLRTexttospeech_Voice_SsmlGender_Male A male voice. (Value:
  *        "MALE")
  *    @arg @c kGTLRTexttospeech_Voice_SsmlGender_Neutral A gender-neutral voice.
- *        (Value: "NEUTRAL")
+ *        This voice is not yet supported. (Value: "NEUTRAL")
  *    @arg @c kGTLRTexttospeech_Voice_SsmlGender_SsmlVoiceGenderUnspecified An
  *        unspecified gender.
  *        In VoiceSelectionParams, this means that the client doesn't care which
@@ -376,7 +376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *    @arg @c kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Male A male
  *        voice. (Value: "MALE")
  *    @arg @c kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Neutral A
- *        gender-neutral voice. (Value: "NEUTRAL")
+ *        gender-neutral voice. This voice is not yet supported. (Value:
+ *        "NEUTRAL")
  *    @arg @c kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified
  *        An unspecified gender.
  *        In VoiceSelectionParams, this means that the client doesn't care which

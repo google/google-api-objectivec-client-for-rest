@@ -1092,8 +1092,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
          hyperparameters, jobDir, masterConfig, masterType, network,
          packageUris, parameterServerConfig, parameterServerCount,
          parameterServerType, pythonModule, pythonVersion, region,
-         runtimeVersion, scaleTier, scheduling, useChiefInTfConfig,
-         workerConfig, workerCount, workerType;
+         runtimeVersion, scaleTier, scheduling, serviceAccount,
+         useChiefInTfConfig, workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

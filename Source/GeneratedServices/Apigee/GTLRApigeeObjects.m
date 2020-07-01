@@ -30,10 +30,19 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_AliasTy
 NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert = @"CERT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert = @"KEY_CERT";
 
+// GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig.type
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Boolean = @"BOOLEAN";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Datetime = @"DATETIME";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Float = @"FLOAT";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Integer = @"INTEGER";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_String = @"STRING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Insert = @"INSERT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Update = @"UPDATE";
 
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_Finished = @"FINISHED";
@@ -458,6 +467,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig
+@dynamic name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1DebugMask
 //
 
@@ -557,7 +576,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1DeploymentConfig
-@dynamic attributes, basePath, location, name;
+@dynamic attributes, basePath, location, name, proxyUid, uid;
 @end
 
 
@@ -691,12 +710,13 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
-@dynamic createTime, debugMask, deployments, featureFlags, flowhooks, keystores,
-         name, provider, pubsubTopic, resourceReferences, resources,
-         sequenceNumber, targets;
+@dynamic createTime, dataCollectors, debugMask, deployments, featureFlags,
+         flowhooks, keystores, name, provider, pubsubTopic, resourceReferences,
+         resources, revisionId, sequenceNumber, targets, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"dataCollectors" : [GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig class],
     @"deployments" : [GTLRApigee_GoogleCloudApigeeV1DeploymentConfig class],
     @"flowhooks" : [GTLRApigee_GoogleCloudApigeeV1FlowHookConfig class],
     @"keystores" : [GTLRApigee_GoogleCloudApigeeV1KeystoreConfig class],
@@ -1153,7 +1173,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1Organization
 @dynamic analyticsRegion, attributes, createdAt, customerName,
          descriptionProperty, displayName, environments, lastModifiedAt, name,
-         properties, runtimeType, subscriptionType, type;
+         projectId, properties, runtimeType, subscriptionType, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1502,9 +1522,13 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision
-@dynamic configurationVersion, contextInfo, createdAt, displayName,
-         entityMetaDataAsProperties, lastModifiedAt, name, policies,
-         resourceFiles, resources, revision, sharedFlows, type;
+@dynamic configurationVersion, contextInfo, createdAt, descriptionProperty,
+         displayName, entityMetaDataAsProperties, lastModifiedAt, name,
+         policies, resourceFiles, resources, revision, sharedFlows, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -308,7 +308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @property(nonatomic, strong, nullable) NSNumber *customerId;
 
-/** Required. The device identifier of the device to claim. */
+/** Required. Required. The device identifier of the device to claim. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /** Optional. The metadata to attach to the device. */
@@ -371,7 +371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
 /**
- *  Optional. Input only. Email address of customer's users in the admin role.
+ *  Optional. Email address of customer's users in the admin role.
  *  Each email address must be associated with a Google Account.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;
@@ -400,7 +400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Input only. Email address of customer's users in the owner role. At least
+ *  Required. Input only. Email address of customer's users in the owner role.
+ *  At least
  *  one `owner_email` is required. Each email address must be associated with a
  *  Google Account. Owners share the same access as admins but can also add,
  *  delete, and edit your organization's portal users.
@@ -679,13 +680,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  The hardware IDs that identify a manufactured device. To learn more, read
- *  [Identifiers](/zero-touch/guides/identifiers).
+ *  [Identifiers](https://developers.google.com/zero-touch/guides/identifiers).
  */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
  *  The metadata attached to the device. Structured as key-value pairs. To
- *  learn more, read [Device metadata](/zero-touch/guides/metadata).
+ *  learn more, read [Device
+ *  metadata](https://developers.google.com/zero-touch/guides/metadata).
  */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
 
@@ -751,7 +753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /**
  *  Encapsulates hardware and product IDs to identify a manufactured device.
  *  To understand requirements on identifier sets, read
- *  [Identifiers](/zero-touch/guides/identifiers).
+ *  [Identifiers](https://developers.google.com/zero-touch/guides/identifiers).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
 
@@ -787,7 +789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Metadata entries that can be attached to a `Device`. To learn more, read
- *  [Device metadata](/zero-touch/guides/metadata).
+ *  [Device metadata](https://developers.google.com/zero-touch/guides/metadata).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceMetadata : GTLRObject
 
@@ -818,7 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  device.
  *  Methods that operate on devices take a `DeviceReference` as a parameter type
  *  because it's more flexible for the caller. To learn more about device
- *  identifiers, read [Identifiers](/zero-touch/guides/identifiers).
+ *  identifiers, read
+ *  [Identifiers](https://developers.google.com/zero-touch/guides/identifiers).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceReference : GTLRObject
 
@@ -959,7 +962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @interface GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest : GTLRObject
 
-/** Required. The device identifier to search for. */
+/** Required. Required. The device identifier to search for. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
@@ -1294,7 +1297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @property(nonatomic, strong, nullable) NSNumber *customerId;
 
-/** Required. Device identifier of the device. */
+/** Required. Required. Device identifier of the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /** Required. The metadata to attach to the device at claim. */
@@ -1322,13 +1325,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_PartnerUnclaim : GTLRObject
 
 /**
- *  Device ID of the device.
+ *  Required. Device ID of the device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** Device identifier of the device. */
+/** Required. Device identifier of the device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
@@ -1345,14 +1348,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, copy, nullable) NSString *sectionType;
 
 /**
- *  The duration of the vacation unlock starting from when the request is
+ *  Optional. The duration of the vacation unlock starting from when the request
+ *  is
  *  processed. (1 day is treated as 24 hours)
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vacationModeDays;
 
-/** The expiration time of the vacation unlock. */
+/** Optional. The expiration time of the vacation unlock. */
 @property(nonatomic, strong, nullable) GTLRDateTime *vacationModeExpireTime;
 
 @end
@@ -1461,13 +1465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_UnclaimDeviceRequest : GTLRObject
 
 /**
- *  The device ID returned by `ClaimDevice`.
+ *  Required. The device ID returned by `ClaimDevice`.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** The device identifier you used when you claimed this device. */
+/** Required. The device identifier you used when you claimed this device. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
@@ -1536,13 +1540,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_UpdateMetadataArguments : GTLRObject
 
 /**
- *  Device ID of the device.
+ *  Required. Device ID of the device.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deviceId;
 
-/** Device identifier. */
+/** Required. Device identifier. */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /** Required. The metadata to update. */

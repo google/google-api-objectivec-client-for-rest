@@ -1567,7 +1567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A path to a file in Google Cloud Storage.
- *  Example: gs://build-app-1414623860166/app-debug-unaligned.apk
+ *  Example: gs://build-app-1414623860166/app%40debug-unaligned.apk
+ *  These paths are expected to be url encoded (percent encoding)
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 

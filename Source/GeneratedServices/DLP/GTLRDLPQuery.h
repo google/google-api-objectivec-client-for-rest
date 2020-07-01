@@ -105,7 +105,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/** The parent resource name, for example locations/{location_id}. */
+/**
+ *  The parent resource name.
+ *  - Format:locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -151,7 +154,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/** The parent resource name, for example locations/{location_id}. */
+/**
+ *  The parent resource name.
+ *  - Format:locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -161,7 +167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
  *  learn more.
  *
- *  @param parent The parent resource name, for example locations/{location_id}.
+ *  @param parent The parent resource name.
+ *    - Format:locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_LocationsInfoTypesList
  */
@@ -185,8 +192,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -201,9 +211,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesCreate
  */
@@ -336,8 +348,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -348,9 +363,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
  *  more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesList
  *
@@ -421,8 +438,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -435,9 +455,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesCreate
  */
@@ -565,8 +587,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -576,9 +601,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists InspectTemplates.
  *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesList
  *
@@ -647,8 +674,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -663,9 +693,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate
  */
@@ -798,8 +830,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -810,9 +845,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
  *  more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesList
  *
@@ -883,8 +920,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -897,9 +937,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate
  */
@@ -1027,8 +1069,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1038,9 +1083,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists InspectTemplates.
  *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesList
  *
@@ -1108,8 +1155,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1122,9 +1172,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate
  */
@@ -1258,8 +1310,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1270,9 +1325,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
  *  learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList
  *
@@ -1344,8 +1401,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1358,9 +1418,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesCreate
  */
@@ -1494,8 +1556,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1506,9 +1571,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
  *  learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesList
  *
@@ -1583,7 +1650,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsContentDeidentifyWithObject:parent:]
 
-/** The parent resource name, for example projects/my-project-id. */
+/**
+ *  Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1599,7 +1670,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
  *    include in the query.
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsContentDeidentify
  */
@@ -1626,7 +1699,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsContentInspectWithObject:parent:]
 
-/** The parent resource name, for example projects/my-project-id. */
+/**
+ *  Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1642,7 +1719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsContentInspect
  */
@@ -1666,7 +1745,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsContentReidentifyWithObject:parent:]
 
-/** Required. The parent resource name. */
+/**
+ *  Required. The parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1680,6 +1763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
  *  @param parent Required. The parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsContentReidentify
  */
@@ -1704,8 +1789,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1720,9 +1808,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesCreate
  */
@@ -1855,8 +1945,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1867,9 +1960,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
  *  more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesList
  *
@@ -1981,7 +2076,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsDlpJobsCreateWithObject:parent:]
 
-/** Required. The parent resource name, for example projects/my-project-id. */
+/**
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1996,8 +2095,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest to
  *    include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsDlpJobsCreate
  */
@@ -2138,7 +2238,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent resource name, for example projects/my-project-id. */
+/**
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2158,8 +2262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsDlpJobsList
  *
@@ -2189,7 +2294,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsImageRedactWithObject:parent:]
 
-/** The parent resource name, for example projects/my-project-id. */
+/**
+ *  The parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2205,7 +2314,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent The parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsImageRedact
  */
@@ -2229,8 +2340,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2243,9 +2357,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesCreate
  */
@@ -2373,8 +2489,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2384,9 +2503,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists InspectTemplates.
  *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesList
  *
@@ -2490,7 +2611,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsJobTriggersCreateWithObject:parent:]
 
-/** Required. The parent resource name, for example projects/my-project-id. */
+/**
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2502,8 +2627,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersCreate
  */
@@ -2648,7 +2774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example `projects/my-project-id`.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2658,8 +2786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists job triggers.
  *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    `projects/my-project-id`.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersList
  *
@@ -2727,7 +2856,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsLocationsContentDeidentifyWithObject:parent:]
 
-/** The parent resource name, for example projects/my-project-id. */
+/**
+ *  Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2743,7 +2876,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
  *    include in the query.
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentDeidentify
  */
@@ -2770,7 +2905,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsLocationsContentInspectWithObject:parent:]
 
-/** The parent resource name, for example projects/my-project-id. */
+/**
+ *  Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2786,7 +2925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentInspect
  */
@@ -2810,7 +2951,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsLocationsContentReidentifyWithObject:parent:]
 
-/** Required. The parent resource name. */
+/**
+ *  Required. The parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2824,6 +2969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
  *  @param parent Required. The parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentReidentify
  */
@@ -2848,8 +2995,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2864,9 +3014,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate
  */
@@ -2999,8 +3151,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3011,9 +3166,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
  *  more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesList
  *
@@ -3125,7 +3282,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsLocationsDlpJobsCreateWithObject:parent:]
 
-/** Required. The parent resource name, for example projects/my-project-id. */
+/**
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3140,8 +3301,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest to
  *    include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsCreate
  */
@@ -3368,7 +3530,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent resource name, for example projects/my-project-id. */
+/**
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3388,8 +3554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsList
  *
@@ -3419,7 +3586,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsLocationsImageRedactWithObject:parent:]
 
-/** The parent resource name, for example projects/my-project-id. */
+/**
+ *  The parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3435,7 +3606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
- *  @param parent The parent resource name, for example projects/my-project-id.
+ *  @param parent The parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsImageRedact
  */
@@ -3459,8 +3632,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3473,9 +3649,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate
  */
@@ -3603,8 +3781,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3614,9 +3795,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists InspectTemplates.
  *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesList
  *
@@ -3720,7 +3903,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 // Previous library name was
 //   +[GTLQueryDLP queryForProjectsLocationsJobTriggersCreateWithObject:parent:]
 
-/** Required. The parent resource name, for example projects/my-project-id. */
+/**
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3732,8 +3919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersCreate
  */
@@ -3926,7 +4114,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example `projects/my-project-id`.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3936,8 +4126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Lists job triggers.
  *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    `projects/my-project-id`.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersList
  *
@@ -4002,8 +4193,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4016,9 +4210,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate
  */
@@ -4152,8 +4348,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4164,9 +4363,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
  *  learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList
  *
@@ -4238,8 +4439,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4252,9 +4456,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesCreate
  */
@@ -4388,8 +4594,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name, for example projects/my-project-id or
- *  organizations/my-org-id.
+ *  Required. Parent resource name.
+ *  - Format:projects/[PROJECT-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]
+ *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4400,9 +4609,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
  *  learn more.
  *
- *  @param parent Required. The parent resource name, for example
- *    projects/my-project-id or
- *    organizations/my-org-id.
+ *  @param parent Required. Parent resource name.
+ *    - Format:projects/[PROJECT-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]
+ *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesList
  *

@@ -40,6 +40,8 @@
 @class GTLRDataproc_ClusterStatus;
 @class GTLRDataproc_DiskConfig;
 @class GTLRDataproc_EncryptionConfig;
+@class GTLRDataproc_EndpointConfig;
+@class GTLRDataproc_EndpointConfig_HttpPorts;
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
@@ -645,11 +647,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
 
 /**
- *  Required. Fraction of average pending memory in the last cooldown period for
- *  which to remove workers. A scale-down factor of 1 will result in scaling
- *  down so that there is no available memory remaining after the update (more
- *  aggressive scaling). A scale-down factor of 0 disables removing workers,
- *  which can be beneficial for autoscaling a single job.Bounds: 0.0, 1.0.
+ *  Required. Fraction of average YARN pending memory in the last cooldown
+ *  period for which to remove workers. A scale-down factor of 1 will result in
+ *  scaling down so that there is no available memory remaining after the update
+ *  (more aggressive scaling). A scale-down factor of 0 disables removing
+ *  workers, which can be beneficial for autoscaling a single job. See How
+ *  autoscaling works for more information.Bounds: 0.0, 1.0.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -667,11 +670,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *scaleDownMinWorkerFraction;
 
 /**
- *  Required. Fraction of average pending memory in the last cooldown period for
- *  which to add workers. A scale-up factor of 1.0 will result in scaling up so
- *  that there is no pending memory remaining after the update (more aggressive
- *  scaling). A scale-up factor closer to 0 will result in a smaller magnitude
- *  of scaling up (less aggressive scaling).Bounds: 0.0, 1.0.
+ *  Required. Fraction of average YARN pending memory in the last cooldown
+ *  period for which to add workers. A scale-up factor of 1.0 will result in
+ *  scaling up so that there is no pending memory remaining after the update
+ *  (more aggressive scaling). A scale-up factor closer to 0 will result in a
+ *  smaller magnitude of scaling up (less aggressive scaling). See How
+ *  autoscaling works for more information.Bounds: 0.0, 1.0.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -854,6 +858,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. Encryption settings for the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_EncryptionConfig *encryptionConfig;
 
+/** Optional. Port/endpoint configuration for this cluster */
+@property(nonatomic, strong, nullable) GTLRDataproc_EndpointConfig *endpointConfig;
+
 /**
  *  Optional. The shared Compute Engine config settings for all instances in a
  *  cluster.
@@ -895,6 +902,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Optional. The config settings for software inside the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SoftwareConfig *softwareConfig;
+
+/**
+ *  Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+ *  data, such as Spark and MapReduce history files. If you do not specify a
+ *  temp bucket, Cloud Dataproc will determine a Cloud Storage location (US,
+ *  ASIA, or EU) for your cluster's temp bucket according to the Compute Engine
+ *  zone where your cluster is deployed, and then create and manage this
+ *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
+ *  but you can use any TTL (or none) if you specify a bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *tempBucket;
 
 /**
  *  Optional. The Compute Engine config settings for worker instances in a
@@ -1211,6 +1229,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *gcePdKmsKeyName;
 
+@end
+
+
+/**
+ *  Endpoint config for this cluster
+ */
+@interface GTLRDataproc_EndpointConfig : GTLRObject
+
+/**
+ *  Optional. If true, enable http access to specific ports on the cluster from
+ *  external sources. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHttpPortAccess;
+
+/**
+ *  Output only. The map of port descriptions to URLs. Will only be populated if
+ *  enable_http_port_access is true.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_EndpointConfig_HttpPorts *httpPorts;
+
+@end
+
+
+/**
+ *  Output only. The map of port descriptions to URLs. Will only be populated if
+ *  enable_http_port_access is true.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_EndpointConfig_HttpPorts : GTLRObject
 @end
 
 
@@ -2844,8 +2897,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_PySparkJob : GTLRObject
 
 /**
- *  Optional. HCFS URIs of archives to be extracted in the working directory of
- *  .jar, .tar, .tar.gz, .tgz, and .zip.
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
 
@@ -2857,8 +2910,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
- *  Optional. HCFS URIs of files to be copied to the working directory of Python
- *  drivers and distributed tasks. Useful for naively parallel tasks.
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor. Useful for naively parallel tasks.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
 
@@ -3076,9 +3129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_SparkJob : GTLRObject
 
 /**
- *  Optional. HCFS URIs of archives to be extracted in the working directory of
- *  Spark drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz,
- *  and .zip.
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
 
@@ -3090,8 +3142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
- *  Optional. HCFS URIs of files to be copied to the working directory of Spark
- *  drivers and distributed tasks. Useful for naively parallel tasks.
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor. Useful for naively parallel tasks.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
 
@@ -3146,9 +3198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_SparkRJob : GTLRObject
 
 /**
- *  Optional. HCFS URIs of archives to be extracted in the working directory of
- *  Spark drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz,
- *  and .zip.
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
 
@@ -3160,8 +3211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
- *  Optional. HCFS URIs of files to be copied to the working directory of R
- *  drivers and distributed tasks. Useful for naively parallel tasks.
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor. Useful for naively parallel tasks.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
 

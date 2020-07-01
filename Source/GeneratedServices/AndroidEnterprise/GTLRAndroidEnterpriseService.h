@@ -4,7 +4,7 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
@@ -44,7 +44,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAndroidEnterprise;
 /**
  *  Service for executing Google Play EMM API queries.
  *
- *  Manages the deployment of apps to Android for Work users.
+ *  Manages the deployment of apps to Android Enterprise devices.
  */
 @interface GTLRAndroidEnterpriseService : GTLRService
 

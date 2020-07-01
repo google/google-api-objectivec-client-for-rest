@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Fonts Developer API (webfonts/v1)
+//   Web Fonts Developer API (webfonts/v1)
 // Description:
-//   Accesses the metadata for all families served by Google Fonts, providing a
-//   list of families currently available (including available styles and a list
-//   of supported script subsets).
+//   The Google Web Fonts Developer API lets you retrieve information about web
+//   fonts served
+//   by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
@@ -18,11 +18,12 @@
 // Constants
 
 // sort
-NSString * const kGTLRWebfontsSortAlpha      = @"alpha";
-NSString * const kGTLRWebfontsSortDate       = @"date";
-NSString * const kGTLRWebfontsSortPopularity = @"popularity";
-NSString * const kGTLRWebfontsSortStyle      = @"style";
-NSString * const kGTLRWebfontsSortTrending   = @"trending";
+NSString * const kGTLRWebfontsSortAlpha         = @"ALPHA";
+NSString * const kGTLRWebfontsSortDate          = @"DATE";
+NSString * const kGTLRWebfontsSortPopularity    = @"POPULARITY";
+NSString * const kGTLRWebfontsSortSortUndefined = @"SORT_UNDEFINED";
+NSString * const kGTLRWebfontsSortStyle         = @"STYLE";
+NSString * const kGTLRWebfontsSortTrending      = @"TRENDING";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -39,7 +40,7 @@ NSString * const kGTLRWebfontsSortTrending   = @"trending";
 @dynamic sort;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"webfonts";
+  NSString *pathURITemplate = @"v1/webfonts";
   GTLRWebfontsQuery_WebfontsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

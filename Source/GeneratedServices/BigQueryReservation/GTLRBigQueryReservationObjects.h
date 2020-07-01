@@ -50,6 +50,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified;
 /**
+ *  BigQuery ML jobs that use services external to BigQuery for model
+ *  training. These jobs will not utilize idle slots from other reservations.
+ *
+ *  Value: "ML_EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_MlExternal;
+/**
  *  Pipeline (load/export) jobs from the project will use the reservation.
  *
  *  Value: "PIPELINE"
@@ -223,6 +230,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *        Invalid type. Requests with this value will be rejected with
  *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
  *        "JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_MlExternal BigQuery ML
+ *        jobs that use services external to BigQuery for model
+ *        training. These jobs will not utilize idle slots from other
+ *        reservations. (Value: "ML_EXTERNAL")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Pipeline Pipeline
  *        (load/export) jobs from the project will use the reservation. (Value:
  *        "PIPELINE")
