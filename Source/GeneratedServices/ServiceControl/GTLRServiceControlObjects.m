@@ -694,18 +694,33 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 //
 
 @implementation GTLRServiceControl_Operation
-@dynamic consumerId, endTime, importance, labels, logEntries, metricValueSets,
-         operationId, operationName, quotaProperties, resources, startTime,
-         traceSpans, userLabels;
+@dynamic consumerId, endTime, extensions, importance, labels, logEntries,
+         metricValueSets, operationId, operationName, quotaProperties,
+         resources, startTime, traceSpans, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRServiceControl_Operation_Extensions_Item class],
     @"logEntries" : [GTLRServiceControl_LogEntry class],
     @"metricValueSets" : [GTLRServiceControl_MetricValueSet class],
     @"resources" : [GTLRServiceControl_ResourceInfo class],
     @"traceSpans" : [GTLRServiceControl_TraceSpan class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Operation_Extensions_Item
+//
+
+@implementation GTLRServiceControl_Operation_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

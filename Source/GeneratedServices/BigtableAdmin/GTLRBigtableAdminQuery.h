@@ -481,9 +481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, assign) BOOL ignoreWarnings;
 
 /**
- *  (`OutputOnly`)
  *  The unique name of the app profile. Values are of the form
- *  `projects/<project>/instances/<instance>/appProfiles/_a-zA-Z0-9*`.
+ *  `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -501,9 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Updates an app profile within an instance.
  *
  *  @param object The @c GTLRBigtableAdmin_AppProfile to include in the query.
- *  @param name (`OutputOnly`)
- *    The unique name of the app profile. Values are of the form
- *    `projects/<project>/instances/<instance>/appProfiles/_a-zA-Z0-9*`.
+ *  @param name The unique name of the app profile. Values are of the form
+ *    `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesPatch
  */
@@ -836,7 +834,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersUpdateWithObject:name:]
 
 /**
- *  Required. (`OutputOnly`)
  *  The unique name of the cluster. Values are of the form
  *  `projects/{project}/instances/{instance}/clusters/a-z*`.
  */
@@ -848,8 +845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Updates a cluster within an instance.
  *
  *  @param object The @c GTLRBigtableAdmin_Cluster to include in the query.
- *  @param name Required. (`OutputOnly`)
- *    The unique name of the cluster. Values are of the form
+ *  @param name The unique name of the cluster. Values are of the form
  *    `projects/{project}/instances/{instance}/clusters/a-z*`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersUpdate
@@ -1086,7 +1082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesPartialUpdateInstanceWithObject:name:]
 
 /**
- *  Required. (`OutputOnly`)
  *  The unique name of the instance. Values are of the form
  *  `projects/{project}/instances/a-z+[a-z0-9]`.
  */
@@ -1107,8 +1102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  fields of an Instance and is the preferred way to update an Instance.
  *
  *  @param object The @c GTLRBigtableAdmin_Instance to include in the query.
- *  @param name Required. (`OutputOnly`)
- *    The unique name of the instance. Values are of the form
+ *  @param name The unique name of the instance. Values are of the form
  *    `projects/{project}/instances/a-z+[a-z0-9]`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesPartialUpdateInstance
@@ -1741,7 +1735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesUpdateWithObject:name:]
 
 /**
- *  Required. (`OutputOnly`)
  *  The unique name of the instance. Values are of the form
  *  `projects/{project}/instances/a-z+[a-z0-9]`.
  */
@@ -1755,8 +1748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  labels, use PartialUpdateInstance.
  *
  *  @param object The @c GTLRBigtableAdmin_Instance to include in the query.
- *  @param name Required. (`OutputOnly`)
- *    The unique name of the instance. Values are of the form
+ *  @param name The unique name of the instance. Values are of the form
  *    `projects/{project}/instances/a-z+[a-z0-9]`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesUpdate

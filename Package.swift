@@ -362,6 +362,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Docs"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Document",
+            targets: ["GoogleAPIClientForREST_Document"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_DomainsRDAP",
             targets: ["GoogleAPIClientForREST_DomainsRDAP"]
         ),
@@ -518,6 +522,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_PeopleService"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_PlayableLocations",
+            targets: ["GoogleAPIClientForREST_PlayableLocations"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Playcustomapp",
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
         ),
@@ -534,8 +542,16 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_PolyService"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_PostmasterTools",
+            targets: ["GoogleAPIClientForREST_PostmasterTools"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Pubsub",
             targets: ["GoogleAPIClientForREST_Pubsub"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_RealTimeBidding",
+            targets: ["GoogleAPIClientForREST_RealTimeBidding"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Recommender",
@@ -580,6 +596,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             targets: ["GoogleAPIClientForREST_SecurityCommandCenter"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_SemanticTile",
+            targets: ["GoogleAPIClientForREST_SemanticTile"]
         ),
         .library(
             name: "GoogleAPIClientForREST_ServiceConsumerManagement",
@@ -1272,6 +1292,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Document",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Document",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_DomainsRDAP",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/DomainsRDAP",
@@ -1506,6 +1532,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_PlayableLocations",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PlayableLocations",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
@@ -1530,9 +1562,21 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_PostmasterTools",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PostmasterTools",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Pubsub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Pubsub",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_RealTimeBidding",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/RealTimeBidding",
             publicHeadersPath: "."
         ),
         .target(
@@ -1599,6 +1643,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/SecurityCommandCenter",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_SemanticTile",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/SemanticTile",
             publicHeadersPath: "."
         ),
         .target(

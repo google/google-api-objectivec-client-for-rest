@@ -24,6 +24,11 @@ NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddre
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceUsage_DisableServiceRequest.checkIfServiceHasUsage
+NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Check = @"CHECK";
+NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_CheckIfServiceHasUsageUnspecified = @"CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_DisableServiceRequest_CheckIfServiceHasUsage_Skip = @"SKIP";
+
 // GTLRServiceUsage_Enum.syntax
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUsage_Enum_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
@@ -125,6 +130,30 @@ NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Unimp
 // GTLRServiceUsage_Type.syntax
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AdminQuotaPolicy
+//
+
+@implementation GTLRServiceUsage_AdminQuotaPolicy
+@dynamic container, dimensions, metric, name, policyValue, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AdminQuotaPolicy_Dimensions
+//
+
+@implementation GTLRServiceUsage_AdminQuotaPolicy_Dimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -482,7 +511,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_DisableServiceRequest
-@dynamic disableDependentServices;
+@dynamic checkIfServiceHasUsage, disableDependentServices;
 @end
 
 
@@ -574,12 +603,11 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_Endpoint
-@dynamic aliases, allowCors, features, name, target;
+@dynamic aliases, allowCors, name, target;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class],
-    @"features" : [NSString class]
+    @"aliases" : [NSString class]
   };
   return map;
 }
@@ -827,6 +855,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"overrides" : [GTLRServiceUsage_QuotaOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ImportAdminQuotaPoliciesResponse
+//
+
+@implementation GTLRServiceUsage_ImportAdminQuotaPoliciesResponse
+@dynamic policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRServiceUsage_AdminQuotaPolicy class]
   };
   return map;
 }
@@ -1289,7 +1335,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_QuotaOverride
-@dynamic dimensions, metric, name, overrideValue, unit;
+@dynamic adminOverrideAncestor, dimensions, metric, name, overrideValue, unit;
 @end
 
 

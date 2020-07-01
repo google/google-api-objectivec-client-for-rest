@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Game Services API (gameservices/v1beta)
+//   Game Services API (gameservices/v1)
 // Description:
 //   Deploy and manage infrastructure for global multiplayer gaming experiences.
 // Documentation:

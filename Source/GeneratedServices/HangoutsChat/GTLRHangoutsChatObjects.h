@@ -1051,7 +1051,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @interface GTLRHangoutsChat_Space : GTLRObject
 
-/** Output only. The display name (only if the space is a room). */
+/**
+ *  Output only. The display name (only if the space is a room).
+ *  Please note that this field might not be populated in direct messages
+ *  between humans.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**

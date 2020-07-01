@@ -242,6 +242,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57;
 /**
+ *  The database version is MySQL 8.
+ *
+ *  Value: "MYSQL_8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -420,6 +426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56;
 /** Value: "MYSQL_5_7" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57;
+/** Value: "MYSQL_8_0" */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80;
 /** Value: "POSTGRES_10" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10;
 /** Value: "POSTGRES_11" */
@@ -1435,6 +1443,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *        database version is MySQL 5.6. (Value: "MYSQL_5_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 The
  *        database version is MySQL 5.7. (Value: "MYSQL_5_7")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 The
+ *        database version is MySQL 8. (Value: "MYSQL_8_0")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -1827,6 +1837,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /** This is always <code>sql#exportContext</code>. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Option for export offload.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *offload;
 
 /** Options for exporting data as SQL statements. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions *sqlExportOptions;

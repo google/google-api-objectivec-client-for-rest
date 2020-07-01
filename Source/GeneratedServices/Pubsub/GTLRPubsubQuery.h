@@ -618,6 +618,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Detaches a subscription from this topic. All messages retained in the
+ *  subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
+ *  will return FAILED_PRECONDITION. If the subscription is a push
+ *  subscription, pushes to the endpoint will stop.
+ *
+ *  Method: pubsub.projects.subscriptions.detach
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSubscriptionsDetach : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSubscriptionsDetachWithsubscription:]
+
+/**
+ *  Required. The subscription to detach.
+ *  Format is `projects/{project}/subscriptions/{subscription}`.
+ */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+/**
+ *  Fetches a @c GTLRPubsub_DetachSubscriptionResponse.
+ *
+ *  Detaches a subscription from this topic. All messages retained in the
+ *  subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
+ *  will return FAILED_PRECONDITION. If the subscription is a push
+ *  subscription, pushes to the endpoint will stop.
+ *
+ *  @param subscription Required. The subscription to detach.
+ *    Format is `projects/{project}/subscriptions/{subscription}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSubscriptionsDetach
+ */
++ (instancetype)queryWithSubscription:(NSString *)subscription;
+
+@end
+
+/**
  *  Gets the configuration details of a subscription.
  *
  *  Method: pubsub.projects.subscriptions.get
@@ -1451,7 +1490,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the names of the subscriptions on this topic.
+ *  Lists the names of the attached subscriptions on this topic.
  *
  *  Method: pubsub.projects.topics.subscriptions.list
  *
@@ -1482,7 +1521,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_ListTopicSubscriptionsResponse.
  *
- *  Lists the names of the subscriptions on this topic.
+ *  Lists the names of the attached subscriptions on this topic.
  *
  *  @param topic Required. The name of the topic that subscriptions are attached
  *    to.

@@ -4141,7 +4141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults *annotationResults;
 
 /**
- *  Google Cloud Storage(GCS) URI that stores annotation results of one
+ *  Google Cloud Storage URI that stores annotation results of one
  *  streaming session in JSON format.
  *  It is the annotation_result_storage_directory
  *  from the request followed by '/cloud_project_number-session_id'.

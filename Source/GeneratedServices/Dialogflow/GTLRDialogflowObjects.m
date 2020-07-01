@@ -14,6 +14,17 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo_State_Empty = @"EMPTY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo_State_Filled = @"FILLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo_State_Invalid = @"INVALID";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified = @"PARAMETER_STATE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse.mergeBehavior
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Append = @"APPEND";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Replace = @"REPLACE";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.apiVersion
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified = @"API_VERSION_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1 = @"API_VERSION_V1";
@@ -270,6 +281,360 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderMale = @"SSML_VOICE_GENDER_MALE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral = @"SSML_VOICE_GENDER_NEUTRAL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified = @"SSML_VOICE_GENDER_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportAgentResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportAgentResponse
+@dynamic agentContent, agentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo
+@dynamic currentPage, formInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfo
+@dynamic parameterInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameterInfo" : [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo
+@dynamic displayName, justCollected, required, state, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
+@dynamic conversationSuccess, endInteraction, humanAgentHandoff,
+         liveAgentHandoff, mixedAudio, payload, playAudio, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess
+@dynamic metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff
+@dynamic metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff
+@dynamic metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio
+@dynamic segments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"segments" : [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment
+@dynamic allowPlaybackInterruption, audio, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio
+@dynamic allowPlaybackInterruption, audioUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText
+@dynamic allowPlaybackInterruption, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"text" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo
+@dynamic parameters, session;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo_Parameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest
+@dynamic detectIntentResponseId, fulfillmentInfo, intentInfo, messages,
+         pageInfo, payload, sessionInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo
+@dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo
+@dynamic lastMatchedIntent, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo_Parameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue
+@dynamic originalValue, resolvedValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse
+@dynamic fulfillmentResponse, pageInfo, payload, sessionInfo, targetFlow,
+         targetPage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse
+@dynamic mergeBehavior, messages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //

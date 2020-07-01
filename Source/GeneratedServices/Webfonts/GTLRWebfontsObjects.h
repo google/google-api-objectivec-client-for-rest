@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Fonts Developer API (webfonts/v1)
+//   Web Fonts Developer API (webfonts/v1)
 // Description:
-//   Accesses the metadata for all families served by Google Fonts, providing a
-//   list of families currently available (including available styles and a list
-//   of supported script subsets).
+//   The Google Web Fonts Developer API lets you retrieve information about web
+//   fonts served
+//   by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
@@ -33,7 +33,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  GTLRWebfonts_Webfont
+ *  Metadata describing a family of fonts.
  */
 @interface GTLRWebfonts_Webfont : GTLRObject
 
@@ -52,12 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** This kind represents a webfont object in the webfonts service. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  The date (format "yyyy-MM-dd") the font was modified for the last time.
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastModified;
+/** The date (format "yyyy-MM-dd") the font was modified for the last time. */
+@property(nonatomic, copy, nullable) NSString *lastModified;
 
 /** The scripts supported by the font. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subsets;
@@ -85,7 +81,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRWebfonts_WebfontList
+ *  Response containing the list of fonts currently served by the
+ *  Google Fonts API.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.

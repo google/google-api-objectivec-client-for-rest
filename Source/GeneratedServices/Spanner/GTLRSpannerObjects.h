@@ -790,7 +790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @interface GTLRSpanner_CreateSessionRequest : GTLRObject
 
-/** The session to create. */
+/** Required. The session to create. */
 @property(nonatomic, strong, nullable) GTLRSpanner_Session *session;
 
 @end
@@ -2989,10 +2989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Session_Labels *labels;
 
-/**
- *  The name of the session. This is always system-assigned; values provided
- *  when creating a session are ignored.
- */
+/** Output only. The name of the session. This is always system-assigned. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -3271,10 +3268,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /**
  *  # Transactions
- *  Each session can have at most one active transaction at a time. After the
- *  active transaction is completed, the session can immediately be
- *  re-used for the next transaction. It is not necessary to create a
- *  new session for each transaction.
+ *  Each session can have at most one active transaction at a time (note that
+ *  standalone reads and queries use a transaction internally and do count
+ *  towards the one transaction limit). After the active transaction is
+ *  completed, the session can immediately be re-used for the next transaction.
+ *  It is not necessary to create a new session for each transaction.
  *  # Transaction Modes
  *  Cloud Spanner supports three transaction modes:
  *  1. Locking read-write. This type of transaction is the only way

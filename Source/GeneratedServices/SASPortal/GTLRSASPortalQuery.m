@@ -799,6 +799,25 @@
 
 @end
 
+@implementation GTLRSASPortalQuery_NodesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  GTLRSASPortalQuery_NodesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSASPortal_Node class];
+  query.loggingName = @"sasportal.nodes.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRSASPortalQuery_NodesNodesCreate
 
 @dynamic parent;

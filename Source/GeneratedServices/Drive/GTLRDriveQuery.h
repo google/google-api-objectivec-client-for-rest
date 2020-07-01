@@ -124,9 +124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *driveId;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -189,9 +188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeCorpusRemovals;
 
 /**
- *  Deprecated - Whether both My Drive and shared drive items should be included
- *  in results. This parameter will only be effective until June 1, 2020.
- *  Afterwards shared drive items are included in the results.
+ *  Whether both My Drive and shared drive items should be included in results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -245,9 +242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -318,9 +314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeCorpusRemovals;
 
 /**
- *  Deprecated - Whether both My Drive and shared drive items should be included
- *  in results. This parameter will only be effective until June 1, 2020.
- *  Afterwards shared drive items are included in the results.
+ *  Whether both My Drive and shared drive items should be included in results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -374,9 +368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -957,9 +950,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1037,9 +1029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *ocrLanguage;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1096,9 +1087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1262,9 +1252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1341,9 +1330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *driveId;
 
 /**
- *  Deprecated - Whether both My Drive and shared drive items should be included
- *  in results. This parameter will only be effective until June 1, 2020.
- *  Afterwards shared drive items are included in the results.
+ *  Whether both My Drive and shared drive items should be included in results.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1398,9 +1385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *spaces;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1485,9 +1471,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *removeParents;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1555,9 +1540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1648,9 +1632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL sendNotificationEmail;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1717,9 +1700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1782,9 +1764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *permissionId;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1858,9 +1839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1927,9 +1907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL removeExpiration;
 
 /**
- *  Deprecated - Whether the requesting application supports both My Drives and
- *  shared drives. This parameter will only be effective until June 1, 2020.
- *  Afterwards all applications are assumed to support shared drives.
+ *  Whether the requesting application supports both My Drives and shared
+ *  drives.
  *
  *  @note If not set, the documented server-side default will be false.
  */

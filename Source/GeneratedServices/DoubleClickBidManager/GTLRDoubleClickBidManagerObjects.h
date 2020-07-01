@@ -533,6 +533,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewParentalStatus;
 /** Value: "FILTER_TRUEVIEW_PLACEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewPlacement;
+/** Value: "FILTER_TRUEVIEW_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewPlacementId;
 /** Value: "FILTER_TRUEVIEW_REGION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRegion;
 /** Value: "FILTER_TRUEVIEW_REGION_NAME" */
@@ -1053,6 +1055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewParentalStatus;
 /** Value: "FILTER_TRUEVIEW_PLACEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewPlacement;
+/** Value: "FILTER_TRUEVIEW_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewPlacementId;
 /** Value: "FILTER_TRUEVIEW_REGION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewRegion;
 /** Value: "FILTER_TRUEVIEW_REGION_NAME" */
@@ -1729,6 +1733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPausesAudio;
 /** Value: "METRIC_PERCENT_IMPRESSIONS_WITH_POSITIVE_CUSTOM_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPercentImpressionsWithPositiveCustomValue;
+/** Value: "METRIC_PERCENT_INVALID_IMPRESSIONS_PREBID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPercentInvalidImpressionsPrebid;
 /** Value: "METRIC_PLATFORM_FEE_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPlatformFeeAdvertiser;
 /** Value: "METRIC_PLATFORM_FEE_PARTNER" */
@@ -2861,6 +2867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_PARENTAL_STATUS"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewPlacement
  *        Value "FILTER_TRUEVIEW_PLACEMENT"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewPlacementId
+ *        Value "FILTER_TRUEVIEW_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRegion
  *        Value "FILTER_TRUEVIEW_REGION"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewRegionName

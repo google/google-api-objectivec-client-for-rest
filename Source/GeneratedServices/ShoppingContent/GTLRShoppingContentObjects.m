@@ -1567,10 +1567,10 @@
 //
 
 @implementation GTLRShoppingContent_Order
-@dynamic acknowledged, billingAddress, customer, deliveryDetails, identifier,
-         kind, lineItems, merchantId, merchantOrderId, netPriceAmount,
-         netTaxAmount, paymentStatus, pickupDetails, placedDate, promotions,
-         refunds, shipments, shippingCost, shippingCostTax, status,
+@dynamic acknowledged, annotations, billingAddress, customer, deliveryDetails,
+         identifier, kind, lineItems, merchantId, merchantOrderId,
+         netPriceAmount, netTaxAmount, paymentStatus, pickupDetails, placedDate,
+         promotions, refunds, shipments, shippingCost, shippingCostTax, status,
          taxCollector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1579,6 +1579,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRShoppingContent_OrderOrderAnnotation class],
     @"lineItems" : [GTLRShoppingContent_OrderLineItem class],
     @"promotions" : [GTLRShoppingContent_OrderPromotion class],
     @"refunds" : [GTLRShoppingContent_OrderRefund class],
@@ -1848,7 +1849,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderLineItemShippingDetails
-@dynamic deliverByDate, method, shipByDate, type;
+@dynamic deliverByDate, method, pickupPromiseInMinutes, shipByDate, type;
 @end
 
 
@@ -1874,11 +1875,21 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_OrderOrderAnnotation
+//
+
+@implementation GTLRShoppingContent_OrderOrderAnnotation
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_OrderPickupDetails
 //
 
 @implementation GTLRShoppingContent_OrderPickupDetails
-@dynamic address, collectors, locationId;
+@dynamic address, collectors, locationId, pickupType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2278,6 +2289,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem
+//
+
+@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem
+@dynamic amount, fullRefund, lineItemId, productId, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemShipping
+//
+
+@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemShipping
+@dynamic amount, fullRefund;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo
 //
 
@@ -2318,7 +2349,7 @@
 
 @implementation GTLRShoppingContent_OrderShipment
 @dynamic carrier, creationDate, deliveryDate, identifier, lineItems,
-         shipmentGroupId, status, trackingId;
+         scheduledDeliveryDetails, shipmentGroupId, status, trackingId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2341,6 +2372,16 @@
 
 @implementation GTLRShoppingContent_OrderShipmentLineItemShipment
 @dynamic lineItemId, productId, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderShipmentScheduledDeliveryDetails
+//
+
+@implementation GTLRShoppingContent_OrderShipmentScheduledDeliveryDetails
+@dynamic carrierPhoneNumber, scheduledDate;
 @end
 
 
@@ -2384,6 +2425,54 @@
   return @"resources";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersRefundItemRequest
+//
+
+@implementation GTLRShoppingContent_OrdersRefundItemRequest
+@dynamic items, operationId, reason, reasonText, shipping;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersRefundItemResponse
+//
+
+@implementation GTLRShoppingContent_OrdersRefundItemResponse
+@dynamic executionStatus, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersRefundOrderRequest
+//
+
+@implementation GTLRShoppingContent_OrdersRefundOrderRequest
+@dynamic amount, fullRefund, operationId, reason, reasonText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrdersRefundOrderResponse
+//
+
+@implementation GTLRShoppingContent_OrdersRefundOrderResponse
+@dynamic executionStatus, kind;
 @end
 
 
@@ -2531,7 +2620,8 @@
 //
 
 @implementation GTLRShoppingContent_OrdersUpdateShipmentRequest
-@dynamic carrier, deliveryDate, operationId, shipmentId, status, trackingId;
+@dynamic carrier, deliveryDate, lastPickupDate, operationId, readyPickupDate,
+         shipmentId, status, trackingId, undeliveredDate;
 @end
 
 
@@ -2789,21 +2879,22 @@
 
 @implementation GTLRShoppingContent_Product
 @dynamic additionalImageLinks, adsGrouping, adsLabels, adsRedirect, adult,
-         ageGroup, availability, availabilityDate, brand, channel, color,
-         condition, contentLanguage, costOfGoodsSold, customAttributes,
-         customLabel0, customLabel1, customLabel2, customLabel3, customLabel4,
-         descriptionProperty, displayAdsId, displayAdsLink,
-         displayAdsSimilarIds, displayAdsTitle, displayAdsValue,
+         ageGroup, availability, availabilityDate, brand, canonicalLink,
+         channel, color, condition, contentLanguage, costOfGoodsSold,
+         customAttributes, customLabel0, customLabel1, customLabel2,
+         customLabel3, customLabel4, descriptionProperty, displayAdsId,
+         displayAdsLink, displayAdsSimilarIds, displayAdsTitle, displayAdsValue,
          energyEfficiencyClass, excludedDestinations, expirationDate, gender,
          googleProductCategory, gtin, identifier, identifierExists, imageLink,
          includedDestinations, installment, isBundle, itemGroupId, kind, link,
          loyaltyPoints, material, maxEnergyEfficiencyClass, maxHandlingTime,
          minEnergyEfficiencyClass, minHandlingTime, mobileLink, mpn, multipack,
-         offerId, pattern, price, productTypes, promotionIds, salePrice,
-         salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
-         shippingLabel, shippingLength, shippingWeight, shippingWidth, sizes,
-         sizeSystem, sizeType, source, targetCountry, taxCategory, taxes, title,
-         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
+         offerId, pattern, price, productDetails, productHighlights,
+         productTypes, promotionIds, salePrice, salePriceEffectiveDate,
+         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
+         shippingLength, shippingWeight, shippingWidth, sizes, sizeSystem,
+         sizeType, source, subscriptionCost, targetCountry, taxCategory, taxes,
+         title, transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2821,6 +2912,8 @@
     @"displayAdsSimilarIds" : [NSString class],
     @"excludedDestinations" : [NSString class],
     @"includedDestinations" : [NSString class],
+    @"productDetails" : [GTLRShoppingContent_ProductProductDetail class],
+    @"productHighlights" : [NSString class],
     @"productTypes" : [NSString class],
     @"promotionIds" : [NSString class],
     @"shipping" : [GTLRShoppingContent_ProductShipping class],
@@ -2840,6 +2933,16 @@
 
 @implementation GTLRShoppingContent_ProductAmount
 @dynamic priceAmount, remittedTaxAmount, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductProductDetail
+//
+
+@implementation GTLRShoppingContent_ProductProductDetail
+@dynamic attributeName, attributeValue, sectionName;
 @end
 
 
@@ -3082,6 +3185,16 @@
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductSubscriptionCost
+//
+
+@implementation GTLRShoppingContent_ProductSubscriptionCost
+@dynamic amount, period, periodLength;
 @end
 
 
@@ -3881,9 +3994,10 @@
 //
 
 @implementation GTLRShoppingContent_TestOrder
-@dynamic enableOrderinvoices, kind, lineItems, notificationMode,
-         predefinedBillingAddress, predefinedDeliveryAddress, predefinedEmail,
-         predefinedPickupDetails, promotions, shippingCost, shippingOption;
+@dynamic deliveryDetails, enableOrderinvoices, kind, lineItems,
+         notificationMode, pickupDetails, predefinedBillingAddress,
+         predefinedDeliveryAddress, predefinedEmail, predefinedPickupDetails,
+         promotions, shippingCost, shippingOption;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3893,6 +4007,36 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TestOrderAddress
+//
+
+@implementation GTLRShoppingContent_TestOrderAddress
+@dynamic country, fullAddress, isPostOfficeBox, locality, postalCode,
+         recipientName, region, streetAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fullAddress" : [NSString class],
+    @"streetAddress" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TestOrderDeliveryDetails
+//
+
+@implementation GTLRShoppingContent_TestOrderDeliveryDetails
+@dynamic address, phoneNumber;
 @end
 
 
@@ -3923,6 +4067,34 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TestOrderPickupDetails
+//
+
+@implementation GTLRShoppingContent_TestOrderPickupDetails
+@dynamic locationCode, pickupLocationAddress, pickupLocationType, pickupPersons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pickupPersons" : [GTLRShoppingContent_TestOrderPickupDetailsPickupPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TestOrderPickupDetailsPickupPerson
+//
+
+@implementation GTLRShoppingContent_TestOrderPickupDetailsPickupPerson
+@dynamic name, phoneNumber;
 @end
 
 

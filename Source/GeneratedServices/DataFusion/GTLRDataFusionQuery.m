@@ -390,3 +390,22 @@
 }
 
 @end
+
+@implementation GTLRDataFusionQuery_ProjectsLocationsVersionsList
+
+@dynamic latestPatchOnly, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
+  GTLRDataFusionQuery_ProjectsLocationsVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataFusion_ListAvailableVersionsResponse class];
+  query.loggingName = @"datafusion.projects.locations.versions.list";
+  return query;
+}
+
+@end

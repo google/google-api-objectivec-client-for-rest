@@ -66,6 +66,11 @@ NSString * const kGTLRAndroidManagement_ApplicationReport_State_ApplicationState
 NSString * const kGTLRAndroidManagement_ApplicationReport_State_Installed = @"INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed = @"REMOVED";
 
+// GTLRAndroidManagement_BlockAction.blockScope
+NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeDevice = @"BLOCK_SCOPE_DEVICE";
+NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeUnspecified = @"BLOCK_SCOPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeWorkProfile = @"BLOCK_SCOPE_WORK_PROFILE";
+
 // GTLRAndroidManagement_Command.errorCode
 NSString * const kGTLRAndroidManagement_Command_ErrorCode_ApiLevel = @"API_LEVEL";
 NSString * const kGTLRAndroidManagement_Command_ErrorCode_CommandErrorCodeUnspecified = @"COMMAND_ERROR_CODE_UNSPECIFIED";
@@ -98,6 +103,11 @@ NSString * const kGTLRAndroidManagement_Device_ManagementMode_DeviceOwner = @"DE
 NSString * const kGTLRAndroidManagement_Device_ManagementMode_ManagementModeUnspecified = @"MANAGEMENT_MODE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Device_ManagementMode_ProfileOwner = @"PROFILE_OWNER";
 
+// GTLRAndroidManagement_Device.ownership
+NSString * const kGTLRAndroidManagement_Device_Ownership_CompanyOwned = @"COMPANY_OWNED";
+NSString * const kGTLRAndroidManagement_Device_Ownership_OwnershipUnspecified = @"OWNERSHIP_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Device_Ownership_PersonallyOwned = @"PERSONALLY_OWNED";
+
 // GTLRAndroidManagement_Device.state
 NSString * const kGTLRAndroidManagement_Device_State_Active    = @"ACTIVE";
 NSString * const kGTLRAndroidManagement_Device_State_Deleted   = @"DELETED";
@@ -120,6 +130,11 @@ NSString * const kGTLRAndroidManagement_Display_State_Doze     = @"DOZE";
 NSString * const kGTLRAndroidManagement_Display_State_Off      = @"OFF";
 NSString * const kGTLRAndroidManagement_Display_State_On       = @"ON";
 NSString * const kGTLRAndroidManagement_Display_State_Suspended = @"SUSPENDED";
+
+// GTLRAndroidManagement_EnrollmentToken.allowPersonalUsage
+NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_AllowPersonalUsageUnspecified = @"ALLOW_PERSONAL_USAGE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageAllowed = @"PERSONAL_USAGE_ALLOWED";
+NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed = @"PERSONAL_USAGE_DISALLOWED";
 
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
 NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Command = @"COMMAND";
@@ -244,6 +259,14 @@ NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant = @"GRANT";
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified = @"PERMISSION_POLICY_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Prompt = @"PROMPT";
 
+// GTLRAndroidManagement_PersonalApplicationPolicy.installType
+NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked = @"BLOCKED";
+NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
+
+// GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist = @"BLACKLIST";
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified = @"PLAY_STORE_MODE_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
 NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Beta = @"BETA";
@@ -318,6 +341,11 @@ NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_AtRisk = @
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PostureUnspecified = @"POSTURE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_PotentiallyCompromised = @"POTENTIALLY_COMPROMISED";
 NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure = @"SECURE";
+
+// GTLRAndroidManagement_SigninDetail.allowPersonalUsage
+NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPersonalUsageUnspecified = @"ALLOW_PERSONAL_USAGE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageAllowed = @"PERSONAL_USAGE_ALLOWED";
+NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed = @"PERSONAL_USAGE_DISALLOWED";
 
 // GTLRAndroidManagement_SystemUpdate.type
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Automatic = @"AUTOMATIC";
@@ -503,7 +531,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_BlockAction
-@dynamic blockAfterDays;
+@dynamic blockAfterDays, blockScope;
 @end
 
 
@@ -584,9 +612,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          enrollmentTokenData, enrollmentTokenName, hardwareInfo,
          hardwareStatusSamples, lastPolicyComplianceReportTime,
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
-         memoryInfo, name, networkInfo, nonComplianceDetails, policyCompliant,
-         policyName, powerManagementEvents, previousDeviceNames,
-         securityPosture, softwareInfo, state, systemProperties, user, userName;
+         memoryInfo, name, networkInfo, nonComplianceDetails, ownership,
+         policyCompliant, policyName, powerManagementEvents,
+         previousDeviceNames, securityPosture, softwareInfo, state,
+         systemProperties, user, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -654,8 +683,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_EnrollmentToken
-@dynamic additionalData, duration, expirationTimestamp, name, oneTimeOnly,
-         policyName, qrCode, user, value;
+@dynamic additionalData, allowPersonalUsage, duration, expirationTimestamp,
+         name, oneTimeOnly, policyName, qrCode, user, value;
 @end
 
 
@@ -1084,6 +1113,36 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_PersonalApplicationPolicy
+//
+
+@implementation GTLRAndroidManagement_PersonalApplicationPolicy
+@dynamic installType, packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_PersonalUsagePolicies
+//
+
+@implementation GTLRAndroidManagement_PersonalUsagePolicies
+@dynamic accountTypesWithManagementDisabled, cameraDisabled, maxDaysWithWorkOff,
+         personalApplications, personalPlayStoreMode, screenCaptureDisabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountTypesWithManagementDisabled" : [NSString class],
+    @"personalApplications" : [GTLRAndroidManagement_PersonalApplicationPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Policy
 //
 
@@ -1107,13 +1166,14 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
          passwordPolicies, passwordRequirements, permissionGrants,
          permittedAccessibilityServices, permittedInputMethods,
-         persistentPreferredActivities, playStoreMode, policyEnforcementRules,
-         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
-         safeBootDisabled, screenCaptureDisabled, setupActions,
-         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
-         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
-         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
-         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
+         persistentPreferredActivities, personalUsagePolicies, playStoreMode,
+         policyEnforcementRules, privateKeySelectionEnabled,
+         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
+         screenCaptureDisabled, setupActions, setUserIconDisabled,
+         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
+         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
+         statusReportingSettings, stayOnPluggedModes, systemUpdate,
+         tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
@@ -1249,7 +1309,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_SigninDetail
-@dynamic qrCode, signinEnrollmentToken, signinUrl;
+@dynamic allowPersonalUsage, qrCode, signinEnrollmentToken, signinUrl;
 @end
 
 

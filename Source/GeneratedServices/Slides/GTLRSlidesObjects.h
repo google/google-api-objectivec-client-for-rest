@@ -6435,6 +6435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The description of the page element. Combined with title to display alt
  *  text.
+ *  The field is not supported for Group
+ *  elements.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -6474,6 +6476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The title of the page element. Combined with description to display alt
  *  text.
+ *  The field is not supported for Group
+ *  elements.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 

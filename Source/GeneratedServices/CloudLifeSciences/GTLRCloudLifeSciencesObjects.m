@@ -577,13 +577,14 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 
 @implementation GTLRCloudLifeSciences_VirtualMachine
 @dynamic accelerators, bootDiskSizeGb, bootImage, cpuPlatform, disks,
-         enableStackdriverMonitoring, labels, machineType, network,
-         nvidiaDriverVersion, preemptible, serviceAccount;
+         dockerCacheImages, enableStackdriverMonitoring, labels, machineType,
+         network, nvidiaDriverVersion, preemptible, serviceAccount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRCloudLifeSciences_Accelerator class],
-    @"disks" : [GTLRCloudLifeSciences_Disk class]
+    @"disks" : [GTLRCloudLifeSciences_Disk class],
+    @"dockerCacheImages" : [NSString class]
   };
   return map;
 }

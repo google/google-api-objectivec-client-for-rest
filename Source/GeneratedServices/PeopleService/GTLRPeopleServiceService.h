@@ -38,6 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceContacts;
 /**
+ *  Authorization scope: See and download contact info automatically saved in
+ *  your "Other contacts"
+ *
+ *  Value "https://www.googleapis.com/auth/contacts.other.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsOtherReadonly;
+/**
  *  Authorization scope: See and download your contacts
  *
  *  Value "https://www.googleapis.com/auth/contacts.readonly"

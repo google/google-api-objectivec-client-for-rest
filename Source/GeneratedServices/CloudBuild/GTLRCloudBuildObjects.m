@@ -28,6 +28,8 @@ NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly  = @"GCS_ONLY";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy   = @"LEGACY";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified = @"LOGGING_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_BuildOptions_Logging_None     = @"NONE";
+NSString * const kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly = @"STACKDRIVER_ONLY";
 
 // GTLRCloudBuild_BuildOptions.logStreamingOption
 NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault = @"STREAM_DEFAULT";
@@ -198,8 +200,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_BuildOptions
-@dynamic diskSizeGb, env, logging, logStreamingOption, machineType,
-         requestedVerifyOption, secretEnv, sourceProvenanceHash,
+@dynamic diskSizeGb, dynamicSubstitutions, env, logging, logStreamingOption,
+         machineType, requestedVerifyOption, secretEnv, sourceProvenanceHash,
          substitutionOption, volumes, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -363,6 +365,16 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_HTTPDelivery
+//
+
+@implementation GTLRCloudBuild_HTTPDelivery
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_ListBuildsResponse
 //
 
@@ -407,21 +419,88 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_ListOperationsResponse
+//   GTLRCloudBuild_Notification
 //
 
-@implementation GTLRCloudBuild_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@implementation GTLRCloudBuild_Notification
+@dynamic filter, httpDelivery, slackDelivery, smtpDelivery, structDelivery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Notification_StructDelivery
+//
+
+@implementation GTLRCloudBuild_Notification_StructDelivery
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_NotifierConfig
+//
+
+@implementation GTLRCloudBuild_NotifierConfig
+@dynamic apiVersion, kind, metadata, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_NotifierMetadata
+//
+
+@implementation GTLRCloudBuild_NotifierMetadata
+@dynamic name, notifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_NotifierSecret
+//
+
+@implementation GTLRCloudBuild_NotifierSecret
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_NotifierSecretRef
+//
+
+@implementation GTLRCloudBuild_NotifierSecretRef
+@dynamic secretRef;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_NotifierSpec
+//
+
+@implementation GTLRCloudBuild_NotifierSpec
+@dynamic notification, secrets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudBuild_Operation class]
+    @"secrets" : [GTLRCloudBuild_NotifierSecret class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
 }
 
 @end
@@ -559,6 +638,34 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_SlackDelivery
+//
+
+@implementation GTLRCloudBuild_SlackDelivery
+@dynamic webhookUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_SMTPDelivery
+//
+
+@implementation GTLRCloudBuild_SMTPDelivery
+@dynamic fromAddress, password, port, recipientAddresses, senderAddress, server;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recipientAddresses" : [NSString class]
+  };
+  return map;
 }
 
 @end

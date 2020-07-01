@@ -7,9 +7,76 @@
 //   Provides polling places, early vote locations, contest data, election
 //   officials, and government representatives for U.S. residential addresses.
 // Documentation:
-//   https://developers.google.com/civic-information
+//   https://developers.google.com/civic-information/
 
 #import "GTLRCivicInfoObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRCivicInfo_Contest.level
+NSString * const kGTLRCivicInfo_Contest_Level_AdministrativeArea1 = @"administrativeArea1";
+NSString * const kGTLRCivicInfo_Contest_Level_AdministrativeArea2 = @"administrativeArea2";
+NSString * const kGTLRCivicInfo_Contest_Level_Country          = @"country";
+NSString * const kGTLRCivicInfo_Contest_Level_International    = @"international";
+NSString * const kGTLRCivicInfo_Contest_Level_Locality         = @"locality";
+NSString * const kGTLRCivicInfo_Contest_Level_Regional         = @"regional";
+NSString * const kGTLRCivicInfo_Contest_Level_Special          = @"special";
+NSString * const kGTLRCivicInfo_Contest_Level_SubLocality1     = @"subLocality1";
+NSString * const kGTLRCivicInfo_Contest_Level_SubLocality2     = @"subLocality2";
+
+// GTLRCivicInfo_Contest.roles
+NSString * const kGTLRCivicInfo_Contest_Roles_DeputyHeadOfGovernment = @"deputyHeadOfGovernment";
+NSString * const kGTLRCivicInfo_Contest_Roles_ExecutiveCouncil = @"executiveCouncil";
+NSString * const kGTLRCivicInfo_Contest_Roles_GovernmentOfficer = @"governmentOfficer";
+NSString * const kGTLRCivicInfo_Contest_Roles_HeadOfGovernment = @"headOfGovernment";
+NSString * const kGTLRCivicInfo_Contest_Roles_HeadOfState      = @"headOfState";
+NSString * const kGTLRCivicInfo_Contest_Roles_HighestCourtJudge = @"highestCourtJudge";
+NSString * const kGTLRCivicInfo_Contest_Roles_Judge            = @"judge";
+NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorLowerBody = @"legislatorLowerBody";
+NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorUpperBody = @"legislatorUpperBody";
+NSString * const kGTLRCivicInfo_Contest_Roles_SchoolBoard      = @"schoolBoard";
+NSString * const kGTLRCivicInfo_Contest_Roles_SpecialPurposeOfficer = @"specialPurposeOfficer";
+
+// GTLRCivicInfo_ElectoralDistrict.scope
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_CityCouncil = @"cityCouncil";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Citywide = @"citywide";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Congressional = @"congressional";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_CountyCouncil = @"countyCouncil";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Countywide = @"countywide";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Judicial = @"judicial";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_National = @"national";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_SchoolBoard = @"schoolBoard";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Special = @"special";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_StateLower = @"stateLower";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_StateUpper = @"stateUpper";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Statewide = @"statewide";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Township = @"township";
+NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Ward   = @"ward";
+
+// GTLRCivicInfo_Office.levels
+NSString * const kGTLRCivicInfo_Office_Levels_AdministrativeArea1 = @"administrativeArea1";
+NSString * const kGTLRCivicInfo_Office_Levels_AdministrativeArea2 = @"administrativeArea2";
+NSString * const kGTLRCivicInfo_Office_Levels_Country          = @"country";
+NSString * const kGTLRCivicInfo_Office_Levels_International    = @"international";
+NSString * const kGTLRCivicInfo_Office_Levels_Locality         = @"locality";
+NSString * const kGTLRCivicInfo_Office_Levels_Regional         = @"regional";
+NSString * const kGTLRCivicInfo_Office_Levels_Special          = @"special";
+NSString * const kGTLRCivicInfo_Office_Levels_SubLocality1     = @"subLocality1";
+NSString * const kGTLRCivicInfo_Office_Levels_SubLocality2     = @"subLocality2";
+
+// GTLRCivicInfo_Office.roles
+NSString * const kGTLRCivicInfo_Office_Roles_DeputyHeadOfGovernment = @"deputyHeadOfGovernment";
+NSString * const kGTLRCivicInfo_Office_Roles_ExecutiveCouncil  = @"executiveCouncil";
+NSString * const kGTLRCivicInfo_Office_Roles_GovernmentOfficer = @"governmentOfficer";
+NSString * const kGTLRCivicInfo_Office_Roles_HeadOfGovernment  = @"headOfGovernment";
+NSString * const kGTLRCivicInfo_Office_Roles_HeadOfState       = @"headOfState";
+NSString * const kGTLRCivicInfo_Office_Roles_HighestCourtJudge = @"highestCourtJudge";
+NSString * const kGTLRCivicInfo_Office_Roles_Judge             = @"judge";
+NSString * const kGTLRCivicInfo_Office_Roles_LegislatorLowerBody = @"legislatorLowerBody";
+NSString * const kGTLRCivicInfo_Office_Roles_LegislatorUpperBody = @"legislatorUpperBody";
+NSString * const kGTLRCivicInfo_Office_Roles_SchoolBoard       = @"schoolBoard";
+NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPurposeOfficer";
 
 // ----------------------------------------------------------------------------
 //
@@ -44,8 +111,8 @@
 //
 
 @implementation GTLRCivicInfo_AdministrativeBody
-@dynamic absenteeVotingInfoUrl, addressLines, ballotInfoUrl,
-         correspondenceAddress, electionInfoUrl, electionOfficials,
+@dynamic absenteeVotingInfoUrl, ballotInfoUrl, correspondenceAddress,
+         electionInfoUrl, electionOfficials,
          electionRegistrationConfirmationUrl, electionRegistrationUrl,
          electionRulesUrl, hoursOfOperation, name, physicalAddress,
          voterServices, votingLocationFinderUrl;
@@ -56,7 +123,6 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"addressLines" : [NSString class],
     @"electionOfficials" : [GTLRCivicInfo_ElectionOfficial class],
     @"voter_services" : [NSString class]
   };
@@ -134,36 +200,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_ContextParams
-//
-
-@implementation GTLRCivicInfo_ContextParams
-@dynamic clientProfile;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_DivisionRepresentativeInfoRequest
-//
-
-@implementation GTLRCivicInfo_DivisionRepresentativeInfoRequest
-@dynamic contextParams;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_DivisionSearchRequest
-//
-
-@implementation GTLRCivicInfo_DivisionSearchRequest
-@dynamic contextParams;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCivicInfo_DivisionSearchResponse
 //
 
@@ -225,16 +261,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_ElectionsQueryRequest
-//
-
-@implementation GTLRCivicInfo_ElectionsQueryRequest
-@dynamic contextParams;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCivicInfo_ElectionsQueryResponse
 //
 
@@ -257,22 +283,12 @@
 //
 
 @implementation GTLRCivicInfo_ElectoralDistrict
-@dynamic identifier, kgForeignKey, name, scope;
+@dynamic identifier, name, scope;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_FieldMetadataProto
-//
-
-@implementation GTLRCivicInfo_FieldMetadataProto
-@dynamic internal;
 @end
 
 
@@ -292,26 +308,6 @@
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_InternalFieldMetadataProto
-//
-
-@implementation GTLRCivicInfo_InternalFieldMetadataProto
-@dynamic isAuto, sourceSummary;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_InternalSourceSummaryProto
-//
-
-@implementation GTLRCivicInfo_InternalSourceSummaryProto
-@dynamic dataset, provider;
 @end
 
 
@@ -360,16 +356,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_PointProto
-//
-
-@implementation GTLRCivicInfo_PointProto
-@dynamic latE7, lngE7, metadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCivicInfo_PollingLocation
 //
 
@@ -388,41 +374,6 @@
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_PostalAddress
-//
-
-@implementation GTLRCivicInfo_PostalAddress
-@dynamic addressLines, administrativeAreaName, countryName, countryNameCode,
-         dependentLocalityName, dependentThoroughfareName, firmName, isDisputed,
-         languageCode, localityName, postalCodeNumber,
-         postalCodeNumberExtension, postBoxNumber, premiseName, recipientName,
-         sortingCode, subAdministrativeAreaName, subPremiseName,
-         thoroughfareName, thoroughfareNumber;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"addressLines" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_Provenance
-//
-
-@implementation GTLRCivicInfo_Provenance
-@dynamic collidedSegmentSource, ctclContestUuid, ctclOfficeUuid, datasetId,
-         precinctId, precinctSplitId, tsStreetSegmentId, vip5PrecinctId,
-         vip5StreetSegmentId, vipStreetSegmentId;
 @end
 
 
@@ -456,16 +407,6 @@
   return [GTLRCivicInfo_GeographicDivision class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_RepresentativeInfoRequest
-//
-
-@implementation GTLRCivicInfo_RepresentativeInfoRequest
-@dynamic contextParams;
 @end
 
 
@@ -524,80 +465,12 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCivicInfo_StreetSegment
-//
-
-@implementation GTLRCivicInfo_StreetSegment
-@dynamic administrationRegionIds, beforeGeocodeId, catalistUniquePrecinctCode,
-         city, cityCouncilDistrict, congressionalDistrict, contestIds,
-         countyCouncilDistrict, countyFips, datasetId, earlyVoteSiteByIds,
-         endHouseNumber, geocodedPoint, geographicDivisionOcdIds, identifier,
-         judicialDistrict, mailOnly, municipalDistrict, ncoaAddress, oddOrEvens,
-         originalId, pollinglocationByIds, precinctName, precinctOcdId,
-         provenances, published, schoolDistrict, startHouseNumber, startLatE7,
-         startLngE7, state, stateHouseDistrict, stateSenateDistrict, streetName,
-         subAdministrativeAreaName, surrogateId, targetsmartUniquePrecinctCode,
-         townshipDistrict, unitNumber, unitType, vanPrecinctCode,
-         voterGeographicDivisionOcdIds, wardDistrict, wildcard, zip;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"administrationRegionIds" : [NSString class],
-    @"contestIds" : [NSString class],
-    @"earlyVoteSiteByIds" : [NSString class],
-    @"geographicDivisionOcdIds" : [NSString class],
-    @"oddOrEvens" : [NSString class],
-    @"pollinglocationByIds" : [NSString class],
-    @"provenances" : [GTLRCivicInfo_Provenance class],
-    @"voterGeographicDivisionOcdIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_StreetSegmentList
-//
-
-@implementation GTLRCivicInfo_StreetSegmentList
-@dynamic segments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"segments" : [GTLRCivicInfo_StreetSegment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_VoterInfoRequest
-//
-
-@implementation GTLRCivicInfo_VoterInfoRequest
-@dynamic contextParams, voterInfoSegmentResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCivicInfo_VoterInfoResponse
 //
 
 @implementation GTLRCivicInfo_VoterInfoResponse
 @dynamic contests, dropOffLocations, earlyVoteSites, election, kind, mailOnly,
-         normalizedInput, otherElections, pollingLocations, precinctId,
-         segments, state;
+         normalizedInput, otherElections, pollingLocations, precinctId, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -606,20 +479,9 @@
     @"earlyVoteSites" : [GTLRCivicInfo_PollingLocation class],
     @"otherElections" : [GTLRCivicInfo_Election class],
     @"pollingLocations" : [GTLRCivicInfo_PollingLocation class],
-    @"segments" : [GTLRCivicInfo_StreetSegment class],
     @"state" : [GTLRCivicInfo_AdministrationRegion class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCivicInfo_VoterInfoSegmentResult
-//
-
-@implementation GTLRCivicInfo_VoterInfoSegmentResult
-@dynamic generatedMillis, postalAddress, request, response;
 @end

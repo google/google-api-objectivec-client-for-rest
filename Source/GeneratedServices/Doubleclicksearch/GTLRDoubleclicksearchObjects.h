@@ -4,10 +4,10 @@
 // API:
 //   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
-//   Reports and modifies your advertising data in DoubleClick Search (for
-//   example, campaigns, ad groups, keywords, and conversions).
+//   The Search Ads 360 API allows developers to automate uploading conversions
+//   and downloading reports from Search Ads 360.
 // Documentation:
-//   https://developers.google.com/doubleclick-search/
+//   https://developers.google.com/search-ads
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time by which all conversions have been uploaded, in epoch millis UTC.
  *
- *  Uses NSNumber of unsignedLongLongValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *availabilityTimestamp;
 
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The segmentation type that this availability is for (its default value is
- *  FLOODLIGHT).
+ *  `FLOODLIGHT`).
  */
 @property(nonatomic, copy, nullable) NSString *segmentationType;
 
@@ -138,9 +138,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *campaignId;
 
 /**
- *  Sales channel for the product. Acceptable values are:
- *  - "local": a physical store
- *  - "online": an online store
+ *  Sales channel for the product. Acceptable values are: <ul>
+ *  <li>"`local`": a physical store</li> <li>"`online`":
+ *  an online store</li> </ul>
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
@@ -149,27 +149,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  For offline conversions, advertisers provide this ID. Advertisers can
- *  specify any ID that is meaningful to them. Each conversion in a request must
- *  specify a unique ID, and the combination of ID and timestamp must be unique
- *  amongst all conversions within the advertiser.
- *  For online conversions, DS copies the dsConversionId or floodlightOrderId
- *  into this property depending on the advertiser's Floodlight instructions.
+ *  specify any ID that is meaningful to them. Each conversion in a request
+ *  must specify a unique ID, and the combination of ID and timestamp must be
+ *  unique amongst all conversions within the advertiser.<br> For online
+ *  conversions, DS copies the `dsConversionId` or
+ *  `floodlightOrderId` into this property depending on the
+ *  advertiser's Floodlight instructions.
  */
 @property(nonatomic, copy, nullable) NSString *conversionId;
 
 /**
  *  The time at which the conversion was last modified, in epoch millis UTC.
  *
- *  Uses NSNumber of unsignedLongLongValue.
+ *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *conversionModifiedTimestamp;
 
-/**
- *  The time at which the conversion took place, in epoch millis UTC.
- *
- *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *conversionTimestamp;
+/** The time at which the conversion took place, in epoch millis UTC. */
+@property(nonatomic, copy, nullable) NSString *conversionTimestamp;
 
 /**
  *  Available to advertisers only after contacting DoubleClick Search customer
@@ -259,13 +256,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quantityMillis;
 
 /**
- *  The revenue amount of this TRANSACTION conversion, in micros (value
- *  multiplied by 1000000, no decimal). For example, to specify a revenue value
- *  of "10" enter "10000000" (10 million) in your request.
- *
- *  Uses NSNumber of longLongValue.
+ *  The revenue amount of this `TRANSACTION` conversion, in micros
+ *  (value multiplied by 1000000, no decimal). For example, to specify a
+ *  revenue value of "10" enter "10000000" (10 million) in your request.
  */
-@property(nonatomic, strong, nullable) NSNumber *revenueMicros;
+@property(nonatomic, copy, nullable) NSString *revenueMicros;
 
 /**
  *  The numeric segmentation identifier (for example, DoubleClick Search
@@ -281,27 +276,32 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *segmentationName;
 
-/** The segmentation type of this conversion (for example, FLOODLIGHT). */
+/**
+ *  The segmentation type of this conversion (for example,
+ *  `FLOODLIGHT`).
+ */
 @property(nonatomic, copy, nullable) NSString *segmentationType;
 
 /**
- *  The state of the conversion, that is, either ACTIVE or REMOVED. Note: state
- *  DELETED is deprecated.
+ *  The state of the conversion, that is, either `ACTIVE` or
+ *  `REMOVED`. Note: state DELETED is deprecated.
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  The ID of the local store for which the product was advertised. Applicable
- *  only when the channel is "local".
+ *  only when the channel is "`local`".
  */
 @property(nonatomic, copy, nullable) NSString *storeId;
 
 /**
- *  The type of the conversion, that is, either ACTION or TRANSACTION. An ACTION
- *  conversion is an action by the user that has no monetarily quantifiable
- *  value, while a TRANSACTION conversion is an action that does have a
- *  monetarily quantifiable value. Examples are email list signups (ACTION)
- *  versus ecommerce purchases (TRANSACTION).
+ *  The type of the conversion, that is, either `ACTION` or
+ *  `TRANSACTION`. An `ACTION` conversion is an action by
+ *  the user that has no monetarily quantifiable value, while a
+ *  `TRANSACTION` conversion is an action that does have a
+ *  monetarily quantifiable value. Examples are email list signups
+ *  (`ACTION`) versus ecommerce purchases
+ *  (`TRANSACTION`).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -318,7 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a ConversionList resource. Value: the fixed string
- *  doubleclicksearch#conversionList.
+ *  <code>doubleclicksearch#conversionList</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A message containing the custome dimension.
+ *  A message containing the custom dimension.
  */
 @interface GTLRDoubleclicksearch_CustomDimension : GTLRObject
 
@@ -340,7 +340,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A message containing the custome metric.
+ *  A message containing the custom metric.
  */
 @interface GTLRDoubleclicksearch_CustomMetric : GTLRObject
 
@@ -365,8 +365,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDoubleclicksearch_Report : GTLRObject
 
 /**
- *  Asynchronous report only. Contains a list of generated report files once the
- *  report has successfully completed.
+ *  Asynchronous report only. Contains a list of generated report files once
+ *  the report has successfully completed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleclicksearch_Report_Files_Item *> *files;
 
@@ -387,7 +387,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a Report resource. Value: the fixed string
- *  doubleclicksearch#report.
+ *  `doubleclicksearch#report`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -409,9 +409,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The currency code of all monetary values produced in the report, including
- *  values that are set by users (e.g., keyword bid settings) and metrics (e.g.,
- *  cost and revenue). The currency code of a report is determined by the
- *  statisticsCurrency field of the report request.
+ *  values that are set by users (e.g., keyword bid settings) and metrics
+ *  (e.g., cost and revenue). The currency code of a report is determined by
+ *  the `statisticsCurrency` field of the report request.
  */
 @property(nonatomic, copy, nullable) NSString *statisticsCurrencyCode;
 
@@ -454,10 +454,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Segments a report by a custom dimension. The report must be scoped to an
  *  advertiser or lower, and the custom dimension must already be set up in
  *  DoubleClick Search. The custom dimension name, which appears in DoubleClick
- *  Search, is case sensitive.
- *  If used in a conversion report, returns the value of the specified custom
- *  dimension for the given conversion, if set. This column does not segment the
- *  conversion report.
+ *  Search, is case sensitive.\\
+ *  If used in a conversion report, returns the
+ *  value of the specified custom dimension for the given conversion, if set.
+ *  This column does not segment the conversion report.
  */
 @property(nonatomic, copy, nullable) NSString *customDimensionName;
 
@@ -472,13 +472,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Inclusive day in YYYY-MM-DD format. When provided, this overrides the
  *  overall time range of the report for this column only. Must be provided
- *  together with startDate.
+ *  together with `startDate`.
  */
 @property(nonatomic, copy, nullable) NSString *endDate;
 
 /**
- *  Synchronous report only. Set to true to group by this column. Defaults to
- *  false.
+ *  Synchronous report only. Set to `true` to group by this column.
+ *  Defaults to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -486,9 +486,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Text used to identify this column in the report output; defaults to
- *  columnName or savedColumnName when not specified. This can be used to
- *  prevent collisions between DoubleClick Search columns and saved columns with
- *  the same name.
+ *  `columnName` or `savedColumnName` when not specified.
+ *  This can be used to prevent collisions between DoubleClick Search columns
+ *  and saved columns with the same name.
  */
 @property(nonatomic, copy, nullable) NSString *headerText;
 
@@ -500,24 +500,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns metrics only for a specific type of product activity. Accepted
- *  values are:
- *  - "sold": returns metrics only for products that were sold
- *  - "advertised": returns metrics only for products that were advertised in a
- *  Shopping campaign, and that might or might not have been sold
+ *  values are: <ul> <li>"`sold`": returns metrics only for products
+ *  that were sold</li> <li>"`advertised`": returns metrics only for
+ *  products that were advertised in a Shopping campaign, and that might or
+ *  might not have been sold</li> </ul>
  */
 @property(nonatomic, copy, nullable) NSString *productReportPerspective;
 
 /**
  *  Name of a saved column to include in the report. The report must be scoped
- *  at advertiser or lower, and this saved column must already be created in the
- *  DoubleClick Search UI.
+ *  at advertiser or lower, and this saved column must already be created in
+ *  the DoubleClick Search UI.
  */
 @property(nonatomic, copy, nullable) NSString *savedColumnName;
 
 /**
  *  Inclusive date in YYYY-MM-DD format. When provided, this overrides the
  *  overall time range of the report for this column only. Must be provided
- *  together with endDate.
+ *  together with `endDate`.
  */
 @property(nonatomic, copy, nullable) NSString *startDate;
 
@@ -532,36 +532,38 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The columns to include in the report. This includes both DoubleClick Search
  *  columns and saved columns. For DoubleClick Search columns, only the
- *  columnName parameter is required. For saved columns only the savedColumnName
- *  parameter is required. Both columnName and savedColumnName cannot be set in
- *  the same stanza.
+ *  `columnName` parameter is required. For saved columns only the
+ *  `savedColumnName` parameter is required. Both
+ *  `columnName` and `savedColumnName` cannot be set in
+ *  the same stanza.\\
  *  The maximum number of columns per request is 300.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleclicksearch_ReportApiColumnSpec *> *columns;
 
 /**
- *  Format that the report should be returned in. Currently csv or tsv is
- *  supported.
+ *  Format that the report should be returned in. Currently `csv` or
+ *  `tsv` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *downloadFormat;
 
 /**
- *  A list of filters to be applied to the report.
+ *  A list of filters to be applied to the report.\\
  *  The maximum number of filters per request is 300.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleclicksearch_ReportRequest_Filters_Item *> *filters;
 
 /**
- *  Determines if removed entities should be included in the report. Defaults to
- *  false. Deprecated, please use includeRemovedEntities instead.
+ *  Determines if removed entities should be included in the report. Defaults
+ *  to `false`. Deprecated, please use
+ *  `includeRemovedEntities` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeDeletedEntities;
 
 /**
- *  Determines if removed entities should be included in the report. Defaults to
- *  false.
+ *  Determines if removed entities should be included in the report. Defaults
+ *  to `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -569,8 +571,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Asynchronous report only. The maximum number of rows per report file. A
- *  large report is split into many files based on this field. Acceptable values
- *  are 1000000 to 100000000, inclusive.
+ *  large report is split into many files based on this field. Acceptable
+ *  values are `1000000` to `100000000`, inclusive.
  *
  *  Uses NSNumber of intValue.
  */
@@ -578,7 +580,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Synchronous report only. A list of columns and directions defining sorting
- *  to be performed on the report rows.
+ *  to be performed on the report rows.\\
  *  The maximum number of orderings per request is 300.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleclicksearch_ReportRequest_OrderBy_Item *> *orderBy;
@@ -591,17 +593,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDoubleclicksearch_ReportRequest_ReportScope *reportScope;
 
 /**
- *  Determines the type of rows that are returned in the report. For example, if
- *  you specify reportType: keyword, each row in the report will contain data
- *  about a keyword. See the Types of Reports reference for the columns that are
+ *  Determines the type of rows that are returned in the report. For example,
+ *  if you specify `reportType: keyword`, each row in the report
+ *  will contain data about a keyword. See the [Types of
+ *  Reports](/search-ads/v2/report-types/) reference for the columns that are
  *  available for each type.
  */
 @property(nonatomic, copy, nullable) NSString *reportType;
 
 /**
  *  Synchronous report only. The maximum number of rows to return; additional
- *  rows are dropped. Acceptable values are 0 to 10000, inclusive. Defaults to
- *  10000.
+ *  rows are dropped. Acceptable values are `0` to
+ *  `10000`, inclusive. Defaults to `10000`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -609,7 +612,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Synchronous report only. Zero-based index of the first row to return.
- *  Acceptable values are 0 to 50000, inclusive. Defaults to 0.
+ *  Acceptable values are `0` to `50000`, inclusive.
+ *  Defaults to `0`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -617,21 +621,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the currency in which monetary will be returned. Possible values
- *  are: usd, agency (valid if the report is scoped to agency or lower),
- *  advertiser (valid if the report is scoped to * advertiser or lower), or
- *  account (valid if the report is scoped to engine account or lower).
+ *  are: `usd`, `agency` (valid if the report is scoped
+ *  to agency or lower), `advertiser` (valid if the report is scoped
+ *  to * advertiser or lower), or `account` (valid if the report is
+ *  scoped to engine account or lower).
  */
 @property(nonatomic, copy, nullable) NSString *statisticsCurrency;
 
 /**
- *  If metrics are requested in a report, this argument will be used to restrict
- *  the metrics to a specific time range.
+ *  If metrics are requested in a report, this argument will be used to
+ *  restrict the metrics to a specific time range.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleclicksearch_ReportRequest_TimeRange *timeRange;
 
 /**
- *  If true, the report would only be created if all the requested stat data are
- *  sourced from a single timezone. Defaults to false.
+ *  If `true`, the report would only be created if all the requested
+ *  stat data are sourced from a single timezone. Defaults to
+ *  `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -646,8 +652,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDoubleclicksearch_ReportRequest_Filters_Item : GTLRObject
 
 /**
- *  Column to perform the filter on. This can be a DoubleClick Search column or
- *  a saved column.
+ *  Column to perform the filter on. This can be a DoubleClick Search column
+ *  or a saved column.
  */
 @property(nonatomic, strong, nullable) GTLRDoubleclicksearch_ReportApiColumnSpec *column;
 
@@ -660,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *operatorProperty;
 
 /**
- *  A list of values to filter the column value against.
+ *  A list of values to filter the column value against.\\
  *  The maximum number of filter values per request is 300.
  *
  *  Can be any valid JSON type.
@@ -681,7 +687,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDoubleclicksearch_ReportApiColumnSpec *column;
 
-/** The sort direction, which is either ascending or descending. */
+/**
+ *  The sort direction, which is either `ascending` or
+ *  `descending`.
+ */
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 @end
@@ -747,22 +756,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  If metrics are requested in a report, this argument will be used to restrict
- *  the metrics to a specific time range.
+ *  If metrics are requested in a report, this argument will be used to
+ *  restrict the metrics to a specific time range.
  */
 @interface GTLRDoubleclicksearch_ReportRequest_TimeRange : GTLRObject
 
 /**
- *  Inclusive UTC timestamp in RFC format, e.g., 2013-07-16T10:16:23.555Z. See
- *  additional references on how changed attribute reports work.
+ *  Inclusive UTC timestamp in RFC format, e.g.,
+ *  `2013-07-16T10:16:23.555Z`. See additional references on how
+ *  changed attribute reports work.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *changedAttributesSinceTimestamp;
+@property(nonatomic, copy, nullable) NSString *changedAttributesSinceTimestamp;
 
 /**
- *  Inclusive UTC timestamp in RFC format, e.g., 2013-07-16T10:16:23.555Z. See
- *  additional references on how changed metrics reports work.
+ *  Inclusive UTC timestamp in RFC format, e.g.,
+ *  `2013-07-16T10:16:23.555Z`. See additional references on how
+ *  changed metrics reports work.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *changedMetricsSinceTimestamp;
+@property(nonatomic, copy, nullable) NSString *changedMetricsSinceTimestamp;
 
 /** Inclusive date in YYYY-MM-DD format. */
 @property(nonatomic, copy, nullable) NSString *endDate;
@@ -792,7 +803,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a SavedColumn resource. Value: the fixed string
- *  doubleclicksearch#savedColumn.
+ *  <code>doubleclicksearch#savedColumn</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -808,8 +819,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A list of saved columns. Advertisers create saved columns to report on
  *  Floodlight activities, Google Analytics goals, or custom KPIs. To request
- *  reports with saved columns, you'll need the saved column names that are
- *  available from this list.
+ *  reports with saved columns,
+ *  you'll need the saved column names that are available from this list.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -826,7 +837,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a SavedColumnList resource. Value: the fixed string
- *  doubleclicksearch#savedColumnList.
+ *  <code>doubleclicksearch#savedColumnList</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

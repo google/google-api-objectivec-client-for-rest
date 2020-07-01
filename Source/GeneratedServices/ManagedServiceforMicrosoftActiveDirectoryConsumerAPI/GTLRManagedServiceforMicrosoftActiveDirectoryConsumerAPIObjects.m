@@ -196,9 +196,9 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance
 @dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
-         maintenanceSchedules, name, producerMetadata, provisionedResources,
-         slmInstanceTemplate, sloMetadata, softwareVersions, state,
-         tenantProjectId, updateTime;
+         maintenanceSchedules, maintenanceSettings, name, producerMetadata,
+         provisionedResources, slmInstanceTemplate, sloMetadata,
+         softwareVersions, state, tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -287,6 +287,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
 @dynamic canReschedule, endTime, rolloutManagementPolicy, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+@dynamic exclude;
 @end
 
 

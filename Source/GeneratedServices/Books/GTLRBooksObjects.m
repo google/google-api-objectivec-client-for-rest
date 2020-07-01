@@ -4,9 +4,9 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   The Google Books API allows clients to access the Google Books repository.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://code.google.com/apis/books/docs/v1/getting_started.html
 
 #import "GTLRBooksObjects.h"
 
@@ -30,6 +30,12 @@
     @"pageIds" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -67,26 +73,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_Annotationdata
-//
-
-@implementation GTLRBooks_Annotationdata
-@dynamic annotationType, data, encodedData, identifier, kind, layerId, selfLink,
-         updated, volumeId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"encodedData" : @"encoded_data",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBooks_Annotations
 //
 
@@ -98,6 +84,12 @@
     @"items" : [GTLRBooks_Annotation class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -113,9 +105,15 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRBooks_Annotationdata class]
+    @"items" : [GTLRBooks_GeoAnnotationdata class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -146,6 +144,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -162,44 +166,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_Bookshelf
-//
-
-@implementation GTLRBooks_Bookshelf
-@dynamic access, created, descriptionProperty, identifier, kind, selfLink,
-         title, updated, volumeCount, volumesLastUpdated;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBooks_Bookshelves
-//
-
-@implementation GTLRBooks_Bookshelves
-@dynamic items, kind;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRBooks_Bookshelf class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBooks_Category
 //
 
@@ -211,6 +177,12 @@
     @"items" : [GTLRBooks_Category_Items_Item class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -244,6 +216,35 @@
 @implementation GTLRBooks_ConcurrentAccessRestriction
 @dynamic deviceAllowed, kind, maxConcurrentDevices, message, nonce, reasonCode,
          restricted, signature, source, timeWindowSeconds, volumeId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_DictionaryAnnotationdata
+//
+
+@implementation GTLRBooks_DictionaryAnnotationdata
+@dynamic annotationType, data, encodedData, identifier, kind, layerId, selfLink,
+         updated, volumeId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -254,6 +255,13 @@
 
 @implementation GTLRBooks_Dictlayerdata
 @dynamic common, dict, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -479,6 +487,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -531,6 +545,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -543,6 +563,22 @@
 @dynamic deviceAllowed, downloadsAcquired, justAcquired, kind,
          maxDownloadDevices, message, nonce, reasonCode, restricted, signature,
          source, volumeId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Empty
+//
+
+@implementation GTLRBooks_Empty
 @end
 
 
@@ -553,6 +589,13 @@
 
 @implementation GTLRBooks_FamilyInfo
 @dynamic kind, membership;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -568,11 +611,40 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBooks_GeoAnnotationdata
+//
+
+@implementation GTLRBooks_GeoAnnotationdata
+@dynamic annotationType, data, encodedData, identifier, kind, layerId, selfLink,
+         updated, volumeId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBooks_Geolayerdata
 //
 
 @implementation GTLRBooks_Geolayerdata
 @dynamic common, geo, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -597,21 +669,11 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"boundary" : [GTLRBooks_Geolayerdata_Geo_Boundary_Item class]
+    @"boundary" : [NSString class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBooks_Geolayerdata_Geo_Boundary_Item
-//
-
-@implementation GTLRBooks_Geolayerdata_Geo_Boundary_Item
-@dynamic latitude, longitude;
 @end
 
 
@@ -647,6 +709,56 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBooks_Helf
+//
+
+@implementation GTLRBooks_Helf
+@dynamic access, created, descriptionProperty, identifier, kind, selfLink,
+         title, updated, volumeCount, volumesLastUpdated;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Helves
+//
+
+@implementation GTLRBooks_Helves
+@dynamic items, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRBooks_Helf class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBooks_Layersummaries
 //
 
@@ -658,6 +770,12 @@
     @"items" : [GTLRBooks_Layersummary class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -684,6 +802,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -700,6 +824,12 @@
     @"items" : [GTLRBooks_Metadata_Items_Item class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -755,6 +885,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -771,6 +907,12 @@
     @"items" : [GTLRBooks_Offers_Items_Item class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -822,16 +964,30 @@
 @implementation GTLRBooks_ReadingPosition
 @dynamic epubCfiPosition, gbImagePosition, gbTextPosition, kind, pdfPosition,
          updated, volumeId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBooks_RequestAccess
+//   GTLRBooks_RequestAccessData
 //
 
-@implementation GTLRBooks_RequestAccess
+@implementation GTLRBooks_RequestAccessData
 @dynamic concurrentAccess, downloadAccess, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -843,6 +999,13 @@
 @implementation GTLRBooks_Review
 @dynamic author, content, date, fullTextUrl, kind, rating, source, title, type,
          volumeId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -886,6 +1049,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -907,8 +1076,28 @@
 //
 
 @implementation GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo
-@dynamic cancellationTimestampUs, currentReleaseInfo, nextReleaseInfo,
+@dynamic cancelTime, currentReleaseInfo, nextReleaseInfo,
          seriesSubscriptionType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_CurrentReleaseInfo
+//
+
+@implementation GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_CurrentReleaseInfo
+@dynamic amountInMicros, currencyCode, releaseNumber, releaseTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_NextReleaseInfo
+//
+
+@implementation GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_NextReleaseInfo
+@dynamic amountInMicros, currencyCode, releaseNumber, releaseTime;
 @end
 
 
@@ -927,20 +1116,16 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"member";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBooks_SubscriptionReleaseInfo
-//
-
-@implementation GTLRBooks_SubscriptionReleaseInfo
-@dynamic amountInMicros, currencyCode, releaseNumber, releaseTimestampUs;
 @end
 
 
@@ -951,6 +1136,13 @@
 
 @implementation GTLRBooks_Usersettings
 @dynamic kind, notesExport, notification;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1065,6 +1257,12 @@
     @"identifier" : @"id"
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1337,6 +1535,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBooks_Volume_VolumeInfo_ReadingModes
+//
+
+@implementation GTLRBooks_Volume_VolumeInfo_ReadingModes
+@dynamic image, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBooks_Volume_SaleInfo_Offers_Item_ListPrice
 //
 
@@ -1380,6 +1588,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1402,6 +1616,12 @@
     @"pageIds" : [NSString class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1432,6 +1652,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1450,6 +1676,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1466,6 +1698,12 @@
     @"volumeSeries" : [GTLRBooks_Volumeseriesinfo_VolumeSeries_Item class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

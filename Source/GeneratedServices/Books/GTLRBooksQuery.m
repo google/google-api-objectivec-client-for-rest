@@ -4,9 +4,9 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   The Google Books API allows clients to access the Google Books repository.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://code.google.com/apis/books/docs/v1/getting_started.html
 
 #import "GTLRBooksQuery.h"
 
@@ -16,80 +16,95 @@
 // Constants
 
 // acquireMethod
-NSString * const kGTLRBooksAcquireMethodFamilyShared     = @"FAMILY_SHARED";
-NSString * const kGTLRBooksAcquireMethodPreordered       = @"PREORDERED";
-NSString * const kGTLRBooksAcquireMethodPreviouslyRented = @"PREVIOUSLY_RENTED";
-NSString * const kGTLRBooksAcquireMethodPublicDomain     = @"PUBLIC_DOMAIN";
-NSString * const kGTLRBooksAcquireMethodPurchased        = @"PURCHASED";
-NSString * const kGTLRBooksAcquireMethodRented           = @"RENTED";
-NSString * const kGTLRBooksAcquireMethodSample           = @"SAMPLE";
-NSString * const kGTLRBooksAcquireMethodUploaded         = @"UPLOADED";
+NSString * const kGTLRBooksAcquireMethodAcquireMethodUndefined = @"ACQUIRE_METHOD_UNDEFINED";
+NSString * const kGTLRBooksAcquireMethodFamilyShared           = @"FAMILY_SHARED";
+NSString * const kGTLRBooksAcquireMethodPreordered             = @"PREORDERED";
+NSString * const kGTLRBooksAcquireMethodPreviouslyRented       = @"PREVIOUSLY_RENTED";
+NSString * const kGTLRBooksAcquireMethodPublicDomain           = @"PUBLIC_DOMAIN";
+NSString * const kGTLRBooksAcquireMethodPurchased              = @"PURCHASED";
+NSString * const kGTLRBooksAcquireMethodRented                 = @"RENTED";
+NSString * const kGTLRBooksAcquireMethodSample                 = @"SAMPLE";
+NSString * const kGTLRBooksAcquireMethodUploaded               = @"UPLOADED";
 
 // action
-NSString * const kGTLRBooksActionBookmark = @"bookmark";
-NSString * const kGTLRBooksActionChapter  = @"chapter";
-NSString * const kGTLRBooksActionNextPage = @"next-page";
-NSString * const kGTLRBooksActionPrevPage = @"prev-page";
-NSString * const kGTLRBooksActionScroll   = @"scroll";
-NSString * const kGTLRBooksActionSearch   = @"search";
+NSString * const kGTLRBooksActionActionUndefined = @"ACTION_UNDEFINED";
+NSString * const kGTLRBooksActionBookmark        = @"bookmark";
+NSString * const kGTLRBooksActionChapter         = @"chapter";
+NSString * const kGTLRBooksActionNextPage        = @"next-page";
+NSString * const kGTLRBooksActionPrevPage        = @"prev-page";
+NSString * const kGTLRBooksActionScroll          = @"scroll";
+NSString * const kGTLRBooksActionSearch          = @"search";
 
 // association
-NSString * const kGTLRBooksAssociationEndOfSample    = @"end-of-sample";
-NSString * const kGTLRBooksAssociationEndOfVolume    = @"end-of-volume";
-NSString * const kGTLRBooksAssociationRelatedForPlay = @"related-for-play";
+NSString * const kGTLRBooksAssociationAssociationUndefined = @"ASSOCIATION_UNDEFINED";
+NSString * const kGTLRBooksAssociationEndOfSample          = @"end-of-sample";
+NSString * const kGTLRBooksAssociationEndOfVolume          = @"end-of-volume";
+NSString * const kGTLRBooksAssociationRelatedForPlay       = @"related-for-play";
 
 // download
-NSString * const kGTLRBooksDownloadEpub = @"epub";
+NSString * const kGTLRBooksDownloadDownloadUndefined = @"DOWNLOAD_UNDEFINED";
+NSString * const kGTLRBooksDownloadEpub              = @"EPUB";
 
 // features
-NSString * const kGTLRBooksFeaturesRentals = @"RENTALS";
+NSString * const kGTLRBooksFeaturesFeaturesUndefined = @"FEATURES_UNDEFINED";
+NSString * const kGTLRBooksFeaturesRentals           = @"RENTALS";
 
 // filter
-NSString * const kGTLRBooksFilterEbooks     = @"ebooks";
-NSString * const kGTLRBooksFilterFreeEbooks = @"free-ebooks";
-NSString * const kGTLRBooksFilterFull       = @"full";
-NSString * const kGTLRBooksFilterPaidEbooks = @"paid-ebooks";
-NSString * const kGTLRBooksFilterPartial    = @"partial";
+NSString * const kGTLRBooksFilterEbooks          = @"ebooks";
+NSString * const kGTLRBooksFilterFilterUndefined = @"FILTER_UNDEFINED";
+NSString * const kGTLRBooksFilterFreeEbooks      = @"free-ebooks";
+NSString * const kGTLRBooksFilterFull            = @"full";
+NSString * const kGTLRBooksFilterPaidEbooks      = @"paid-ebooks";
+NSString * const kGTLRBooksFilterPartial         = @"partial";
 
 // libraryRestrict
-NSString * const kGTLRBooksLibraryRestrictMyLibrary  = @"my-library";
-NSString * const kGTLRBooksLibraryRestrictNoRestrict = @"no-restrict";
+NSString * const kGTLRBooksLibraryRestrictLibraryRestrictUndefined = @"LIBRARY_RESTRICT_UNDEFINED";
+NSString * const kGTLRBooksLibraryRestrictMyLibrary            = @"my-library";
+NSString * const kGTLRBooksLibraryRestrictNoRestrict           = @"no-restrict";
 
 // licenseTypes
-NSString * const kGTLRBooksLicenseTypesBoth       = @"BOTH";
-NSString * const kGTLRBooksLicenseTypesConcurrent = @"CONCURRENT";
-NSString * const kGTLRBooksLicenseTypesDownload   = @"DOWNLOAD";
+NSString * const kGTLRBooksLicenseTypesBoth                  = @"BOTH";
+NSString * const kGTLRBooksLicenseTypesConcurrent            = @"CONCURRENT";
+NSString * const kGTLRBooksLicenseTypesDownload              = @"DOWNLOAD";
+NSString * const kGTLRBooksLicenseTypesLicenseTypesUndefined = @"LICENSE_TYPES_UNDEFINED";
 
 // maxAllowedMaturityRating
-NSString * const kGTLRBooksMaxAllowedMaturityRatingMature    = @"mature";
-NSString * const kGTLRBooksMaxAllowedMaturityRatingNotMature = @"not-mature";
+NSString * const kGTLRBooksMaxAllowedMaturityRatingMature      = @"MATURE";
+NSString * const kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined = @"MAX_ALLOWED_MATURITY_RATING_UNDEFINED";
+NSString * const kGTLRBooksMaxAllowedMaturityRatingNotMature   = @"not-mature";
 
 // orderBy
-NSString * const kGTLRBooksOrderByNewest    = @"newest";
-NSString * const kGTLRBooksOrderByRelevance = @"relevance";
+NSString * const kGTLRBooksOrderByNewest           = @"newest";
+NSString * const kGTLRBooksOrderByOrderByUndefined = @"ORDER_BY_UNDEFINED";
+NSString * const kGTLRBooksOrderByRelevance        = @"relevance";
 
 // printType
-NSString * const kGTLRBooksPrintTypeAll       = @"all";
-NSString * const kGTLRBooksPrintTypeBooks     = @"books";
-NSString * const kGTLRBooksPrintTypeMagazines = @"magazines";
+NSString * const kGTLRBooksPrintTypeAll                = @"ALL";
+NSString * const kGTLRBooksPrintTypeBooks              = @"BOOKS";
+NSString * const kGTLRBooksPrintTypeMagazines          = @"MAGAZINES";
+NSString * const kGTLRBooksPrintTypePrintTypeUndefined = @"PRINT_TYPE_UNDEFINED";
 
 // processingState
-NSString * const kGTLRBooksProcessingStateCompletedFailed  = @"COMPLETED_FAILED";
-NSString * const kGTLRBooksProcessingStateCompletedSuccess = @"COMPLETED_SUCCESS";
-NSString * const kGTLRBooksProcessingStateRunning          = @"RUNNING";
+NSString * const kGTLRBooksProcessingStateCompletedFailed      = @"COMPLETED_FAILED";
+NSString * const kGTLRBooksProcessingStateCompletedSuccess     = @"COMPLETED_SUCCESS";
+NSString * const kGTLRBooksProcessingStateProcessingStateUndefined = @"PROCESSING_STATE_UNDEFINED";
+NSString * const kGTLRBooksProcessingStateRunning              = @"RUNNING";
 
 // projection
-NSString * const kGTLRBooksProjectionFull = @"full";
-NSString * const kGTLRBooksProjectionLite = @"lite";
+NSString * const kGTLRBooksProjectionFull                = @"FULL";
+NSString * const kGTLRBooksProjectionLite                = @"LITE";
+NSString * const kGTLRBooksProjectionProjectionUndefined = @"PROJECTION_UNDEFINED";
 
 // rating
-NSString * const kGTLRBooksRatingHaveIt        = @"HAVE_IT";
-NSString * const kGTLRBooksRatingNotInterested = @"NOT_INTERESTED";
+NSString * const kGTLRBooksRatingHaveIt          = @"HAVE_IT";
+NSString * const kGTLRBooksRatingNotInterested   = @"NOT_INTERESTED";
+NSString * const kGTLRBooksRatingRatingUndefined = @"RATING_UNDEFINED";
 
 // reason
-NSString * const kGTLRBooksReasonIosPrex    = @"IOS_PREX";
-NSString * const kGTLRBooksReasonIosSearch  = @"IOS_SEARCH";
-NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
+NSString * const kGTLRBooksReasonIosPrex         = @"IOS_PREX";
+NSString * const kGTLRBooksReasonIosSearch       = @"IOS_SEARCH";
+NSString * const kGTLRBooksReasonOnboarding      = @"ONBOARDING";
+NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -110,14 +125,14 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   NSArray *pathParams = @[
     @"shelf", @"userId"
   ];
-  NSString *pathURITemplate = @"users/{userId}/bookshelves/{shelf}";
+  NSString *pathURITemplate = @"books/v1/users/{userId}/bookshelves/{shelf}";
   GTLRBooksQuery_BookshelvesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.userId = userId;
   query.shelf = shelf;
-  query.expectedObjectClass = [GTLRBooks_Bookshelf class];
+  query.expectedObjectClass = [GTLRBooks_Helf class];
   query.loggingName = @"books.bookshelves.get";
   return query;
 }
@@ -130,13 +145,13 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"users/{userId}/bookshelves";
+  NSString *pathURITemplate = @"books/v1/users/{userId}/bookshelves";
   GTLRBooksQuery_BookshelvesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.userId = userId;
-  query.expectedObjectClass = [GTLRBooks_Bookshelves class];
+  query.expectedObjectClass = [GTLRBooks_Helves class];
   query.loggingName = @"books.bookshelves.list";
   return query;
 }
@@ -152,7 +167,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   NSArray *pathParams = @[
     @"shelf", @"userId"
   ];
-  NSString *pathURITemplate = @"users/{userId}/bookshelves/{shelf}/volumes";
+  NSString *pathURITemplate = @"books/v1/users/{userId}/bookshelves/{shelf}/volumes";
   GTLRBooksQuery_BookshelvesVolumesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -180,7 +195,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 }
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"cloudloading/addBook";
+  NSString *pathURITemplate = @"books/v1/cloudloading/addBook";
   GTLRBooksQuery_CloudloadingAddBook *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -196,13 +211,13 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic volumeId;
 
-+ (instancetype)queryWithVolumeId:(NSString *)volumeId {
-  NSString *pathURITemplate = @"cloudloading/deleteBook";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/cloudloading/deleteBook";
   GTLRBooksQuery_CloudloadingDeleteBook *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.volumeId = volumeId;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.cloudloading.deleteBook";
   return query;
 }
@@ -218,7 +233,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"cloudloading/updateBook";
+  NSString *pathURITemplate = @"books/v1/cloudloading/updateBook";
   GTLRBooksQuery_CloudloadingUpdateBook *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -235,13 +250,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic cpksver;
 
-+ (instancetype)queryWithCpksver:(NSString *)cpksver {
-  NSString *pathURITemplate = @"dictionary/listOfflineMetadata";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/dictionary/listOfflineMetadata";
   GTLRBooksQuery_DictionaryListOfflineMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.cpksver = cpksver;
   query.expectedObjectClass = [GTLRBooks_Metadata class];
   query.loggingName = @"books.dictionary.listOfflineMetadata";
   return query;
@@ -254,7 +268,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic source;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"familysharing/getFamilyInfo";
+  NSString *pathURITemplate = @"books/v1/familysharing/getFamilyInfo";
   GTLRBooksQuery_FamilysharingGetFamilyInfo *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -271,11 +285,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic docId, source, volumeId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"familysharing/share";
+  NSString *pathURITemplate = @"books/v1/familysharing/share";
   GTLRBooksQuery_FamilysharingShare *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.familysharing.share";
   return query;
 }
@@ -287,11 +302,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic docId, source, volumeId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"familysharing/unshare";
+  NSString *pathURITemplate = @"books/v1/familysharing/unshare";
   GTLRBooksQuery_FamilysharingUnshare *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.familysharing.unshare";
   return query;
 }
@@ -305,12 +321,11 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                           layerId:(NSString *)layerId
-                 annotationDataId:(NSString *)annotationDataId
-                   contentVersion:(NSString *)contentVersion {
+                 annotationDataId:(NSString *)annotationDataId {
   NSArray *pathParams = @[
     @"annotationDataId", @"layerId", @"volumeId"
   ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/layers/{layerId}/data/{annotationDataId}";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/layers/{layerId}/data/{annotationDataId}";
   GTLRBooksQuery_LayersAnnotationDataGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -318,8 +333,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   query.volumeId = volumeId;
   query.layerId = layerId;
   query.annotationDataId = annotationDataId;
-  query.contentVersion = contentVersion;
-  query.expectedObjectClass = [GTLRBooks_Annotationdata class];
+  query.expectedObjectClass = [GTLRBooks_DictionaryAnnotationdata class];
   query.loggingName = @"books.layers.annotationData.get";
   return query;
 }
@@ -339,19 +353,17 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 }
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
-                          layerId:(NSString *)layerId
-                   contentVersion:(NSString *)contentVersion {
+                          layerId:(NSString *)layerId {
   NSArray *pathParams = @[
     @"layerId", @"volumeId"
   ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/layers/{layerId}/data";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/layers/{layerId}/data";
   GTLRBooksQuery_LayersAnnotationDataList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.volumeId = volumeId;
   query.layerId = layerId;
-  query.contentVersion = contentVersion;
   query.expectedObjectClass = [GTLRBooks_Annotationsdata class];
   query.loggingName = @"books.layers.annotationData.list";
   return query;
@@ -368,7 +380,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   NSArray *pathParams = @[
     @"summaryId", @"volumeId"
   ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/layersummary/{summaryId}";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/layersummary/{summaryId}";
   GTLRBooksQuery_LayersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -388,7 +400,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"volumeId" ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/layersummary";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/layersummary";
   GTLRBooksQuery_LayersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -411,7 +423,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   NSArray *pathParams = @[
     @"annotationId", @"layerId", @"volumeId"
   ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/layers/{layerId}/annotations/{annotationId}";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/layers/{layerId}/annotations/{annotationId}";
   GTLRBooksQuery_LayersVolumeAnnotationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -433,19 +445,17 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
          updatedMin, volumeAnnotationsVersion, volumeId;
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
-                          layerId:(NSString *)layerId
-                   contentVersion:(NSString *)contentVersion {
+                          layerId:(NSString *)layerId {
   NSArray *pathParams = @[
     @"layerId", @"volumeId"
   ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/layers/{layerId}";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/layers/{layerId}";
   GTLRBooksQuery_LayersVolumeAnnotationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.volumeId = volumeId;
   query.layerId = layerId;
-  query.contentVersion = contentVersion;
   query.expectedObjectClass = [GTLRBooks_Volumeannotations class];
   query.loggingName = @"books.layers.volumeAnnotations.list";
   return query;
@@ -455,8 +465,10 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @implementation GTLRBooksQuery_MyconfigGetUserSettings
 
+@dynamic country;
+
 + (instancetype)query {
-  NSString *pathURITemplate = @"myconfig/getUserSettings";
+  NSString *pathURITemplate = @"books/v1/myconfig/getUserSettings";
   GTLRBooksQuery_MyconfigGetUserSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -479,15 +491,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   return map;
 }
 
-+ (instancetype)queryWithVolumeIds:(NSArray<NSString *> *)volumeIds
-                           cpksver:(NSString *)cpksver {
-  NSString *pathURITemplate = @"myconfig/releaseDownloadAccess";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/myconfig/releaseDownloadAccess";
   GTLRBooksQuery_MyconfigReleaseDownloadAccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.volumeIds = volumeIds;
-  query.cpksver = cpksver;
   query.expectedObjectClass = [GTLRBooks_DownloadAccesses class];
   query.loggingName = @"books.myconfig.releaseDownloadAccess";
   return query;
@@ -499,20 +508,13 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic cpksver, licenseTypes, locale, nonce, source, volumeId;
 
-+ (instancetype)queryWithSource:(NSString *)source
-                       volumeId:(NSString *)volumeId
-                          nonce:(NSString *)nonce
-                        cpksver:(NSString *)cpksver {
-  NSString *pathURITemplate = @"myconfig/requestAccess";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/myconfig/requestAccess";
   GTLRBooksQuery_MyconfigRequestAccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.source = source;
-  query.volumeId = volumeId;
-  query.nonce = nonce;
-  query.cpksver = cpksver;
-  query.expectedObjectClass = [GTLRBooks_RequestAccess class];
+  query.expectedObjectClass = [GTLRBooks_RequestAccessData class];
   query.loggingName = @"books.myconfig.requestAccess";
   return query;
 }
@@ -532,17 +534,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   return map;
 }
 
-+ (instancetype)queryWithSource:(NSString *)source
-                          nonce:(NSString *)nonce
-                        cpksver:(NSString *)cpksver {
-  NSString *pathURITemplate = @"myconfig/syncVolumeLicenses";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/myconfig/syncVolumeLicenses";
   GTLRBooksQuery_MyconfigSyncVolumeLicenses *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.source = source;
-  query.nonce = nonce;
-  query.cpksver = cpksver;
   query.expectedObjectClass = [GTLRBooks_Volumes class];
   query.loggingName = @"books.myconfig.syncVolumeLicenses";
   return query;
@@ -559,7 +556,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"myconfig/updateUserSettings";
+  NSString *pathURITemplate = @"books/v1/myconfig/updateUserSettings";
   GTLRBooksQuery_MyconfigUpdateUserSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -578,12 +575,13 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithAnnotationId:(NSString *)annotationId {
   NSArray *pathParams = @[ @"annotationId" ];
-  NSString *pathURITemplate = @"mylibrary/annotations/{annotationId}";
+  NSString *pathURITemplate = @"books/v1/mylibrary/annotations/{annotationId}";
   GTLRBooksQuery_MylibraryAnnotationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.annotationId = annotationId;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.annotations.delete";
   return query;
 }
@@ -601,7 +599,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"mylibrary/annotations";
+  NSString *pathURITemplate = @"books/v1/mylibrary/annotations";
   GTLRBooksQuery_MylibraryAnnotationsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -627,7 +625,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 }
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"mylibrary/annotations";
+  NSString *pathURITemplate = @"books/v1/mylibrary/annotations";
   GTLRBooksQuery_MylibraryAnnotationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -650,15 +648,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   return map;
 }
 
-+ (instancetype)queryWithLayerIds:(NSArray<NSString *> *)layerIds
-                         volumeId:(NSString *)volumeId {
-  NSString *pathURITemplate = @"mylibrary/annotations/summary";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/mylibrary/annotations/summary";
   GTLRBooksQuery_MylibraryAnnotationsSummary *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.layerIds = layerIds;
-  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_AnnotationsSummary class];
   query.loggingName = @"books.mylibrary.annotations.summary";
   return query;
@@ -679,7 +674,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
     return nil;
   }
   NSArray *pathParams = @[ @"annotationId" ];
-  NSString *pathURITemplate = @"mylibrary/annotations/{annotationId}";
+  NSString *pathURITemplate = @"books/v1/mylibrary/annotations/{annotationId}";
   GTLRBooksQuery_MylibraryAnnotationsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -697,16 +692,15 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic reason, shelf, source, volumeId;
 
-+ (instancetype)queryWithShelf:(NSString *)shelf
-                      volumeId:(NSString *)volumeId {
++ (instancetype)queryWithShelf:(NSString *)shelf {
   NSArray *pathParams = @[ @"shelf" ];
-  NSString *pathURITemplate = @"mylibrary/bookshelves/{shelf}/addVolume";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/addVolume";
   GTLRBooksQuery_MylibraryBookshelvesAddVolume *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
-  query.volumeId = volumeId;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.addVolume";
   return query;
 }
@@ -719,12 +713,13 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithShelf:(NSString *)shelf {
   NSArray *pathParams = @[ @"shelf" ];
-  NSString *pathURITemplate = @"mylibrary/bookshelves/{shelf}/clearVolumes";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/clearVolumes";
   GTLRBooksQuery_MylibraryBookshelvesClearVolumes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.clearVolumes";
   return query;
 }
@@ -737,13 +732,13 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithShelf:(NSString *)shelf {
   NSArray *pathParams = @[ @"shelf" ];
-  NSString *pathURITemplate = @"mylibrary/bookshelves/{shelf}";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}";
   GTLRBooksQuery_MylibraryBookshelvesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.shelf = shelf;
-  query.expectedObjectClass = [GTLRBooks_Bookshelf class];
+  query.expectedObjectClass = [GTLRBooks_Helf class];
   query.loggingName = @"books.mylibrary.bookshelves.get";
   return query;
 }
@@ -755,12 +750,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic source;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"mylibrary/bookshelves";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves";
   GTLRBooksQuery_MylibraryBookshelvesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRBooks_Bookshelves class];
+  query.expectedObjectClass = [GTLRBooks_Helves class];
   query.loggingName = @"books.mylibrary.bookshelves.list";
   return query;
 }
@@ -771,18 +766,15 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic shelf, source, volumeId, volumePosition;
 
-+ (instancetype)queryWithShelf:(NSString *)shelf
-                      volumeId:(NSString *)volumeId
-                volumePosition:(NSInteger)volumePosition {
++ (instancetype)queryWithShelf:(NSString *)shelf {
   NSArray *pathParams = @[ @"shelf" ];
-  NSString *pathURITemplate = @"mylibrary/bookshelves/{shelf}/moveVolume";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/moveVolume";
   GTLRBooksQuery_MylibraryBookshelvesMoveVolume *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
-  query.volumeId = volumeId;
-  query.volumePosition = volumePosition;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.moveVolume";
   return query;
 }
@@ -793,16 +785,15 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic reason, shelf, source, volumeId;
 
-+ (instancetype)queryWithShelf:(NSString *)shelf
-                      volumeId:(NSString *)volumeId {
++ (instancetype)queryWithShelf:(NSString *)shelf {
   NSArray *pathParams = @[ @"shelf" ];
-  NSString *pathURITemplate = @"mylibrary/bookshelves/{shelf}/removeVolume";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/removeVolume";
   GTLRBooksQuery_MylibraryBookshelvesRemoveVolume *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
-  query.volumeId = volumeId;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.removeVolume";
   return query;
 }
@@ -816,7 +807,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithShelf:(NSString *)shelf {
   NSArray *pathParams = @[ @"shelf" ];
-  NSString *pathURITemplate = @"mylibrary/bookshelves/{shelf}/volumes";
+  NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/volumes";
   GTLRBooksQuery_MylibraryBookshelvesVolumesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -835,7 +826,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"volumeId" ];
-  NSString *pathURITemplate = @"mylibrary/readingpositions/{volumeId}";
+  NSString *pathURITemplate = @"books/v1/mylibrary/readingpositions/{volumeId}";
   GTLRBooksQuery_MylibraryReadingpositionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -853,18 +844,15 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic action, contentVersion, deviceCookie, position, source, timestamp,
          volumeId;
 
-+ (instancetype)queryWithVolumeId:(NSString *)volumeId
-                        timestamp:(NSString *)timestamp
-                         position:(NSString *)position {
++ (instancetype)queryWithVolumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"volumeId" ];
-  NSString *pathURITemplate = @"mylibrary/readingpositions/{volumeId}/setPosition";
+  NSString *pathURITemplate = @"books/v1/mylibrary/readingpositions/{volumeId}/setPosition";
   GTLRBooksQuery_MylibraryReadingpositionsSetPosition *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.volumeId = volumeId;
-  query.timestamp = timestamp;
-  query.position = position;
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.readingpositions.setPosition";
   return query;
 }
@@ -879,13 +867,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   return @{ @"notificationId" : @"notification_id" };
 }
 
-+ (instancetype)queryWithNotificationId:(NSString *)notificationId {
-  NSString *pathURITemplate = @"notification/get";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/notification/get";
   GTLRBooksQuery_NotificationGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.notificationId = notificationId;
   query.expectedObjectClass = [GTLRBooks_Notification class];
   query.loggingName = @"books.notification.get";
   return query;
@@ -898,7 +885,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic locale;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"onboarding/listCategories";
+  NSString *pathURITemplate = @"books/v1/onboarding/listCategories";
   GTLRBooksQuery_OnboardingListCategories *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -922,7 +909,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 }
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"onboarding/listCategoryVolumes";
+  NSString *pathURITemplate = @"books/v1/onboarding/listCategoryVolumes";
   GTLRBooksQuery_OnboardingListCategoryVolumes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -939,7 +926,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic locale, maxAllowedMaturityRating, source;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"personalizedstream/get";
+  NSString *pathURITemplate = @"books/v1/personalizedstream/get";
   GTLRBooksQuery_PersonalizedstreamGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -957,11 +944,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
          volumeId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"promooffer/accept";
+  NSString *pathURITemplate = @"books/v1/promooffer/accept";
   GTLRBooksQuery_PromoofferAccept *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.promooffer.accept";
   return query;
 }
@@ -973,11 +961,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic androidId, device, manufacturer, model, offerId, product, serial;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"promooffer/dismiss";
+  NSString *pathURITemplate = @"books/v1/promooffer/dismiss";
   GTLRBooksQuery_PromoofferDismiss *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.promooffer.dismiss";
   return query;
 }
@@ -989,7 +978,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic androidId, device, manufacturer, model, product, serial;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"promooffer/get";
+  NSString *pathURITemplate = @"books/v1/promooffer/get";
   GTLRBooksQuery_PromoofferGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1016,13 +1005,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   return map;
 }
 
-+ (instancetype)queryWithSeriesId:(NSArray<NSString *> *)seriesId {
-  NSString *pathURITemplate = @"series/get";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/series/get";
   GTLRBooksQuery_SeriesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.seriesId = seriesId;
   query.expectedObjectClass = [GTLRBooks_Series class];
   query.loggingName = @"books.series.get";
   return query;
@@ -1043,13 +1031,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
   return map;
 }
 
-+ (instancetype)queryWithSeriesId:(NSString *)seriesId {
-  NSString *pathURITemplate = @"series/membership/get";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/series/membership/get";
   GTLRBooksQuery_SeriesMembershipGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.seriesId = seriesId;
   query.expectedObjectClass = [GTLRBooks_Seriesmembership class];
   query.loggingName = @"books.series.membership.get";
   return query;
@@ -1063,7 +1050,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"volumeId" ];
-  NSString *pathURITemplate = @"volumes/{volumeId}/associated";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}/associated";
   GTLRBooksQuery_VolumesAssociatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1087,7 +1074,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"volumeId" ];
-  NSString *pathURITemplate = @"volumes/{volumeId}";
+  NSString *pathURITemplate = @"books/v1/volumes/{volumeId}";
   GTLRBooksQuery_VolumesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1106,13 +1093,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
          maxAllowedMaturityRating, maxResults, orderBy, partner, printType,
          projection, q, showPreorders, source, startIndex;
 
-+ (instancetype)queryWithQ:(NSString *)q {
-  NSString *pathURITemplate = @"volumes";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/volumes";
   GTLRBooksQuery_VolumesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.q = q;
   query.expectedObjectClass = [GTLRBooks_Volumes class];
   query.loggingName = @"books.volumes.list";
   return query;
@@ -1134,7 +1120,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 }
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"volumes/mybooks";
+  NSString *pathURITemplate = @"books/v1/volumes/mybooks";
   GTLRBooksQuery_VolumesMybooksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1151,7 +1137,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 @dynamic locale, maxAllowedMaturityRating, source;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"volumes/recommended";
+  NSString *pathURITemplate = @"books/v1/volumes/recommended";
   GTLRBooksQuery_VolumesRecommendedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1167,15 +1153,12 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 
 @dynamic locale, rating, source, volumeId;
 
-+ (instancetype)queryWithRating:(NSString *)rating
-                       volumeId:(NSString *)volumeId {
-  NSString *pathURITemplate = @"volumes/recommended/rate";
++ (instancetype)query {
+  NSString *pathURITemplate = @"books/v1/volumes/recommended/rate";
   GTLRBooksQuery_VolumesRecommendedRate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.rating = rating;
-  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_VolumesRecommendedRateResponse class];
   query.loggingName = @"books.volumes.recommended.rate";
   return query;
@@ -1196,7 +1179,7 @@ NSString * const kGTLRBooksReasonOnboarding = @"ONBOARDING";
 }
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"volumes/useruploaded";
+  NSString *pathURITemplate = @"books/v1/volumes/useruploaded";
   GTLRBooksQuery_VolumesUseruploadedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

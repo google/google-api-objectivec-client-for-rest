@@ -1143,6 +1143,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns a requested node.
+ *
+ *  Method: sasportal.nodes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesGet : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesGetWithname:]
+
+/** Required. The name of the node. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Node.
+ *
+ *  Returns a requested node.
+ *
+ *  @param name Required. The name of the node.
+ *
+ *  @return GTLRSASPortalQuery_NodesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new node.
  *
  *  Method: sasportal.nodes.nodes.create

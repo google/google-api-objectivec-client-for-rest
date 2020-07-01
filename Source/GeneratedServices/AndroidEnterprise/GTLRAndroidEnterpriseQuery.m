@@ -4,7 +4,7 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
@@ -16,12 +16,12 @@
 // Constants
 
 // keyType
-NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"googleCredentials";
-NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"pkcs12";
+NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"GOOGLE_CREDENTIALS";
+NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"PKCS12";
 
 // requestMode
-NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately = @"returnImmediately";
-NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitForNotifications";
+NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately = @"RETURN_IMMEDIATELY";
+NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"WAIT_FOR_NOTIFICATIONS";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -43,7 +43,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/forceReportUpload";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/forceReportUpload";
   GTLRAndroidEnterpriseQuery_DevicesForceReportUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -67,7 +67,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}";
   GTLRAndroidEnterpriseQuery_DevicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -92,7 +92,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/state";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/state";
   GTLRAndroidEnterpriseQuery_DevicesGetState *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -116,7 +116,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices";
   GTLRAndroidEnterpriseQuery_DevicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -147,7 +147,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/state";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/state";
   GTLRAndroidEnterpriseQuery_DevicesSetState *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -180,7 +180,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}";
   GTLRAndroidEnterpriseQuery_DevicesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -201,7 +201,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 @dynamic notificationSetId;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"enterprises/acknowledgeNotificationSet";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/acknowledgeNotificationSet";
   GTLRAndroidEnterpriseQuery_EnterprisesAcknowledgeNotificationSet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -217,7 +217,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 @dynamic completionToken, enterpriseToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"enterprises/completeSignup";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/completeSignup";
   GTLRAndroidEnterpriseQuery_EnterprisesCompleteSignup *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -242,7 +242,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/createWebToken";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/createWebToken";
   GTLRAndroidEnterpriseQuery_EnterprisesCreateWebToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -268,7 +268,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"enterprises/enroll";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/enroll";
   GTLRAndroidEnterpriseQuery_EnterprisesEnroll *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -287,7 +287,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 @dynamic callbackUrl;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"enterprises/signupUrl";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/signupUrl";
   GTLRAndroidEnterpriseQuery_EnterprisesGenerateSignupUrl *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -305,7 +305,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}";
   GTLRAndroidEnterpriseQuery_EnterprisesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -324,7 +324,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/serviceAccount";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/serviceAccount";
   GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -343,7 +343,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout";
   GTLRAndroidEnterpriseQuery_EnterprisesGetStoreLayout *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -361,7 +361,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 @dynamic domain;
 
 + (instancetype)queryWithDomain:(NSString *)domain {
-  NSString *pathURITemplate = @"enterprises";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises";
   GTLRAndroidEnterpriseQuery_EnterprisesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -379,7 +379,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 @dynamic requestMode;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"enterprises/pullNotificationSet";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/pullNotificationSet";
   GTLRAndroidEnterpriseQuery_EnterprisesPullNotificationSet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -397,7 +397,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/sendTestPushNotification";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/sendTestPushNotification";
   GTLRAndroidEnterpriseQuery_EnterprisesSendTestPushNotification *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -423,7 +423,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/account";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/account";
   GTLRAndroidEnterpriseQuery_EnterprisesSetAccount *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -450,7 +450,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout";
   GTLRAndroidEnterpriseQuery_EnterprisesSetStoreLayout *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -470,7 +470,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/unenroll";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/unenroll";
   GTLRAndroidEnterpriseQuery_EnterprisesUnenroll *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -492,7 +492,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"entitlementId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}";
   GTLRAndroidEnterpriseQuery_EntitlementsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -516,7 +516,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"entitlementId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}";
   GTLRAndroidEnterpriseQuery_EntitlementsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -540,7 +540,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/entitlements";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements";
   GTLRAndroidEnterpriseQuery_EntitlementsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -571,7 +571,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"entitlementId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/entitlements/{entitlementId}";
   GTLRAndroidEnterpriseQuery_EntitlementsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -596,7 +596,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"groupLicenseId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/groupLicenses/{groupLicenseId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/groupLicenses/{groupLicenseId}";
   GTLRAndroidEnterpriseQuery_GrouplicensesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -616,7 +616,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/groupLicenses";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/groupLicenses";
   GTLRAndroidEnterpriseQuery_GrouplicensesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -638,7 +638,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"enterpriseId", @"groupLicenseId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/groupLicenses/{groupLicenseId}/users";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/groupLicenses/{groupLicenseId}/users";
   GTLRAndroidEnterpriseQuery_GrouplicenseusersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -663,7 +663,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"installId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}";
   GTLRAndroidEnterpriseQuery_InstallsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -689,7 +689,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"installId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}";
   GTLRAndroidEnterpriseQuery_InstallsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -715,7 +715,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs";
   GTLRAndroidEnterpriseQuery_InstallsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -748,7 +748,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"installId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/installs/{installId}";
   GTLRAndroidEnterpriseQuery_InstallsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -776,7 +776,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -802,7 +802,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -828,7 +828,7 @@ NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitF
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -861,7 +861,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"deviceId", @"enterpriseId", @"managedConfigurationForDeviceId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/devices/{deviceId}/managedConfigurationsForDevice/{managedConfigurationForDeviceId}";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -888,7 +888,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"managedConfigurationForUserId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -912,7 +912,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"managedConfigurationForUserId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -936,7 +936,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -967,7 +967,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"managedConfigurationForUserId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/managedConfigurationsForUser/{managedConfigurationForUserId}";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -992,7 +992,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/managedConfigurationsSettings";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/managedConfigurationsSettings";
   GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1012,7 +1012,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 
 + (instancetype)queryWithPermissionId:(NSString *)permissionId {
   NSArray *pathParams = @[ @"permissionId" ];
-  NSString *pathURITemplate = @"permissions/{permissionId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/permissions/{permissionId}";
   GTLRAndroidEnterpriseQuery_PermissionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1041,7 +1041,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/approve";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/approve";
   GTLRAndroidEnterpriseQuery_ProductsApprove *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1064,7 +1064,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/generateApprovalUrl";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/generateApprovalUrl";
   GTLRAndroidEnterpriseQuery_ProductsGenerateApprovalUrl *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1087,7 +1087,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}";
   GTLRAndroidEnterpriseQuery_ProductsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1110,7 +1110,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/appRestrictionsSchema";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/appRestrictionsSchema";
   GTLRAndroidEnterpriseQuery_ProductsGetAppRestrictionsSchema *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1133,7 +1133,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/permissions";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/permissions";
   GTLRAndroidEnterpriseQuery_ProductsGetPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1153,7 +1153,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products";
   GTLRAndroidEnterpriseQuery_ProductsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1175,7 +1175,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"productId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/products/{productId}/unapprove";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/products/{productId}/unapprove";
   GTLRAndroidEnterpriseQuery_ProductsUnapprove *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1197,7 +1197,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"keyId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/serviceAccountKeys/{keyId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/serviceAccountKeys/{keyId}";
   GTLRAndroidEnterpriseQuery_ServiceaccountkeysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1223,7 +1223,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/serviceAccountKeys";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/serviceAccountKeys";
   GTLRAndroidEnterpriseQuery_ServiceaccountkeysInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1243,7 +1243,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/serviceAccountKeys";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/serviceAccountKeys";
   GTLRAndroidEnterpriseQuery_ServiceaccountkeysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1266,7 +1266,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"clusterId", @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}";
   GTLRAndroidEnterpriseQuery_StorelayoutclustersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1290,7 +1290,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"clusterId", @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}";
   GTLRAndroidEnterpriseQuery_StorelayoutclustersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1321,7 +1321,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters";
   GTLRAndroidEnterpriseQuery_StorelayoutclustersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1345,7 +1345,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters";
   GTLRAndroidEnterpriseQuery_StorelayoutclustersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1376,7 +1376,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"clusterId", @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}/clusters/{clusterId}";
   GTLRAndroidEnterpriseQuery_StorelayoutclustersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1401,7 +1401,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}";
   GTLRAndroidEnterpriseQuery_StorelayoutpagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1423,7 +1423,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}";
   GTLRAndroidEnterpriseQuery_StorelayoutpagesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1450,7 +1450,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages";
   GTLRAndroidEnterpriseQuery_StorelayoutpagesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1470,7 +1470,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages";
   GTLRAndroidEnterpriseQuery_StorelayoutpagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1499,7 +1499,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"pageId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/storeLayout/pages/{pageId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/storeLayout/pages/{pageId}";
   GTLRAndroidEnterpriseQuery_StorelayoutpagesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1523,7 +1523,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}";
   GTLRAndroidEnterpriseQuery_UsersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1545,7 +1545,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/authenticationToken";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/authenticationToken";
   GTLRAndroidEnterpriseQuery_UsersGenerateAuthenticationToken *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1554,29 +1554,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   query.userId = userId;
   query.expectedObjectClass = [GTLRAndroidEnterprise_AuthenticationToken class];
   query.loggingName = @"androidenterprise.users.generateAuthenticationToken";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidEnterpriseQuery_UsersGenerateToken
-
-@dynamic enterpriseId, userId;
-
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
-                               userId:(NSString *)userId {
-  NSArray *pathParams = @[
-    @"enterpriseId", @"userId"
-  ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/token";
-  GTLRAndroidEnterpriseQuery_UsersGenerateToken *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.enterpriseId = enterpriseId;
-  query.userId = userId;
-  query.expectedObjectClass = [GTLRAndroidEnterprise_UserToken class];
-  query.loggingName = @"androidenterprise.users.generateToken";
   return query;
 }
 
@@ -1591,7 +1568,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}";
   GTLRAndroidEnterpriseQuery_UsersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1614,7 +1591,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/availableProductSet";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/availableProductSet";
   GTLRAndroidEnterpriseQuery_UsersGetAvailableProductSet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1641,7 +1618,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users";
   GTLRAndroidEnterpriseQuery_UsersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1662,7 +1639,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
                                 email:(NSString *)email {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users";
   GTLRAndroidEnterpriseQuery_UsersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1685,7 +1662,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/deviceAccess";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/deviceAccess";
   GTLRAndroidEnterpriseQuery_UsersRevokeDeviceAccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1693,28 +1670,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   query.enterpriseId = enterpriseId;
   query.userId = userId;
   query.loggingName = @"androidenterprise.users.revokeDeviceAccess";
-  return query;
-}
-
-@end
-
-@implementation GTLRAndroidEnterpriseQuery_UsersRevokeToken
-
-@dynamic enterpriseId, userId;
-
-+ (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId
-                               userId:(NSString *)userId {
-  NSArray *pathParams = @[
-    @"enterpriseId", @"userId"
-  ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/token";
-  GTLRAndroidEnterpriseQuery_UsersRevokeToken *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.enterpriseId = enterpriseId;
-  query.userId = userId;
-  query.loggingName = @"androidenterprise.users.revokeToken";
   return query;
 }
 
@@ -1736,7 +1691,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}/availableProductSet";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}/availableProductSet";
   GTLRAndroidEnterpriseQuery_UsersSetAvailableProductSet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1767,7 +1722,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"userId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/users/{userId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/users/{userId}";
   GTLRAndroidEnterpriseQuery_UsersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1791,7 +1746,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"webAppId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/webApps/{webAppId}";
   GTLRAndroidEnterpriseQuery_WebappsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1813,7 +1768,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"webAppId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/webApps/{webAppId}";
   GTLRAndroidEnterpriseQuery_WebappsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1840,7 +1795,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
     return nil;
   }
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/webApps";
   GTLRAndroidEnterpriseQuery_WebappsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1860,7 +1815,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
 
 + (instancetype)queryWithEnterpriseId:(NSString *)enterpriseId {
   NSArray *pathParams = @[ @"enterpriseId" ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/webApps";
   GTLRAndroidEnterpriseQuery_WebappsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1889,7 +1844,7 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId {
   NSArray *pathParams = @[
     @"enterpriseId", @"webAppId"
   ];
-  NSString *pathURITemplate = @"enterprises/{enterpriseId}/webApps/{webAppId}";
+  NSString *pathURITemplate = @"androidenterprise/v1/enterprises/{enterpriseId}/webApps/{webAppId}";
   GTLRAndroidEnterpriseQuery_WebappsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

@@ -34,6 +34,7 @@
 @class GTLRDirectory_ChromeOsDevice_DeviceFiles_Item;
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item;
+@class GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item;
 @class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
 @class GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
@@ -587,6 +588,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Date and time the device was last enrolled (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastEnrollmentTime;
 
+/** Contains last used network (Read-only) */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item *> *lastKnownNetwork;
+
 /**
  *  Date and time the device was last synchronized with the policy settings in
  *  the G Suite administrator control panel (Read-only)
@@ -732,6 +736,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Disk volumes */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item *> *volumeInfo;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item : GTLRObject
+
+/** The IP address */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** The WAN IP address */
+@property(nonatomic, copy, nullable) NSString *wanIpAddress;
 
 @end
 

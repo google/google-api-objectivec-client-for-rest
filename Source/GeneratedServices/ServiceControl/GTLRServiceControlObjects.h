@@ -58,6 +58,7 @@
 @class GTLRServiceControl_MetricValueSet;
 @class GTLRServiceControl_Money;
 @class GTLRServiceControl_Operation;
+@class GTLRServiceControl_Operation_Extensions_Item;
 @class GTLRServiceControl_Operation_Labels;
 @class GTLRServiceControl_Operation_UserLabels;
 @class GTLRServiceControl_Peer;
@@ -1038,10 +1039,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKi
  *  the audience (`aud`) claim within a JWT. The audience
  *  value(s) depends on the `issuer`, but typically include one or more of
  *  the following pieces of information:
- *  * The services intended to receive the credential such as
- *  ["pubsub.googleapis.com", "storage.googleapis.com"]
+ *  * The services intended to receive the credential. For example,
+ *  ["https://pubsub.googleapis.com/", "https://storage.googleapis.com/"].
  *  * A set of service-based scopes. For example,
- *  ["https://www.googleapis.com/auth/cloud-platform"]
+ *  ["https://www.googleapis.com/auth/cloud-platform"].
  *  * The client id of an app, such as the Firebase project id for JWTs
  *  from Firebase Auth.
  *  Consult the documentation for the credential issuer to determine the
@@ -2222,6 +2223,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKi
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
+/** Unimplemented. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_Operation_Extensions_Item *> *extensions;
+
 /**
  *  DO NOT USE. This is an experimental field.
  *
@@ -2323,6 +2327,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKi
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Operation_UserLabels *userLabels;
 
+@end
+
+
+/**
+ *  GTLRServiceControl_Operation_Extensions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_Operation_Extensions_Item : GTLRObject
 @end
 
 

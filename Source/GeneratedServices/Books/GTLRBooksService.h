@@ -4,9 +4,9 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   The Google Books API allows clients to access the Google Books repository.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://code.google.com/apis/books/docs/v1/getting_started.html
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -44,7 +44,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBooks;
 /**
  *  Service for executing Books API queries.
  *
- *  Searches for books and manages your Google Books library.
+ *  The Google Books API allows clients to access the Google Books repository.
  */
 @interface GTLRBooksService : GTLRService
 

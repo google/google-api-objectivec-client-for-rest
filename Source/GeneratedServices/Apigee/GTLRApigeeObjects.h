@@ -48,6 +48,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Credential;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReportMetric;
+@class GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig;
 @class GTLRApigee_GoogleCloudApigeeV1DebugMask;
 @class GTLRApigee_GoogleCloudApigeeV1DebugMask_Namespaces;
 @class GTLRApigee_GoogleCloudApigeeV1Deployment;
@@ -131,6 +132,46 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionC
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig.type
+
+/**
+ *  For boolean values.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Boolean;
+/**
+ *  For datetime values.
+ *
+ *  Value: "DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Datetime;
+/**
+ *  For float values.
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Float;
+/**
+ *  For integer values.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Integer;
+/**
+ *  For string values.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_String;
+/**
+ *  For future compatibility.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
 
 /** Value: "DELETE" */
@@ -139,6 +180,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetad
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Insert;
 /** Value: "OPERATION_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_OperationTypeUnspecified;
+/** Value: "UPDATE" */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.state
@@ -847,42 +890,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1AsyncQuery : GTLRObject
 
-/** Creation time of the query */
+/** Creation time of the query. */
 @property(nonatomic, copy, nullable) NSString *created;
 
-/** Error is set when query fails */
+/** Error is set when query fails. */
 @property(nonatomic, copy, nullable) NSString *error;
 
-/** ExecutionTime is available only after the query is completed */
+/** ExecutionTime is available only after the query is completed. */
 @property(nonatomic, copy, nullable) NSString *executionTime;
 
 /** Asynchronous Query Name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Contains information like metrics, dimenstions etc
- *  of the AsyncQuery
- */
+/** Contains information like metrics, dimenstions etc of the AsyncQuery. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1QueryMetadata *queryParams;
 
 /** Asynchronous Report ID. */
 @property(nonatomic, copy, nullable) NSString *reportDefinitionId;
 
-/** Result is available only after the query is completed */
+/** Result is available only after the query is completed. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult *result;
 
-/** ResultFileSize is available only after the query is completed */
+/** ResultFileSize is available only after the query is completed. */
 @property(nonatomic, copy, nullable) NSString *resultFileSize;
 
 /**
- *  ResultRows is available only after the query is completed
+ *  ResultRows is available only after the query is completed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resultRows;
 
 /**
- *  Self link of the query
+ *  Self link of the query.
  *  Example:
  *  `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd`
  *
@@ -890,13 +930,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *selfProperty;
 
-/**
- *  Query state could be "enqueued", "running", "completed",
- *  "failed"
- */
+/** Query state could be "enqueued", "running", "completed", "failed". */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Last updated timestamp for the query */
+/** Last updated timestamp for the query. */
 @property(nonatomic, copy, nullable) NSString *updated;
 
 @end
@@ -911,7 +948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *expires;
 
 /**
- *  Self link of the query results
+ *  Self link of the query results.
  *  Example:
  *  `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd/result`
  *
@@ -1219,6 +1256,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  A DataCollector and its configuration.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig : GTLRObject
+
+/**
+ *  The name of the data collector. Must be of the form
+ *  'organizations/{org}/datacollectors/{dc}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The data type this DataCollector accepts.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Boolean
+ *        For boolean values. (Value: "BOOLEAN")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Datetime
+ *        For datetime values. (Value: "DATETIME")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Float For
+ *        float values. (Value: "FLOAT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_Integer
+ *        For integer values. (Value: "INTEGER")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_String For
+ *        string values. (Value: "STRING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollectorConfig_Type_TypeUnspecified
+ *        For future compatibility. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1DebugMask
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DebugMask : GTLRObject
@@ -1424,6 +1494,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The uid of the proxy revision. */
+@property(nonatomic, copy, nullable) NSString *proxyUid;
+
+/**
+ *  A unique id that will only change if the deployment is deleted and
+ *  recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
 @end
 
 
@@ -1595,6 +1674,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  List of API products for which the credential can be used.
+ *  **Note**: Do not specify the list of API products when creating a consumer
+ *  key and secret for a developer app. Instead, use the
+ *  UpdateDeveloperAppKey API to
+ *  make the association after the consumer key and secret are created.
  *
  *  Can be any valid JSON type.
  */
@@ -1636,14 +1719,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  This message type encapsulates a metric grouped by dimension
+ *  This message type encapsulates a metric grouped by dimension.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DimensionMetric : GTLRObject
 
-/** This field contains a list of metrics */
+/** This field contains a list of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Metric *> *metrics;
 
-/** This field contains the name of the dimension */
+/** This field contains the name of the dimension. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1727,6 +1810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** The time at which this environment config was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The list of Data Collectors used by deployments in the environment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig *> *dataCollectors;
+
 /** Debug mask that applies to all deployments in the environment. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DebugMask *debugMask;
 
@@ -1765,10 +1851,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ResourceConfig *> *resources;
 
 /**
- *  A sequence number that defines an ordering on environment configs. No two
- *  configs under an environment will ever have the same sequence number.
- *  A higher sequence number means that the config was deployed more
- *  recently than one with a lower sequence number.
+ *  Revision id that defines the ordering on the environment config.
+ *  The higher the revision, the more recently the configuration
+ *  was deployed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revisionId;
+
+/**
+ *  DEPRECATED: use revision_id
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1779,6 +1871,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  not included.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1TargetServerConfig *> *targets;
+
+/**
+ *  A unique id for the environment config that will only change if the
+ *  environment is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -1849,7 +1947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  The name of the flow hook. Must be of the form
- *  'organizations/{org}/environments/{env}/flowhooks/{point}''.
+ *  'organizations/{org}/environments/{env}/flowhooks/{point}'.
  *  Known points are PreProxyFlowHook, PostProxyFlowHook, PreTargetFlowHook,
  *  and PostTargetFlowHook
  */
@@ -1974,13 +2072,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  The response for ListAsyncQueries
+ *  The response for ListAsyncQueries.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListAsyncQueriesResponse : GTLRObject
 
-/**
- *  The asynchronous queries belong to requested organization and environment
- */
+/** The asynchronous queries belong to requested resource name. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1AsyncQuery *> *queries;
 
 @end
@@ -2102,11 +2198,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  This message type encapsulates additional information about query execution
+ *  This message type encapsulates additional information about query execution.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Metadata : GTLRObject
 
-/** List of error messages as strings */
+/** List of error messages as strings. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
 
 /**
@@ -2126,8 +2222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  This message type encapsulates the metric data point
- *  Example
+ *  This message type encapsulates the metric data point.
+ *  Example:
  *  {
  *  "name": "sum(message_count)",
  *  "values" : [ {
@@ -2147,12 +2243,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Metric : GTLRObject
 
-/** This field contains the metric name */
+/** This field contains the metric name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of metric values
- *  Possible value format
+ *  List of metric values.
+ *  Possible value format:
  *  "values":["39.0"] or
  *  "values":[ { "value": "39.0", "timestamp": 1232434354} ]
  *
@@ -2178,6 +2274,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        Value "INSERT"
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_OperationTypeUnspecified
  *        Value "OPERATION_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Update
+ *        Value "UPDATE"
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
@@ -2263,7 +2361,37 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode
+ *  This message type encapsulates a data node as represented below:
+ *  {
+ *  "identifier": {
+ *  "names": [
+ *  "apiproxy"
+ *  ],
+ *  "values": [
+ *  "sirjee"
+ *  ]
+ *  },
+ *  "metric": [
+ *  {
+ *  "env": "prod",
+ *  "name": "sum(message_count)",
+ *  "values": [
+ *  36.0
+ *  ]
+ *  }
+ *  ]
+ *  }
+ *  OR
+ *  {
+ *  "env": "prod",
+ *  "name": "sum(message_count)",
+ *  "values": [
+ *  36.0
+ *  ]
+ *  }
+ *  Depending on whether a dimension is present in the query or not
+ *  the data node type can be a simple metric value or dimension identifier
+ *  with list of metrics.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode : GTLRObject
 
@@ -2278,7 +2406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  This message type encapsulates a response format for Js Optimized Scenario
+ *  This message type encapsulates a response format for Js Optimized Scenario.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OptimizedStatsResponse : GTLRObject
 
@@ -2293,7 +2421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *resultTruncated;
 
-/** This field contains a stats results */
+/** This field contains a stats results. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode *stats;
 
 /**
@@ -2357,6 +2485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** The project ID associated with the Apigee organization. */
+@property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Properties defined in the Apigee organization profile. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Properties *properties;
@@ -2578,7 +2709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *csvDelimiter;
 
 /**
- *  A list of dimensions
+ *  A list of dimensions.
  *  https://docs.apigee.com/api-platform/analytics/analytics-reference#dimensions
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
@@ -2614,7 +2745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
-/** A list of Metrics */
+/** A list of Metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1QueryMetric *> *metrics;
 
 /** Asynchronous Query Name. */
@@ -2692,14 +2823,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
-/** Aggregation function: avg, min, max, or sum */
+/** Aggregation function: avg, min, max, or sum. */
 @property(nonatomic, copy, nullable) NSString *function;
 
-/** Required. Metric name */
+/** Required. Metric name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  One of `+`, `-`, `/`, `%`, `*`
+ *  One of `+`, `-`, `/`, `%`, `*`.
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
@@ -3048,6 +3179,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
 
+/**
+ *  Description of the shared flow revision.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 /** The human readable name of this shared flow. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3102,20 +3240,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  This message type encapsulates a stats response
+ *  This message type encapsulates a stats response.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Stats : GTLRObject
 
+/** This field contains a list of query results on environment level. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1StatsEnvironmentStats *> *environments;
 
-/** This field contains the metadata information */
+/** This field contains the metadata information. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Metadata *metaData;
 
 @end
 
 
 /**
- *  This message type encapsulates the environment wrapper
+ *  This message type encapsulates the environment wrapper:
  *  "environments": [
  *  {
  *  "metrics": [
@@ -3132,7 +3271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1StatsEnvironmentStats : GTLRObject
 
-/** This field contains the list of metrics grouped under dimensions */
+/** This field contains the list of metrics grouped under dimensions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DimensionMetric *> *dimensions;
 
 /**
@@ -3174,7 +3313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  "name": "prod"
  *  }
  *  ]
- *  This field contains the list of metric values
+ *  This field contains the list of metric values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Metric *> *metrics;
 
@@ -3473,7 +3612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -3482,18 +3621,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -3536,7 +3675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }

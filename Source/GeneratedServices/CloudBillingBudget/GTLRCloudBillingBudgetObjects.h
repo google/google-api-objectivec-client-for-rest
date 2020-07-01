@@ -226,9 +226,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  Optional. A single label and value pair specifying that usage from only this
  *  set of
- *  labeled resources should be included in the budget. Multiple entries or
- *  multiple values per entry are not allowed. If omitted, the report will
- *  include all labeled and unlabeled usage.
+ *  labeled resources should be included in the budget. Currently, multiple
+ *  entries or multiple values per entry are not allowed. If omitted, the
+ *  report will include all labeled and unlabeled usage.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels *labels;
 
@@ -267,9 +267,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  Optional. A single label and value pair specifying that usage from only this
  *  set of
- *  labeled resources should be included in the budget. Multiple entries or
- *  multiple values per entry are not allowed. If omitted, the report will
- *  include all labeled and unlabeled usage.
+ *  labeled resources should be included in the budget. Currently, multiple
+ *  entries or multiple values per entry are not allowed. If omitted, the
+ *  report will include all labeled and unlabeled usage.
  *
  *  @note This class is documented as having more properties of NSArrays of any
  *        valid JSON type. Use @c -additionalJSONKeys and @c

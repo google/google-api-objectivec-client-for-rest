@@ -18,6 +18,7 @@
 // collection
 NSString * const kGTLRGamesCollectionAll        = @"all";
 NSString * const kGTLRGamesCollectionConnected  = @"connected";
+NSString * const kGTLRGamesCollectionFriends    = @"FRIENDS";
 NSString * const kGTLRGamesCollectionFriendsAll = @"friends_all";
 NSString * const kGTLRGamesCollectionPlayedWith = @"playedWith";
 NSString * const kGTLRGamesCollectionPublic     = @"PUBLIC";

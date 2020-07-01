@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Recommender API (recommender/v1beta1)
+//   Recommender API (recommender/v1)
 // Documentation:
 //   https://cloud.google.com/recommender/docs/
 

@@ -957,7 +957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 /**
  *  The resource name of the GCP `Project` to which Firebase resources can be
  *  added, in the format:
- *  <br><code>projects/<var>projectId</var></code>
+ *  <br><code>projects/<var>PROJECT_NUMBER</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1038,7 +1038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The fully qualified resource name of the `sha-key`, in the format:
- *  <br><code>projects/<var>projectId</var>/androidApps/<var>appId</var>/sha/<var>shaId</var></code>
+ *  <br><code>projects/<var>PROJECT_NUMBER</var>/androidApps/<var>APP_ID</var>/sha/<var>SHA_ID</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1157,11 +1157,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 /**
  *  The fully qualified resource name of the Firebase App associated with the
  *  Google Analytics data stream, in the format:
- *  <br><code>projects/<var>projectId</var>/androidApps/<var>appId</var></code>
+ *  <br><code>projects/<var>PROJECT_NUMBER</var>/androidApps/<var>APP_ID</var></code>
  *  or
- *  <code>projects/<var>projectId</var>/iosApps/<var>appId</var></code>
+ *  <code>projects/<var>PROJECT_NUMBER</var>/iosApps/<var>APP_ID</var></code>
  *  or
- *  <code>projects/<var>projectId</var>/webApps/<var>appId</var></code>
+ *  <code>projects/<var>PROJECT_NUMBER</var>/webApps/<var>APP_ID</var></code>
  */
 @property(nonatomic, copy, nullable) NSString *app;
 

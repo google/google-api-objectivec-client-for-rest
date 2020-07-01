@@ -8835,6 +8835,143 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionHealthCheckServicesDelete
+
+@dynamic healthCheckService, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+              healthCheckService:(NSString *)healthCheckService {
+  NSArray *pathParams = @[
+    @"healthCheckService", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices/{healthCheckService}";
+  GTLRComputeQuery_RegionHealthCheckServicesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.healthCheckService = healthCheckService;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionHealthCheckServices.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionHealthCheckServicesGet
+
+@dynamic healthCheckService, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+              healthCheckService:(NSString *)healthCheckService {
+  NSArray *pathParams = @[
+    @"healthCheckService", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices/{healthCheckService}";
+  GTLRComputeQuery_RegionHealthCheckServicesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.healthCheckService = healthCheckService;
+  query.expectedObjectClass = [GTLRCompute_HealthCheckService class];
+  query.loggingName = @"compute.regionHealthCheckServices.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionHealthCheckServicesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheckService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices";
+  GTLRComputeQuery_RegionHealthCheckServicesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionHealthCheckServices.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionHealthCheckServicesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices";
+  GTLRComputeQuery_RegionHealthCheckServicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_HealthCheckServicesList class];
+  query.loggingName = @"compute.regionHealthCheckServices.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionHealthCheckServicesPatch
+
+@dynamic healthCheckService, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_HealthCheckService *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+             healthCheckService:(NSString *)healthCheckService {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"healthCheckService", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices/{healthCheckService}";
+  GTLRComputeQuery_RegionHealthCheckServicesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.healthCheckService = healthCheckService;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionHealthCheckServices.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionHealthChecksGet
 
 @dynamic healthCheck, project, region;
@@ -9536,6 +9673,110 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instanceGroup = instanceGroup;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionInstanceGroups.setNamedPorts";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNotificationEndpointsDelete
+
+@dynamic notificationEndpoint, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            notificationEndpoint:(NSString *)notificationEndpoint {
+  NSArray *pathParams = @[
+    @"notificationEndpoint", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}";
+  GTLRComputeQuery_RegionNotificationEndpointsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.notificationEndpoint = notificationEndpoint;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNotificationEndpoints.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNotificationEndpointsGet
+
+@dynamic notificationEndpoint, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            notificationEndpoint:(NSString *)notificationEndpoint {
+  NSArray *pathParams = @[
+    @"notificationEndpoint", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}";
+  GTLRComputeQuery_RegionNotificationEndpointsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.notificationEndpoint = notificationEndpoint;
+  query.expectedObjectClass = [GTLRCompute_NotificationEndpoint class];
+  query.loggingName = @"compute.regionNotificationEndpoints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNotificationEndpointsInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_NotificationEndpoint *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints";
+  GTLRComputeQuery_RegionNotificationEndpointsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNotificationEndpoints.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNotificationEndpointsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints";
+  GTLRComputeQuery_RegionNotificationEndpointsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_NotificationEndpointList class];
+  query.loggingName = @"compute.regionNotificationEndpoints.list";
   return query;
 }
 

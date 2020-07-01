@@ -259,7 +259,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1NotificationMessage
-@dynamic finding, notificationConfigName;
+@dynamic finding, notificationConfigName, resource;
 @end
 
 
@@ -329,7 +329,17 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage
-@dynamic finding, notificationConfigName, temporalAsset;
+@dynamic finding, notificationConfigName, resource, temporalAsset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource
+@dynamic name, parent, parentDisplayName, project, projectDisplayName;
 @end
 
 
@@ -394,6 +404,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset
 @dynamic asset, changeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
+@dynamic name, parent, parentDisplayName, project, projectDisplayName;
 @end
 
 

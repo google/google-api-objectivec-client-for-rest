@@ -35,6 +35,7 @@
 @class GTLRPeopleService_EmailAddress;
 @class GTLRPeopleService_Event;
 @class GTLRPeopleService_FieldMetadata;
+@class GTLRPeopleService_FileAs;
 @class GTLRPeopleService_Gender;
 @class GTLRPeopleService_ImClient;
 @class GTLRPeopleService_Interest;
@@ -144,6 +145,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_Sys
  *  Value: "USER_CONTACT_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ContactGroup_GroupType_UserContactGroup;
+
+// ----------------------------------------------------------------------------
+// GTLRPeopleService_CopyOtherContactToMyContactsGroupRequest.sources
+
+/** Value: "READ_SOURCE_TYPE_CONTACT" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeContact;
+/** Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeDomainContact;
+/** Value: "READ_SOURCE_TYPE_PROFILE" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeProfile;
+/** Value: "READ_SOURCE_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Nickname.type
@@ -295,11 +308,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
 /**
+ *  [G Suite domain shared
+ *  contact](https://support.google.com/a/answer/9281635).
+ *
+ *  Value: "DOMAIN_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainContact;
+/**
  *  [G Suite domain profile](https://support.google.com/a/answer/1628008).
  *
  *  Value: "DOMAIN_PROFILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainProfile;
+/**
+ *  [Google "Other contact"](https://contacts.google.com/other).
+ *
+ *  Value: "OTHER_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_OtherContact;
 /**
  *  [Google profile](https://profiles.google.com). You can view the
  *  profile at
@@ -315,6 +341,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Profile;
  *  Value: "SOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPeopleService_UpdateContactPhotoRequest.sources
+
+/** Value: "READ_SOURCE_TYPE_CONTACT" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeContact;
+/** Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeDomainContact;
+/** Value: "READ_SOURCE_TYPE_PROFILE" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeProfile;
+/** Value: "READ_SOURCE_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSourceTypeUnspecified;
 
 /**
  *  A person's physical address. May be a P.O. box or street address. All fields
@@ -603,6 +641,69 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
 
 
 /**
+ *  A request to copy an "Other contact" to my contacts group.
+ */
+@interface GTLRPeopleService_CopyOtherContactToMyContactsGroupRequest : GTLRObject
+
+/**
+ *  Required. A field mask to restrict which fields are copied into the new
+ *  contact.
+ *  Valid values are:
+ *  * emailAddresses
+ *  * names
+ *  * phoneNumbers
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *copyMask NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Optional. A field mask to restrict which fields on the person are returned.
+ *  Multiple
+ *  fields can be specified by separating them with commas. Defaults to the
+ *  copy mask with metadata and membership fields if not set. Valid values are:
+ *  * addresses
+ *  * ageRanges
+ *  * biographies
+ *  * birthdays
+ *  * coverPhotos
+ *  * emailAddresses
+ *  * events
+ *  * genders
+ *  * imClients
+ *  * interests
+ *  * locales
+ *  * memberships
+ *  * metadata
+ *  * names
+ *  * nicknames
+ *  * occupations
+ *  * organizations
+ *  * phoneNumbers
+ *  * photos
+ *  * relations
+ *  * residences
+ *  * sipAddresses
+ *  * skills
+ *  * urls
+ *  * userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Optional. A mask of what source types to return. Defaults to
+ *  ReadSourceType.CONTACT and
+ *  ReadSourceType.PROFILE if not
+ *  set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
+
+@end
+
+
+/**
  *  A person's cover photo. A large image shown on the person's
  *  profile page that represents who they are or what they care about.
  */
@@ -813,6 +914,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
 
 
 /**
+ *  The name that should be used to sort the person in a list.
+ */
+@interface GTLRPeopleService_FileAs : GTLRObject
+
+/** Metadata about the file-as. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
+
+/** The file-as value */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A person's gender.
  */
 @interface GTLRPeopleService_Gender : GTLRObject
@@ -1009,6 +1124,76 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
 
 
 /**
+ *  The response to a request for the authenticated user's domain directory.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "people" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPeopleService_ListDirectoryPeopleResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A token, which can be sent as `sync_token` to retrieve changes since the
+ *  last request. Request must set `request_sync_token` to return the sync
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
+
+/**
+ *  The list of people in the domain directory.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Person *> *people;
+
+@end
+
+
+/**
+ *  The response to a request for the authenticated user's "Other contacts".
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "otherContacts" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPeopleService_ListOtherContactsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A token, which can be sent as `sync_token` to retrieve changes since the
+ *  last request. Request must set `request_sync_token` to return the sync
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *nextSyncToken;
+
+/**
+ *  The list of "Other contacts" returned as Person resources. "Other contacts"
+ *  support a limited subset of fields. See
+ *  ListOtherContactsRequest.request_mask for more detailed information.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Person *> *otherContacts;
+
+@end
+
+
+/**
  *  A person's locale preference.
  */
 @interface GTLRPeopleService_Locale : GTLRObject
@@ -1136,6 +1321,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
 
 /** The middle name(s) spelled as they sound. */
 @property(nonatomic, copy, nullable) NSString *phoneticMiddleName;
+
+/** The free form name value. */
+@property(nonatomic, copy, nullable) NSString *unstructuredName;
 
 @end
 
@@ -1318,6 +1506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
 
 /** The person's events. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Event *> *events;
+
+/** The person's file-ases. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_FileAs *> *fileAses;
 
 /** The person's genders. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Gender *> *genders;
@@ -1709,6 +1900,41 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
 
 
 /**
+ *  The response to a request for people in the authenticated user's domain
+ *  directory that match the specified query.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "people" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPeopleService_SearchDirectoryPeopleResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of people in the domain directory that match the query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Person *> *people;
+
+/**
+ *  The total number of items in the list without pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  A person's SIP address. Session Initial Protocol addresses are used for VoIP
  *  communications to make voice or video calls over the internet.
  */
@@ -1793,9 +2019,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
  *        contact at
  *        [https://contact.google.com/](https://contact.google.com/){id}, where
  *        {id} is the source id. (Value: "CONTACT")
+ *    @arg @c kGTLRPeopleService_Source_Type_DomainContact [G Suite domain
+ *        shared
+ *        contact](https://support.google.com/a/answer/9281635). (Value:
+ *        "DOMAIN_CONTACT")
  *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [G Suite domain
  *        profile](https://support.google.com/a/answer/1628008). (Value:
  *        "DOMAIN_PROFILE")
+ *    @arg @c kGTLRPeopleService_Source_Type_OtherContact [Google "Other
+ *        contact"](https://contacts.google.com/other). (Value: "OTHER_CONTACT")
  *    @arg @c kGTLRPeopleService_Source_Type_Profile [Google
  *        profile](https://profiles.google.com). You can view the
  *        profile at
@@ -1936,6 +2168,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_SourceTypeUnsp
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *photoBytes;
+
+/**
+ *  Optional. A mask of what source types to return. Defaults to
+ *  ReadSourceType.CONTACT and
+ *  ReadSourceType.PROFILE if not
+ *  set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
 @end
 

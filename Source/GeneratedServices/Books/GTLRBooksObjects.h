@@ -4,9 +4,9 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   The Google Books API allows clients to access the Google Books repository.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://code.google.com/apis/books/docs/v1/getting_started.html
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -24,12 +24,11 @@
 @class GTLRBooks_Annotation_ClientVersionRanges;
 @class GTLRBooks_Annotation_CurrentVersionRanges;
 @class GTLRBooks_Annotation_LayerSummary;
-@class GTLRBooks_Annotationdata;
 @class GTLRBooks_AnnotationsRange;
 @class GTLRBooks_AnnotationsSummary_Layers_Item;
-@class GTLRBooks_Bookshelf;
 @class GTLRBooks_Category_Items_Item;
 @class GTLRBooks_ConcurrentAccessRestriction;
+@class GTLRBooks_Dictlayerdata;
 @class GTLRBooks_Dictlayerdata_Common;
 @class GTLRBooks_Dictlayerdata_Dict;
 @class GTLRBooks_Dictlayerdata_Dict_Source;
@@ -51,12 +50,14 @@
 @class GTLRBooks_Discoveryclusters_Clusters_Item_BannerWithContentContainer;
 @class GTLRBooks_DownloadAccessRestriction;
 @class GTLRBooks_FamilyInfo_Membership;
+@class GTLRBooks_GeoAnnotationdata;
+@class GTLRBooks_Geolayerdata;
 @class GTLRBooks_Geolayerdata_Common;
 @class GTLRBooks_Geolayerdata_Geo;
-@class GTLRBooks_Geolayerdata_Geo_Boundary_Item;
 @class GTLRBooks_Geolayerdata_Geo_Viewport;
 @class GTLRBooks_Geolayerdata_Geo_Viewport_Hi;
 @class GTLRBooks_Geolayerdata_Geo_Viewport_Lo;
+@class GTLRBooks_Helf;
 @class GTLRBooks_Layersummary;
 @class GTLRBooks_Metadata_Items_Item;
 @class GTLRBooks_Offers_Items_Item;
@@ -67,7 +68,8 @@
 @class GTLRBooks_Review_Source;
 @class GTLRBooks_Series_Series_Item;
 @class GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo;
-@class GTLRBooks_SubscriptionReleaseInfo;
+@class GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_CurrentReleaseInfo;
+@class GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_NextReleaseInfo;
 @class GTLRBooks_Usersettings_NotesExport;
 @class GTLRBooks_Usersettings_Notification;
 @class GTLRBooks_Usersettings_Notification_MatchMyInterests;
@@ -100,6 +102,7 @@
 @class GTLRBooks_Volume_VolumeInfo_ImageLinks;
 @class GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item;
 @class GTLRBooks_Volume_VolumeInfo_PanelizationSummary;
+@class GTLRBooks_Volume_VolumeInfo_ReadingModes;
 @class GTLRBooks_Volumeannotation;
 @class GTLRBooks_Volumeannotation_ContentRanges;
 @class GTLRBooks_Volumeseriesinfo;
@@ -134,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRBooks_Annotation_ClientVersionRanges *clientVersionRanges;
 
 /** Timestamp for the created time of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *created;
+@property(nonatomic, copy, nullable) NSString *created;
 
 /** Selection ranges for the most recent content version. */
 @property(nonatomic, strong, nullable) GTLRBooks_Annotation_CurrentVersionRanges *currentVersionRanges;
@@ -177,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /** Timestamp for the last time this annotation was modified. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /** The volume that this annotation belongs to. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
@@ -237,7 +240,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Annotation_LayerSummary : GTLRObject
 
 /**
- *  Maximum allowed characters on this layer, especially for the "copy" layer.
+ *  Maximum allowed characters on this layer, especially for the "copy"
+ *  layer.
  *
  *  Uses NSNumber of intValue.
  */
@@ -250,62 +254,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *limitType;
 
 /**
- *  Remaining allowed characters on this layer, especially for the "copy" layer.
+ *  Remaining allowed characters on this layer, especially for the "copy"
+ *  layer.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *remainingCharacterCount;
-
-@end
-
-
-/**
- *  GTLRBooks_Annotationdata
- */
-@interface GTLRBooks_Annotationdata : GTLRObject
-
-/** The type of annotation this data is for. */
-@property(nonatomic, copy, nullable) NSString *annotationType;
-
-/**
- *  data
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) id data;
-
-/**
- *  Base64 encoded data for this annotation data.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *encodedData;
-
-/**
- *  Unique id for this annotation data.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Resource Type */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The Layer id for this data. * */
-@property(nonatomic, copy, nullable) NSString *layerId;
-
-/** URL for this resource. * */
-@property(nonatomic, copy, nullable) NSString *selfLink;
-
-/**
- *  Timestamp for the last time this data was updated. (RFC 3339 UTC date-time
- *  format).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
-
-/** The volume id for this data. * */
-@property(nonatomic, copy, nullable) NSString *volumeId;
 
 @end
 
@@ -364,7 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Annotationdata *> *items;
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_GeoAnnotationdata *> *items;
 
 /** Resource type */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -438,90 +392,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *remainingCharacterCount;
 
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
-
-@end
-
-
-/**
- *  GTLRBooks_Bookshelf
- */
-@interface GTLRBooks_Bookshelf : GTLRObject
-
-/** Whether this bookshelf is PUBLIC or PRIVATE. */
-@property(nonatomic, copy, nullable) NSString *access;
-
-/**
- *  Created time for this bookshelf (formatted UTC timestamp with millisecond
- *  resolution).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *created;
-
-/**
- *  Description of this bookshelf.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Id of this bookshelf, only unique by user.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/** Resource type for bookshelf metadata. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** URL to this resource. */
-@property(nonatomic, copy, nullable) NSString *selfLink;
-
-/** Title of this bookshelf. */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/**
- *  Last modified time of this bookshelf (formatted UTC timestamp with
- *  millisecond resolution).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
-
-/**
- *  Number of volumes in this bookshelf.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *volumeCount;
-
-/**
- *  Last time a volume was added or removed from this bookshelf (formatted UTC
- *  timestamp with millisecond resolution).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *volumesLastUpdated;
-
-@end
-
-
-/**
- *  GTLRBooks_Bookshelves
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRBooks_Bookshelves : GTLRCollectionObject
-
-/**
- *  A list of bookshelves.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Bookshelf *> *items;
-
-/** Resource type. */
-@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 @end
 
@@ -636,6 +507,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRBooks_DictionaryAnnotationdata
+ */
+@interface GTLRBooks_DictionaryAnnotationdata : GTLRObject
+
+/** The type of annotation this data is for. */
+@property(nonatomic, copy, nullable) NSString *annotationType;
+
+/**
+ *  JSON encoded data for this dictionary annotation data.
+ *  Emitted with name 'data' in JSON output. Either this or geo_data will
+ *  be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata *data;
+
+/**
+ *  Base64 encoded data for this annotation data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedData;
+
+/**
+ *  Unique id for this annotation data.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Resource Type */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The Layer id for this data. * */
+@property(nonatomic, copy, nullable) NSString *layerId;
+
+/** URL for this resource. * */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  Timestamp for the last time this data was updated. (RFC 3339 UTC date-time
+ *  format).
+ */
+@property(nonatomic, copy, nullable) NSString *updated;
+
+/** The volume id for this data. * */
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+@end
+
+
+/**
  *  GTLRBooks_Dictlayerdata
  */
 @interface GTLRBooks_Dictlayerdata : GTLRObject
@@ -695,8 +617,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBooks_Dictlayerdata_Dict_Words_Item_Senses_Item *> *senses;
 
 /**
- *  The words with different meanings but not related words, e.g. "go" (game)
- *  and "go" (verb).
+ *  The words with different meanings but not related words, e.g. "go"
+ *  (game) and "go" (verb).
  */
 @property(nonatomic, strong, nullable) GTLRBooks_Dictlayerdata_Dict_Words_Item_Source *source;
 
@@ -743,8 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The words with different meanings but not related words, e.g. "go" (game)
- *  and "go" (verb).
+ *  The words with different meanings but not related words, e.g. "go"
+ *  (game) and "go" (verb).
  */
 @interface GTLRBooks_Dictlayerdata_Dict_Words_Item_Source : GTLRObject
 
@@ -971,8 +893,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *nonce;
 
 /**
- *  Error/warning reason code. Additional codes may be added in the future. 0 OK
- *  100 ACCESS_DENIED_PUBLISHER_LIMIT 101 ACCESS_DENIED_LIMIT 200
+ *  Error/warning reason code. Additional codes may be added in the future. 0
+ *  OK 100 ACCESS_DENIED_PUBLISHER_LIMIT 101 ACCESS_DENIED_LIMIT 200
  *  WARNING_USED_LAST_ACCESS
  */
 @property(nonatomic, copy, nullable) NSString *reasonCode;
@@ -996,6 +918,19 @@ NS_ASSUME_NONNULL_BEGIN
 /** Identifies the volume for which this entry applies. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
 
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance:
+ *  service Foo {
+ *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
+ *  }
+ *  The JSON representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRBooks_Empty : GTLRObject
 @end
 
 
@@ -1036,6 +971,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The role of the user in the family. */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  GTLRBooks_GeoAnnotationdata
+ */
+@interface GTLRBooks_GeoAnnotationdata : GTLRObject
+
+/** The type of annotation this data is for. */
+@property(nonatomic, copy, nullable) NSString *annotationType;
+
+/**
+ *  JSON encoded data for this geo annotation data.
+ *  Emitted with name 'data' in JSON output. Either this or dict_data will
+ *  be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRBooks_Geolayerdata *data;
+
+/**
+ *  Base64 encoded data for this annotation data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedData;
+
+/**
+ *  Unique id for this annotation data.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Resource Type */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The Layer id for this data. * */
+@property(nonatomic, copy, nullable) NSString *layerId;
+
+/** URL for this resource. * */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  Timestamp for the last time this data was updated. (RFC 3339 UTC date-time
+ *  format).
+ */
+@property(nonatomic, copy, nullable) NSString *updated;
+
+/** The volume id for this data. * */
+@property(nonatomic, copy, nullable) NSString *volumeId;
 
 @end
 
@@ -1084,13 +1070,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Geolayerdata_Geo : GTLRObject
 
 /**
- *  The boundary of the location as a set of loops containing pairs of latitude,
- *  longitude coordinates.
+ *  The boundary of the location as a set of loops containing pairs of
+ *  latitude, longitude coordinates.
  */
-@property(nonatomic, strong, nullable) NSArray<NSArray<GTLRBooks_Geolayerdata_Geo_Boundary_Item *> *> *boundary;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *boundary;
 
 /**
- *  The cache policy active for this data. EX: UNRESTRICTED, RESTRICTED, NEVER
+ *  The cache policy active for this data. EX: UNRESTRICTED, RESTRICTED,
+ *  NEVER
  */
 @property(nonatomic, copy, nullable) NSString *cachePolicy;
 
@@ -1112,8 +1099,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *longitude;
 
 /**
- *  The type of map that should be used for this location. EX: HYBRID, ROADMAP,
- *  SATELLITE, TERRAIN
+ *  The type of map that should be used for this location. EX: HYBRID,
+ *  ROADMAP, SATELLITE, TERRAIN
  */
 @property(nonatomic, copy, nullable) NSString *mapType;
 
@@ -1126,34 +1113,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The Zoom level to use for the map. Zoom levels between 0 (the lowest zoom
  *  level, in which the entire world can be seen on one map) to 21+ (down to
- *  individual buildings). See:
- *  https://developers.google.com/maps/documentation/staticmaps/#Zoomlevels
+ *  individual buildings). See: https:
+ *  //developers.google.com/maps/documentation/staticmaps/#Zoomlevels
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *zoom;
-
-@end
-
-
-/**
- *  GTLRBooks_Geolayerdata_Geo_Boundary_Item
- */
-@interface GTLRBooks_Geolayerdata_Geo_Boundary_Item : GTLRObject
-
-/**
- *  latitude
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *latitude;
-
-/**
- *  longitude
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 
@@ -1210,6 +1175,89 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
+ *  GTLRBooks_Helf
+ */
+@interface GTLRBooks_Helf : GTLRObject
+
+/** Whether this bookshelf is PUBLIC or PRIVATE. */
+@property(nonatomic, copy, nullable) NSString *access;
+
+/**
+ *  Created time for this bookshelf (formatted UTC timestamp with millisecond
+ *  resolution).
+ */
+@property(nonatomic, copy, nullable) NSString *created;
+
+/**
+ *  Description of this bookshelf.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Id of this bookshelf, only unique by user.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Resource type for bookshelf metadata. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** URL to this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** Title of this bookshelf. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Last modified time of this bookshelf (formatted UTC timestamp with
+ *  millisecond resolution).
+ */
+@property(nonatomic, copy, nullable) NSString *updated;
+
+/**
+ *  Number of volumes in this bookshelf.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *volumeCount;
+
+/**
+ *  Last time a volume was added or removed from this bookshelf (formatted UTC
+ *  timestamp with millisecond resolution).
+ */
+@property(nonatomic, copy, nullable) NSString *volumesLastUpdated;
+
+@end
+
+
+/**
+ *  GTLRBooks_Helves
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRBooks_Helves : GTLRCollectionObject
+
+/**
+ *  A list of bookshelves.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBooks_Helf *> *items;
+
+/** Resource type. */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1291,10 +1339,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  Timestamp for the last time an item in this layer was updated. (RFC 3339 UTC
- *  date-time format).
+ *  Timestamp for the last time an item in this layer was updated. (RFC 3339
+ *  UTC date-time format).
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /**
  *  The current version of this layer's volume annotations. Note that this
@@ -1516,7 +1564,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Timestamp when this reading position was last updated (formatted UTC
  *  timestamp with millisecond resolution).
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /** Volume id associated with this reading position. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
@@ -1525,9 +1573,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRBooks_RequestAccess
+ *  GTLRBooks_RequestAccessData
  */
-@interface GTLRBooks_RequestAccess : GTLRObject
+@interface GTLRBooks_RequestAccessData : GTLRObject
 
 /** A concurrent access response. */
 @property(nonatomic, strong, nullable) GTLRBooks_ConcurrentAccessRestriction *concurrentAccess;
@@ -1562,14 +1610,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Star rating for this review. Possible values are ONE, TWO, THREE, FOUR, FIVE
- *  or NOT_RATED.
+ *  Star rating for this review. Possible values are ONE, TWO, THREE, FOUR,
+ *  FIVE or NOT_RATED.
  */
 @property(nonatomic, copy, nullable) NSString *rating;
 
 /**
- *  Information regarding the source of this review, when the review is not from
- *  a Google Books user.
+ *  Information regarding the source of this review, when the review is not
+ *  from a Google Books user.
  */
 @property(nonatomic, strong, nullable) GTLRBooks_Review_Source *source;
 
@@ -1600,8 +1648,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Information regarding the source of this review, when the review is not from
- *  a Google Books user.
+ *  Information regarding the source of this review, when the review is not
+ *  from a Google Books user.
  */
 @interface GTLRBooks_Review_Source : GTLRObject
 
@@ -1672,21 +1720,48 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo : GTLRObject
 
-/**
- *  Cancellation date of the series subscription (or when it ends).
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancellationTimestampUs;
-
-/** Release information for the last release. */
-@property(nonatomic, strong, nullable) GTLRBooks_SubscriptionReleaseInfo *currentReleaseInfo;
-
-/** Release information for the next release. */
-@property(nonatomic, strong, nullable) GTLRBooks_SubscriptionReleaseInfo *nextReleaseInfo;
-
-/** series subscription type. */
+@property(nonatomic, copy, nullable) NSString *cancelTime;
+@property(nonatomic, strong, nullable) GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_CurrentReleaseInfo *currentReleaseInfo;
+@property(nonatomic, strong, nullable) GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_NextReleaseInfo *nextReleaseInfo;
 @property(nonatomic, copy, nullable) NSString *seriesSubscriptionType;
+
+@end
+
+
+/**
+ *  GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_CurrentReleaseInfo
+ */
+@interface GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_CurrentReleaseInfo : GTLRObject
+
+/**
+ *  amountInMicros
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amountInMicros;
+
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *releaseNumber;
+@property(nonatomic, copy, nullable) NSString *releaseTime;
+
+@end
+
+
+/**
+ *  GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_NextReleaseInfo
+ */
+@interface GTLRBooks_Series_Series_Item_SeriesSubscriptionReleaseInfo_NextReleaseInfo : GTLRObject
+
+/**
+ *  amountInMicros
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amountInMicros;
+
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+@property(nonatomic, copy, nullable) NSString *releaseNumber;
+@property(nonatomic, copy, nullable) NSString *releaseTime;
 
 @end
 
@@ -1713,34 +1788,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume *> *member;
 
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  GTLRBooks_SubscriptionReleaseInfo
- */
-@interface GTLRBooks_SubscriptionReleaseInfo : GTLRObject
-
-/**
- *  Amount in micros of the specified currency code.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *amountInMicros;
-
-/** Currency code of the amount. */
-@property(nonatomic, copy, nullable) NSString *currencyCode;
-
-/** The release number of this issue/volume/book. */
-@property(nonatomic, copy, nullable) NSString *releaseNumber;
-
-/**
- *  The release date.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *releaseTimestampUs;
 
 @end
 
@@ -1917,8 +1964,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *accessViewStatus;
 
 /**
- *  The two-letter ISO_3166-1 country code for which this access information is
- *  valid. (In LITE projection.)
+ *  The two-letter ISO_3166-1 country code for which this access information
+ *  is valid. (In LITE projection.)
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -1932,8 +1979,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *driveImportedContentLink;
 
 /**
- *  Whether this volume can be embedded in a viewport using the Embedded Viewer
- *  API.
+ *  Whether this volume can be embedded in a viewport using the Embedded
+ *  Viewer API.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1969,29 +2016,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *quoteSharingAllowed;
 
 /**
- *  Whether text-to-speech is permitted for this volume. Values can be ALLOWED,
- *  ALLOWED_FOR_ACCESSIBILITY, or NOT_ALLOWED.
+ *  Whether text-to-speech is permitted for this volume. Values can be
+ *  ALLOWED, ALLOWED_FOR_ACCESSIBILITY, or NOT_ALLOWED.
  */
 @property(nonatomic, copy, nullable) NSString *textToSpeechPermission;
 
 /**
  *  The read access of a volume. Possible values are PARTIAL, ALL_PAGES,
- *  NO_PAGES or UNKNOWN. This value depends on the country listed above. A value
- *  of PARTIAL means that the publisher has allowed some portion of the volume
- *  to be viewed publicly, without purchase. This can apply to eBooks as well as
- *  non-eBooks. Public domain books will always have a value of ALL_PAGES.
+ *  NO_PAGES or UNKNOWN. This value depends on the country listed above. A
+ *  value of PARTIAL means that the publisher has allowed some portion of the
+ *  volume to be viewed publicly, without purchase. This can apply to eBooks
+ *  as well as non-eBooks. Public domain books will always have a value of
+ *  ALL_PAGES.
  */
 @property(nonatomic, copy, nullable) NSString *viewability;
 
 /**
- *  For ordered but not yet processed orders, we give a URL that can be used to
- *  go to the appropriate Google Wallet page.
+ *  For ordered but not yet processed orders, we give a URL that can be used
+ *  to go to the appropriate Google Wallet page.
  */
 @property(nonatomic, copy, nullable) NSString *viewOrderUrl;
 
 /**
- *  URL to read this volume on the Google Books site. Link will not allow users
- *  to read non-viewable volumes.
+ *  URL to read this volume on the Google Books site. Link will not allow
+ *  users to read non-viewable volumes.
  */
 @property(nonatomic, copy, nullable) NSString *webReaderLink;
 
@@ -2031,7 +2079,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Volume_SaleInfo : GTLRObject
 
 /**
- *  URL to purchase this volume on the Google Books site. (In LITE projection)
+ *  URL to purchase this volume on the Google Books site. (In LITE
+ *  projection)
  */
 @property(nonatomic, copy, nullable) NSString *buyLink;
 
@@ -2056,7 +2105,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume_SaleInfo_Offers_Item *> *offers;
 
 /** The date on which this book is available for sale. */
-@property(nonatomic, strong, nullable) GTLRDateTime *onSaleDate;
+@property(nonatomic, copy, nullable) NSString *onSaleDate;
 
 /**
  *  The actual selling price of the book. This is the same as the suggested
@@ -2094,11 +2143,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Volume_UserInfo : GTLRObject
 
 /**
- *  Timestamp when this volume was acquired by the user. (RFC 3339 UTC date-time
- *  format) Acquiring includes purchase, user upload, receiving family sharing,
- *  etc.
+ *  Timestamp when this volume was acquired by the user. (RFC 3339 UTC
+ *  date-time format) Acquiring includes purchase, user upload, receiving
+ *  family sharing, etc.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *acquiredTime;
+@property(nonatomic, copy, nullable) NSString *acquiredTime;
 
 /**
  *  How this volume was acquired.
@@ -2160,8 +2209,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *isInMyBooks;
 
 /**
- *  Whether or not this volume was pre-ordered by the authenticated user making
- *  the request. (In LITE projection.)
+ *  Whether or not this volume was pre-ordered by the authenticated user
+ *  making the request. (In LITE projection.)
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2183,8 +2232,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *isUploaded;
 
 /**
- *  The user's current reading position in the volume, if one is available. (In
- *  LITE projection.)
+ *  The user's current reading position in the volume, if one is available.
+ *  (In LITE projection.)
  */
 @property(nonatomic, strong, nullable) GTLRBooks_ReadingPosition *readingPosition;
 
@@ -2199,10 +2248,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Timestamp when this volume was last modified by a user action, such as a
- *  reading position update, volume purchase or writing a review. (RFC 3339 UTC
- *  date-time format).
+ *  reading position update, volume purchase or writing a review. (RFC 3339
+ *  UTC date-time format).
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 @property(nonatomic, strong, nullable) GTLRBooks_Volume_UserInfo_UserUploadedVolumeInfo *userUploadedVolumeInfo;
 
@@ -2254,9 +2303,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *contentVersion;
 
 /**
- *  A synopsis of the volume. The text of the description is formatted in HTML
- *  and includes simple formatting elements, such as b, i, and br tags. (In LITE
- *  projection.)
+ *  A synopsis of the volume. The text of the description is formatted in
+ *  HTML and includes simple formatting elements, such as b, i, and br tags.
+ *  (In LITE projection.)
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2275,20 +2324,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRBooks_Volume_VolumeInfo_IndustryIdentifiers_Item *> *industryIdentifiers;
 
 /**
- *  URL to view information about this volume on the Google Books site. (In LITE
- *  projection)
+ *  URL to view information about this volume on the Google Books site. (In
+ *  LITE projection)
  */
 @property(nonatomic, copy, nullable) NSString *infoLink;
 
 /**
- *  Best language for this volume (based on content). It is the two-letter ISO
- *  639-1 code such as 'fr', 'en', etc.
+ *  Best language for this volume (based on content). It is the two-letter
+ *  ISO 639-1 code such as 'fr', 'en', etc.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The main category to which this volume belongs. It will be the category from
- *  the categories list returned below that has the highest weight.
+ *  The main category to which this volume belongs. It will be the category
+ *  from the categories list returned below that has the highest weight.
  */
 @property(nonatomic, copy, nullable) NSString *mainCategory;
 
@@ -2332,12 +2381,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *ratingsCount;
 
-/**
- *  The reading modes available for this volume.
- *
- *  Can be any valid JSON type.
- */
-@property(nonatomic, strong, nullable) id readingModes;
+/** The reading modes available for this volume. */
+@property(nonatomic, strong, nullable) GTLRBooks_Volume_VolumeInfo_ReadingModes *readingModes;
 
 /**
  *  Total number of sample pages as per publisher metadata.
@@ -2369,8 +2414,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *downloadLink;
 
 /**
- *  Is a flowing text epub available either as public domain or for purchase.
- *  (In LITE projection.)
+ *  Is a flowing text epub available either as public domain or for
+ *  purchase. (In LITE projection.)
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2391,8 +2436,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *downloadLink;
 
 /**
- *  Is a scanned image pdf available either as public domain or for purchase.
- *  (In LITE projection.)
+ *  Is a scanned image pdf available either as public domain or for
+ *  purchase. (In LITE projection.)
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2411,8 +2456,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The current version of this layer's volume annotations. Note that this
- *  version applies only to the data in the books.layers.volumeAnnotations.*
- *  responses. The actual annotation data is versioned separately.
+ *  version applies only to the data in the
+ *  books.layers.volumeAnnotations.* responses. The actual annotation data
+ *  is versioned separately.
  */
 @property(nonatomic, copy, nullable) NSString *volumeAnnotationsVersion;
 
@@ -2509,7 +2555,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *remainingCharacterCount;
 
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 @end
 
@@ -2523,17 +2569,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *familyRole;
 
 /**
- *  Whether or not this volume can be shared with the family by the user. This
- *  includes sharing eligibility of both the volume and the user. If the value
- *  is true, the user can initiate a family sharing action.
+ *  Whether or not this volume can be shared with the family by the user.
+ *  This includes sharing eligibility of both the volume and the user. If
+ *  the value is true, the user can initiate a family sharing action.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSharingAllowed;
 
 /**
- *  Whether or not sharing this volume is temporarily disabled due to issues
- *  with the Family Wallet.
+ *  Whether or not sharing this volume is temporarily disabled due to
+ *  issues with the Family Wallet.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2619,7 +2665,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *smallThumbnail;
 
 /**
- *  Image link for thumbnail size (width of ~128 pixels). (In LITE projection)
+ *  Image link for thumbnail size (width of ~128 pixels). (In LITE
+ *  projection)
  */
 @property(nonatomic, copy, nullable) NSString *thumbnail;
 
@@ -2666,6 +2713,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, copy, nullable) NSString *epubBubbleVersion;
 @property(nonatomic, copy, nullable) NSString *imageBubbleVersion;
+
+@end
+
+
+/**
+ *  The reading modes available for this volume.
+ */
+@interface GTLRBooks_Volume_VolumeInfo_ReadingModes : GTLRObject
+
+/**
+ *  image
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *image;
+
+/**
+ *  text
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *text;
 
 @end
 
@@ -2800,7 +2869,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Timestamp for the last time this anntoation was updated. (RFC 3339 UTC
  *  date-time format).
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *updated;
+@property(nonatomic, copy, nullable) NSString *updated;
 
 /** The Volume this annotation is for. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
@@ -2863,10 +2932,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *totalItems;
 
 /**
- *  The version string for all of the volume annotations in this layer (not just
- *  the ones in this response). Note: the version string doesn't apply to the
- *  annotation data, just the information in this response (e.g. the location of
- *  annotations in the book).
+ *  The version string for all of the volume annotations in this layer (not
+ *  just the ones in this response). Note: the version string
+ *  doesn't apply to the annotation data, just the information in this response
+ *  (e.g. the location of annotations in the book).
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -2909,8 +2978,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBooks_Volumeseriesinfo : GTLRObject
 
 /**
- *  The display number string. This should be used only for display purposes and
- *  the actual sequence should be inferred from the below orderNumber.
+ *  The display number string. This should be used only for display purposes
+ *  and the actual sequence should be inferred from the below orderNumber.
  */
 @property(nonatomic, copy, nullable) NSString *bookDisplayNumber;
 
@@ -2941,8 +3010,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *orderNumber;
 
 /**
- *  The book type in the context of series. Examples - Single Issue, Collection
- *  Edition, etc.
+ *  The book type in the context of series. Examples - Single Issue,
+ *  Collection Edition, etc.
  */
 @property(nonatomic, copy, nullable) NSString *seriesBookType;
 

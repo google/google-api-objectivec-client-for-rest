@@ -4,10 +4,10 @@
 // API:
 //   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
-//   Reports and modifies your advertising data in DoubleClick Search (for
-//   example, campaigns, ad groups, keywords, and conversions).
+//   The Search Ads 360 API allows developers to automate uploading conversions
+//   and downloading reports from Search Ads 360.
 // Documentation:
-//   https://developers.google.com/doubleclick-search/
+//   https://developers.google.com/search-ads
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -46,8 +46,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDoubleclicksearch;
 /**
  *  Service for executing Search Ads 360 API queries.
  *
- *  Reports and modifies your advertising data in DoubleClick Search (for
- *  example, campaigns, ad groups, keywords, and conversions).
+ *  The Search Ads 360 API allows developers to automate uploading conversions
+ *  and downloading reports from Search Ads 360.
  */
 @interface GTLRDoubleclicksearchService : GTLRService
 

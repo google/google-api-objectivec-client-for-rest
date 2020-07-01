@@ -152,7 +152,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricDecryptRequest
-@dynamic ciphertext;
+@dynamic ciphertext, ciphertextCrc32c;
 @end
 
 
@@ -162,7 +162,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricDecryptResponse
-@dynamic plaintext;
+@dynamic plaintext, plaintextCrc32c, verifiedCiphertextCrc32c;
 @end
 
 
@@ -172,7 +172,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricSignRequest
-@dynamic digest;
+@dynamic digest, digestCrc32c;
 @end
 
 
@@ -182,7 +182,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricSignResponse
-@dynamic signature;
+@dynamic name, signature, signatureCrc32c, verifiedDigestCrc32c;
 @end
 
 
@@ -293,7 +293,8 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_DecryptRequest
-@dynamic additionalAuthenticatedData, ciphertext;
+@dynamic additionalAuthenticatedData, additionalAuthenticatedDataCrc32c,
+         ciphertext, ciphertextCrc32c;
 @end
 
 
@@ -303,7 +304,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_DecryptResponse
-@dynamic plaintext;
+@dynamic plaintext, plaintextCrc32c;
 @end
 
 
@@ -332,7 +333,8 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_EncryptRequest
-@dynamic additionalAuthenticatedData, plaintext;
+@dynamic additionalAuthenticatedData, additionalAuthenticatedDataCrc32c,
+         plaintext, plaintextCrc32c;
 @end
 
 
@@ -342,7 +344,8 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_EncryptResponse
-@dynamic ciphertext, name;
+@dynamic ciphertext, ciphertextCrc32c, name,
+         verifiedAdditionalAuthenticatedDataCrc32c, verifiedPlaintextCrc32c;
 @end
 
 
@@ -599,7 +602,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_PublicKey
-@dynamic algorithm, pem;
+@dynamic algorithm, name, pem, pemCrc32c;
 @end
 
 

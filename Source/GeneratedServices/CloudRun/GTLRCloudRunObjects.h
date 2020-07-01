@@ -193,7 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -202,18 +202,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -256,7 +256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -917,6 +917,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  serve the application via this domain mapping.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_ResourceRecord *> *resourceRecords;
+
+/**
+ *  Cloud Run fully managed: not supported
+ *  Cloud Run on GKE: supported
+ *  Holds the URL that will serve the traffic of the DomainMapping.
+ *  +optional
+ */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -2320,9 +2328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
 /**
- *  TimeoutSeconds holds the max duration the instance is allowed for
- *  responding to a request.
- *  Not currently used by Cloud Run.
+ *  timeoutSeconds
  *
  *  Uses NSNumber of intValue.
  */

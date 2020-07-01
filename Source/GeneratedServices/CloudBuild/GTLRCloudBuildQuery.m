@@ -64,25 +64,6 @@
 
 @end
 
-@implementation GTLRCloudBuildQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudBuildQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudBuild_ListOperationsResponse class];
-  query.loggingName = @"cloudbuild.operations.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudBuildQuery_ProjectsBuildsCancel
 
 @dynamic identifier, projectId;
@@ -267,25 +248,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudBuild_Operation class];
   query.loggingName = @"cloudbuild.projects.locations.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudBuildQuery_ProjectsLocationsOperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/operations";
-  GTLRCloudBuildQuery_ProjectsLocationsOperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudBuild_ListOperationsResponse class];
-  query.loggingName = @"cloudbuild.projects.locations.operations.list";
   return query;
 }
 

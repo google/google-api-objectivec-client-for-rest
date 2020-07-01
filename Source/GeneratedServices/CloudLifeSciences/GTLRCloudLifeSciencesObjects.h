@@ -1450,6 +1450,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Disk *> *disks;
 
 /**
+ *  The Compute Engine Disk Images to use as a Docker cache. The disks will be
+ *  mounted into the Docker folder in a way that the images present in the
+ *  cache will not need to be pulled. The digests of the cached images must
+ *  match those of the tags used or the latest version will still be pulled.
+ *  Only a single image is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dockerCacheImages;
+
+/**
  *  Whether Stackdriver monitoring should be enabled on the VM.
  *
  *  Uses NSNumber of boolValue.

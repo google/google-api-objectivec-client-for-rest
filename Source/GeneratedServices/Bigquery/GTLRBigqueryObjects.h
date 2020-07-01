@@ -102,6 +102,7 @@
 @class GTLRBigquery_QueryParameterType_StructTypes_Item;
 @class GTLRBigquery_QueryParameterValue;
 @class GTLRBigquery_QueryParameterValue_StructValues;
+@class GTLRBigquery_QueryRequest_Labels;
 @class GTLRBigquery_QueryTimelineSample;
 @class GTLRBigquery_RangePartitioning;
 @class GTLRBigquery_RangePartitioning_Range;
@@ -327,6 +328,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspec
  *  Value: "TENSORFLOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Tensorflow;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_Routine.determinismLevel
+
+/**
+ *  The determinism of the UDF is unspecified.
+ *
+ *  Value: "DETERMINISM_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified;
+/**
+ *  The UDF is deterministic, meaning that 2 function calls with the same
+ *  inputs always produce the same result, even across 2 query runs.
+ *
+ *  Value: "DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DeterminismLevel_Deterministic;
+/**
+ *  The UDF is not deterministic.
+ *
+ *  Value: "NOT_DETERMINISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_DeterminismLevel_NotDeterministic;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Routine.language
@@ -880,7 +904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -889,18 +913,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -943,7 +967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -3435,8 +3459,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** Custom encryption configuration (e.g., Cloud KMS keys). */
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
 
+/**
+ *  [Optional] The time when the destination table expires. Expired tables will
+ *  be deleted and their storage reclaimed.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id destinationExpirationTime;
+
 /** [Required] The destination table */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *destinationTable;
+
+/** [Optional] Supported operation types in table copy job. */
+@property(nonatomic, copy, nullable) NSString *operationType;
 
 /** [Pick one] Source table to copy. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *sourceTable;
@@ -4657,10 +4692,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  The labels associated with this job. You can use these to organize and group
+ *  your jobs. Label keys and values can be no longer than 63 characters, can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter and each label in the list must have a different
+ *  key.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_QueryRequest_Labels *labels;
+
+/**
  *  The geographic location where the job should run. See details at
  *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  [Optional] Limits the bytes billed for this job. Queries that will have
+ *  bytes billed beyond this limit will fail (without incurring a charge). If
+ *  unspecified, this will be set to your project default.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumBytesBilled;
 
 /**
  *  [Optional] The maximum number of rows of data to return per page of results.
@@ -4697,6 +4751,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_QueryParameter *> *queryParameters;
 
 /**
+ *  A unique user provided identifier to ensure idempotent behavior for queries.
+ *  Note that this is different from the job_id. It has the following
+ *  properties: 1. It is case-sensitive, limited to up to 36 ASCII characters. A
+ *  UUID is recommended. 2. Read only queries can ignore this token since they
+ *  are nullipotent by definition. 3. For the purposes of idempotency ensured by
+ *  the request_id, a request is considered duplicate of another only if they
+ *  have the same request_id and are actually duplicates. When determining
+ *  whether a request is a duplicate of the previous request, all parameters in
+ *  the request that may affect the behavior are considered. For example, query,
+ *  connection_properties, query_parameters, use_legacy_sql are parameters that
+ *  affect the result and are considered when determining whether a request is a
+ *  duplicate, but properties like timeout_ms don't affect the result and are
+ *  thus not considered. Dry run query requests are never considered duplicate
+ *  of another request. 4. When a duplicate mutating query request is detected,
+ *  it returns: a. the results of the mutation if it completes successfully
+ *  within the timeout. b. the running operation if it is still in progress at
+ *  the end of the timeout. 5. Its lifetime is limited to 15 minutes. In other
+ *  words, if two requests are sent with the same request_id, but more than 15
+ *  minutes apart, idempotency is not guaranteed.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  [Optional] How long to wait for the query to complete, in milliseconds,
  *  before the request times out and returns. Note that this is only a timeout
  *  for the request, not the query. If the query takes longer to run than the
@@ -4729,6 +4806,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *useQueryCache;
 
+@end
+
+
+/**
+ *  The labels associated with this job. You can use these to organize and group
+ *  your jobs. Label keys and values can be no longer than 63 characters, can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter and each label in the list must have a different
+ *  key.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigquery_QueryRequest_Labels : GTLRObject
 @end
 
 
@@ -5036,6 +5130,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. [Experimental] The determinism level of the JavaScript UDF if
+ *  defined.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified
+ *        The determinism of the UDF is unspecified. (Value:
+ *        "DETERMINISM_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_Routine_DeterminismLevel_Deterministic The UDF is
+ *        deterministic, meaning that 2 function calls with the same
+ *        inputs always produce the same result, even across 2 query runs.
+ *        (Value: "DETERMINISTIC")
+ *    @arg @c kGTLRBigquery_Routine_DeterminismLevel_NotDeterministic The UDF is
+ *        not deterministic. (Value: "NOT_DETERMINISTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *determinismLevel;
 
 /** Output only. A hash of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -6316,6 +6427,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        Value "OPTIMIZATION_STRATEGY_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *optimizationStrategy;
+
+/**
+ *  Whether to preserve the input structs in output feature names.
+ *  Suppose there is a struct A with field b.
+ *  When false (default), the output feature name is A_b.
+ *  When true, the output feature name is A.b.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preserveInputStructs;
 
 /**
  *  Subsample fraction of the training data to grow tree to prevent

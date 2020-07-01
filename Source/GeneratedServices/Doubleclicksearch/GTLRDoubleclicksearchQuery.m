@@ -4,10 +4,10 @@
 // API:
 //   Search Ads 360 API (doubleclicksearch/v2)
 // Description:
-//   Reports and modifies your advertising data in DoubleClick Search (for
-//   example, campaigns, ad groups, keywords, and conversions).
+//   The Search Ads 360 API allows developers to automate uploading conversions
+//   and downloading reports from Search Ads 360.
 // Documentation:
-//   https://developers.google.com/doubleclick-search/
+//   https://developers.google.com/search-ads
 
 #import "GTLRDoubleclicksearchQuery.h"
 
@@ -34,7 +34,7 @@
   NSArray *pathParams = @[
     @"advertiserId", @"agencyId", @"engineAccountId"
   ];
-  NSString *pathURITemplate = @"agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion";
   GTLRDoubleclicksearchQuery_ConversionGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -62,7 +62,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"conversion";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/conversion";
   GTLRDoubleclicksearchQuery_ConversionInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -84,7 +84,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"conversion";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/conversion";
   GTLRDoubleclicksearchQuery_ConversionUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -106,7 +106,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"conversion/updateAvailability";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/conversion/updateAvailability";
   GTLRDoubleclicksearchQuery_ConversionUpdateAvailability *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -128,7 +128,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"reports/generate";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/reports/generate";
   GTLRDoubleclicksearchQuery_ReportsGenerate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -147,7 +147,7 @@
 
 + (instancetype)queryWithReportId:(NSString *)reportId {
   NSArray *pathParams = @[ @"reportId" ];
-  NSString *pathURITemplate = @"reports/{reportId}";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/reports/{reportId}";
   GTLRDoubleclicksearchQuery_ReportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -169,7 +169,7 @@
   NSArray *pathParams = @[
     @"reportFragment", @"reportId"
   ];
-  NSString *pathURITemplate = @"reports/{reportId}/files/{reportFragment}";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/reports/{reportId}/files/{reportFragment}";
   GTLRDoubleclicksearchQuery_ReportsGetFile *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -202,7 +202,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"reports";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/reports";
   GTLRDoubleclicksearchQuery_ReportsRequest *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -224,7 +224,7 @@
   NSArray *pathParams = @[
     @"advertiserId", @"agencyId"
   ];
-  NSString *pathURITemplate = @"agency/{agencyId}/advertiser/{advertiserId}/savedcolumns";
+  NSString *pathURITemplate = @"doubleclicksearch/v2/agency/{agencyId}/advertiser/{advertiserId}/savedcolumns";
   GTLRDoubleclicksearchQuery_SavedColumnsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

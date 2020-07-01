@@ -242,10 +242,10 @@
          autoUpdateExpiration, bootMode, cpuStatusReports, deviceFiles,
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
          ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
-         lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
-         orgUnitPath, osVersion, platformVersion, recentUsers, serialNumber,
-         status, supportEndDate, systemRamFreeReports, systemRamTotal,
-         tpmVersionInfo, willAutoRenew;
+         lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
+         notes, orderNumber, orgUnitPath, osVersion, platformVersion,
+         recentUsers, serialNumber, status, supportEndDate,
+         systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -257,6 +257,7 @@
     @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
+    @"lastKnownNetwork" : [GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item class],
     @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class],
     @"systemRamFreeReports" : [GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item class]
   };
@@ -320,6 +321,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item
+@dynamic ipAddress, wanIpAddress;
 @end
 
 

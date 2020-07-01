@@ -194,9 +194,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  a name containing the string "prod".
  *  *
  *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
- *  AND` <br/>
- *  `(metadata.name:howl) AND` <br/>
- *  `(metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\") AND` <br/>
+ *  AND` \\
+ *  `(metadata.name:howl) AND` \\
+ *  `(metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\") AND` \\
  *  `(error:*)` - Returns operations where:
  *  * The operation's metadata type is CreateBackupMetadata.
  *  * The backup name contains the string "howl".
@@ -1010,11 +1010,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  * `done:true` - The operation is complete.
  *  *
  *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.RestoreDatabaseMetadata)
- *  AND` <br/>
- *  `(metadata.source_type:BACKUP) AND` <br/>
- *  `(metadata.backup_info.backup:backup_howl) AND` <br/>
- *  `(metadata.name:restored_howl) AND` <br/>
- *  `(metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\") AND` <br/>
+ *  AND` \\
+ *  `(metadata.source_type:BACKUP) AND` \\
+ *  `(metadata.backup_info.backup:backup_howl) AND` \\
+ *  `(metadata.name:restored_howl) AND` \\
+ *  `(metadata.progress.start_time < \\"2018-03-28T14:50:00Z\\") AND` \\
  *  `(error:*)` - Return operations where:
  *  * The operation's metadata type is RestoreDatabaseMetadata.
  *  * The database is restored from a backup.
@@ -1203,7 +1203,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetDdlWithdatabase:]
 
-/** Required. The database whose schema we wish to get. */
+/**
+ *  Required. The database whose schema we wish to get.
+ *  Values are of the form
+ *  `projects/<project>/instances/<instance>/databases/<database>`
+ */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
@@ -1214,6 +1218,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be queried using the Operations API.
  *
  *  @param database Required. The database whose schema we wish to get.
+ *    Values are of the form
+ *    `projects/<project>/instances/<instance>/databases/<database>`
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesGetDdl
  */

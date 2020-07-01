@@ -320,8 +320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  The AppEngineRouting used to construct the URL that the task is
  *  delivered to can be set at the queue-level or task-level:
  *  * If app_engine_routing_override is set on the
- *  queue, this value is used for all
- *  tasks in the queue, no matter what the setting is for the task-level
+ *  queue, this value
+ *  is used for all tasks in the queue, no matter what the setting is for the
+ *  task-level
  *  app_engine_routing.
  *  The `url` that the task will be sent to is:
  *  * `url =` host `+`
@@ -353,8 +354,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 /**
  *  Task-level setting for App Engine routing.
  *  * If app_engine_routing_override is set on the
- *  queue, this value is used for all
- *  tasks in the queue, no matter what the setting is for the task-level
+ *  queue, this
+ *  value is used for all tasks in the queue, no matter what the setting is
+ *  for the task-level
  *  app_engine_routing.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_AppEngineRouting *appEngineRouting;

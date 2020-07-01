@@ -4,9 +4,9 @@
 // API:
 //   Books API (books/v1)
 // Description:
-//   Searches for books and manages your Google Books library.
+//   The Google Books API allows clients to access the Google Books repository.
 // Documentation:
-//   https://developers.google.com/books/docs/v1/getting_started
+//   https://code.google.com/apis/books/docs/v1/getting_started.html
 
 #import "GTLRBooks.h"
 
@@ -26,48 +26,10 @@ NSString * const kGTLRAuthScopeBooks = @"https://www.googleapis.com/auth/books";
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"books/v1/";
     self.batchPath = @"batch/books/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"books#annotation" : [GTLRBooks_Annotation class],
-    @"books#annotationdata" : [GTLRBooks_Annotationdata class],
-    @"books#annotations" : [GTLRBooks_Annotations class],
-    @"books#annotationsdata" : [GTLRBooks_Annotationsdata class],
-    @"books#annotationsSummary" : [GTLRBooks_AnnotationsSummary class],
-    @"books#bookshelf" : [GTLRBooks_Bookshelf class],
-    @"books#bookshelves" : [GTLRBooks_Bookshelves class],
-    @"books#concurrentAccessRestriction" : [GTLRBooks_ConcurrentAccessRestriction class],
-    @"books#dictlayerdata" : [GTLRBooks_Dictlayerdata class],
-    @"books#discovery#clusters" : [GTLRBooks_Discoveryclusters class],
-    @"books#downloadAccesses" : [GTLRBooks_DownloadAccesses class],
-    @"books#downloadAccessRestriction" : [GTLRBooks_DownloadAccessRestriction class],
-    @"books#familyInfo" : [GTLRBooks_FamilyInfo class],
-    @"books#geolayerdata" : [GTLRBooks_Geolayerdata class],
-    @"books#layersummaries" : [GTLRBooks_Layersummaries class],
-    @"books#layersummary" : [GTLRBooks_Layersummary class],
-    @"books#notification" : [GTLRBooks_Notification class],
-    @"books#readingPosition" : [GTLRBooks_ReadingPosition class],
-    @"books#requestAccess" : [GTLRBooks_RequestAccess class],
-    @"books#review" : [GTLRBooks_Review class],
-    @"books#series" : [GTLRBooks_Series class],
-    @"books#series#membership" : [GTLRBooks_Seriesmembership class],
-    @"books#usersettings" : [GTLRBooks_Usersettings class],
-    @"books#volume" : [GTLRBooks_Volume class],
-    @"books#volume_series_info" : [GTLRBooks_Volumeseriesinfo class],
-    @"books#volumeannotation" : [GTLRBooks_Volumeannotation class],
-    @"books#volumeannotations" : [GTLRBooks_Volumeannotations class],
-    @"books#volumes" : [GTLRBooks_Volumes class],
-    @"dictionary#metadata" : [GTLRBooks_Metadata class],
-    @"onboarding#category" : [GTLRBooks_Category class],
-    @"onboarding#volume" : [GTLRBooks_Volume2 class],
-    @"promooffer#offers" : [GTLRBooks_Offers class],
-  };
 }
 
 @end

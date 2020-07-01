@@ -55,6 +55,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate1a = @"template1a";
 NSString * const kGTLRShoppingContentTemplateNameTemplate1b = @"template1b";
 NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
+NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"template4";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1553,6 +1554,68 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
   query.merchantId = merchantId;
   query.expectedObjectClass = [GTLRShoppingContent_OrdersListResponse class];
   query.loggingName = @"content.orders.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_OrdersRefunditem
+
+@dynamic merchantId, orderId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersRefundItemRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"orderId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/refunditem";
+  GTLRShoppingContentQuery_OrdersRefunditem *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrdersRefundItemResponse class];
+  query.loggingName = @"content.orders.refunditem";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_OrdersRefundorder
+
+@dynamic merchantId, orderId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrdersRefundOrderRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"orderId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/refundorder";
+  GTLRShoppingContentQuery_OrdersRefundorder *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrdersRefundOrderResponse class];
+  query.loggingName = @"content.orders.refundorder";
   return query;
 }
 

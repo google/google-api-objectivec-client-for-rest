@@ -4,7 +4,7 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
@@ -80,9 +80,756 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AdministratorWebTokenSpec.permission
+
+/** Value: "APPROVE_APPS" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ApproveApps;
+/** Value: "MANAGE_MCM" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ManageMcm;
+/** Value: "UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction.restrictionType
+
 /**
- *  This represents an enterprise admin who can manage the enterprise in the
- *  managed Google Play store.
+ *  A restriction of boolean type.
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool;
+/**
+ *  [M+ devices only] A bundle of restrictions
+ *
+ *  Value: "BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle;
+/**
+ *  [M+ devices only] An array of restriction bundles
+ *
+ *  Value: "BUNDLE_ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray;
+/**
+ *  A choice of one item from a set.
+ *
+ *  Value: "CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice;
+/**
+ *  A hidden restriction of string type (the default value can be used
+ *  to pass along information that cannot be modified, such as a version
+ *  code).
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden;
+/**
+ *  A restriction of integer type.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer;
+/**
+ *  A choice of multiple items from a set.
+ *
+ *  Value: "MULTISELECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect;
+/**
+ *  A restriction of string type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue.type
+
+/**
+ *  A restriction of boolean type.
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool;
+/**
+ *  [M+ devices only] A bundle of restrictions
+ *
+ *  Value: "BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle;
+/**
+ *  [M+ devices only] An array of restriction bundles
+ *
+ *  Value: "BUNDLE_ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray;
+/**
+ *  A choice of one item from a set.
+ *
+ *  Value: "CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice;
+/**
+ *  A hidden restriction of string type (the default value can be used
+ *  to pass along information that cannot be modified, such as a version
+ *  code).
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden;
+/**
+ *  A restriction of integer type.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer;
+/**
+ *  A choice of multiple items from a set.
+ *
+ *  Value: "MULTISELECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect;
+/**
+ *  A restriction of string type.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AppVersion.track
+
+/** Value: "ALPHA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Alpha;
+/** Value: "APP_TRACK_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified;
+/** Value: "BETA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Beta;
+/** Value: "PRODUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Production;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AutoInstallConstraint.chargingStateConstraint
+
+/**
+ *  Device doesn't have to be charging.
+ *
+ *  Value: "CHARGING_NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired;
+/**
+ *  Device has to be charging.
+ *
+ *  Value: "CHARGING_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired;
+/** Value: "CHARGING_STATE_CONSTRAINT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AutoInstallConstraint.deviceIdleStateConstraint
+
+/**
+ *  Device doesn't have to be idle, app can be installed while the user is
+ *  interacting with the device.
+ *
+ *  Value: "DEVICE_IDLE_NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired;
+/**
+ *  Device has to be idle.
+ *
+ *  Value: "DEVICE_IDLE_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired;
+/** Value: "DEVICE_IDLE_STATE_CONSTRAINT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AutoInstallConstraint.networkTypeConstraint
+
+/**
+ *  Any active networks (Wi-Fi, cellular, etc.).
+ *
+ *  Value: "ANY_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork;
+/** Value: "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified;
+/**
+ *  Any unmetered network (e.g. Wi-FI).
+ *
+ *  Value: "UNMETERED_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_AutoInstallPolicy.autoInstallMode
+
+/** Value: "AUTO_INSTALL_MODE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified;
+/**
+ *  The product is automatically installed once, if the user uninstalls the
+ *  product it will not be installed again.
+ *
+ *  Value: "AUTO_INSTALL_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce;
+/**
+ *  The product is not installed automatically, the user needs to install it
+ *  from the Play Store.
+ *
+ *  Value: "DO_NOT_AUTO_INSTALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall;
+/**
+ *  The product is automatically installed, if the user uninstalls the
+ *  product it will be installed again. On managed devices the DPC should
+ *  block uninstall.
+ *
+ *  Value: "FORCE_AUTO_INSTALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Device.managementType
+
+/** Value: "CONTAINER_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp;
+/** Value: "MANAGED_DEVICE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice;
+/** Value: "MANAGED_PROFILE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile;
+/** Value: "UNMANAGED_PROFILE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_DeviceState.accountState
+
+/** Value: "DISABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled;
+/** Value: "ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Entitlement.reason
+
+/** Value: "FREE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free;
+/** Value: "GROUP_LICENSE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense;
+/** Value: "USER_PURCHASE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_GroupLicense.acquisitionKind
+
+/** Value: "BULK_PURCHASE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase;
+/** Value: "FREE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_GroupLicense.approval
+
+/** Value: "APPROVED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Approved;
+/** Value: "UNAPPROVED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_GroupLicense.permissions
+
+/** Value: "ALL_CURRENT_AND_FUTURE_APPROVED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved;
+/** Value: "CURRENT_APPROVED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved;
+/** Value: "NEEDS_REAPPROVAL" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Install.installState
+
+/** Value: "INSTALLED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Install_InstallState_Installed;
+/** Value: "INSTALL_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Install_InstallState_InstallPending;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_InstallFailureEvent.failureReason
+
+/**
+ *  Used when the installation timed out. This can cover a number of
+ *  situations, for example when the device did not have connectivity
+ *  at any point during the retry period, or if the device is OOM.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Timeout;
+/**
+ *  Used whenever no better reason for failure can be provided.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_KeyedAppState.severity
+
+/** Value: "SEVERITY_ERROR" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError;
+/** Value: "SEVERITY_INFO" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo;
+/** Value: "SEVERITY_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_NewDeviceEvent.managementType
+
+/** Value: "MANAGED_DEVICE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice;
+/** Value: "MANAGED_PROFILE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Notification.notificationType
+
+/**
+ *  Notification about new app restrictions schema change.
+ *
+ *  Value: "APP_RESTRICIONS_SCHEMA_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange;
+/**
+ *  Notification about app update.
+ *
+ *  Value: "APP_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate;
+/**
+ *  Notification about an updated device report.
+ *
+ *  Value: "DEVICE_REPORT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate;
+/**
+ *  Notification about an app installation failure.
+ *
+ *  Value: "INSTALL_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure;
+/**
+ *  Notification about a new device.
+ *
+ *  Value: "NEW_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice;
+/**
+ *  Notification about new app permissions.
+ *
+ *  Value: "NEW_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions;
+/**
+ *  Notification about change to a product's approval status.
+ *
+ *  Value: "PRODUCT_APPROVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval;
+/**
+ *  Notification about product availability change.
+ *
+ *  Value: "PRODUCT_AVAILABILITY_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange;
+/**
+ *  A test push notification.
+ *
+ *  Value: "TEST_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification;
+/** Value: "UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Policy.autoUpdatePolicy
+
+/**
+ *  Apps are auto-updated at any time. Data charges may apply.
+ *
+ *  Value: "ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always;
+/**
+ *  The auto update policy is not set.
+ *
+ *  Value: "AUTO_UPDATE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified;
+/**
+ *  The user can control auto-updates.
+ *
+ *  Value: "CHOICE_TO_THE_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser;
+/**
+ *  Apps are never auto-updated.
+ *
+ *  Value: "NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never;
+/**
+ *  Apps are auto-updated over WiFi only.
+ *
+ *  Value: "WIFI_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Policy.deviceReportPolicy
+
+/**
+ *  Device reports are disabled.
+ *
+ *  Value: "DEVICE_REPORT_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled;
+/**
+ *  Device reports are enabled.
+ *
+ *  Value: "DEVICE_REPORT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled;
+/**
+ *  The device report policy is not set.
+ *
+ *  Value: "DEVICE_REPORT_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Policy.productAvailabilityPolicy
+
+/**
+ *  All products are available except those explicitly marked as
+ *  unavailable in the product availability policy.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All;
+/**
+ *  Unspecified, applies the user available product set by default.
+ *
+ *  Value: "PRODUCT_AVAILABILITY_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified;
+/**
+ *  The approved products with product availability set to AVAILABLE
+ *  in the product policy are available.
+ *
+ *  Value: "WHITELIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Product.availableTracks
+
+/** Value: "ALPHA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Alpha;
+/** Value: "APP_TRACK_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_AppTrackUnspecified;
+/** Value: "BETA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Beta;
+/** Value: "PRODUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Production;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Product.contentRating
+
+/** Value: "ALL" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_All;
+/** Value: "MATURE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Mature;
+/** Value: "PRE_TEEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_PreTeen;
+/** Value: "RATING_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown;
+/** Value: "TEEN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Teen;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Product.distributionChannel
+
+/** Value: "PRIVATE_GOOGLE_HOSTED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted;
+/** Value: "PRIVATE_SELF_HOSTED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted;
+/** Value: "PUBLIC_GOOGLE_HOSTED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Product.features
+
+/** Value: "FEATURE_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_Features_FeatureUnknown;
+/** Value: "VPN_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_Features_VpnApp;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Product.productPricing
+
+/**
+ *  The product is free.
+ *
+ *  Value: "FREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Free;
+/**
+ *  The product is free, but offers in-app purchases.
+ *
+ *  Value: "FREE_WITH_IN_APP_PURCHASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase;
+/**
+ *  The product is paid.
+ *
+ *  Value: "PAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Paid;
+/**
+ *  Unknown pricing, used to denote an approved product that is not
+ *  generally available.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductApprovalEvent.approved
+
+/**
+ *  The product was approved.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved;
+/**
+ *  The product was unapproved.
+ *
+ *  Value: "UNAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved;
+/**
+ *  Conveys no information.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductAvailabilityChangeEvent.availabilityStatus
+
+/**
+ *  The previously unavailable product is again available on Google Play.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available;
+/**
+ *  The product was removed from Google Play.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed;
+/**
+ *  Conveys no information.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown;
+/**
+ *  The product was unpublished by the developer.
+ *
+ *  Value: "UNPUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductPermission.state
+
+/**
+ *  The permission has been accepted by the enterprise.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Accepted;
+/**
+ *  The permission is required by the app but has not yet been accepted by
+ *  the enterprise.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductPolicy.tracks
+
+/** Value: "ALPHA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Alpha;
+/** Value: "APP_TRACK_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_AppTrackUnspecified;
+/** Value: "BETA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Beta;
+/** Value: "PRODUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Production;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductsApproveRequest.approvedPermissions
+
+/**
+ *  All current and future permissions the app requires are automatically
+ *  approved.
+ *
+ *  Value: "ALL_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions;
+/**
+ *  Approve only the permissions the product requires at approval time.
+ *  If an update requires additional permissions, the app will not be updated
+ *  on devices associated with enterprise users until the additional
+ *  permissions are approved.
+ *
+ *  Value: "CURRENT_PERMISSIONS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductSet.productSetBehavior
+
+/**
+ *  This product set represents all approved products.
+ *  For Android app it represents only "production" track.
+ *  (The value of the product_id field is therefore ignored).
+ *
+ *  Value: "ALL_APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_AllApproved;
+/**
+ *  This product set represents all products.
+ *  For Android app it represents only "production" track.
+ *  (The value of the productId field is therefore ignored).
+ *
+ *  Value: "INCLUDE_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll;
+/**
+ *  This value should never be sent and ignored if received.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown;
+/**
+ *  This product set constitutes a whitelist.
+ *
+ *  Value: "WHITELIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductVisibility.tracks
+
+/** Value: "ALPHA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Alpha;
+/** Value: "APP_TRACK_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_AppTrackUnspecified;
+/** Value: "BETA" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Beta;
+/** Value: "PRODUCTION" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Production;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ServiceAccountKey.type
+
+/**
+ *  Google Credentials File format.
+ *
+ *  Value: "GOOGLE_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials;
+/**
+ *  PKCS12 format. The password for the PKCS12 file is 'notasecret'.
+ *  For more information, see https://tools.ietf.org/html/rfc7292.
+ *  The data for keys of this type are base64 encoded according to RFC 4648
+ *  Section 4. See http://tools.ietf.org/html/rfc4648#section-4.
+ *
+ *  Value: "PKCS12"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_StoreLayout.storeLayoutType
+
+/** Value: "BASIC" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic;
+/** Value: "CUSTOM" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom;
+/** Value: "UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_User.accountType
+
+/** Value: "DEVICE_ACCOUNT" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_AccountType_DeviceAccount;
+/** Value: "USER_ACCOUNT" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_AccountType_UserAccount;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_User.managementType
+
+/** Value: "EMM_MANAGED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_ManagementType_EmmManaged;
+/** Value: "GOOGLE_MANAGED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_WebApp.displayMode
+
+/** Value: "DISPLAY_MODE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified;
+/**
+ *  Opens the web app in full screen without any visible controls. The
+ *  browser UI elements, page URL, system status bar and back button are not
+ *  visible, and the web app takes up the entirety of the available display
+ *  area.
+ *
+ *  Value: "FULL_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen;
+/**
+ *  Opens the web app with a minimal set of browser UI elements for
+ *  controlling navigation and viewing the page URL.
+ *
+ *  Value: "MINIMAL_UI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi;
+/**
+ *  Opens the web app to look and feel like a standalone native application.
+ *  The browser UI elements and page URL are not visible, however the system
+ *  status bar and back button are visible.
+ *
+ *  Value: "STANDALONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone;
+
+/**
+ *  This represents an enterprise admin who can manage the enterprise
+ *  in the managed Google Play store.
  */
 @interface GTLRAndroidEnterprise_Administrator : GTLRObject
 
@@ -97,8 +844,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AdministratorWebToken : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
  *  An opaque token to be passed to the Play front-end to generate an iframe.
  */
@@ -108,25 +853,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Specification for a token used to generate iframes. The token specifies what
- *  data the admin is allowed to modify and the URI the iframe is allowed to
- *  communiate with.
+ *  Specification for a token used to generate iframes. The token specifies
+ *  what data the admin is allowed to modify and the URI the iframe is
+ *  allowed to communiate with.
  */
 @interface GTLRAndroidEnterprise_AdministratorWebTokenSpec : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Options for displaying the Managed Configuration page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecManagedConfigurations *managedConfigurations;
 
 /**
  *  The URI of the parent frame hosting the iframe. To prevent XSS, the iframe
- *  may not be hosted at other URIs. This URI must be https. Use whitespaces to
- *  separate multiple parent URIs.
+ *  may not be hosted at other URIs. This URI must be https.
+ *  Use whitespaces to separate multiple parent URIs.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Deprecated. Use PlaySearch.approveApps. */
+/** Deprecated. Use <code>PlaySearch.approveApps</code>. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
 /** Options for displaying the managed Play Search apps page. */
@@ -165,7 +908,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AdministratorWebTokenSpecPlaySearch : GTLRObject
 
 /**
- *  Allow access to the iframe in approve mode. Default is false.
+ *  Allow access to the iframe in
+ *  <a href="https://developers.google.com/android/work/play/emm-api/managed-play-iframe#render">approve
+ *  mode</a>. Default is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -243,14 +988,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An event generated when a new app version is uploaded to Google Play and its
- *  app restrictions schema changed. To fetch the app restrictions schema for an
- *  app, use Products.getAppRestrictionsSchema on the EMM API.
+ *  app restrictions schema changed.
+ *  To fetch the app restrictions schema for an app, use
+ *  Products.getAppRestrictionsSchema on the EMM API.
  */
 @interface GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent : GTLRObject
 
 /**
- *  The id of the product (e.g. "app:com.google.android.gm") for which the app
- *  restriction schema changed. This field will always be present.
+ *  The id of the product (e.g. "app:com.google.android.gm") for which the
+ *  app restriction schema changed. This field will always be present.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -264,8 +1010,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction : GTLRObject
 
 /**
- *  The default value of the restriction. bundle and bundleArray restrictions
- *  never have a default value.
+ *  The default value of the restriction. <code>bundle</code> and
+ *  <code>bundleArray</code> restrictions never have a default value.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue *defaultValue;
 
@@ -278,33 +1024,58 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  For choice or multiselect restrictions, the list of possible entries'
- *  human-readable names.
+ *  For <code>choice</code> or <code>multiselect</code> restrictions, the list
+ *  of possible entries' human-readable names.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entry;
 
 /**
- *  For choice or multiselect restrictions, the list of possible entries'
- *  machine-readable values. These values should be used in the configuration,
- *  either as a single string value for a choice restriction or in a stringArray
- *  for a multiselect restriction.
+ *  For <code>choice</code> or <code>multiselect</code> restrictions, the list
+ *  of possible entries' machine-readable values. These values should be used
+ *  in the configuration, either as a single <code>string</code> value for a
+ *  <code>choice</code> restriction or in a <code>stringArray</code> for a
+ *  <code>multiselect</code> restriction.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryValue;
 
 /**
- *  The unique key that the product uses to identify the restriction, e.g.
- *  "com.google.android.gm.fieldname".
+ *  The unique key that the product uses to identify the restriction,
+ *  e.g. "com.google.android.gm.fieldname".
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  For bundle or bundleArray restrictions, the list of nested restrictions. A
- *  bundle restriction is always nested within a bundleArray restriction, and a
- *  bundleArray restriction is at most two levels deep.
+ *  For <code>bundle</code> or <code>bundleArray</code> restrictions, the list
+ *  of nested restrictions. A <code>bundle</code> restriction is always nested
+ *  within a <code>bundleArray</code> restriction, and a
+ *  <code>bundleArray</code> restriction is at most two levels deep.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction *> *nestedRestriction;
 
-/** The type of the restriction. */
+/**
+ *  The type of the restriction.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool
+ *        A restriction of boolean type. (Value: "BOOL")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle
+ *        [M+ devices only] A bundle of restrictions (Value: "BUNDLE")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray
+ *        [M+ devices only] An array of restriction bundles (Value:
+ *        "BUNDLE_ARRAY")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice
+ *        A choice of one item from a set. (Value: "CHOICE")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden
+ *        A hidden restriction of string type (the default value can be used
+ *        to pass along information that cannot be modified, such as a version
+ *        code). (Value: "HIDDEN")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer
+ *        A restriction of integer type. (Value: "INTEGER")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect
+ *        A choice of multiple items from a set. (Value: "MULTISELECT")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String
+ *        A restriction of string type. (Value: "STRING")
+ */
 @property(nonatomic, copy, nullable) NSString *restrictionType;
 
 /** The name of the restriction. */
@@ -318,7 +1089,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue : GTLRObject
 
-/** The type of the value being provided. */
+/**
+ *  The type of the value being provided.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool
+ *        A restriction of boolean type. (Value: "BOOL")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle
+ *        [M+ devices only] A bundle of restrictions (Value: "BUNDLE")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray
+ *        [M+ devices only] An array of restriction bundles (Value:
+ *        "BUNDLE_ARRAY")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice
+ *        A choice of one item from a set. (Value: "CHOICE")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden
+ *        A hidden restriction of string type (the default value can be used
+ *        to pass along information that cannot be modified, such as a version
+ *        code). (Value: "HIDDEN")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer
+ *        A restriction of integer type. (Value: "INTEGER")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect
+ *        A choice of multiple items from a set. (Value: "MULTISELECT")
+ *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String
+ *        A restriction of string type. (Value: "STRING")
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
@@ -342,7 +1136,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *valueMultiselect;
 
 /**
- *  The string value - this will be present for types string, choice and hidden.
+ *  The string value - this will be present for types string, choice and
+ *  hidden.
  */
 @property(nonatomic, copy, nullable) NSString *valueString;
 
@@ -356,11 +1151,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A URL that displays a product's permissions and that can also be used to
- *  approve the product with the Products.approve call.
+ *  approve the product with the <code>Products.approve</code> call.
  */
 @property(nonatomic, copy, nullable) NSString *approvalUrl;
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -370,10 +1163,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AppState : GTLRObject
 
-/** List of keyed app states. This field will always be present. */
+/**
+ *  List of keyed app states.
+ *  This field will always be present.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_KeyedAppState *> *keyedAppState;
 
-/** The package name of the app. This field will always be present. */
+/**
+ *  The package name of the app.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 @end
@@ -408,13 +1207,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *isProduction;
 
-/** Deprecated, use trackId instead. */
+/**
+ *  Deprecated, use <code>trackId</code> instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Alpha Value "ALPHA"
+ *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified Value
+ *        "APP_TRACK_UNSPECIFIED"
+ *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Beta Value "BETA"
+ *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Production Value
+ *        "PRODUCTION"
+ */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
- *  Track ids that the app version is published in. Replaces the track field
- *  (deprecated), but doesn't include the production track (see isProduction
- *  instead).
+ *  Track ids that the app version is published in. Replaces the
+ *  <code>track</code> field (deprecated), but doesn't include the production
+ *  track (see <code>isProduction</code> instead).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackId;
 
@@ -426,9 +1235,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 /**
- *  The string used in the Play store by the app developer to identify the
- *  version. The string is not necessarily unique or localized (for example, the
- *  string could be "1.4").
+ *  The string used in the Play store by the app developer to identify
+ *  the version.
+ *  The string is not necessarily unique or localized (for example, the string
+ *  could be "1.4").
  */
 @property(nonatomic, copy, nullable) NSString *versionString;
 
@@ -440,8 +1250,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  to provision the given EMM-managed user on that device.
  */
 @interface GTLRAndroidEnterprise_AuthenticationToken : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The authentication token to be passed to the device policy client on the
@@ -459,13 +1267,44 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_AutoInstallConstraint : GTLRObject
 
-/** Charging state constraint. */
+/**
+ *  Charging state constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired
+ *        Device doesn't have to be charging. (Value: "CHARGING_NOT_REQUIRED")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired
+ *        Device has to be charging. (Value: "CHARGING_REQUIRED")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified
+ *        Value "CHARGING_STATE_CONSTRAINT_UNSPECIFIED"
+ */
 @property(nonatomic, copy, nullable) NSString *chargingStateConstraint;
 
-/** Device idle state constraint. */
+/**
+ *  Device idle state constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired
+ *        Device doesn't have to be idle, app can be installed while the user is
+ *        interacting with the device. (Value: "DEVICE_IDLE_NOT_REQUIRED")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired
+ *        Device has to be idle. (Value: "DEVICE_IDLE_REQUIRED")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified
+ *        Value "DEVICE_IDLE_STATE_CONSTRAINT_UNSPECIFIED"
+ */
 @property(nonatomic, copy, nullable) NSString *deviceIdleStateConstraint;
 
-/** Network type constraint. */
+/**
+ *  Network type constraint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork
+ *        Any active networks (Wi-Fi, cellular, etc.). (Value: "ANY_NETWORK")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified
+ *        Value "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED"
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork
+ *        Any unmetered network (e.g. Wi-FI). (Value: "UNMETERED_NETWORK")
+ */
 @property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
 
 @end
@@ -482,7 +1321,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AutoInstallConstraint *> *autoInstallConstraint;
 
-/** The auto-install mode. If unset defaults to "doNotAutoInstall". */
+/**
+ *  The auto-install mode. If unset defaults to "doNotAutoInstall".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified
+ *        Value "AUTO_INSTALL_MODE_UNSPECIFIED"
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce
+ *        The product is automatically installed once, if the user uninstalls
+ *        the
+ *        product it will not be installed again. (Value: "AUTO_INSTALL_ONCE")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall
+ *        The product is not installed automatically, the user needs to install
+ *        it
+ *        from the Play Store. (Value: "DO_NOT_AUTO_INSTALL")
+ *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall
+ *        The product is automatically installed, if the user uninstalls the
+ *        product it will be installed again. On managed devices the DPC should
+ *        block uninstall. (Value: "FORCE_AUTO_INSTALL")
+ */
 @property(nonatomic, copy, nullable) NSString *autoInstallMode;
 
 /**
@@ -495,9 +1352,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The minimum version of the app. If a lower version of the app is installed,
- *  then the app will be auto-updated according to the auto-install constraints,
- *  instead of waiting for the regular auto-update. You can set a minimum
- *  version code for at most 20 apps per device.
+ *  then the app will be auto-updated according to the auto-install
+ *  constraints, instead of waiting for the regular auto-update. You can set a
+ *  minimum version code for at most 20 apps per device.
  *
  *  Uses NSNumber of intValue.
  */
@@ -513,8 +1370,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  placeholders in the managed configuration settings.
  */
 @interface GTLRAndroidEnterprise_ConfigurationVariables : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The ID of the managed configurations settings. */
 @property(nonatomic, copy, nullable) NSString *mcmId;
@@ -532,26 +1387,36 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_Device : GTLRObject
 
 /**
- *  The Google Play Services Android ID for the device encoded as a lowercase
- *  hex string. For example, "123456789abcdef0".
+ *  The Google Play Services Android ID for the device encoded as
+ *  a lowercase hex string. For example,
+ *  <code>&quot;123456789abcdef0&quot;</code>.
  */
 @property(nonatomic, copy, nullable) NSString *androidId;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  Identifies the extent to which the device is controlled by a managed Google
- *  Play EMM in various deployment configurations.
+ *  Identifies the extent to which the device is controlled by a managed
+ *  Google Play EMM in various deployment configurations. <br><br>
  *  Possible values include:
- *  - "managedDevice", a device that has the EMM's device policy controller
- *  (DPC) as the device owner.
- *  - "managedProfile", a device that has a profile managed by the DPC (DPC is
- *  profile owner) in addition to a separate, personal profile that is
- *  unavailable to the DPC.
- *  - "containerApp", no longer used (deprecated).
- *  - "unmanagedProfile", a device that has been allowed (by the domain's admin,
- *  using the Admin Console to enable the privilege) to use managed Google Play,
- *  but the profile is itself not owned by a DPC.
+ *  <ul><li>"<code>managedDevice</code>", a device that has the EMM's device
+ *  policy controller (DPC) as the device owner.</li>
+ *  <li>"<code>managedProfile</code>", a device that has a profile managed
+ *  by the DPC (DPC is profile owner) in addition to a separate, personal
+ *  profile that is unavailable to the DPC.</li>
+ *  <li>"<code>containerApp</code>", no longer used (deprecated).</li>
+ *  <li>"<code>unmanagedProfile</code>", a device that has been allowed (by the
+ *  domain's admin, using the Admin Console to enable the privilege) to use
+ *  managed Google Play, but the profile is itself
+ *  not owned by a DPC.</li></ul>
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp Value
+ *        "CONTAINER_APP"
+ *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice Value
+ *        "MANAGED_DEVICE"
+ *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile Value
+ *        "MANAGED_PROFILE"
+ *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile
+ *        Value "UNMANAGED_PROFILE"
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
@@ -571,14 +1436,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_DeviceReport : GTLRObject
 
 /**
- *  List of app states set by managed apps on the device. App states are defined
- *  by the app's developers. This field will always be present.
+ *  List of app states set by managed apps on the device. App states are
+ *  defined by the app's developers.
+ *  This field will always be present.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_AppState *> *appState;
 
 /**
- *  The timestamp of the last report update in milliseconds since epoch. This
- *  field will always be present.
+ *  The timestamp of the last report update in milliseconds since epoch.
+ *  This field will always be present.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -592,34 +1458,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_DeviceReportUpdateEvent : GTLRObject
 
-/** The Android ID of the device. This field will always be present. */
+/**
+ *  The Android ID of the device.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  The device report updated with the latest app states. This field will always
- *  be present.
+ *  The device report updated with the latest app states.
+ *  This field will always be present.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReport *report;
 
-/** The ID of the user. This field will always be present. */
+/**
+ *  The ID of the user.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
 
 /**
- *  The device resources for the user.
+ *  GTLRAndroidEnterprise_DevicesListResponse
  */
 @interface GTLRAndroidEnterprise_DevicesListResponse : GTLRObject
 
 /** A managed device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Device *> *device;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#devicesListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -631,38 +1497,46 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_DeviceState : GTLRObject
 
 /**
- *  The state of the Google account on the device. "enabled" indicates that the
- *  Google account on the device can be used to access Google services
- *  (including Google Play), while "disabled" means that it cannot. A new device
- *  is initially in the "disabled" state.
+ *  The state of the Google account on the device. "enabled" indicates that
+ *  the Google account on the device can be used to access Google services
+ *  (including Google Play), while "disabled" means that it cannot.
+ *  A new device is initially in the "disabled" state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled Value
+ *        "DISABLED"
+ *    @arg @c kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled Value
+ *        "ENABLED"
  */
 @property(nonatomic, copy, nullable) NSString *accountState;
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  An Enterprises resource represents the binding between an EMM and a specific
- *  organization. That binding can be instantiated in one of two different ways
- *  using this API as follows:
- *  - For Google managed domain customers, the process involves using
- *  Enterprises.enroll and Enterprises.setAccount (in conjunction with artifacts
- *  obtained from the Admin console and the Google API Console) and submitted to
- *  the EMM through a more-or-less manual process.
- *  - For managed Google Play Accounts customers, the process involves using
- *  Enterprises.generateSignupUrl and Enterprises.completeSignup in conjunction
- *  with the managed Google Play sign-up UI (Google-provided mechanism) to
- *  create the binding without manual steps. As an EMM, you can support either
- *  or both approaches in your EMM console. See Create an Enterprise for
- *  details.
+ *  An Enterprises resource represents the binding between an EMM and a
+ *  specific organization. That binding can be instantiated in one of two
+ *  different ways using this API as follows:
+ *  <ul><li>For Google managed domain customers, the process involves using
+ *  <code>Enterprises.enroll</code> and <code>Enterprises.setAccount</code> (in
+ *  conjunction with artifacts obtained from the Admin console and the Google
+ *  API Console) and submitted to the EMM through a more-or-less manual
+ *  process.</li>
+ *  <li>For managed Google Play Accounts customers, the process involves using
+ *  <code>Enterprises.generateSignupUrl</code> and
+ *  <code>Enterprises.completeSignup</code> in conjunction with the managed
+ *  Google Play sign-up UI (Google-provided mechanism) to create the binding
+ *  without manual steps.</li></ul> As an EMM, you can support either or both
+ *  approaches in your EMM console. See
+ *  <a href="/android/work/play/emm-api/create-enterprise">Create an
+ *  Enterprise</a>
+ *  for details.
  */
 @interface GTLRAndroidEnterprise_Enterprise : GTLRObject
 
 /**
- *  Admins of the enterprise. This is only supported for enterprises created via
- *  the EMM-initiated flow.
+ *  Admins of the enterprise. This is only supported for enterprises
+ *  created via the EMM-initiated flow.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
 
@@ -672,8 +1546,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the enterprise, for example, "Example, Inc". */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -685,32 +1557,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A service account that can be used to authenticate as the enterprise to API
- *  calls that require such authentication.
+ *  A service account that can be used to authenticate as the enterprise to
+ *  API calls that require such authentication.
  */
 @interface GTLRAndroidEnterprise_EnterpriseAccount : GTLRObject
 
 /** The email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *accountEmail;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 @end
 
 
 /**
- *  The matching enterprise resources.
+ *  GTLRAndroidEnterprise_EnterprisesListResponse
  */
 @interface GTLRAndroidEnterprise_EnterprisesListResponse : GTLRObject
 
 /** An enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Enterprise *> *enterprise;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#enterprisesListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -735,12 +1599,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The presence of an Entitlements resource indicates that a user has the right
  *  to use a particular app. Entitlements are user specific, not device
- *  specific. This allows a user with an entitlement to an app to install the
- *  app on all their devices. It's also possible for a user to hold an
- *  entitlement to an app without installing the app on any device.
+ *  specific.
+ *  This allows a user with an entitlement to an app to install the app on all
+ *  their devices. It's also possible for a user to hold an entitlement to an
+ *  app
+ *  without installing the app on any device.
  *  The API can be used to create an entitlement. As an option, you can also use
  *  the API to trigger the installation of an app on all a user's managed
- *  devices at the same time the entitlement is created.
+ *  devices
+ *  at the same time the entitlement is created.
  *  If the app is free, creating the entitlement also creates a group license
  *  for that app. For paid apps, creating the entitlement consumes one license,
  *  and that license remains consumed until the entitlement is removed. If the
@@ -748,26 +1615,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  and the installation fails. An entitlement is also not created for an app if
  *  the app requires permissions that the enterprise hasn't accepted.
  *  If an entitlement is deleted, the app may be uninstalled from a user's
- *  device. As a best practice, uninstall the app by calling Installs.delete()
- *  before deleting the entitlement.
+ *  device. As a best practice, uninstall the app by calling
+ *  <a class="method-link" method="androidenterprise.installs.delete">
+ *  Installs.delete()</a> before deleting the entitlement.
  *  Entitlements for apps that a user pays for on an unmanaged profile have
- *  "userPurchase" as the entitlement reason. These entitlements cannot be
- *  removed via the API.
+ *  <code class="">"userPurchase"</code> as the entitlement reason. These
+ *  entitlements cannot be removed via the API.
  */
 @interface GTLRAndroidEnterprise_Entitlement : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
  *  The ID of the product that the entitlement is for. For example,
- *  "app:com.google.android.gm".
+ *  <code>&quot;app:com.google.android.gm&quot;</code>.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The reason for the entitlement. For example, "free" for free apps. This
- *  property is temporary: it will be replaced by the acquisition kind field of
- *  group licenses.
+ *  The reason for the entitlement. For example, <code class="">"free"</code>
+ *  for free apps. This property is temporary: it will be replaced by the
+ *  <code class="">acquisition kind</code> field of group licenses.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_Free Value "FREE"
+ *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense Value
+ *        "GROUP_LICENSE"
+ *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase Value
+ *        "USER_PURCHASE"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -775,37 +1648,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The entitlement resources for the user.
+ *  GTLRAndroidEnterprise_EntitlementsListResponse
  */
 @interface GTLRAndroidEnterprise_EntitlementsListResponse : GTLRObject
 
 /**
- *  An entitlement of a user to a product (e.g. an app). For example, a free app
- *  that they have installed, or a paid app that they have been allocated a
- *  license to.
+ *  An entitlement of a user to a product (e.g. an app).
+ *  For example, a free app that they have installed, or a paid app that they
+ *  have been allocated a license to.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Entitlement *> *entitlement;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#entitlementsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
  *  Group license objects allow you to keep track of licenses (called
- *  entitlements) for both free and paid apps. For a free app, a group license
- *  is created when an enterprise admin first approves the product in Google
- *  Play or when the first entitlement for the product is created for a user via
- *  the API. For a paid app, a group license object is only created when an
- *  enterprise admin purchases the product in Google Play for the first time.
- *  Use the API to query group licenses. A Grouplicenses resource includes the
- *  total number of licenses purchased (paid apps only) and the total number of
- *  licenses currently in use. In other words, the total number of Entitlements
- *  that exist for the product.
+ *  <a href="/android/work/play/emm-api/v1/entitlements">entitlements</a>)
+ *  for both free and paid apps. For a free app, a group license is created when
+ *  an enterprise admin first approves the product in Google Play or when the
+ *  first entitlement for the product is created for a user via the API. For a
+ *  paid app, a group license object is only created when an enterprise admin
+ *  purchases the product in Google Play for the first time.
+ *  Use the API to query group licenses. A <code>Grouplicenses</code> resource
+ *  includes the total number of licenses purchased (paid apps only) and the
+ *  total number of licenses currently in use. In other words, the total number
+ *  of <code>Entitlements</code> that exist for the product.
  *  Only one group license object is created per product and group license
  *  objects are never deleted. If a product is unapproved, its group license
  *  remains. This allows enterprise admins to keep track of any remaining
@@ -814,9 +1682,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_GroupLicense : GTLRObject
 
 /**
- *  How this group license was acquired. "bulkPurchase" means that this
- *  Grouplicenses resource was created because the enterprise purchased licenses
- *  for this product; otherwise, the value is "free" (for free products).
+ *  How this group license was acquired. <code>&quot;bulkPurchase&quot;</code>
+ *  means that this Grouplicenses resource was created because the enterprise
+ *  purchased licenses for this product; otherwise, the value is
+ *  <code>&quot;free&quot;</code> (for free products).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase
+ *        Value "BULK_PURCHASE"
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free Value
+ *        "FREE"
  */
 @property(nonatomic, copy, nullable) NSString *acquisitionKind;
 
@@ -826,46 +1701,61 @@ NS_ASSUME_NONNULL_BEGIN
  *  first created, but this approval may be revoked by an enterprise admin via
  *  Google Play. Unapproved products will not be visible to end users in
  *  collections, and new entitlements to them should not normally be created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Approval_Approved Value
+ *        "APPROVED"
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved Value
+ *        "UNAPPROVED"
  */
 @property(nonatomic, copy, nullable) NSString *approval;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  The total number of provisioned licenses for this product. Returned by read
- *  operations, but ignored in write operations.
+ *  The total number of provisioned licenses for this product.
+ *  Returned by read operations, but ignored in write operations.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numProvisioned;
 
 /**
- *  The number of purchased licenses (possibly in multiple purchases). If this
- *  field is omitted, then there is no limit on the number of licenses that can
- *  be provisioned (for example, if the acquisition kind is "free").
+ *  The number of purchased licenses (possibly in multiple purchases).
+ *  If this field is omitted, then there is no limit on the number of licenses
+ *  that can be provisioned (for example, if the acquisition kind is
+ *  <code>&quot;free&quot;</code>).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numPurchased;
 
 /**
- *  The permission approval status of the product. This field is only set if the
- *  product is approved. Possible states are:
- *  - "currentApproved", the current set of permissions is approved, but
- *  additional permissions will require the administrator to reapprove the
- *  product (If the product was approved without specifying the approved
- *  permissions setting, then this is the default behavior.),
- *  - "needsReapproval", the product has unapproved permissions. No additional
- *  product licenses can be assigned until the product is reapproved,
- *  - "allCurrentAndFutureApproved", the current permissions are approved and
- *  any future permission updates will be automatically approved without
- *  administrator review.
+ *  The permission approval status of the product. This field
+ *  is only set if the product is approved. Possible states are:<ul>
+ *  <li>"<code>currentApproved</code>", the current set
+ *  of permissions is approved, but additional permissions will require the
+ *  administrator to reapprove the product (If the product was approved
+ *  without specifying the approved permissions setting, then this is the
+ *  default behavior.),</li>
+ *  <li>"<code>needsReapproval</code>", the product has unapproved permissions.
+ *  No additional product licenses can be assigned until the product is
+ *  reapproved,</li>
+ *  <li>"<code>allCurrentAndFutureApproved</code>",
+ *  the current permissions are approved and any future permission updates
+ *  will be automatically approved without administrator review.</li></ul>
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved
+ *        Value "ALL_CURRENT_AND_FUTURE_APPROVED"
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved
+ *        Value "CURRENT_APPROVED"
+ *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval
+ *        Value "NEEDS_REAPPROVAL"
  */
 @property(nonatomic, copy, nullable) NSString *permissions;
 
 /**
  *  The ID of the product that the license is for. For example,
- *  "app:com.google.android.gm".
+ *  <code>&quot;app:com.google.android.gm&quot;</code>.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -873,32 +1763,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The grouplicense resources for the enterprise.
+ *  GTLRAndroidEnterprise_GroupLicensesListResponse
  */
 @interface GTLRAndroidEnterprise_GroupLicensesListResponse : GTLRObject
 
 /** A group license for a product approved for use in the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_GroupLicense *> *groupLicense;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#groupLicensesListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
 @end
 
 
 /**
- *  The user resources for the group license.
+ *  GTLRAndroidEnterprise_GroupLicenseUsersListResponse
  */
 @interface GTLRAndroidEnterprise_GroupLicenseUsersListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#groupLicenseUsersListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A user of an enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
@@ -907,14 +1785,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The existence of an Installs resource indicates that an app is installed on
- *  a particular device (or that an install is pending).
- *  The API can be used to create an install resource using the update method.
- *  This triggers the actual install of the app on the device. If the user does
- *  not already have an entitlement for the app, then an attempt is made to
- *  create one. If this fails (for example, because the app is not free and
- *  there is no available license), then the creation of the install fails.
- *  The API can also be used to update an installed app. If the update method is
+ *  The existence of an Installs resource indicates that an app is
+ *  installed on a particular device (or that an install is pending).
+ *  The API can be used to create an install resource using the
+ *  <a class="method-link" method="androidenterprise.installs.update">update</a>
+ *  method. This triggers the actual install of the app on the device. If the
+ *  user does not already have an entitlement for the app, then an attempt is
+ *  made to create one. If this fails (for example, because the app is not free
+ *  and there is no available license), then the creation of the install fails.
+ *  The API can also be used to update an installed app. If
+ *  the&nbsp;<a class="method-link" method="androidenterprise.installs.update" style="font-style: normal; font-size: 14px; font-family: Roboto, sans-serif; line-height: 22.3999996185303px;">update</a>&nbsp;method
+ *  is
  *  used on an existing install, then the app will be updated to the latest
  *  available version.
  *  Note that it is not possible to force the installation of a specific version
@@ -931,23 +1812,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_Install : GTLRObject
 
 /**
- *  Install state. The state "installPending" means that an install request has
- *  recently been made and download to the device is in progress. The state
- *  "installed" means that the app has been installed. This field is read-only.
+ *  Install state. The state <code>&quot;installPending&quot;</code>
+ *  means that an install request has recently been made and download to the
+ *  device is in progress. The state <code>&quot;installed&quot;</code>
+ *  means that the app has been installed. This field is read-only.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Install_InstallState_Installed Value
+ *        "INSTALLED"
+ *    @arg @c kGTLRAndroidEnterprise_Install_InstallState_InstallPending Value
+ *        "INSTALL_PENDING"
  */
 @property(nonatomic, copy, nullable) NSString *installState;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
  *  The ID of the product that the install is for. For example,
- *  "app:com.google.android.gm".
+ *  <code>&quot;app:com.google.android.gm&quot;</code>.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The version of the installed product. Guaranteed to be set only if the
- *  install state is "installed".
+ *  install state is <code>&quot;installed&quot;</code>.
  *
  *  Uses NSNumber of intValue.
  */
@@ -961,14 +1847,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_InstallFailureEvent : GTLRObject
 
-/** The Android ID of the device. This field will always be present. */
+/**
+ *  The Android ID of the device.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** Additional details on the failure if applicable. */
 @property(nonatomic, copy, nullable) NSString *failureDetails;
 
 /**
- *  The reason for the installation failure. This field will always be present.
+ *  The reason for the installation failure.
+ *  This field will always be present.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Timeout
+ *        Used when the installation timed out. This can cover a number of
+ *        situations, for example when the device did not have connectivity
+ *        at any point during the retry period, or if the device is OOM. (Value:
+ *        "TIMEOUT")
+ *    @arg @c kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown
+ *        Used whenever no better reason for failure can be provided. (Value:
+ *        "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *failureReason;
 
@@ -978,28 +1878,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
-/** The ID of the user. This field will always be present. */
+/**
+ *  The ID of the user.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 
 
 /**
- *  The install resources for the device.
+ *  GTLRAndroidEnterprise_InstallsListResponse
  */
 @interface GTLRAndroidEnterprise_InstallsListResponse : GTLRObject
 
 /**
- *  An installation of an app for a user on a specific device. The existence of
- *  an install implies that the user must have an entitlement to the app.
+ *  An installation of an app for a user on a specific device.
+ *  The existence of an install implies that the user must have an
+ *  entitlement to the app.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Install *> *install;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#installsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1012,31 +1910,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Additional field intended for machine-readable data. For example, a number
- *  or JSON object. To prevent XSS, we recommend removing any HTML from the data
- *  before displaying it.
+ *  or JSON object. To prevent XSS, we recommend removing any HTML from the
+ *  data before displaying it.
  */
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  Key indicating what the app is providing a state for. The content of the key
- *  is set by the app's developer. To prevent XSS, we recommend removing any
- *  HTML from the key before displaying it. This field will always be present.
+ *  Key indicating what the app is providing a state for. The content of the
+ *  key is set by the app's developer. To prevent XSS, we recommend removing
+ *  any HTML from the key before displaying it.
+ *  This field will always be present.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  Free-form, human-readable message describing the app state. For example, an
- *  error message. To prevent XSS, we recommend removing any HTML from the
+ *  Free-form, human-readable message describing the app state. For example,
+ *  an error message. To prevent XSS, we recommend removing any HTML from the
  *  message before displaying it.
  */
 @property(nonatomic, copy, nullable) NSString *message;
 
-/** Severity of the app state. This field will always be present. */
+/**
+ *  Severity of the app state.
+ *  This field will always be present.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError Value
+ *        "SEVERITY_ERROR"
+ *    @arg @c kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo Value
+ *        "SEVERITY_INFO"
+ *    @arg @c kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown
+ *        Value "SEVERITY_UNKNOWN"
+ */
 @property(nonatomic, copy, nullable) NSString *severity;
 
 /**
- *  Timestamp of when the app set the state in milliseconds since epoch. This
- *  field will always be present.
+ *  Timestamp of when the app set the state in milliseconds since epoch.
+ *  This field will always be present.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1060,8 +1970,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Maintenance window for managed Google Play Accounts. This allows Play store
- *  to update the apps on the foreground in the designated window.
+ *  Maintenance window for managed Google Play Accounts.
+ *  This allows Play store to update the apps on the foreground in the
+ *  designated
+ *  window.
  */
 @interface GTLRAndroidEnterprise_MaintenanceWindow : GTLRObject
 
@@ -1086,8 +1998,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A managed configuration resource contains the set of managed properties
- *  defined by the app developer in the app's managed configurations schema, as
- *  well as any configuration variables defined for the user.
+ *  defined by the app developer in the app's managed configurations schema,
+ *  as well as any configuration variables defined for the user.
  */
 @interface GTLRAndroidEnterprise_ManagedConfiguration : GTLRObject
 
@@ -1113,15 +2025,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The managed configuration resources for the device.
+ *  GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse
  */
 @interface GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#managedConfigurationsForDeviceListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A managed configuration for an app on a specific device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfiguration *> *managedConfigurationForDevice;
@@ -1130,15 +2036,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The managed configuration resources for the user.
+ *  GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse
  */
 @interface GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#managedConfigurationsForUserListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A managed configuration for an app for a specific user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfiguration *> *managedConfigurationForUser;
@@ -1147,18 +2047,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A managed configurations settings resource contains the set of managed
- *  properties that have been configured for an Android app to be applied to a
- *  set of users. The app's developer would have defined configurable properties
- *  in the managed configurations schema.
+ *  A managed configurations settings resource contains the set of
+ *  managed properties that have been configured for an Android app to be
+ *  applied
+ *  to a set of users. The app's developer would have
+ *  defined configurable properties in the managed configurations schema.
  */
 @interface GTLRAndroidEnterprise_ManagedConfigurationsSettings : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  The last updated time of the managed configuration settings in milliseconds
- *  since 1970-01-01T00:00:00Z.
+ *  The last updated time of the managed configuration settings in
+ *  milliseconds since 1970-01-01T00:00:00Z.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1174,19 +2073,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The managed configurations settings for a product.
+ *  GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse
  */
 @interface GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse : GTLRObject
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#managedConfigurationsSettingsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  A managed configurations settings for an app that may be assigned to a group
- *  of users in an enterprise.
+ *  A managed configurations settings for an app that may be assigned to a
+ *  group of users in an enterprise.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedConfigurationsSettings *> *managedConfigurationsSettings;
 
@@ -1195,9 +2088,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A managed property of a managed configuration. The property must match one
- *  of the properties in the app restrictions schema of the product. Exactly one
- *  of the value fields must be populated, and it must match the property's type
- *  in the app restrictions schema.
+ *  of
+ *  the properties in the app restrictions schema of the product. Exactly one of
+ *  the value fields must be populated, and it must match the property's type in
+ *  the app restrictions schema.
  */
 @interface GTLRAndroidEnterprise_ManagedProperty : GTLRObject
 
@@ -1219,8 +2113,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ManagedPropertyBundle *valueBundle;
 
 /**
- *  The list of bundles of properties - this will only be present if type of the
- *  property is bundle_array.
+ *  The list of bundles of properties - this will only be present if type of
+ *  the property is bundle_array.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ManagedPropertyBundle *> *valueBundleArray;
 
@@ -1263,22 +2157,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_NewDeviceEvent : GTLRObject
 
-/** The Android ID of the device. This field will always be present. */
+/**
+ *  The Android ID of the device.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** Policy app on the device. */
 @property(nonatomic, copy, nullable) NSString *dpcPackageName;
 
 /**
- *  Identifies the extent to which the device is controlled by an Android EMM in
- *  various deployment configurations.
+ *  Identifies the extent to which the device is controlled by an Android
+ *  EMM in various deployment configurations. <br><br>
  *  Possible values include:
- *  - "managedDevice", a device where the DPC is set as device owner,
- *  - "managedProfile", a device where the DPC is set as profile owner.
+ *  <ul><li>"<code>managedDevice</code>", a device where the DPC is set as
+ *  device owner,</li>
+ *  <li>"<code>managedProfile</code>", a device where the DPC is set as profile
+ *  owner.</li></ul>
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice
+ *        Value "MANAGED_DEVICE"
+ *    @arg @c kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile
+ *        Value "MANAGED_PROFILE"
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
-/** The ID of the user. This field will always be present. */
+/**
+ *  The ID of the user.
+ *  This field will always be present.
+ */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 @end
@@ -1291,8 +2199,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The set of permissions that the enterprise admin has already approved for
- *  this application. Use Permissions.Get on the EMM API to retrieve details
- *  about these permissions.
+ *  this application.
+ *  Use Permissions.Get on the EMM API to retrieve details about these
+ *  permissions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *approvedPermissions;
 
@@ -1303,8 +2212,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The set of permissions that the app is currently requesting. Use
- *  Permissions.Get on the EMM API to retrieve details about these permissions.
+ *  The set of permissions that the app is currently requesting.
+ *  Use Permissions.Get on the EMM API to retrieve details about these
+ *  permissions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requestedPermissions;
 
@@ -1326,8 +2236,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_DeviceReportUpdateEvent *deviceReportUpdateEvent;
 
 /**
- *  The ID of the enterprise for which the notification is sent. This will
- *  always be present.
+ *  The ID of the enterprise for which the notification is sent.
+ *  This will always be present.
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
 
@@ -1340,7 +2250,36 @@ NS_ASSUME_NONNULL_BEGIN
 /** Notifications about new app permissions. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_NewPermissionsEvent *newPermissionsEvent NS_RETURNS_NOT_RETAINED;
 
-/** Type of the notification. */
+/**
+ *  Type of the notification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange
+ *        Notification about new app restrictions schema change. (Value:
+ *        "APP_RESTRICIONS_SCHEMA_CHANGE")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate
+ *        Notification about app update. (Value: "APP_UPDATE")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate
+ *        Notification about an updated device report. (Value:
+ *        "DEVICE_REPORT_UPDATE")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure
+ *        Notification about an app installation failure. (Value:
+ *        "INSTALL_FAILURE")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice
+ *        Notification about a new device. (Value: "NEW_DEVICE")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions
+ *        Notification about new app permissions. (Value: "NEW_PERMISSIONS")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval
+ *        Notification about change to a product's approval status. (Value:
+ *        "PRODUCT_APPROVAL")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange
+ *        Notification about product availability change. (Value:
+ *        "PRODUCT_AVAILABILITY_CHANGE")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification
+ *        A test push notification. (Value: "TEST_NOTIFICATION")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_Unknown Value
+ *        "UNKNOWN"
+ */
 @property(nonatomic, copy, nullable) NSString *notificationType;
 
 /** Notifications about changes to a product's approval status. */
@@ -1350,8 +2289,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductAvailabilityChangeEvent *productAvailabilityChangeEvent;
 
 /**
- *  The time when the notification was published in milliseconds since
- *  1970-01-01T00:00:00Z. This will always be present.
+ *  The time when the notification was published in
+ *  milliseconds since 1970-01-01T00:00:00Z.
+ *  This will always be present.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1361,21 +2301,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A resource returned by the PullNotificationSet API, which contains a
- *  collection of notifications for enterprises associated with the service
+ *  A resource returned by the PullNotificationSet API, which contains
+ *  a collection of notifications for enterprises associated with the service
  *  account authenticated for the request.
  */
 @interface GTLRAndroidEnterprise_NotificationSet : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The notifications received, or empty if no notifications are present. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Notification *> *notification;
 
 /**
- *  The notification set ID, required to mark the notification as received with
- *  the Enterprises.AcknowledgeNotification API. This will be omitted if no
- *  notifications are present.
+ *  The notification set ID, required to mark the notification as
+ *  received with the Enterprises.AcknowledgeNotification API.
+ *  This will be omitted if no notifications are present.
  */
 @property(nonatomic, copy, nullable) NSString *notificationSetId;
 
@@ -1383,26 +2321,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidEnterprise_PageInfo
+ *  Information about the current page.
+ *  List operations that supports paging return only one "page" of results. This
+ *  protocol buffer message describes the page that has been returned.
  */
 @interface GTLRAndroidEnterprise_PageInfo : GTLRObject
 
 /**
- *  resultPerPage
+ *  Maximum number of results returned in one page.
+ *  ! The number of results included in the API response.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resultPerPage;
 
 /**
- *  startIndex
+ *  Index of the first result returned in the current page.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
- *  totalResults
+ *  Total number of results available on the backend
+ *  ! The total number of results in the result set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1414,11 +2356,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A Permissions resource represents some extra capability, to be granted to an
  *  Android app, which requires explicit consent. An enterprise admin must
- *  consent to these permissions on behalf of their users before an entitlement
- *  for the app can be created.
- *  The permissions collection is read-only. The information provided for each
- *  permission (localized name and description) is intended to be used in the
- *  MDM user interface when obtaining consent from the enterprise.
+ *  consent to these permissions on behalf of their users before an
+ *  entitlement for the app can be created.
+ *  The permissions collection is read-only. The information provided for
+ *  each permission (localized name and description) is intended to be
+ *  used in the MDM user interface when obtaining consent from the
+ *  enterprise.
  */
 @interface GTLRAndroidEnterprise_Permission : GTLRObject
 
@@ -1429,8 +2372,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the permission. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1449,14 +2390,36 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The auto-update policy for apps installed on the device. "choiceToTheUser"
  *  allows the device's user to configure the app update policy. "always"
- *  enables auto updates. "never" disables auto updates. "wifiOnly" enables auto
- *  updates only when the device is connected to wifi.
+ *  enables auto updates. "never" disables auto updates. "wifiOnly" enables
+ *  auto updates only when the device is connected to wifi.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always Apps are
+ *        auto-updated at any time. Data charges may apply. (Value: "ALWAYS")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified
+ *        The auto update policy is not set. (Value:
+ *        "AUTO_UPDATE_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser The
+ *        user can control auto-updates. (Value: "CHOICE_TO_THE_USER")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never Apps are
+ *        never auto-updated. (Value: "NEVER")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly Apps are
+ *        auto-updated over WiFi only. (Value: "WIFI_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdatePolicy;
 
 /**
  *  Whether the device reports app states to the EMM. The default value is
  *  "deviceReportDisabled".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled
+ *        Device reports are disabled. (Value: "DEVICE_REPORT_DISABLED")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled
+ *        Device reports are enabled. (Value: "DEVICE_REPORT_ENABLED")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified
+ *        The device report policy is not set. (Value:
+ *        "DEVICE_REPORT_POLICY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *deviceReportPolicy;
 
@@ -1475,12 +2438,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  previously approved (products with revoked approval) by the enterprise can
  *  be whitelisted. If no value is provided, the availability set at the user
  *  level is applied by default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All All
+ *        products are available except those explicitly marked as
+ *        unavailable in the product availability policy. (Value: "ALL")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified
+ *        Unspecified, applies the user available product set by default.
+ *        (Value: "PRODUCT_AVAILABILITY_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist
+ *        The approved products with product availability set to AVAILABLE
+ *        in the product policy are available. (Value: "WHITELIST")
  */
 @property(nonatomic, copy, nullable) NSString *productAvailabilityPolicy;
 
 /**
- *  The list of product policies. The productAvailabilityPolicy needs to be set
- *  to WHITELIST or ALL for the product policies to be applied.
+ *  The list of product policies. The <code>productAvailabilityPolicy</code>
+ *  needs to be set to <code>WHITELIST</code> or <code>ALL</code> for the
+ *  product policies to be applied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPolicy *> *productPolicy;
 
@@ -1490,11 +2465,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A Products resource represents an app in the Google Play store that is
  *  available to at least some users in the enterprise. (Some apps are
- *  restricted to a single enterprise, and no information about them is made
- *  available outside that enterprise.)
- *  The information provided for each product (localized name, icon, link to the
- *  full Google Play details page) is intended to allow a basic representation
- *  of the product within an EMM user interface.
+ *  restricted
+ *  to a single enterprise, and no information about them is made available
+ *  outside that enterprise.)
+ *  The information provided for each product (localized name, icon, link
+ *  to the full Google Play details page) is intended to allow a basic
+ *  representation of the product within an EMM user interface.
  */
 @interface GTLRAndroidEnterprise_Product : GTLRObject
 
@@ -1510,13 +2486,24 @@ NS_ASSUME_NONNULL_BEGIN
 /** The countries which this app is available in. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableCountries;
 
-/** Deprecated, use appTracks instead. */
+/** Deprecated, use <code>appTracks</code> instead. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableTracks;
 
 /** The app category (e.g. RACING, SOCIAL, etc.) */
 @property(nonatomic, copy, nullable) NSString *category;
 
-/** The content rating for this app. */
+/**
+ *  The content rating for this app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_All Value "ALL"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_Mature Value "MATURE"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_PreTeen Value
+ *        "PRE_TEEN"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown Value
+ *        "RATING_UNKNOWN"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_Teen Value "TEEN"
+ */
 @property(nonatomic, copy, nullable) NSString *contentRating;
 
 /**
@@ -1530,12 +2517,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *detailsUrl;
 
 /**
- *  How and to whom the package is made available. The value publicGoogleHosted
- *  means that the package is available through the Play store and not
- *  restricted to a specific enterprise. The value privateGoogleHosted means
- *  that the package is a private app (restricted to an enterprise) but hosted
- *  by Google. The value privateSelfHosted means that the package is a private
- *  app (restricted to an enterprise) and is privately hosted.
+ *  How and to whom the package is made available.
+ *  The value <code>publicGoogleHosted</code> means that the package is
+ *  available through the Play store and not restricted to a specific
+ *  enterprise. The value <code>privateGoogleHosted</code> means that the
+ *  package is a private app (restricted to an enterprise) but hosted by
+ *  Google. The value <code>privateSelfHosted</code> means that the package is
+ *  a private app (restricted to an enterprise) and is privately hosted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted
+ *        Value "PRIVATE_GOOGLE_HOSTED"
+ *    @arg @c kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted
+ *        Value "PRIVATE_SELF_HOSTED"
+ *    @arg @c kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted
+ *        Value "PUBLIC_GOOGLE_HOSTED"
  */
 @property(nonatomic, copy, nullable) NSString *distributionChannel;
 
@@ -1543,12 +2539,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
 /**
- *  A link to an image that can be used as an icon for the product. This image
- *  is suitable for use at up to 512px x 512px.
+ *  A link to an image that can be used as an icon for the product.
+ *  This image is suitable for use at up to 512px x 512px.
  */
 @property(nonatomic, copy, nullable) NSString *iconUrl;
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The approximate time (within 7 days) the app was last published, expressed
@@ -1569,15 +2563,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPermission *> *permissions;
 
 /**
- *  A string of the form app:<package name>. For example,
- *  app:com.google.android.gm represents the Gmail app.
+ *  A string of the form <code><em>app:&lt;package name&gt;</em></code>. For
+ *  example, <code>app:com.google.android.gm</code> represents the Gmail app.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  Whether this product is free, free with in-app purchases, or paid. If the
- *  pricing is unknown, this means the product is not generally available
- *  anymore (even though it might still be available to people who own it).
+ *  Whether this product is free, free with in-app purchases, or paid.
+ *  If the pricing is unknown, this means the product is not generally
+ *  available anymore (even though it might still be available to
+ *  people who own it).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_Free The product is
+ *        free. (Value: "FREE")
+ *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase
+ *        The product is free, but offers in-app purchases. (Value:
+ *        "FREE_WITH_IN_APP_PURCHASE")
+ *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_Paid The product is
+ *        paid. (Value: "PAID")
+ *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_Unknown Unknown
+ *        pricing, used to denote an approved product that is not
+ *        generally available. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *productPricing;
 
@@ -1598,8 +2605,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ProductSigningCertificate *signingCertificate;
 
 /**
- *  A link to a smaller image that can be used as an icon for the product. This
- *  image is suitable for use at up to 128px x 128px.
+ *  A link to a smaller image that can be used as an icon for the product.
+ *  This image is suitable for use at up to 128px x 128px.
  */
 @property(nonatomic, copy, nullable) NSString *smallIconUrl;
 
@@ -1607,8 +2614,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  A link to the managed Google Play details page for the product, for use by
- *  an Enterprise admin.
+ *  A link to the managed Google Play details page for the product,
+ *  for use by an Enterprise admin.
  */
 @property(nonatomic, copy, nullable) NSString *workDetailsUrl;
 
@@ -1621,8 +2628,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ProductApprovalEvent : GTLRObject
 
 /**
- *  Whether the product was approved or unapproved. This field will always be
- *  present.
+ *  Whether the product was approved or unapproved.
+ *  This field will always be present.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved The
+ *        product was approved. (Value: "APPROVED")
+ *    @arg @c kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved
+ *        The product was unapproved. (Value: "UNAPPROVED")
+ *    @arg @c kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown
+ *        Conveys no information. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *approved;
 
@@ -1640,7 +2655,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ProductAvailabilityChangeEvent : GTLRObject
 
-/** The new state of the product. This field will always be present. */
+/**
+ *  The new state of the product.
+ *  This field will always be present.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available
+ *        The previously unavailable product is again available on Google Play.
+ *        (Value: "AVAILABLE")
+ *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed
+ *        The product was removed from Google Play. (Value: "REMOVED")
+ *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown
+ *        Conveys no information. (Value: "UNKNOWN")
+ *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished
+ *        The product was unpublished by the developer. (Value: "UNPUBLISHED")
+ */
 @property(nonatomic, copy, nullable) NSString *availabilityStatus;
 
 /**
@@ -1653,30 +2682,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A product permissions resource represents the set of permissions required by
- *  a specific app and whether or not they have been accepted by an enterprise
- *  admin.
- *  The API can be used to read the set of permissions, and also to update the
- *  set to indicate that permissions have been accepted.
+ *  A product permissions resource represents the set of permissions
+ *  required by a specific app and whether or not they have been accepted
+ *  by an enterprise admin.
+ *  The API can be used to read the set of permissions, and also to update
+ *  the set to indicate that permissions have been accepted.
  */
 @interface GTLRAndroidEnterprise_ProductPermission : GTLRObject
 
 /** An opaque string uniquely identifying the permission. */
 @property(nonatomic, copy, nullable) NSString *permissionId;
 
-/** Whether the permission has been accepted or not. */
+/**
+ *  Whether the permission has been accepted or not.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ProductPermission_State_Accepted The
+ *        permission has been accepted by the enterprise. (Value: "ACCEPTED")
+ *    @arg @c kGTLRAndroidEnterprise_ProductPermission_State_Required The
+ *        permission is required by the app but has not yet been accepted by
+ *        the enterprise. (Value: "REQUIRED")
+ */
 @property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
 
 /**
- *  Information about the permissions required by a specific app and whether
- *  they have been accepted by the enterprise.
+ *  Information about the permissions required by a specific app and
+ *  whether they have been accepted by the enterprise.
  */
 @interface GTLRAndroidEnterprise_ProductPermissions : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The permissions required by the app. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductPermission *> *permission;
@@ -1701,17 +2737,20 @@ NS_ASSUME_NONNULL_BEGIN
 /** The managed configuration for the product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ManagedConfiguration *managedConfiguration;
 
-/** The ID of the product. For example, "app:com.google.android.gm". */
+/**
+ *  The ID of the product. For example,
+ *  <code>&quot;app:com.google.android.gm&quot;</code>.
+ */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Grants the device visibility to the specified product release track(s),
- *  identified by trackIds. The list of release tracks of a product can be
- *  obtained by calling Products.Get.
+ *  identified by <code>trackIds</code>. The list of release tracks of a
+ *  product can be obtained by calling Products.Get.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackIds;
 
-/** Deprecated. Use trackIds instead. */
+/** Deprecated. Use <code>trackIds</code> instead. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tracks;
 
 @end
@@ -1723,21 +2762,33 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ProductsApproveRequest : GTLRObject
 
 /**
- *  The approval URL that was shown to the user. Only the permissions shown to
- *  the user with that URL will be accepted, which may not be the product's
- *  entire set of permissions. For example, the URL may only display new
- *  permissions from an update after the product was approved, or not include
- *  new permissions if the product was updated since the URL was generated.
+ *  The approval URL that was shown to the user. Only the permissions shown
+ *  to the user with that URL will be accepted, which may not be
+ *  the product's entire set of permissions. For example, the URL may only
+ *  display new permissions from an update after the product was approved,
+ *  or not include new permissions if the product was updated since the URL
+ *  was generated.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ApprovalUrlInfo *approvalUrlInfo;
 
 /**
  *  Sets how new permission requests for the product are handled.
- *  "allPermissions" automatically approves all current and future permissions
- *  for the product. "currentPermissionsOnly" approves the current set of
- *  permissions for the product, but any future permissions added through
- *  updates will require manual reapproval. If not specified, only the current
- *  set of permissions will be approved.
+ *  "allPermissions" automatically approves all current and future
+ *  permissions for the product. "currentPermissionsOnly" approves the
+ *  current set of permissions for the product, but any future permissions
+ *  added through updates will require manual reapproval. If not specified,
+ *  only the current set of permissions will be approved.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions
+ *        All current and future permissions the app requires are automatically
+ *        approved. (Value: "ALL_PERMISSIONS")
+ *    @arg @c kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly
+ *        Approve only the permissions the product requires at approval time.
+ *        If an update requires additional permissions, the app will not be
+ *        updated
+ *        on devices associated with enterprise users until the additional
+ *        permissions are approved. (Value: "CURRENT_PERMISSIONS_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *approvedPermissions;
 
@@ -1749,33 +2800,48 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidEnterprise_ProductSet : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /** The list of product IDs making up the set of products. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productId;
 
 /**
  *  The interpretation of this product set. "unknown" should never be sent and
  *  is ignored if received. "whitelist" means that the user is entitled to
- *  access the product set. "includeAll" means that all products are accessible,
- *  including products that are approved, products with revoked approval, and
- *  products that have never been approved. "allApproved" means that the user is
- *  entitled to access all products that are approved for the enterprise. If the
- *  value is "allApproved" or "includeAll", the productId field is ignored. If
- *  no value is provided, it is interpreted as "whitelist" for backwards
- *  compatibility. Further "allApproved" or "includeAll" does not enable
- *  automatic visibility of "alpha" or "beta" tracks for Android app. Use
+ *  access the product set. "includeAll" means that all products are
+ *  accessible, including products that are approved, products with revoked
+ *  approval, and products that have never been approved. "allApproved" means
+ *  that the user is entitled to access all products that are approved for the
+ *  enterprise. If the value is "allApproved" or "includeAll", the productId
+ *  field is ignored. If no value is provided, it is interpreted as
+ *  "whitelist" for backwards compatibility.
+ *  Further "allApproved" or "includeAll" does not enable automatic
+ *  visibility of "alpha" or "beta" tracks for Android app. Use
  *  ProductVisibility to enable "alpha" or "beta" tracks per user.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_AllApproved
+ *        This product set represents all approved products.
+ *        For Android app it represents only "production" track.
+ *        (The value of the product_id field is therefore ignored). (Value:
+ *        "ALL_APPROVED")
+ *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll
+ *        This product set represents all products.
+ *        For Android app it represents only "production" track.
+ *        (The value of the productId field is therefore ignored). (Value:
+ *        "INCLUDE_ALL")
+ *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown This
+ *        value should never be sent and ignored if received. (Value: "UNKNOWN")
+ *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist
+ *        This product set constitutes a whitelist. (Value: "WHITELIST")
  */
 @property(nonatomic, copy, nullable) NSString *productSetBehavior;
 
 /**
- *  Additional list of product IDs making up the product set. Unlike the
- *  productID array, in this list It's possible to specify which tracks (alpha,
- *  beta, production) of a product are visible to the user. See
- *  ProductVisibility and its fields for more information. Specifying the same
- *  product ID both here and in the productId array is not allowed and it will
- *  result in an error.
+ *  Additional list of product IDs making up the product set.
+ *  Unlike the productID array, in this list It's possible to specify
+ *  which tracks (alpha, beta, production) of a product are visible to the
+ *  user. See ProductVisibility and its fields for more information. Specifying
+ *  the same product ID both here and in the productId array is not allowed and
+ *  it will result in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_ProductVisibility *> *productVisibility;
 
@@ -1788,13 +2854,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ProductsGenerateApprovalUrlResponse : GTLRObject
 
 /**
- *  A URL that can be rendered in an iframe to display the permissions (if any)
- *  of a product. This URL can be used to approve the product only once and only
- *  within 24 hours of being generated, using the Products.approve call. If the
- *  product is currently unapproved and has no permissions, this URL will point
- *  to an empty page. If the product is currently approved, a URL will only be
- *  generated if that product has added permissions since it was last approved,
- *  and the URL will only display those new permissions that have not yet been
+ *  A URL that can be rendered in an iframe to display the permissions (if
+ *  any) of a product.
+ *  This URL can be used to approve the product only once and only within 24
+ *  hours of being generated, using the <code>Products.approve</code> call.
+ *  If the product is currently unapproved and has no permissions, this
+ *  URL will point to an empty page.
+ *  If the product is currently approved, a URL will only be generated if
+ *  that product has added permissions since it was last approved, and the
+ *  URL will only display those new permissions that have not yet been
  *  accepted.
  */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -1809,8 +2877,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The base64 urlsafe encoded SHA1 hash of the certificate. (This field is
- *  deprecated in favor of SHA2-256. It should not be used and may be removed at
- *  any time.)
+ *  deprecated in favor of SHA2-256. It should not be used and may be
+ *  removed at any time.)
  */
 @property(nonatomic, copy, nullable) NSString *certificateHashSha1;
 
@@ -1821,15 +2889,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The matching products.
+ *  GTLRAndroidEnterprise_ProductsListResponse
  */
 @interface GTLRAndroidEnterprise_ProductsListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#productsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** General pagination information. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_PageInfo *pageInfo;
@@ -1852,18 +2914,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ProductVisibility : GTLRObject
 
 /**
- *  The product ID to make visible to the user. Required for each item in the
- *  productVisibility list.
+ *  The product ID to make visible to the user.
+ *  Required for each item in the productVisibility list.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  Grants the user visibility to the specified product track(s), identified by
- *  trackIds.
+ *  <code>trackIds</code>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackIds;
 
-/** Deprecated. Use trackIds instead. */
+/** Deprecated. Use <code>trackIds</code> instead. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tracks;
 
 @end
@@ -1877,8 +2939,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Credentials that can be used to authenticate as this ServiceAccount. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ServiceAccountKey *key;
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The account name of the service account, in the form of an email address.
@@ -1895,30 +2955,42 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_ServiceAccountKey : GTLRObject
 
 /**
- *  The body of the private key credentials file, in string format. This is only
- *  populated when the ServiceAccountKey is created, and is not stored by
- *  Google.
+ *  The body of the private key credentials file, in string format. This
+ *  is only populated when the ServiceAccountKey is created, and is not stored
+ *  by Google.
  */
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  An opaque, unique identifier for this ServiceAccountKey. Assigned by the
- *  server.
+ *  An opaque, unique identifier for this ServiceAccountKey.
+ *  Assigned by the server.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
  *  Public key data for the credentials file. This is an X.509 cert. If you are
- *  using the googleCredentials key type, this is identical to the cert that can
- *  be retrieved by using the X.509 cert url inside of the credentials file.
+ *  using the <code>googleCredentials</code> key type, this is identical to the
+ *  cert that can be retrieved by using the X.509 cert url inside of the
+ *  credentials file.
  */
 @property(nonatomic, copy, nullable) NSString *publicData;
 
-/** The file format of the generated key data. */
+/**
+ *  The file format of the generated key data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials
+ *        Google Credentials File format. (Value: "GOOGLE_CREDENTIALS")
+ *    @arg @c kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12 PKCS12
+ *        format. The password for the PKCS12 file is 'notasecret'.
+ *        For more information, see https://tools.ietf.org/html/rfc7292.
+ *        The data for keys of this type are base64 encoded according to RFC
+ *        4648
+ *        Section 4. See http://tools.ietf.org/html/rfc4648#section-4. (Value:
+ *        "PKCS12")
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -1936,14 +3008,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A resource returned by the GenerateSignupUrl API, which contains the Signup
- *  URL and Completion Token.
+ *  A resource returned by the GenerateSignupUrl API, which contains the
+ *  Signup URL and Completion Token.
  */
 @interface GTLRAndroidEnterprise_SignupInfo : GTLRObject
 
 /**
- *  An opaque token that will be required, along with the Enterprise Token, for
- *  obtaining the enterprise resource from CompleteSignup.
+ *  An opaque token that will be required, along with the Enterprise Token,
+ *  for obtaining the enterprise resource from CompleteSignup.
  */
 @property(nonatomic, copy, nullable) NSString *completionToken;
 
@@ -1951,8 +3023,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  A URL under which the Admin can sign up for an enterprise. The page pointed
- *  to cannot be rendered in an iframe.
+ *  A URL under which the Admin can sign up for an enterprise.
+ *  The page pointed to cannot be rendered in an iframe.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -1972,22 +3044,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  Ordered list of localized strings giving the name of this page. The text
- *  displayed is the one that best matches the user locale, or the first entry
- *  if there is no good match. There needs to be at least one entry.
+ *  Ordered list of localized strings giving the name of this page.
+ *  The text displayed is the one that best matches the user locale,
+ *  or the first entry if there is no good match. There needs to be
+ *  at least one entry.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_LocalizedText *> *name;
 
 /**
  *  String (US-ASCII only) used to determine order of this cluster within the
- *  parent page's elements. Page elements are sorted in lexicographic order of
- *  this field. Duplicated values are allowed, but ordering between elements
- *  with duplicate order is undefined.
- *  The value of this field is never visible to a user, it is used solely for
- *  the purpose of defining an ordering. Maximum length is 256 characters.
+ *  parent page's elements. Page elements are sorted in lexicographic order
+ *  of this field.
+ *  Duplicated values are allowed, but ordering between elements with
+ *  duplicate order is undefined.
+ *  The value of this field is never visible to a user, it is used solely
+ *  for the purpose of defining an ordering. Maximum length is 256
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *orderInPage;
 
@@ -2001,26 +3074,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  General setting for the managed Google Play store layout, currently only
- *  specifying the page to display the first time the store is opened.
+ *  General setting for the managed Google Play store layout,
+ *  currently only specifying the page to display the first time
+ *  the store is opened.
  */
 @interface GTLRAndroidEnterprise_StoreLayout : GTLRObject
 
 /**
  *  The ID of the store page to be used as the homepage. The homepage is the
  *  first page shown in the managed Google Play Store.
- *  Not specifying a homepage is equivalent to setting the store layout type to
- *  "basic".
+ *  Not specifying a homepage is equivalent to setting the store layout
+ *  type to "basic".
  */
 @property(nonatomic, copy, nullable) NSString *homepageId;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  The store layout type. By default, this value is set to "basic" if the
- *  homepageId field is not set, and to "custom" otherwise. If set to "basic",
- *  the layout will consist of all approved apps that have been whitelisted for
- *  the user.
+ *  The store layout type. By default, this value is set to "basic"
+ *  if the homepageId field is not set, and to "custom" otherwise.
+ *  If set to "basic", the layout will consist of all approved apps that
+ *  have been whitelisted for the user.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic Value
+ *        "BASIC"
+ *    @arg @c kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom Value
+ *        "CUSTOM"
+ *    @arg @c kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown Value
+ *        "UNKNOWN"
  */
 @property(nonatomic, copy, nullable) NSString *storeLayoutType;
 
@@ -2028,32 +3108,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The store page resources for the enterprise.
+ *  GTLRAndroidEnterprise_StoreLayoutClustersListResponse
  */
 @interface GTLRAndroidEnterprise_StoreLayoutClustersListResponse : GTLRObject
 
 /** A store cluster of an enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_StoreCluster *> *cluster;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#storeLayoutClustersListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
 @end
 
 
 /**
- *  The store page resources for the enterprise.
+ *  GTLRAndroidEnterprise_StoreLayoutPagesListResponse
  */
 @interface GTLRAndroidEnterprise_StoreLayoutPagesListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#storeLayoutPagesListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A store page of an enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_StorePage *> *page;
@@ -2062,9 +3130,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Definition of a managed Google Play store page, made of a localized name and
- *  links to other pages. A page also contains clusters defined as a
- *  subcollection.
+ *  Definition of a managed Google Play store page, made of a localized name
+ *  and links to other pages. A page also contains clusters defined
+ *  as a subcollection.
  */
 @interface GTLRAndroidEnterprise_StorePage : GTLRObject
 
@@ -2075,20 +3143,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  Ordered list of pages a user should be able to reach from this page. The
- *  list can't include this page. It is recommended that the basic pages are
- *  created first, before adding the links between pages.
+ *  Ordered list of pages a user should be able to reach from this page.
+ *  The list can't include this page.
+ *  It is recommended that the basic pages are created first,
+ *  before adding the links between pages.
  *  The API doesn't verify that the pages exist or the pages are reachable.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *link;
 
 /**
- *  Ordered list of localized strings giving the name of this page. The text
- *  displayed is the one that best matches the user locale, or the first entry
- *  if there is no good match. There needs to be at least one entry.
+ *  Ordered list of localized strings giving the name of this page.
+ *  The text displayed is the one that best matches the user locale,
+ *  or the first entry if there is no good match. There needs to be
+ *  at least one entry.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_LocalizedText *> *name;
 
@@ -2096,11 +3164,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidEnterprise_TokenPagination
+ *  Pagination information returned by a List operation when token pagination
+ *  is enabled.
+ *  List operations that supports paging return only one "page" of results. This
+ *  protocol buffer message describes the page that has been returned.
+ *  When using token pagination, clients should use the next/previous token
+ *  to get another page of the result. The presence or absence of next/previous
+ *  token indicates whether a next/previous page is available and provides a
+ *  mean of accessing this page. ListRequest.page_token should be set to either
+ *  next_page_token or previous_page_token to access another page.
  */
 @interface GTLRAndroidEnterprise_TokenPagination : GTLRObject
 
+/**
+ *  Tokens to pass to the standard list field 'page_token'. Whenever available,
+ *  tokens are preferred over manipulating start_index.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @property(nonatomic, copy, nullable) NSString *previousPageToken;
 
 @end
@@ -2118,9 +3199,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *trackAlias;
 
 /**
- *  Unmodifiable, unique track identifier. This identifier is the releaseTrackId
- *  in the url of the play developer console page that displays the track
- *  information.
+ *  Unmodifiable, unique track identifier. This identifier is the
+ *  releaseTrackId in the url of the play developer console page that displays
+ *  the track information.
  */
 @property(nonatomic, copy, nullable) NSString *trackId;
 
@@ -2133,36 +3214,46 @@ NS_ASSUME_NONNULL_BEGIN
  *  use the account across multiple devices). The account may provide access to
  *  managed Google Play only, or to other Google services, depending on the
  *  identity model:
- *  - The Google managed domain identity model requires synchronization to
- *  Google account sources (via primaryEmail).
- *  - The managed Google Play Accounts identity model provides a dynamic means
+ *  <ul><li>The Google managed domain identity model requires synchronization to
+ *  Google account sources (via <code>primaryEmail</code>).</li>
+ *  <li>The managed Google Play Accounts identity model provides a dynamic means
  *  for enterprises to create user or device accounts as needed. These accounts
- *  provide access to managed Google Play.
+ *  provide access to managed Google Play.</li>
+ *  </ul>
  */
 @interface GTLRAndroidEnterprise_User : GTLRObject
 
 /**
  *  A unique identifier you create for this user, such as "user342" or
- *  "asset#44418". Do not use personally identifiable information (PII) for this
- *  property. Must always be set for EMM-managed users. Not set for
- *  Google-managed users.
+ *  "asset#44418". Do not use personally identifiable information (PII) for
+ *  this property. Must always be set for EMM-managed users.
+ *  Not set for Google-managed users.
  */
 @property(nonatomic, copy, nullable) NSString *accountIdentifier;
 
 /**
- *  The type of account that this user represents. A userAccount can be
- *  installed on multiple devices, but a deviceAccount is specific to a single
- *  device. An EMM-managed user (emmManaged) can be either type (userAccount,
- *  deviceAccount), but a Google-managed user (googleManaged) is always a
- *  userAccount.
+ *  The type of account that this user represents. A <code>userAccount</code>
+ *  can be installed on multiple devices, but a <code>deviceAccount</code> is
+ *  specific to a single device. An EMM-managed user (<code>emmManaged</code>)
+ *  can be either type (<code>userAccount</code>, <code>deviceAccount</code>),
+ *  but a Google-managed user (<code>googleManaged</code>) is always a
+ *  <code>userAccount</code>.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_User_AccountType_DeviceAccount Value
+ *        "DEVICE_ACCOUNT"
+ *    @arg @c kGTLRAndroidEnterprise_User_AccountType_UserAccount Value
+ *        "USER_ACCOUNT"
  */
 @property(nonatomic, copy, nullable) NSString *accountType;
 
 /**
  *  The name that will appear in user interfaces. Setting this property is
- *  optional when creating EMM-managed users. If you do set this property, use
- *  something generic about the organization (such as "Example, Inc.") or your
- *  name (as EMM). Not used for Google-managed user accounts.
+ *  optional when creating EMM-managed users. If you do set this property,
+ *  use something generic about the organization (such as "Example, Inc.") or
+ *  your name (as EMM).
+ *  Not used for Google-managed user accounts.
+ *  \@mutable androidenterprise.users.update
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2173,18 +3264,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(nonatomic, copy, nullable) NSString *kind;
-
 /**
- *  The entity that manages the user. With googleManaged users, the source of
- *  truth is Google so EMMs have to make sure a Google Account exists for the
- *  user. With emmManaged users, the EMM is in charge.
+ *  The entity that manages the user. With <code>googleManaged</code> users,
+ *  the source of truth is Google so EMMs have to make sure a Google Account
+ *  exists for the user. With <code>emmManaged</code> users, the
+ *  EMM is in charge.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_User_ManagementType_EmmManaged Value
+ *        "EMM_MANAGED"
+ *    @arg @c kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged Value
+ *        "GOOGLE_MANAGED"
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
 /**
- *  The user's primary email address, for example, "jsmith\@example.com". Will
- *  always be set for Google managed users and not set for EMM managed users.
+ *  The user's primary email address, for example, "jsmith\@example.com".
+ *  Will always be set for Google managed users and not set for EMM managed
+ *  users.
  */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
@@ -2192,15 +3289,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The matching user resources.
+ *  GTLRAndroidEnterprise_UsersListResponse
  */
 @interface GTLRAndroidEnterprise_UsersListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#usersListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** A user of an enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_User *> *user;
@@ -2209,36 +3300,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A UserToken is used by a user when setting up a managed device or profile
- *  with their managed Google Play account on a device. When the user enters
- *  their email address and token (activation code) the appropriate EMM app can
- *  be automatically downloaded.
- */
-@interface GTLRAndroidEnterprise_UserToken : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The token (activation code) to be entered by the user. This consists of a
- *  sequence of decimal digits. Note that the leading digit may be 0.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/** The unique ID for the user. */
-@property(nonatomic, copy, nullable) NSString *userId;
-
-@end
-
-
-/**
- *  A variable set is a key-value pair of EMM-provided placeholders and its
- *  corresponding value, which is attributed to a user. For example, $FIRSTNAME
- *  could be a placeholder, and its value could be Alice. Placeholders should
- *  start with a '$' sign and should be alphanumeric only.
+ *  A variable set is a key-value pair of EMM-provided placeholders and
+ *  its corresponding value, which is attributed to a user. For example,
+ *  $FIRSTNAME could be a placeholder, and its value could be Alice.
+ *  Placeholders
+ *  should start with a '$' sign and should be alphanumeric only.
  */
 @interface GTLRAndroidEnterprise_VariableSet : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The placeholder string; defined by EMM. */
 @property(nonatomic, copy, nullable) NSString *placeholder;
@@ -2257,17 +3325,37 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidEnterprise_WebApp : GTLRObject
 
 /**
- *  The display mode of the web app.
+ *  The display mode of the web app. <br><br>
  *  Possible values include:
- *  - "minimalUi", the device's status bar, navigation bar, the app's URL, and a
- *  refresh button are visible when the app is open. For HTTP URLs, you can only
- *  select this option.
- *  - "standalone", the device's status bar and navigation bar are visible when
- *  the app is open.
- *  - "fullScreen", the app opens in full screen mode, hiding the device's
- *  status and navigation bars. All browser UI elements, page URL, system status
- *  bar and back button are not visible, and the web app takes up the entirety
- *  of the available display area.
+ *  <ul><li>"<code>minimalUi</code>", the device's status bar, navigation bar,
+ *  the app's URL, and a refresh button are visible when the app is open. For
+ *  HTTP URLs, you can only select this option.
+ *  <li>"<code>standalone</code>", the device's status bar and navigation
+ *  bar are visible when the app is open.
+ *  <li>"<code>fullScreen</code>", the app opens in full screen mode, hiding
+ *  the device's status and navigation bars. All browser UI elements, page
+ *  URL, system status bar and back button are not visible, and the web app
+ *  takes up the entirety of the available display area.
+ *  </ul>
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified
+ *        Value "DISPLAY_MODE_UNSPECIFIED"
+ *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen Opens the web
+ *        app in full screen without any visible controls. The
+ *        browser UI elements, page URL, system status bar and back button are
+ *        not
+ *        visible, and the web app takes up the entirety of the available
+ *        display
+ *        area. (Value: "FULL_SCREEN")
+ *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi Opens the web
+ *        app with a minimal set of browser UI elements for
+ *        controlling navigation and viewing the page URL. (Value: "MINIMAL_UI")
+ *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone Opens the web
+ *        app to look and feel like a standalone native application.
+ *        The browser UI elements and page URL are not visible, however the
+ *        system
+ *        status bar and back button are visible. (Value: "STANDALONE")
  */
 @property(nonatomic, copy, nullable) NSString *displayMode;
 
@@ -2298,8 +3386,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The current version of the app.
- *  Note that the version can automatically increase during the lifetime of the
- *  web app, while Google does internal housekeeping to keep the web app
+ *  <p>Note that the version can automatically increase during the lifetime of
+ *  the web app, while Google does internal housekeeping to keep the web app
  *  up-to-date.
  *
  *  Uses NSNumber of longLongValue.
@@ -2307,9 +3395,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *versionCode;
 
 /**
- *  The ID of the application. A string of the form "app:<package name>" where
- *  the package name always starts with the prefix
- *  "com.google.enterprise.webapp." followed by a random id.
+ *  The ID of the application. A string of the form
+ *  <code>&quot;app:&lt;package name&gt;&quot;</code> where the package name
+ *  always starts with the prefix
+ *  <code>&quot;com.google.enterprise.webapp.&quot;</code> followed by a
+ *  random id.
  */
 @property(nonatomic, copy, nullable) NSString *webAppId;
 
@@ -2324,9 +3414,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The actual bytes of the image in a base64url encoded string (c.f. RFC4648,
  *  section 5 "Base 64 Encoding with URL and Filename Safe Alphabet").
- *  - The image type can be png or jpg.
- *  - The image should ideally be square.
- *  - The image should ideally have a size of 512x512.
+ *  <ul>
+ *  <li>The image type can be png or jpg.
+ *  <li>The image should ideally be square.
+ *  <li>The image should ideally have a size of 512x512.
+ *  </ul>
  */
 @property(nonatomic, copy, nullable) NSString *imageData;
 
@@ -2334,15 +3426,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The web app details for an enterprise.
+ *  GTLRAndroidEnterprise_WebAppsListResponse
  */
 @interface GTLRAndroidEnterprise_WebAppsListResponse : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidenterprise#webAppsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 /** The manifest describing a web app. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_WebApp *> *webApp;

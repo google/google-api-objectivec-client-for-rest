@@ -22,16 +22,28 @@
 #endif
 
 @class GTLRDisplayVideo_Advertiser;
+@class GTLRDisplayVideo_AssignedInventorySource;
+@class GTLRDisplayVideo_AssignedLocation;
 @class GTLRDisplayVideo_AssignedTargetingOption;
 @class GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest;
+@class GTLRDisplayVideo_BulkEditAssignedInventorySourcesRequest;
+@class GTLRDisplayVideo_BulkEditAssignedLocationsRequest;
 @class GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest;
+@class GTLRDisplayVideo_BulkEditNegativeKeywordsRequest;
+@class GTLRDisplayVideo_BulkEditSitesRequest;
 @class GTLRDisplayVideo_Campaign;
+@class GTLRDisplayVideo_Channel;
 @class GTLRDisplayVideo_CreateAssetRequest;
 @class GTLRDisplayVideo_CreateSdfDownloadTaskRequest;
 @class GTLRDisplayVideo_Creative;
 @class GTLRDisplayVideo_FloodlightGroup;
 @class GTLRDisplayVideo_InsertionOrder;
+@class GTLRDisplayVideo_InventorySourceGroup;
 @class GTLRDisplayVideo_LineItem;
+@class GTLRDisplayVideo_LocationList;
+@class GTLRDisplayVideo_NegativeKeyword;
+@class GTLRDisplayVideo_NegativeKeywordList;
+@class GTLRDisplayVideo_Site;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -537,6 +549,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Creates a new channel. Returns the newly created channel if successful.
+ *
+ *  Method: displayvideo.advertisers.channels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersChannelsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersChannelsCreateWithObject:advertiserId:]
+
+/** The ID of the advertiser that owns the created channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of the partner that owns the created channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Channel.
+ *
+ *  Creates a new channel. Returns the newly created channel if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_Channel to include in the query.
+ *  @param advertiserId The ID of the advertiser that owns the created channel.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersChannelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_Channel *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Updates an existing inventory source.
+ *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  Method: displayvideo.advertisers.channels.get
@@ -560,6 +607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Fetches a @c GTLRDisplayVideo_Channel.
  *
+ *  Updates an existing inventory source.
+ *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  @param advertiserId The ID of the advertiser that owns the fetched channel.
@@ -647,6 +696,262 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Updates a channel. Returns the updated channel if successful.
+ *
+ *  Method: displayvideo.advertisers.channels.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersChannelsPatch : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersChannelsPatchWithObject:advertiserId:channelId:]
+
+/** The ID of the advertiser that owns the created channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Output only. The unique ID of the channel. Assigned by the system. */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the created channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Channel.
+ *
+ *  Updates a channel. Returns the updated channel if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_Channel to include in the query.
+ *  @param advertiserId The ID of the advertiser that owns the created channel.
+ *  @param channelId Output only. The unique ID of the channel. Assigned by the
+ *    system.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersChannelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_Channel *)object
+                   advertiserId:(long long)advertiserId
+                      channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Bulk edits sites under a single channel.
+ *  The operation will delete the sites provided in
+ *  BulkEditSitesRequest.deleted_sites and then create the sites
+ *  provided in BulkEditSitesRequest.created_sites.
+ *
+ *  Method: displayvideo.advertisers.channels.sites.bulkEdit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersChannelsSitesBulkEdit : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersChannelsSitesBulkEditWithObject:advertiserId:channelId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the parent channel to which the sites belong. */
+@property(nonatomic, assign) long long channelId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkEditSitesResponse.
+ *
+ *  Bulk edits sites under a single channel.
+ *  The operation will delete the sites provided in
+ *  BulkEditSitesRequest.deleted_sites and then create the sites
+ *  provided in BulkEditSitesRequest.created_sites.
+ *
+ *  @param object The @c GTLRDisplayVideo_BulkEditSitesRequest to include in the
+ *    query.
+ *  @param advertiserId The ID of the advertiser that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel to which the sites
+ *    belong.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersChannelsSitesBulkEdit
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditSitesRequest *)object
+                   advertiserId:(long long)advertiserId
+                      channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Creates a site in a channel.
+ *
+ *  Method: displayvideo.advertisers.channels.sites.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersChannelsSitesCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersChannelsSitesCreateWithObject:advertiserId:channelId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the parent channel in which the site will be created.
+ */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Site.
+ *
+ *  Creates a site in a channel.
+ *
+ *  @param object The @c GTLRDisplayVideo_Site to include in the query.
+ *  @param advertiserId The ID of the advertiser that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel in which the site
+ *    will be created.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersChannelsSitesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_Site *)object
+                   advertiserId:(long long)advertiserId
+                      channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Deletes a site from a channel.
+ *
+ *  Method: displayvideo.advertisers.channels.sites.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersChannelsSitesDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersChannelsSitesDeleteWithadvertiserId:channelId:urlOrAppId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the parent channel to which the site belongs. */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/** Required. The URL or app ID of the site to delete. */
+@property(nonatomic, copy, nullable) NSString *urlOrAppId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes a site from a channel.
+ *
+ *  @param advertiserId The ID of the advertiser that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel to which the site
+ *    belongs.
+ *  @param urlOrAppId Required. The URL or app ID of the site to delete.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersChannelsSitesDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            channelId:(long long)channelId
+                           urlOrAppId:(NSString *)urlOrAppId;
+
+@end
+
+/**
+ *  Lists sites in a channel.
+ *
+ *  Method: displayvideo.advertisers.channels.sites.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersChannelsSitesList : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersChannelsSitesListWithadvertiserId:channelId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the parent channel to which the requested sites belong.
+ */
+@property(nonatomic, assign) long long channelId;
+
+/**
+ *  Allows filtering by site fields.
+ *  Supported syntax:
+ *  * Filter expressions for site currently can only contain at most one
+ *  * restriction.
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `CONTAINS (:)`.
+ *  * Supported fields:
+ *  - `urlOrAppId`
+ *  Examples:
+ *  * All sites for which the URL or app ID contains "google":
+ *  `urlOrAppId : "google"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `urlOrAppId` (default)
+ *  The default sorting order is ascending. To specify descending order for a
+ *  field, a suffix " desc" should be added to the field name. Example:
+ *  `urlOrAppId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  next_page_token returned from the
+ *  previous call to `ListSites` method. If not specified, the first page
+ *  of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListSitesResponse.
+ *
+ *  Lists sites in a channel.
+ *
+ *  @param advertiserId The ID of the advertiser that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel to which the
+ *    requested sites belong.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersChannelsSitesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            channelId:(long long)channelId;
 
 @end
 
@@ -825,6 +1130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  - `approvalStatus`
  *  - `exchangeReviewStatus`
  *  - `dynamic`
+ *  - `creativeId`
  *  * The operator must be `HAS (:)` for the following fields:
  *  - `lineItemIds`
  *  * For `entityStatus`, `minDuration`, `maxDuration`, and `dynamic` there may
@@ -836,6 +1142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `"{duration}s"`. Only seconds are supported with millisecond granularity.
  *  * There may be multiple `lineItemIds` restrictions in order to search
  *  against multiple possible line item IDs.
+ *  * There may be multiple `creativeId` restrictions in order to search
+ *  against multiple possible creative IDs.
  *  Examples:
  *  * All native creatives: `creativeType="CREATIVE_TYPE_NATIVE"`
  *  * All active creatives with 300x400 or 50x100 dimensions:
@@ -847,7 +1155,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  (exchangeReviewStatus="EXCHANGE_GOOGLE_AD_MANAGER-REVIEW_STATUS_APPROVED"
  *  OR exchangeReviewStatus="EXCHANGE_APPNEXUS-REVIEW_STATUS_APPROVED")`
  *  * All video creatives that are associated with line item ID 1 or 2:
- *  creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)
+ *  `creativeType="CREATIVE_TYPE_VIDEO" AND (lineItemIds:1 OR lineItemIds:2)`
+ *  * Find creatives by multiple creative IDs:
+ *  `creativeId=1 OR creativeId=2`
  *  The length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2622,6 +2932,265 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Bulk edits multiple assignments between locations and a single location
+ *  list.
+ *  The operation will delete the assigned locations provided in
+ *  BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+ *  create the assigned locations provided in
+ *  BulkEditAssignedLocationsRequest.created_assigned_locations.
+ *
+ *  Method: displayvideo.advertisers.locationLists.assignedLocations.bulkEdit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsBulkEdit : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersLocationListsAssignedLocationsBulkEditWithObject:advertiserId:locationListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the location list belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the location list to which these assignments are
+ *  assigned.
+ */
+@property(nonatomic, assign) long long locationListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkEditAssignedLocationsResponse.
+ *
+ *  Bulk edits multiple assignments between locations and a single location
+ *  list.
+ *  The operation will delete the assigned locations provided in
+ *  BulkEditAssignedLocationsRequest.deleted_assigned_locations and then
+ *  create the assigned locations provided in
+ *  BulkEditAssignedLocationsRequest.created_assigned_locations.
+ *
+ *  @param object The @c GTLRDisplayVideo_BulkEditAssignedLocationsRequest to
+ *    include in the query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    location list belongs.
+ *  @param locationListId Required. The ID of the location list to which these
+ *    assignments are assigned.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsBulkEdit
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditAssignedLocationsRequest *)object
+                   advertiserId:(long long)advertiserId
+                 locationListId:(long long)locationListId;
+
+@end
+
+/**
+ *  Creates an assignment between a location and a location list.
+ *
+ *  Method: displayvideo.advertisers.locationLists.assignedLocations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersLocationListsAssignedLocationsCreateWithObject:advertiserId:locationListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the location list belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the location list for which the assignment will be
+ *  created.
+ */
+@property(nonatomic, assign) long long locationListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AssignedLocation.
+ *
+ *  Creates an assignment between a location and a location list.
+ *
+ *  @param object The @c GTLRDisplayVideo_AssignedLocation to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    location list belongs.
+ *  @param locationListId Required. The ID of the location list for which the
+ *    assignment will be created.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AssignedLocation *)object
+                   advertiserId:(long long)advertiserId
+                 locationListId:(long long)locationListId;
+
+@end
+
+/**
+ *  Deletes the assignment between a location and a location list.
+ *
+ *  Method: displayvideo.advertisers.locationLists.assignedLocations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersLocationListsAssignedLocationsDeleteWithadvertiserId:locationListId:assignedLocationId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the location list belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the assigned location to delete. */
+@property(nonatomic, assign) long long assignedLocationId;
+
+/**
+ *  Required. The ID of the location list to which this assignment is assigned.
+ */
+@property(nonatomic, assign) long long locationListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes the assignment between a location and a location list.
+ *
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    location list belongs.
+ *  @param locationListId Required. The ID of the location list to which this
+ *    assignment is assigned.
+ *  @param assignedLocationId Required. The ID of the assigned location to
+ *    delete.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                       locationListId:(long long)locationListId
+                   assignedLocationId:(long long)assignedLocationId;
+
+@end
+
+/**
+ *  Lists locations assigned to a location list.
+ *
+ *  Method: displayvideo.advertisers.locationLists.assignedLocations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsList : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersLocationListsAssignedLocationsListWithadvertiserId:locationListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the location list belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by location list assignment fields.
+ *  Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions.
+ *  * Restrictions can be combined by the logical operator `OR`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `EQUALS (=)`.
+ *  * Supported fields:
+ *  - `assignedLocationId`
+ *  The length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The ID of the location list to which these assignments are
+ *  assigned.
+ */
+@property(nonatomic, assign) long long locationListId;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `assignedLocationId` (default)
+ *  The default sorting order is ascending. To specify descending order for a
+ *  field, a suffix " desc" should be added to the field name. Example:
+ *  `assignedLocationId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  next_page_token
+ *  returned from the previous call to `ListAssignedLocations`
+ *  method. If not specified, the first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListAssignedLocationsResponse.
+ *
+ *  Lists locations assigned to a location list.
+ *
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    location list belongs.
+ *  @param locationListId Required. The ID of the location list to which these
+ *    assignments are assigned.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLocationListsAssignedLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                       locationListId:(long long)locationListId;
+
+@end
+
+/**
+ *  Creates a new location list. Returns the newly created location list if
+ *  successful.
+ *
+ *  Method: displayvideo.advertisers.locationLists.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLocationListsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersLocationListsCreateWithObject:advertiserId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the location list belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_LocationList.
+ *
+ *  Creates a new location list. Returns the newly created location list if
+ *  successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_LocationList to include in the query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    location list belongs.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLocationListsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_LocationList *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
  *  Gets a location list.
  *
  *  Method: displayvideo.advertisers.locationLists.get
@@ -2740,6 +3309,134 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Updates a location list. Returns the updated location list if successful.
+ *
+ *  Method: displayvideo.advertisers.locationLists.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLocationListsPatch : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersLocationListsPatchWithObject:advertiserId:locationListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the location lists
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Output only. The unique ID of the location list. Assigned by the system.
+ */
+@property(nonatomic, assign) long long locationListId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_LocationList.
+ *
+ *  Updates a location list. Returns the updated location list if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_LocationList to include in the query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    location lists belongs.
+ *  @param locationListId Output only. The unique ID of the location list.
+ *    Assigned by the system.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLocationListsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_LocationList *)object
+                   advertiserId:(long long)advertiserId
+                 locationListId:(long long)locationListId;
+
+@end
+
+/**
+ *  Creates a new negative keyword list. Returns the newly created negative
+ *  keyword list if successful.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsCreateWithObject:advertiserId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the negative keyword list
+ *  will
+ *  belong.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_NegativeKeywordList.
+ *
+ *  Creates a new negative keyword list. Returns the newly created negative
+ *  keyword list if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_NegativeKeywordList to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    negative keyword list will
+ *    belong.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_NegativeKeywordList *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Deletes a negative keyword list given an advertiser ID and a negative
+ *  keyword list ID.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsDeleteWithadvertiserId:negativeKeywordListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the negative keyword list
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the negative keyword list to delete. */
+@property(nonatomic, assign) long long negativeKeywordListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes a negative keyword list given an advertiser ID and a negative
+ *  keyword list ID.
+ *
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    negative keyword list belongs.
+ *  @param negativeKeywordListId Required. The ID of the negative keyword list
+ *    to delete.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                negativeKeywordListId:(long long)negativeKeywordListId;
+
+@end
+
+/**
  *  Gets a negative keyword list given an advertiser ID and a negative keyword
  *  list ID.
  *
@@ -2832,6 +3529,309 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Bulk edits negative keywords in a single negative keyword list.
+ *  The operation will delete the negative keywords provided in
+ *  BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+ *  create the negative keywords provided in
+ *  BulkEditNegativeKeywordsRequest.created_negative_keywords.
+ *  This operation is guaranteed to be atomic and will never result in a
+ *  partial success or partial failure.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.negativeKeywords.bulkEdit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsBulkEdit : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsNegativeKeywordsBulkEditWithObject:advertiserId:negativeKeywordListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the parent negative
+ *  keyword list
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the parent negative keyword list to which the negative
+ *  keywords
+ *  belong.
+ */
+@property(nonatomic, assign) long long negativeKeywordListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkEditNegativeKeywordsResponse.
+ *
+ *  Bulk edits negative keywords in a single negative keyword list.
+ *  The operation will delete the negative keywords provided in
+ *  BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then
+ *  create the negative keywords provided in
+ *  BulkEditNegativeKeywordsRequest.created_negative_keywords.
+ *  This operation is guaranteed to be atomic and will never result in a
+ *  partial success or partial failure.
+ *
+ *  @param object The @c GTLRDisplayVideo_BulkEditNegativeKeywordsRequest to
+ *    include in the query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    parent negative keyword list
+ *    belongs.
+ *  @param negativeKeywordListId Required. The ID of the parent negative keyword
+ *    list to which the negative keywords
+ *    belong.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsBulkEdit
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditNegativeKeywordsRequest *)object
+                   advertiserId:(long long)advertiserId
+          negativeKeywordListId:(long long)negativeKeywordListId;
+
+@end
+
+/**
+ *  Creates a negative keyword in a negative keyword list.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.negativeKeywords.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsNegativeKeywordsCreateWithObject:advertiserId:negativeKeywordListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the parent negative
+ *  keyword list
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the parent negative keyword list in which the negative
+ *  keyword
+ *  will be created.
+ */
+@property(nonatomic, assign) long long negativeKeywordListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_NegativeKeyword.
+ *
+ *  Creates a negative keyword in a negative keyword list.
+ *
+ *  @param object The @c GTLRDisplayVideo_NegativeKeyword to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    parent negative keyword list
+ *    belongs.
+ *  @param negativeKeywordListId Required. The ID of the parent negative keyword
+ *    list in which the negative keyword
+ *    will be created.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_NegativeKeyword *)object
+                   advertiserId:(long long)advertiserId
+          negativeKeywordListId:(long long)negativeKeywordListId;
+
+@end
+
+/**
+ *  Deletes a negative keyword from a negative keyword list.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.negativeKeywords.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsNegativeKeywordsDeleteWithadvertiserId:negativeKeywordListId:keywordValue:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the parent negative
+ *  keyword list
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The keyword value of the negative keyword to delete. */
+@property(nonatomic, copy, nullable) NSString *keywordValue;
+
+/**
+ *  Required. The ID of the parent negative keyword list to which the negative
+ *  keyword
+ *  belongs.
+ */
+@property(nonatomic, assign) long long negativeKeywordListId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes a negative keyword from a negative keyword list.
+ *
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    parent negative keyword list
+ *    belongs.
+ *  @param negativeKeywordListId Required. The ID of the parent negative keyword
+ *    list to which the negative keyword
+ *    belongs.
+ *  @param keywordValue Required. The keyword value of the negative keyword to
+ *    delete.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                negativeKeywordListId:(long long)negativeKeywordListId
+                         keywordValue:(NSString *)keywordValue;
+
+@end
+
+/**
+ *  Lists negative keywords in a negative keyword list.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsList : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsNegativeKeywordsListWithadvertiserId:negativeKeywordListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the parent negative
+ *  keyword list
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by negative keyword fields.
+ *  Supported syntax:
+ *  * Filter expressions for negative keyword currently can only contain at
+ *  most one
+ *  * restriction.
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `CONTAINS (:)`.
+ *  * Supported fields:
+ *  - `keywordValue`
+ *  Examples:
+ *  * All negative keywords for which the keyword value contains "google":
+ *  `keywordValue : "google"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The ID of the parent negative keyword list to which the requested
+ *  negative
+ *  keywords belong.
+ */
+@property(nonatomic, assign) long long negativeKeywordListId;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `keywordValue` (default)
+ *  The default sorting order is ascending. To specify descending order for a
+ *  field, a suffix " desc" should be added to the field name. Example:
+ *  `keywordValue desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  next_page_token returned
+ *  from the previous call to `ListNegativeKeywords` method. If not specified,
+ *  the first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListNegativeKeywordsResponse.
+ *
+ *  Lists negative keywords in a negative keyword list.
+ *
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    parent negative keyword list
+ *    belongs.
+ *  @param negativeKeywordListId Required. The ID of the parent negative keyword
+ *    list to which the requested negative
+ *    keywords belong.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                negativeKeywordListId:(long long)negativeKeywordListId;
+
+@end
+
+/**
+ *  Updates a negative keyword list. Returns the updated negative keyword list
+ *  if successful.
+ *
+ *  Method: displayvideo.advertisers.negativeKeywordLists.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsPatch : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForAdvertisersNegativeKeywordListsPatchWithObject:advertiserId:negativeKeywordListId:]
+
+/**
+ *  Required. The ID of the DV360 advertiser to which the negative keyword list
+ *  belongs.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Output only. The unique ID of the negative keyword list. Assigned by the
+ *  system.
+ */
+@property(nonatomic, assign) long long negativeKeywordListId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_NegativeKeywordList.
+ *
+ *  Updates a negative keyword list. Returns the updated negative keyword list
+ *  if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_NegativeKeywordList to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the DV360 advertiser to which the
+ *    negative keyword list belongs.
+ *  @param negativeKeywordListId Output only. The unique ID of the negative
+ *    keyword list. Assigned by the system.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_NegativeKeywordList *)object
+                   advertiserId:(long long)advertiserId
+          negativeKeywordListId:(long long)negativeKeywordListId;
 
 @end
 
@@ -4277,6 +5277,334 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Bulk edits multiple assignments between inventory sources and a single
+ *  inventory source group.
+ *  The operation will delete the assigned inventory sources provided in
+ *  BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+ *  and then create the assigned inventory sources provided in
+ *  BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+ *
+ *  Method: displayvideo.inventorySourceGroups.assignedInventorySources.bulkEdit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesBulkEdit : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsAssignedInventorySourcesBulkEditWithObject:inventorySourceGroupId:]
+
+/**
+ *  Required. The ID of the inventory source group to which the assignments are
+ *  assigned.
+ */
+@property(nonatomic, assign) long long inventorySourceGroupId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkEditAssignedInventorySourcesResponse.
+ *
+ *  Bulk edits multiple assignments between inventory sources and a single
+ *  inventory source group.
+ *  The operation will delete the assigned inventory sources provided in
+ *  BulkEditAssignedInventorySourcesRequest.deleted_assigned_inventory_sources
+ *  and then create the assigned inventory sources provided in
+ *  BulkEditAssignedInventorySourcesRequest.created_assigned_inventory_sources.
+ *
+ *  @param object The @c
+ *    GTLRDisplayVideo_BulkEditAssignedInventorySourcesRequest to include in the
+ *    query.
+ *  @param inventorySourceGroupId Required. The ID of the inventory source group
+ *    to which the assignments are
+ *    assigned.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesBulkEdit
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditAssignedInventorySourcesRequest *)object
+         inventorySourceGroupId:(long long)inventorySourceGroupId;
+
+@end
+
+/**
+ *  Creates an assignment between an inventory source and an inventory source
+ *  group.
+ *
+ *  Method: displayvideo.inventorySourceGroups.assignedInventorySources.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsAssignedInventorySourcesCreateWithObject:inventorySourceGroupId:]
+
+/**
+ *  The ID of the advertiser that owns the parent inventory source group.
+ *  The parent partner will not have access to this assigned inventory
+ *  source.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the inventory source group to which the assignment will
+ *  be
+ *  assigned.
+ */
+@property(nonatomic, assign) long long inventorySourceGroupId;
+
+/**
+ *  The ID of the partner that owns the parent inventory source group.
+ *  Only this partner will have write access to this assigned inventory
+ *  source.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AssignedInventorySource.
+ *
+ *  Creates an assignment between an inventory source and an inventory source
+ *  group.
+ *
+ *  @param object The @c GTLRDisplayVideo_AssignedInventorySource to include in
+ *    the query.
+ *  @param inventorySourceGroupId Required. The ID of the inventory source group
+ *    to which the assignment will be
+ *    assigned.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_AssignedInventorySource *)object
+         inventorySourceGroupId:(long long)inventorySourceGroupId;
+
+@end
+
+/**
+ *  Deletes the assignment between an inventory source and an inventory source
+ *  group.
+ *
+ *  Method: displayvideo.inventorySourceGroups.assignedInventorySources.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsAssignedInventorySourcesDeleteWithinventorySourceGroupId:assignedInventorySourceId:]
+
+/**
+ *  The ID of the advertiser that owns the parent inventory source group.
+ *  The parent partner does not have access to this assigned inventory
+ *  source.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the assigned inventory source to delete. */
+@property(nonatomic, assign) long long assignedInventorySourceId;
+
+/**
+ *  Required. The ID of the inventory source group to which this assignment is
+ *  assigned.
+ */
+@property(nonatomic, assign) long long inventorySourceGroupId;
+
+/**
+ *  The ID of the partner that owns the parent inventory source group.
+ *  Only this partner has write access to this assigned inventory source.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes the assignment between an inventory source and an inventory source
+ *  group.
+ *
+ *  @param inventorySourceGroupId Required. The ID of the inventory source group
+ *    to which this assignment is assigned.
+ *  @param assignedInventorySourceId Required. The ID of the assigned inventory
+ *    source to delete.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesDelete
+ */
++ (instancetype)queryWithInventorySourceGroupId:(long long)inventorySourceGroupId
+                      assignedInventorySourceId:(long long)assignedInventorySourceId;
+
+@end
+
+/**
+ *  Lists inventory sources assigned to an inventory source group.
+ *
+ *  Method: displayvideo.inventorySourceGroups.assignedInventorySources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesList : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsAssignedInventorySourcesListWithinventorySourceGroupId:]
+
+/**
+ *  The ID of the advertiser that has access to the assignment.
+ *  If the parent inventory source group is partner-owned, only advertisers
+ *  to which the parent group is explicitly shared can access the assigned
+ *  inventory source.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Allows filtering by assigned inventory source fields.
+ *  Supported syntax:
+ *  * Filter expressions are made up of one or more restrictions.
+ *  * Restrictions can be combined by the logical operator `OR`.
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `EQUALS (=)`.
+ *  * Supported fields:
+ *  - `assignedInventorySourceId`
+ *  The length of this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The ID of the inventory source group to which these assignments
+ *  are
+ *  assigned.
+ */
+@property(nonatomic, assign) long long inventorySourceGroupId;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `assignedInventorySourceId` (default)
+ *  The default sorting order is ascending. To specify descending order for a
+ *  field, a suffix " desc" should be added to the field name. Example:
+ *  `assignedInventorySourceId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  next_page_token
+ *  returned from the previous call to `ListAssignedInventorySources`
+ *  method. If not specified, the first page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The ID of the partner that has access to the assignment.
+ *  If the parent inventory source group is advertiser-owned, the assignment
+ *  cannot be accessed via a partner.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListAssignedInventorySourcesResponse.
+ *
+ *  Lists inventory sources assigned to an inventory source group.
+ *
+ *  @param inventorySourceGroupId Required. The ID of the inventory source group
+ *    to which these assignments are
+ *    assigned.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsAssignedInventorySourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithInventorySourceGroupId:(long long)inventorySourceGroupId;
+
+@end
+
+/**
+ *  Creates a new inventory source group. Returns the newly created inventory
+ *  source group if successful.
+ *
+ *  Method: displayvideo.inventorySourceGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsCreateWithObject:]
+
+/**
+ *  The ID of the advertiser that owns the inventory source group.
+ *  The parent partner will not have access to this group.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  The ID of the partner that owns the inventory source group.
+ *  Only this partner will have write access to this group. Only advertisers
+ *  to which this group is explicitly shared will have read access to this
+ *  group.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_InventorySourceGroup.
+ *
+ *  Creates a new inventory source group. Returns the newly created inventory
+ *  source group if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_InventorySourceGroup to include in the
+ *    query.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_InventorySourceGroup *)object;
+
+@end
+
+/**
+ *  Deletes an inventory source group.
+ *
+ *  Method: displayvideo.inventorySourceGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsDeleteWithinventorySourceGroupId:]
+
+/**
+ *  The ID of the advertiser that owns the inventory source group.
+ *  The parent partner does not have access to this group.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the inventory source group to delete. */
+@property(nonatomic, assign) long long inventorySourceGroupId;
+
+/**
+ *  The ID of the partner that owns the inventory source group.
+ *  Only this partner has write access to this group.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes an inventory source group.
+ *
+ *  @param inventorySourceGroupId Required. The ID of the inventory source group
+ *    to delete.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsDelete
+ */
++ (instancetype)queryWithInventorySourceGroupId:(long long)inventorySourceGroupId;
+
+@end
+
+/**
  *  Gets an inventory source group.
  *
  *  Method: displayvideo.inventorySourceGroups.get
@@ -4398,6 +5726,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Updates an inventory source group. Returns the updated inventory source
+ *  group if successful.
+ *
+ *  Method: displayvideo.inventorySourceGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_InventorySourceGroupsPatch : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForInventorySourceGroupsPatchWithObject:inventorySourceGroupId:]
+
+/**
+ *  The ID of the advertiser that owns the inventory source group.
+ *  The parent partner does not have access to this group.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Output only. The unique ID of the inventory source group. Assigned by the
+ *  system.
+ */
+@property(nonatomic, assign) long long inventorySourceGroupId;
+
+/**
+ *  The ID of the partner that owns the inventory source group.
+ *  Only this partner has write access to this group.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_InventorySourceGroup.
+ *
+ *  Updates an inventory source group. Returns the updated inventory source
+ *  group if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_InventorySourceGroup to include in the
+ *    query.
+ *  @param inventorySourceGroupId Output only. The unique ID of the inventory
+ *    source group. Assigned by the system.
+ *
+ *  @return GTLRDisplayVideoQuery_InventorySourceGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_InventorySourceGroup *)object
+         inventorySourceGroupId:(long long)inventorySourceGroupId;
 
 @end
 
@@ -4583,6 +5967,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Creates a new channel. Returns the newly created channel if successful.
+ *
+ *  Method: displayvideo.partners.channels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersChannelsCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForPartnersChannelsCreateWithObject:partnerId:]
+
+/** The ID of the advertiser that owns the created channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of the partner that owns the created channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Channel.
+ *
+ *  Creates a new channel. Returns the newly created channel if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_Channel to include in the query.
+ *  @param partnerId The ID of the partner that owns the created channel.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersChannelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_Channel *)object
+                      partnerId:(long long)partnerId;
+
+@end
+
+/**
+ *  Updates an existing inventory source.
+ *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  Method: displayvideo.partners.channels.get
@@ -4606,6 +6025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Fetches a @c GTLRDisplayVideo_Channel.
  *
+ *  Updates an existing inventory source.
+ *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  @param partnerId The ID of the partner that owns the fetched channel.
@@ -4693,6 +6114,262 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithPartnerId:(long long)partnerId;
+
+@end
+
+/**
+ *  Updates a channel. Returns the updated channel if successful.
+ *
+ *  Method: displayvideo.partners.channels.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersChannelsPatch : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForPartnersChannelsPatchWithObject:partnerId:channelId:]
+
+/** The ID of the advertiser that owns the created channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Output only. The unique ID of the channel. Assigned by the system. */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the created channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Channel.
+ *
+ *  Updates a channel. Returns the updated channel if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_Channel to include in the query.
+ *  @param partnerId The ID of the partner that owns the created channel.
+ *  @param channelId Output only. The unique ID of the channel. Assigned by the
+ *    system.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersChannelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_Channel *)object
+                      partnerId:(long long)partnerId
+                      channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Bulk edits sites under a single channel.
+ *  The operation will delete the sites provided in
+ *  BulkEditSitesRequest.deleted_sites and then create the sites
+ *  provided in BulkEditSitesRequest.created_sites.
+ *
+ *  Method: displayvideo.partners.channels.sites.bulkEdit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersChannelsSitesBulkEdit : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForPartnersChannelsSitesBulkEditWithObject:partnerId:channelId:]
+
+/** Required. The ID of the parent channel to which the sites belong. */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkEditSitesResponse.
+ *
+ *  Bulk edits sites under a single channel.
+ *  The operation will delete the sites provided in
+ *  BulkEditSitesRequest.deleted_sites and then create the sites
+ *  provided in BulkEditSitesRequest.created_sites.
+ *
+ *  @param object The @c GTLRDisplayVideo_BulkEditSitesRequest to include in the
+ *    query.
+ *  @param partnerId The ID of the partner that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel to which the sites
+ *    belong.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersChannelsSitesBulkEdit
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkEditSitesRequest *)object
+                      partnerId:(long long)partnerId
+                      channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Creates a site in a channel.
+ *
+ *  Method: displayvideo.partners.channels.sites.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersChannelsSitesCreate : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForPartnersChannelsSitesCreateWithObject:partnerId:channelId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the parent channel in which the site will be created.
+ */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Site.
+ *
+ *  Creates a site in a channel.
+ *
+ *  @param object The @c GTLRDisplayVideo_Site to include in the query.
+ *  @param partnerId The ID of the partner that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel in which the site
+ *    will be created.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersChannelsSitesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_Site *)object
+                      partnerId:(long long)partnerId
+                      channelId:(long long)channelId;
+
+@end
+
+/**
+ *  Deletes a site from a channel.
+ *
+ *  Method: displayvideo.partners.channels.sites.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersChannelsSitesDelete : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForPartnersChannelsSitesDeleteWithpartnerId:channelId:urlOrAppId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the parent channel to which the site belongs. */
+@property(nonatomic, assign) long long channelId;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/** Required. The URL or app ID of the site to delete. */
+@property(nonatomic, copy, nullable) NSString *urlOrAppId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes a site from a channel.
+ *
+ *  @param partnerId The ID of the partner that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel to which the site
+ *    belongs.
+ *  @param urlOrAppId Required. The URL or app ID of the site to delete.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersChannelsSitesDelete
+ */
++ (instancetype)queryWithPartnerId:(long long)partnerId
+                         channelId:(long long)channelId
+                        urlOrAppId:(NSString *)urlOrAppId;
+
+@end
+
+/**
+ *  Lists sites in a channel.
+ *
+ *  Method: displayvideo.partners.channels.sites.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_PartnersChannelsSitesList : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForPartnersChannelsSitesListWithpartnerId:channelId:]
+
+/** The ID of the advertiser that owns the parent channel. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Required. The ID of the parent channel to which the requested sites belong.
+ */
+@property(nonatomic, assign) long long channelId;
+
+/**
+ *  Allows filtering by site fields.
+ *  Supported syntax:
+ *  * Filter expressions for site currently can only contain at most one
+ *  * restriction.
+ *  * A restriction has the form of `{field} {operator} {value}`.
+ *  * The operator must be `CONTAINS (:)`.
+ *  * Supported fields:
+ *  - `urlOrAppId`
+ *  Examples:
+ *  * All sites for which the URL or app ID contains "google":
+ *  `urlOrAppId : "google"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field by which to sort the list.
+ *  Acceptable values are:
+ *  * `urlOrAppId` (default)
+ *  The default sorting order is ascending. To specify descending order for a
+ *  field, a suffix " desc" should be added to the field name. Example:
+ *  `urlOrAppId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return.
+ *  Typically, this is the value of
+ *  next_page_token returned from the
+ *  previous call to `ListSites` method. If not specified, the first page
+ *  of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The ID of the partner that owns the parent channel. */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListSitesResponse.
+ *
+ *  Lists sites in a channel.
+ *
+ *  @param partnerId The ID of the partner that owns the parent channel.
+ *  @param channelId Required. The ID of the parent channel to which the
+ *    requested sites belong.
+ *
+ *  @return GTLRDisplayVideoQuery_PartnersChannelsSitesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithPartnerId:(long long)partnerId
+                         channelId:(long long)channelId;
 
 @end
 

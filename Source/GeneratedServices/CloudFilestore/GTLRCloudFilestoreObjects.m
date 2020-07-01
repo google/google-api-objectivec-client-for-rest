@@ -14,11 +14,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudFilestore_GoogleApiServicecontrolV1Operation.importance
-NSString * const kGTLRCloudFilestore_GoogleApiServicecontrolV1Operation_Importance_Debug = @"DEBUG";
-NSString * const kGTLRCloudFilestore_GoogleApiServicecontrolV1Operation_Importance_High = @"HIGH";
-NSString * const kGTLRCloudFilestore_GoogleApiServicecontrolV1Operation_Importance_Low = @"LOW";
-
 // GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting = @"DELETING";
@@ -44,86 +39,9 @@ NSString * const kGTLRCloudFilestore_Instance_Tier_Premium     = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Standard    = @"STANDARD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
-// GTLRCloudFilestore_LogEntry.severity
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Alert   = @"ALERT";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Critical = @"CRITICAL";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Debug   = @"DEBUG";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Default = @"DEFAULT";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Emergency = @"EMERGENCY";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Error   = @"ERROR";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Info    = @"INFO";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Notice  = @"NOTICE";
-NSString * const kGTLRCloudFilestore_LogEntry_Severity_Warning = @"WARNING";
-
 // GTLRCloudFilestore_NetworkConfig.modes
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4";
-
-// GTLRCloudFilestore_QuotaProperties.quotaMode
-NSString * const kGTLRCloudFilestore_QuotaProperties_QuotaMode_Acquire = @"ACQUIRE";
-NSString * const kGTLRCloudFilestore_QuotaProperties_QuotaMode_AcquireBestEffort = @"ACQUIRE_BEST_EFFORT";
-NSString * const kGTLRCloudFilestore_QuotaProperties_QuotaMode_Check = @"CHECK";
-NSString * const kGTLRCloudFilestore_QuotaProperties_QuotaMode_Release = @"RELEASE";
-
-// GTLRCloudFilestore_TraceSpan.spanKind
-NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_Client = @"CLIENT";
-NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_Consumer = @"CONSUMER";
-NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_Internal = @"INTERNAL";
-NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_Producer = @"PRODUCER";
-NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_Server = @"SERVER";
-NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_Attributes
-//
-
-@implementation GTLRCloudFilestore_Attributes
-@dynamic attributeMap, droppedAttributesCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_Attributes_AttributeMap
-//
-
-@implementation GTLRCloudFilestore_Attributes_AttributeMap
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudFilestore_AttributeValue class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_AttributeValue
-//
-
-@implementation GTLRCloudFilestore_AttributeValue
-@dynamic boolValue, intValue, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_BillingView
-//
-
-@implementation GTLRCloudFilestore_BillingView
-@dynamic reportRequests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reportRequests" : [GTLRCloudFilestore_ReportRequest class]
-  };
-  return map;
-}
-
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -131,26 +49,6 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
 //
 
 @implementation GTLRCloudFilestore_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_Distribution
-//
-
-@implementation GTLRCloudFilestore_Distribution
-@dynamic bucketCounts, count, exemplars, explicitBuckets, exponentialBuckets,
-         linearBuckets, maximum, mean, minimum, sumOfSquaredDeviation;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bucketCounts" : [NSNumber class],
-    @"exemplars" : [GTLRCloudFilestore_Exemplar class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -165,122 +63,11 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_Exemplar
-//
-
-@implementation GTLRCloudFilestore_Exemplar
-@dynamic attachments, timestamp, value;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attachments" : [GTLRCloudFilestore_Exemplar_Attachments_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_Exemplar_Attachments_Item
-//
-
-@implementation GTLRCloudFilestore_Exemplar_Attachments_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_ExplicitBuckets
-//
-
-@implementation GTLRCloudFilestore_ExplicitBuckets
-@dynamic bounds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bounds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_ExponentialBuckets
-//
-
-@implementation GTLRCloudFilestore_ExponentialBuckets
-@dynamic growthFactor, numFiniteBuckets, scale;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_FileShareConfig
 //
 
 @implementation GTLRCloudFilestore_FileShareConfig
 @dynamic capacityGb, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_GoogleApiServicecontrolV1Operation
-//
-
-@implementation GTLRCloudFilestore_GoogleApiServicecontrolV1Operation
-@dynamic consumerId, endTime, importance, labels, logEntries, metricValueSets,
-         operationId, operationName, quotaProperties, resources, startTime,
-         traceSpans, userLabels;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"logEntries" : [GTLRCloudFilestore_LogEntry class],
-    @"metricValueSets" : [GTLRCloudFilestore_MetricValueSet class],
-    @"resources" : [GTLRCloudFilestore_ResourceInfo class],
-    @"traceSpans" : [GTLRCloudFilestore_TraceSpan class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_GoogleApiServicecontrolV1Operation_Labels
-//
-
-@implementation GTLRCloudFilestore_GoogleApiServicecontrolV1Operation_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_GoogleApiServicecontrolV1Operation_UserLabels
-//
-
-@implementation GTLRCloudFilestore_GoogleApiServicecontrolV1Operation_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
 @end
 
 
@@ -464,18 +251,6 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_HttpRequest
-//
-
-@implementation GTLRCloudFilestore_HttpRequest
-@dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
-         latency, protocol, referer, remoteIp, requestMethod, requestSize,
-         requestUrl, responseSize, serverIp, status, userAgent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_Instance
 //
 
@@ -513,16 +288,6 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_LinearBuckets
-//
-
-@implementation GTLRCloudFilestore_LinearBuckets
-@dynamic numFiniteBuckets, offset, width;
 @end
 
 
@@ -633,137 +398,6 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_LogEntry
-//
-
-@implementation GTLRCloudFilestore_LogEntry
-@dynamic httpRequest, insertId, labels, name, operation, protoPayload, severity,
-         sourceLocation, structPayload, textPayload, timestamp, trace;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_LogEntry_Labels
-//
-
-@implementation GTLRCloudFilestore_LogEntry_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_LogEntry_ProtoPayload
-//
-
-@implementation GTLRCloudFilestore_LogEntry_ProtoPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_LogEntry_StructPayload
-//
-
-@implementation GTLRCloudFilestore_LogEntry_StructPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_LogEntryOperation
-//
-
-@implementation GTLRCloudFilestore_LogEntryOperation
-@dynamic first, identifier, last, producer;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_LogEntrySourceLocation
-//
-
-@implementation GTLRCloudFilestore_LogEntrySourceLocation
-@dynamic file, function, line;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_MetricValue
-//
-
-@implementation GTLRCloudFilestore_MetricValue
-@dynamic boolValue, distributionValue, doubleValue, endTime, int64Value, labels,
-         moneyValue, startTime, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_MetricValue_Labels
-//
-
-@implementation GTLRCloudFilestore_MetricValue_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_MetricValueSet
-//
-
-@implementation GTLRCloudFilestore_MetricValueSet
-@dynamic metricName, metricValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metricValues" : [GTLRCloudFilestore_MetricValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_Money
-//
-
-@implementation GTLRCloudFilestore_Money
-@dynamic currencyCode, nanos, units;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_NetworkConfig
 //
 
@@ -832,44 +466,6 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_QuotaProperties
-//
-
-@implementation GTLRCloudFilestore_QuotaProperties
-@dynamic quotaMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_ReportRequest
-//
-
-@implementation GTLRCloudFilestore_ReportRequest
-@dynamic operations, serviceConfigId, serviceName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudFilestore_GoogleApiServicecontrolV1Operation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_ResourceInfo
-//
-
-@implementation GTLRCloudFilestore_ResourceInfo
-@dynamic resourceContainer, resourceLocation, resourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_Status
 //
 
@@ -897,25 +493,4 @@ NSString * const kGTLRCloudFilestore_TraceSpan_SpanKind_SpanKindUnspecified = @"
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_TraceSpan
-//
-
-@implementation GTLRCloudFilestore_TraceSpan
-@dynamic attributes, childSpanCount, displayName, endTime, name, parentSpanId,
-         sameProcessAsParentSpan, spanId, spanKind, startTime, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFilestore_TruncatableString
-//
-
-@implementation GTLRCloudFilestore_TruncatableString
-@dynamic truncatedByteCount, value;
 @end

@@ -545,10 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/**
- *  Search string in the format given at
- *  http://support.google.com/chromeos/a/bin/answer.py?answer=1698333
- */
+/** Search string in the format provided by this Help Center article. */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
@@ -1810,9 +1807,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Maximum number of results to return. Max allowed value is 100.
+ *  Maximum number of results to return.
  *
- *  @note If not set, the documented server-side default will be 100.
+ *  @note If not set, the documented server-side default will be 100 (from the
+ *        range 1..100).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1849,10 +1847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/**
- *  Search string in the format given at
- *  http://support.google.com/a/bin/answer.py?answer=1408863#search
- */
+/** Search string in the format provided by this Help Center article. */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**

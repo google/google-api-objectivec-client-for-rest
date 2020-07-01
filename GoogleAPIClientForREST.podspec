@@ -376,6 +376,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Docs/*.{h,m}'
   end
+  s.subspec 'Document' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Document/*.{h,m}'
+  end
   s.subspec 'DomainsRDAP' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DomainsRDAP/*.{h,m}'
@@ -532,6 +536,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PeopleService/*.{h,m}'
   end
+  s.subspec 'PlayableLocations' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PlayableLocations/*.{h,m}'
+  end
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
@@ -548,9 +556,17 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PolyService/*.{h,m}'
   end
+  s.subspec 'PostmasterTools' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PostmasterTools/*.{h,m}'
+  end
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Pubsub/*.{h,m}'
+  end
+  s.subspec 'RealTimeBidding' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/RealTimeBidding/*.{h,m}'
   end
   s.subspec 'Recommender' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -595,6 +611,10 @@ Pod::Spec.new do |s|
   s.subspec 'SecurityCommandCenter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SecurityCommandCenter/*.{h,m}'
+  end
+  s.subspec 'SemanticTile' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/SemanticTile/*.{h,m}'
   end
   s.subspec 'ServiceConsumerManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

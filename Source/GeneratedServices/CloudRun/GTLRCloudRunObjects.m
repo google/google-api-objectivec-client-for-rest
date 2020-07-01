@@ -268,7 +268,7 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 //
 
 @implementation GTLRCloudRun_DomainMappingStatus
-@dynamic conditions, mappedRouteName, observedGeneration, resourceRecords;
+@dynamic conditions, mappedRouteName, observedGeneration, resourceRecords, url;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

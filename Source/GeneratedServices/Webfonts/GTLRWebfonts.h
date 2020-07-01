@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Fonts Developer API (webfonts/v1)
+//   Web Fonts Developer API (webfonts/v1)
 // Description:
-//   Accesses the metadata for all families served by Google Fonts, providing a
-//   list of families currently available (including available styles and a list
-//   of supported script subsets).
+//   The Google Web Fonts Developer API lets you retrieve information about web
+//   fonts served
+//   by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 

@@ -141,8 +141,8 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_Device
-@dynamic activeConfig, displayName, fccId, grants, name, preloadedConfig,
-         serialNumber, state;
+@dynamic activeConfig, deviceMetadata, displayName, fccId, grants, name,
+         preloadedConfig, serialNumber, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -200,6 +200,15 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_DeviceMetadata
+//
+
+@implementation GTLRSASPortal_DeviceMetadata
 @end
 
 

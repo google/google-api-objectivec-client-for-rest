@@ -62,6 +62,8 @@
 @class GTLRAndroidManagement_PasswordRequirements;
 @class GTLRAndroidManagement_PermissionGrant;
 @class GTLRAndroidManagement_PersistentPreferredActivity;
+@class GTLRAndroidManagement_PersonalApplicationPolicy;
+@class GTLRAndroidManagement_PersonalUsagePolicies;
 @class GTLRAndroidManagement_Policy;
 @class GTLRAndroidManagement_Policy_OpenNetworkConfiguration;
 @class GTLRAndroidManagement_PolicyEnforcementRule;
@@ -332,6 +334,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_Stat
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_State_Removed;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_BlockAction.blockScope
+
+/**
+ *  Block action is applied to the entire device, including apps in the personal
+ *  profile.
+ *
+ *  Value: "BLOCK_SCOPE_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeDevice;
+/**
+ *  Unspecified. Defaults to BLOCK_SCOPE_WORK_PROFILE.
+ *
+ *  Value: "BLOCK_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeUnspecified;
+/**
+ *  Block action is only applied to apps in the work profile. Apps in the
+ *  personal profile are unaffected.
+ *
+ *  Value: "BLOCK_SCOPE_WORK_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeWorkProfile;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.errorCode
 
 /**
@@ -474,6 +500,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_ManagementMode_ProfileOwner;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Device.ownership
+
+/**
+ *  Device is company-owned.
+ *
+ *  Value: "COMPANY_OWNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_Ownership_CompanyOwned;
+/**
+ *  Ownership is unspecified.
+ *
+ *  Value: "OWNERSHIP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_Ownership_OwnershipUnspecified;
+/**
+ *  Device is personally-owned.
+ *
+ *  Value: "PERSONALLY_OWNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_Ownership_PersonallyOwned;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.state
 
 /**
@@ -589,6 +637,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_On;
  *  Value: "SUSPENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Display_State_Suspended;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_EnrollmentToken.allowPersonalUsage
+
+/**
+ *  Personal usage restriction is not specified
+ *
+ *  Value: "ALLOW_PERSONAL_USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_AllowPersonalUsageUnspecified;
+/**
+ *  Personal usage is allowed
+ *
+ *  Value: "PERSONAL_USAGE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageAllowed;
+/**
+ *  Personal usage is disallowed
+ *
+ *  Value: "PERSONAL_USAGE_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
@@ -1220,6 +1290,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Prompt;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalApplicationPolicy.installType
+
+/**
+ *  The app is blocked and can't be installed.
+ *
+ *  Value: "BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked;
+/**
+ *  Unspecified. The default behavior is that all installs are allowed.
+ *
+ *  Value: "INSTALL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
+
+/**
+ *  All Play Store apps are available, except those whose install_type is
+ *  BLOCKED in PersonalApplicationPolicy.
+ *
+ *  Value: "BLACKLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist;
+/**
+ *  Unspecified. Default behavior is to allow all installs.
+ *
+ *  Value: "PLAY_STORE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
 
 /** Value: "APP_TRACK_UNSPECIFIED" */
@@ -1516,6 +1619,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_Device
  *  Value: "SECURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SecurityPosture_DevicePosture_Secure;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_SigninDetail.allowPersonalUsage
+
+/**
+ *  Personal usage restriction is not specified
+ *
+ *  Value: "ALLOW_PERSONAL_USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPersonalUsageUnspecified;
+/**
+ *  Personal usage is allowed
+ *
+ *  Value: "PERSONAL_USAGE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageAllowed;
+/**
+ *  Personal usage is disallowed
+ *
+ *  Value: "PERSONAL_USAGE_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SystemUpdate.type
@@ -2051,6 +2176,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *blockAfterDays;
 
+/**
+ *  Specifies the scope of this BlockAction. Only applicable to devices that are
+ *  company-owned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeDevice
+ *        Block action is applied to the entire device, including apps in the
+ *        personal profile. (Value: "BLOCK_SCOPE_DEVICE")
+ *    @arg @c kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeUnspecified
+ *        Unspecified. Defaults to BLOCK_SCOPE_WORK_PROFILE. (Value:
+ *        "BLOCK_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_BlockAction_BlockScope_BlockScopeWorkProfile
+ *        Block action is only applied to apps in the work profile. Apps in the
+ *        personal profile are unaffected. (Value: "BLOCK_SCOPE_WORK_PROFILE")
+ */
+@property(nonatomic, copy, nullable) NSString *blockScope;
+
 @end
 
 
@@ -2383,6 +2525,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_NonComplianceDetail *> *nonComplianceDetails;
 
 /**
+ *  Ownership of the managed device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Device_Ownership_CompanyOwned Device is
+ *        company-owned. (Value: "COMPANY_OWNED")
+ *    @arg @c kGTLRAndroidManagement_Device_Ownership_OwnershipUnspecified
+ *        Ownership is unspecified. (Value: "OWNERSHIP_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Device_Ownership_PersonallyOwned Device is
+ *        personally-owned. (Value: "PERSONALLY_OWNED")
+ */
+@property(nonatomic, copy, nullable) NSString *ownership;
+
+/**
  *  Whether the device is compliant with its policy.
  *
  *  Uses NSNumber of boolValue.
@@ -2647,6 +2802,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  1024 characters or less; otherwise, the creation request will fail.
  */
 @property(nonatomic, copy, nullable) NSString *additionalData;
+
+/**
+ *  Controls personal usage on devices provisioned using this enrollment token.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_AllowPersonalUsageUnspecified
+ *        Personal usage restriction is not specified (Value:
+ *        "ALLOW_PERSONAL_USAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageAllowed
+ *        Personal usage is allowed (Value: "PERSONAL_USAGE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed
+ *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
+ */
+@property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 
 /**
  *  The length of time the enrollment token is valid, ranging from 1 minute to
@@ -3926,6 +4095,79 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  Policies for apps on the personal profile of a Corporate Owned Personally
+ *  Enabled device.
+ */
+@interface GTLRAndroidManagement_PersonalApplicationPolicy : GTLRObject
+
+/**
+ *  The type of installation to perform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked
+ *        The app is blocked and can't be installed. (Value: "BLOCKED")
+ *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified
+ *        Unspecified. The default behavior is that all installs are allowed.
+ *        (Value: "INSTALL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *installType;
+
+/** The package name of the application. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  Policies controlling personal usage on a Corporate Owned Personally Enabled
+ *  device.
+ */
+@interface GTLRAndroidManagement_PersonalUsagePolicies : GTLRObject
+
+/** Account types that can't be managed by the user. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
+
+/**
+ *  Whether camera is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cameraDisabled;
+
+/**
+ *  Controls how long the work profile can stay off.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDaysWithWorkOff;
+
+/** Policy applied to applications on the personal profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersonalApplicationPolicy *> *personalApplications;
+
+/**
+ *  Controls how apps on the personal profile are allowed or blocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist
+ *        All Play Store apps are available, except those whose install_type is
+ *        BLOCKED in PersonalApplicationPolicy. (Value: "BLACKLIST")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified
+ *        Unspecified. Default behavior is to allow all installs. (Value:
+ *        "PLAY_STORE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *personalPlayStoreMode;
+
+/**
+ *  Whether screen capture is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenCaptureDisabled;
+
+@end
+
+
+/**
  *  A policy resource represents a group of settings that govern the behavior of
  *  a managed device and the apps installed on it.
  */
@@ -4343,6 +4585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /** Default intent handler activities. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersistentPreferredActivity *> *persistentPreferredActivities;
 
+/** Policies managing personal usage on a company-owned device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PersonalUsagePolicies *personalUsagePolicies;
+
 /**
  *  This mode controls which apps are available to the user in the Play Store
  *  and the behavior on the device when apps are removed from the policy.
@@ -4747,6 +4992,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  A resource containing sign in details for an enterprise.
  */
 @interface GTLRAndroidManagement_SigninDetail : GTLRObject
+
+/**
+ *  Controls whether personal usage is allowed on a device provisioned with this
+ *  enrollment token.For company-owned devices:
+ *  Enabling personal usage allows the user to set up a work profile on the
+ *  device.
+ *  Disabling personal usage requires the user provision the device as a fully
+ *  managed device.For personally-owned devices:
+ *  Enabling personal usage allows the user to set up a work profile on the
+ *  device.
+ *  Disabling personal usage will prevent the device from provisioning. Personal
+ *  usage cannot be disabled on personally-owned device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPersonalUsageUnspecified
+ *        Personal usage restriction is not specified (Value:
+ *        "ALLOW_PERSONAL_USAGE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageAllowed
+ *        Personal usage is allowed (Value: "PERSONAL_USAGE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed
+ *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
+ */
+@property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 
 /**
  *  A JSON string whose UTF-8 representation can be used to generate a QR code

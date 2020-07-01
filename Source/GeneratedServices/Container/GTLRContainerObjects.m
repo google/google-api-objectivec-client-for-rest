@@ -132,8 +132,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AddonsConfig
-@dynamic cloudRunConfig, horizontalPodAutoscaling, httpLoadBalancing,
-         kubernetesDashboard, networkPolicyConfig;
+@dynamic cloudRunConfig, dnsCacheConfig, horizontalPodAutoscaling,
+         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
 @end
 
 
@@ -418,6 +418,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_DatabaseEncryption
 @dynamic keyName, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_DnsCacheConfig
+//
+
+@implementation GTLRContainer_DnsCacheConfig
+@dynamic enabled;
 @end
 
 

@@ -4,7 +4,7 @@
 // API:
 //   Google Play EMM API (androidenterprise/v1)
 // Description:
-//   Manages the deployment of apps to Android for Work users.
+//   Manages the deployment of apps to Android Enterprise devices.
 // Documentation:
 //   https://developers.google.com/android/work/play/emm-api
 
@@ -26,56 +26,10 @@ NSString * const kGTLRAuthScopeAndroidEnterprise = @"https://www.googleapis.com/
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"androidenterprise/v1/";
     self.batchPath = @"batch/androidenterprise/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"androidenterprise#administratorWebToken" : [GTLRAndroidEnterprise_AdministratorWebToken class],
-    @"androidenterprise#administratorWebTokenSpec" : [GTLRAndroidEnterprise_AdministratorWebTokenSpec class],
-    @"androidenterprise#approvalUrlInfo" : [GTLRAndroidEnterprise_ApprovalUrlInfo class],
-    @"androidenterprise#authenticationToken" : [GTLRAndroidEnterprise_AuthenticationToken class],
-    @"androidenterprise#configurationVariables" : [GTLRAndroidEnterprise_ConfigurationVariables class],
-    @"androidenterprise#device" : [GTLRAndroidEnterprise_Device class],
-    @"androidenterprise#devicesListResponse" : [GTLRAndroidEnterprise_DevicesListResponse class],
-    @"androidenterprise#deviceState" : [GTLRAndroidEnterprise_DeviceState class],
-    @"androidenterprise#enterprise" : [GTLRAndroidEnterprise_Enterprise class],
-    @"androidenterprise#enterpriseAccount" : [GTLRAndroidEnterprise_EnterpriseAccount class],
-    @"androidenterprise#enterprisesListResponse" : [GTLRAndroidEnterprise_EnterprisesListResponse class],
-    @"androidenterprise#entitlement" : [GTLRAndroidEnterprise_Entitlement class],
-    @"androidenterprise#entitlementsListResponse" : [GTLRAndroidEnterprise_EntitlementsListResponse class],
-    @"androidenterprise#groupLicense" : [GTLRAndroidEnterprise_GroupLicense class],
-    @"androidenterprise#groupLicensesListResponse" : [GTLRAndroidEnterprise_GroupLicensesListResponse class],
-    @"androidenterprise#groupLicenseUsersListResponse" : [GTLRAndroidEnterprise_GroupLicenseUsersListResponse class],
-    @"androidenterprise#install" : [GTLRAndroidEnterprise_Install class],
-    @"androidenterprise#installsListResponse" : [GTLRAndroidEnterprise_InstallsListResponse class],
-    @"androidenterprise#managedConfigurationsForDeviceListResponse" : [GTLRAndroidEnterprise_ManagedConfigurationsForDeviceListResponse class],
-    @"androidenterprise#managedConfigurationsForUserListResponse" : [GTLRAndroidEnterprise_ManagedConfigurationsForUserListResponse class],
-    @"androidenterprise#managedConfigurationsSettings" : [GTLRAndroidEnterprise_ManagedConfigurationsSettings class],
-    @"androidenterprise#managedConfigurationsSettingsListResponse" : [GTLRAndroidEnterprise_ManagedConfigurationsSettingsListResponse class],
-    @"androidenterprise#notificationSet" : [GTLRAndroidEnterprise_NotificationSet class],
-    @"androidenterprise#permission" : [GTLRAndroidEnterprise_Permission class],
-    @"androidenterprise#product" : [GTLRAndroidEnterprise_Product class],
-    @"androidenterprise#productPermissions" : [GTLRAndroidEnterprise_ProductPermissions class],
-    @"androidenterprise#productSet" : [GTLRAndroidEnterprise_ProductSet class],
-    @"androidenterprise#productsListResponse" : [GTLRAndroidEnterprise_ProductsListResponse class],
-    @"androidenterprise#serviceAccount" : [GTLRAndroidEnterprise_ServiceAccount class],
-    @"androidenterprise#serviceAccountKey" : [GTLRAndroidEnterprise_ServiceAccountKey class],
-    @"androidenterprise#storeCluster" : [GTLRAndroidEnterprise_StoreCluster class],
-    @"androidenterprise#storeLayout" : [GTLRAndroidEnterprise_StoreLayout class],
-    @"androidenterprise#storeLayoutClustersListResponse" : [GTLRAndroidEnterprise_StoreLayoutClustersListResponse class],
-    @"androidenterprise#storeLayoutPagesListResponse" : [GTLRAndroidEnterprise_StoreLayoutPagesListResponse class],
-    @"androidenterprise#storePage" : [GTLRAndroidEnterprise_StorePage class],
-    @"androidenterprise#user" : [GTLRAndroidEnterprise_User class],
-    @"androidenterprise#usersListResponse" : [GTLRAndroidEnterprise_UsersListResponse class],
-    @"androidenterprise#userToken" : [GTLRAndroidEnterprise_UserToken class],
-    @"androidenterprise#variableSet" : [GTLRAndroidEnterprise_VariableSet class],
-    @"androidenterprise#webAppsListResponse" : [GTLRAndroidEnterprise_WebAppsListResponse class],
-  };
 }
 
 @end

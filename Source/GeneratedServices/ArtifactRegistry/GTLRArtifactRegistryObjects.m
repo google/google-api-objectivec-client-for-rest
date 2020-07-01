@@ -19,6 +19,7 @@ NSString * const kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified = @"HASH_TY
 NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256        = @"SHA256";
 
 // GTLRArtifactRegistry_Repository.format
+NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
@@ -81,6 +82,63 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo
+@dynamic error, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource
+@dynamic uris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ImportArtifactsResponse
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ImportArtifactsResponse
+@dynamic errors, packages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo class],
+    @"packages" : [GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package
+//
+
+@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package
+@dynamic createTime, displayName, name, updateTime;
 @end
 
 
@@ -362,7 +420,8 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 //
 
 @implementation GTLRArtifactRegistry_Repository
-@dynamic createTime, descriptionProperty, format, labels, name, updateTime;
+@dynamic createTime, descriptionProperty, format, kmsKeyName, labels, name,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

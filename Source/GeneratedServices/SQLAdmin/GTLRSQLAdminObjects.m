@@ -45,6 +45,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 = @"MYSQ
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -88,6 +89,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51          = @"MYSQL_5_1";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55          = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56          = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57          = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80          = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -537,7 +539,8 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 //
 
 @implementation GTLRSQLAdmin_ExportContext
-@dynamic csvExportOptions, databases, fileType, kind, sqlExportOptions, uri;
+@dynamic csvExportOptions, databases, fileType, kind, offload, sqlExportOptions,
+         uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

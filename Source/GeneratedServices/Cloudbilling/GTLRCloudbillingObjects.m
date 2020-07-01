@@ -31,6 +31,12 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataRead = @"DATA_READ
 NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudbilling_GeoTaxonomy.type
+NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_Global     = @"GLOBAL";
+NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_MultiRegional = @"MULTI_REGIONAL";
+NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_Regional   = @"REGIONAL";
+NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudbilling_AggregationInfo
@@ -125,6 +131,24 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudbilling_GeoTaxonomy
+//
+
+@implementation GTLRCloudbilling_GeoTaxonomy
+@dynamic regions, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -317,8 +341,8 @@ NSString * const kGTLRCloudbilling_AuditLogConfig_LogType_LogTypeUnspecified = @
 //
 
 @implementation GTLRCloudbilling_Sku
-@dynamic category, descriptionProperty, name, pricingInfo, serviceProviderName,
-         serviceRegions, skuId;
+@dynamic category, descriptionProperty, geoTaxonomy, name, pricingInfo,
+         serviceProviderName, serviceRegions, skuId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

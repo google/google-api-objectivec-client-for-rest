@@ -7,7 +7,7 @@
 //   Provides polling places, early vote locations, contest data, election
 //   officials, and government representatives for U.S. residential addresses.
 // Documentation:
-//   https://developers.google.com/civic-information
+//   https://developers.google.com/civic-information/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -26,30 +26,18 @@
 @class GTLRCivicInfo_Candidate;
 @class GTLRCivicInfo_Channel;
 @class GTLRCivicInfo_Contest;
-@class GTLRCivicInfo_ContextParams;
 @class GTLRCivicInfo_DivisionSearchResult;
 @class GTLRCivicInfo_Election;
 @class GTLRCivicInfo_ElectionOfficial;
 @class GTLRCivicInfo_ElectoralDistrict;
-@class GTLRCivicInfo_FieldMetadataProto;
 @class GTLRCivicInfo_GeographicDivision;
-@class GTLRCivicInfo_InternalFieldMetadataProto;
-@class GTLRCivicInfo_InternalSourceSummaryProto;
 @class GTLRCivicInfo_Office;
 @class GTLRCivicInfo_Official;
-@class GTLRCivicInfo_PointProto;
 @class GTLRCivicInfo_PollingLocation;
-@class GTLRCivicInfo_PostalAddress;
-@class GTLRCivicInfo_Provenance;
 @class GTLRCivicInfo_RepresentativeInfoData_Divisions;
 @class GTLRCivicInfo_RepresentativeInfoResponse_Divisions;
 @class GTLRCivicInfo_SimpleAddressType;
 @class GTLRCivicInfo_Source;
-@class GTLRCivicInfo_StreetSegment;
-@class GTLRCivicInfo_StreetSegmentList;
-@class GTLRCivicInfo_VoterInfoRequest;
-@class GTLRCivicInfo_VoterInfoResponse;
-@class GTLRCivicInfo_VoterInfoSegmentResult;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -57,6 +45,137 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCivicInfo_Contest.level
+
+/** Value: "administrativeArea1" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_AdministrativeArea1;
+/** Value: "administrativeArea2" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_AdministrativeArea2;
+/** Value: "country" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_Country;
+/** Value: "international" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_International;
+/** Value: "locality" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_Locality;
+/** Value: "regional" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_Regional;
+/** Value: "special" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_Special;
+/** Value: "subLocality1" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_SubLocality1;
+/** Value: "subLocality2" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Level_SubLocality2;
+
+// ----------------------------------------------------------------------------
+// GTLRCivicInfo_Contest.roles
+
+/** Value: "deputyHeadOfGovernment" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_DeputyHeadOfGovernment;
+/** Value: "executiveCouncil" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_ExecutiveCouncil;
+/** Value: "governmentOfficer" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_GovernmentOfficer;
+/** Value: "headOfGovernment" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_HeadOfGovernment;
+/** Value: "headOfState" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_HeadOfState;
+/** Value: "highestCourtJudge" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_HighestCourtJudge;
+/** Value: "judge" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_Judge;
+/** Value: "legislatorLowerBody" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorLowerBody;
+/** Value: "legislatorUpperBody" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorUpperBody;
+/** Value: "schoolBoard" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_SchoolBoard;
+/** Value: "specialPurposeOfficer" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_SpecialPurposeOfficer;
+
+// ----------------------------------------------------------------------------
+// GTLRCivicInfo_ElectoralDistrict.scope
+
+/** Value: "cityCouncil" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_CityCouncil;
+/** Value: "citywide" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Citywide;
+/** Value: "congressional" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Congressional;
+/** Value: "countyCouncil" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_CountyCouncil;
+/** Value: "countywide" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Countywide;
+/** Value: "judicial" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Judicial;
+/** Value: "national" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_National;
+/** Value: "schoolBoard" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_SchoolBoard;
+/** Value: "special" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Special;
+/** Value: "stateLower" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_StateLower;
+/** Value: "stateUpper" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_StateUpper;
+/** Value: "statewide" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Statewide;
+/** Value: "township" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Township;
+/** Value: "ward" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_ElectoralDistrict_Scope_Ward;
+
+// ----------------------------------------------------------------------------
+// GTLRCivicInfo_Office.levels
+
+/** Value: "administrativeArea1" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_AdministrativeArea1;
+/** Value: "administrativeArea2" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_AdministrativeArea2;
+/** Value: "country" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_Country;
+/** Value: "international" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_International;
+/** Value: "locality" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_Locality;
+/** Value: "regional" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_Regional;
+/** Value: "special" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_Special;
+/** Value: "subLocality1" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_SubLocality1;
+/** Value: "subLocality2" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Levels_SubLocality2;
+
+// ----------------------------------------------------------------------------
+// GTLRCivicInfo_Office.roles
+
+/** Value: "deputyHeadOfGovernment" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_DeputyHeadOfGovernment;
+/** Value: "executiveCouncil" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_ExecutiveCouncil;
+/** Value: "governmentOfficer" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_GovernmentOfficer;
+/** Value: "headOfGovernment" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_HeadOfGovernment;
+/** Value: "headOfState" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_HeadOfState;
+/** Value: "highestCourtJudge" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_HighestCourtJudge;
+/** Value: "judge" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_Judge;
+/** Value: "legislatorLowerBody" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_LegislatorLowerBody;
+/** Value: "legislatorUpperBody" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_LegislatorUpperBody;
+/** Value: "schoolBoard" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SchoolBoard;
+/** Value: "specialPurposeOfficer" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer;
 
 /**
  *  Describes information about a regional election administrative area.
@@ -104,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  voting.
  */
 @property(nonatomic, copy, nullable) NSString *absenteeVotingInfoUrl;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
 
 /**
  *  A URL provided by this administrative body to give contest information to
@@ -383,36 +500,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCivicInfo_ContextParams
- */
-@interface GTLRCivicInfo_ContextParams : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *clientProfile;
-
-@end
-
-
-/**
- *  A request to look up representative information for a single division.
- */
-@interface GTLRCivicInfo_DivisionRepresentativeInfoRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
-
-@end
-
-
-/**
- *  A search request for political geographies.
- */
-@interface GTLRCivicInfo_DivisionSearchRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
-
-@end
-
-
-/**
  *  The result of a division search query.
  */
 @interface GTLRCivicInfo_DivisionSearchResponse : GTLRObject
@@ -446,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The name of the division. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The unique Open Civic Data identifier for this division. */
+/** The unique Open Civic Data identifier for this division */
 @property(nonatomic, copy, nullable) NSString *ocdId;
 
 @end
@@ -508,16 +595,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCivicInfo_ElectionsQueryRequest
- */
-@interface GTLRCivicInfo_ElectionsQueryRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
-
-@end
-
-
-/**
  *  The list of elections available for this version of the API.
  */
 @interface GTLRCivicInfo_ElectionsQueryResponse : GTLRObject
@@ -547,8 +624,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-@property(nonatomic, copy, nullable) NSString *kgForeignKey;
-
 /** The name of the district. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -557,18 +632,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  geography is not known. One of: national, statewide, congressional,
  *  stateUpper, stateLower, countywide, judicial, schoolBoard, cityWide,
  *  township, countyCouncil, cityCouncil, ward, special
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_CityCouncil Value
+ *        "cityCouncil"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Citywide Value "citywide"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Congressional Value
+ *        "congressional"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_CountyCouncil Value
+ *        "countyCouncil"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Countywide Value
+ *        "countywide"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Judicial Value "judicial"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_National Value "national"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_SchoolBoard Value
+ *        "schoolBoard"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Special Value "special"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_StateLower Value
+ *        "stateLower"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_StateUpper Value
+ *        "stateUpper"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Statewide Value "statewide"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Township Value "township"
+ *    @arg @c kGTLRCivicInfo_ElectoralDistrict_Scope_Ward Value "ward"
  */
 @property(nonatomic, copy, nullable) NSString *scope;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_FieldMetadataProto
- */
-@interface GTLRCivicInfo_FieldMetadataProto : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_InternalFieldMetadataProto *internal;
 
 @end
 
@@ -579,14 +667,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCivicInfo_GeographicDivision : GTLRObject
 
 /**
- *  Any other valid OCD IDs that refer to the same division.
- *  Because OCD IDs are meant to be human-readable and at least somewhat
- *  predictable, there are occasionally several identifiers for a single
- *  division. These identifiers are defined to be equivalent to one another, and
- *  one is always indicated as the primary identifier. The primary identifier
- *  will be returned in ocd_id above, and any other equivalent valid identifiers
- *  will be returned in this list.
- *  For example, if this division's OCD ID is
+ *  Any other valid OCD IDs that refer to the same division.\\n\\nBecause OCD
+ *  IDs are meant to be human-readable and at least somewhat predictable, there
+ *  are occasionally several identifiers for a single division. These
+ *  identifiers are defined to be equivalent to one another, and one is always
+ *  indicated as the primary identifier. The primary identifier will be returned
+ *  in ocd_id above, and any other equivalent valid identifiers will be returned
+ *  in this list.\\n\\nFor example, if this division's OCD ID is
  *  ocd-division/country:us/district:dc, this will contain
  *  ocd-division/country:us/state:dc.
  */
@@ -603,34 +690,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *officeIndices;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_InternalFieldMetadataProto
- */
-@interface GTLRCivicInfo_InternalFieldMetadataProto : GTLRObject
-
-/**
- *  isAuto
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isAuto;
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_InternalSourceSummaryProto *sourceSummary;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_InternalSourceSummaryProto
- */
-@interface GTLRCivicInfo_InternalSourceSummaryProto : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *dataset;
-@property(nonatomic, copy, nullable) NSString *provider;
 
 @end
 
@@ -713,30 +772,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCivicInfo_PointProto
- */
-@interface GTLRCivicInfo_PointProto : GTLRObject
-
-/**
- *  latE7
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *latE7;
-
-/**
- *  lngE7
- *
- *  Uses NSNumber of unsignedIntValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *lngE7;
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_FieldMetadataProto *metadata;
-
-@end
-
-
-/**
  *  A location where a voter can vote. This may be an early vote site, an
  *  election day voting location, or a drop off location for a completed ballot.
  */
@@ -814,91 +849,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCivicInfo_PostalAddress
- */
-@interface GTLRCivicInfo_PostalAddress : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
-@property(nonatomic, copy, nullable) NSString *administrativeAreaName;
-@property(nonatomic, copy, nullable) NSString *countryName;
-@property(nonatomic, copy, nullable) NSString *countryNameCode;
-@property(nonatomic, copy, nullable) NSString *dependentLocalityName;
-@property(nonatomic, copy, nullable) NSString *dependentThoroughfareName;
-@property(nonatomic, copy, nullable) NSString *firmName;
-
-/**
- *  isDisputed
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isDisputed;
-
-@property(nonatomic, copy, nullable) NSString *languageCode;
-@property(nonatomic, copy, nullable) NSString *localityName;
-@property(nonatomic, copy, nullable) NSString *postalCodeNumber;
-@property(nonatomic, copy, nullable) NSString *postalCodeNumberExtension;
-@property(nonatomic, copy, nullable) NSString *postBoxNumber;
-@property(nonatomic, copy, nullable) NSString *premiseName;
-@property(nonatomic, copy, nullable) NSString *recipientName;
-@property(nonatomic, copy, nullable) NSString *sortingCode;
-@property(nonatomic, copy, nullable) NSString *subAdministrativeAreaName;
-@property(nonatomic, copy, nullable) NSString *subPremiseName;
-@property(nonatomic, copy, nullable) NSString *thoroughfareName;
-@property(nonatomic, copy, nullable) NSString *thoroughfareNumber;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_Provenance
- */
-@interface GTLRCivicInfo_Provenance : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_StreetSegmentList *collidedSegmentSource;
-@property(nonatomic, copy, nullable) NSString *ctclContestUuid;
-@property(nonatomic, copy, nullable) NSString *ctclOfficeUuid;
-
-/**
- *  datasetId
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *datasetId;
-
-/**
- *  precinctId
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *precinctId;
-
-/**
- *  precinctSplitId
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *precinctSplitId;
-
-@property(nonatomic, copy, nullable) NSString *tsStreetSegmentId;
-@property(nonatomic, copy, nullable) NSString *vip5PrecinctId;
-@property(nonatomic, copy, nullable) NSString *vip5StreetSegmentId;
-
-/**
- *  vipStreetSegmentId
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *vipStreetSegmentId;
-
-@end
-
-
-/**
  *  GTLRCivicInfo_RepresentativeInfoData
  */
 @interface GTLRCivicInfo_RepresentativeInfoData : GTLRObject
 
-/** Political geographic divisions that contain the requested address. */
+/**
+ *  A map of political geographic divisions that contain the requested address,
+ *  keyed by the unique Open Civic Data identifier for this division.
+ */
 @property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoData_Divisions *divisions;
 
 /**
@@ -917,7 +875,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Political geographic divisions that contain the requested address.
+ *  A map of political geographic divisions that contain the requested address,
+ *  keyed by the unique Open Civic Data identifier for this division.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCivicInfo_GeographicDivision. Use @c -additionalJSONKeys and @c
@@ -929,22 +888,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A request for political geography and representative information for an
- *  address.
- */
-@interface GTLRCivicInfo_RepresentativeInfoRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
-
-@end
-
-
-/**
  *  The result of a representative info lookup query.
  */
 @interface GTLRCivicInfo_RepresentativeInfoResponse : GTLRObject
 
-/** Political geographic divisions that contain the requested address. */
+/**
+ *  A map of political geographic divisions that contain the requested address,
+ *  keyed by the unique Open Civic Data identifier for this division.
+ */
 @property(nonatomic, strong, nullable) GTLRCivicInfo_RepresentativeInfoResponse_Divisions *divisions;
 
 /**
@@ -972,7 +923,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Political geographic divisions that contain the requested address.
+ *  A map of political geographic divisions that contain the requested address,
+ *  keyed by the unique Open Civic Data identifier for this division.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCivicInfo_GeographicDivision. Use @c -additionalJSONKeys and @c
@@ -1026,149 +978,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *official;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_StreetSegment
- */
-@interface GTLRCivicInfo_StreetSegment : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *administrationRegionIds;
-@property(nonatomic, copy, nullable) NSString *beforeGeocodeId;
-@property(nonatomic, copy, nullable) NSString *catalistUniquePrecinctCode;
-@property(nonatomic, copy, nullable) NSString *city;
-@property(nonatomic, copy, nullable) NSString *cityCouncilDistrict;
-@property(nonatomic, copy, nullable) NSString *congressionalDistrict;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *contestIds;
-@property(nonatomic, copy, nullable) NSString *countyCouncilDistrict;
-@property(nonatomic, copy, nullable) NSString *countyFips;
-
-/**
- *  datasetId
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *datasetId;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *earlyVoteSiteByIds;
-
-/**
- *  endHouseNumber
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *endHouseNumber;
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_PointProto *geocodedPoint;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *geographicDivisionOcdIds;
-
-/**
- *  identifier
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-@property(nonatomic, copy, nullable) NSString *judicialDistrict;
-
-/**
- *  mailOnly
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *mailOnly;
-
-@property(nonatomic, copy, nullable) NSString *municipalDistrict;
-@property(nonatomic, copy, nullable) NSString *ncoaAddress;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *oddOrEvens;
-@property(nonatomic, copy, nullable) NSString *originalId;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *pollinglocationByIds;
-@property(nonatomic, copy, nullable) NSString *precinctName;
-@property(nonatomic, copy, nullable) NSString *precinctOcdId;
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_Provenance *> *provenances;
-
-/**
- *  published
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *published;
-
-@property(nonatomic, copy, nullable) NSString *schoolDistrict;
-
-/**
- *  startHouseNumber
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startHouseNumber;
-
-/**
- *  startLatE7
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startLatE7;
-
-/**
- *  startLngE7
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startLngE7;
-
-@property(nonatomic, copy, nullable) NSString *state;
-@property(nonatomic, copy, nullable) NSString *stateHouseDistrict;
-@property(nonatomic, copy, nullable) NSString *stateSenateDistrict;
-@property(nonatomic, copy, nullable) NSString *streetName;
-@property(nonatomic, copy, nullable) NSString *subAdministrativeAreaName;
-
-/**
- *  surrogateId
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *surrogateId;
-
-@property(nonatomic, copy, nullable) NSString *targetsmartUniquePrecinctCode;
-@property(nonatomic, copy, nullable) NSString *townshipDistrict;
-@property(nonatomic, copy, nullable) NSString *unitNumber;
-@property(nonatomic, copy, nullable) NSString *unitType;
-@property(nonatomic, copy, nullable) NSString *vanPrecinctCode;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *voterGeographicDivisionOcdIds;
-@property(nonatomic, copy, nullable) NSString *wardDistrict;
-
-/**
- *  wildcard
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *wildcard;
-
-@property(nonatomic, copy, nullable) NSString *zip;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_StreetSegmentList
- */
-@interface GTLRCivicInfo_StreetSegmentList : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_StreetSegment *> *segments;
-
-@end
-
-
-/**
- *  A request for information about a voter.
- */
-@interface GTLRCivicInfo_VoterInfoRequest : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_ContextParams *contextParams;
-@property(nonatomic, strong, nullable) GTLRCivicInfo_VoterInfoSegmentResult *voterInfoSegmentResult;
 
 @end
 
@@ -1233,32 +1042,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_PollingLocation *> *pollingLocations;
 
 @property(nonatomic, copy, nullable) NSString *precinctId;
-@property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_StreetSegment *> *segments;
 
 /**
  *  Local Election Information for the state that the voter votes in. For the
  *  US, there will only be one element in this array.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_AdministrationRegion *> *state;
-
-@end
-
-
-/**
- *  GTLRCivicInfo_VoterInfoSegmentResult
- */
-@interface GTLRCivicInfo_VoterInfoSegmentResult : GTLRObject
-
-/**
- *  generatedMillis
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *generatedMillis;
-
-@property(nonatomic, strong, nullable) GTLRCivicInfo_PostalAddress *postalAddress;
-@property(nonatomic, strong, nullable) GTLRCivicInfo_VoterInfoRequest *request;
-@property(nonatomic, strong, nullable) GTLRCivicInfo_VoterInfoResponse *response;
 
 @end
 

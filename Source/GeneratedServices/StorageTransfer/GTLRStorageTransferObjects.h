@@ -934,7 +934,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /** The error result of the operation in case of failure or cancellation. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Status *error;
 
-/** Represents the transfer operation object. */
+/**
+ *  Represents the transfer operation object. To request a TransferOperation
+ *  object, use transferOperations.get.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Operation_Metadata *metadata;
 
 /**
@@ -960,7 +963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Represents the transfer operation object.
+ *  Represents the transfer operation object. To request a TransferOperation
+ *  object, use transferOperations.get.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

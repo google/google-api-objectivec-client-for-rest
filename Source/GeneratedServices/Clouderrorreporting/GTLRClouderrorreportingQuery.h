@@ -285,12 +285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 
 /**
  *  Required. The group resource name. Written as
- *  <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
- *  Call
- *  <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
- *  <code>groupStats.list</code></a> to return a list of groups belonging to
- *  this project.
- *  Example: <code>projects/my-project-123/groups/my-group</code>
+ *  `projects/{projectID}/groups/{group_name}`. Call
+ *  [`groupStats.list`](https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list)
+ *  to return a list of groups belonging to this project.
+ *  Example: `projects/my-project-123/groups/my-group`
  */
 @property(nonatomic, copy, nullable) NSString *groupName;
 
@@ -300,12 +298,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Get the specified group.
  *
  *  @param groupName Required. The group resource name. Written as
- *    <code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.
- *    Call
- *    <a href="/error-reporting/reference/rest/v1beta1/projects.groupStats/list">
- *    <code>groupStats.list</code></a> to return a list of groups belonging to
- *    this project.
- *    Example: <code>projects/my-project-123/groups/my-group</code>
+ *    `projects/{projectID}/groups/{group_name}`. Call
+ *    [`groupStats.list`](https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list)
+ *    to return a list of groups belonging to this project.
+ *    Example: `projects/my-project-123/groups/my-group`
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsGet
  */
