@@ -68,6 +68,8 @@
 @class GTLRContainer_OperationProgress;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_RecurringTimeWindow;
+@class GTLRContainer_ReleaseChannel;
+@class GTLRContainer_ReleaseChannelConfig;
 @class GTLRContainer_ReservationAffinity;
 @class GTLRContainer_ResourceLimit;
 @class GTLRContainer_ResourceUsageExportConfig;
@@ -438,6 +440,76 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_Runni
  *  Value: "STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ReleaseChannel.channel
+
+/**
+ *  RAPID channel is offered on an early access basis for customers who want
+ *  to test new releases.
+ *  WARNING: Versions available in the RAPID Channel may be subject to
+ *  unresolved issues with no known workaround and are not subject to any
+ *  SLAs.
+ *
+ *  Value: "RAPID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Rapid;
+/**
+ *  Clusters subscribed to REGULAR receive versions that are considered GA
+ *  quality. REGULAR is intended for production users who want to take
+ *  advantage of new features.
+ *
+ *  Value: "REGULAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Regular;
+/**
+ *  Clusters subscribed to STABLE receive versions that are known to be
+ *  stable and reliable in production.
+ *
+ *  Value: "STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Stable;
+/**
+ *  No channel specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ReleaseChannelConfig.channel
+
+/**
+ *  RAPID channel is offered on an early access basis for customers who want
+ *  to test new releases.
+ *  WARNING: Versions available in the RAPID Channel may be subject to
+ *  unresolved issues with no known workaround and are not subject to any
+ *  SLAs.
+ *
+ *  Value: "RAPID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Rapid;
+/**
+ *  Clusters subscribed to REGULAR receive versions that are considered GA
+ *  quality. REGULAR is intended for production users who want to take
+ *  advantage of new features.
+ *
+ *  Value: "REGULAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Regular;
+/**
+ *  Clusters subscribed to STABLE receive versions that are known to be
+ *  stable and reliable in production.
+ *
+ *  Value: "STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Stable;
+/**
+ *  No channel specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ReservationAffinity.consumeReservationType
@@ -988,7 +1060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The number of nodes to create in this cluster. You must ensure that your
- *  Compute Engine <a href="/compute/docs/resource-quotas">resource quota</a>
+ *  Compute Engine [resource quota](https://cloud.google.com/compute/quotas)
  *  is sufficient for this number of instances. You must also have available
  *  firewall and routes quota.
  *  For requests, this field should only be used in lieu of a
@@ -1127,6 +1199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
+
+/** Release channel configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *releaseChannel;
 
 /**
  *  The resource labels for the cluster to use to annotate any related
@@ -1383,6 +1458,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  - "-": picks the Kubernetes master version
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
+
+/** The desired release channel configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *desiredReleaseChannel;
 
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
@@ -2269,6 +2347,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
 
 /**
+ *  The Customer Managed Encryption Key used to encrypt the boot disk attached
+ *  to each node in the node pool. This should be of the form
+ *  projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME].
+ *  For more information about protecting resources with Cloud KMS Keys please
+ *  see:
+ *  https://cloud.google.com/compute/docs/disks/customer-managed-encryption
+ */
+@property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
+
+/**
  *  Size of the disk attached to each node, specified in GB.
  *  The smallest allowed disk size is 10GB.
  *  If unspecified, the default disk size is 100GB.
@@ -2546,7 +2634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The initial node count for the pool. You must ensure that your
- *  Compute Engine <a href="/compute/docs/resource-quotas">resource quota</a>
+ *  Compute Engine [resource quota](https://cloud.google.com/compute/quotas)
  *  is sufficient for this number of instances. You must also have available
  *  firewall and routes quota.
  *
@@ -2957,6 +3045,76 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  ReleaseChannel indicates which release channel a cluster is
+ *  subscribed to. Release channels are arranged in order of risk.
+ *  When a cluster is subscribed to a release channel, Google maintains
+ *  both the master version and the node version. Node auto-upgrade
+ *  defaults to true and cannot be disabled.
+ */
+@interface GTLRContainer_ReleaseChannel : GTLRObject
+
+/**
+ *  channel specifies which release channel the cluster is subscribed to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Rapid RAPID channel is
+ *        offered on an early access basis for customers who want
+ *        to test new releases.
+ *        WARNING: Versions available in the RAPID Channel may be subject to
+ *        unresolved issues with no known workaround and are not subject to any
+ *        SLAs. (Value: "RAPID")
+ *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Regular Clusters subscribed
+ *        to REGULAR receive versions that are considered GA
+ *        quality. REGULAR is intended for production users who want to take
+ *        advantage of new features. (Value: "REGULAR")
+ *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Stable Clusters subscribed
+ *        to STABLE receive versions that are known to be
+ *        stable and reliable in production. (Value: "STABLE")
+ *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Unspecified No channel
+ *        specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+@end
+
+
+/**
+ *  ReleaseChannelConfig exposes configuration for a release channel.
+ */
+@interface GTLRContainer_ReleaseChannelConfig : GTLRObject
+
+/**
+ *  The release channel this configuration applies to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Rapid RAPID channel is
+ *        offered on an early access basis for customers who want
+ *        to test new releases.
+ *        WARNING: Versions available in the RAPID Channel may be subject to
+ *        unresolved issues with no known workaround and are not subject to any
+ *        SLAs. (Value: "RAPID")
+ *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Regular Clusters
+ *        subscribed to REGULAR receive versions that are considered GA
+ *        quality. REGULAR is intended for production users who want to take
+ *        advantage of new features. (Value: "REGULAR")
+ *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Stable Clusters
+ *        subscribed to STABLE receive versions that are known to be
+ *        stable and reliable in production. (Value: "STABLE")
+ *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified No channel
+ *        specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/** The default version for newly created clusters on the channel. */
+@property(nonatomic, copy, nullable) NSString *defaultVersion;
+
+/** List of valid versions for the channel. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *validVersions;
+
+@end
+
+
+/**
  *  [ReservationAffinity](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
  *  is the configuration of desired reservation which instances could take
  *  capacity from.
@@ -3111,6 +3269,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Kubernetes Engine service configuration.
  */
 @interface GTLRContainer_ServerConfig : GTLRObject
+
+/** List of release channel configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_ReleaseChannelConfig *> *channels;
 
 /** Version of Kubernetes the service deploys by default. */
 @property(nonatomic, copy, nullable) NSString *defaultClusterVersion;

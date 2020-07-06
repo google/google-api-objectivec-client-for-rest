@@ -398,6 +398,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunct
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array;
 /**
+ *  Encoded as a decimal string.
+ *
+ *  Value: "BIGNUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bignumeric;
+/**
  *  Encoded as a boolean "false" or "true".
  *
  *  Value: "BOOL"
@@ -5404,6 +5410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Likely values:
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Array Encoded as a list
  *        with types matching Type.array_type. (Value: "ARRAY")
+ *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Bignumeric Encoded as a
+ *        decimal string. (Value: "BIGNUMERIC")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Bool Encoded as a
  *        boolean "false" or "true". (Value: "BOOL")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Bytes Encoded as a

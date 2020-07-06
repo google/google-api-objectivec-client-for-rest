@@ -5929,8 +5929,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          guestOsFeatures, identifier, kind, labelFingerprint, labels,
          lastAttachTimestamp, lastDetachTimestamp, licenseCodes, licenses, name,
          options, physicalBlockSizeBytes, region, replicaZones,
-         resourcePolicies, selfLink, sizeGb, sourceImage,
-         sourceImageEncryptionKey, sourceImageId, sourceSnapshot,
+         resourcePolicies, selfLink, sizeGb, sourceDisk, sourceDiskId,
+         sourceImage, sourceImageEncryptionKey, sourceImageId, sourceSnapshot,
          sourceSnapshotEncryptionKey, sourceSnapshotId, status, type, users,
          zoneProperty;
 
@@ -7092,7 +7092,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_HealthCheck
 @dynamic checkIntervalSec, creationTimestamp, descriptionProperty,
          healthyThreshold, http2HealthCheck, httpHealthCheck, httpsHealthCheck,
-         identifier, kind, name, region, selfLink, sslHealthCheck,
+         identifier, kind, logConfig, name, region, selfLink, sslHealthCheck,
          tcpHealthCheck, timeoutSec, type, unhealthyThreshold;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -7153,6 +7153,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_HealthCheckList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_HealthCheckLogConfig
+//
+
+@implementation GTLRCompute_HealthCheckLogConfig
+@dynamic enable;
 @end
 
 

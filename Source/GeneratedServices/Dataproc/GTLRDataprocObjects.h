@@ -906,9 +906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
  *  data, such as Spark and MapReduce history files. If you do not specify a
- *  temp bucket, Cloud Dataproc will determine a Cloud Storage location (US,
- *  ASIA, or EU) for your cluster's temp bucket according to the Compute Engine
- *  zone where your cluster is deployed, and then create and manage this
+ *  temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+ *  EU) for your cluster's temp bucket according to the Compute Engine zone
+ *  where your cluster is deployed, and then create and manage this
  *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
  *  but you can use any TTL (or none) if you specify a bucket.
  */
@@ -1982,8 +1982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  Required. The ID of the Google Cloud Platform project that the job belongs
- *  to.
+ *  Optional. The ID of the Google Cloud Platform project that the job belongs
+ *  to. If specified, must match the request project ID.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3659,8 +3659,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. emplate parameters whose values are substituted into the template.
- *  Values for parameters must be provided when the template is instantiated.
+ *  Optional. Template parameters whose values are substituted into the
+ *  template. Values for parameters must be provided when the template is
+ *  instantiated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_TemplateParameter *> *parameters;
 

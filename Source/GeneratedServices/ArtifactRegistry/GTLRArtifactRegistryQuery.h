@@ -64,6 +64,10 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  Gets information about a location.
  *
  *  Method: artifactregistry.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsGet : GTLRArtifactRegistryQuery
 // Previous library name was
@@ -89,6 +93,10 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  Lists information about the supported locations for this service.
  *
  *  Method: artifactregistry.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsList : GTLRArtifactRegistryQuery
 // Previous library name was

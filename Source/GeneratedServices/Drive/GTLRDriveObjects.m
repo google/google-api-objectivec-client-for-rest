@@ -374,7 +374,7 @@
 //
 
 @implementation GTLRDrive_File_Capabilities
-@dynamic canAddChildren, canAddMyDriveParent,
+@dynamic canAddChildren, canAddFolderFromAnotherDrive, canAddMyDriveParent,
          canChangeCopyRequiresWriterPermission, canChangeViewersCanCopyContent,
          canComment, canCopy, canDelete, canDeleteChildren, canDownload,
          canEdit, canListChildren, canModifyContent, canMoveChildrenOutOfDrive,

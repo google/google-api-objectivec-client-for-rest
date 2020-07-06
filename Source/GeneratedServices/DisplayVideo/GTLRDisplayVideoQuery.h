@@ -582,8 +582,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Updates an existing inventory source.
- *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  Method: displayvideo.advertisers.channels.get
@@ -607,8 +605,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Fetches a @c GTLRDisplayVideo_Channel.
  *
- *  Updates an existing inventory source.
- *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  @param advertiserId The ID of the advertiser that owns the fetched channel.
@@ -6000,8 +5996,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Updates an existing inventory source.
- *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  Method: displayvideo.partners.channels.get
@@ -6025,8 +6019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Fetches a @c GTLRDisplayVideo_Channel.
  *
- *  Updates an existing inventory source.
- *  Returns the updated inventory source if successful.
  *  Gets a channel for a partner or advertiser.
  *
  *  @param partnerId The ID of the partner that owns the fetched channel.

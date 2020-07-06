@@ -1659,6 +1659,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  transactions. However, it can also happen for a variety of other
  *  reasons. If `Commit` returns `ABORTED`, the caller should re-attempt
  *  the transaction from the beginning, re-using the same session.
+ *  On very rare occasions, `Commit` might return `UNKNOWN`. This can happen,
+ *  for example, if the client job experiences a 1+ hour networking failure.
+ *  At that point, Cloud Spanner has lost track of the transaction outcome and
+ *  we recommend that you perform another read from the database to see the
+ *  state of things as they are now.
  *
  *  Method: spanner.projects.instances.databases.sessions.commit
  *
@@ -1685,6 +1690,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  transactions. However, it can also happen for a variety of other
  *  reasons. If `Commit` returns `ABORTED`, the caller should re-attempt
  *  the transaction from the beginning, re-using the same session.
+ *  On very rare occasions, `Commit` might return `UNKNOWN`. This can happen,
+ *  for example, if the client job experiences a 1+ hour networking failure.
+ *  At that point, Cloud Spanner has lost track of the transaction outcome and
+ *  we recommend that you perform another read from the database to see the
+ *  state of things as they are now.
  *
  *  @param object The @c GTLRSpanner_CommitRequest to include in the query.
  *  @param session Required. The session in which the transaction to be
