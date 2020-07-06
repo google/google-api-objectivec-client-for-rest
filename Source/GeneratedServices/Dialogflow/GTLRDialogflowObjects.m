@@ -337,7 +337,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
 @dynamic conversationSuccess, endInteraction, humanAgentHandoff,
-         liveAgentHandoff, mixedAudio, payload, playAudio, text;
+         liveAgentHandoff, mixedAudio, outputAudioText, payload, playAudio,
+         text;
 @end
 
 
@@ -461,6 +462,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment
 @dynamic allowPlaybackInterruption, audio, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText
+@dynamic ssml, text;
 @end
 
 

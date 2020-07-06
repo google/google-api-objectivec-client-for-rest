@@ -2004,9 +2004,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Creates a BackendService resource in the specified project using the data
- *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when creating a backend service. Read Understanding backend
- *  services for more information.
+ *  included in the request. For more information, see Backend services
+ *  overview.
  *
  *  Method: compute.backendServices.insert
  *
@@ -2039,9 +2038,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a BackendService resource in the specified project using the data
- *  included in the request. There are several restrictions and guidelines to
- *  keep in mind when creating a backend service. Read Understanding backend
- *  services for more information.
+ *  included in the request. For more information, see Backend services
+ *  overview.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2140,10 +2138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Patches the specified BackendService resource with the data included in the
- *  request. There are several Understanding backend services to keep in mind
- *  when updating a backend service. Read Understanding backend services for
- *  more information. This method supports PATCH semantics and uses the JSON
- *  merge patch format and processing rules.
+ *  request. For more information, see Backend services overview. This method
+ *  supports PATCH semantics and uses the JSON merge patch format and processing
+ *  rules.
  *
  *  Method: compute.backendServices.patch
  *
@@ -2179,10 +2176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified BackendService resource with the data included in the
- *  request. There are several Understanding backend services to keep in mind
- *  when updating a backend service. Read Understanding backend services for
- *  more information. This method supports PATCH semantics and uses the JSON
- *  merge patch format and processing rules.
+ *  request. For more information, see Backend services overview. This method
+ *  supports PATCH semantics and uses the JSON merge patch format and processing
+ *  rules.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2253,9 +2249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Updates the specified BackendService resource with the data included in the
- *  request. There are several Understanding backend services to keep in mind
- *  when updating a backend service. Read Understanding backend services for
- *  more information.
+ *  request. For more information, see Backend services overview.
  *
  *  Method: compute.backendServices.update
  *
@@ -2291,9 +2285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified BackendService resource with the data included in the
- *  request. There are several Understanding backend services to keep in mind
- *  when updating a backend service. Read Understanding backend services for
- *  more information.
+ *  request. For more information, see Backend services overview.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -7858,7 +7850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Lists all errors thrown by actions on instances for a given managed instance
- *  group.
+ *  group. The filter and orderBy query parameters are not supported.
  *
  *  Method: compute.instanceGroupManagers.listErrors
  *
@@ -7942,7 +7934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_InstanceGroupManagersListErrorsResponse.
  *
  *  Lists all errors thrown by actions on instances for a given managed instance
- *  group.
+ *  group. The filter and orderBy query parameters are not supported.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -7969,7 +7961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  the list has a currentAction, which indicates the action that the managed
  *  instance group is performing on the instance. For example, if the group is
  *  still creating an instance, the currentAction is CREATING. If a previous
- *  action failed, the list displays the errors for that failed action.
+ *  action failed, the list displays the errors for that failed action. The
+ *  orderBy query parameter is not supported.
  *
  *  Method: compute.instanceGroupManagers.listManagedInstances
  *
@@ -8051,7 +8044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  the list has a currentAction, which indicates the action that the managed
  *  instance group is performing on the instance. For example, if the group is
  *  still creating an instance, the currentAction is CREATING. If a previous
- *  action failed, the list displays the errors for that failed action.
+ *  action failed, the list displays the errors for that failed action. The
+ *  orderBy query parameter is not supported.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -8875,7 +8869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Lists the instances in the specified instance group.
+ *  Lists the instances in the specified instance group. The orderBy query
+ *  parameter is not supported.
  *
  *  Method: compute.instanceGroups.listInstances
  *
@@ -8956,7 +8951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupsListInstances.
  *
- *  Lists the instances in the specified instance group.
+ *  Lists the instances in the specified instance group. The orderBy query
+ *  parameter is not supported.
  *
  *  @param object The @c GTLRCompute_InstanceGroupsListInstancesRequest to
  *    include in the query.
@@ -17739,9 +17735,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Creates a regional BackendService resource in the specified project using
- *  the data included in the request. There are several restrictions and
- *  guidelines to keep in mind when creating a regional backend service. Read
- *  Understanding backend services for more information.
+ *  the data included in the request. For more information, see Backend services
+ *  overview.
  *
  *  Method: compute.regionBackendServices.insert
  *
@@ -17777,9 +17772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a regional BackendService resource in the specified project using
- *  the data included in the request. There are several restrictions and
- *  guidelines to keep in mind when creating a regional backend service. Read
- *  Understanding backend services for more information.
+ *  the data included in the request. For more information, see Backend services
+ *  overview.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -17885,10 +17879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several Understanding backend services to
- *  keep in mind when updating a backend service. Read Understanding backend
- *  services for more information. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  included in the request. For more information, see Understanding backend
+ *  services This method supports PATCH semantics and uses the JSON merge patch
+ *  format and processing rules.
  *
  *  Method: compute.regionBackendServices.patch
  *
@@ -17927,10 +17920,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several Understanding backend services to
- *  keep in mind when updating a backend service. Read Understanding backend
- *  services for more information. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  included in the request. For more information, see Understanding backend
+ *  services This method supports PATCH semantics and uses the JSON merge patch
+ *  format and processing rules.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -17948,9 +17940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several Understanding backend services to
- *  keep in mind when updating a backend service. Read Understanding backend
- *  services for more information.
+ *  included in the request. For more information, see Backend services
+ *  overview.
  *
  *  Method: compute.regionBackendServices.update
  *
@@ -17989,9 +17980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. There are several Understanding backend services to
- *  keep in mind when updating a backend service. Read Understanding backend
- *  services for more information.
+ *  included in the request. For more information, see Backend services
+ *  overview.
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -20246,7 +20236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Lists all errors thrown by actions on instances for a given regional managed
- *  instance group.
+ *  instance group. The filter and orderBy query parameters are not supported.
  *
  *  Method: compute.regionInstanceGroupManagers.listErrors
  *
@@ -20327,7 +20317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListErrorsResponse.
  *
  *  Lists all errors thrown by actions on instances for a given regional managed
- *  instance group.
+ *  instance group. The filter and orderBy query parameters are not supported.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request. This should conform
@@ -20352,7 +20342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Lists the instances in the managed instance group and instances that are
  *  scheduled to be created. The list includes any current actions that the
- *  group has scheduled for its instances.
+ *  group has scheduled for its instances. The orderBy query parameter is not
+ *  supported.
  *
  *  Method: compute.regionInstanceGroupManagers.listManagedInstances
  *
@@ -20428,7 +20419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Lists the instances in the managed instance group and instances that are
  *  scheduled to be created. The list includes any current actions that the
- *  group has scheduled for its instances.
+ *  group has scheduled for its instances. The orderBy query parameter is not
+ *  supported.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -20914,7 +20906,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Lists the instances in the specified instance group and displays information
  *  about the named ports. Depending on the specified options, this method can
- *  list all instances or only the instances that are running.
+ *  list all instances or only the instances that are running. The orderBy query
+ *  parameter is not supported.
  *
  *  Method: compute.regionInstanceGroups.listInstances
  *
@@ -20992,7 +20985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Lists the instances in the specified instance group and displays information
  *  about the named ports. Depending on the specified options, this method can
- *  list all instances or only the instances that are running.
+ *  list all instances or only the instances that are running. The orderBy query
+ *  parameter is not supported.
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupsListInstancesRequest to
  *    include in the query.
@@ -26662,9 +26656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of all usable subnetworks in the project. The
- *  list contains all of the subnetworks in the project and the subnetworks that
- *  were shared by a Shared VPC host project.
+ *  Retrieves an aggregated list of all usable subnetworks in the project.
  *
  *  Method: compute.subnetworks.listUsable
  *
@@ -26732,9 +26724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_UsableSubnetworksAggregatedList.
  *
- *  Retrieves an aggregated list of all usable subnetworks in the project. The
- *  list contains all of the subnetworks in the project and the subnetworks that
- *  were shared by a Shared VPC host project.
+ *  Retrieves an aggregated list of all usable subnetworks in the project.
  *
  *  @param project Project ID for this request.
  *

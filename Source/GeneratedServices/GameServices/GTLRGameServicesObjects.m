@@ -36,6 +36,7 @@ NSString * const kGTLRGameServices_Condition_Iam_Approver      = @"APPROVER";
 NSString * const kGTLRGameServices_Condition_Iam_Attribution   = @"ATTRIBUTION";
 NSString * const kGTLRGameServices_Condition_Iam_Authority     = @"AUTHORITY";
 NSString * const kGTLRGameServices_Condition_Iam_CredentialsType = @"CREDENTIALS_TYPE";
+NSString * const kGTLRGameServices_Condition_Iam_CredsAssertion = @"CREDS_ASSERTION";
 NSString * const kGTLRGameServices_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
 NSString * const kGTLRGameServices_Condition_Iam_NoAttr        = @"NO_ATTR";
 NSString * const kGTLRGameServices_Condition_Iam_SecurityRealm = @"SECURITY_REALM";
@@ -58,6 +59,12 @@ NSString * const kGTLRGameServices_Condition_Sys_Service = @"SERVICE";
 // GTLRGameServices_DataAccessOptions.logMode
 NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
 NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
+
+// GTLRGameServices_OperationStatus.errorCode
+NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ClusterConnection = @"CLUSTER_CONNECTION";
+NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRGameServices_OperationStatus_ErrorCode_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRGameServices_OperationStatus_ErrorCode_PermissionDenied = @"PERMISSION_DENIED";
 
 // GTLRGameServices_Rule.action
 NSString * const kGTLRGameServices_Rule_Action_Allow        = @"ALLOW";
@@ -209,6 +216,64 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGameServices_DeployedClusterState
+//
+
+@implementation GTLRGameServices_DeployedClusterState
+@dynamic cluster, fleetDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fleetDetails" : [GTLRGameServices_DeployedFleetDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_DeployedFleet
+//
+
+@implementation GTLRGameServices_DeployedFleet
+@dynamic fleet, fleetSpec, specSource, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_DeployedFleetAutoscaler
+//
+
+@implementation GTLRGameServices_DeployedFleetAutoscaler
+@dynamic autoscaler, fleetAutoscalerSpec, specSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_DeployedFleetDetails
+//
+
+@implementation GTLRGameServices_DeployedFleetDetails
+@dynamic deployedAutoscaler, deployedFleet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_DeployedFleetStatus
+//
+
+@implementation GTLRGameServices_DeployedFleetStatus
+@dynamic allocatedReplicas, readyReplicas, replicas, reservedReplicas;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGameServices_Empty
 //
 
@@ -226,6 +291,300 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_FetchDeploymentStateRequest
+//
+
+@implementation GTLRGameServices_FetchDeploymentStateRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_FetchDeploymentStateResponse
+//
+
+@implementation GTLRGameServices_FetchDeploymentStateResponse
+@dynamic clusterState, unavailable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusterState" : [GTLRGameServices_DeployedClusterState class],
+    @"unavailable" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_FleetConfig
+//
+
+@implementation GTLRGameServices_FleetConfig
+@dynamic fleetSpec, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerCluster
+//
+
+@implementation GTLRGameServices_GameServerCluster
+@dynamic connectionInfo, createTime, descriptionProperty, ETag, labels, name,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerCluster_Labels
+//
+
+@implementation GTLRGameServices_GameServerCluster_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerClusterConnectionInfo
+//
+
+@implementation GTLRGameServices_GameServerClusterConnectionInfo
+@dynamic gkeClusterReference, namespaceProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerConfig
+//
+
+@implementation GTLRGameServices_GameServerConfig
+@dynamic createTime, descriptionProperty, fleetConfigs, labels, name,
+         scalingConfigs, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fleetConfigs" : [GTLRGameServices_FleetConfig class],
+    @"scalingConfigs" : [GTLRGameServices_ScalingConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerConfig_Labels
+//
+
+@implementation GTLRGameServices_GameServerConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerConfigOverride
+//
+
+@implementation GTLRGameServices_GameServerConfigOverride
+@dynamic configVersion, realmsSelector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerDeployment
+//
+
+@implementation GTLRGameServices_GameServerDeployment
+@dynamic createTime, descriptionProperty, ETag, labels, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerDeployment_Labels
+//
+
+@implementation GTLRGameServices_GameServerDeployment_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GameServerDeploymentRollout
+//
+
+@implementation GTLRGameServices_GameServerDeploymentRollout
+@dynamic createTime, defaultGameServerConfig, ETag, gameServerConfigOverrides,
+         name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gameServerConfigOverrides" : [GTLRGameServices_GameServerConfigOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_GkeClusterReference
+//
+
+@implementation GTLRGameServices_GkeClusterReference
+@dynamic cluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_LabelSelector
+//
+
+@implementation GTLRGameServices_LabelSelector
+@dynamic labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_LabelSelector_Labels
+//
+
+@implementation GTLRGameServices_LabelSelector_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_ListGameServerClustersResponse
+//
+
+@implementation GTLRGameServices_ListGameServerClustersResponse
+@dynamic gameServerClusters, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gameServerClusters" : [GTLRGameServices_GameServerCluster class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gameServerClusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_ListGameServerConfigsResponse
+//
+
+@implementation GTLRGameServices_ListGameServerConfigsResponse
+@dynamic gameServerConfigs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gameServerConfigs" : [GTLRGameServices_GameServerConfig class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gameServerConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_ListGameServerDeploymentsResponse
+//
+
+@implementation GTLRGameServices_ListGameServerDeploymentsResponse
+@dynamic gameServerDeployments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gameServerDeployments" : [GTLRGameServices_GameServerDeployment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gameServerDeployments";
 }
 
 @end
@@ -270,6 +629,29 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_ListRealmsResponse
+//
+
+@implementation GTLRGameServices_ListRealmsResponse
+@dynamic nextPageToken, realms, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"realms" : [GTLRGameServices_Realm class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"realms";
 }
 
 @end
@@ -363,6 +745,49 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGameServices_OperationMetadata
+//
+
+@implementation GTLRGameServices_OperationMetadata
+@dynamic apiVersion, createTime, endTime, operationStatus,
+         requestedCancellation, statusMessage, target, unreachable, verb;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_OperationMetadata_OperationStatus
+//
+
+@implementation GTLRGameServices_OperationMetadata_OperationStatus
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGameServices_OperationStatus class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_OperationStatus
+//
+
+@implementation GTLRGameServices_OperationStatus
+@dynamic done, errorCode, errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGameServices_Policy
 //
 
@@ -378,6 +803,140 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
     @"auditConfigs" : [GTLRGameServices_AuditConfig class],
     @"bindings" : [GTLRGameServices_Binding class],
     @"rules" : [GTLRGameServices_Rule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_PreviewCreateGameServerClusterResponse
+//
+
+@implementation GTLRGameServices_PreviewCreateGameServerClusterResponse
+@dynamic ETag, targetState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_PreviewDeleteGameServerClusterResponse
+//
+
+@implementation GTLRGameServices_PreviewDeleteGameServerClusterResponse
+@dynamic ETag, targetState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_PreviewGameServerDeploymentRolloutResponse
+//
+
+@implementation GTLRGameServices_PreviewGameServerDeploymentRolloutResponse
+@dynamic ETag, targetState, unavailable;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unavailable" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_PreviewRealmUpdateResponse
+//
+
+@implementation GTLRGameServices_PreviewRealmUpdateResponse
+@dynamic ETag, targetState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_PreviewUpdateGameServerClusterResponse
+//
+
+@implementation GTLRGameServices_PreviewUpdateGameServerClusterResponse
+@dynamic ETag, targetState;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_Realm
+//
+
+@implementation GTLRGameServices_Realm
+@dynamic createTime, descriptionProperty, ETag, labels, name, timeZone,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_Realm_Labels
+//
+
+@implementation GTLRGameServices_Realm_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_RealmSelector
+//
+
+@implementation GTLRGameServices_RealmSelector
+@dynamic realms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"realms" : [NSString class]
   };
   return map;
 }
@@ -418,11 +977,50 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGameServices_ScalingConfig
+//
+
+@implementation GTLRGameServices_ScalingConfig
+@dynamic fleetAutoscalerSpec, name, schedules, selectors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedules" : [GTLRGameServices_Schedule class],
+    @"selectors" : [GTLRGameServices_LabelSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_Schedule
+//
+
+@implementation GTLRGameServices_Schedule
+@dynamic cronJobDuration, cronSpec, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGameServices_SetIamPolicyRequest
 //
 
 @implementation GTLRGameServices_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_SpecSource
+//
+
+@implementation GTLRGameServices_SpecSource
+@dynamic gameServerConfigName, name;
 @end
 
 
@@ -453,6 +1051,72 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_TargetDetails
+//
+
+@implementation GTLRGameServices_TargetDetails
+@dynamic fleetDetails, gameServerClusterName, gameServerDeploymentName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fleetDetails" : [GTLRGameServices_TargetFleetDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_TargetFleet
+//
+
+@implementation GTLRGameServices_TargetFleet
+@dynamic name, specSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_TargetFleetAutoscaler
+//
+
+@implementation GTLRGameServices_TargetFleetAutoscaler
+@dynamic name, specSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_TargetFleetDetails
+//
+
+@implementation GTLRGameServices_TargetFleetDetails
+@dynamic autoscaler, fleet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_TargetState
+//
+
+@implementation GTLRGameServices_TargetState
+@dynamic details;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGameServices_TargetDetails class]
+  };
+  return map;
 }
 
 @end

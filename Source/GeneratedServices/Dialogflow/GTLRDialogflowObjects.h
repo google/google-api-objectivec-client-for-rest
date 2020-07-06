@@ -35,6 +35,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo;
@@ -1679,6 +1680,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio *mixedAudio;
 
+/**
+ *  A text or ssml response that is preferentially used for TTS output audio
+ *  synthesis, as described in the comment on the ResponseMessage message.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText *outputAudioText;
+
 /** Returns a response containing a custom, platform-specific payload. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage_Payload *payload;
 
@@ -1868,6 +1875,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  client. Dialogflow does not impose any validation on it.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A text or ssml response that is preferentially used for TTS output audio
+ *  synthesis, as described in the comment on the ResponseMessage message.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText : GTLRObject
+
+/**
+ *  The SSML text to be synthesized. For more information, see
+ *  [SSML](/speech/text-to-speech/docs/ssml).
+ */
+@property(nonatomic, copy, nullable) NSString *ssml;
+
+/** The raw text to be synthesized. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -4638,8 +4663,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The result of sentiment analysis as configured by
- *  `sentiment_analysis_request_config`.
+ *  The result of sentiment analysis. Sentiment analysis inspects user input
+ *  and identifies the prevailing subjective opinion, especially to determine a
+ *  user's attitude as positive, negative, or neutral.
+ *  For Participants.AnalyzeContent, it needs to be configured in
+ *  DetectIntentRequest.query_params. For
+ *  Participants.StreamingAnalyzeContent, it needs to be configured in
+ *  StreamingDetectIntentRequest.query_params.
+ *  And for Participants.AnalyzeContent and
+ *  Participants.StreamingAnalyzeContent, it needs to be configured in
+ *  ConversationProfile.human_agent_assistant_config
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult : GTLRObject
 
@@ -7347,8 +7380,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The result of sentiment analysis as configured by
- *  `sentiment_analysis_request_config`.
+ *  The result of sentiment analysis. Sentiment analysis inspects user input
+ *  and identifies the prevailing subjective opinion, especially to determine a
+ *  user's attitude as positive, negative, or neutral.
+ *  For Participants.AnalyzeContent, it needs to be configured in
+ *  DetectIntentRequest.query_params. For
+ *  Participants.StreamingAnalyzeContent, it needs to be configured in
+ *  StreamingDetectIntentRequest.query_params.
+ *  And for Participants.AnalyzeContent and
+ *  Participants.StreamingAnalyzeContent, it needs to be configured in
+ *  ConversationProfile.human_agent_assistant_config
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult : GTLRObject
 

@@ -1290,6 +1290,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canAddChildren;
 
 /**
+ *  Whether the current user can add a folder from another drive (different
+ *  shared drive or My Drive) to this folder. This is false when the item is not
+ *  a folder. Only populated for items in shared drives.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canAddFolderFromAnotherDrive;
+
+/**
  *  Whether the current user can add a parent for the item without removing an
  *  existing parent in the same request. Not populated for shared drive files.
  *

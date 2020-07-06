@@ -29,7 +29,24 @@
 @class GTLRGameServices_CounterOptions;
 @class GTLRGameServices_CustomField;
 @class GTLRGameServices_DataAccessOptions;
+@class GTLRGameServices_DeployedClusterState;
+@class GTLRGameServices_DeployedFleet;
+@class GTLRGameServices_DeployedFleetAutoscaler;
+@class GTLRGameServices_DeployedFleetDetails;
+@class GTLRGameServices_DeployedFleetStatus;
 @class GTLRGameServices_Expr;
+@class GTLRGameServices_FleetConfig;
+@class GTLRGameServices_GameServerCluster;
+@class GTLRGameServices_GameServerCluster_Labels;
+@class GTLRGameServices_GameServerClusterConnectionInfo;
+@class GTLRGameServices_GameServerConfig;
+@class GTLRGameServices_GameServerConfig_Labels;
+@class GTLRGameServices_GameServerConfigOverride;
+@class GTLRGameServices_GameServerDeployment;
+@class GTLRGameServices_GameServerDeployment_Labels;
+@class GTLRGameServices_GkeClusterReference;
+@class GTLRGameServices_LabelSelector;
+@class GTLRGameServices_LabelSelector_Labels;
 @class GTLRGameServices_Location;
 @class GTLRGameServices_Location_Labels;
 @class GTLRGameServices_Location_Metadata;
@@ -37,10 +54,23 @@
 @class GTLRGameServices_Operation;
 @class GTLRGameServices_Operation_Metadata;
 @class GTLRGameServices_Operation_Response;
+@class GTLRGameServices_OperationMetadata_OperationStatus;
+@class GTLRGameServices_OperationStatus;
 @class GTLRGameServices_Policy;
+@class GTLRGameServices_Realm;
+@class GTLRGameServices_Realm_Labels;
+@class GTLRGameServices_RealmSelector;
 @class GTLRGameServices_Rule;
+@class GTLRGameServices_ScalingConfig;
+@class GTLRGameServices_Schedule;
+@class GTLRGameServices_SpecSource;
 @class GTLRGameServices_Status;
 @class GTLRGameServices_Status_Details_Item;
+@class GTLRGameServices_TargetDetails;
+@class GTLRGameServices_TargetFleet;
+@class GTLRGameServices_TargetFleetAutoscaler;
+@class GTLRGameServices_TargetFleetDetails;
+@class GTLRGameServices_TargetState;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -176,6 +206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Authority;
  *  Value: "CREDENTIALS_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredentialsType;
+/**
+ *  EXPERIMENTAL -- DO NOT USE.
+ *
+ *  Value: "CREDS_ASSERTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredsAssertion;
 /**
  *  What types of justifications have been supplied with this request.
  *  String values should match enum names from
@@ -321,6 +357,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_L
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRGameServices_OperationStatus.errorCode
+
+/** Value: "CLUSTER_CONNECTION" */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ClusterConnection;
+/** Value: "ERROR_CODE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ErrorCodeUnspecified;
+/** Value: "INTERNAL_ERROR" */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_InternalError;
+/** Value: "PERMISSION_DENIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_PermissionDenied;
+
+// ----------------------------------------------------------------------------
 // GTLRGameServices_Rule.action
 
 /**
@@ -375,7 +423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  {
  *  "audit_configs": [
  *  {
- *  "service": "allServices"
+ *  "service": "allServices",
  *  "audit_log_configs": [
  *  {
  *  "log_type": "DATA_READ",
@@ -384,18 +432,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  },
  *  {
- *  "log_type": "ADMIN_READ",
+ *  "log_type": "ADMIN_READ"
  *  }
  *  ]
  *  },
  *  {
- *  "service": "sampleservice.googleapis.com"
+ *  "service": "sampleservice.googleapis.com",
  *  "audit_log_configs": [
  *  {
- *  "log_type": "DATA_READ",
+ *  "log_type": "DATA_READ"
  *  },
  *  {
  *  "log_type": "DATA_WRITE",
@@ -440,7 +488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  ]
  *  },
  *  {
- *  "log_type": "DATA_WRITE",
+ *  "log_type": "DATA_WRITE"
  *  }
  *  ]
  *  }
@@ -632,6 +680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        It is not permitted to grant access based on the *absence* of a
  *        credentials type, so the conditions can only be used in a "positive"
  *        context (e.g., ALLOW/IN or DENY/NOT_IN). (Value: "CREDENTIALS_TYPE")
+ *    @arg @c kGTLRGameServices_Condition_Iam_CredsAssertion EXPERIMENTAL -- DO
+ *        NOT USE.
+ *        (Value: "CREDS_ASSERTION")
  *    @arg @c kGTLRGameServices_Condition_Iam_JustificationType What types of
  *        justifications have been supplied with this request.
  *        String values should match enum names from
@@ -807,6 +858,122 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
+ *  The game server cluster changes made by the game server deployment.
+ */
+@interface GTLRGameServices_DeployedClusterState : GTLRObject
+
+/** The name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  The details about the Agones fleets and autoscalers created in the
+ *  game server cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_DeployedFleetDetails *> *fleetDetails;
+
+@end
+
+
+/**
+ *  Agones fleet specification and details.
+ */
+@interface GTLRGameServices_DeployedFleet : GTLRObject
+
+/** The name of the Agones fleet. */
+@property(nonatomic, copy, nullable) NSString *fleet;
+
+/** The fleet spec retrieved from the Agones fleet. */
+@property(nonatomic, copy, nullable) NSString *fleetSpec;
+
+/**
+ *  The source spec that is used to create the Agones fleet.
+ *  The GameServerConfig resource may no longer exist in the system.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
+
+/**
+ *  The current status of the Agones fleet.
+ *  Includes count of game servers in various states.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_DeployedFleetStatus *status;
+
+@end
+
+
+/**
+ *  Details about the Agones autoscaler.
+ */
+@interface GTLRGameServices_DeployedFleetAutoscaler : GTLRObject
+
+/** The name of the Agones autoscaler. */
+@property(nonatomic, copy, nullable) NSString *autoscaler;
+
+/** The autoscaler spec retrieved from Agones. */
+@property(nonatomic, copy, nullable) NSString *fleetAutoscalerSpec;
+
+/**
+ *  The source spec that is used to create the autoscaler.
+ *  The GameServerConfig resource may no longer exist in the system.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
+
+@end
+
+
+/**
+ *  Details of the deployed Agones fleet.
+ */
+@interface GTLRGameServices_DeployedFleetDetails : GTLRObject
+
+/** Information about the Agones autoscaler for that fleet. */
+@property(nonatomic, strong, nullable) GTLRGameServices_DeployedFleetAutoscaler *deployedAutoscaler;
+
+/** Information about the Agones fleet. */
+@property(nonatomic, strong, nullable) GTLRGameServices_DeployedFleet *deployedFleet;
+
+@end
+
+
+/**
+ *  DeployedFleetStatus has details about the Agones fleets such as how many
+ *  are running, how many allocated, and so on.
+ */
+@interface GTLRGameServices_DeployedFleetStatus : GTLRObject
+
+/**
+ *  The number of GameServer replicas in the ALLOCATED state in this fleet.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedReplicas;
+
+/**
+ *  The number of GameServer replicas in the READY state in this fleet.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readyReplicas;
+
+/**
+ *  The total number of current GameServer replicas in this fleet.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicas;
+
+/**
+ *  The number of GameServer replicas in the RESERVED state in this fleet.
+ *  Reserved instances won't be deleted on scale down, but won't cause
+ *  an autoscaler to scale up.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reservedReplicas;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance:
@@ -877,6 +1044,416 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
+ *  Request message for GameServerDeploymentsService.FetchDeploymentState.
+ */
+@interface GTLRGameServices_FetchDeploymentStateRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for GameServerDeploymentsService.FetchDeploymentState.
+ */
+@interface GTLRGameServices_FetchDeploymentStateResponse : GTLRObject
+
+/** The state of the game server deployment in each game server cluster. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_DeployedClusterState *> *clusterState;
+
+/** List of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unavailable;
+
+@end
+
+
+/**
+ *  Fleet configs for Agones.
+ */
+@interface GTLRGameServices_FleetConfig : GTLRObject
+
+/**
+ *  Agones fleet spec. Example spec:
+ *  `https://agones.dev/site/docs/reference/fleet/`.
+ */
+@property(nonatomic, copy, nullable) NSString *fleetSpec;
+
+/** The name of the FleetConfig. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A game server cluster resource.
+ */
+@interface GTLRGameServices_GameServerCluster : GTLRObject
+
+/**
+ *  The game server cluster connection information. This information is used to
+ *  manage game server clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_GameServerClusterConnectionInfo *connectionInfo;
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human readable description of the cluster.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The labels associated with this game server cluster. Each label is a
+ *  key-value pair.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_GameServerCluster_Labels *labels;
+
+/**
+ *  Required. The resource name of the game server cluster. Uses the form:
+ *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ *  For example,
+ *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The labels associated with this game server cluster. Each label is a
+ *  key-value pair.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGameServices_GameServerCluster_Labels : GTLRObject
+@end
+
+
+/**
+ *  The game server cluster connection information.
+ */
+@interface GTLRGameServices_GameServerClusterConnectionInfo : GTLRObject
+
+/** Reference to the GKE cluster where the game servers are installed. */
+@property(nonatomic, strong, nullable) GTLRGameServices_GkeClusterReference *gkeClusterReference;
+
+/**
+ *  Namespace designated on the game server cluster where the Agones game
+ *  server instances will be created. Existence of the namespace will be
+ *  validated during creation.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
+ *  A game server config resource.
+ */
+@interface GTLRGameServices_GameServerConfig : GTLRObject
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The description of the game server config.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  FleetConfig contains a list of Agones fleet specs. Only one FleetConfig
+ *  is allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_FleetConfig *> *fleetConfigs;
+
+/**
+ *  The labels associated with this game server config. Each label is a
+ *  key-value pair.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_GameServerConfig_Labels *labels;
+
+/**
+ *  The resource name of the game server config. Uses the form:
+ *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
+ *  For example,
+ *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The autoscaling settings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_ScalingConfig *> *scalingConfigs;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The labels associated with this game server config. Each label is a
+ *  key-value pair.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGameServices_GameServerConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  A game server config override.
+ */
+@interface GTLRGameServices_GameServerConfigOverride : GTLRObject
+
+/** The game server config for this override. */
+@property(nonatomic, copy, nullable) NSString *configVersion;
+
+/** Selector for choosing applicable realms. */
+@property(nonatomic, strong, nullable) GTLRGameServices_RealmSelector *realmsSelector;
+
+@end
+
+
+/**
+ *  A game server deployment resource.
+ */
+@interface GTLRGameServices_GameServerDeployment : GTLRObject
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human readable description of the game server delpoyment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The labels associated with this game server deployment. Each label is a
+ *  key-value pair.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_GameServerDeployment_Labels *labels;
+
+/**
+ *  The resource name of the game server deployment. Uses the form:
+ *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
+ *  For example,
+ *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The labels associated with this game server deployment. Each label is a
+ *  key-value pair.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGameServices_GameServerDeployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  The game server deployment rollout which represents the desired rollout
+ *  state.
+ */
+@interface GTLRGameServices_GameServerDeploymentRollout : GTLRObject
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The default game server config is applied to all realms unless overridden
+ *  in the rollout. For example,
+ *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultGameServerConfig;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Contains the game server config rollout overrides. Overrides are processed
+ *  in the order they are listed. Once a match is found for a realm, the rest
+ *  of the list is not processed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerConfigOverride *> *gameServerConfigOverrides;
+
+/**
+ *  The resource name of the game server deployment rollout. Uses the form:
+ *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
+ *  For example,
+ *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A reference to a GKE cluster.
+ */
+@interface GTLRGameServices_GkeClusterReference : GTLRObject
+
+/**
+ *  The full or partial name of a GKE cluster, using one of the following
+ *  forms:
+ *  * `projects/{project}/locations/{location}/clusters/{cluster}`
+ *  * `locations/{location}/clusters/{cluster}`
+ *  * `{cluster}`
+ *  If project and location are not specified, the project and location of the
+ *  GameServerCluster resource are used to generate the full name of the
+ *  GKE cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+@end
+
+
+/**
+ *  The label selector, used to group labels on the resources.
+ */
+@interface GTLRGameServices_LabelSelector : GTLRObject
+
+/** Resource labels for this selector. */
+@property(nonatomic, strong, nullable) GTLRGameServices_LabelSelector_Labels *labels;
+
+@end
+
+
+/**
+ *  Resource labels for this selector.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGameServices_LabelSelector_Labels : GTLRObject
+@end
+
+
+/**
+ *  Response message for GameServerClustersService.ListGameServerClusters.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gameServerClusters" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGameServices_ListGameServerClustersResponse : GTLRCollectionObject
+
+/**
+ *  The list of game server clusters.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerCluster *> *gameServerClusters;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** List of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for GameServerConfigsService.ListGameServerConfigs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gameServerConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGameServices_ListGameServerConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The list of game server configs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerConfig *> *gameServerConfigs;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** List of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for GameServerDeploymentsService.ListGameServerDeployments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gameServerDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGameServices_ListGameServerDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of game server deployments.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerDeployment *> *gameServerDeployments;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** List of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -920,6 +1497,36 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response message for RealmsService.ListRealms.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "realms" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGameServices_ListRealmsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of realms.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Realm *> *realms;
+
+/** List of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1085,6 +1692,105 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRGameServices_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Operation status for Game Services API operations. Operation
+ *  status is in
+ *  the form of key-value pairs where keys are resource IDs and the values show
+ *  the status of the operation. In case of failures, the value includes an
+ *  error code and error message.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_OperationMetadata_OperationStatus *operationStatus;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation
+ *  of the operation. Operations that have successfully been cancelled
+ *  have Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. List of Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Output only. Operation status for Game Services API operations. Operation
+ *  status is in
+ *  the form of key-value pairs where keys are resource IDs and the values show
+ *  the status of the operation. In case of failures, the value includes an
+ *  error code and error message.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGameServices_OperationStatus. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGameServices_OperationMetadata_OperationStatus : GTLRObject
+@end
+
+
+/**
+ *  GTLRGameServices_OperationStatus
+ */
+@interface GTLRGameServices_OperationStatus : GTLRObject
+
+/**
+ *  Output only. Whether the operation is done or still in progress.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/**
+ *  The error code in case of failures.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGameServices_OperationStatus_ErrorCode_ClusterConnection
+ *        Value "CLUSTER_CONNECTION"
+ *    @arg @c kGTLRGameServices_OperationStatus_ErrorCode_ErrorCodeUnspecified
+ *        Value "ERROR_CODE_UNSPECIFIED"
+ *    @arg @c kGTLRGameServices_OperationStatus_ErrorCode_InternalError Value
+ *        "INTERNAL_ERROR"
+ *    @arg @c kGTLRGameServices_OperationStatus_ErrorCode_PermissionDenied Value
+ *        "PERMISSION_DENIED"
+ */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** The human-readable error message. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources.
  *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
@@ -1226,6 +1932,148 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
+ *  Response message for
+ *  GameServerClustersService.PreviewCreateGameServerCluster.
+ */
+@interface GTLRGameServices_PreviewCreateGameServerClusterResponse : GTLRObject
+
+/** The ETag of the game server cluster. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The target state. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetState *targetState;
+
+@end
+
+
+/**
+ *  Response message for
+ *  GameServerClustersService.PreviewDeleteGameServerCluster.
+ */
+@interface GTLRGameServices_PreviewDeleteGameServerClusterResponse : GTLRObject
+
+/** The ETag of the game server cluster. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The target state. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetState *targetState;
+
+@end
+
+
+/**
+ *  Response message for PreviewGameServerDeploymentRollout.
+ *  This has details about the Agones fleet and autoscaler to be actuated.
+ */
+@interface GTLRGameServices_PreviewGameServerDeploymentRolloutResponse : GTLRObject
+
+/** ETag of the game server deployment. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The target state. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetState *targetState;
+
+/** Locations that could not be reached on this request. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unavailable;
+
+@end
+
+
+/**
+ *  Response message for RealmsService.PreviewRealmUpdate.
+ */
+@interface GTLRGameServices_PreviewRealmUpdateResponse : GTLRObject
+
+/** ETag of the realm. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The target state. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetState *targetState;
+
+@end
+
+
+/**
+ *  Response message for
+ *  GameServerClustersService.PreviewUpdateGameServerCluster
+ */
+@interface GTLRGameServices_PreviewUpdateGameServerClusterResponse : GTLRObject
+
+/** The ETag of the game server cluster. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The target state. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetState *targetState;
+
+@end
+
+
+/**
+ *  A realm resource.
+ */
+@interface GTLRGameServices_Realm : GTLRObject
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human readable description of the realm.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** ETag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** The labels associated with this realm. Each label is a key-value pair. */
+@property(nonatomic, strong, nullable) GTLRGameServices_Realm_Labels *labels;
+
+/**
+ *  The resource name of the realm. Uses the form:
+ *  `projects/{project}/locations/{location}/realms/{realm}`. For
+ *  example, `projects/my-project/locations/{location}/realms/my-realm`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Time zone where all policies targeting this realm are evaluated.
+ *  The value
+ *  of this field must be from the IANA time zone database:
+ *  https://www.iana.org/time-zones.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The labels associated with this realm. Each label is a key-value pair.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGameServices_Realm_Labels : GTLRObject
+@end
+
+
+/**
+ *  The realm selector, used to match realm resources.
+ */
+@interface GTLRGameServices_RealmSelector : GTLRObject
+
+/** List of realms to match. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *realms;
+
+@end
+
+
+/**
  *  A rule to be applied in a Policy.
  */
 @interface GTLRGameServices_Rule : GTLRObject
@@ -1297,6 +2145,66 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
+ *  Autoscaling config for an Agones fleet.
+ */
+@interface GTLRGameServices_ScalingConfig : GTLRObject
+
+/**
+ *  Required. Agones fleet autoscaler spec. Example spec:
+ *  https://agones.dev/site/docs/reference/fleetautoscaler/
+ */
+@property(nonatomic, copy, nullable) NSString *fleetAutoscalerSpec;
+
+/** Required. The name of the Scaling Config */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The schedules to which this Scaling Config applies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Schedule *> *schedules;
+
+/**
+ *  Labels used to identify the game server clusters to which this Agones
+ *  scaling config applies. A game server cluster is subject to this Agones
+ *  scaling config if its labels match any of the selector entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_LabelSelector *> *selectors;
+
+@end
+
+
+/**
+ *  The schedule of a recurring or one time event. The event's time span is
+ *  specified by start_time and end_time. If the scheduled event's timespan is
+ *  larger than the cron_spec + cron_job_duration, the event will be recurring.
+ *  If only cron_spec + cron_job_duration are specified, the event is effective
+ *  starting at the local time specified by cron_spec, and is recurring.
+ *  start_time|-------[cron job]-------[cron job]-------[cron job]---|end_time
+ *  cron job: cron spec start time + duration
+ */
+@interface GTLRGameServices_Schedule : GTLRObject
+
+/**
+ *  The duration for the cron job event. The duration of the event is effective
+ *  after the cron job's start time.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *cronJobDuration;
+
+/**
+ *  The cron definition of the scheduled event. See
+ *  https://en.wikipedia.org/wiki/Cron. Cron spec specifies the local time as
+ *  defined by the realm.
+ */
+@property(nonatomic, copy, nullable) NSString *cronSpec;
+
+/** The end time of the event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The start time of the event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRGameServices_SetIamPolicyRequest : GTLRObject
@@ -1318,6 +2226,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Encapsulates Agones fleet spec and Agones autoscaler spec sources.
+ */
+@interface GTLRGameServices_SpecSource : GTLRObject
+
+/**
+ *  The game server config resource. Uses the form:
+ *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment_id}/configs/{config_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gameServerConfigName;
+
+/**
+ *  The name of the Agones leet config or Agones scaling config used to derive
+ *  the Agones fleet or Agones autoscaler spec.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1364,6 +2292,90 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRGameServices_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Details about the Agones resources.
+ */
+@interface GTLRGameServices_TargetDetails : GTLRObject
+
+/**
+ *  Agones fleet details for game server clusters and game server deployments.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_TargetFleetDetails *> *fleetDetails;
+
+/**
+ *  The game server cluster name. Uses the form:
+ *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gameServerClusterName;
+
+/**
+ *  The game server deployment name. Uses the form:
+ *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gameServerDeploymentName;
+
+@end
+
+
+/**
+ *  Target Agones fleet specification.
+ */
+@interface GTLRGameServices_TargetFleet : GTLRObject
+
+/** The name of the Agones fleet. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Encapsulates the source of the Agones fleet spec.
+ *  The Agones fleet spec source.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
+
+@end
+
+
+/**
+ *  Target Agones autoscaler policy reference.
+ */
+@interface GTLRGameServices_TargetFleetAutoscaler : GTLRObject
+
+/** The name of the Agones autoscaler. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Encapsulates the source of the Agones fleet spec.
+ *  Details about the Agones autoscaler spec.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
+
+@end
+
+
+/**
+ *  Details of the target Agones fleet.
+ */
+@interface GTLRGameServices_TargetFleetDetails : GTLRObject
+
+/** Reference to target Agones fleet autoscaling policy. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetFleetAutoscaler *autoscaler;
+
+/** Reference to target Agones fleet. */
+@property(nonatomic, strong, nullable) GTLRGameServices_TargetFleet *fleet;
+
+@end
+
+
+/**
+ *  Encapsulates the Target state.
+ */
+@interface GTLRGameServices_TargetState : GTLRObject
+
+/** Details about Agones fleets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGameServices_TargetDetails *> *details;
+
 @end
 
 

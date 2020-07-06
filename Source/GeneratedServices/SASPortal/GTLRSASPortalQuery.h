@@ -21,6 +21,7 @@
 @class GTLRSASPortal_BulkCreateDeviceRequest;
 @class GTLRSASPortal_CreateSignedDeviceRequest;
 @class GTLRSASPortal_Customer;
+@class GTLRSASPortal_Deployment;
 @class GTLRSASPortal_Device;
 @class GTLRSASPortal_GenerateSecretRequest;
 @class GTLRSASPortal_GetPolicyRequest;
@@ -47,6 +48,178 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new deployment.
+ *
+ *  Method: sasportal.customers.deployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource name where the deployment is to be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Creates a new deployment.
+ *
+ *  @param object The @c GTLRSASPortal_Deployment to include in the query.
+ *  @param parent Required. The parent resource name where the deployment is to
+ *    be created.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Deployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a deployment.
+ *
+ *  Method: sasportal.customers.deployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsDelete : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsDeleteWithname:]
+
+/** Required. The name of the deployment. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Empty.
+ *
+ *  Deletes a deployment.
+ *
+ *  @param name Required. The name of the deployment.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a requested deployment.
+ *
+ *  Method: sasportal.customers.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsGet : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsGetWithname:]
+
+/** Required. The name of the deployment. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Returns a requested deployment.
+ *
+ *  @param name Required. The name of the deployment.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists deployments.
+ *
+ *  Method: sasportal.customers.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsListWithparent:]
+
+/** The maximum number of deployments to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDeployments
+ *  method that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name, for example, "nodes/1",
+ *  customer/1/nodes/2.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDeploymentsResponse.
+ *
+ *  Lists deployments.
+ *
+ *  @param parent Required. The parent resource name, for example, "nodes/1",
+ *    customer/1/nodes/2.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing deployment.
+ *
+ *  Method: sasportal.customers.deployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsPatch : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsPatchWithObject:name:]
+
+/** Output only. Resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Updates an existing deployment.
+ *
+ *  @param object The @c GTLRSASPortal_Deployment to include in the query.
+ *  @param name Output only. Resource name.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Deployment *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -510,6 +683,85 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new deployment.
+ *
+ *  Method: sasportal.customers.nodes.deployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersNodesDeploymentsCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersNodesDeploymentsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource name where the deployment is to be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Creates a new deployment.
+ *
+ *  @param object The @c GTLRSASPortal_Deployment to include in the query.
+ *  @param parent Required. The parent resource name where the deployment is to
+ *    be created.
+ *
+ *  @return GTLRSASPortalQuery_CustomersNodesDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Deployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists deployments.
+ *
+ *  Method: sasportal.customers.nodes.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersNodesDeploymentsList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersNodesDeploymentsListWithparent:]
+
+/** The maximum number of deployments to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDeployments
+ *  method that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name, for example, "nodes/1",
+ *  customer/1/nodes/2.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDeploymentsResponse.
+ *
+ *  Lists deployments.
+ *
+ *  @param parent Required. The parent resource name, for example, "nodes/1",
+ *    customer/1/nodes/2.
+ *
+ *  @return GTLRSASPortalQuery_CustomersNodesDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns a requested node.
  *
  *  Method: sasportal.customers.nodes.get
@@ -759,6 +1011,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns a requested deployment.
+ *
+ *  Method: sasportal.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsGet : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsGetWithname:]
+
+/** Required. The name of the deployment. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Returns a requested deployment.
+ *
+ *  @param name Required. The name of the deployment.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Generates a secret to be used with the ValidateInstaller method
  *
  *  Method: sasportal.installer.generateSecret
@@ -807,6 +1087,145 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSASPortalQuery_InstallerValidate
  */
 + (instancetype)queryWithObject:(GTLRSASPortal_ValidateInstallerRequest *)object;
+
+@end
+
+/**
+ *  Deletes a deployment.
+ *
+ *  Method: sasportal.nodes.deployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsDelete : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsDeleteWithname:]
+
+/** Required. The name of the deployment. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Empty.
+ *
+ *  Deletes a deployment.
+ *
+ *  @param name Required. The name of the deployment.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a requested deployment.
+ *
+ *  Method: sasportal.nodes.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsGet : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsGetWithname:]
+
+/** Required. The name of the deployment. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Returns a requested deployment.
+ *
+ *  @param name Required. The name of the deployment.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists deployments.
+ *
+ *  Method: sasportal.nodes.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsListWithparent:]
+
+/** The maximum number of deployments to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDeployments
+ *  method that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name, for example, "nodes/1",
+ *  customer/1/nodes/2.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDeploymentsResponse.
+ *
+ *  Lists deployments.
+ *
+ *  @param parent Required. The parent resource name, for example, "nodes/1",
+ *    customer/1/nodes/2.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing deployment.
+ *
+ *  Method: sasportal.nodes.deployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsPatch : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsPatchWithObject:name:]
+
+/** Output only. Resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Updates an existing deployment.
+ *
+ *  @param object The @c GTLRSASPortal_Deployment to include in the query.
+ *  @param name Output only. Resource name.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Deployment *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1226,6 +1645,85 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSASPortalQuery_NodesNodesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new deployment.
+ *
+ *  Method: sasportal.nodes.nodes.deployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesDeploymentsCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesDeploymentsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource name where the deployment is to be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Deployment.
+ *
+ *  Creates a new deployment.
+ *
+ *  @param object The @c GTLRSASPortal_Deployment to include in the query.
+ *  @param parent Required. The parent resource name where the deployment is to
+ *    be created.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Deployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists deployments.
+ *
+ *  Method: sasportal.nodes.nodes.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesNodesDeploymentsList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesNodesDeploymentsListWithparent:]
+
+/** The maximum number of deployments to return in the response. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDeployments
+ *  method that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name, for example, "nodes/1",
+ *  customer/1/nodes/2.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDeploymentsResponse.
+ *
+ *  Lists deployments.
+ *
+ *  @param parent Required. The parent resource name, for example, "nodes/1",
+ *    customer/1/nodes/2.
+ *
+ *  @return GTLRSASPortalQuery_NodesNodesDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

@@ -79,6 +79,7 @@ NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction = @"SCALAR_FUN
 
 // GTLRBigquery_StandardSqlDataType.typeKind
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array = @"ARRAY";
+NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bignumeric = @"BIGNUMERIC";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bool = @"BOOL";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Bytes = @"BYTES";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Date = @"DATE";

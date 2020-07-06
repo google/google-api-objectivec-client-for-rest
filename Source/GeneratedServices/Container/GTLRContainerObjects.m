@@ -80,6 +80,18 @@ NSString * const kGTLRContainer_OperationProgress_Status_Pending = @"PENDING";
 NSString * const kGTLRContainer_OperationProgress_Status_Running = @"RUNNING";
 NSString * const kGTLRContainer_OperationProgress_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
+// GTLRContainer_ReleaseChannel.channel
+NSString * const kGTLRContainer_ReleaseChannel_Channel_Rapid   = @"RAPID";
+NSString * const kGTLRContainer_ReleaseChannel_Channel_Regular = @"REGULAR";
+NSString * const kGTLRContainer_ReleaseChannel_Channel_Stable  = @"STABLE";
+NSString * const kGTLRContainer_ReleaseChannel_Channel_Unspecified = @"UNSPECIFIED";
+
+// GTLRContainer_ReleaseChannelConfig.channel
+NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Rapid = @"RAPID";
+NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Regular = @"REGULAR";
+NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Stable = @"STABLE";
+NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Unspecified = @"UNSPECIFIED";
+
 // GTLRContainer_ReservationAffinity.consumeReservationType
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
 NSString * const kGTLRContainer_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
@@ -261,10 +273,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          loggingService, maintenancePolicy, masterAuth,
          masterAuthorizedNetworksConfig, monitoringService, name, network,
          networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
-         privateClusterConfig, resourceLabels, resourceUsageExportConfig,
-         selfLink, servicesIpv4Cidr, shieldedNodes, status, statusMessage,
-         subnetwork, tpuIpv4CidrBlock, verticalPodAutoscaling,
-         workloadIdentityConfig, zoneProperty;
+         privateClusterConfig, releaseChannel, resourceLabels,
+         resourceUsageExportConfig, selfLink, servicesIpv4Cidr, shieldedNodes,
+         status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -333,8 +345,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredResourceUsageExportConfig, desiredShieldedNodes,
-         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
+         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredShieldedNodes, desiredVerticalPodAutoscaling,
+         desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -774,9 +787,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, diskSizeGb, diskType, imageType, labels, localSsdCount,
-         machineType, metadata, minCpuPlatform, oauthScopes, preemptible,
-         reservationAffinity, sandboxConfig, serviceAccount,
+@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, imageType, labels,
+         localSsdCount, machineType, metadata, minCpuPlatform, oauthScopes,
+         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
          shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -939,6 +952,34 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_ReleaseChannel
+//
+
+@implementation GTLRContainer_ReleaseChannel
+@dynamic channel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ReleaseChannelConfig
+//
+
+@implementation GTLRContainer_ReleaseChannelConfig
+@dynamic channel, defaultVersion, validVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"validVersions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_ReservationAffinity
 //
 
@@ -1007,11 +1048,12 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ServerConfig
-@dynamic defaultClusterVersion, defaultImageType, validImageTypes,
+@dynamic channels, defaultClusterVersion, defaultImageType, validImageTypes,
          validMasterVersions, validNodeVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"channels" : [GTLRContainer_ReleaseChannelConfig class],
     @"validImageTypes" : [NSString class],
     @"validMasterVersions" : [NSString class],
     @"validNodeVersions" : [NSString class]

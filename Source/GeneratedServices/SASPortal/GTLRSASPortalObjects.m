@@ -11,6 +11,16 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSASPortal_Deployment.allowedBillingModes
+NSString * const kGTLRSASPortal_Deployment_AllowedBillingModes_BillingModeUnspecified = @"BILLING_MODE_UNSPECIFIED";
+NSString * const kGTLRSASPortal_Deployment_AllowedBillingModes_FixedWireless = @"FIXED_WIRELESS";
+NSString * const kGTLRSASPortal_Deployment_AllowedBillingModes_Mobile = @"MOBILE";
+
+// GTLRSASPortal_Deployment.defaultBillingMode
+NSString * const kGTLRSASPortal_Deployment_DefaultBillingMode_BillingModeUnspecified = @"BILLING_MODE_UNSPECIFIED";
+NSString * const kGTLRSASPortal_Deployment_DefaultBillingMode_FixedWireless = @"FIXED_WIRELESS";
+NSString * const kGTLRSASPortal_Deployment_DefaultBillingMode_Mobile = @"MOBILE";
+
 // GTLRSASPortal_Device.state
 NSString * const kGTLRSASPortal_Device_State_Deregistered      = @"DEREGISTERED";
 NSString * const kGTLRSASPortal_Device_State_DeviceStateUnspecified = @"DEVICE_STATE_UNSPECIFIED";
@@ -127,6 +137,25 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"sasUserIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_Deployment
+//
+
+@implementation GTLRSASPortal_Deployment
+@dynamic allowedBillingModes, defaultBillingMode, displayName, name, sasUserIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedBillingModes" : [NSString class],
     @"sasUserIds" : [NSString class]
   };
   return map;
@@ -310,6 +339,28 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 + (NSString *)collectionItemsKey {
   return @"customers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSASPortal_ListDeploymentsResponse
+//
+
+@implementation GTLRSASPortal_ListDeploymentsResponse
+@dynamic deployments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deployments" : [GTLRSASPortal_Deployment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deployments";
 }
 
 @end

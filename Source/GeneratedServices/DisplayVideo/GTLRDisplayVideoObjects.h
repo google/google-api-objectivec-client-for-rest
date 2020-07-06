@@ -12664,7 +12664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *audienceType;
 
 /**
- *  Output only. The description of the first and third party audience.
+ *  The user-provided description of the audience.
  *  Only applicable to first party audiences.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -12718,10 +12718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, strong, nullable) NSNumber *displayMobileWebAudienceSize;
 
-/**
- *  Output only. The display name of the first and third party audience.
- *  .
- */
+/** The display name of the first and third party audience. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -12735,7 +12732,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Output only. Whether the audience is a first or third party audience.
- *  .
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeFirstParty
@@ -12763,8 +12759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *gmailAudienceSize;
 
 /**
- *  Output only. The duration in days that an entry remains in the audience
- *  after the
+ *  The duration in days that an entry remains in the audience after the
  *  qualifying event.
  *  Only applicable to first party audiences.
  *
