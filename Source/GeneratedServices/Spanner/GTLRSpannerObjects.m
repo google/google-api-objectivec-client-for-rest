@@ -61,6 +61,7 @@ NSString * const kGTLRSpanner_Type_Code_Bytes               = @"BYTES";
 NSString * const kGTLRSpanner_Type_Code_Date                = @"DATE";
 NSString * const kGTLRSpanner_Type_Code_Float64             = @"FLOAT64";
 NSString * const kGTLRSpanner_Type_Code_Int64               = @"INT64";
+NSString * const kGTLRSpanner_Type_Code_Numeric             = @"NUMERIC";
 NSString * const kGTLRSpanner_Type_Code_String              = @"STRING";
 NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";

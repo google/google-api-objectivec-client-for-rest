@@ -443,6 +443,25 @@
 
 @end
 
+@implementation GTLRBigQueryReservationQuery_ProjectsLocationsSearchAllAssignments
+
+@dynamic pageSize, pageToken, parent, query;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:searchAllAssignments";
+  GTLRBigQueryReservationQuery_ProjectsLocationsSearchAllAssignments *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigQueryReservation_SearchAllAssignmentsResponse class];
+  query.loggingName = @"bigqueryreservation.projects.locations.searchAllAssignments";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsSearchAssignments
 
 @dynamic pageSize, pageToken, parent, query;

@@ -3484,6 +3484,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_NotificationChannel *> *notificationChannels;
 
+/**
+ *  The total number of notification channels in all pages. This number is only
+ *  an estimate, and may change in subsequent pages. https://aip.dev/158
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
 @end
 
 
@@ -4675,8 +4683,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The type of notification channel, such as "email", "sms", etc. Notification
- *  channel types are globally unique.
+ *  The type of notification channel, such as "email" and "sms". To view the
+ *  full list of channels, see Channel descriptors
+ *  (https://cloud.google.com/monitoring/alerts/using-channels-api#ncd).
+ *  Notification channel types are globally unique.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

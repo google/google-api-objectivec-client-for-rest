@@ -195,6 +195,33 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchWrite
+
+@dynamic database;
+
++ (instancetype)queryWithObject:(GTLRFirestore_BatchWriteRequest *)object
+                       database:(NSString *)database {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"database" ];
+  NSString *pathURITemplate = @"v1/{+database}/documents:batchWrite";
+  GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.database = database;
+  query.expectedObjectClass = [GTLRFirestore_BatchWriteResponse class];
+  query.loggingName = @"firestore.projects.databases.documents.batchWrite";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsBeginTransaction
 
 @dynamic database;
@@ -432,6 +459,33 @@
   query.database = database;
   query.expectedObjectClass = [GTLRFirestore_ListenResponse class];
   query.loggingName = @"firestore.projects.databases.documents.listen";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsPartitionQuery
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirestore_PartitionQueryRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:partitionQuery";
+  GTLRFirestoreQuery_ProjectsDatabasesDocumentsPartitionQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_PartitionQueryResponse class];
+  query.loggingName = @"firestore.projects.databases.documents.partitionQuery";
   return query;
 }
 

@@ -50,17 +50,17 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // keyType
 
-/** Value: "GOOGLE_CREDENTIALS" */
+/** Value: "googleCredentials" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials;
-/** Value: "PKCS12" */
+/** Value: "pkcs12" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12;
 
 // ----------------------------------------------------------------------------
 // requestMode
 
-/** Value: "RETURN_IMMEDIATELY" */
+/** Value: "returnImmediately" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately;
-/** Value: "WAIT_FOR_NOTIFICATIONS" */
+/** Value: "waitForNotifications" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications;
 
 // ----------------------------------------------------------------------------
@@ -579,8 +579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterpriseKeyTypeGoogleCredentials Value
- *        "GOOGLE_CREDENTIALS"
- *    @arg @c kGTLRAndroidEnterpriseKeyTypePkcs12 Value "PKCS12"
+ *        "googleCredentials"
+ *    @arg @c kGTLRAndroidEnterpriseKeyTypePkcs12 Value "pkcs12"
  */
 @property(nonatomic, copy, nullable) NSString *keyType;
 
@@ -726,9 +726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterpriseRequestModeWaitForNotifications Value
- *        "WAIT_FOR_NOTIFICATIONS"
+ *        "waitForNotifications"
  *    @arg @c kGTLRAndroidEnterpriseRequestModeReturnImmediately Value
- *        "RETURN_IMMEDIATELY"
+ *        "returnImmediately"
  */
 @property(nonatomic, copy, nullable) NSString *requestMode;
 

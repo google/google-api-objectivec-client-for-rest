@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRBigtableAdmin_AppProfile;
+@class GTLRBigtableAdmin_Backup;
 @class GTLRBigtableAdmin_CheckConsistencyRequest;
 @class GTLRBigtableAdmin_Cluster;
 @class GTLRBigtableAdmin_CreateInstanceRequest;
@@ -30,6 +31,7 @@
 @class GTLRBigtableAdmin_GetIamPolicyRequest;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_ModifyColumnFamiliesRequest;
+@class GTLRBigtableAdmin_RestoreTableRequest;
 @class GTLRBigtableAdmin_SetIamPolicyRequest;
 @class GTLRBigtableAdmin_TestIamPermissionsRequest;
 
@@ -511,6 +513,147 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Starts creating a new Cloud Bigtable Backup. The returned backup
+ *  long-running operation can be used to
+ *  track creation of the backup. The
+ *  metadata field type is
+ *  CreateBackupMetadata. The
+ *  response field type is
+ *  Backup, if successful. Cancelling the returned operation will stop the
+ *  creation and delete the backup.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.backups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate : GTLRBigtableAdminQuery
+// Previous library name was
+//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsCreateWithObject:parent:]
+
+/**
+ *  Required. The id of the backup to be created. The `backup_id` along with
+ *  the parent `parent` are combined as {parent}/backups/{backup_id} to create
+ *  the full backup name, of the form:
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
+ *  This string must be between 1 and 50 characters in length and match the
+ *  regex _a-zA-Z0-9*.
+ */
+@property(nonatomic, copy, nullable) NSString *backupId;
+
+/**
+ *  Required. This must be one of the clusters in the instance in which this
+ *  table is located. The backup will be stored in this cluster. Values are
+ *  of the form `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Starts creating a new Cloud Bigtable Backup. The returned backup
+ *  long-running operation can be used to
+ *  track creation of the backup. The
+ *  metadata field type is
+ *  CreateBackupMetadata. The
+ *  response field type is
+ *  Backup, if successful. Cancelling the returned operation will stop the
+ *  creation and delete the backup.
+ *
+ *  @param object The @c GTLRBigtableAdmin_Backup to include in the query.
+ *  @param parent Required. This must be one of the clusters in the instance in
+ *    which this
+ *    table is located. The backup will be stored in this cluster. Values are
+ *    of the form `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Backup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a pending or completed Cloud Bigtable backup.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.backups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsDelete : GTLRBigtableAdminQuery
+// Previous library name was
+//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsDeleteWithname:]
+
+/**
+ *  Required. Name of the backup to delete.
+ *  Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a pending or completed Cloud Bigtable backup.
+ *
+ *  @param name Required. Name of the backup to delete.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets metadata on a pending or completed Cloud Bigtable Backup.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.backups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGet : GTLRBigtableAdminQuery
+// Previous library name was
+//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsGetWithname:]
+
+/**
+ *  Required. Name of the backup.
+ *  Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Backup.
+ *
+ *  Gets metadata on a pending or completed Cloud Bigtable Backup.
+ *
+ *  @param name Required. Name of the backup.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a Table resource.
  *  Returns an empty policy if the resource exists but does not have a policy
  *  set.
@@ -551,6 +694,182 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Cloud Bigtable backups. Returns both completed and pending
+ *  backups.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsList : GTLRBigtableAdminQuery
+// Previous library name was
+//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsListWithparent:]
+
+/**
+ *  A filter expression that filters backups listed in the response.
+ *  The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The value must be a
+ *  string, a number, or a boolean. The comparison operator must be
+ *  <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
+ *  roughly synonymous with equality. Filter rules are case insensitive.
+ *  The fields eligible for filtering are:
+ *  * `name`
+ *  * `source_table`
+ *  * `state`
+ *  * `start_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
+ *  * `end_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
+ *  * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
+ *  * `size_bytes`
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. By default, each expression is an AND expression. However,
+ *  you can include AND, OR, and NOT expressions explicitly.
+ *  Some examples of using filters are:
+ *  * `name:"exact"` --> The backup's name is the string "exact".
+ *  * `name:howl` --> The backup's name contains the string "howl".
+ *  * `source_table:prod`
+ *  --> The source_table's name contains the string "prod".
+ *  * `state:CREATING` --> The backup is pending creation.
+ *  * `state:READY` --> The backup is fully created and ready for use.
+ *  * `(name:howl) AND (start_time < \\"2018-03-28T14:50:00Z\\")`
+ *  --> The backup name contains the string "howl" and start_time
+ *  of the backup is before 2018-03-28T14:50:00Z.
+ *  * `size_bytes > 10000000000` --> The backup's size is greater than 10GB
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  An expression for specifying the sort order of the results of the request.
+ *  The string value should specify one or more fields in Backup. The full
+ *  syntax is described at https://aip.dev/132#ordering.
+ *  Fields supported are:
+ *  * name
+ *  * source_table
+ *  * expire_time
+ *  * start_time
+ *  * end_time
+ *  * size_bytes
+ *  * state
+ *  For example, "start_time". The default sorting order is ascending.
+ *  To specify descending order for the field, a suffix " desc" should
+ *  be appended to the field name. For example, "start_time desc".
+ *  Redundant space characters in the syntax are insigificant.
+ *  If order_by is empty, results will be sorted by `start_time` in descending
+ *  order starting from the most recently created backup.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Number of backups to be returned in the response. If 0 or
+ *  less, defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If non-empty, `page_token` should contain a
+ *  next_page_token from a
+ *  previous ListBackupsResponse to the same `parent` and with the same
+ *  `filter`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The cluster to list backups from. Values are of the
+ *  form `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *  Use `{cluster} = '-'` to list backups for all clusters in an instance,
+ *  e.g., `projects/{project}/instances/{instance}/clusters/-`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListBackupsResponse.
+ *
+ *  Lists Cloud Bigtable backups. Returns both completed and pending
+ *  backups.
+ *
+ *  @param parent Required. The cluster to list backups from. Values are of the
+ *    form `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *    Use `{cluster} = '-'` to list backups for all clusters in an instance,
+ *    e.g., `projects/{project}/instances/{instance}/clusters/-`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a pending or completed Cloud Bigtable Backup.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.backups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsPatch : GTLRBigtableAdminQuery
+// Previous library name was
+//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsPatchWithObject:name:]
+
+/**
+ *  A globally unique identifier for the backup which cannot be
+ *  changed. Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/
+ *  backups/_a-zA-Z0-9*`
+ *  The final segment of the name must be between 1 and 50 characters
+ *  in length.
+ *  The backup is stored in the cluster identified by the prefix of the backup
+ *  name of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A mask specifying which fields (e.g. `expire_time`) in the
+ *  Backup resource should be updated. This mask is relative to the Backup
+ *  resource, not to the request message. The field mask must always be
+ *  specified; this prevents any future fields from being erased accidentally
+ *  by clients that do not know about them.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Backup.
+ *
+ *  Updates a pending or completed Cloud Bigtable Backup.
+ *
+ *  @param object The @c GTLRBigtableAdmin_Backup to include in the query.
+ *  @param name A globally unique identifier for the backup which cannot be
+ *    changed. Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}/
+ *    backups/_a-zA-Z0-9*`
+ *    The final segment of the name must be between 1 and 50 characters
+ *    in length.
+ *    The backup is stored in the cluster identified by the prefix of the backup
+ *    name of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Backup *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1589,6 +1908,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_ModifyColumnFamiliesRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new table by restoring from a completed backup. The new table
+ *  must be in the same instance as the instance containing the backup. The
+ *  returned table long-running operation can
+ *  be used to track the progress of the operation, and to cancel it. The
+ *  metadata field type is
+ *  RestoreTableMetadata. The
+ *  response type is
+ *  Table, if successful.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore : GTLRBigtableAdminQuery
+// Previous library name was
+//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesRestoreWithObject:parent:]
+
+/**
+ *  Required. The name of the instance in which to create the restored
+ *  table. This instance must be the parent of the source backup. Values are
+ *  of the form `projects/<project>/instances/<instance>`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Create a new table by restoring from a completed backup. The new table
+ *  must be in the same instance as the instance containing the backup. The
+ *  returned table long-running operation can
+ *  be used to track the progress of the operation, and to cancel it. The
+ *  metadata field type is
+ *  RestoreTableMetadata. The
+ *  response type is
+ *  Table, if successful.
+ *
+ *  @param object The @c GTLRBigtableAdmin_RestoreTableRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the instance in which to create the
+ *    restored
+ *    table. This instance must be the parent of the source backup. Values are
+ *    of the form `projects/<project>/instances/<instance>`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_RestoreTableRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

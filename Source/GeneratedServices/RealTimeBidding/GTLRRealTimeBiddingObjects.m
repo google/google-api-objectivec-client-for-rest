@@ -135,6 +135,7 @@ NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_Platform_Pla
 // GTLRRealTimeBidding_DestinationNotWorkingEvidence.redirectionError
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_EmptyRedirect = @"EMPTY_REDIRECT";
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_InvalidRedirect = @"INVALID_REDIRECT";
+NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_RedirectErrorUnknown = @"REDIRECT_ERROR_UNKNOWN";
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_RedirectionErrorUnspecified = @"REDIRECTION_ERROR_UNSPECIFIED";
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_TooManyRedirects = @"TOO_MANY_REDIRECTS";
 

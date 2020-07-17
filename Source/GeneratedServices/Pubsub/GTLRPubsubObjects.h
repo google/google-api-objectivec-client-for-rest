@@ -426,11 +426,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  message must contain either a non-empty data field or at least one
  *  attribute.
  *  Note that client libraries represent this object differently
- *  depending on the language. See the corresponding
- *  <a href="https://cloud.google.com/pubsub/docs/reference/libraries">client
- *  library documentation</a> for more information. See
- *  <a href="https://cloud.google.com/pubsub/quotas">Quotas and limits</a>
- *  for more information about message limits.
+ *  depending on the language. See the corresponding [client library
+ *  documentation](https://cloud.google.com/pubsub/docs/reference/libraries) for
+ *  more information. See [quotas and limits]
+ *  (https://cloud.google.com/pubsub/quotas) for more information about message
+ *  limits.
  */
 @interface GTLRPubsub_Message : GTLRObject
 
@@ -944,11 +944,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A snapshot resource. Snapshots are used in
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
- *  operations, which allow
- *  you to manage message acknowledgments in bulk. That is, you can set the
- *  acknowledgment state of messages in an existing subscription to the state
- *  captured by a snapshot.
+ *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview)
+ *  operations, which allow you to manage message acknowledgments in bulk. That
+ *  is, you can set the acknowledgment state of messages in an existing
+ *  subscription to the state captured by a snapshot.
  */
 @interface GTLRPubsub_Snapshot : GTLRObject
 
@@ -967,8 +966,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
+ *  See [Creating and managing labels]
+ *  (https://cloud.google.com/pubsub/docs/labels).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot_Labels *labels;
 
@@ -982,8 +981,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
+ *  See [Creating and managing labels]
+ *  (https://cloud.google.com/pubsub/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1089,9 +1088,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Indicates whether to retain acknowledged messages. If true, then
  *  messages are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
- *  window. This must be true if you would like to
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
- *  Seek to a timestamp</a>.
+ *  window. This must be true if you would like to [Seek to a timestamp]
+ *  (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1176,8 +1174,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
+ *  See [Creating and managing labels]
+ *  (https://cloud.google.com/pubsub/docs/labels).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
 
@@ -1202,8 +1200,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
+ *  See [Creating and managing labels]
+ *  (https://cloud.google.com/pubsub/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

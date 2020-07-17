@@ -86,11 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_AdministratorWebTokenSpec.permission
 
-/** Value: "APPROVE_APPS" */
+/** Value: "approveApps" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ApproveApps;
-/** Value: "MANAGE_MCM" */
+/** Value: "manageMcm" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ManageMcm;
-/** Value: "UNKNOWN" */
+/** Value: "unknown" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_Unknown;
 
 // ----------------------------------------------------------------------------
@@ -99,25 +99,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenS
 /**
  *  A restriction of boolean type.
  *
- *  Value: "BOOL"
+ *  Value: "bool"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool;
 /**
  *  [M+ devices only] A bundle of restrictions
  *
- *  Value: "BUNDLE"
+ *  Value: "bundle"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle;
 /**
  *  [M+ devices only] An array of restriction bundles
  *
- *  Value: "BUNDLE_ARRAY"
+ *  Value: "bundleArray"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray;
 /**
  *  A choice of one item from a set.
  *
- *  Value: "CHOICE"
+ *  Value: "choice"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice;
 /**
@@ -125,25 +125,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaR
  *  to pass along information that cannot be modified, such as a version
  *  code).
  *
- *  Value: "HIDDEN"
+ *  Value: "hidden"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden;
 /**
  *  A restriction of integer type.
  *
- *  Value: "INTEGER"
+ *  Value: "integer"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer;
 /**
  *  A choice of multiple items from a set.
  *
- *  Value: "MULTISELECT"
+ *  Value: "multiselect"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect;
 /**
  *  A restriction of string type.
  *
- *  Value: "STRING"
+ *  Value: "string"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String;
 
@@ -153,25 +153,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaR
 /**
  *  A restriction of boolean type.
  *
- *  Value: "BOOL"
+ *  Value: "bool"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool;
 /**
  *  [M+ devices only] A bundle of restrictions
  *
- *  Value: "BUNDLE"
+ *  Value: "bundle"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle;
 /**
  *  [M+ devices only] An array of restriction bundles
  *
- *  Value: "BUNDLE_ARRAY"
+ *  Value: "bundleArray"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray;
 /**
  *  A choice of one item from a set.
  *
- *  Value: "CHOICE"
+ *  Value: "choice"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice;
 /**
@@ -179,38 +179,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaR
  *  to pass along information that cannot be modified, such as a version
  *  code).
  *
- *  Value: "HIDDEN"
+ *  Value: "hidden"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden;
 /**
  *  A restriction of integer type.
  *
- *  Value: "INTEGER"
+ *  Value: "integer"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer;
 /**
  *  A choice of multiple items from a set.
  *
- *  Value: "MULTISELECT"
+ *  Value: "multiselect"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect;
 /**
  *  A restriction of string type.
  *
- *  Value: "STRING"
+ *  Value: "string"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_AppVersion.track
 
-/** Value: "ALPHA" */
+/** Value: "alpha" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Alpha;
-/** Value: "APP_TRACK_UNSPECIFIED" */
+/** Value: "appTrackUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified;
-/** Value: "BETA" */
+/** Value: "beta" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Beta;
-/** Value: "PRODUCTION" */
+/** Value: "production" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Production;
 
 // ----------------------------------------------------------------------------
@@ -219,16 +219,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Produ
 /**
  *  Device doesn't have to be charging.
  *
- *  Value: "CHARGING_NOT_REQUIRED"
+ *  Value: "chargingNotRequired"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired;
 /**
  *  Device has to be charging.
  *
- *  Value: "CHARGING_REQUIRED"
+ *  Value: "chargingRequired"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired;
-/** Value: "CHARGING_STATE_CONSTRAINT_UNSPECIFIED" */
+/** Value: "chargingStateConstraintUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -238,16 +238,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_
  *  Device doesn't have to be idle, app can be installed while the user is
  *  interacting with the device.
  *
- *  Value: "DEVICE_IDLE_NOT_REQUIRED"
+ *  Value: "deviceIdleNotRequired"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired;
 /**
  *  Device has to be idle.
  *
- *  Value: "DEVICE_IDLE_REQUIRED"
+ *  Value: "deviceIdleRequired"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired;
-/** Value: "DEVICE_IDLE_STATE_CONSTRAINT_UNSPECIFIED" */
+/** Value: "deviceIdleStateConstraintUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -256,35 +256,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_
 /**
  *  Any active networks (Wi-Fi, cellular, etc.).
  *
- *  Value: "ANY_NETWORK"
+ *  Value: "anyNetwork"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork;
-/** Value: "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED" */
+/** Value: "networkTypeConstraintUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified;
 /**
  *  Any unmetered network (e.g. Wi-FI).
  *
- *  Value: "UNMETERED_NETWORK"
+ *  Value: "unmeteredNetwork"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_AutoInstallPolicy.autoInstallMode
 
-/** Value: "AUTO_INSTALL_MODE_UNSPECIFIED" */
+/** Value: "autoInstallModeUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified;
 /**
  *  The product is automatically installed once, if the user uninstalls the
  *  product it will not be installed again.
  *
- *  Value: "AUTO_INSTALL_ONCE"
+ *  Value: "autoInstallOnce"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce;
 /**
  *  The product is not installed automatically, the user needs to install it
  *  from the Play Store.
  *
- *  Value: "DO_NOT_AUTO_INSTALL"
+ *  Value: "doNotAutoInstall"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall;
 /**
@@ -292,72 +292,72 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_Auto
  *  product it will be installed again. On managed devices the DPC should
  *  block uninstall.
  *
- *  Value: "FORCE_AUTO_INSTALL"
+ *  Value: "forceAutoInstall"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Device.managementType
 
-/** Value: "CONTAINER_APP" */
+/** Value: "containerApp" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp;
-/** Value: "MANAGED_DEVICE" */
+/** Value: "managedDevice" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice;
-/** Value: "MANAGED_PROFILE" */
+/** Value: "managedProfile" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile;
-/** Value: "UNMANAGED_PROFILE" */
+/** Value: "unmanagedProfile" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_DeviceState.accountState
 
-/** Value: "DISABLED" */
+/** Value: "disabled" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled;
-/** Value: "ENABLED" */
+/** Value: "enabled" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Entitlement.reason
 
-/** Value: "FREE" */
+/** Value: "free" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free;
-/** Value: "GROUP_LICENSE" */
+/** Value: "groupLicense" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense;
-/** Value: "USER_PURCHASE" */
+/** Value: "userPurchase" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_GroupLicense.acquisitionKind
 
-/** Value: "BULK_PURCHASE" */
+/** Value: "bulkPurchase" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase;
-/** Value: "FREE" */
+/** Value: "free" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_GroupLicense.approval
 
-/** Value: "APPROVED" */
+/** Value: "approved" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Approved;
-/** Value: "UNAPPROVED" */
+/** Value: "unapproved" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_GroupLicense.permissions
 
-/** Value: "ALL_CURRENT_AND_FUTURE_APPROVED" */
+/** Value: "allCurrentAndFutureApproved" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved;
-/** Value: "CURRENT_APPROVED" */
+/** Value: "currentApproved" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved;
-/** Value: "NEEDS_REAPPROVAL" */
+/** Value: "needsReapproval" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Install.installState
 
-/** Value: "INSTALLED" */
+/** Value: "installed" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Install_InstallState_Installed;
-/** Value: "INSTALL_PENDING" */
+/** Value: "installPending" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Install_InstallState_InstallPending;
 
 // ----------------------------------------------------------------------------
@@ -368,32 +368,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Install_InstallState_I
  *  situations, for example when the device did not have connectivity
  *  at any point during the retry period, or if the device is OOM.
  *
- *  Value: "TIMEOUT"
+ *  Value: "timeout"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Timeout;
 /**
  *  Used whenever no better reason for failure can be provided.
  *
- *  Value: "UNKNOWN"
+ *  Value: "unknown"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_KeyedAppState.severity
 
-/** Value: "SEVERITY_ERROR" */
+/** Value: "severityError" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError;
-/** Value: "SEVERITY_INFO" */
+/** Value: "severityInfo" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo;
-/** Value: "SEVERITY_UNKNOWN" */
+/** Value: "severityUnknown" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_NewDeviceEvent.managementType
 
-/** Value: "MANAGED_DEVICE" */
+/** Value: "managedDevice" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice;
-/** Value: "MANAGED_PROFILE" */
+/** Value: "managedProfile" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile;
 
 // ----------------------------------------------------------------------------
@@ -402,58 +402,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_Managem
 /**
  *  Notification about new app restrictions schema change.
  *
- *  Value: "APP_RESTRICIONS_SCHEMA_CHANGE"
+ *  Value: "appRestricionsSchemaChange"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange;
 /**
  *  Notification about app update.
  *
- *  Value: "APP_UPDATE"
+ *  Value: "appUpdate"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate;
 /**
  *  Notification about an updated device report.
  *
- *  Value: "DEVICE_REPORT_UPDATE"
+ *  Value: "deviceReportUpdate"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate;
 /**
  *  Notification about an app installation failure.
  *
- *  Value: "INSTALL_FAILURE"
+ *  Value: "installFailure"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure;
 /**
  *  Notification about a new device.
  *
- *  Value: "NEW_DEVICE"
+ *  Value: "newDevice"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice;
 /**
  *  Notification about new app permissions.
  *
- *  Value: "NEW_PERMISSIONS"
+ *  Value: "newPermissions"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions;
 /**
  *  Notification about change to a product's approval status.
  *
- *  Value: "PRODUCT_APPROVAL"
+ *  Value: "productApproval"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval;
 /**
  *  Notification about product availability change.
  *
- *  Value: "PRODUCT_AVAILABILITY_CHANGE"
+ *  Value: "productAvailabilityChange"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange;
 /**
  *  A test push notification.
  *
- *  Value: "TEST_NOTIFICATION"
+ *  Value: "testNotification"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification;
-/** Value: "UNKNOWN" */
+/** Value: "unknown" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_Unknown;
 
 // ----------------------------------------------------------------------------
@@ -462,31 +462,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_Notificat
 /**
  *  Apps are auto-updated at any time. Data charges may apply.
  *
- *  Value: "ALWAYS"
+ *  Value: "always"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always;
 /**
  *  The auto update policy is not set.
  *
- *  Value: "AUTO_UPDATE_POLICY_UNSPECIFIED"
+ *  Value: "autoUpdatePolicyUnspecified"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified;
 /**
  *  The user can control auto-updates.
  *
- *  Value: "CHOICE_TO_THE_USER"
+ *  Value: "choiceToTheUser"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser;
 /**
  *  Apps are never auto-updated.
  *
- *  Value: "NEVER"
+ *  Value: "never"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never;
 /**
  *  Apps are auto-updated over WiFi only.
  *
- *  Value: "WIFI_ONLY"
+ *  Value: "wifiOnly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly;
 
@@ -496,19 +496,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolic
 /**
  *  Device reports are disabled.
  *
- *  Value: "DEVICE_REPORT_DISABLED"
+ *  Value: "deviceReportDisabled"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled;
 /**
  *  Device reports are enabled.
  *
- *  Value: "DEVICE_REPORT_ENABLED"
+ *  Value: "deviceReportEnabled"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled;
 /**
  *  The device report policy is not set.
  *
- *  Value: "DEVICE_REPORT_POLICY_UNSPECIFIED"
+ *  Value: "deviceReportPolicyUnspecified"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified;
 
@@ -519,65 +519,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPol
  *  All products are available except those explicitly marked as
  *  unavailable in the product availability policy.
  *
- *  Value: "ALL"
+ *  Value: "all"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All;
 /**
  *  Unspecified, applies the user available product set by default.
  *
- *  Value: "PRODUCT_AVAILABILITY_POLICY_UNSPECIFIED"
+ *  Value: "productAvailabilityPolicyUnspecified"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified;
 /**
  *  The approved products with product availability set to AVAILABLE
  *  in the product policy are available.
  *
- *  Value: "WHITELIST"
+ *  Value: "whitelist"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Product.availableTracks
 
-/** Value: "ALPHA" */
+/** Value: "alpha" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Alpha;
-/** Value: "APP_TRACK_UNSPECIFIED" */
+/** Value: "appTrackUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_AppTrackUnspecified;
-/** Value: "BETA" */
+/** Value: "beta" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Beta;
-/** Value: "PRODUCTION" */
+/** Value: "production" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Production;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Product.contentRating
 
-/** Value: "ALL" */
+/** Value: "all" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_All;
-/** Value: "MATURE" */
+/** Value: "mature" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Mature;
-/** Value: "PRE_TEEN" */
+/** Value: "preTeen" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_PreTeen;
-/** Value: "RATING_UNKNOWN" */
+/** Value: "ratingUnknown" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown;
-/** Value: "TEEN" */
+/** Value: "teen" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Teen;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Product.distributionChannel
 
-/** Value: "PRIVATE_GOOGLE_HOSTED" */
+/** Value: "privateGoogleHosted" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted;
-/** Value: "PRIVATE_SELF_HOSTED" */
+/** Value: "privateSelfHosted" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted;
-/** Value: "PUBLIC_GOOGLE_HOSTED" */
+/** Value: "publicGoogleHosted" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Product.features
 
-/** Value: "FEATURE_UNKNOWN" */
+/** Value: "featureUnknown" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_Features_FeatureUnknown;
-/** Value: "VPN_APP" */
+/** Value: "vpnApp" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_Features_VpnApp;
 
 // ----------------------------------------------------------------------------
@@ -586,26 +586,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_Features_VpnAp
 /**
  *  The product is free.
  *
- *  Value: "FREE"
+ *  Value: "free"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Free;
 /**
  *  The product is free, but offers in-app purchases.
  *
- *  Value: "FREE_WITH_IN_APP_PURCHASE"
+ *  Value: "freeWithInAppPurchase"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase;
 /**
  *  The product is paid.
  *
- *  Value: "PAID"
+ *  Value: "paid"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Paid;
 /**
  *  Unknown pricing, used to denote an approved product that is not
  *  generally available.
  *
- *  Value: "UNKNOWN"
+ *  Value: "unknown"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Unknown;
 
@@ -615,19 +615,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Product_ProductPricing
 /**
  *  The product was approved.
  *
- *  Value: "APPROVED"
+ *  Value: "approved"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved;
 /**
  *  The product was unapproved.
  *
- *  Value: "UNAPPROVED"
+ *  Value: "unapproved"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved;
 /**
  *  Conveys no information.
  *
- *  Value: "UNKNOWN"
+ *  Value: "unknown"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown;
 
@@ -637,25 +637,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_A
 /**
  *  The previously unavailable product is again available on Google Play.
  *
- *  Value: "AVAILABLE"
+ *  Value: "available"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available;
 /**
  *  The product was removed from Google Play.
  *
- *  Value: "REMOVED"
+ *  Value: "removed"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed;
 /**
  *  Conveys no information.
  *
- *  Value: "UNKNOWN"
+ *  Value: "unknown"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown;
 /**
  *  The product was unpublished by the developer.
  *
- *  Value: "UNPUBLISHED"
+ *  Value: "unpublished"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished;
 
@@ -665,27 +665,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductAvailabilityCha
 /**
  *  The permission has been accepted by the enterprise.
  *
- *  Value: "ACCEPTED"
+ *  Value: "accepted"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Accepted;
 /**
  *  The permission is required by the app but has not yet been accepted by
  *  the enterprise.
  *
- *  Value: "REQUIRED"
+ *  Value: "required"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_ProductPolicy.tracks
 
-/** Value: "ALPHA" */
+/** Value: "alpha" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Alpha;
-/** Value: "APP_TRACK_UNSPECIFIED" */
+/** Value: "appTrackUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_AppTrackUnspecified;
-/** Value: "BETA" */
+/** Value: "beta" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Beta;
-/** Value: "PRODUCTION" */
+/** Value: "production" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Production;
 
 // ----------------------------------------------------------------------------
@@ -695,7 +695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_P
  *  All current and future permissions the app requires are automatically
  *  approved.
  *
- *  Value: "ALL_PERMISSIONS"
+ *  Value: "allPermissions"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions;
 /**
@@ -704,7 +704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest
  *  on devices associated with enterprise users until the additional
  *  permissions are approved.
  *
- *  Value: "CURRENT_PERMISSIONS_ONLY"
+ *  Value: "currentPermissionsOnly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly;
 
@@ -716,7 +716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest
  *  For Android app it represents only "production" track.
  *  (The value of the product_id field is therefore ignored).
  *
- *  Value: "ALL_APPROVED"
+ *  Value: "allApproved"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_AllApproved;
 /**
@@ -724,32 +724,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetB
  *  For Android app it represents only "production" track.
  *  (The value of the productId field is therefore ignored).
  *
- *  Value: "INCLUDE_ALL"
+ *  Value: "includeAll"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll;
 /**
  *  This value should never be sent and ignored if received.
  *
- *  Value: "UNKNOWN"
+ *  Value: "unknown"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown;
 /**
  *  This product set constitutes a whitelist.
  *
- *  Value: "WHITELIST"
+ *  Value: "whitelist"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_ProductVisibility.tracks
 
-/** Value: "ALPHA" */
+/** Value: "alpha" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Alpha;
-/** Value: "APP_TRACK_UNSPECIFIED" */
+/** Value: "appTrackUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_AppTrackUnspecified;
-/** Value: "BETA" */
+/** Value: "beta" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Beta;
-/** Value: "PRODUCTION" */
+/** Value: "production" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Production;
 
 // ----------------------------------------------------------------------------
@@ -758,7 +758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductVisibility_Trac
 /**
  *  Google Credentials File format.
  *
- *  Value: "GOOGLE_CREDENTIALS"
+ *  Value: "googleCredentials"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials;
 /**
@@ -767,40 +767,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type
  *  The data for keys of this type are base64 encoded according to RFC 4648
  *  Section 4. See http://tools.ietf.org/html/rfc4648#section-4.
  *
- *  Value: "PKCS12"
+ *  Value: "pkcs12"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_StoreLayout.storeLayoutType
 
-/** Value: "BASIC" */
+/** Value: "basic" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic;
-/** Value: "CUSTOM" */
+/** Value: "custom" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom;
-/** Value: "UNKNOWN" */
+/** Value: "unknown" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_User.accountType
 
-/** Value: "DEVICE_ACCOUNT" */
+/** Value: "deviceAccount" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_AccountType_DeviceAccount;
-/** Value: "USER_ACCOUNT" */
+/** Value: "userAccount" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_AccountType_UserAccount;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_User.managementType
 
-/** Value: "EMM_MANAGED" */
+/** Value: "emmManaged" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_ManagementType_EmmManaged;
-/** Value: "GOOGLE_MANAGED" */
+/** Value: "googleManaged" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_WebApp.displayMode
 
-/** Value: "DISPLAY_MODE_UNSPECIFIED" */
+/** Value: "displayModeUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified;
 /**
  *  Opens the web app in full screen without any visible controls. The
@@ -808,14 +808,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Dis
  *  visible, and the web app takes up the entirety of the available display
  *  area.
  *
- *  Value: "FULL_SCREEN"
+ *  Value: "fullScreen"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen;
 /**
  *  Opens the web app with a minimal set of browser UI elements for
  *  controlling navigation and viewing the page URL.
  *
- *  Value: "MINIMAL_UI"
+ *  Value: "minimalUi"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi;
 /**
@@ -823,7 +823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Min
  *  The browser UI elements and page URL are not visible, however the system
  *  status bar and back button are visible.
  *
- *  Value: "STANDALONE"
+ *  Value: "standalone"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone;
 
@@ -1057,24 +1057,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool
- *        A restriction of boolean type. (Value: "BOOL")
+ *        A restriction of boolean type. (Value: "bool")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle
- *        [M+ devices only] A bundle of restrictions (Value: "BUNDLE")
+ *        [M+ devices only] A bundle of restrictions (Value: "bundle")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray
  *        [M+ devices only] An array of restriction bundles (Value:
- *        "BUNDLE_ARRAY")
+ *        "bundleArray")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice
- *        A choice of one item from a set. (Value: "CHOICE")
+ *        A choice of one item from a set. (Value: "choice")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden
  *        A hidden restriction of string type (the default value can be used
  *        to pass along information that cannot be modified, such as a version
- *        code). (Value: "HIDDEN")
+ *        code). (Value: "hidden")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer
- *        A restriction of integer type. (Value: "INTEGER")
+ *        A restriction of integer type. (Value: "integer")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect
- *        A choice of multiple items from a set. (Value: "MULTISELECT")
+ *        A choice of multiple items from a set. (Value: "multiselect")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String
- *        A restriction of string type. (Value: "STRING")
+ *        A restriction of string type. (Value: "string")
  */
 @property(nonatomic, copy, nullable) NSString *restrictionType;
 
@@ -1094,24 +1094,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool
- *        A restriction of boolean type. (Value: "BOOL")
+ *        A restriction of boolean type. (Value: "bool")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle
- *        [M+ devices only] A bundle of restrictions (Value: "BUNDLE")
+ *        [M+ devices only] A bundle of restrictions (Value: "bundle")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray
  *        [M+ devices only] An array of restriction bundles (Value:
- *        "BUNDLE_ARRAY")
+ *        "bundleArray")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice
- *        A choice of one item from a set. (Value: "CHOICE")
+ *        A choice of one item from a set. (Value: "choice")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden
  *        A hidden restriction of string type (the default value can be used
  *        to pass along information that cannot be modified, such as a version
- *        code). (Value: "HIDDEN")
+ *        code). (Value: "hidden")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer
- *        A restriction of integer type. (Value: "INTEGER")
+ *        A restriction of integer type. (Value: "integer")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect
- *        A choice of multiple items from a set. (Value: "MULTISELECT")
+ *        A choice of multiple items from a set. (Value: "multiselect")
  *    @arg @c kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String
- *        A restriction of string type. (Value: "STRING")
+ *        A restriction of string type. (Value: "string")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1211,12 +1211,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Deprecated, use <code>trackId</code> instead.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Alpha Value "ALPHA"
+ *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Alpha Value "alpha"
  *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified Value
- *        "APP_TRACK_UNSPECIFIED"
- *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Beta Value "BETA"
+ *        "appTrackUnspecified"
+ *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Beta Value "beta"
  *    @arg @c kGTLRAndroidEnterprise_AppVersion_Track_Production Value
- *        "PRODUCTION"
+ *        "production"
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -1272,11 +1272,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired
- *        Device doesn't have to be charging. (Value: "CHARGING_NOT_REQUIRED")
+ *        Device doesn't have to be charging. (Value: "chargingNotRequired")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired
- *        Device has to be charging. (Value: "CHARGING_REQUIRED")
+ *        Device has to be charging. (Value: "chargingRequired")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified
- *        Value "CHARGING_STATE_CONSTRAINT_UNSPECIFIED"
+ *        Value "chargingStateConstraintUnspecified"
  */
 @property(nonatomic, copy, nullable) NSString *chargingStateConstraint;
 
@@ -1286,11 +1286,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired
  *        Device doesn't have to be idle, app can be installed while the user is
- *        interacting with the device. (Value: "DEVICE_IDLE_NOT_REQUIRED")
+ *        interacting with the device. (Value: "deviceIdleNotRequired")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired
- *        Device has to be idle. (Value: "DEVICE_IDLE_REQUIRED")
+ *        Device has to be idle. (Value: "deviceIdleRequired")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified
- *        Value "DEVICE_IDLE_STATE_CONSTRAINT_UNSPECIFIED"
+ *        Value "deviceIdleStateConstraintUnspecified"
  */
 @property(nonatomic, copy, nullable) NSString *deviceIdleStateConstraint;
 
@@ -1299,11 +1299,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork
- *        Any active networks (Wi-Fi, cellular, etc.). (Value: "ANY_NETWORK")
+ *        Any active networks (Wi-Fi, cellular, etc.). (Value: "anyNetwork")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified
- *        Value "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED"
+ *        Value "networkTypeConstraintUnspecified"
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork
- *        Any unmetered network (e.g. Wi-FI). (Value: "UNMETERED_NETWORK")
+ *        Any unmetered network (e.g. Wi-FI). (Value: "unmeteredNetwork")
  */
 @property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
 
@@ -1326,19 +1326,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified
- *        Value "AUTO_INSTALL_MODE_UNSPECIFIED"
+ *        Value "autoInstallModeUnspecified"
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce
  *        The product is automatically installed once, if the user uninstalls
  *        the
- *        product it will not be installed again. (Value: "AUTO_INSTALL_ONCE")
+ *        product it will not be installed again. (Value: "autoInstallOnce")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall
  *        The product is not installed automatically, the user needs to install
  *        it
- *        from the Play Store. (Value: "DO_NOT_AUTO_INSTALL")
+ *        from the Play Store. (Value: "doNotAutoInstall")
  *    @arg @c kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall
  *        The product is automatically installed, if the user uninstalls the
  *        product it will be installed again. On managed devices the DPC should
- *        block uninstall. (Value: "FORCE_AUTO_INSTALL")
+ *        block uninstall. (Value: "forceAutoInstall")
  */
 @property(nonatomic, copy, nullable) NSString *autoInstallMode;
 
@@ -1410,13 +1410,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp Value
- *        "CONTAINER_APP"
+ *        "containerApp"
  *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice Value
- *        "MANAGED_DEVICE"
+ *        "managedDevice"
  *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile Value
- *        "MANAGED_PROFILE"
+ *        "managedProfile"
  *    @arg @c kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile
- *        Value "UNMANAGED_PROFILE"
+ *        Value "unmanagedProfile"
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
@@ -1504,9 +1504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled Value
- *        "DISABLED"
+ *        "disabled"
  *    @arg @c kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled Value
- *        "ENABLED"
+ *        "enabled"
  */
 @property(nonatomic, copy, nullable) NSString *accountState;
 
@@ -1636,11 +1636,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  <code class="">acquisition kind</code> field of group licenses.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_Free Value "FREE"
+ *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_Free Value "free"
  *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense Value
- *        "GROUP_LICENSE"
+ *        "groupLicense"
  *    @arg @c kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase Value
- *        "USER_PURCHASE"
+ *        "userPurchase"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -1689,9 +1689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase
- *        Value "BULK_PURCHASE"
+ *        Value "bulkPurchase"
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free Value
- *        "FREE"
+ *        "free"
  */
 @property(nonatomic, copy, nullable) NSString *acquisitionKind;
 
@@ -1704,9 +1704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Approval_Approved Value
- *        "APPROVED"
+ *        "approved"
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved Value
- *        "UNAPPROVED"
+ *        "unapproved"
  */
 @property(nonatomic, copy, nullable) NSString *approval;
 
@@ -1745,11 +1745,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved
- *        Value "ALL_CURRENT_AND_FUTURE_APPROVED"
+ *        Value "allCurrentAndFutureApproved"
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved
- *        Value "CURRENT_APPROVED"
+ *        Value "currentApproved"
  *    @arg @c kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval
- *        Value "NEEDS_REAPPROVAL"
+ *        Value "needsReapproval"
  */
 @property(nonatomic, copy, nullable) NSString *permissions;
 
@@ -1819,9 +1819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Install_InstallState_Installed Value
- *        "INSTALLED"
+ *        "installed"
  *    @arg @c kGTLRAndroidEnterprise_Install_InstallState_InstallPending Value
- *        "INSTALL_PENDING"
+ *        "installPending"
  */
 @property(nonatomic, copy, nullable) NSString *installState;
 
@@ -1865,10 +1865,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        Used when the installation timed out. This can cover a number of
  *        situations, for example when the device did not have connectivity
  *        at any point during the retry period, or if the device is OOM. (Value:
- *        "TIMEOUT")
+ *        "timeout")
  *    @arg @c kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown
  *        Used whenever no better reason for failure can be provided. (Value:
- *        "UNKNOWN")
+ *        "unknown")
  */
 @property(nonatomic, copy, nullable) NSString *failureReason;
 
@@ -1936,11 +1936,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError Value
- *        "SEVERITY_ERROR"
+ *        "severityError"
  *    @arg @c kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo Value
- *        "SEVERITY_INFO"
+ *        "severityInfo"
  *    @arg @c kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown
- *        Value "SEVERITY_UNKNOWN"
+ *        Value "severityUnknown"
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
@@ -2177,9 +2177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice
- *        Value "MANAGED_DEVICE"
+ *        Value "managedDevice"
  *    @arg @c kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile
- *        Value "MANAGED_PROFILE"
+ *        Value "managedProfile"
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
@@ -2256,29 +2256,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange
  *        Notification about new app restrictions schema change. (Value:
- *        "APP_RESTRICIONS_SCHEMA_CHANGE")
+ *        "appRestricionsSchemaChange")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate
- *        Notification about app update. (Value: "APP_UPDATE")
+ *        Notification about app update. (Value: "appUpdate")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate
  *        Notification about an updated device report. (Value:
- *        "DEVICE_REPORT_UPDATE")
+ *        "deviceReportUpdate")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure
  *        Notification about an app installation failure. (Value:
- *        "INSTALL_FAILURE")
+ *        "installFailure")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice
- *        Notification about a new device. (Value: "NEW_DEVICE")
+ *        Notification about a new device. (Value: "newDevice")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions
- *        Notification about new app permissions. (Value: "NEW_PERMISSIONS")
+ *        Notification about new app permissions. (Value: "newPermissions")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval
  *        Notification about change to a product's approval status. (Value:
- *        "PRODUCT_APPROVAL")
+ *        "productApproval")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange
  *        Notification about product availability change. (Value:
- *        "PRODUCT_AVAILABILITY_CHANGE")
+ *        "productAvailabilityChange")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification
- *        A test push notification. (Value: "TEST_NOTIFICATION")
+ *        A test push notification. (Value: "testNotification")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_Unknown Value
- *        "UNKNOWN"
+ *        "unknown"
  */
 @property(nonatomic, copy, nullable) NSString *notificationType;
 
@@ -2395,16 +2395,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always Apps are
- *        auto-updated at any time. Data charges may apply. (Value: "ALWAYS")
+ *        auto-updated at any time. Data charges may apply. (Value: "always")
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified
  *        The auto update policy is not set. (Value:
- *        "AUTO_UPDATE_POLICY_UNSPECIFIED")
+ *        "autoUpdatePolicyUnspecified")
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser The
- *        user can control auto-updates. (Value: "CHOICE_TO_THE_USER")
+ *        user can control auto-updates. (Value: "choiceToTheUser")
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never Apps are
- *        never auto-updated. (Value: "NEVER")
+ *        never auto-updated. (Value: "never")
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly Apps are
- *        auto-updated over WiFi only. (Value: "WIFI_ONLY")
+ *        auto-updated over WiFi only. (Value: "wifiOnly")
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdatePolicy;
 
@@ -2414,12 +2414,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled
- *        Device reports are disabled. (Value: "DEVICE_REPORT_DISABLED")
+ *        Device reports are disabled. (Value: "deviceReportDisabled")
  *    @arg @c kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled
- *        Device reports are enabled. (Value: "DEVICE_REPORT_ENABLED")
+ *        Device reports are enabled. (Value: "deviceReportEnabled")
  *    @arg @c kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified
  *        The device report policy is not set. (Value:
- *        "DEVICE_REPORT_POLICY_UNSPECIFIED")
+ *        "deviceReportPolicyUnspecified")
  */
 @property(nonatomic, copy, nullable) NSString *deviceReportPolicy;
 
@@ -2442,13 +2442,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All All
  *        products are available except those explicitly marked as
- *        unavailable in the product availability policy. (Value: "ALL")
+ *        unavailable in the product availability policy. (Value: "all")
  *    @arg @c kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified
  *        Unspecified, applies the user available product set by default.
- *        (Value: "PRODUCT_AVAILABILITY_POLICY_UNSPECIFIED")
+ *        (Value: "productAvailabilityPolicyUnspecified")
  *    @arg @c kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist
  *        The approved products with product availability set to AVAILABLE
- *        in the product policy are available. (Value: "WHITELIST")
+ *        in the product policy are available. (Value: "whitelist")
  */
 @property(nonatomic, copy, nullable) NSString *productAvailabilityPolicy;
 
@@ -2496,13 +2496,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  The content rating for this app.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_All Value "ALL"
- *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_Mature Value "MATURE"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_All Value "all"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_Mature Value "mature"
  *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_PreTeen Value
- *        "PRE_TEEN"
+ *        "preTeen"
  *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown Value
- *        "RATING_UNKNOWN"
- *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_Teen Value "TEEN"
+ *        "ratingUnknown"
+ *    @arg @c kGTLRAndroidEnterprise_Product_ContentRating_Teen Value "teen"
  */
 @property(nonatomic, copy, nullable) NSString *contentRating;
 
@@ -2527,11 +2527,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted
- *        Value "PRIVATE_GOOGLE_HOSTED"
+ *        Value "privateGoogleHosted"
  *    @arg @c kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted
- *        Value "PRIVATE_SELF_HOSTED"
+ *        Value "privateSelfHosted"
  *    @arg @c kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted
- *        Value "PUBLIC_GOOGLE_HOSTED"
+ *        Value "publicGoogleHosted"
  */
 @property(nonatomic, copy, nullable) NSString *distributionChannel;
 
@@ -2576,15 +2576,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_Free The product is
- *        free. (Value: "FREE")
+ *        free. (Value: "free")
  *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase
  *        The product is free, but offers in-app purchases. (Value:
- *        "FREE_WITH_IN_APP_PURCHASE")
+ *        "freeWithInAppPurchase")
  *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_Paid The product is
- *        paid. (Value: "PAID")
+ *        paid. (Value: "paid")
  *    @arg @c kGTLRAndroidEnterprise_Product_ProductPricing_Unknown Unknown
  *        pricing, used to denote an approved product that is not
- *        generally available. (Value: "UNKNOWN")
+ *        generally available. (Value: "unknown")
  */
 @property(nonatomic, copy, nullable) NSString *productPricing;
 
@@ -2633,11 +2633,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved The
- *        product was approved. (Value: "APPROVED")
+ *        product was approved. (Value: "approved")
  *    @arg @c kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved
- *        The product was unapproved. (Value: "UNAPPROVED")
+ *        The product was unapproved. (Value: "unapproved")
  *    @arg @c kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown
- *        Conveys no information. (Value: "UNKNOWN")
+ *        Conveys no information. (Value: "unknown")
  */
 @property(nonatomic, copy, nullable) NSString *approved;
 
@@ -2662,13 +2662,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available
  *        The previously unavailable product is again available on Google Play.
- *        (Value: "AVAILABLE")
+ *        (Value: "available")
  *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed
- *        The product was removed from Google Play. (Value: "REMOVED")
+ *        The product was removed from Google Play. (Value: "removed")
  *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown
- *        Conveys no information. (Value: "UNKNOWN")
+ *        Conveys no information. (Value: "unknown")
  *    @arg @c kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished
- *        The product was unpublished by the developer. (Value: "UNPUBLISHED")
+ *        The product was unpublished by the developer. (Value: "unpublished")
  */
 @property(nonatomic, copy, nullable) NSString *availabilityStatus;
 
@@ -2698,10 +2698,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_ProductPermission_State_Accepted The
- *        permission has been accepted by the enterprise. (Value: "ACCEPTED")
+ *        permission has been accepted by the enterprise. (Value: "accepted")
  *    @arg @c kGTLRAndroidEnterprise_ProductPermission_State_Required The
  *        permission is required by the app but has not yet been accepted by
- *        the enterprise. (Value: "REQUIRED")
+ *        the enterprise. (Value: "required")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2782,13 +2782,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions
  *        All current and future permissions the app requires are automatically
- *        approved. (Value: "ALL_PERMISSIONS")
+ *        approved. (Value: "allPermissions")
  *    @arg @c kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly
  *        Approve only the permissions the product requires at approval time.
  *        If an update requires additional permissions, the app will not be
  *        updated
  *        on devices associated with enterprise users until the additional
- *        permissions are approved. (Value: "CURRENT_PERMISSIONS_ONLY")
+ *        permissions are approved. (Value: "currentPermissionsOnly")
  */
 @property(nonatomic, copy, nullable) NSString *approvedPermissions;
 
@@ -2822,16 +2822,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        This product set represents all approved products.
  *        For Android app it represents only "production" track.
  *        (The value of the product_id field is therefore ignored). (Value:
- *        "ALL_APPROVED")
+ *        "allApproved")
  *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll
  *        This product set represents all products.
  *        For Android app it represents only "production" track.
  *        (The value of the productId field is therefore ignored). (Value:
- *        "INCLUDE_ALL")
+ *        "includeAll")
  *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown This
- *        value should never be sent and ignored if received. (Value: "UNKNOWN")
+ *        value should never be sent and ignored if received. (Value: "unknown")
  *    @arg @c kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist
- *        This product set constitutes a whitelist. (Value: "WHITELIST")
+ *        This product set constitutes a whitelist. (Value: "whitelist")
  */
 @property(nonatomic, copy, nullable) NSString *productSetBehavior;
 
@@ -2982,14 +2982,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials
- *        Google Credentials File format. (Value: "GOOGLE_CREDENTIALS")
+ *        Google Credentials File format. (Value: "googleCredentials")
  *    @arg @c kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12 PKCS12
  *        format. The password for the PKCS12 file is 'notasecret'.
  *        For more information, see https://tools.ietf.org/html/rfc7292.
  *        The data for keys of this type are base64 encoded according to RFC
  *        4648
  *        Section 4. See http://tools.ietf.org/html/rfc4648#section-4. (Value:
- *        "PKCS12")
+ *        "pkcs12")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3096,11 +3096,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic Value
- *        "BASIC"
+ *        "basic"
  *    @arg @c kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom Value
- *        "CUSTOM"
+ *        "custom"
  *    @arg @c kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown Value
- *        "UNKNOWN"
+ *        "unknown"
  */
 @property(nonatomic, copy, nullable) NSString *storeLayoutType;
 
@@ -3241,9 +3241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_User_AccountType_DeviceAccount Value
- *        "DEVICE_ACCOUNT"
+ *        "deviceAccount"
  *    @arg @c kGTLRAndroidEnterprise_User_AccountType_UserAccount Value
- *        "USER_ACCOUNT"
+ *        "userAccount"
  */
 @property(nonatomic, copy, nullable) NSString *accountType;
 
@@ -3272,9 +3272,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_User_ManagementType_EmmManaged Value
- *        "EMM_MANAGED"
+ *        "emmManaged"
  *    @arg @c kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged Value
- *        "GOOGLE_MANAGED"
+ *        "googleManaged"
  */
 @property(nonatomic, copy, nullable) NSString *managementType;
 
@@ -3340,22 +3340,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified
- *        Value "DISPLAY_MODE_UNSPECIFIED"
+ *        Value "displayModeUnspecified"
  *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen Opens the web
  *        app in full screen without any visible controls. The
  *        browser UI elements, page URL, system status bar and back button are
  *        not
  *        visible, and the web app takes up the entirety of the available
  *        display
- *        area. (Value: "FULL_SCREEN")
+ *        area. (Value: "fullScreen")
  *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi Opens the web
  *        app with a minimal set of browser UI elements for
- *        controlling navigation and viewing the page URL. (Value: "MINIMAL_UI")
+ *        controlling navigation and viewing the page URL. (Value: "minimalUi")
  *    @arg @c kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone Opens the web
  *        app to look and feel like a standalone native application.
  *        The browser UI elements and page URL are not visible, however the
  *        system
- *        status bar and back button are visible. (Value: "STANDALONE")
+ *        status bar and back button are visible. (Value: "standalone")
  */
 @property(nonatomic, copy, nullable) NSString *displayMode;
 

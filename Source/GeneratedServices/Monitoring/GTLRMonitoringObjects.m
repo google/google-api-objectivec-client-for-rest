@@ -983,7 +983,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ListNotificationChannelsResponse
-@dynamic nextPageToken, notificationChannels;
+@dynamic nextPageToken, notificationChannels, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

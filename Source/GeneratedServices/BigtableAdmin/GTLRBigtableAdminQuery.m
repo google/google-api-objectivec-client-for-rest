@@ -219,6 +219,71 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate
+
+@dynamic backupId, parent;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Backup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/backups";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Empty class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Backup class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGetIamPolicy
 
 @dynamic resource;
@@ -241,6 +306,52 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigtableAdmin_Policy class];
   query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/backups";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListBackupsResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Backup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Backup class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.backups.patch";
   return query;
 }
 
@@ -790,6 +901,33 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRBigtableAdmin_Table class];
   query.loggingName = @"bigtableadmin.projects.instances.tables.modifyColumnFamilies";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_RestoreTableRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/tables:restore";
+  GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.tables.restore";
   return query;
 }
 

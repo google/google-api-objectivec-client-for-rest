@@ -1663,6 +1663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51;
 /**
+ *  SDF version 5.2;
+ *
+ *  Value: "SDF_VERSION_5_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -6885,6 +6891,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51;
 /**
+ *  SDF version 5.2;
+ *
+ *  Value: "SDF_VERSION_5_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -6930,6 +6942,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_5_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51;
+/**
+ *  SDF version 5.2;
+ *
+ *  Value: "SDF_VERSION_5_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -10553,6 +10571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SDF version 5. (Value: "SDF_VERSION_5")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51
  *        SDF version 5.1 (Value: "SDF_VERSION_5_1")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52
+ *        SDF version 5.2; (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -16540,9 +16560,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Required. The performance goal the bidding strategy will attempt to
- *  meet or beat, in micros of the advertiser's currency.
- *  Must be greater than or equal to a billable unit of the given currency and
- *  smaller or equal to upper bounds. Each
+ *  meet or beat, in micros of the advertiser's currency or in micro of the
+ *  ROAS (Return On Advertising Spend) value which is also based on
+ *  advertiser's currency. Must be greater than or equal to a billable unit of
+ *  the given currency and smaller or equal to upper bounds. Each
  *  performance_goal_type
  *  has its upper bound:
  *  * when
@@ -16557,12 +16578,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  performance_goal_type
  *  is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, upper bound is
  *  1000.00 USD.
+ *  * when
+ *  performance_goal_type
+ *  is `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`, upper bound is
+ *  1000.00 and lower bound is 0.01.
  *  Example: If set to
  *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`, the bid price will
  *  be based on the probability that each available impression will be
  *  viewable. For example, if viewable CPM target is $2 and an impression is
  *  40% likely to be viewable, the bid price will be $0.80 CPM (40% of $2).
- *  For example, 1500000 represents 1.5 standard units of the currency.
+ *  For example, 1500000 represents 1.5 standard units of the currency or ROAS
+ *  value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16574,7 +16600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  For line item level usage, the value must be one of:
  *  * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA`
  *  * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC`
- *  * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`.
+ *  * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`
+ *  * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeAvViewed
@@ -16857,6 +16884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "SDF_VERSION_5")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51 SDF version 5.1
  *        (Value: "SDF_VERSION_5_1")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52 SDF version 5.2;
+ *        (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -16913,6 +16942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        version 5. (Value: "SDF_VERSION_5")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51 SDF
  *        version 5.1 (Value: "SDF_VERSION_5_1")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52 SDF
+ *        version 5.2; (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")

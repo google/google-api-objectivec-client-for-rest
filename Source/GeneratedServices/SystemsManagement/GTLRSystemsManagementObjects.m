@@ -58,6 +58,11 @@ NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Succeeded 
 NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_SucceededRebootRequired = @"SUCCEEDED_REBOOT_REQUIRED";
 NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_TimedOut = @"TIMED_OUT";
 
+// GTLRSystemsManagement_PatchRollout.mode
+NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ConcurrentZones = @"CONCURRENT_ZONES";
+NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ZoneByZone = @"ZONE_BY_ZONE";
+
 // GTLRSystemsManagement_RecurringSchedule.frequency
 NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_FrequencyUnspecified = @"FREQUENCY_UNSPECIFIED";
 NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Monthly = @"MONTHLY";
@@ -167,12 +172,22 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
 
 @implementation GTLRSystemsManagement_ExecutePatchJobRequest
 @dynamic descriptionProperty, displayName, dryRun, duration, instanceFilter,
-         patchConfig;
+         patchConfig, rollout;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSystemsManagement_FixedOrPercent
+//
+
+@implementation GTLRSystemsManagement_FixedOrPercent
+@dynamic fixed, percent;
 @end
 
 
@@ -299,7 +314,7 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
 @implementation GTLRSystemsManagement_PatchDeployment
 @dynamic createTime, descriptionProperty, duration, instanceFilter,
          lastExecuteTime, name, oneTimeSchedule, patchConfig, recurringSchedule,
-         updateTime;
+         rollout, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -361,7 +376,8 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
 @implementation GTLRSystemsManagement_PatchJob
 @dynamic createTime, descriptionProperty, displayName, dryRun, duration,
          errorMessage, instanceDetailsSummary, instanceFilter, name,
-         patchConfig, patchDeployment, percentComplete, state, updateTime;
+         patchConfig, patchDeployment, percentComplete, rollout, state,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -393,6 +409,16 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
          postPatchStepInstanceCount, prePatchStepInstanceCount,
          rebootingInstanceCount, startedInstanceCount, succeededInstanceCount,
          succeededRebootRequiredInstanceCount, timedOutInstanceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSystemsManagement_PatchRollout
+//
+
+@implementation GTLRSystemsManagement_PatchRollout
+@dynamic disruptionBudget, mode;
 @end
 
 

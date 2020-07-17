@@ -23,6 +23,8 @@
 @class GTLRBigtableAdmin_AppProfile;
 @class GTLRBigtableAdmin_AuditConfig;
 @class GTLRBigtableAdmin_AuditLogConfig;
+@class GTLRBigtableAdmin_Backup;
+@class GTLRBigtableAdmin_BackupInfo;
 @class GTLRBigtableAdmin_Binding;
 @class GTLRBigtableAdmin_Cluster;
 @class GTLRBigtableAdmin_ClusterState;
@@ -45,8 +47,10 @@
 @class GTLRBigtableAdmin_Operation;
 @class GTLRBigtableAdmin_Operation_Metadata;
 @class GTLRBigtableAdmin_Operation_Response;
+@class GTLRBigtableAdmin_OperationProgress;
 @class GTLRBigtableAdmin_PartialUpdateInstanceRequest;
 @class GTLRBigtableAdmin_Policy;
+@class GTLRBigtableAdmin_RestoreInfo;
 @class GTLRBigtableAdmin_SingleClusterRouting;
 @class GTLRBigtableAdmin_Split;
 @class GTLRBigtableAdmin_Status;
@@ -94,6 +98,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_Dat
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_Backup.state
+
+/**
+ *  The pending backup is still being created. Operations on the
+ *  backup may fail with `FAILED_PRECONDITION` in this state.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_State_Creating;
+/**
+ *  The backup is complete and ready for use.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_State_Ready;
+/**
+ *  Not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Cluster.defaultStorageType
@@ -185,6 +212,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Ready;
 /**
+ *  The table is fully created and ready for use after a restore, and is
+ *  being optimized for performance. When optimizations are complete, the
+ *  table will transition to `READY` state.
+ *
+ *  Value: "READY_OPTIMIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_ReadyOptimizing;
+/**
  *  The replication state of the table is unknown in this cluster.
  *
  *  Value: "STATE_NOT_KNOWN"
@@ -247,6 +282,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Production;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_RestoreInfo.sourceType
+
+/**
+ *  A backup was used as the source of the restore.
+ *
+ *  Value: "BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreInfo_SourceType_Backup;
+/**
+ *  No restore associated.
+ *
+ *  Value: "RESTORE_SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreInfo_SourceType_RestoreSourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_RestoreTableMetadata.sourceType
+
+/**
+ *  A backup was used as the source of the restore.
+ *
+ *  Value: "BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_Backup;
+/**
+ *  No restore associated.
+ *
+ *  Value: "RESTORE_SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_RestoreSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Table.granularity
@@ -448,6 +515,106 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  A backup of a Cloud Bigtable table.
+ */
+@interface GTLRBigtableAdmin_Backup : GTLRObject
+
+/**
+ *  Output only. `end_time` is the time that the backup was finished. The row
+ *  data in the backup will be no newer than this timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. The expiration time of the backup, with microseconds
+ *  granularity that must be at least 6 hours and at most 30 days
+ *  from the time the request is received. Once the `expire_time`
+ *  has passed, Cloud Bigtable will delete the backup and free the
+ *  resources used by the backup.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  A globally unique identifier for the backup which cannot be
+ *  changed. Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/
+ *  backups/_a-zA-Z0-9*`
+ *  The final segment of the name must be between 1 and 50 characters
+ *  in length.
+ *  The backup is stored in the cluster identified by the prefix of the backup
+ *  name of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Size of the backup in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/**
+ *  Required. Immutable. Name of the table from which this backup was created.
+ *  This needs
+ *  to be in the same instance as the backup. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{source_table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceTable;
+
+/**
+ *  Output only. `start_time` is the time that the backup was started
+ *  (i.e. approximately the time the
+ *  CreateBackup request is received). The
+ *  row data in this backup will be no older than this timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Backup_State_Creating The pending backup is
+ *        still being created. Operations on the
+ *        backup may fail with `FAILED_PRECONDITION` in this state. (Value:
+ *        "CREATING")
+ *    @arg @c kGTLRBigtableAdmin_Backup_State_Ready The backup is complete and
+ *        ready for use. (Value: "READY")
+ *    @arg @c kGTLRBigtableAdmin_Backup_State_StateUnspecified Not specified.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Information about a backup.
+ */
+@interface GTLRBigtableAdmin_BackupInfo : GTLRObject
+
+/** Output only. Name of the backup. */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Output only. This time that the backup was finished. Row data in the
+ *  backup will be no newer than this timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Name of the table the backup was created from. */
+@property(nonatomic, copy, nullable) NSString *sourceTable;
+
+/**
+ *  Output only. The time that the backup was started. Row data in the backup
+ *  will be no older than this timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Associates `members` with a `role`.
  */
 @interface GTLRBigtableAdmin_Binding : GTLRObject
@@ -637,6 +804,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *        can serve Data API requests from this cluster. Depending on
  *        replication delay, reads may not immediately reflect the state of the
  *        table in other clusters. (Value: "READY")
+ *    @arg @c kGTLRBigtableAdmin_ClusterState_ReplicationState_ReadyOptimizing
+ *        The table is fully created and ready for use after a restore, and is
+ *        being optimized for performance. When optimizations are complete, the
+ *        table will transition to `READY` state. (Value: "READY_OPTIMIZING")
  *    @arg @c kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown The
  *        replication state of the table is unknown in this cluster. (Value:
  *        "STATE_NOT_KNOWN")
@@ -663,6 +834,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  GC expression for its family.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GcRule *gcRule;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by
+ *  CreateBackup.
+ */
+@interface GTLRBigtableAdmin_CreateBackupMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was cancelled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The name of the backup being created. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The name of the table the backup is created from. */
+@property(nonatomic, copy, nullable) NSString *sourceTable;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -1183,6 +1375,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  The response for ListBackups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListBackupsResponse : GTLRCollectionObject
+
+/**
+ *  The list of matching backups.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Backup *> *backups;
+
+/**
+ *  `next_page_token` can be sent in a subsequent
+ *  ListBackups call to fetch more
+ *  of the matching backups.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for BigtableInstanceAdmin.ListClusters.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1534,6 +1754,49 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Encapsulates progress related information for a Cloud Bigtable long
+ *  running operation.
+ */
+@interface GTLRBigtableAdmin_OperationProgress : GTLRObject
+
+/**
+ *  If set, the time at which this operation failed or was completed
+ *  successfully.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Percent completion of the operation.
+ *  Values are between 0 and 100 inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progressPercent;
+
+/** Time the request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Metadata type for the long-running operation used to track the progress
+ *  of optimizations performed on a newly restored table. This long-running
+ *  operation is automatically created by the system after the successful
+ *  completion of a table restore, and cannot be cancelled.
+ */
+@interface GTLRBigtableAdmin_OptimizeRestoredTableMetadata : GTLRObject
+
+/** Name of the restored table being optimized. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The progress of the post-restore optimizations. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_OperationProgress *progress;
+
+@end
+
+
+/**
  *  Request message for BigtableInstanceAdmin.PartialUpdateInstance.
  */
 @interface GTLRBigtableAdmin_PartialUpdateInstanceRequest : GTLRObject
@@ -1671,6 +1934,98 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Information about a table restore.
+ */
+@interface GTLRBigtableAdmin_RestoreInfo : GTLRObject
+
+/**
+ *  Information about the backup used to restore the table. The backup
+ *  may no longer exist.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_BackupInfo *backupInfo;
+
+/**
+ *  The type of the restore source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_RestoreInfo_SourceType_Backup A backup was used
+ *        as the source of the restore. (Value: "BACKUP")
+ *    @arg @c kGTLRBigtableAdmin_RestoreInfo_SourceType_RestoreSourceTypeUnspecified
+ *        No restore associated. (Value: "RESTORE_SOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  Metadata type for the long-running operation returned by
+ *  RestoreTable.
+ */
+@interface GTLRBigtableAdmin_RestoreTableMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_BackupInfo *backupInfo;
+
+/** Name of the table being created and restored to. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If exists, the name of the long-running operation that will be used to
+ *  track the post-restore optimization process to optimize the performance of
+ *  the restored table. The metadata type of the long-running operation is
+ *  OptimizeRestoreTableMetadata. The response type is
+ *  Empty. This long-running operation may be
+ *  automatically created by the system if applicable after the
+ *  RestoreTable long-running operation completes successfully. This operation
+ *  may not be created if the table is already optimized or the restore was
+ *  not successful.
+ */
+@property(nonatomic, copy, nullable) NSString *optimizeTableOperationName;
+
+/**
+ *  The progress of the RestoreTable
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_OperationProgress *progress;
+
+/**
+ *  The type of the restore source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_Backup A backup
+ *        was used as the source of the restore. (Value: "BACKUP")
+ *    @arg @c kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_RestoreSourceTypeUnspecified
+ *        No restore associated. (Value: "RESTORE_SOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceType;
+
+@end
+
+
+/**
+ *  The request for
+ *  RestoreTable.
+ */
+@interface GTLRBigtableAdmin_RestoreTableRequest : GTLRObject
+
+/**
+ *  Name of the backup from which to restore. Values are of the form
+ *  `projects/<project>/instances/<instance>/clusters/<cluster>/backups/<backup>`.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Required. The id of the table to create and restore to. This
+ *  table must not already exist. The `table_id` appended to
+ *  `parent` forms the full table name of the form
+ *  `projects/<project>/instances/<instance>/tables/<table_id>`.
+ */
+@property(nonatomic, copy, nullable) NSString *tableId;
 
 @end
 
@@ -1828,6 +2183,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. If this table was restored from another data source (e.g. a
+ *  backup), this
+ *  field will be populated with information about the restore.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_RestoreInfo *restoreInfo;
 
 @end
 

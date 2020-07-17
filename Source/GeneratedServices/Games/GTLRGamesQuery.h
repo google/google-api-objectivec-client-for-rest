@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services API (games/v1)
+//   Google Play Game Services (games/v1)
 // Description:
-//   The API for Google Play Game Services.
+//   The Google Play games service allows developers to enhance games with
+//   social leaderboards,
+//   achievements, game state, sign-in with Google, and more.
 // Documentation:
-//   https://developers.google.com/games/services/
+//   https://developers.google.com/games/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -23,15 +25,6 @@
 @class GTLRGames_AchievementUpdateMultipleRequest;
 @class GTLRGames_EventRecordRequest;
 @class GTLRGames_PlayerScoreSubmissionList;
-@class GTLRGames_PushToken;
-@class GTLRGames_PushTokenId;
-@class GTLRGames_RoomCreateRequest;
-@class GTLRGames_RoomJoinRequest;
-@class GTLRGames_RoomLeaveRequest;
-@class GTLRGames_RoomP2PStatuses;
-@class GTLRGames_TurnBasedMatchCreateRequest;
-@class GTLRGames_TurnBasedMatchResults;
-@class GTLRGames_TurnBasedMatchTurn;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -46,155 +39,73 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // collection
 
-/**
- *  Retrieve data for all categories. This is the default.
- *
- *  Value: "all"
- */
+/** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionAll;
-/**
- *  (DEPRECATED) Retrieve a list of players that are also playing this game in
- *  reverse chronological order.
- *
- *  Value: "connected"
- */
+/** Value: "COLLECTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionCollectionUnspecified;
+/** Value: "CONNECTED" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionConnected;
-/**
- *  List only scores of friends.
- *
- *  Value: "FRIENDS"
- */
+/** Value: "FRIENDS" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriends;
-/**
- *  Retrieve a list of players who are friends of the user in alphabetical
- *  order.
- *
- *  Value: "friends_all"
- */
+/** Value: "FRIENDS_ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriendsAll;
-/**
- *  (DEPRECATED) Retrieve a list of players you have played a multiplayer game
- *  (realtime or turn-based) with recently.
- *
- *  Value: "playedWith"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPlayedWith;
-/**
- *  List all scores in the public leaderboard.
- *
- *  Value: "PUBLIC"
- */
+/** Value: "PUBLIC" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPublic;
-/**
- *  (Obsolete) Legacy G+ social scores. Use the FRIENDS collection instead.
- *
- *  Value: "SOCIAL"
- */
+/** Value: "SCORE_COLLECTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionScoreCollectionUnspecified;
+/** Value: "SOCIAL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionSocial;
-/**
- *  (DEPRECATED: please use FRIENDS_ALL) Retrieve a list of players in the
- *  user's social graph that are visible to this game.
- *
- *  Value: "visible"
- */
+/** Value: "VISIBLE" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible;
 
 // ----------------------------------------------------------------------------
 // includeRankType
 
-/**
- *  Retrieve all supported ranks.
- *
- *  Value: "ALL"
- */
+/** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeAll;
-/**
- *  Retrieve public ranks, if the player is sharing their gameplay activity
- *  publicly.
- *
- *  Value: "PUBLIC"
- */
+/** Value: "INCLUDE_RANK_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified;
+/** Value: "PUBLIC" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypePublic;
-/**
- *  (Obsolete) Legacy G+ social leaderboards rank, always 1.
- *
- *  Value: "SOCIAL"
- */
+/** Value: "SOCIAL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial;
 
 // ----------------------------------------------------------------------------
 // platformType
 
-/**
- *  Retrieve applications that can be played on Android.
- *
- *  Value: "ANDROID"
- */
+/** Value: "ANDROID" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeAndroid;
-/**
- *  Retrieve applications that can be played on iOS.
- *
- *  Value: "IOS"
- */
+/** Value: "IOS" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeIos;
-/**
- *  Retrieve applications that can be played on desktop web.
- *
- *  Value: "WEB_APP"
- */
+/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypePlatformTypeUnspecified;
+/** Value: "WEB_APP" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeWebApp;
 
 // ----------------------------------------------------------------------------
 // state
 
-/**
- *  List all achievements. This is the default.
- *
- *  Value: "ALL"
- */
+/** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateAll;
-/**
- *  List only hidden achievements.
- *
- *  Value: "HIDDEN"
- */
+/** Value: "HIDDEN" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateHidden;
-/**
- *  List only revealed achievements.
- *
- *  Value: "REVEALED"
- */
+/** Value: "REVEALED" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateRevealed;
-/**
- *  List only unlocked achievements.
- *
- *  Value: "UNLOCKED"
- */
+/** Value: "UNLOCKED" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateUnlocked;
 
 // ----------------------------------------------------------------------------
 // timeSpan
 
-/**
- *  Get the high scores for all time spans. If this is used, maxResults values
- *  will be ignored.
- *
- *  Value: "ALL"
- */
+/** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAll;
 /** Value: "ALL_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAllTime;
-/**
- *  List the top scores for the current day.
- *
- *  Value: "DAILY"
- */
+/** Value: "DAILY" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanDaily;
-/**
- *  List the top scores for the current week.
- *
- *  Value: "WEEKLY"
- */
+/** Value: "SCORE_TIME_SPAN_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanScoreTimeSpanUnspecified;
+/** Value: "WEEKLY" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 // ----------------------------------------------------------------------------
@@ -229,9 +140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The maximum number of achievement resources to return in the response, used
  *  for paging. For any response, the actual number of achievement resources
- *  returned may be less than the specified maxResults.
- *
- *  @note The documented range is 1..200.
+ *  returned may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -296,8 +205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Lists the progress for all your application's achievements for the currently
- *  authenticated player.
+ *  Lists the progress for all your application's achievements for the
+ *  currently authenticated player.
  *
  *  Method: games.achievements.list
  *
@@ -314,9 +223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The maximum number of achievement resources to return in the response, used
  *  for paging. For any response, the actual number of achievement resources
- *  returned may be less than the specified maxResults.
- *
- *  @note The documented range is 1..200.
+ *  returned may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -324,8 +231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
- *  player's ID.
+ *  A player ID. A value of `me` may be used in place of the
+ *  authenticated player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -334,24 +241,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  this parameter isn't specified, all achievements are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesStateAll List all achievements. This is the default.
- *        (Value: "ALL")
- *    @arg @c kGTLRGamesStateHidden List only hidden achievements. (Value:
- *        "HIDDEN")
- *    @arg @c kGTLRGamesStateRevealed List only revealed achievements. (Value:
- *        "REVEALED")
- *    @arg @c kGTLRGamesStateUnlocked List only unlocked achievements. (Value:
- *        "UNLOCKED")
+ *    @arg @c kGTLRGamesStateAll Value "ALL"
+ *    @arg @c kGTLRGamesStateHidden Value "HIDDEN"
+ *    @arg @c kGTLRGamesStateRevealed Value "REVEALED"
+ *    @arg @c kGTLRGamesStateUnlocked Value "UNLOCKED"
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Fetches a @c GTLRGames_PlayerAchievementListResponse.
  *
- *  Lists the progress for all your application's achievements for the currently
- *  authenticated player.
+ *  Lists the progress for all your application's achievements for the
+ *  currently authenticated player.
  *
- *  @param playerId A player ID. A value of me may be used in place of the
+ *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *
  *  @return GTLRGamesQuery_AchievementsList
@@ -365,8 +268,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Sets the state of the achievement with the given ID to REVEALED for the
- *  currently authenticated player.
+ *  Sets the state of the achievement with the given ID to
+ *  `REVEALED` for the currently authenticated player.
  *
  *  Method: games.achievements.reveal
  *
@@ -383,8 +286,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  Fetches a @c GTLRGames_AchievementRevealResponse.
  *
- *  Sets the state of the achievement with the given ID to REVEALED for the
- *  currently authenticated player.
+ *  Sets the state of the achievement with the given ID to
+ *  `REVEALED` for the currently authenticated player.
  *
  *  @param achievementId The ID of the achievement used by this method.
  *
@@ -396,9 +299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  Sets the steps for the currently authenticated player towards unlocking an
- *  achievement. If the steps parameter is less than the current number of steps
- *  that the player already gained for the achievement, the achievement is not
- *  modified.
+ *  achievement. If the steps parameter is less than the current number of
+ *  steps that the player already gained for the achievement, the achievement
+ *  is not modified.
  *
  *  Method: games.achievements.setStepsAtLeast
  *
@@ -419,9 +322,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_AchievementSetStepsAtLeastResponse.
  *
  *  Sets the steps for the currently authenticated player towards unlocking an
- *  achievement. If the steps parameter is less than the current number of steps
- *  that the player already gained for the achievement, the achievement is not
- *  modified.
+ *  achievement. If the steps parameter is less than the current number of
+ *  steps that the player already gained for the achievement, the achievement
+ *  is not modified.
  *
  *  @param achievementId The ID of the achievement used by this method.
  *  @param steps The minimum value to set the steps to.
@@ -489,8 +392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  Retrieves the metadata of the application with the given ID. If the
- *  requested application is not available for the specified platformType, the
- *  returned response will not include any instance data.
+ *  requested application is not available for the specified
+ *  `platformType`, the returned response will not include any
+ *  instance data.
  *
  *  Method: games.applications.get
  *
@@ -511,12 +415,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Restrict application details returned to the specific platform.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesPlatformTypeAndroid Retrieve applications that can be
- *        played on Android. (Value: "ANDROID")
- *    @arg @c kGTLRGamesPlatformTypeIos Retrieve applications that can be played
- *        on iOS. (Value: "IOS")
- *    @arg @c kGTLRGamesPlatformTypeWebApp Retrieve applications that can be
- *        played on desktop web. (Value: "WEB_APP")
+ *    @arg @c kGTLRGamesPlatformTypePlatformTypeUnspecified Value
+ *        "PLATFORM_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRGamesPlatformTypeAndroid Value "ANDROID"
+ *    @arg @c kGTLRGamesPlatformTypeIos Value "IOS"
+ *    @arg @c kGTLRGamesPlatformTypeWebApp Value "WEB_APP"
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
@@ -524,8 +427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_Application.
  *
  *  Retrieves the metadata of the application with the given ID. If the
- *  requested application is not available for the specified platformType, the
- *  returned response will not include any instance data.
+ *  requested application is not available for the specified
+ *  `platformType`, the returned response will not include any
+ *  instance data.
  *
  *  @param applicationId The application ID from the Google Play developer
  *    console.
@@ -537,7 +441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Indicate that the the currently authenticated user is playing your
+ *  Indicate that the currently authenticated user is playing your
  *  application.
  *
  *  Method: games.applications.played
@@ -553,7 +457,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Indicate that the the currently authenticated user is playing your
+ *  Indicate that the currently authenticated user is playing your
  *  application.
  *
  *  @return GTLRGamesQuery_ApplicationsPlayed
@@ -610,11 +514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The maximum number of events to return in the response, used for paging. For
- *  any response, the actual number of events to return may be less than the
- *  specified maxResults.
- *
- *  @note The documented range is 1..100.
+ *  The maximum number of events to return in the response, used for paging.
+ *  For any response, the actual number of events to return may be less than
+ *  the specified maxResults.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -655,9 +557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The maximum number of event definitions to return in the response, used for
  *  paging. For any response, the actual number of event definitions to return
- *  may be less than the specified maxResults.
- *
- *  @note The documented range is 1..100.
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -758,9 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The maximum number of leaderboards to return in the response. For any
  *  response, the actual number of leaderboards returned may be less than the
- *  specified maxResults.
- *
- *  @note The documented range is 1..200.
+ *  specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -807,7 +705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  List play data aggregated per category for the player corresponding to
- *  playerId.
+ *  `playerId`.
  *
  *  Method: games.metagame.listCategoriesByPlayer
  *
@@ -822,8 +720,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of categories for which data will be returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
- *        the default. (Value: "all")
+ *    @arg @c kGTLRGamesCollectionCollectionUnspecified Value
+ *        "COLLECTION_UNSPECIFIED"
+ *    @arg @c kGTLRGamesCollectionAll Value "ALL"
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -831,11 +730,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The maximum number of category resources to return in the response, used for
- *  paging. For any response, the actual number of category resources returned
- *  may be less than the specified maxResults.
- *
- *  @note The documented range is 1..100.
+ *  The maximum number of category resources to return in the response, used
+ *  for paging. For any response, the actual number of category resources
+ *  returned may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -843,8 +740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
- *  player's ID.
+ *  A player ID. A value of `me` may be used in place of the
+ *  authenticated player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -852,16 +749,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_CategoryListResponse.
  *
  *  List play data aggregated per category for the player corresponding to
- *  playerId.
+ *  `playerId`.
  *
- *  @param playerId A player ID. A value of me may be used in place of the
+ *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *  @param collection The collection of categories for which data will be
  *    returned.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
- *        the default. (Value: "all")
+ *    @arg @c kGTLRGamesCollectionCollectionUnspecified Value
+ *        "COLLECTION_UNSPECIFIED"
+ *    @arg @c kGTLRGamesCollectionAll Value "ALL"
  *
  *  @return GTLRGamesQuery_MetagameListCategoriesByPlayer
  *
@@ -875,8 +773,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Retrieves the Player resource with the given ID. To retrieve the player for
- *  the currently authenticated user, set playerId to me.
+ *  Retrieves the Player resource with the given ID. To retrieve the player
+ *  for the currently authenticated user, set `playerId` to `me`.
  *
  *  Method: games.players.get
  *
@@ -891,18 +789,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
- *  player's ID.
+ *  A player ID. A value of `me` may be used in place of the
+ *  authenticated player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Fetches a @c GTLRGames_Player.
  *
- *  Retrieves the Player resource with the given ID. To retrieve the player for
- *  the currently authenticated user, set playerId to me.
+ *  Retrieves the Player resource with the given ID. To retrieve the player
+ *  for the currently authenticated user, set `playerId` to `me`.
  *
- *  @param playerId A player ID. A value of me may be used in place of the
+ *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *
  *  @return GTLRGamesQuery_PlayersGet
@@ -927,20 +825,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Collection of players being retrieved
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionConnected (DEPRECATED) Retrieve a list of
- *        players that are also playing this game in reverse chronological
- *        order. (Value: "connected")
- *    @arg @c kGTLRGamesCollectionFriendsAll Retrieve a list of players who are
- *        friends of the user in alphabetical order. (Value: "friends_all")
- *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
- *        players you have played a multiplayer game (realtime or turn-based)
- *        with recently. (Value: "playedWith")
- *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
- *        players you have played a multiplayer game (realtime or turn-based)
- *        with recently. (Value: "played_with")
- *    @arg @c kGTLRGamesCollectionVisible (DEPRECATED: please use FRIENDS_ALL)
- *        Retrieve a list of players in the user's social graph that are visible
- *        to this game. (Value: "visible")
+ *    @arg @c kGTLRGamesCollectionConnected Value "CONNECTED"
+ *    @arg @c kGTLRGamesCollectionVisible Value "VISIBLE"
+ *    @arg @c kGTLRGamesCollectionFriendsAll Value "FRIENDS_ALL"
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -949,10 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  The maximum number of player resources to return in the response, used for
- *  paging. For any response, the actual number of player resources returned may
- *  be less than the specified maxResults.
- *
- *  @note The documented range is 1..50.
+ *  paging. For any response, the actual number of player resources returned
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -967,20 +852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param collection Collection of players being retrieved
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionConnected (DEPRECATED) Retrieve a list of
- *        players that are also playing this game in reverse chronological
- *        order. (Value: "connected")
- *    @arg @c kGTLRGamesCollectionFriendsAll Retrieve a list of players who are
- *        friends of the user in alphabetical order. (Value: "friends_all")
- *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
- *        players you have played a multiplayer game (realtime or turn-based)
- *        with recently. (Value: "playedWith")
- *    @arg @c kGTLRGamesCollectionPlayedWith (DEPRECATED) Retrieve a list of
- *        players you have played a multiplayer game (realtime or turn-based)
- *        with recently. (Value: "played_with")
- *    @arg @c kGTLRGamesCollectionVisible (DEPRECATED: please use FRIENDS_ALL)
- *        Retrieve a list of players in the user's social graph that are visible
- *        to this game. (Value: "visible")
+ *    @arg @c kGTLRGamesCollectionConnected Value "CONNECTED"
+ *    @arg @c kGTLRGamesCollectionVisible Value "VISIBLE"
+ *    @arg @c kGTLRGamesCollectionFriendsAll Value "FRIENDS_ALL"
  *
  *  @return GTLRGamesQuery_PlayersList
  *
@@ -989,60 +863,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *        information.
  */
 + (instancetype)queryWithCollection:(NSString *)collection;
-
-@end
-
-/**
- *  Removes a push token for the current user and application. Removing a
- *  non-existent push token will report success.
- *
- *  Method: games.pushtokens.remove
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_PushtokensRemove : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForPushtokensRemoveWithObject:]
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Removes a push token for the current user and application. Removing a
- *  non-existent push token will report success.
- *
- *  @param object The @c GTLRGames_PushTokenId to include in the query.
- *
- *  @return GTLRGamesQuery_PushtokensRemove
- */
-+ (instancetype)queryWithObject:(GTLRGames_PushTokenId *)object;
-
-@end
-
-/**
- *  Registers a push token for the current user and application.
- *
- *  Method: games.pushtokens.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_PushtokensUpdate : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForPushtokensUpdateWithObject:]
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Registers a push token for the current user and application.
- *
- *  @param object The @c GTLRGames_PushToken to include in the query.
- *
- *  @return GTLRGamesQuery_PushtokensUpdate
- */
-+ (instancetype)queryWithObject:(GTLRGames_PushToken *)object;
 
 @end
 
@@ -1060,10 +880,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  The revision of the client SDK used by your application. Format:
- *  [PLATFORM_TYPE]:[VERSION_NUMBER]. Possible values of PLATFORM_TYPE are:
- *  - "ANDROID" - Client is running the Android SDK.
- *  - "IOS" - Client is running the iOS SDK.
- *  - "WEB_APP" - Client is running as a Web App.
+ *  `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are:
+ *  * `ANDROID` - Client is running the Android SDK.
+ *  * `IOS` - Client is running the iOS SDK.
+ *  * `WEB_APP` - Client is running as a Web App.
  */
 @property(nonatomic, copy, nullable) NSString *clientRevision;
 
@@ -1074,10 +894,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @param clientRevision The revision of the client SDK used by your
  *    application. Format:
- *    [PLATFORM_TYPE]:[VERSION_NUMBER]. Possible values of PLATFORM_TYPE are:
- *    - "ANDROID" - Client is running the Android SDK.
- *    - "IOS" - Client is running the iOS SDK.
- *    - "WEB_APP" - Client is running as a Web App.
+ *    `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE`
+ *    are:
+ *    * `ANDROID` - Client is running the Android SDK.
+ *    * `IOS` - Client is running the iOS SDK.
+ *    * `WEB_APP` - Client is running as a Web App.
  *
  *  @return GTLRGamesQuery_RevisionsCheck
  */
@@ -1086,285 +907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Create a room. For internal use by the Games SDK only. Calling this method
- *  directly is unsupported.
- *
- *  Method: games.rooms.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsCreate : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsCreateWithObject:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/**
- *  Fetches a @c GTLRGames_Room.
- *
- *  Create a room. For internal use by the Games SDK only. Calling this method
- *  directly is unsupported.
- *
- *  @param object The @c GTLRGames_RoomCreateRequest to include in the query.
- *
- *  @return GTLRGamesQuery_RoomsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGames_RoomCreateRequest *)object;
-
-@end
-
-/**
- *  Decline an invitation to join a room. For internal use by the Games SDK
- *  only. Calling this method directly is unsupported.
- *
- *  Method: games.rooms.decline
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsDecline : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsDeclineWithroomId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  Fetches a @c GTLRGames_Room.
- *
- *  Decline an invitation to join a room. For internal use by the Games SDK
- *  only. Calling this method directly is unsupported.
- *
- *  @param roomId The ID of the room.
- *
- *  @return GTLRGamesQuery_RoomsDecline
- */
-+ (instancetype)queryWithRoomId:(NSString *)roomId;
-
-@end
-
-/**
- *  Dismiss an invitation to join a room. For internal use by the Games SDK
- *  only. Calling this method directly is unsupported.
- *
- *  Method: games.rooms.dismiss
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsDismiss : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsDismissWithroomId:]
-
-/** The ID of the room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Dismiss an invitation to join a room. For internal use by the Games SDK
- *  only. Calling this method directly is unsupported.
- *
- *  @param roomId The ID of the room.
- *
- *  @return GTLRGamesQuery_RoomsDismiss
- */
-+ (instancetype)queryWithRoomId:(NSString *)roomId;
-
-@end
-
-/**
- *  Get the data for a room.
- *
- *  Method: games.rooms.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsGetWithroomId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  Fetches a @c GTLRGames_Room.
- *
- *  Get the data for a room.
- *
- *  @param roomId The ID of the room.
- *
- *  @return GTLRGamesQuery_RoomsGet
- */
-+ (instancetype)queryWithRoomId:(NSString *)roomId;
-
-@end
-
-/**
- *  Join a room. For internal use by the Games SDK only. Calling this method
- *  directly is unsupported.
- *
- *  Method: games.rooms.join
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsJoin : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsJoinWithObject:roomId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  Fetches a @c GTLRGames_Room.
- *
- *  Join a room. For internal use by the Games SDK only. Calling this method
- *  directly is unsupported.
- *
- *  @param object The @c GTLRGames_RoomJoinRequest to include in the query.
- *  @param roomId The ID of the room.
- *
- *  @return GTLRGamesQuery_RoomsJoin
- */
-+ (instancetype)queryWithObject:(GTLRGames_RoomJoinRequest *)object
-                         roomId:(NSString *)roomId;
-
-@end
-
-/**
- *  Leave a room. For internal use by the Games SDK only. Calling this method
- *  directly is unsupported.
- *
- *  Method: games.rooms.leave
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsLeave : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsLeaveWithObject:roomId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  Fetches a @c GTLRGames_Room.
- *
- *  Leave a room. For internal use by the Games SDK only. Calling this method
- *  directly is unsupported.
- *
- *  @param object The @c GTLRGames_RoomLeaveRequest to include in the query.
- *  @param roomId The ID of the room.
- *
- *  @return GTLRGamesQuery_RoomsLeave
- */
-+ (instancetype)queryWithObject:(GTLRGames_RoomLeaveRequest *)object
-                         roomId:(NSString *)roomId;
-
-@end
-
-/**
- *  Returns invitations to join rooms.
- *
- *  Method: games.rooms.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsList]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/**
- *  The maximum number of rooms to return in the response, used for paging. For
- *  any response, the actual number of rooms to return may be less than the
- *  specified maxResults.
- *
- *  @note The documented range is 1..500.
- */
-@property(nonatomic, assign) NSInteger maxResults;
-
-/** The token returned by the previous request. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRGames_RoomList.
- *
- *  Returns invitations to join rooms.
- *
- *  @return GTLRGamesQuery_RoomsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)query;
-
-@end
-
-/**
- *  Updates sent by a client reporting the status of peers in a room. For
- *  internal use by the Games SDK only. Calling this method directly is
- *  unsupported.
- *
- *  Method: games.rooms.reportStatus
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_RoomsReportStatus : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRoomsReportStatusWithObject:roomId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  Fetches a @c GTLRGames_RoomStatus.
- *
- *  Updates sent by a client reporting the status of peers in a room. For
- *  internal use by the Games SDK only. Calling this method directly is
- *  unsupported.
- *
- *  @param object The @c GTLRGames_RoomP2PStatuses to include in the query.
- *  @param roomId The ID of the room.
- *
- *  @return GTLRGamesQuery_RoomsReportStatus
- */
-+ (instancetype)queryWithObject:(GTLRGames_RoomP2PStatuses *)object
-                         roomId:(NSString *)roomId;
-
-@end
-
-/**
  *  Get high scores, and optionally ranks, in leaderboards for the currently
- *  authenticated player. For a specific time span, leaderboardId can be set to
- *  ALL to retrieve data for all leaderboards in a given time span.
- *  NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same
- *  request; only one parameter may be set to 'ALL'.
+ *  authenticated player. For a specific time span, `leaderboardId`
+ *  can be set to `ALL` to retrieve data for all leaderboards in a
+ *  given time span. `NOTE: You cannot ask for 'ALL' leaderboards and
+ *  'ALL' timeSpans in the same request; only one parameter may be set to
+ *  'ALL'.
  *
  *  Method: games.scores.get
  *
@@ -1380,12 +928,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesIncludeRankTypeAll Retrieve all supported ranks. (Value:
- *        "ALL")
- *    @arg @c kGTLRGamesIncludeRankTypePublic Retrieve public ranks, if the
- *        player is sharing their gameplay activity publicly. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesIncludeRankTypeSocial (Obsolete) Legacy G+ social
- *        leaderboards rank, always 1. (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified Value
+ *        "INCLUDE_RANK_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRGamesIncludeRankTypeAll Value "ALL"
+ *    @arg @c kGTLRGamesIncludeRankTypePublic Value "PUBLIC"
+ *    @arg @c kGTLRGamesIncludeRankTypeSocial Value "SOCIAL"
  */
 @property(nonatomic, copy, nullable) NSString *includeRankType;
 
@@ -1399,11 +946,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The maximum number of leaderboard scores to return in the response. For any
- *  response, the actual number of leaderboard scores returned may be less than
- *  the specified maxResults.
- *
- *  @note The documented range is 1..30.
+ *  The maximum number of leaderboard scores to return in the response. For
+ *  any response, the actual number of leaderboard scores returned may be less
+ *  than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1411,8 +956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
- *  player's ID.
+ *  A player ID. A value of `me` may be used in place of the
+ *  authenticated player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -1420,14 +965,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanAll Get the high scores for all time spans. If
- *        this is used, maxResults values will be ignored. (Value: "ALL")
- *    @arg @c kGTLRGamesTimeSpanAllTime Get the all time high score. (Value:
- *        "ALL_TIME")
- *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current day.
- *        (Value: "DAILY")
- *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
- *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
+ *        "SCORE_TIME_SPAN_UNSPECIFIED"
+ *    @arg @c kGTLRGamesTimeSpanAll Value "ALL"
+ *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
+ *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
+ *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1435,26 +978,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_PlayerLeaderboardScoreListResponse.
  *
  *  Get high scores, and optionally ranks, in leaderboards for the currently
- *  authenticated player. For a specific time span, leaderboardId can be set to
- *  ALL to retrieve data for all leaderboards in a given time span.
- *  NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same
- *  request; only one parameter may be set to 'ALL'.
+ *  authenticated player. For a specific time span, `leaderboardId`
+ *  can be set to `ALL` to retrieve data for all leaderboards in a
+ *  given time span. `NOTE: You cannot ask for 'ALL' leaderboards and
+ *  'ALL' timeSpans in the same request; only one parameter may be set to
+ *  'ALL'.
  *
- *  @param playerId A player ID. A value of me may be used in place of the
+ *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *  @param leaderboardId The ID of the leaderboard. Can be set to 'ALL' to
- *    retrieve data for all leaderboards for this application.
+ *    retrieve data for all
+ *    leaderboards for this application.
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanAll Get the high scores for all time spans. If
- *        this is used, maxResults values will be ignored. (Value: "ALL")
- *    @arg @c kGTLRGamesTimeSpanAllTime Get the all time high score. (Value:
- *        "ALL_TIME")
- *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current day.
- *        (Value: "DAILY")
- *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
- *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
+ *        "SCORE_TIME_SPAN_UNSPECIFIED"
+ *    @arg @c kGTLRGamesTimeSpanAll Value "ALL"
+ *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
+ *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
+ *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
  *
  *  @return GTLRGamesQuery_ScoresGet
  *
@@ -1484,12 +1027,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
- *        "FRIENDS")
- *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
- *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
- *        the FRIENDS collection instead. (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
+ *        "SCORE_COLLECTION_UNSPECIFIED"
+ *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
+ *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
+ *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1500,11 +1042,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The maximum number of leaderboard scores to return in the response. For any
- *  response, the actual number of leaderboard scores returned may be less than
- *  the specified maxResults.
- *
- *  @note The documented range is 1..30.
+ *  The maximum number of leaderboard scores to return in the response. For
+ *  any response, the actual number of leaderboard scores returned may be less
+ *  than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1515,12 +1055,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:
- *        "ALL_TIME")
- *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current day.
- *        (Value: "DAILY")
- *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
- *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
+ *        "SCORE_TIME_SPAN_UNSPECIFIED"
+ *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
+ *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
+ *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1534,20 +1073,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
- *        "FRIENDS")
- *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
- *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
- *        the FRIENDS collection instead. (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
+ *        "SCORE_COLLECTION_UNSPECIFIED"
+ *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
+ *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
+ *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:
- *        "ALL_TIME")
- *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current day.
- *        (Value: "DAILY")
- *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
- *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
+ *        "SCORE_TIME_SPAN_UNSPECIFIED"
+ *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
+ *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
+ *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
  *
  *  @return GTLRGamesQuery_ScoresList
  *
@@ -1577,12 +1114,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
- *        "FRIENDS")
- *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
- *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
- *        the FRIENDS collection instead. (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
+ *        "SCORE_COLLECTION_UNSPECIFIED"
+ *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
+ *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
+ *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1593,11 +1129,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The maximum number of leaderboard scores to return in the response. For any
- *  response, the actual number of leaderboard scores returned may be less than
- *  the specified maxResults.
- *
- *  @note The documented range is 1..30.
+ *  The maximum number of leaderboard scores to return in the response. For
+ *  any response, the actual number of leaderboard scores returned may be less
+ *  than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1622,12 +1156,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:
- *        "ALL_TIME")
- *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current day.
- *        (Value: "DAILY")
- *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
- *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
+ *        "SCORE_TIME_SPAN_UNSPECIFIED"
+ *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
+ *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
+ *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1641,20 +1174,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
- *        "FRIENDS")
- *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
- *        leaderboard. (Value: "PUBLIC")
- *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores. Use
- *        the FRIENDS collection instead. (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
+ *        "SCORE_COLLECTION_UNSPECIFIED"
+ *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
+ *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
+ *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanAllTime List the all-time top scores. (Value:
- *        "ALL_TIME")
- *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current day.
- *        (Value: "DAILY")
- *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current week.
- *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
+ *        "SCORE_TIME_SPAN_UNSPECIFIED"
+ *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
+ *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
+ *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
  *
  *  @return GTLRGamesQuery_ScoresListWindow
  *
@@ -1689,17 +1220,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The score you're submitting. The submitted score is ignored if it is worse
  *  than a previously submitted score, where worse depends on the leaderboard
- *  sort order. The meaning of the score value depends on the leaderboard format
- *  type. For fixed-point, the score represents the raw value. For time, the
- *  score represents elapsed time in milliseconds. For currency, the score
- *  represents a value in micro units.
+ *  sort order. The meaning of the score value depends on the leaderboard
+ *  format type. For fixed-point, the score represents the raw value. For
+ *  time, the score represents elapsed time in milliseconds. For currency, the
+ *  score represents a value in micro units.
  */
 @property(nonatomic, assign) long long score;
 
 /**
  *  Additional information about the score you're submitting. Values must
- *  contain no more than 64 URI-safe characters as defined by section 2.3 of RFC
- *  3986.
+ *  contain no more than 64 URI-safe characters as defined by section 2.3 of
+ *  RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -1710,11 +1241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @param leaderboardId The ID of the leaderboard.
  *  @param score The score you're submitting. The submitted score is ignored if
- *    it is worse than a previously submitted score, where worse depends on the
- *    leaderboard sort order. The meaning of the score value depends on the
- *    leaderboard format type. For fixed-point, the score represents the raw
- *    value. For time, the score represents elapsed time in milliseconds. For
- *    currency, the score represents a value in micro units.
+ *    it is worse
+ *    than a previously submitted score, where worse depends on the leaderboard
+ *    sort order. The meaning of the score value depends on the leaderboard
+ *    format type. For fixed-point, the score represents the raw value. For
+ *    time, the score represents elapsed time in milliseconds. For currency, the
+ *    score represents a value in micro units.
  *
  *  @return GTLRGamesQuery_ScoresSubmit
  */
@@ -1802,11 +1334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The maximum number of snapshot resources to return in the response, used for
- *  paging. For any response, the actual number of snapshot resources returned
- *  may be less than the specified maxResults.
- *
- *  @note The documented range is 1..25.
+ *  The maximum number of snapshot resources to return in the response, used
+ *  for paging. For any response, the actual number of snapshot resources
+ *  returned may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1814,7 +1344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of me may be used in place of the authenticated
+ *  A player ID. A value of `me` may be used in place of the authenticated
  *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
@@ -1825,8 +1355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Retrieves a list of snapshots created by your application for the player
  *  corresponding to the player ID.
  *
- *  @param playerId A player ID. A value of me may be used in place of the
- *    authenticated player's ID.
+ *  @param playerId A player ID. A value of `me` may be used in place of the
+ *    authenticated
+ *    player's ID.
  *
  *  @return GTLRGamesQuery_SnapshotsList
  *
@@ -1839,505 +1370,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Cancel a turn-based match.
+ *  Returns engagement and spend statistics in this application for the
+ *  currently authenticated user.
  *
- *  Method: games.turnBasedMatches.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesCancel : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesCancelWithmatchId:]
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Cancel a turn-based match.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesCancel
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Create a turn-based match.
- *
- *  Method: games.turnBasedMatches.create
+ *  Method: games.stats.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGames
  */
-@interface GTLRGamesQuery_TurnBasedMatchesCreate : GTLRGamesQuery
+@interface GTLRGamesQuery_StatsGet : GTLRGamesQuery
 // Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesCreateWithObject:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
+//   +[GTLQueryGames queryForStatsGet]
 
 /**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
+ *  Fetches a @c GTLRGames_StatsResponse.
  *
- *  Create a turn-based match.
+ *  Returns engagement and spend statistics in this application for the
+ *  currently authenticated user.
  *
- *  @param object The @c GTLRGames_TurnBasedMatchCreateRequest to include in the
- *    query.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesCreate
- */
-+ (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchCreateRequest *)object;
-
-@end
-
-/**
- *  Decline an invitation to play a turn-based match.
- *
- *  Method: games.turnBasedMatches.decline
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesDecline : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesDeclineWithmatchId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Decline an invitation to play a turn-based match.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesDecline
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Dismiss a turn-based match from the match list. The match will no longer
- *  show up in the list and will not generate notifications.
- *
- *  Method: games.turnBasedMatches.dismiss
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesDismiss : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesDismissWithmatchId:]
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Dismiss a turn-based match from the match list. The match will no longer
- *  show up in the list and will not generate notifications.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesDismiss
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Finish a turn-based match. Each player should make this call once, after all
- *  results are in. Only the player whose turn it is may make the first call to
- *  Finish, and can pass in the final match state.
- *
- *  Method: games.turnBasedMatches.finish
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesFinish : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesFinishWithObject:matchId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Finish a turn-based match. Each player should make this call once, after all
- *  results are in. Only the player whose turn it is may make the first call to
- *  Finish, and can pass in the final match state.
- *
- *  @param object The @c GTLRGames_TurnBasedMatchResults to include in the
- *    query.
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesFinish
- */
-+ (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchResults *)object
-                        matchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Get the data for a turn-based match.
- *
- *  Method: games.turnBasedMatches.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesGetWithmatchId:]
-
-/** Get match data along with metadata. */
-@property(nonatomic, assign) BOOL includeMatchData;
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Get the data for a turn-based match.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesGet
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Join a turn-based match.
- *
- *  Method: games.turnBasedMatches.join
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesJoin : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesJoinWithmatchId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Join a turn-based match.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesJoin
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Leave a turn-based match when it is not the current player's turn, without
- *  canceling the match.
- *
- *  Method: games.turnBasedMatches.leave
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesLeave : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesLeaveWithmatchId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Leave a turn-based match when it is not the current player's turn, without
- *  canceling the match.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesLeave
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Leave a turn-based match during the current player's turn, without canceling
- *  the match.
- *
- *  Method: games.turnBasedMatches.leaveTurn
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesLeaveTurn : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesLeaveTurnWithmatchId:matchVersion:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/** The version of the match being updated. */
-@property(nonatomic, assign) NSInteger matchVersion;
-
-/**
- *  The ID of another participant who should take their turn next. If not set,
- *  the match will wait for other player(s) to join via automatching; this is
- *  only valid if automatch criteria is set on the match with remaining slots
- *  for automatched players.
- */
-@property(nonatomic, copy, nullable) NSString *pendingParticipantId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Leave a turn-based match during the current player's turn, without canceling
- *  the match.
- *
- *  @param matchId The ID of the match.
- *  @param matchVersion The version of the match being updated.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesLeaveTurn
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId
-                    matchVersion:(NSInteger)matchVersion;
-
-@end
-
-/**
- *  Returns turn-based matches the player is or was involved in.
- *
- *  Method: games.turnBasedMatches.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesList]
-
-/**
- *  True if match data should be returned in the response. Note that not all
- *  data will necessarily be returned if include_match_data is true; the server
- *  may decide to only return data for some of the matches to limit download
- *  size for the client. The remainder of the data for these matches will be
- *  retrievable on request.
- */
-@property(nonatomic, assign) BOOL includeMatchData;
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/**
- *  The maximum number of completed or canceled matches to return in the
- *  response. If not set, all matches returned could be completed or canceled.
- *
- *  @note The documented range is 0..500.
- */
-@property(nonatomic, assign) NSInteger maxCompletedMatches;
-
-/**
- *  The maximum number of matches to return in the response, used for paging.
- *  For any response, the actual number of matches to return may be less than
- *  the specified maxResults.
- *
- *  @note The documented range is 1..500.
- */
-@property(nonatomic, assign) NSInteger maxResults;
-
-/** The token returned by the previous request. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatchList.
- *
- *  Returns turn-based matches the player is or was involved in.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
+ *  @return GTLRGamesQuery_StatsGet
  */
 + (instancetype)query;
-
-@end
-
-/**
- *  Create a rematch of a match that was previously completed, with the same
- *  participants. This can be called by only one player on a match still in
- *  their list; the player must have called Finish first. Returns the newly
- *  created match; it will be the caller's turn.
- *
- *  Method: games.turnBasedMatches.rematch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesRematch : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesRematchWithmatchId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  A randomly generated numeric ID for each request specified by the caller.
- *  This number is used at the server to ensure that the request is handled
- *  correctly across retries.
- */
-@property(nonatomic, assign) long long requestId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatchRematch.
- *
- *  Create a rematch of a match that was previously completed, with the same
- *  participants. This can be called by only one player on a match still in
- *  their list; the player must have called Finish first. Returns the newly
- *  created match; it will be the caller's turn.
- *
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesRematch
- */
-+ (instancetype)queryWithMatchId:(NSString *)matchId;
-
-@end
-
-/**
- *  Returns turn-based matches the player is or was involved in that changed
- *  since the last sync call, with the least recent changes coming first.
- *  Matches that should be removed from the local cache will have a status of
- *  MATCH_DELETED.
- *
- *  Method: games.turnBasedMatches.sync
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesSync : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesSync]
-
-/**
- *  True if match data should be returned in the response. Note that not all
- *  data will necessarily be returned if include_match_data is true; the server
- *  may decide to only return data for some of the matches to limit download
- *  size for the client. The remainder of the data for these matches will be
- *  retrievable on request.
- */
-@property(nonatomic, assign) BOOL includeMatchData;
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/**
- *  The maximum number of completed or canceled matches to return in the
- *  response. If not set, all matches returned could be completed or canceled.
- *
- *  @note The documented range is 0..500.
- */
-@property(nonatomic, assign) NSInteger maxCompletedMatches;
-
-/**
- *  The maximum number of matches to return in the response, used for paging.
- *  For any response, the actual number of matches to return may be less than
- *  the specified maxResults.
- *
- *  @note The documented range is 1..500.
- */
-@property(nonatomic, assign) NSInteger maxResults;
-
-/** The token returned by the previous request. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatchSync.
- *
- *  Returns turn-based matches the player is or was involved in that changed
- *  since the last sync call, with the least recent changes coming first.
- *  Matches that should be removed from the local cache will have a status of
- *  MATCH_DELETED.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesSync
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)query;
-
-@end
-
-/**
- *  Commit the results of a player turn.
- *
- *  Method: games.turnBasedMatches.takeTurn
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- */
-@interface GTLRGamesQuery_TurnBasedMatchesTakeTurn : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForTurnBasedMatchesTakeTurnWithObject:matchId:]
-
-/** The preferred language to use for strings returned by this method. */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** The ID of the match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  Fetches a @c GTLRGames_TurnBasedMatch.
- *
- *  Commit the results of a player turn.
- *
- *  @param object The @c GTLRGames_TurnBasedMatchTurn to include in the query.
- *  @param matchId The ID of the match.
- *
- *  @return GTLRGamesQuery_TurnBasedMatchesTakeTurn
- */
-+ (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchTurn *)object
-                        matchId:(NSString *)matchId;
 
 @end
 

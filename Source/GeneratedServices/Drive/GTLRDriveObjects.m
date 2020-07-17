@@ -235,6 +235,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ContentRestriction
+//
+
+@implementation GTLRDrive_ContentRestriction
+@dynamic readOnly, reason, restrictingUser, restrictionTime, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Drive
 //
 
@@ -318,7 +328,7 @@
 //
 
 @implementation GTLRDrive_File
-@dynamic appProperties, capabilities, contentHints,
+@dynamic appProperties, capabilities, contentHints, contentRestrictions,
          copyRequiresWriterPermission, createdTime, descriptionProperty,
          driveId, explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
          fullFileExtension, hasAugmentedPermissions, hasThumbnail,
@@ -342,6 +352,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contentRestrictions" : [GTLRDrive_ContentRestriction class],
     @"owners" : [GTLRDrive_User class],
     @"parents" : [NSString class],
     @"permissionIds" : [NSString class],
@@ -377,7 +388,8 @@
 @dynamic canAddChildren, canAddFolderFromAnotherDrive, canAddMyDriveParent,
          canChangeCopyRequiresWriterPermission, canChangeViewersCanCopyContent,
          canComment, canCopy, canDelete, canDeleteChildren, canDownload,
-         canEdit, canListChildren, canModifyContent, canMoveChildrenOutOfDrive,
+         canEdit, canListChildren, canModifyContent,
+         canModifyContentRestriction, canMoveChildrenOutOfDrive,
          canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
          canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
          canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,

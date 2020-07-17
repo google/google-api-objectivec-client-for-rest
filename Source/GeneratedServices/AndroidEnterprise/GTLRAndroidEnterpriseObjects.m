@@ -14,218 +14,218 @@
 // Constants
 
 // GTLRAndroidEnterprise_AdministratorWebTokenSpec.permission
-NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ApproveApps = @"APPROVE_APPS";
-NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ManageMcm = @"MANAGE_MCM";
-NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ApproveApps = @"approveApps";
+NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_ManageMcm = @"manageMcm";
+NSString * const kGTLRAndroidEnterprise_AdministratorWebTokenSpec_Permission_Unknown = @"unknown";
 
 // GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction.restrictionType
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool = @"BOOL";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle = @"BUNDLE";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray = @"BUNDLE_ARRAY";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice = @"CHOICE";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden = @"HIDDEN";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer = @"INTEGER";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect = @"MULTISELECT";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String = @"STRING";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bool = @"bool";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Bundle = @"bundle";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_BundleArray = @"bundleArray";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Choice = @"choice";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Hidden = @"hidden";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Integer = @"integer";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_Multiselect = @"multiselect";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestriction_RestrictionType_String = @"string";
 
 // GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue.type
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool = @"BOOL";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle = @"BUNDLE";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray = @"BUNDLE_ARRAY";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice = @"CHOICE";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden = @"HIDDEN";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer = @"INTEGER";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect = @"MULTISELECT";
-NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String = @"STRING";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bool = @"bool";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Bundle = @"bundle";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_BundleArray = @"bundleArray";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Choice = @"choice";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Hidden = @"hidden";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Integer = @"integer";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_Multiselect = @"multiselect";
+NSString * const kGTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue_Type_String = @"string";
 
 // GTLRAndroidEnterprise_AppVersion.track
-NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Alpha = @"ALPHA";
-NSString * const kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Beta  = @"BETA";
-NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Production = @"PRODUCTION";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Alpha = @"alpha";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_AppTrackUnspecified = @"appTrackUnspecified";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Beta  = @"beta";
+NSString * const kGTLRAndroidEnterprise_AppVersion_Track_Production = @"production";
 
 // GTLRAndroidEnterprise_AutoInstallConstraint.chargingStateConstraint
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired = @"CHARGING_NOT_REQUIRED";
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired = @"CHARGING_REQUIRED";
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified = @"CHARGING_STATE_CONSTRAINT_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingNotRequired = @"chargingNotRequired";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingRequired = @"chargingRequired";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_ChargingStateConstraint_ChargingStateConstraintUnspecified = @"chargingStateConstraintUnspecified";
 
 // GTLRAndroidEnterprise_AutoInstallConstraint.deviceIdleStateConstraint
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired = @"DEVICE_IDLE_NOT_REQUIRED";
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired = @"DEVICE_IDLE_REQUIRED";
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified = @"DEVICE_IDLE_STATE_CONSTRAINT_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleNotRequired = @"deviceIdleNotRequired";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleRequired = @"deviceIdleRequired";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_DeviceIdleStateConstraint_DeviceIdleStateConstraintUnspecified = @"deviceIdleStateConstraintUnspecified";
 
 // GTLRAndroidEnterprise_AutoInstallConstraint.networkTypeConstraint
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork = @"ANY_NETWORK";
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified = @"NETWORK_TYPE_CONSTRAINT_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork = @"UNMETERED_NETWORK";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_AnyNetwork = @"anyNetwork";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified = @"networkTypeConstraintUnspecified";
+NSString * const kGTLRAndroidEnterprise_AutoInstallConstraint_NetworkTypeConstraint_UnmeteredNetwork = @"unmeteredNetwork";
 
 // GTLRAndroidEnterprise_AutoInstallPolicy.autoInstallMode
-NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified = @"AUTO_INSTALL_MODE_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce = @"AUTO_INSTALL_ONCE";
-NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall = @"DO_NOT_AUTO_INSTALL";
-NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall = @"FORCE_AUTO_INSTALL";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallModeUnspecified = @"autoInstallModeUnspecified";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_AutoInstallOnce = @"autoInstallOnce";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_DoNotAutoInstall = @"doNotAutoInstall";
+NSString * const kGTLRAndroidEnterprise_AutoInstallPolicy_AutoInstallMode_ForceAutoInstall = @"forceAutoInstall";
 
 // GTLRAndroidEnterprise_Device.managementType
-NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp = @"CONTAINER_APP";
-NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice = @"MANAGED_DEVICE";
-NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile = @"MANAGED_PROFILE";
-NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile = @"UNMANAGED_PROFILE";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ContainerApp = @"containerApp";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedDevice = @"managedDevice";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_ManagedProfile = @"managedProfile";
+NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile = @"unmanagedProfile";
 
 // GTLRAndroidEnterprise_DeviceState.accountState
-NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled = @"DISABLED";
-NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled = @"ENABLED";
+NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled = @"disabled";
+NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled = @"enabled";
 
 // GTLRAndroidEnterprise_Entitlement.reason
-NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"FREE";
-NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"GROUP_LICENSE";
-NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase = @"USER_PURCHASE";
+NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"free";
+NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"groupLicense";
+NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_UserPurchase = @"userPurchase";
 
 // GTLRAndroidEnterprise_GroupLicense.acquisitionKind
-NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase = @"BULK_PURCHASE";
-NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free = @"FREE";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_BulkPurchase = @"bulkPurchase";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_AcquisitionKind_Free = @"free";
 
 // GTLRAndroidEnterprise_GroupLicense.approval
-NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Approved = @"APPROVED";
-NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved = @"UNAPPROVED";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Approved = @"approved";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Approval_Unapproved = @"unapproved";
 
 // GTLRAndroidEnterprise_GroupLicense.permissions
-NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved = @"ALL_CURRENT_AND_FUTURE_APPROVED";
-NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved = @"CURRENT_APPROVED";
-NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval = @"NEEDS_REAPPROVAL";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_AllCurrentAndFutureApproved = @"allCurrentAndFutureApproved";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_CurrentApproved = @"currentApproved";
+NSString * const kGTLRAndroidEnterprise_GroupLicense_Permissions_NeedsReapproval = @"needsReapproval";
 
 // GTLRAndroidEnterprise_Install.installState
-NSString * const kGTLRAndroidEnterprise_Install_InstallState_Installed = @"INSTALLED";
-NSString * const kGTLRAndroidEnterprise_Install_InstallState_InstallPending = @"INSTALL_PENDING";
+NSString * const kGTLRAndroidEnterprise_Install_InstallState_Installed = @"installed";
+NSString * const kGTLRAndroidEnterprise_Install_InstallState_InstallPending = @"installPending";
 
 // GTLRAndroidEnterprise_InstallFailureEvent.failureReason
-NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Timeout = @"TIMEOUT";
-NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Timeout = @"timeout";
+NSString * const kGTLRAndroidEnterprise_InstallFailureEvent_FailureReason_Unknown = @"unknown";
 
 // GTLRAndroidEnterprise_KeyedAppState.severity
-NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError = @"SEVERITY_ERROR";
-NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo = @"SEVERITY_INFO";
-NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown = @"SEVERITY_UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityError = @"severityError";
+NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityInfo = @"severityInfo";
+NSString * const kGTLRAndroidEnterprise_KeyedAppState_Severity_SeverityUnknown = @"severityUnknown";
 
 // GTLRAndroidEnterprise_NewDeviceEvent.managementType
-NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice = @"MANAGED_DEVICE";
-NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile = @"MANAGED_PROFILE";
+NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedDevice = @"managedDevice";
+NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedProfile = @"managedProfile";
 
 // GTLRAndroidEnterprise_Notification.notificationType
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange = @"APP_RESTRICIONS_SCHEMA_CHANGE";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate = @"APP_UPDATE";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate = @"DEVICE_REPORT_UPDATE";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure = @"INSTALL_FAILURE";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice = @"NEW_DEVICE";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions = @"NEW_PERMISSIONS";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval = @"PRODUCT_APPROVAL";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange = @"PRODUCT_AVAILABILITY_CHANGE";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification = @"TEST_NOTIFICATION";
-NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange = @"appRestricionsSchemaChange";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate = @"appUpdate";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate = @"deviceReportUpdate";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure = @"installFailure";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice = @"newDevice";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions = @"newPermissions";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductApproval = @"productApproval";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_ProductAvailabilityChange = @"productAvailabilityChange";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_TestNotification = @"testNotification";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_Unknown = @"unknown";
 
 // GTLRAndroidEnterprise_Policy.autoUpdatePolicy
-NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always = @"ALWAYS";
-NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified = @"AUTO_UPDATE_POLICY_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser = @"CHOICE_TO_THE_USER";
-NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never = @"NEVER";
-NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly = @"WIFI_ONLY";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always = @"always";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_AutoUpdatePolicyUnspecified = @"autoUpdatePolicyUnspecified";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_ChoiceToTheUser = @"choiceToTheUser";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Never = @"never";
+NSString * const kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_WifiOnly = @"wifiOnly";
 
 // GTLRAndroidEnterprise_Policy.deviceReportPolicy
-NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled = @"DEVICE_REPORT_DISABLED";
-NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled = @"DEVICE_REPORT_ENABLED";
-NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified = @"DEVICE_REPORT_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportDisabled = @"deviceReportDisabled";
+NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportEnabled = @"deviceReportEnabled";
+NSString * const kGTLRAndroidEnterprise_Policy_DeviceReportPolicy_DeviceReportPolicyUnspecified = @"deviceReportPolicyUnspecified";
 
 // GTLRAndroidEnterprise_Policy.productAvailabilityPolicy
-NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All = @"ALL";
-NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified = @"PRODUCT_AVAILABILITY_POLICY_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist = @"WHITELIST";
+NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_All = @"all";
+NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_ProductAvailabilityPolicyUnspecified = @"productAvailabilityPolicyUnspecified";
+NSString * const kGTLRAndroidEnterprise_Policy_ProductAvailabilityPolicy_Whitelist = @"whitelist";
 
 // GTLRAndroidEnterprise_Product.availableTracks
-NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Alpha = @"ALPHA";
-NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Beta = @"BETA";
-NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Production = @"PRODUCTION";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Alpha = @"alpha";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_AppTrackUnspecified = @"appTrackUnspecified";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Beta = @"beta";
+NSString * const kGTLRAndroidEnterprise_Product_AvailableTracks_Production = @"production";
 
 // GTLRAndroidEnterprise_Product.contentRating
-NSString * const kGTLRAndroidEnterprise_Product_ContentRating_All = @"ALL";
-NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Mature = @"MATURE";
-NSString * const kGTLRAndroidEnterprise_Product_ContentRating_PreTeen = @"PRE_TEEN";
-NSString * const kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown = @"RATING_UNKNOWN";
-NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Teen = @"TEEN";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_All = @"all";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Mature = @"mature";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_PreTeen = @"preTeen";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_RatingUnknown = @"ratingUnknown";
+NSString * const kGTLRAndroidEnterprise_Product_ContentRating_Teen = @"teen";
 
 // GTLRAndroidEnterprise_Product.distributionChannel
-NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted = @"PRIVATE_GOOGLE_HOSTED";
-NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted = @"PRIVATE_SELF_HOSTED";
-NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted = @"PUBLIC_GOOGLE_HOSTED";
+NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateGoogleHosted = @"privateGoogleHosted";
+NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PrivateSelfHosted = @"privateSelfHosted";
+NSString * const kGTLRAndroidEnterprise_Product_DistributionChannel_PublicGoogleHosted = @"publicGoogleHosted";
 
 // GTLRAndroidEnterprise_Product.features
-NSString * const kGTLRAndroidEnterprise_Product_Features_FeatureUnknown = @"FEATURE_UNKNOWN";
-NSString * const kGTLRAndroidEnterprise_Product_Features_VpnApp = @"VPN_APP";
+NSString * const kGTLRAndroidEnterprise_Product_Features_FeatureUnknown = @"featureUnknown";
+NSString * const kGTLRAndroidEnterprise_Product_Features_VpnApp = @"vpnApp";
 
 // GTLRAndroidEnterprise_Product.productPricing
-NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Free = @"FREE";
-NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase = @"FREE_WITH_IN_APP_PURCHASE";
-NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Paid = @"PAID";
-NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Free = @"free";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_FreeWithInAppPurchase = @"freeWithInAppPurchase";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Paid = @"paid";
+NSString * const kGTLRAndroidEnterprise_Product_ProductPricing_Unknown = @"unknown";
 
 // GTLRAndroidEnterprise_ProductApprovalEvent.approved
-NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved = @"APPROVED";
-NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved = @"UNAPPROVED";
-NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Approved = @"approved";
+NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unapproved = @"unapproved";
+NSString * const kGTLRAndroidEnterprise_ProductApprovalEvent_Approved_Unknown = @"unknown";
 
 // GTLRAndroidEnterprise_ProductAvailabilityChangeEvent.availabilityStatus
-NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available = @"AVAILABLE";
-NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed = @"REMOVED";
-NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown = @"UNKNOWN";
-NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished = @"UNPUBLISHED";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Available = @"available";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Removed = @"removed";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unknown = @"unknown";
+NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_AvailabilityStatus_Unpublished = @"unpublished";
 
 // GTLRAndroidEnterprise_ProductPermission.state
-NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Accepted = @"ACCEPTED";
-NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required = @"REQUIRED";
+NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Accepted = @"accepted";
+NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required = @"required";
 
 // GTLRAndroidEnterprise_ProductPolicy.tracks
-NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Alpha = @"ALPHA";
-NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Beta = @"BETA";
-NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Production = @"PRODUCTION";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Alpha = @"alpha";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_AppTrackUnspecified = @"appTrackUnspecified";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Beta = @"beta";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Production = @"production";
 
 // GTLRAndroidEnterprise_ProductsApproveRequest.approvedPermissions
-NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions = @"ALL_PERMISSIONS";
-NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly = @"CURRENT_PERMISSIONS_ONLY";
+NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_AllPermissions = @"allPermissions";
+NSString * const kGTLRAndroidEnterprise_ProductsApproveRequest_ApprovedPermissions_CurrentPermissionsOnly = @"currentPermissionsOnly";
 
 // GTLRAndroidEnterprise_ProductSet.productSetBehavior
-NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_AllApproved = @"ALL_APPROVED";
-NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll = @"INCLUDE_ALL";
-NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown = @"UNKNOWN";
-NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist = @"WHITELIST";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_AllApproved = @"allApproved";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_IncludeAll = @"includeAll";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Unknown = @"unknown";
+NSString * const kGTLRAndroidEnterprise_ProductSet_ProductSetBehavior_Whitelist = @"whitelist";
 
 // GTLRAndroidEnterprise_ProductVisibility.tracks
-NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Alpha = @"ALPHA";
-NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_AppTrackUnspecified = @"APP_TRACK_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Beta = @"BETA";
-NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Production = @"PRODUCTION";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Alpha = @"alpha";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_AppTrackUnspecified = @"appTrackUnspecified";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Beta = @"beta";
+NSString * const kGTLRAndroidEnterprise_ProductVisibility_Tracks_Production = @"production";
 
 // GTLRAndroidEnterprise_ServiceAccountKey.type
-NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials = @"GOOGLE_CREDENTIALS";
-NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12 = @"PKCS12";
+NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_GoogleCredentials = @"googleCredentials";
+NSString * const kGTLRAndroidEnterprise_ServiceAccountKey_Type_Pkcs12 = @"pkcs12";
 
 // GTLRAndroidEnterprise_StoreLayout.storeLayoutType
-NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic = @"BASIC";
-NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom = @"CUSTOM";
-NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown = @"UNKNOWN";
+NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Basic = @"basic";
+NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Custom = @"custom";
+NSString * const kGTLRAndroidEnterprise_StoreLayout_StoreLayoutType_Unknown = @"unknown";
 
 // GTLRAndroidEnterprise_User.accountType
-NSString * const kGTLRAndroidEnterprise_User_AccountType_DeviceAccount = @"DEVICE_ACCOUNT";
-NSString * const kGTLRAndroidEnterprise_User_AccountType_UserAccount = @"USER_ACCOUNT";
+NSString * const kGTLRAndroidEnterprise_User_AccountType_DeviceAccount = @"deviceAccount";
+NSString * const kGTLRAndroidEnterprise_User_AccountType_UserAccount = @"userAccount";
 
 // GTLRAndroidEnterprise_User.managementType
-NSString * const kGTLRAndroidEnterprise_User_ManagementType_EmmManaged = @"EMM_MANAGED";
-NSString * const kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged = @"GOOGLE_MANAGED";
+NSString * const kGTLRAndroidEnterprise_User_ManagementType_EmmManaged = @"emmManaged";
+NSString * const kGTLRAndroidEnterprise_User_ManagementType_GoogleManaged = @"googleManaged";
 
 // GTLRAndroidEnterprise_WebApp.displayMode
-NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified = @"DISPLAY_MODE_UNSPECIFIED";
-NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen = @"FULL_SCREEN";
-NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi = @"MINIMAL_UI";
-NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"STANDALONE";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecified = @"displayModeUnspecified";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen = @"fullScreen";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi = @"minimalUi";
+NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standalone";
 
 // ----------------------------------------------------------------------------
 //

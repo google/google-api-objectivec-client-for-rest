@@ -23,10 +23,13 @@
 @class GTLRHangoutsChat_ActionParameter;
 @class GTLRHangoutsChat_ActionResponse;
 @class GTLRHangoutsChat_Annotation;
+@class GTLRHangoutsChat_Attachment;
+@class GTLRHangoutsChat_AttachmentDataRef;
 @class GTLRHangoutsChat_Button;
 @class GTLRHangoutsChat_Card;
 @class GTLRHangoutsChat_CardAction;
 @class GTLRHangoutsChat_CardHeader;
+@class GTLRHangoutsChat_DriveDataRef;
 @class GTLRHangoutsChat_FormAction;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
@@ -97,6 +100,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationT
  *  Value: "USER_MENTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_Attachment.source
+
+/** Value: "DRIVE_FILE" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_DriveFile;
+/** Value: "SOURCE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_SourceUnspecified;
+/** Value: "UPLOADED_CONTENT" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Attachment_Source_UploadedContent;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_CardHeader.imageStyle
@@ -482,6 +495,75 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  An attachment in Hangouts Chat.
+ */
+@interface GTLRHangoutsChat_Attachment : GTLRObject
+
+/**
+ *  A reference to the attachment data. This is used with the media API to
+ *  download the attachment data.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_AttachmentDataRef *attachmentDataRef;
+
+/** The original file name for the content, not the full path. */
+@property(nonatomic, copy, nullable) NSString *contentName;
+
+/** The content type (MIME type) of the file. */
+@property(nonatomic, copy, nullable) NSString *contentType;
+
+/**
+ *  Output only. The download URL which should be used to allow a human user to
+ *  download the attachment. Bots should not use this URL to download
+ *  attachment content.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadUri;
+
+/** A reference to the drive attachment. This is used with the Drive API. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_DriveDataRef *driveDataRef;
+
+/**
+ *  Resource name of the attachment, in the form
+ *  "spaces/ * /messages/ * /attachments/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The source of the attachment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_Attachment_Source_DriveFile Value "DRIVE_FILE"
+ *    @arg @c kGTLRHangoutsChat_Attachment_Source_SourceUnspecified Value
+ *        "SOURCE_UNSPECIFIED"
+ *    @arg @c kGTLRHangoutsChat_Attachment_Source_UploadedContent Value
+ *        "UPLOADED_CONTENT"
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Output only. The thumbnail URL which should be used to preview the
+ *  attachment to a human user. Bots should not use this URL to download
+ *  attachment content.
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailUri;
+
+@end
+
+
+/**
+ *  A reference to the data of an attachment.
+ */
+@interface GTLRHangoutsChat_AttachmentDataRef : GTLRObject
+
+/**
+ *  The resource name of the attachment data. This is used with the media API
+ *  to download the attachment data.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  A button. Can be a text button or an image button.
  */
 @interface GTLRHangoutsChat_Button : GTLRObject
@@ -631,6 +713,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** The user that triggered the event. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *user;
+
+@end
+
+
+/**
+ *  A reference to the data of a drive attachment.
+ */
+@interface GTLRHangoutsChat_DriveDataRef : GTLRObject
+
+/** The id for the drive file, for use with the Drive API. */
+@property(nonatomic, copy, nullable) NSString *driveFileId;
 
 @end
 
@@ -956,6 +1049,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** Plain-text body of the message with all bot mentions stripped out. */
 @property(nonatomic, copy, nullable) NSString *argumentText;
+
+/** User uploaded attachment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Attachment *> *attachment;
 
 /**
  *  Rich, formatted and interactive cards that can be used to display UI

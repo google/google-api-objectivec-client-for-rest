@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Run API (run/v1)
+//   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
 //   based on HTTP traffic.

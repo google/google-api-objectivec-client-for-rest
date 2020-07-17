@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRFirestore_ArrayValue;
+@class GTLRFirestore_BatchWriteRequest_Labels;
 @class GTLRFirestore_CollectionSelector;
 @class GTLRFirestore_CompositeFilter;
 @class GTLRFirestore_Cursor;
@@ -102,52 +103,64 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUns
 // GTLRFirestore_FieldFilter.op
 
 /**
- *  Contains. Requires that the field is an array.
+ *  The given `field` is an array that contains the given `value`.
  *
  *  Value: "ARRAY_CONTAINS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
- *  Contains any. Requires that the field is an array and
- *  `value` is a non-empty ArrayValue with at most 10 values.
+ *  The given `field` is an array that contains any of the values in the
+ *  given array.
+ *  Requires:
+ *  * That `value` is a non-empty `ArrayValue` with at most 10 values.
+ *  * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`.
  *
  *  Value: "ARRAY_CONTAINS_ANY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContainsAny;
 /**
- *  Equal.
+ *  The given `field` is equal to the given `value`.
  *
  *  Value: "EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_Equal;
 /**
- *  Greater than. Requires that the field come first in `order_by`.
+ *  The given `field` is greater than the given `value`.
+ *  Requires:
+ *  * That `field` come first in `order_by`.
  *
  *  Value: "GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan;
 /**
- *  Greater than or equal. Requires that the field come first in
- *  `order_by`.
+ *  The given `field` is greater than or equal to the given `value`.
+ *  Requires:
+ *  * That `field` come first in `order_by`.
  *
  *  Value: "GREATER_THAN_OR_EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual;
 /**
- *  In. Requires that `value` is a non-empty ArrayValue with at most 10
- *  values.
+ *  The given `field` is equal to at least one value in the given array.
+ *  Requires:
+ *  * That `value` is a non-empty `ArrayValue` with at most 10 values.
+ *  * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`.
  *
  *  Value: "IN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_In;
 /**
- *  Less than. Requires that the field come first in `order_by`.
+ *  The given `field` is less than the given `value`.
+ *  Requires:
+ *  * That `field` come first in `order_by`.
  *
  *  Value: "LESS_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThan;
 /**
- *  Less than or equal. Requires that the field come first in `order_by`.
+ *  The given `field` is less than or equal to the given `value`.
+ *  Requires:
+ *  * That `field` come first in `order_by`.
  *
  *  Value: "LESS_THAN_OR_EQUAL"
  */
@@ -586,13 +599,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_
 // GTLRFirestore_UnaryFilter.op
 
 /**
- *  Test if a field is equal to NaN.
+ *  The given `field` is equal to `NaN`.
  *
  *  Value: "IS_NAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNan;
 /**
- *  Test if an expression evaluates to Null.
+ *  The given `field` is equal to `NULL`.
  *
  *  Value: "IS_NULL"
  */
@@ -701,6 +714,59 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *transaction;
+
+@end
+
+
+/**
+ *  The request for Firestore.BatchWrite.
+ */
+@interface GTLRFirestore_BatchWriteRequest : GTLRObject
+
+/** Labels associated with this batch write. */
+@property(nonatomic, strong, nullable) GTLRFirestore_BatchWriteRequest_Labels *labels;
+
+/**
+ *  The writes to apply.
+ *  Method does not apply writes atomically and does not guarantee ordering.
+ *  Each write succeeds or fails independently. You cannot write to the same
+ *  document more than once per request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Write *> *writes;
+
+@end
+
+
+/**
+ *  Labels associated with this batch write.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirestore_BatchWriteRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  The response from Firestore.BatchWrite.
+ */
+@interface GTLRFirestore_BatchWriteResponse : GTLRObject
+
+/**
+ *  The status of applying the writes.
+ *  This i-th write status corresponds to the i-th write in the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Status *> *status;
+
+/**
+ *  The result of applying the writes.
+ *  This i-th write result corresponds to the i-th write in the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_WriteResult *> *writeResults;
 
 @end
 
@@ -1123,26 +1189,39 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The operator to filter by.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContains Contains. Requires
- *        that the field is an array. (Value: "ARRAY_CONTAINS")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContainsAny Contains any.
- *        Requires that the field is an array and
- *        `value` is a non-empty ArrayValue with at most 10 values. (Value:
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContains The given `field` is
+ *        an array that contains the given `value`. (Value: "ARRAY_CONTAINS")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContainsAny The given `field`
+ *        is an array that contains any of the values in the
+ *        given array.
+ *        Requires:
+ *        * That `value` is a non-empty `ArrayValue` with at most 10 values.
+ *        * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`. (Value:
  *        "ARRAY_CONTAINS_ANY")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal Equal. (Value: "EQUAL")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThan Greater than. Requires
- *        that the field come first in `order_by`. (Value: "GREATER_THAN")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual Greater than or
- *        equal. Requires that the field come first in
- *        `order_by`. (Value: "GREATER_THAN_OR_EQUAL")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_In In. Requires that `value` is a
- *        non-empty ArrayValue with at most 10
- *        values. (Value: "IN")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThan Less than. Requires that
- *        the field come first in `order_by`. (Value: "LESS_THAN")
- *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThanOrEqual Less than or equal.
- *        Requires that the field come first in `order_by`. (Value:
- *        "LESS_THAN_OR_EQUAL")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal The given `field` is equal to
+ *        the given `value`. (Value: "EQUAL")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThan The given `field` is
+ *        greater than the given `value`.
+ *        Requires:
+ *        * That `field` come first in `order_by`. (Value: "GREATER_THAN")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual The given `field`
+ *        is greater than or equal to the given `value`.
+ *        Requires:
+ *        * That `field` come first in `order_by`. (Value:
+ *        "GREATER_THAN_OR_EQUAL")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_In The given `field` is equal to at
+ *        least one value in the given array.
+ *        Requires:
+ *        * That `value` is a non-empty `ArrayValue` with at most 10 values.
+ *        * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`. (Value: "IN")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThan The given `field` is less
+ *        than the given `value`.
+ *        Requires:
+ *        * That `field` come first in `order_by`. (Value: "LESS_THAN")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThanOrEqual The given `field` is
+ *        less than or equal to the given `value`.
+ *        Requires:
+ *        * That `field` come first in `order_by`. (Value: "LESS_THAN_OR_EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */
@@ -2306,6 +2385,99 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The request for Firestore.PartitionQuery.
+ */
+@interface GTLRFirestore_PartitionQueryRequest : GTLRObject
+
+/**
+ *  The maximum number of partitions to return in this call, subject to
+ *  `partition_count`.
+ *  For example, if `partition_count` = 10 and `page_size` = 8, the first call
+ *  to PartitionQuery will return up to 8 partitions and a `next_page_token`
+ *  if more results exist. A second call to PartitionQuery will return up to
+ *  2 partitions, to complete the total of 10 specified in `partition_count`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  The `next_page_token` value returned from a previous call to
+ *  PartitionQuery that may be used to get an additional set of results.
+ *  There are no ordering guarantees between sets of results. Thus, using
+ *  multiple sets of results will require merging the different result sets.
+ *  For example, two subsequent calls using a page_token may return:
+ *  * cursor B, cursor M, cursor Q
+ *  * cursor A, cursor U, cursor W
+ *  To obtain a complete result set ordered with respect to the results of the
+ *  query supplied to PartitionQuery, the results sets should be merged:
+ *  cursor A, cursor B, cursor M, cursor Q, cursor U, cursor W
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The desired maximum number of partition points.
+ *  The partitions may be returned across multiple pages of results.
+ *  The number must be strictly positive. The actual number of partitions
+ *  returned may be fewer.
+ *  For example, this may be set to one fewer than the number of parallel
+ *  queries to be run, or in running a data pipeline job, one fewer than the
+ *  number of workers or compute instances available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionCount;
+
+/**
+ *  A structured query.
+ *  Filters, order bys, limits, offsets, and start/end cursors are not
+ *  supported.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_StructuredQuery *structuredQuery;
+
+@end
+
+
+/**
+ *  The response for Firestore.PartitionQuery.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "partitions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRFirestore_PartitionQueryResponse : GTLRCollectionObject
+
+/**
+ *  A page token that may be used to request an additional set of results, up
+ *  to the number specified by `partition_count` in the PartitionQuery request.
+ *  If blank, there are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Partition results.
+ *  Each partition is a split point that can be used by RunQuery as a starting
+ *  or end point for the query results. The RunQuery requests must be made with
+ *  the same query supplied to this PartitionQuery request. The partition
+ *  cursors will be ordered according to same ordering as the results of the
+ *  query supplied to PartitionQuery.
+ *  For example, if a PartitionQuery request returns partition cursors A and B,
+ *  running the following three queries will return the entire result set of
+ *  the original query:
+ *  * query, end_at A
+ *  * query, start_at A, end_at B
+ *  * query, start_at B
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Cursor *> *partitions;
+
+@end
+
+
+/**
  *  A precondition on a document, used for conditional operations.
  */
 @interface GTLRFirestore_Precondition : GTLRObject
@@ -2728,10 +2900,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The unary operator to apply.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNan Test if a field is equal to
- *        NaN. (Value: "IS_NAN")
- *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNull Test if an expression
- *        evaluates to Null. (Value: "IS_NULL")
+ *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNan The given `field` is equal to
+ *        `NaN`. (Value: "IS_NAN")
+ *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNull The given `field` is equal to
+ *        `NULL`. (Value: "IS_NULL")
  *    @arg @c kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */

@@ -392,6 +392,7 @@ NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RingHash = @"RING_
 NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RoundRobin = @"ROUND_ROBIN";
 
 // GTLRCompute_BackendService.protocol
+NSString * const kGTLRCompute_BackendService_Protocol_Grpc  = @"GRPC";
 NSString * const kGTLRCompute_BackendService_Protocol_Http  = @"HTTP";
 NSString * const kGTLRCompute_BackendService_Protocol_Http2 = @"HTTP2";
 NSString * const kGTLRCompute_BackendService_Protocol_Https = @"HTTPS";
@@ -958,6 +959,11 @@ NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInsta
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_GRPCHealthCheck.portSpecification
+NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseFixedPort = @"USE_FIXED_PORT";
+NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort = @"USE_NAMED_PORT";
+NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseServingPort = @"USE_SERVING_PORT";
+
 // GTLRCompute_GuestOsFeature.type
 NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified = @"FEATURE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet = @"MULTI_IP_SUBNET";
@@ -968,6 +974,7 @@ NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTI
 NSString * const kGTLRCompute_GuestOsFeature_Type_Windows      = @"WINDOWS";
 
 // GTLRCompute_HealthCheck.type
+NSString * const kGTLRCompute_HealthCheck_Type_Grpc    = @"GRPC";
 NSString * const kGTLRCompute_HealthCheck_Type_Http    = @"HTTP";
 NSString * const kGTLRCompute_HealthCheck_Type_Http2   = @"HTTP2";
 NSString * const kGTLRCompute_HealthCheck_Type_Https   = @"HTTPS";
@@ -3612,6 +3619,31 @@ NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SchemaValidatio
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_TargetGrpcProxyList_Warning.code
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_TargetHttpProxiesScopedList_Warning.code
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -7033,6 +7065,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_GRPCHealthCheck
+//
+
+@implementation GTLRCompute_GRPCHealthCheck
+@dynamic grpcServiceName, port, portName, portSpecification;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_GuestAttributes
 //
 
@@ -7091,9 +7133,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_HealthCheck
 @dynamic checkIntervalSec, creationTimestamp, descriptionProperty,
-         healthyThreshold, http2HealthCheck, httpHealthCheck, httpsHealthCheck,
-         identifier, kind, logConfig, name, region, selfLink, sslHealthCheck,
-         tcpHealthCheck, timeoutSec, type, unhealthyThreshold;
+         grpcHealthCheck, healthyThreshold, http2HealthCheck, httpHealthCheck,
+         httpsHealthCheck, identifier, kind, logConfig, name, region, selfLink,
+         sslHealthCheck, tcpHealthCheck, timeoutSec, type, unhealthyThreshold;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -14839,6 +14881,76 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetGrpcProxy
+//
+
+@implementation GTLRCompute_TargetGrpcProxy
+@dynamic creationTimestamp, descriptionProperty, fingerprint, identifier, kind,
+         name, selfLink, selfLinkWithId, urlMap, validateForProxyless;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetGrpcProxyList
+//
+
+@implementation GTLRCompute_TargetGrpcProxyList
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_TargetGrpcProxy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetGrpcProxyList_Warning
+//
+
+@implementation GTLRCompute_TargetGrpcProxyList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_TargetGrpcProxyList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_TargetGrpcProxyList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_TargetGrpcProxyList_Warning_Data_Item
+@dynamic key, value;
 @end
 
 

@@ -32,19 +32,26 @@
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
 @class GTLRApigee_GoogleCloudApigeeV1Attributes;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
+@class GTLRApigee_GoogleCloudApigeeV1Datastore;
 @class GTLRApigee_GoogleCloudApigeeV1DebugMask;
 @class GTLRApigee_GoogleCloudApigeeV1DebugSession;
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey;
 @class GTLRApigee_GoogleCloudApigeeV1Environment;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment;
+@class GTLRApigee_GoogleCloudApigeeV1ExportRequest;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHook;
 @class GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest;
+@class GTLRApigee_GoogleCloudApigeeV1Instance;
+@class GTLRApigee_GoogleCloudApigeeV1InstanceAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1Keystore;
 @class GTLRApigee_GoogleCloudApigeeV1KeyValueMap;
 @class GTLRApigee_GoogleCloudApigeeV1Organization;
 @class GTLRApigee_GoogleCloudApigeeV1Query;
 @class GTLRApigee_GoogleCloudApigeeV1Reference;
+@class GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Subscription;
 @class GTLRApigee_GoogleCloudApigeeV1SyncAuthorization;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServer;
@@ -99,6 +106,219 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRApigeeQuery_HybridIssuersList
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Create a Datastore for an org
+ *
+ *  Method: apigee.organizations.analytics.datastores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresCreateWithObject:parent:]
+
+/**
+ *  Required. The parent organization name.
+ *  Must be of the form `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Datastore.
+ *
+ *  Create a Datastore for an org
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Datastore to include in
+ *    the query.
+ *  @param parent Required. The parent organization name.
+ *    Must be of the form `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Datastore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a Datastore from an org.
+ *
+ *  Method: apigee.organizations.analytics.datastores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresDeleteWithname:]
+
+/**
+ *  Required. Resource name of the Datastore to be deleted. Must be of the
+ *  form `organizations/{org}/analytics/datastores/{datastoreId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Delete a Datastore from an org.
+ *
+ *  @param name Required. Resource name of the Datastore to be deleted. Must be
+ *    of the
+ *    form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a Datastore
+ *
+ *  Method: apigee.organizations.analytics.datastores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresGetWithname:]
+
+/**
+ *  Required. Resource name of the Datastore to be get. Must be of the
+ *  form `organizations/{org}/analytics/datastores/{datastoreId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Datastore.
+ *
+ *  Get a Datastore
+ *
+ *  @param name Required. Resource name of the Datastore to be get. Must be of
+ *    the
+ *    form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Datastores
+ *
+ *  Method: apigee.organizations.analytics.datastores.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresListWithparent:]
+
+/**
+ *  Required. The parent organization name.
+ *  Must be of the form `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. TargetType is used to fetch all Datastores that match the type
+ */
+@property(nonatomic, copy, nullable) NSString *targetType;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListDatastoresResponse.
+ *
+ *  List Datastores
+ *
+ *  @param parent Required. The parent organization name.
+ *    Must be of the form `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Test if Datastore configuration is correct. This includes checking
+ *  if credentials provided by customer have required permissions in target
+ *  destination storage
+ *
+ *  Method: apigee.organizations.analytics.datastores.test
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresTest : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresTestWithObject:parent:]
+
+/**
+ *  Required. The parent organization name
+ *  Must be of the form `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TestDatastoreResponse.
+ *
+ *  Test if Datastore configuration is correct. This includes checking
+ *  if credentials provided by customer have required permissions in target
+ *  destination storage
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Datastore to include in
+ *    the query.
+ *  @param parent Required. The parent organization name
+ *    Must be of the form `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresTest
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Datastore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a Datastore
+ *
+ *  Method: apigee.organizations.analytics.datastores.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresUpdate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresUpdateWithObject:name:]
+
+/**
+ *  Required. The resource name of datastore to be updated. Must be of the
+ *  form `organizations/{org}/analytics/datastores/{datastoreId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Datastore.
+ *
+ *  Update a Datastore
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Datastore to include in
+ *    the query.
+ *  @param name Required. The resource name of datastore to be updated. Must be
+ *    of the
+ *    form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Datastore *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2840,6 +3060,359 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new attachment of an environment to an environment group.
+ *
+ *  Method: apigee.organizations.envgroups.attachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsCreateWithObject:parent:]
+
+/**
+ *  Required. EnvironmentGroup under which to create the attachment in the
+ *  following
+ *  format: `organizations/{org}/envgroups/{envgroup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a new attachment of an environment to an environment group.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment to include in the
+ *    query.
+ *  @param parent Required. EnvironmentGroup under which to create the
+ *    attachment in the following
+ *    format: `organizations/{org}/envgroups/{envgroup}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an environment group attachment.
+ *
+ *  Method: apigee.organizations.envgroups.attachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsDeleteWithname:]
+
+/**
+ *  Required. Name of the environment group attachment to delete in the
+ *  following format:
+ *  `organizations/{org}/envgroups/{envgroup}/attachments/{attachment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes an environment group attachment.
+ *
+ *  @param name Required. Name of the environment group attachment to delete in
+ *    the following format:
+ *    `organizations/{org}/envgroups/{envgroup}/attachments/{attachment}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an environment group attachment.
+ *
+ *  Method: apigee.organizations.envgroups.attachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsGetWithname:]
+
+/**
+ *  Required. Name of the environment group attachment in the following format:
+ *  `organizations/{org}/envgroups/{envgroup}/attachments/{attachment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment.
+ *
+ *  Gets an environment group attachment.
+ *
+ *  @param name Required. Name of the environment group attachment in the
+ *    following format:
+ *    `organizations/{org}/envgroups/{envgroup}/attachments/{attachment}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all attachments of an environment group.
+ *
+ *  Method: apigee.organizations.envgroups.attachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsListWithparent:]
+
+/**
+ *  Maximum number of environment group attachments to return. The page size
+ *  defaults to 25.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned by a previous ListEnvironmentGroupAttachments call,
+ *  that you can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization in the following format:
+ *  `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListEnvironmentGroupAttachmentsResponse.
+ *
+ *  Lists all attachments of an environment group.
+ *
+ *  @param parent Required. Name of the organization in the following format:
+ *    `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new environment group.
+ *
+ *  Method: apigee.organizations.envgroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsCreateWithObject:parent:]
+
+/**
+ *  ID of the environment group. Overrides any ID in the environment_group
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Name of the organization in which to create the environment group
+ *  in the
+ *  following format: `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a new environment group.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup to
+ *    include in the query.
+ *  @param parent Required. Name of the organization in which to create the
+ *    environment group in the
+ *    following format: `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an environment group.
+ *
+ *  Method: apigee.organizations.envgroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsDeleteWithname:]
+
+/**
+ *  Required. Name of the environment group in the following format:
+ *  `organizations/{org}/envgroups/{envgroup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes an environment group.
+ *
+ *  @param name Required. Name of the environment group in the following format:
+ *    `organizations/{org}/envgroups/{envgroup}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an environment group.
+ *
+ *  Method: apigee.organizations.envgroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsGetWithname:]
+
+/**
+ *  Required. Name of the environment group in the following format:
+ *  `organizations/{org}/envgroups/{envgroup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.
+ *
+ *  Gets an environment group.
+ *
+ *  @param name Required. Name of the environment group in the following format:
+ *    `organizations/{org}/envgroups/{envgroup}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all environment groups.
+ *
+ *  Method: apigee.organizations.envgroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsListWithparent:]
+
+/**
+ *  Maximum number of environment groups to return. The page size defaults
+ *  to 25.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned from a previous ListEnvironmentGroups call, that you
+ *  can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization for which to list environment groups in
+ *  the
+ *  following format: `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListEnvironmentGroupsResponse.
+ *
+ *  Lists all environment groups.
+ *
+ *  @param parent Required. Name of the organization for which to list
+ *    environment groups in the
+ *    following format: `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an environment group.
+ *
+ *  Method: apigee.organizations.envgroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvgroupsPatch : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvgroupsPatchWithObject:name:]
+
+/**
+ *  Required. Name of the environment group to update in the format:
+ *  `organizations/{org}/envgroups/{envgroup}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates an environment group.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup to
+ *    include in the query.
+ *  @param name Required. Name of the environment group to update in the format:
+ *    `organizations/{org}/envgroups/{envgroup}.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvgroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Get a list of metrics and dimensions which can be used for creating
  *  analytics queries and reports.
  *  Each schema element contains the name of the field with its associated type
@@ -2881,6 +3454,117 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Submit a data export job to be processed in the background.
+ *  If the request is successful, the API returns a 201 status, a URI that can
+ *  be used to retrieve the status of the export job, and the `state` value of
+ *  "enqueued".
+ *
+ *  Method: apigee.organizations.environments.analytics.exports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsCreateWithObject:parent:]
+
+/**
+ *  Required. Names of the parent organization and environment.
+ *  Must be of the form `organizations/{org}/environments/{env}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Export.
+ *
+ *  Submit a data export job to be processed in the background.
+ *  If the request is successful, the API returns a 201 status, a URI that can
+ *  be used to retrieve the status of the export job, and the `state` value of
+ *  "enqueued".
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ExportRequest to include
+ *    in the query.
+ *  @param parent Required. Names of the parent organization and environment.
+ *    Must be of the form `organizations/{org}/environments/{env}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ExportRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the details and status of an analytics export job.
+ *  If the export job is still in progress, its `state` is set to "running".
+ *  After the export job has completed successfully, its `state` is set to
+ *  "completed".
+ *  If the export job fails, its `state` is set to `failed`.
+ *
+ *  Method: apigee.organizations.environments.analytics.exports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsGetWithname:]
+
+/** Required. Resource name of the export to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Export.
+ *
+ *  Gets the details and status of an analytics export job.
+ *  If the export job is still in progress, its `state` is set to "running".
+ *  After the export job has completed successfully, its `state` is set to
+ *  "completed".
+ *  If the export job fails, its `state` is set to `failed`.
+ *
+ *  @param name Required. Resource name of the export to get.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the details and status of all analytics export jobs belonging to the
+ *  parent organization and environment.
+ *
+ *  Method: apigee.organizations.environments.analytics.exports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsListWithparent:]
+
+/**
+ *  Required. Names of the parent organization and environment.
+ *  Must be of the form `organizations/{org}/environments/{env}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListExportsResponse.
+ *
+ *  Lists the details and status of all analytics export jobs belonging to the
+ *  parent organization and environment.
+ *
+ *  @param parent Required. Names of the parent organization and environment.
+ *    Must be of the form `organizations/{org}/environments/{env}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3155,6 +3839,110 @@ NS_ASSUME_NONNULL_BEGIN
  *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeployments
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a report for a dry run analysis of a DeployApiProxy request
+ *  without committing the deployment.
+ *  In addition to the standard validations performed when adding deployments,
+ *  additional analysis will be done to detect possible traffic routing changes
+ *  that would result from this deployment being created. Any potential routing
+ *  conflicts or unsafe changes will be reported in the response. This routing
+ *  analysis is not performed for a non-dry-run DeployApiProxy request.
+ *
+ *  Method: apigee.organizations.environments.apis.revisions.deployments.generateDeployChangeReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReportWithname:]
+
+/**
+ *  Base path where the API proxy revision should be deployed. Defaults to '/'
+ *  if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *basepath;
+
+/**
+ *  Name of the API proxy revision deployment in the following format:
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Flag that specifies whether to force the deployment of the new revision
+ *  over the currently deployed revision by overriding conflict checks.
+ */
+@property(nonatomic, assign) BOOL override;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReport.
+ *
+ *  Generates a report for a dry run analysis of a DeployApiProxy request
+ *  without committing the deployment.
+ *  In addition to the standard validations performed when adding deployments,
+ *  additional analysis will be done to detect possible traffic routing changes
+ *  that would result from this deployment being created. Any potential routing
+ *  conflicts or unsafe changes will be reported in the response. This routing
+ *  analysis is not performed for a non-dry-run DeployApiProxy request.
+ *
+ *  @param name Name of the API proxy revision deployment in the following
+ *    format:
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a report for a dry run analysis of an UndeployApiProxy request
+ *  without committing the undeploy.
+ *  In addition to the standard validations performed when removing
+ *  deployments, additional analysis will be done to detect possible traffic
+ *  routing changes that would result from this deployment being removed. Any
+ *  potential routing conflicts or unsafe changes will be reported in the
+ *  response. This routing analysis is not performed for a non-dry-run
+ *  UndeployApiProxy request.
+ *
+ *  Method: apigee.organizations.environments.apis.revisions.deployments.generateUndeployChangeReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReport : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReportWithname:]
+
+/**
+ *  Name of the API proxy revision deployment in the following format:
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReport.
+ *
+ *  Generates a report for a dry run analysis of an UndeployApiProxy request
+ *  without committing the undeploy.
+ *  In addition to the standard validations performed when removing
+ *  deployments, additional analysis will be done to detect possible traffic
+ *  routing changes that would result from this deployment being removed. Any
+ *  potential routing conflicts or unsafe changes will be reported in the
+ *  response. This routing analysis is not performed for a non-dry-run
+ *  UndeployApiProxy request.
+ *
+ *  @param name Name of the API proxy revision deployment in the following
+ *    format:
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReport
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -5554,6 +6342,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the deployed ingress configuration for an organization.
+ *
+ *  Method: apigee.organizations.getDeployedIngressConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsGetDeployedIngressConfigWithname:]
+
+/**
+ *  Name of the deployed configuration for the organization in the following
+ *  format: 'organizations/{org}/deployedIngressConfig'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1IngressConfig.
+ *
+ *  Gets the deployed ingress configuration for an organization.
+ *
+ *  @param name Name of the deployed configuration for the organization in the
+ *    following
+ *    format: 'organizations/{org}/deployedIngressConfig'.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the service accounts with the permissions required to allow
  *  the Synchronizer to download environment data from the control plane.
  *  An ETag is returned in the response to `getSyncAuthorization`.
@@ -5610,6 +6431,365 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new attachment of an environment to an instance.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.attachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsCreateWithObject:parent:]
+
+/**
+ *  Required. Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a new attachment of an environment to an instance.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1InstanceAttachment to
+ *    include in the query.
+ *  @param parent Required. Name of the instance. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/instances/{instance}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1InstanceAttachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an attachment.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.attachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsDeleteWithname:]
+
+/**
+ *  Required. Name of the attachment. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/instances/{instance}/attachments/{attachment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes an attachment.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param name Required. Name of the attachment. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/instances/{instance}/attachments/{attachment}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an attachment.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.attachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsGetWithname:]
+
+/**
+ *  Required. Name of the attachment. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/instances/{instance}/attachments/{attachment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1InstanceAttachment.
+ *
+ *  Gets an attachment.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param name Required. Name of the attachment. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/instances/{instance}/attachments/{attachment}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all attachments to an instance.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.attachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsListWithparent:]
+
+/** Maximum number of instance attachments to return. Defaults to 25. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned by a previous ListInstanceAttachments call, that you
+ *  can use to retrieve the next page of content.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListInstanceAttachmentsResponse.
+ *
+ *  Lists all attachments to an instance.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param parent Required. Name of the organization. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/instances/{instance}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an Apigee runtime instance. The instance is accessible from the
+ *  authorized network configured on the organization.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesCreateWithObject:parent:]
+
+/**
+ *  Required. Name of the organization. Use the following structure in your
+ *  request:
+ *  `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates an Apigee runtime instance. The instance is accessible from the
+ *  authorized network configured on the organization.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Instance to include in
+ *    the query.
+ *  @param parent Required. Name of the organization. Use the following
+ *    structure in your request:
+ *    `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Instance *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Apigee runtime instance. The instance stops serving
+ *  requests and the runtime data is deleted.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesDeleteWithname:]
+
+/**
+ *  Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instance/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes an Apigee runtime instance. The instance stops serving
+ *  requests and the runtime data is deleted.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param name Name of the instance. Use the following structure in your
+ *    request:
+ *    `organizations/{org}/instance/{instance}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details for an Apigee runtime instance.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesGetWithname:]
+
+/**
+ *  Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Instance.
+ *
+ *  Gets the details for an Apigee runtime instance.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param name Name of the instance. Use the following structure in your
+ *    request:
+ *    `organizations/{org}/instances/{instance}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Apigee runtime instances for the organization.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesListWithparent:]
+
+/** Maximum number of instances to return. Defaults to 25. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned from a previous ListInstances call, that you can
+ *  use to retrieve the next page of content.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Name of the organization. Use the following structure in your request:
+ *  `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListInstancesResponse.
+ *
+ *  Lists all Apigee runtime instances for the organization.
+ *  **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param parent Name of the organization. Use the following structure in your
+ *    request:
+ *    `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reports the latest status for a runtime instance.
+ *
+ *  Method: apigee.organizations.instances.reportStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesReportStatus : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesReportStatusWithObject:instance:]
+
+/**
+ *  The name of the instance reporting this status. For SaaS the request
+ *  will be rejected if no instance exists under this name.
+ *  Format is organizations/{org}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusResponse.
+ *
+ *  Reports the latest status for a runtime instance.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusRequest to include in
+ *    the query.
+ *  @param instance The name of the instance reporting this status. For SaaS the
+ *    request
+ *    will be rejected if no instance exists under this name.
+ *    Format is organizations/{org}/instances/{instance}
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesReportStatus
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusRequest *)object
+                       instance:(NSString *)instance;
 
 @end
 

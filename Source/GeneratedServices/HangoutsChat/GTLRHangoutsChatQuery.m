@@ -92,6 +92,25 @@
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Attachment class];
+  query.loggingName = @"chat.spaces.messages.attachments.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesMessagesCreate
 
 @dynamic parent, threadKey;

@@ -78,6 +78,7 @@
 @class GTLRDataflow_KeyRangeDataDiskAssignment;
 @class GTLRDataflow_KeyRangeLocation;
 @class GTLRDataflow_LaunchFlexTemplateParameter;
+@class GTLRDataflow_LaunchFlexTemplateParameter_LaunchOptions;
 @class GTLRDataflow_LaunchFlexTemplateParameter_Parameters;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
 @class GTLRDataflow_LaunchTemplateParameters_TransformNameMapping;
@@ -3729,11 +3730,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
+ *  Launch options for this flex template job. This is a common set of options
+ *  across languages and templates. This should not be used to pass job
+ *  parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_LaunchOptions *launchOptions;
+
+/**
  *  The parameters for FlexTemplate.
  *  Ex. {"num_workers":"5"}
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_Parameters *parameters;
 
+@end
+
+
+/**
+ *  Launch options for this flex template job. This is a common set of options
+ *  across languages and templates. This should not be used to pass job
+ *  parameters.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_LaunchFlexTemplateParameter_LaunchOptions : GTLRObject
 @end
 
 
@@ -7270,6 +7292,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
  *  being processed by a worker.
  */
 @interface GTLRDataflow_WorkItemServiceState : GTLRObject
+
+/**
+ *  If set, a request to complete the work item with the given status. This
+ *  will not be set to OK, unless supported by the specific kind of WorkItem.
+ *  It can be used for the backend to indicate a WorkItem must terminate, e.g.,
+ *  for aborting work.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_Status *completeWorkStatus;
 
 /**
  *  Other data returned by the service, specific to the particular

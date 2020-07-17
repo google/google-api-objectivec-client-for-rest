@@ -862,11 +862,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  message must contain either a non-empty data field or at least one
  *  attribute.
  *  Note that client libraries represent this object differently
- *  depending on the language. See the corresponding
- *  <a href="https://cloud.google.com/pubsub/docs/reference/libraries">client
- *  library documentation</a> for more information. See
- *  <a href="https://cloud.google.com/pubsub/quotas">Quotas and limits</a>
- *  for more information about message limits.
+ *  depending on the language. See the corresponding [client library
+ *  documentation](https://cloud.google.com/pubsub/docs/reference/libraries) for
+ *  more information. See [quotas and limits]
+ *  (https://cloud.google.com/pubsub/quotas) for more information about message
+ *  limits.
  */
 @interface GTLRCloudScheduler_PubsubMessage : GTLRObject
 

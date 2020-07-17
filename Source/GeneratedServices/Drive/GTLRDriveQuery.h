@@ -50,7 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusDomain;
 /**
- *  Files owned by or shared to the user.
+ *  Files owned by or shared to the user. If a user has permissions on a Shared
+ *  Drive, the files inside it won't be retrieved unless the user has created,
+ *  opened, or shared the file.
  *
  *  Value: "user"
  */
@@ -898,7 +900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Creates a copy of a file and applies any requested updates with patch
- *  semantics.
+ *  semantics. Folders cannot be copied.
  *
  *  Method: drive.files.copy
  *
@@ -968,7 +970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_File.
  *
  *  Creates a copy of a file and applies any requested updates with patch
- *  semantics.
+ *  semantics. Folders cannot be copied.
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param fileId The ID of the file.
@@ -1309,9 +1311,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesList]
 
 /**
- *  Bodies of items (files/documents) to which the query applies. Supported
- *  bodies are 'user', 'domain', 'drive' and 'allDrives'. Prefer 'user' or
- *  'drive' to 'allDrives' for efficiency.
+ *  Groupings of files to which the query applies. Supported groupings are:
+ *  'user' (files created by, opened by, or shared directly with the user),
+ *  'drive' (files in the specified shared drive as indicated by the 'driveId'),
+ *  'domain' (files shared to the user's domain), and 'allDrives' (A combination
+ *  of 'user' and 'drive' for all drives where the user is a member). When able,
+ *  use 'user' or 'drive', instead of 'allDrives', for efficiency.
  */
 @property(nonatomic, copy, nullable) NSString *corpora;
 
@@ -1321,8 +1326,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Likely values:
  *    @arg @c kGTLRDriveCorpusDomain Files shared to the user's domain. (Value:
  *        "domain")
- *    @arg @c kGTLRDriveCorpusUser Files owned by or shared to the user. (Value:
- *        "user")
+ *    @arg @c kGTLRDriveCorpusUser Files owned by or shared to the user. If a
+ *        user has permissions on a Shared Drive, the files inside it won't be
+ *        retrieved unless the user has created, opened, or shared the file.
+ *        (Value: "user")
  */
 @property(nonatomic, copy, nullable) NSString *corpus;
 
@@ -1418,7 +1425,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a file's metadata and/or content with patch semantics.
+ *  Updates a file's metadata and/or content. This method supports patch
+ *  semantics.
  *
  *  Method: drive.files.update
  *
@@ -1495,7 +1503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_File.
  *
- *  Updates a file's metadata and/or content with patch semantics.
+ *  Updates a file's metadata and/or content. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param fileId The ID of the file.

@@ -1297,7 +1297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  A minimal index definition.
+ *  Datastore composite index definition.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1Index : GTLRObject
 

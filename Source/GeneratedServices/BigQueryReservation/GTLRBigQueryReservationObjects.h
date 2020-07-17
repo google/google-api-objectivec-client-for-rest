@@ -310,6 +310,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentEndTime;
 
 /**
+ *  Output only. The start of the current commitment period. It is applicable
+ *  only for
+ *  ACTIVE capacity commitments.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
+
+/**
  *  Output only. For FAILED commitment plan, provides the reason of failure.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Status *failureStatus;
@@ -698,6 +705,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *slotCapacity;
+
+@end
+
+
+/**
+ *  The response for ReservationService.SearchAllAssignments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigQueryReservation_SearchAllAssignmentsResponse : GTLRCollectionObject
+
+/**
+ *  List of assignments visible to the user.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_Assignment *> *assignments;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no
+ *  more results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

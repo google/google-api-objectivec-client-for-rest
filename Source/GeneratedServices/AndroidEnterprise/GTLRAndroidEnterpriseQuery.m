@@ -16,12 +16,12 @@
 // Constants
 
 // keyType
-NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"GOOGLE_CREDENTIALS";
-NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"PKCS12";
+NSString * const kGTLRAndroidEnterpriseKeyTypeGoogleCredentials = @"googleCredentials";
+NSString * const kGTLRAndroidEnterpriseKeyTypePkcs12           = @"pkcs12";
 
 // requestMode
-NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately = @"RETURN_IMMEDIATELY";
-NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"WAIT_FOR_NOTIFICATIONS";
+NSString * const kGTLRAndroidEnterpriseRequestModeReturnImmediately = @"returnImmediately";
+NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotifications = @"waitForNotifications";
 
 // ----------------------------------------------------------------------------
 // Query Classes

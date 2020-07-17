@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Search Console URL Testing Tools API (searchconsole/v1)
+//   Google Search Console API (searchconsole/v1)
 // Description:
-//   Provides tools for running validation tests against single URLs
+//   The Search Console API provides access to both Search Console data
+//   (verified users only) and to public information on an URL basis (anyone)
 // Documentation:
 //   https://developers.google.com/webmaster-tools/search-console-api/
 
@@ -28,9 +29,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Service for executing Google Search Console URL Testing Tools API queries.
+ *  Service for executing Google Search Console API queries.
  *
- *  Provides tools for running validation tests against single URLs
+ *  The Search Console API provides access to both Search Console data (verified
+ *  users only) and to public information on an URL basis (anyone)
  */
 @interface GTLRSearchConsoleService : GTLRService
 
