@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Firebase Hosting API (firebasehosting/v1beta1)
+//   Firebase Hosting API (firebasehosting/v1)
 // Description:
 //   The Firebase Hosting REST API enables programmatic and customizable
 //   deployments to your Firebase-hosted sites. Use this REST API to deploy new
@@ -28,39 +28,6 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
-
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
-/**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatform;
-/**
- *  Authorization scope: View your data across Google Cloud Platform services
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingCloudPlatformReadOnly;
-/**
- *  Authorization scope: View and administer all your Firebase data and settings
- *
- *  Value "https://www.googleapis.com/auth/firebase"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingFirebase;
-/**
- *  Authorization scope: View all your Firebase data and settings
- *
- *  Value "https://www.googleapis.com/auth/firebase.readonly"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseHostingFirebaseReadonly;
-
-// ----------------------------------------------------------------------------
-//   GTLRFirebaseHostingService
-//
 
 /**
  *  Service for executing Firebase Hosting API queries.

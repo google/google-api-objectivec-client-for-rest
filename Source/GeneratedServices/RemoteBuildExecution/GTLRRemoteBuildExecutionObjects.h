@@ -411,6 +411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Unknown;
 /**
+ *  The bot tried to upload files having a total size that is too large.
+ *
+ *  Value: "UPLOAD_OUTPUTS_BYTES_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsBytesLimitExceeded;
+/**
  *  The bot failed to upload the outputs.
  *
  *  Value: "UPLOAD_OUTPUTS_ERROR"
@@ -2256,6 +2262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *        (Value: "REMOTE_CAS_UPLOAD_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Unknown
  *        Unknown error. (Value: "UNKNOWN")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsBytesLimitExceeded
+ *        The bot tried to upload files having a total size that is too large.
+ *        (Value: "UPLOAD_OUTPUTS_BYTES_LIMIT_EXCEEDED")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_UploadOutputsError
  *        The bot failed to upload the outputs. (Value: "UPLOAD_OUTPUTS_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotFound

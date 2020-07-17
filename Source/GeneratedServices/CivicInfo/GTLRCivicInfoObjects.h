@@ -406,7 +406,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
 /** The name of the office for this contest. */
 @property(nonatomic, copy, nullable) NSString *office;
 
-/** If this is a partisan election, the name of the party it is for. */
+/**
+ *  If this is a partisan election, the name of the party/parties it is for.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *primaryParties;
+
+/**
+ *  [DEPRECATED] If this is a partisan election, the name of the party it is
+ *  for. This field as deprecated in favor of the array "primaryParties", as
+ *  contests may contain more than one party.
+ */
 @property(nonatomic, copy, nullable) NSString *primaryParty;
 
 /**

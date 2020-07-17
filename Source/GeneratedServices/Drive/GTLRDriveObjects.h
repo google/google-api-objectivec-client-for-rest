@@ -31,6 +31,7 @@
 @class GTLRDrive_Channel_Params;
 @class GTLRDrive_Comment;
 @class GTLRDrive_Comment_QuotedFileContent;
+@class GTLRDrive_ContentRestriction;
 @class GTLRDrive_Drive;
 @class GTLRDrive_Drive_BackgroundImageFile;
 @class GTLRDrive_Drive_Capabilities;
@@ -553,6 +554,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A restriction for accessing the content of the file.
+ */
+@interface GTLRDrive_ContentRestriction : GTLRObject
+
+/**
+ *  Whether the content of the file is read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
+
+/**
+ *  Reason for why the content of the file is restricted. This is only mutable
+ *  on requests that also set readOnly=true.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  The user who set the content restriction. Only populated if readOnly is
+ *  true.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_User *restrictingUser;
+
+/**
+ *  The time at which the content restriction was set (formatted RFC 3339
+ *  timestamp). Only populated if readOnly is true.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *restrictionTime;
+
+/**
+ *  The type of the content restriction. Currently the only possible value is
+ *  globalContentRestriction.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Representation of a shared drive.
  */
 @interface GTLRDrive_Drive : GTLRObject
@@ -922,6 +962,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_ContentHints *contentHints;
 
 /**
+ *  Restrictions for accessing the content of the file. Only populated if such a
+ *  restriction exists.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_ContentRestriction *> *contentRestrictions;
+
+/**
  *  Whether the options to copy, print, or download this file, should be
  *  disabled for readers and commenters.
  *
@@ -1188,8 +1234,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether the file has been trashed, either explicitly or from a trashed
- *  parent folder. Only the owner may trash a file, and other users cannot see
- *  files in the owner's trash.
+ *  parent folder. Only the owner may trash a file. The trashed item is excluded
+ *  from all files.list responses returned for any user who does not own the
+ *  file. However, all users with access to the file can see the trashed item
+ *  metadata in an API response. All users with access can copy, download,
+ *  export, and share the file.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1382,6 +1431,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canModifyContent;
+
+/**
+ *  Whether the current user can modify restrictions on content of this file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canModifyContentRestriction;
 
 /**
  *  Whether the current user can move children of this folder outside of the

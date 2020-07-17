@@ -2269,7 +2269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Maximum number of items to return. Zero means no maximum.
+ *  Maximum number of items to return. The default is 30 if unspecified or `0`.
  *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -2523,7 +2523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Maximum number of items to return. Zero means no maximum.
+ *  Maximum number of items to return. The default is 30 if unspecified or `0`.
  *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -3101,7 +3101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 @property(nonatomic, copy, nullable) NSString *courseId;
 
 /**
- *  Maximum number of items to return. Zero means no maximum.
+ *  Maximum number of items to return. The default is 500 if unspecified or
+ *  `0`.
  *  The server may return fewer than the specified number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -3160,8 +3161,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  * `PERMISSION_DENIED` if:
  *  * the authenticated user does not have permission to receive
  *  notifications from the requested field; or
- *  * the credential provided does not include the appropriate scope for
- *  the requested feed.
+ *  * the current user has not granted access to the current Cloud project
+ *  with the appropriate scope for the requested feed. Note that
+ *  domain-wide delegation of authority is not currently supported for
+ *  this purpose. If the request has the appropriate scope, but no grant
+ *  exists, a Request Errors is returned.
  *  * another access error is encountered.
  *  * `INVALID_ARGUMENT` if:
  *  * no `cloudPubsubTopic` is specified, or the specified
@@ -3199,8 +3203,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  * `PERMISSION_DENIED` if:
  *  * the authenticated user does not have permission to receive
  *  notifications from the requested field; or
- *  * the credential provided does not include the appropriate scope for
- *  the requested feed.
+ *  * the current user has not granted access to the current Cloud project
+ *  with the appropriate scope for the requested feed. Note that
+ *  domain-wide delegation of authority is not currently supported for
+ *  this purpose. If the request has the appropriate scope, but no grant
+ *  exists, a Request Errors is returned.
  *  * another access error is encountered.
  *  * `INVALID_ARGUMENT` if:
  *  * no `cloudPubsubTopic` is specified, or the specified

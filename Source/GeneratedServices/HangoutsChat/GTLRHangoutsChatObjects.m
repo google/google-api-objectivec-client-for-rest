@@ -23,6 +23,11 @@ NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage = @"UPDATE_
 NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified = @"ANNOTATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention = @"USER_MENTION";
 
+// GTLRHangoutsChat_Attachment.source
+NSString * const kGTLRHangoutsChat_Attachment_Source_DriveFile = @"DRIVE_FILE";
+NSString * const kGTLRHangoutsChat_Attachment_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Attachment_Source_UploadedContent = @"UPLOADED_CONTENT";
+
 // GTLRHangoutsChat_CardHeader.imageStyle
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar = @"AVATAR";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image = @"IMAGE";
@@ -154,6 +159,27 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_Attachment
+//
+
+@implementation GTLRHangoutsChat_Attachment
+@dynamic attachmentDataRef, contentName, contentType, downloadUri, driveDataRef,
+         name, source, thumbnailUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_AttachmentDataRef
+//
+
+@implementation GTLRHangoutsChat_AttachmentDataRef
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Button
 //
 
@@ -209,6 +235,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @implementation GTLRHangoutsChat_DeprecatedEvent
 @dynamic action, configCompleteRedirectUrl, eventTime, message, space,
          threadKey, token, type, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DriveDataRef
+//
+
+@implementation GTLRHangoutsChat_DriveDataRef
+@dynamic driveFileId;
 @end
 
 
@@ -330,12 +366,14 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Message
-@dynamic actionResponse, annotations, argumentText, cards, createTime,
-         fallbackText, name, previewText, sender, space, text, thread;
+@dynamic actionResponse, annotations, argumentText, attachment, cards,
+         createTime, fallbackText, name, previewText, sender, space, text,
+         thread;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"annotations" : [GTLRHangoutsChat_Annotation class],
+    @"attachment" : [GTLRHangoutsChat_Attachment class],
     @"cards" : [GTLRHangoutsChat_Card class]
   };
   return map;

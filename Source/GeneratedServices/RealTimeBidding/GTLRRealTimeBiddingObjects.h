@@ -382,6 +382,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvi
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_InvalidRedirect;
 /**
+ *  Unknown redirect error.
+ *
+ *  Value: "REDIRECT_ERROR_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_RedirectErrorUnknown;
+/**
  *  Default value that should never be used.
  *
  *  Value: "REDIRECTION_ERROR_UNSPECIFIED"
@@ -1211,6 +1217,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *        Got a redirect but it was empty. (Value: "EMPTY_REDIRECT")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_InvalidRedirect
  *        Got a redirect but it was invalid. (Value: "INVALID_REDIRECT")
+ *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_RedirectErrorUnknown
+ *        Unknown redirect error. (Value: "REDIRECT_ERROR_UNKNOWN")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionError_RedirectionErrorUnspecified
  *        Default value that should never be used. (Value:
  *        "REDIRECTION_ERROR_UNSPECIFIED")

@@ -133,13 +133,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orche
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified;
 /**
+ *  Android virtual device using emulator in nested virtualization. Equivalent
+ *  to Android Studio.
+ *
+ *  Value: "EMULATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Emulator;
+/**
  *  Actual hardware.
  *
  *  Value: "PHYSICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Physical;
 /**
- *  A software stack that simulates the device.
+ *  Android virtual device using Compute Engine native virtualization. Firebase
+ *  Test Lab only.
  *
  *  Value: "VIRTUAL"
  */
@@ -992,10 +1000,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Likely values:
  *    @arg @c kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified Do not use.
  *        For proto versioning only. (Value: "DEVICE_FORM_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_AndroidModel_Form_Emulator Android virtual device
+ *        using emulator in nested virtualization. Equivalent
+ *        to Android Studio. (Value: "EMULATOR")
  *    @arg @c kGTLRTesting_AndroidModel_Form_Physical Actual hardware. (Value:
  *        "PHYSICAL")
- *    @arg @c kGTLRTesting_AndroidModel_Form_Virtual A software stack that
- *        simulates the device. (Value: "VIRTUAL")
+ *    @arg @c kGTLRTesting_AndroidModel_Form_Virtual Android virtual device
+ *        using Compute Engine native virtualization. Firebase
+ *        Test Lab only. (Value: "VIRTUAL")
  */
 @property(nonatomic, copy, nullable) NSString *form;
 
@@ -1968,7 +1980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Required. Group of packages, classes, and/or test methods to be run for
- *  each shard. The number of shard_test_targets must be >= 1 and <= 50.
+ *  each shard. When any physical devices are selected, the number of
+ *  test_targets_for_shard must be >= 1 and <= 50. When no physical devices are
+ *  selected, the number must be >= 1 and <= 250.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestTargetsForShard *> *testTargetsForShard;
 
@@ -2080,10 +2094,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Required. Where to put the content on the device. Must be an absolute,
- *  whitelisted path. If the file exists, it will be replaced.
+ *  allowlisted path. If the file exists, it will be replaced.
  *  The following device-side directories and any of their subdirectories are
- *  whitelisted:
- *  <p>${EXTERNAL_STORAGE}, or /sdcard</p>
+ *  allowlisted:
+ *  <p>${EXTERNAL_STORAGE}, /sdcard, or /storage</p>
  *  <p>${ANDROID_DATA}/local/tmp, or /data/local/tmp</p>
  *  <p>Specifying a path outside of these directory trees is invalid.
  *  <p> The paths /sdcard and /data will be made available and treated as
@@ -2669,7 +2683,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  List of directories on the device to upload to GCS at the end of the test;
- *  they must be absolute paths under /sdcard or /data/local/tmp.
+ *  they must be absolute paths under /sdcard, /storage or /data/local/tmp.
  *  Path names are restricted to characters a-z A-Z 0-9 _ - . + and /
  *  Note: The paths /sdcard and /data will be made available and treated as
  *  implicit path substitutions. E.g. if /sdcard on a particular device does
@@ -2677,6 +2691,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  storage path prefix for that device.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directoriesToPull;
+
+/**
+ *  Whether to prevent all runtime permissions to be granted at app install
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dontAutograntPermissions;
 
 /**
  *  Environment variables to set for the test (only applicable for
@@ -2876,7 +2897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_UniformSharding : GTLRObject
 
 /**
- *  Required. Total number of shards. The number must be >= 1 and <= 50.
+ *  Required. Total number of shards. When any physical devices are selected,
+ *  the number must be >= 1 and <= 50. When no physical devices are selected,
+ *  the number must be >= 1 and <= 250.
  *
  *  Uses NSNumber of intValue.
  */

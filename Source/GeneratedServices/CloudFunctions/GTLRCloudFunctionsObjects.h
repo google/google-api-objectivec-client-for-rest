@@ -451,6 +451,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
 @property(nonatomic, strong, nullable) NSNumber *availableMemoryMb;
 
 /**
+ *  Output only. The Cloud Build ID of the latest successful deployment of the
+ *  function.
+ */
+@property(nonatomic, copy, nullable) NSString *buildId;
+
+/**
  *  User-provided description of a function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1077,6 +1083,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
  *  Metadata describing an Operation
  */
 @interface GTLRCloudFunctions_OperationMetadataV1 : GTLRObject
+
+/**
+ *  The Cloud Build ID of the function created or updated by an API call.
+ *  This field is only populated for Create and Update operations.
+ */
+@property(nonatomic, copy, nullable) NSString *buildId;
 
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_OperationMetadataV1_Request *request;

@@ -16,6 +16,71 @@
 
 @end
 
+@implementation GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Insight class];
+  query.loggingName = @"recommender.projects.locations.insightTypes.insights.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/insights";
+  GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse class];
+  query.loggingName = @"recommender.projects.locations.insightTypes.insights.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsMarkAccepted
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:markAccepted";
+  GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsMarkAccepted *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRecommender_GoogleCloudRecommenderV1Insight class];
+  query.loggingName = @"recommender.projects.locations.insightTypes.insights.markAccepted";
+  return query;
+}
+
+@end
+
 @implementation GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsGet
 
 @dynamic name;

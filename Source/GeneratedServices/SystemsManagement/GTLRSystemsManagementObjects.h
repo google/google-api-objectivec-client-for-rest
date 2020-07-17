@@ -24,6 +24,7 @@
 @class GTLRSystemsManagement_AptSettings;
 @class GTLRSystemsManagement_ExecStep;
 @class GTLRSystemsManagement_ExecStepConfig;
+@class GTLRSystemsManagement_FixedOrPercent;
 @class GTLRSystemsManagement_GcsObject;
 @class GTLRSystemsManagement_GooSettings;
 @class GTLRSystemsManagement_MonthlySchedule;
@@ -36,6 +37,7 @@
 @class GTLRSystemsManagement_PatchJob;
 @class GTLRSystemsManagement_PatchJobInstanceDetails;
 @class GTLRSystemsManagement_PatchJobInstanceDetailsSummary;
+@class GTLRSystemsManagement_PatchRollout;
 @class GTLRSystemsManagement_RecurringSchedule;
 @class GTLRSystemsManagement_TimeOfDay;
 @class GTLRSystemsManagement_TimeZone;
@@ -287,6 +289,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetail
  *  Value: "TIMED_OUT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_TimedOut;
+
+// ----------------------------------------------------------------------------
+// GTLRSystemsManagement_PatchRollout.mode
+
+/**
+ *  Patches are applied to VMs in all zones at the same time.
+ *
+ *  Value: "CONCURRENT_ZONES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ConcurrentZones;
+/**
+ *  Mode must be specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ModeUnspecified;
+/**
+ *  Patches are applied one zone at a time. The patch job begins in the
+ *  region with the lowest number of targeted VMs. Within the region,
+ *  patching begins in the zone with the lowest number of targeted VMs. If
+ *  multiple regions (or zones within a region) have the same number of
+ *  targeted VMs, a tie-breaker is achieved by sorting the regions or zones
+ *  in alphabetical order.
+ *
+ *  Value: "ZONE_BY_ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ZoneByZone;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_RecurringSchedule.frequency
@@ -597,6 +626,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchConfig *patchConfig;
 
+/** Rollout strategy of the patch job. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchRollout *rollout;
+
+@end
+
+
+/**
+ *  Message encapsulating a value that can be either absolute ("fixed") or
+ *  relative ("percent") to a value.
+ */
+@interface GTLRSystemsManagement_FixedOrPercent : GTLRObject
+
+/**
+ *  Specifies a fixed value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fixed;
+
+/**
+ *  Specifies the relative value defined as a percentage, which will be
+ *  multiplied by a reference value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percent;
+
 @end
 
 
@@ -858,9 +914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 /** Required. Schedule recurring executions. */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_RecurringSchedule *recurringSchedule;
 
+/** Optional. Rollout strategy of the patch job. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchRollout *rollout;
+
 /**
  *  Output only. Time the patch deployment was last updated. Timestamp is in
- *  [RFC3339]("https://www.ietf.org/rfc/rfc3339.txt) text format.
+ *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -898,7 +957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Targets any of the VM instances specified. Instances are specified by their
- *  URI in the form `zones/[ZONE]/instances/[INSTANCE_NAME],
+ *  URI in the form `zones/[ZONE]/instances/[INSTANCE_NAME]`,
  *  `projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`, or
  *  `https://www.googleapis.com/compute/v1/projects/[PROJECT_ID]/zones/[ZONE]/instances/[INSTANCE_NAME]`
  */
@@ -1016,6 +1075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *percentComplete;
+
+/** Rollout strategy being applied. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchRollout *rollout;
 
 /**
  *  The current state of the PatchJob.
@@ -1238,6 +1300,58 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timedOutInstanceCount;
+
+@end
+
+
+/**
+ *  Patch rollout configuration specifications. Contains details on the
+ *  concurrency control when applying patch(es) to all targeted VMs.
+ */
+@interface GTLRSystemsManagement_PatchRollout : GTLRObject
+
+/**
+ *  The maximum number (or percentage) of VMs per zone to disrupt at any given
+ *  moment. The number of VMs calculated from multiplying the percentage by the
+ *  total number of VMs in a zone is rounded up.
+ *  During patching, a VM is considered disrupted from the time the agent is
+ *  notified to begin until patching has completed. This disruption time
+ *  includes the time to complete reboot and any post-patch steps.
+ *  A VM contributes to the disruption budget if its patching operation fails
+ *  either when applying the patches, running pre or post patch steps, or if it
+ *  fails to respond with a success notification before timing out. VMs that
+ *  are not running or do not have an active agent do not count toward this
+ *  disruption budget.
+ *  For zone-by-zone rollouts, if the disruption budget in a zone is exceeded,
+ *  the patch job stops, because continuing to the next zone requires
+ *  completion of the patch process in the previous zone.
+ *  For example, if the disruption budget has a fixed value of `10`, and 8 VMs
+ *  fail to patch in the current zone, the patch job continues to patch 2 VMs
+ *  at a time until the zone is completed. When that zone is completed
+ *  successfully, patching begins with 10 VMs at a time in the next zone. If 10
+ *  VMs in the next zone fail to patch, the patch job stops.
+ */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_FixedOrPercent *disruptionBudget;
+
+/**
+ *  Mode of the patch rollout.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSystemsManagement_PatchRollout_Mode_ConcurrentZones Patches
+ *        are applied to VMs in all zones at the same time. (Value:
+ *        "CONCURRENT_ZONES")
+ *    @arg @c kGTLRSystemsManagement_PatchRollout_Mode_ModeUnspecified Mode must
+ *        be specified. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_PatchRollout_Mode_ZoneByZone Patches are
+ *        applied one zone at a time. The patch job begins in the
+ *        region with the lowest number of targeted VMs. Within the region,
+ *        patching begins in the zone with the lowest number of targeted VMs. If
+ *        multiple regions (or zones within a region) have the same number of
+ *        targeted VMs, a tie-breaker is achieved by sorting the regions or
+ *        zones
+ *        in alphabetical order. (Value: "ZONE_BY_ZONE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
 
 @end
 

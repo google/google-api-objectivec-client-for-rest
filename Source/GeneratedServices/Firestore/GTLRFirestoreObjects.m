@@ -166,6 +166,57 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_BatchWriteRequest
+//
+
+@implementation GTLRFirestore_BatchWriteRequest
+@dynamic labels, writes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"writes" : [GTLRFirestore_Write class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_BatchWriteRequest_Labels
+//
+
+@implementation GTLRFirestore_BatchWriteRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_BatchWriteResponse
+//
+
+@implementation GTLRFirestore_BatchWriteResponse
+@dynamic status, writeResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"status" : [GTLRFirestore_Status class],
+    @"writeResults" : [GTLRFirestore_WriteResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_BeginTransactionRequest
 //
 
@@ -955,6 +1006,38 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_Order
 @dynamic direction, field;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_PartitionQueryRequest
+//
+
+@implementation GTLRFirestore_PartitionQueryRequest
+@dynamic pageSize, pageToken, partitionCount, structuredQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_PartitionQueryResponse
+//
+
+@implementation GTLRFirestore_PartitionQueryResponse
+@dynamic nextPageToken, partitions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partitions" : [GTLRFirestore_Cursor class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"partitions";
+}
+
 @end
 
 

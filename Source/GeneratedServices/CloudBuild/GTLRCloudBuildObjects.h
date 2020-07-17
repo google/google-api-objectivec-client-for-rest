@@ -931,7 +931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  If true, the trigger will never result in a build.
+ *  If true, the trigger will never automatically execute a build.
  *
  *  Uses NSNumber of boolValue.
  */

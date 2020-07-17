@@ -568,6 +568,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/RealTimeBidding/*.{h,m}'
   end
+  s.subspec 'RecommendationsAI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/RecommendationsAI/*.{h,m}'
+  end
   s.subspec 'Recommender' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Recommender/*.{h,m}'

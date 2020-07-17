@@ -84,11 +84,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_ForecastedSpend;
 
 /**
- *  AllUpdatesRule defines notifications that are sent on every update to the
- *  billing account's spend, regardless of the thresholds defined using
- *  threshold rules.
+ *  AllUpdatesRule defines notifications that are sent based on budget spend
+ *  and thresholds.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule : GTLRObject
+
+/**
+ *  Optional. Targets to send notifications to when a threshold is exceeded.
+ *  This is in
+ *  addition to default recipients who have billing account roles.
+ *  The value is the full REST resource name of a monitoring notification
+ *  channel with the form
+ *  `projects/{project_id}/notificationChannels/{channel_id}`. A maximum of 5
+ *  channels are allowed. See
+ *  https://cloud.google.com/billing/docs/how-to/budgets-notification-recipients
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *monitoringNotificationChannels;
 
 /**
  *  Required. The name of the Cloud Pub/Sub topic where budget related messages
@@ -101,15 +113,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Caller is expected to have
  *  `pubsub.topics.setIamPolicy` permission on the topic when it's set for a
  *  budget, otherwise, the API call will fail with PERMISSION_DENIED. See
- *  https://cloud.google.com/pubsub/docs/access-control for more details on
- *  Pub/Sub roles and permissions.
+ *  https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications
+ *  for more details on Pub/Sub roles and permissions.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
- *  Required. The schema version of the notification.
+ *  Required. The schema version of the notification sent to `pubsub_topic`.
  *  Only "1.0" is accepted. It represents the JSON schema as defined in
- *  https://cloud.google.com/billing/docs/how-to/budgets#notification_format
+ *  https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format
  */
 @property(nonatomic, copy, nullable) NSString *schemaVersion;
 
@@ -126,8 +138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget : GTLRObject
 
 /**
- *  Optional. Rules to apply to all updates to the actual spend, regardless
- *  of the thresholds set in `threshold_rules`.
+ *  Optional. Rules to apply to notifications sent based on budget spend and
+ *  thresholds.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule *allUpdatesRule;
 
@@ -255,9 +267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  Optional. A set of subaccounts of the form `billingAccounts/{account_id}`,
  *  specifying
  *  that usage from only this set of subaccounts should be included in the
- *  budget. If a subaccount is set to the name of the master account, usage
- *  from the master account will be included. If omitted, the report will
- *  include usage from the master account and all subaccounts, if they exist.
+ *  budget. If a subaccount is set to the name of the parent account,
+ *  usage from the parent account will be included. If omitted, the
+ *  report will include usage from the parent account and all
+ *  subaccounts, if they exist.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subaccounts;
 

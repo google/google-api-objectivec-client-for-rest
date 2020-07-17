@@ -554,6 +554,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_RealTimeBidding"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_RecommendationsAI",
+            targets: ["GoogleAPIClientForREST_RecommendationsAI"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Recommender",
             targets: ["GoogleAPIClientForREST_Recommender"]
         ),
@@ -1577,6 +1581,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_RealTimeBidding",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/RealTimeBidding",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_RecommendationsAI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/RecommendationsAI",
             publicHeadersPath: "."
         ),
         .target(

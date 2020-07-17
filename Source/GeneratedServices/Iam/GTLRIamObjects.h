@@ -1725,12 +1725,16 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_Typ
 
 
 /**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
  *  The service account sign blob request.
  */
 @interface GTLRIam_SignBlobRequest : GTLRObject
 
 /**
- *  Required. The bytes to sign.
+ *  Required. Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
+ *  The bytes to sign.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1741,14 +1745,22 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_Typ
 
 
 /**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
  *  The service account sign blob response.
  */
 @interface GTLRIam_SignBlobResponse : GTLRObject
 
-/** The id of the key used to sign the blob. */
+/**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
+ *  The id of the key used to sign the blob.
+ */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
  *  The signed blob.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -1760,13 +1772,16 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_Typ
 
 
 /**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
  *  The service account sign JWT request.
  */
 @interface GTLRIam_SignJwtRequest : GTLRObject
 
 /**
- *  Required. The JWT payload to sign. Must be a serialized JSON object that
- *  contains a
+ *  Required. Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
+ *  The JWT payload to sign. Must be a serialized JSON object that contains a
  *  JWT Claims Set. For example: `{"sub": "user\@example.com", "iat": 313435}`
  *  If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
  *  an integer timestamp that is not in the past and no more than 1 hour in the
@@ -1781,14 +1796,24 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_Typ
 
 
 /**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
  *  The service account sign JWT response.
  */
 @interface GTLRIam_SignJwtResponse : GTLRObject
 
-/** The id of the key used to sign the JWT. */
+/**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
+ *  The id of the key used to sign the JWT.
+ */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
-/** The signed JWT. */
+/**
+ *  Deprecated. [Migrate to Service Account Credentials
+ *  API](https://cloud.google.com/iam/help/credentials/migrate-api).
+ *  The signed JWT.
+ */
 @property(nonatomic, copy, nullable) NSString *signedJwt;
 
 @end

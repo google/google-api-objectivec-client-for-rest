@@ -2,13 +2,132 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services API (games/v1)
+//   Google Play Game Services (games/v1)
 // Description:
-//   The API for Google Play Game Services.
+//   The Google Play games service allows developers to enhance games with
+//   social leaderboards,
+//   achievements, game state, sign-in with Google, and more.
 // Documentation:
-//   https://developers.google.com/games/services/
+//   https://developers.google.com/games/
 
 #import "GTLRGamesObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRGames_AchievementDefinition.achievementType
+NSString * const kGTLRGames_AchievementDefinition_AchievementType_AchievementTypeUnspecified = @"ACHIEVEMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRGames_AchievementDefinition_AchievementType_Incremental = @"INCREMENTAL";
+NSString * const kGTLRGames_AchievementDefinition_AchievementType_Standard = @"STANDARD";
+
+// GTLRGames_AchievementDefinition.initialState
+NSString * const kGTLRGames_AchievementDefinition_InitialState_Hidden = @"HIDDEN";
+NSString * const kGTLRGames_AchievementDefinition_InitialState_InitialAchievementStateUnspecified = @"INITIAL_ACHIEVEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGames_AchievementDefinition_InitialState_Revealed = @"REVEALED";
+NSString * const kGTLRGames_AchievementDefinition_InitialState_Unlocked = @"UNLOCKED";
+
+// GTLRGames_AchievementRevealResponse.currentState
+NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_RevealAchievementStateUnspecified = @"REVEAL_ACHIEVEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_Revealed = @"REVEALED";
+NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_Unlocked = @"UNLOCKED";
+
+// GTLRGames_AchievementUpdateRequest.updateType
+NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_AchievementUpdateTypeUnspecified = @"ACHIEVEMENT_UPDATE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Increment = @"INCREMENT";
+NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Reveal = @"REVEAL";
+NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_SetStepsAtLeast = @"SET_STEPS_AT_LEAST";
+NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Unlock = @"UNLOCK";
+
+// GTLRGames_AchievementUpdateResponse.currentState
+NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Hidden = @"HIDDEN";
+NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Revealed = @"REVEALED";
+NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked = @"UNLOCKED";
+NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_UpdatedAchievementStateUnspecified = @"UPDATED_ACHIEVEMENT_STATE_UNSPECIFIED";
+
+// GTLRGames_Application.enabledFeatures
+NSString * const kGTLRGames_Application_EnabledFeatures_ApplicationFeatureUnspecified = @"APPLICATION_FEATURE_UNSPECIFIED";
+NSString * const kGTLRGames_Application_EnabledFeatures_Snapshots = @"SNAPSHOTS";
+
+// GTLRGames_EventBatchRecordFailure.failureCause
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated = @"ALREADY_UPDATED";
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified = @"EVENT_FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh = @"RECORD_RATE_HIGH";
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodExpired = @"TIME_PERIOD_EXPIRED";
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodLong = @"TIME_PERIOD_LONG";
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodShort = @"TIME_PERIOD_SHORT";
+NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TooLarge = @"TOO_LARGE";
+
+// GTLRGames_EventDefinition.visibility
+NSString * const kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified = @"EVENT_VISIBILITY_UNSPECIFIED";
+NSString * const kGTLRGames_EventDefinition_Visibility_Hidden  = @"HIDDEN";
+NSString * const kGTLRGames_EventDefinition_Visibility_Revealed = @"REVEALED";
+
+// GTLRGames_EventRecordFailure.failureCause
+NSString * const kGTLRGames_EventRecordFailure_FailureCause_EventUpdateFailureCauseUnspecified = @"EVENT_UPDATE_FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRGames_EventRecordFailure_FailureCause_InvalidUpdateValue = @"INVALID_UPDATE_VALUE";
+NSString * const kGTLRGames_EventRecordFailure_FailureCause_NotFound = @"NOT_FOUND";
+
+// GTLRGames_Instance.platformType
+NSString * const kGTLRGames_Instance_PlatformType_Android      = @"ANDROID";
+NSString * const kGTLRGames_Instance_PlatformType_Ios          = @"IOS";
+NSString * const kGTLRGames_Instance_PlatformType_PlatformTypeUnspecified = @"PLATFORM_TYPE_UNSPECIFIED";
+NSString * const kGTLRGames_Instance_PlatformType_WebApp       = @"WEB_APP";
+
+// GTLRGames_Leaderboard.order
+NSString * const kGTLRGames_Leaderboard_Order_LargerIsBetter   = @"LARGER_IS_BETTER";
+NSString * const kGTLRGames_Leaderboard_Order_ScoreOrderUnspecified = @"SCORE_ORDER_UNSPECIFIED";
+NSString * const kGTLRGames_Leaderboard_Order_SmallerIsBetter  = @"SMALLER_IS_BETTER";
+
+// GTLRGames_LeaderboardEntry.timeSpan
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_AllTime  = @"ALL_TIME";
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Daily    = @"DAILY";
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
+NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Weekly   = @"WEEKLY";
+
+// GTLRGames_Player.friendStatus
+NSString * const kGTLRGames_Player_FriendStatus_Friend         = @"FRIEND";
+NSString * const kGTLRGames_Player_FriendStatus_FriendStatusUnspecified = @"FRIEND_STATUS_UNSPECIFIED";
+NSString * const kGTLRGames_Player_FriendStatus_NoRelationship = @"NO_RELATIONSHIP";
+
+// GTLRGames_PlayerAchievement.achievementState
+NSString * const kGTLRGames_PlayerAchievement_AchievementState_Hidden = @"HIDDEN";
+NSString * const kGTLRGames_PlayerAchievement_AchievementState_Revealed = @"REVEALED";
+NSString * const kGTLRGames_PlayerAchievement_AchievementState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRGames_PlayerAchievement_AchievementState_Unlocked = @"UNLOCKED";
+
+// GTLRGames_PlayerLeaderboardScore.timeSpan
+NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_AllTime = @"ALL_TIME";
+NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Daily = @"DAILY";
+NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
+NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Weekly = @"WEEKLY";
+
+// GTLRGames_PlayerScore.timeSpan
+NSString * const kGTLRGames_PlayerScore_TimeSpan_AllTime       = @"ALL_TIME";
+NSString * const kGTLRGames_PlayerScore_TimeSpan_Daily         = @"DAILY";
+NSString * const kGTLRGames_PlayerScore_TimeSpan_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
+NSString * const kGTLRGames_PlayerScore_TimeSpan_Weekly        = @"WEEKLY";
+
+// GTLRGames_PlayerScoreResponse.beatenScoreTimeSpans
+NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_AllTime = @"ALL_TIME";
+NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Daily = @"DAILY";
+NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_ScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
+NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Weekly = @"WEEKLY";
+
+// GTLRGames_ProfileSettings.friendsListVisibility
+NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_FriendsListVisibilityUnspecified = @"FRIENDS_LIST_VISIBILITY_UNSPECIFIED";
+NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequired = @"REQUEST_REQUIRED";
+NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Visible = @"VISIBLE";
+
+// GTLRGames_RevisionCheckResponse.revisionStatus
+NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Deprecated = @"DEPRECATED";
+NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Invalid = @"INVALID";
+NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Ok = @"OK";
+NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_RevisionStatusUnspecified = @"REVISION_STATUS_UNSPECIFIED";
+
+// GTLRGames_Snapshot.type
+NSString * const kGTLRGames_Snapshot_Type_SaveGame             = @"SAVE_GAME";
+NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -29,6 +148,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -47,6 +172,29 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_AchievementIncrement
+//
+
+@implementation GTLRGames_AchievementIncrement
+@dynamic kind, requestId, steps;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -57,6 +205,13 @@
 
 @implementation GTLRGames_AchievementIncrementResponse
 @dynamic currentSteps, kind, newlyUnlocked;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -67,6 +222,30 @@
 
 @implementation GTLRGames_AchievementRevealResponse
 @dynamic currentState, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_AchievementSetStepsAtLeast
+//
+
+@implementation GTLRGames_AchievementSetStepsAtLeast
+@dynamic kind, steps;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -77,6 +256,13 @@
 
 @implementation GTLRGames_AchievementSetStepsAtLeastResponse
 @dynamic currentSteps, kind, newlyUnlocked;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -87,6 +273,13 @@
 
 @implementation GTLRGames_AchievementUnlockResponse
 @dynamic kind, newlyUnlocked;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -103,6 +296,12 @@
     @"updates" : [GTLRGames_AchievementUpdateRequest class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -123,6 +322,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -134,6 +339,13 @@
 @implementation GTLRGames_AchievementUpdateRequest
 @dynamic achievementId, incrementPayload, kind, setStepsAtLeastPayload,
          updateType;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -145,26 +357,13 @@
 @implementation GTLRGames_AchievementUpdateResponse
 @dynamic achievementId, currentState, currentSteps, kind, newlyUnlocked,
          updateOccurred;
-@end
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_AggregateStats
-//
-
-@implementation GTLRGames_AggregateStats
-@dynamic count, kind, max, min, sum;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_AnonymousPlayer
-//
-
-@implementation GTLRGames_AnonymousPlayer
-@dynamic avatarImageUrl, displayName, kind;
 @end
 
 
@@ -197,6 +396,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -207,6 +412,13 @@
 
 @implementation GTLRGames_ApplicationCategory
 @dynamic kind, primary, secondary;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -226,6 +438,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -236,6 +454,13 @@
 
 @implementation GTLRGames_Category
 @dynamic category, experiencePoints, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -254,6 +479,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -264,6 +495,13 @@
 
 @implementation GTLRGames_EventBatchRecordFailure
 @dynamic failureCause, kind, range;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -274,6 +512,13 @@
 
 @implementation GTLRGames_EventChild
 @dynamic childId, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -301,6 +546,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -319,6 +570,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -329,6 +586,13 @@
 
 @implementation GTLRGames_EventPeriodRange
 @dynamic kind, periodEndMillis, periodStartMillis;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -347,6 +611,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -357,6 +627,13 @@
 
 @implementation GTLRGames_EventRecordFailure
 @dynamic eventId, failureCause, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -375,6 +652,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -385,6 +668,13 @@
 
 @implementation GTLRGames_EventUpdateRequest
 @dynamic definitionId, kind, updateCount;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -405,26 +695,12 @@
   return map;
 }
 
-@end
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_GamesAchievementIncrement
-//
-
-@implementation GTLRGames_GamesAchievementIncrement
-@dynamic kind, requestId, steps;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_GamesAchievementSetStepsAtLeast
-//
-
-@implementation GTLRGames_GamesAchievementSetStepsAtLeast
-@dynamic kind, steps;
 @end
 
 
@@ -435,6 +711,13 @@
 
 @implementation GTLRGames_ImageAsset
 @dynamic height, kind, name, url, width;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -446,6 +729,13 @@
 @implementation GTLRGames_Instance
 @dynamic acquisitionUri, androidInstance, iosInstance, kind, name, platformType,
          realtimePlay, turnBasedPlay, webInstance;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -456,6 +746,13 @@
 
 @implementation GTLRGames_InstanceAndroidDetails
 @dynamic enablePiracyCheck, kind, packageName, preferred;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -467,6 +764,13 @@
 @implementation GTLRGames_InstanceIosDetails
 @dynamic bundleIdentifier, itunesAppId, kind, preferredForIpad,
          preferredForIphone, supportIpad, supportIphone;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -477,6 +781,13 @@
 
 @implementation GTLRGames_InstanceWebDetails
 @dynamic kind, launchUrl, preferred;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -492,6 +803,12 @@
   return @{ @"identifier" : @"id" };
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -503,6 +820,13 @@
 @implementation GTLRGames_LeaderboardEntry
 @dynamic formattedScore, formattedScoreRank, kind, player, scoreRank, scoreTag,
          scoreValue, timeSpan, writeTimestampMillis;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -521,6 +845,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -531,6 +861,13 @@
 
 @implementation GTLRGames_LeaderboardScoreRank
 @dynamic formattedNumScores, formattedRank, kind, numScores, rank;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -547,6 +884,12 @@
     @"items" : [GTLRGames_LeaderboardEntry class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -567,59 +910,12 @@
   return map;
 }
 
-@end
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_NetworkDiagnostics
-//
-
-@implementation GTLRGames_NetworkDiagnostics
-@dynamic androidNetworkSubtype, androidNetworkType, iosNetworkType, kind,
-         networkOperatorCode, networkOperatorName, registrationLatencyMillis;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_ParticipantResult
-//
-
-@implementation GTLRGames_ParticipantResult
-@dynamic kind, participantId, placing, result;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_PeerChannelDiagnostics
-//
-
-@implementation GTLRGames_PeerChannelDiagnostics
-@dynamic bytesReceived, bytesSent, kind, numMessagesLost, numMessagesReceived,
-         numMessagesSent, numSendFailures, roundtripLatencyMillis;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_PeerSessionDiagnostics
-//
-
-@implementation GTLRGames_PeerSessionDiagnostics
-@dynamic connectedTimestampMillis, kind, participantId, reliableChannel,
-         unreliableChannel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_Played
-//
-
-@implementation GTLRGames_Played
-@dynamic autoMatched, kind, timeMillis;
 @end
 
 
@@ -630,8 +926,15 @@
 
 @implementation GTLRGames_Player
 @dynamic avatarImageUrl, bannerUrlLandscape, bannerUrlPortrait, displayName,
-         experienceInfo, friendStatus, kind, lastPlayedWith, name,
-         originalPlayerId, playerId, profileSettings, title;
+         experienceInfo, friendStatus, kind, name, originalPlayerId, playerId,
+         profileSettings, title;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -658,6 +961,12 @@
   return @{ @"identifier" : @"id" };
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -676,6 +985,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -686,6 +1001,13 @@
 
 @implementation GTLRGames_PlayerEvent
 @dynamic definitionId, formattedNumEvents, kind, numEvents, playerId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -704,6 +1026,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -715,6 +1043,13 @@
 @implementation GTLRGames_PlayerExperienceInfo
 @dynamic currentExperiencePoints, currentLevel, kind,
          lastLevelUpTimestampMillis, nextLevel;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -729,6 +1064,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"leaderboardId" : @"leaderboard_id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -749,6 +1090,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -759,6 +1106,13 @@
 
 @implementation GTLRGames_PlayerLevel
 @dynamic kind, level, maxExperiencePoints, minExperiencePoints;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -777,6 +1131,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -787,6 +1147,13 @@
 
 @implementation GTLRGames_PlayerScore
 @dynamic formattedScore, kind, score, scoreTag, timeSpan;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -803,6 +1170,12 @@
     @"submittedScores" : [GTLRGames_PlayerScoreResponse class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -825,6 +1198,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -843,6 +1222,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -853,48 +1238,11 @@
 
 @implementation GTLRGames_ProfileSettings
 @dynamic friendsListVisibility, kind, profileVisible;
-@end
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_PushToken
-//
-
-@implementation GTLRGames_PushToken
-@dynamic clientRevision, identifier, kind, language;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_PushTokenId
-//
-
-@implementation GTLRGames_PushTokenId
-@dynamic ios, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_PushTokenId_Ios
-//
-
-@implementation GTLRGames_PushTokenId_Ios
-@dynamic apnsDeviceToken, apnsEnvironment;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"apnsDeviceToken" : @"apns_device_token",
-    @"apnsEnvironment" : @"apns_environment"
-  };
-  return map;
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -907,229 +1255,11 @@
 
 @implementation GTLRGames_RevisionCheckResponse
 @dynamic apiVersion, kind, revisionStatus;
-@end
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_Room
-//
-
-@implementation GTLRGames_Room
-@dynamic applicationId, autoMatchingCriteria, autoMatchingStatus,
-         creationDetails, descriptionProperty, inviterId, kind,
-         lastUpdateDetails, participants, roomId, roomStatusVersion, status,
-         variant;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"participants" : [GTLRGames_RoomParticipant class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomAutoMatchingCriteria
-//
-
-@implementation GTLRGames_RoomAutoMatchingCriteria
-@dynamic exclusiveBitmask, kind, maxAutoMatchingPlayers, minAutoMatchingPlayers;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomAutoMatchStatus
-//
-
-@implementation GTLRGames_RoomAutoMatchStatus
-@dynamic kind, waitEstimateSeconds;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomClientAddress
-//
-
-@implementation GTLRGames_RoomClientAddress
-@dynamic kind, xmppAddress;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomCreateRequest
-//
-
-@implementation GTLRGames_RoomCreateRequest
-@dynamic autoMatchingCriteria, capabilities, clientAddress, invitedPlayerIds,
-         kind, networkDiagnostics, requestId, variant;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"capabilities" : [NSString class],
-    @"invitedPlayerIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomJoinRequest
-//
-
-@implementation GTLRGames_RoomJoinRequest
-@dynamic capabilities, clientAddress, kind, networkDiagnostics;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"capabilities" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomLeaveDiagnostics
-//
-
-@implementation GTLRGames_RoomLeaveDiagnostics
-@dynamic androidNetworkSubtype, androidNetworkType, iosNetworkType, kind,
-         networkOperatorCode, networkOperatorName, peerSession, socketsUsed;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"peerSession" : [GTLRGames_PeerSessionDiagnostics class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomLeaveRequest
-//
-
-@implementation GTLRGames_RoomLeaveRequest
-@dynamic kind, leaveDiagnostics, reason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomList
-//
-
-@implementation GTLRGames_RoomList
-@dynamic items, kind, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRGames_Room class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomModification
-//
-
-@implementation GTLRGames_RoomModification
-@dynamic kind, modifiedTimestampMillis, participantId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomP2PStatus
-//
-
-@implementation GTLRGames_RoomP2PStatus
-@dynamic connectionSetupLatencyMillis, error, errorReason, kind, participantId,
-         status, unreliableRoundtripLatencyMillis;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"errorReason" : @"error_reason" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomP2PStatuses
-//
-
-@implementation GTLRGames_RoomP2PStatuses
-@dynamic kind, updates;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"updates" : [GTLRGames_RoomP2PStatus class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomParticipant
-//
-
-@implementation GTLRGames_RoomParticipant
-@dynamic autoMatched, autoMatchedPlayer, capabilities, clientAddress, connected,
-         identifier, kind, leaveReason, player, status;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"capabilities" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_RoomStatus
-//
-
-@implementation GTLRGames_RoomStatus
-@dynamic autoMatchingStatus, kind, participants, roomId, status, statusVersion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"participants" : [GTLRGames_RoomParticipant class]
-  };
-  return map;
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1142,6 +1272,13 @@
 
 @implementation GTLRGames_ScoreSubmission
 @dynamic kind, leaderboardId, score, scoreTag, signature;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1162,6 +1299,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1175,6 +1318,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"mimeType" : @"mime_type" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1195,186 +1344,46 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGames_TurnBasedAutoMatchingCriteria
+//   GTLRGames_StatsResponse
 //
 
-@implementation GTLRGames_TurnBasedAutoMatchingCriteria
-@dynamic exclusiveBitmask, kind, maxAutoMatchingPlayers, minAutoMatchingPlayers;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatch
-//
-
-@implementation GTLRGames_TurnBasedMatch
-@dynamic applicationId, autoMatchingCriteria, creationDetails, data,
-         descriptionProperty, inviterId, kind, lastUpdateDetails, matchId,
-         matchNumber, matchVersion, participants, pendingParticipantId,
-         previousMatchData, rematchId, results, status, userMatchStatus,
-         variant, withParticipantId;
+@implementation GTLRGames_StatsResponse
+@dynamic avgSessionLengthMinutes, churnProbability, daysSinceLastPlayed,
+         highSpenderProbability, kind, numPurchases, numSessions,
+         numSessionsPercentile, spendPercentile, spendProbability,
+         totalSpendNext28Days;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"participants" : [GTLRGames_TurnBasedMatchParticipant class],
-    @"results" : [GTLRGames_ParticipantResult class]
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"avgSessionLengthMinutes" : @"avg_session_length_minutes",
+    @"churnProbability" : @"churn_probability",
+    @"daysSinceLastPlayed" : @"days_since_last_played",
+    @"highSpenderProbability" : @"high_spender_probability",
+    @"numPurchases" : @"num_purchases",
+    @"numSessions" : @"num_sessions",
+    @"numSessionsPercentile" : @"num_sessions_percentile",
+    @"spendPercentile" : @"spend_percentile",
+    @"spendProbability" : @"spend_probability",
+    @"totalSpendNext28Days" : @"total_spend_next_28_days"
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchCreateRequest
-//
-
-@implementation GTLRGames_TurnBasedMatchCreateRequest
-@dynamic autoMatchingCriteria, invitedPlayerIds, kind, requestId, variant;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"invitedPlayerIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchData
-//
-
-@implementation GTLRGames_TurnBasedMatchData
-@dynamic data, dataAvailable, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchDataRequest
-//
-
-@implementation GTLRGames_TurnBasedMatchDataRequest
-@dynamic data, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchList
-//
-
-@implementation GTLRGames_TurnBasedMatchList
-@dynamic items, kind, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRGames_TurnBasedMatch class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchModification
-//
-
-@implementation GTLRGames_TurnBasedMatchModification
-@dynamic kind, modifiedTimestampMillis, participantId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchParticipant
-//
-
-@implementation GTLRGames_TurnBasedMatchParticipant
-@dynamic autoMatched, autoMatchedPlayer, identifier, kind, player, status;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchRematch
-//
-
-@implementation GTLRGames_TurnBasedMatchRematch
-@dynamic kind, previousMatch, rematch;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchResults
-//
-
-@implementation GTLRGames_TurnBasedMatchResults
-@dynamic data, kind, matchVersion, results;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"results" : [GTLRGames_ParticipantResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchSync
-//
-
-@implementation GTLRGames_TurnBasedMatchSync
-@dynamic items, kind, moreAvailable, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRGames_TurnBasedMatch class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGames_TurnBasedMatchTurn
-//
-
-@implementation GTLRGames_TurnBasedMatchTurn
-@dynamic data, kind, matchVersion, pendingParticipantId, results;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"results" : [GTLRGames_ParticipantResult class]
-  };
-  return map;
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

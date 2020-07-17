@@ -510,7 +510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
-/** The sort expression to apply to the results. */
+/**
+ *  The sort expression to apply to the results. The sort parameter specifies
+ *  that the results be sorted according to the specified expression i.e. sort
+ *  by date.
+ *  [Example:
+ *  sort=date](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute).
+ */
 @property(nonatomic, copy, nullable) NSString *sort;
 
 /**
@@ -888,7 +894,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
-/** The sort expression to apply to the results. */
+/**
+ *  The sort expression to apply to the results. The sort parameter specifies
+ *  that the results be sorted according to the specified expression i.e. sort
+ *  by date.
+ *  [Example:
+ *  sort=date](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute).
+ */
 @property(nonatomic, copy, nullable) NSString *sort;
 
 /**

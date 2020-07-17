@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sends new spans to new or existing traces. You cannot update
  *  existing spans.
- *  In this case, writing traces is not considered an active developer
- *  method since traces are machine generated.
  *
  *  Method: cloudtrace.projects.traces.batchWrite
  *
@@ -71,8 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sends new spans to new or existing traces. You cannot update
  *  existing spans.
- *  In this case, writing traces is not considered an active developer
- *  method since traces are machine generated.
  *
  *  @param object The @c GTLRCloudTrace_BatchWriteSpansRequest to include in the
  *    query.
@@ -89,8 +85,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new span.
- *  In this case, writing traces is not considered an active developer
- *  method since traces are machine generated.
  *
  *  Method: cloudtrace.projects.traces.spans.createSpan
  *
@@ -103,12 +97,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudTrace queryForProjectsTracesSpansCreateSpanWithObject:name:]
 
 /**
- *  The resource name of the span in the following format:
+ *  Required. The resource name of the span in the following format:
  *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
  *  for a trace within a project;
  *  it is a 32-character hexadecimal encoding of a 16-byte array.
  *  [SPAN_ID] is a unique identifier for a span within a trace; it
- *  is a 16-character hexadecimal encoding of an 8-byte array.
+ *  is a 16-character hexadecimal encoding of an 8-byte array. It should not
+ *  be zero.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -116,16 +111,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudTrace_Span.
  *
  *  Creates a new span.
- *  In this case, writing traces is not considered an active developer
- *  method since traces are machine generated.
  *
  *  @param object The @c GTLRCloudTrace_Span to include in the query.
- *  @param name The resource name of the span in the following format:
+ *  @param name Required. The resource name of the span in the following format:
  *    projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique
  *    identifier for a trace within a project;
  *    it is a 32-character hexadecimal encoding of a 16-byte array.
  *    [SPAN_ID] is a unique identifier for a span within a trace; it
- *    is a 16-character hexadecimal encoding of an 8-byte array.
+ *    is a 16-character hexadecimal encoding of an 8-byte array. It should not
+ *    be zero.
  *
  *  @return GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan
  */

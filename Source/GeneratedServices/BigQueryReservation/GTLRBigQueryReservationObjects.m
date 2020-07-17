@@ -70,8 +70,8 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_CapacityCommitment
-@dynamic commitmentEndTime, failureStatus, name, plan, renewalPlan, slotCount,
-         state;
+@dynamic commitmentEndTime, commitmentStartTime, failureStatus, name, plan,
+         renewalPlan, slotCount, state;
 @end
 
 
@@ -255,6 +255,28 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 
 @implementation GTLRBigQueryReservation_Reservation
 @dynamic ignoreIdleSlots, name, slotCapacity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_SearchAllAssignmentsResponse
+//
+
+@implementation GTLRBigQueryReservation_SearchAllAssignmentsResponse
+@dynamic assignments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignments" : [GTLRBigQueryReservation_Assignment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignments";
+}
+
 @end
 
 

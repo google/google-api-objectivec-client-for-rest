@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services API (games/v1)
+//   Google Play Game Services (games/v1)
 // Description:
-//   The API for Google Play Game Services.
+//   The Google Play games service allows developers to enhance games with
+//   social leaderboards,
+//   achievements, game state, sign-in with Google, and more.
 // Documentation:
-//   https://developers.google.com/games/services/
+//   https://developers.google.com/games/
 
 #import "GTLRGamesQuery.h"
 
@@ -16,24 +18,27 @@
 // Constants
 
 // collection
-NSString * const kGTLRGamesCollectionAll        = @"all";
-NSString * const kGTLRGamesCollectionConnected  = @"connected";
-NSString * const kGTLRGamesCollectionFriends    = @"FRIENDS";
-NSString * const kGTLRGamesCollectionFriendsAll = @"friends_all";
-NSString * const kGTLRGamesCollectionPlayedWith = @"playedWith";
-NSString * const kGTLRGamesCollectionPublic     = @"PUBLIC";
-NSString * const kGTLRGamesCollectionSocial     = @"SOCIAL";
-NSString * const kGTLRGamesCollectionVisible    = @"visible";
+NSString * const kGTLRGamesCollectionAll                       = @"ALL";
+NSString * const kGTLRGamesCollectionCollectionUnspecified     = @"COLLECTION_UNSPECIFIED";
+NSString * const kGTLRGamesCollectionConnected                 = @"CONNECTED";
+NSString * const kGTLRGamesCollectionFriends                   = @"FRIENDS";
+NSString * const kGTLRGamesCollectionFriendsAll                = @"FRIENDS_ALL";
+NSString * const kGTLRGamesCollectionPublic                    = @"PUBLIC";
+NSString * const kGTLRGamesCollectionScoreCollectionUnspecified = @"SCORE_COLLECTION_UNSPECIFIED";
+NSString * const kGTLRGamesCollectionSocial                    = @"SOCIAL";
+NSString * const kGTLRGamesCollectionVisible                   = @"VISIBLE";
 
 // includeRankType
-NSString * const kGTLRGamesIncludeRankTypeAll    = @"ALL";
-NSString * const kGTLRGamesIncludeRankTypePublic = @"PUBLIC";
-NSString * const kGTLRGamesIncludeRankTypeSocial = @"SOCIAL";
+NSString * const kGTLRGamesIncludeRankTypeAll                  = @"ALL";
+NSString * const kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified = @"INCLUDE_RANK_TYPE_UNSPECIFIED";
+NSString * const kGTLRGamesIncludeRankTypePublic               = @"PUBLIC";
+NSString * const kGTLRGamesIncludeRankTypeSocial               = @"SOCIAL";
 
 // platformType
-NSString * const kGTLRGamesPlatformTypeAndroid = @"ANDROID";
-NSString * const kGTLRGamesPlatformTypeIos     = @"IOS";
-NSString * const kGTLRGamesPlatformTypeWebApp  = @"WEB_APP";
+NSString * const kGTLRGamesPlatformTypeAndroid                 = @"ANDROID";
+NSString * const kGTLRGamesPlatformTypeIos                     = @"IOS";
+NSString * const kGTLRGamesPlatformTypePlatformTypeUnspecified = @"PLATFORM_TYPE_UNSPECIFIED";
+NSString * const kGTLRGamesPlatformTypeWebApp                  = @"WEB_APP";
 
 // state
 NSString * const kGTLRGamesStateAll      = @"ALL";
@@ -42,10 +47,11 @@ NSString * const kGTLRGamesStateRevealed = @"REVEALED";
 NSString * const kGTLRGamesStateUnlocked = @"UNLOCKED";
 
 // timeSpan
-NSString * const kGTLRGamesTimeSpanAll     = @"ALL";
-NSString * const kGTLRGamesTimeSpanAllTime = @"ALL_TIME";
-NSString * const kGTLRGamesTimeSpanDaily   = @"DAILY";
-NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
+NSString * const kGTLRGamesTimeSpanAll                      = @"ALL";
+NSString * const kGTLRGamesTimeSpanAllTime                  = @"ALL_TIME";
+NSString * const kGTLRGamesTimeSpanDaily                    = @"DAILY";
+NSString * const kGTLRGamesTimeSpanScoreTimeSpanUnspecified = @"SCORE_TIME_SPAN_UNSPECIFIED";
+NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -62,7 +68,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @dynamic language, maxResults, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"achievements";
+  NSString *pathURITemplate = @"games/v1/achievements";
   GTLRGamesQuery_AchievementDefinitionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -81,7 +87,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithAchievementId:(NSString *)achievementId
                       stepsToIncrement:(NSInteger)stepsToIncrement {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}/increment";
+  NSString *pathURITemplate = @"games/v1/achievements/{achievementId}/increment";
   GTLRGamesQuery_AchievementsIncrement *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -101,7 +107,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
-  NSString *pathURITemplate = @"players/{playerId}/achievements";
+  NSString *pathURITemplate = @"games/v1/players/{playerId}/achievements";
   GTLRGamesQuery_AchievementsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -120,7 +126,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}/reveal";
+  NSString *pathURITemplate = @"games/v1/achievements/{achievementId}/reveal";
   GTLRGamesQuery_AchievementsReveal *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -140,7 +146,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithAchievementId:(NSString *)achievementId
                                  steps:(NSInteger)steps {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}/setStepsAtLeast";
+  NSString *pathURITemplate = @"games/v1/achievements/{achievementId}/setStepsAtLeast";
   GTLRGamesQuery_AchievementsSetStepsAtLeast *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -160,7 +166,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithAchievementId:(NSString *)achievementId {
   NSArray *pathParams = @[ @"achievementId" ];
-  NSString *pathURITemplate = @"achievements/{achievementId}/unlock";
+  NSString *pathURITemplate = @"games/v1/achievements/{achievementId}/unlock";
   GTLRGamesQuery_AchievementsUnlock *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -182,7 +188,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"achievements/updateMultiple";
+  NSString *pathURITemplate = @"games/v1/achievements/updateMultiple";
   GTLRGamesQuery_AchievementsUpdateMultiple *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -201,7 +207,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}";
+  NSString *pathURITemplate = @"games/v1/applications/{applicationId}";
   GTLRGamesQuery_ApplicationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -217,7 +223,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @implementation GTLRGamesQuery_ApplicationsPlayed
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"applications/played";
+  NSString *pathURITemplate = @"games/v1/applications/played";
   GTLRGamesQuery_ApplicationsPlayed *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -234,7 +240,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithApplicationId:(NSString *)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}/verify";
+  NSString *pathURITemplate = @"games/v1/applications/{applicationId}/verify";
   GTLRGamesQuery_ApplicationsVerify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -252,7 +258,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @dynamic language, maxResults, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"events";
+  NSString *pathURITemplate = @"games/v1/events";
   GTLRGamesQuery_EventsListByPlayer *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -269,7 +275,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @dynamic language, maxResults, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"eventDefinitions";
+  NSString *pathURITemplate = @"games/v1/eventDefinitions";
   GTLRGamesQuery_EventsListDefinitions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -292,7 +298,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"events";
+  NSString *pathURITemplate = @"games/v1/events";
   GTLRGamesQuery_EventsRecord *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -311,7 +317,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId {
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}";
+  NSString *pathURITemplate = @"games/v1/leaderboards/{leaderboardId}";
   GTLRGamesQuery_LeaderboardsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -329,7 +335,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @dynamic language, maxResults, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"leaderboards";
+  NSString *pathURITemplate = @"games/v1/leaderboards";
   GTLRGamesQuery_LeaderboardsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -344,7 +350,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 @implementation GTLRGamesQuery_MetagameGetMetagameConfig
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"metagameConfig";
+  NSString *pathURITemplate = @"games/v1/metagameConfig";
   GTLRGamesQuery_MetagameGetMetagameConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -365,7 +371,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
   NSArray *pathParams = @[
     @"collection", @"playerId"
   ];
-  NSString *pathURITemplate = @"players/{playerId}/categories/{collection}";
+  NSString *pathURITemplate = @"games/v1/players/{playerId}/categories/{collection}";
   GTLRGamesQuery_MetagameListCategoriesByPlayer *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -385,7 +391,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
-  NSString *pathURITemplate = @"players/{playerId}";
+  NSString *pathURITemplate = @"games/v1/players/{playerId}";
   GTLRGamesQuery_PlayersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -404,7 +410,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithCollection:(NSString *)collection {
   NSArray *pathParams = @[ @"collection" ];
-  NSString *pathURITemplate = @"players/me/players/{collection}";
+  NSString *pathURITemplate = @"games/v1/players/me/players/{collection}";
   GTLRGamesQuery_PlayersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -417,54 +423,12 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @end
 
-@implementation GTLRGamesQuery_PushtokensRemove
-
-+ (instancetype)queryWithObject:(GTLRGames_PushTokenId *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"pushtokens/remove";
-  GTLRGamesQuery_PushtokensRemove *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.loggingName = @"games.pushtokens.remove";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_PushtokensUpdate
-
-+ (instancetype)queryWithObject:(GTLRGames_PushToken *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"pushtokens";
-  GTLRGamesQuery_PushtokensUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.loggingName = @"games.pushtokens.update";
-  return query;
-}
-
-@end
-
 @implementation GTLRGamesQuery_RevisionsCheck
 
 @dynamic clientRevision;
 
 + (instancetype)queryWithClientRevision:(NSString *)clientRevision {
-  NSString *pathURITemplate = @"revisions/check";
+  NSString *pathURITemplate = @"games/v1/revisions/check";
   GTLRGamesQuery_RevisionsCheck *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -472,184 +436,6 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
   query.clientRevision = clientRevision;
   query.expectedObjectClass = [GTLRGames_RevisionCheckResponse class];
   query.loggingName = @"games.revisions.check";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsCreate
-
-@dynamic language;
-
-+ (instancetype)queryWithObject:(GTLRGames_RoomCreateRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"rooms/create";
-  GTLRGamesQuery_RoomsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRGames_Room class];
-  query.loggingName = @"games.rooms.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsDecline
-
-@dynamic language, roomId;
-
-+ (instancetype)queryWithRoomId:(NSString *)roomId {
-  NSArray *pathParams = @[ @"roomId" ];
-  NSString *pathURITemplate = @"rooms/{roomId}/decline";
-  GTLRGamesQuery_RoomsDecline *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.roomId = roomId;
-  query.expectedObjectClass = [GTLRGames_Room class];
-  query.loggingName = @"games.rooms.decline";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsDismiss
-
-@dynamic roomId;
-
-+ (instancetype)queryWithRoomId:(NSString *)roomId {
-  NSArray *pathParams = @[ @"roomId" ];
-  NSString *pathURITemplate = @"rooms/{roomId}/dismiss";
-  GTLRGamesQuery_RoomsDismiss *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.roomId = roomId;
-  query.loggingName = @"games.rooms.dismiss";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsGet
-
-@dynamic language, roomId;
-
-+ (instancetype)queryWithRoomId:(NSString *)roomId {
-  NSArray *pathParams = @[ @"roomId" ];
-  NSString *pathURITemplate = @"rooms/{roomId}";
-  GTLRGamesQuery_RoomsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.roomId = roomId;
-  query.expectedObjectClass = [GTLRGames_Room class];
-  query.loggingName = @"games.rooms.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsJoin
-
-@dynamic language, roomId;
-
-+ (instancetype)queryWithObject:(GTLRGames_RoomJoinRequest *)object
-                         roomId:(NSString *)roomId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"roomId" ];
-  NSString *pathURITemplate = @"rooms/{roomId}/join";
-  GTLRGamesQuery_RoomsJoin *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.roomId = roomId;
-  query.expectedObjectClass = [GTLRGames_Room class];
-  query.loggingName = @"games.rooms.join";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsLeave
-
-@dynamic language, roomId;
-
-+ (instancetype)queryWithObject:(GTLRGames_RoomLeaveRequest *)object
-                         roomId:(NSString *)roomId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"roomId" ];
-  NSString *pathURITemplate = @"rooms/{roomId}/leave";
-  GTLRGamesQuery_RoomsLeave *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.roomId = roomId;
-  query.expectedObjectClass = [GTLRGames_Room class];
-  query.loggingName = @"games.rooms.leave";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsList
-
-@dynamic language, maxResults, pageToken;
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"rooms";
-  GTLRGamesQuery_RoomsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRGames_RoomList class];
-  query.loggingName = @"games.rooms.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_RoomsReportStatus
-
-@dynamic language, roomId;
-
-+ (instancetype)queryWithObject:(GTLRGames_RoomP2PStatuses *)object
-                         roomId:(NSString *)roomId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"roomId" ];
-  NSString *pathURITemplate = @"rooms/{roomId}/reportstatus";
-  GTLRGamesQuery_RoomsReportStatus *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.roomId = roomId;
-  query.expectedObjectClass = [GTLRGames_RoomStatus class];
-  query.loggingName = @"games.rooms.reportStatus";
   return query;
 }
 
@@ -666,7 +452,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
   NSArray *pathParams = @[
     @"leaderboardId", @"playerId", @"timeSpan"
   ];
-  NSString *pathURITemplate = @"players/{playerId}/leaderboards/{leaderboardId}/scores/{timeSpan}";
+  NSString *pathURITemplate = @"games/v1/players/{playerId}/leaderboards/{leaderboardId}/scores/{timeSpan}";
   GTLRGamesQuery_ScoresGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -691,7 +477,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
   NSArray *pathParams = @[
     @"collection", @"leaderboardId"
   ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}/scores/{collection}";
+  NSString *pathURITemplate = @"games/v1/leaderboards/{leaderboardId}/scores/{collection}";
   GTLRGamesQuery_ScoresList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -717,7 +503,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
   NSArray *pathParams = @[
     @"collection", @"leaderboardId"
   ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}/window/{collection}";
+  NSString *pathURITemplate = @"games/v1/leaderboards/{leaderboardId}/window/{collection}";
   GTLRGamesQuery_ScoresListWindow *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -739,7 +525,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 + (instancetype)queryWithLeaderboardId:(NSString *)leaderboardId
                                  score:(long long)score {
   NSArray *pathParams = @[ @"leaderboardId" ];
-  NSString *pathURITemplate = @"leaderboards/{leaderboardId}/scores";
+  NSString *pathURITemplate = @"games/v1/leaderboards/{leaderboardId}/scores";
   GTLRGamesQuery_ScoresSubmit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -764,7 +550,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"leaderboards/scores";
+  NSString *pathURITemplate = @"games/v1/leaderboards/scores";
   GTLRGamesQuery_ScoresSubmitMultiple *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -783,7 +569,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithSnapshotId:(NSString *)snapshotId {
   NSArray *pathParams = @[ @"snapshotId" ];
-  NSString *pathURITemplate = @"snapshots/{snapshotId}";
+  NSString *pathURITemplate = @"games/v1/snapshots/{snapshotId}";
   GTLRGamesQuery_SnapshotsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -802,7 +588,7 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 + (instancetype)queryWithPlayerId:(NSString *)playerId {
   NSArray *pathParams = @[ @"playerId" ];
-  NSString *pathURITemplate = @"players/{playerId}/snapshots";
+  NSString *pathURITemplate = @"games/v1/players/{playerId}/snapshots";
   GTLRGamesQuery_SnapshotsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -815,265 +601,16 @@ NSString * const kGTLRGamesTimeSpanWeekly  = @"WEEKLY";
 
 @end
 
-@implementation GTLRGamesQuery_TurnBasedMatchesCancel
-
-@dynamic matchId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/cancel";
-  GTLRGamesQuery_TurnBasedMatchesCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.loggingName = @"games.turnBasedMatches.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesCreate
-
-@dynamic language;
-
-+ (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchCreateRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"turnbasedmatches/create";
-  GTLRGamesQuery_TurnBasedMatchesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesDecline
-
-@dynamic language, matchId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/decline";
-  GTLRGamesQuery_TurnBasedMatchesDecline *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.decline";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesDismiss
-
-@dynamic matchId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/dismiss";
-  GTLRGamesQuery_TurnBasedMatchesDismiss *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.loggingName = @"games.turnBasedMatches.dismiss";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesFinish
-
-@dynamic language, matchId;
-
-+ (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchResults *)object
-                        matchId:(NSString *)matchId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/finish";
-  GTLRGamesQuery_TurnBasedMatchesFinish *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.finish";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesGet
-
-@dynamic includeMatchData, language, matchId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}";
-  GTLRGamesQuery_TurnBasedMatchesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesJoin
-
-@dynamic language, matchId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/join";
-  GTLRGamesQuery_TurnBasedMatchesJoin *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.join";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesLeave
-
-@dynamic language, matchId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/leave";
-  GTLRGamesQuery_TurnBasedMatchesLeave *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.leave";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesLeaveTurn
-
-@dynamic language, matchId, matchVersion, pendingParticipantId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId
-                    matchVersion:(NSInteger)matchVersion {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/leaveTurn";
-  GTLRGamesQuery_TurnBasedMatchesLeaveTurn *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.matchVersion = matchVersion;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.leaveTurn";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesList
-
-@dynamic includeMatchData, language, maxCompletedMatches, maxResults, pageToken;
+@implementation GTLRGamesQuery_StatsGet
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"turnbasedmatches";
-  GTLRGamesQuery_TurnBasedMatchesList *query =
+  NSString *pathURITemplate = @"games/v1/stats";
+  GTLRGamesQuery_StatsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatchList class];
-  query.loggingName = @"games.turnBasedMatches.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesRematch
-
-@dynamic language, matchId, requestId;
-
-+ (instancetype)queryWithMatchId:(NSString *)matchId {
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/rematch";
-  GTLRGamesQuery_TurnBasedMatchesRematch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatchRematch class];
-  query.loggingName = @"games.turnBasedMatches.rematch";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesSync
-
-@dynamic includeMatchData, language, maxCompletedMatches, maxResults, pageToken;
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"turnbasedmatches/sync";
-  GTLRGamesQuery_TurnBasedMatchesSync *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatchSync class];
-  query.loggingName = @"games.turnBasedMatches.sync";
-  return query;
-}
-
-@end
-
-@implementation GTLRGamesQuery_TurnBasedMatchesTakeTurn
-
-@dynamic language, matchId;
-
-+ (instancetype)queryWithObject:(GTLRGames_TurnBasedMatchTurn *)object
-                        matchId:(NSString *)matchId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"matchId" ];
-  NSString *pathURITemplate = @"turnbasedmatches/{matchId}/turn";
-  GTLRGamesQuery_TurnBasedMatchesTakeTurn *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.matchId = matchId;
-  query.expectedObjectClass = [GTLRGames_TurnBasedMatch class];
-  query.loggingName = @"games.turnBasedMatches.takeTurn";
+  query.expectedObjectClass = [GTLRGames_StatsResponse class];
+  query.loggingName = @"games.stats.get";
   return query;
 }
 

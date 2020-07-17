@@ -1127,7 +1127,22 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_LaunchFlexTemplateParameter
-@dynamic containerSpec, containerSpecGcsPath, jobName, parameters;
+@dynamic containerSpec, containerSpecGcsPath, jobName, launchOptions,
+         parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchFlexTemplateParameter_LaunchOptions
+//
+
+@implementation GTLRDataflow_LaunchFlexTemplateParameter_LaunchOptions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -3057,8 +3072,8 @@ NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_TeardownPolicyUnknown =
 //
 
 @implementation GTLRDataflow_WorkItemServiceState
-@dynamic harnessData, hotKeyDetection, leaseExpireTime, metricShortId,
-         nextReportIndex, reportStatusInterval, splitRequest,
+@dynamic completeWorkStatus, harnessData, hotKeyDetection, leaseExpireTime,
+         metricShortId, nextReportIndex, reportStatusInterval, splitRequest,
          suggestedStopPoint, suggestedStopPosition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

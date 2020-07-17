@@ -174,6 +174,8 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#subnetwork" : [GTLRCompute_Subnetwork class],
     @"compute#subnetworkAggregatedList" : [GTLRCompute_SubnetworkAggregatedList class],
     @"compute#subnetworkList" : [GTLRCompute_SubnetworkList class],
+    @"compute#targetGrpcProxy" : [GTLRCompute_TargetGrpcProxy class],
+    @"compute#targetGrpcProxyList" : [GTLRCompute_TargetGrpcProxyList class],
     @"compute#targetHttpProxy" : [GTLRCompute_TargetHttpProxy class],
     @"compute#targetHttpProxyAggregatedList" : [GTLRCompute_TargetHttpProxyAggregatedList class],
     @"compute#targetHttpProxyList" : [GTLRCompute_TargetHttpProxyList class],

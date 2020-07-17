@@ -20,6 +20,12 @@
 
 @class GTLRRecommender_GoogleCloudRecommenderV1CostProjection;
 @class GTLRRecommender_GoogleCloudRecommenderV1Impact;
+@class GTLRRecommender_GoogleCloudRecommenderV1Insight;
+@class GTLRRecommender_GoogleCloudRecommenderV1Insight_Content;
+@class GTLRRecommender_GoogleCloudRecommenderV1InsightRecommendationReference;
+@class GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo;
+@class GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_StateMetadata;
+@class GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest_StateMetadata;
 @class GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest_StateMetadata;
 @class GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest_StateMetadata;
 @class GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest_StateMetadata;
@@ -29,6 +35,7 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1OperationGroup;
 @class GTLRRecommender_GoogleCloudRecommenderV1Recommendation;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent;
+@class GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata;
 @class GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher;
@@ -77,6 +84,74 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impa
  *  Value: "SECURITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Impact_Category_Security;
+
+// ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1Insight.category
+
+/**
+ *  Unspecified category.
+ *
+ *  Value: "CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_CategoryUnspecified;
+/**
+ *  The insight is related to cost.
+ *
+ *  Value: "COST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Cost;
+/**
+ *  This insight is related to manageability.
+ *
+ *  Value: "MANAGEABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Manageability;
+/**
+ *  The insight is related to performance.
+ *
+ *  Value: "PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Performance;
+/**
+ *  The insight is related to security.
+ *
+ *  Value: "SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security;
+
+// ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo.state
+
+/**
+ *  Some action has been taken based on this insight. Insights become
+ *  accepted when a recommendation derived from the insight has been marked
+ *  CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be marked
+ *  ACCEPTED explicitly. Content for ACCEPTED insights is immutable. ACCEPTED
+ *  insights can only be marked ACCEPTED (which may update state metadata).
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Accepted;
+/**
+ *  Insight is active. Content for ACTIVE insights can be updated by Google.
+ *  ACTIVE insights can be marked DISMISSED OR ACCEPTED.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Active;
+/**
+ *  Insight is dismissed. Content for DISMISSED insights can be updated by
+ *  Google. DISMISSED insights can be marked as ACTIVE.
+ *
+ *  Value: "DISMISSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Dismissed;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo.state
@@ -179,6 +254,185 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 
 /**
+ *  An insight along with the information used to derive the insight. The
+ *  insight
+ *  may have associated recomendations as well.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1Insight : GTLRObject
+
+/** Recommendations derived from this insight. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1InsightRecommendationReference *> *associatedRecommendations;
+
+/**
+ *  Category being targeted by the insight.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_CategoryUnspecified
+ *        Unspecified category. (Value: "CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Cost The
+ *        insight is related to cost. (Value: "COST")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Manageability
+ *        This insight is related to manageability. (Value: "MANAGEABILITY")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Performance
+ *        The insight is related to performance. (Value: "PERFORMANCE")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security
+ *        The insight is related to security. (Value: "SECURITY")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  A struct of custom fields to explain the insight.
+ *  Example: "grantedPermissionsCount": "1000"
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Insight_Content *content;
+
+/**
+ *  Free-form human readable summary in English. The maximum length is 500
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Fingerprint of the Insight. Provides optimistic locking when updating
+ *  states.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Insight subtype. Insight content schema will be stable for a given subtype.
+ */
+@property(nonatomic, copy, nullable) NSString *insightSubtype;
+
+/** Timestamp of the latest data used to generate the insight. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Observation period that led to the insight. The source data used to
+ *  generate the insight ends at last_refresh_time and begins at
+ *  (last_refresh_time - observation_period).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *observationPeriod;
+
+/** Information state and metadata. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo *stateInfo;
+
+/** Fully qualified resource names that this insight is targeting. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetResources;
+
+@end
+
+
+/**
+ *  A struct of custom fields to explain the insight.
+ *  Example: "grantedPermissionsCount": "1000"
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1Insight_Content : GTLRObject
+@end
+
+
+/**
+ *  Reference to an associated recommendation.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightRecommendationReference : GTLRObject
+
+/**
+ *  Recommendation resource name, e.g.
+ *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/recommendations/[RECOMMENDATION_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *recommendation;
+
+@end
+
+
+/**
+ *  Information related to insight state.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo : GTLRObject
+
+/**
+ *  Insight state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Accepted
+ *        Some action has been taken based on this insight. Insights become
+ *        accepted when a recommendation derived from the insight has been
+ *        marked
+ *        CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be marked
+ *        ACCEPTED explicitly. Content for ACCEPTED insights is immutable.
+ *        ACCEPTED
+ *        insights can only be marked ACCEPTED (which may update state
+ *        metadata). (Value: "ACCEPTED")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Active
+ *        Insight is active. Content for ACTIVE insights can be updated by
+ *        Google.
+ *        ACTIVE insights can be marked DISMISSED OR ACCEPTED. (Value: "ACTIVE")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Dismissed
+ *        Insight is dismissed. Content for DISMISSED insights can be updated by
+ *        Google. DISMISSED insights can be marked as ACTIVE. (Value:
+ *        "DISMISSED")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  A map of metadata for the state, provided by user or automations systems.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_StateMetadata *stateMetadata;
+
+@end
+
+
+/**
+ *  A map of metadata for the state, provided by user or automations systems.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_StateMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response to the `ListInsights` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "insights" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse : GTLRCollectionObject
+
+/**
+ *  The set of insights for the `parent` resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1Insight *> *insights;
+
+/**
+ *  A token that can be used to request the next page of results. This field is
+ *  empty if there are no additional results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response to the `ListRecommendations` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -202,6 +456,38 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1Recommendation *> *recommendations;
 
+@end
+
+
+/**
+ *  Request for the `MarkInsightAccepted` method.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest : GTLRObject
+
+/** Required. Fingerprint of the Insight. Provides optimistic locking. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. State properties user wish to include with this state. Full
+ *  replace of the
+ *  current state_metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest_StateMetadata *stateMetadata;
+
+@end
+
+
+/**
+ *  Optional. State properties user wish to include with this state. Full
+ *  replace of the
+ *  current state_metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest_StateMetadata : GTLRObject
 @end
 
 
@@ -490,6 +776,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1Impact *> *additionalImpact;
 
+/** Insights that led to this recommendation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference *> *associatedInsights;
+
 /**
  *  Content of the recommendation describing recommended changes to resources.
  */
@@ -553,6 +842,20 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  atomically and in an order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1OperationGroup *> *operationGroups;
+
+@end
+
+
+/**
+ *  Reference to an associated insight.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference : GTLRObject
+
+/**
+ *  Insight resource name, e.g.
+ *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/insights/[INSIGHT_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *insight;
 
 @end
 

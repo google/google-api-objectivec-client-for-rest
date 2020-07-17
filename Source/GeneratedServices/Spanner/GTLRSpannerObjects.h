@@ -339,6 +339,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Int64;
 /**
+ *  Encoded as `string`, in decimal format or scientific notation format.
+ *  <br>Decimal format:
+ *  <br>`[+-]Digits[.[Digits]]` or
+ *  <br>`+-.Digits`
+ *  Scientific notation:
+ *  <br>`[+-]Digits[.[Digits]][ExponentIndicator[+-]Digits]` or
+ *  <br>`+-.Digits[ExponentIndicator[+-]Digits]`
+ *  <br>(ExponentIndicator is `"e"` or `"E"`)
+ *
+ *  Value: "NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Numeric;
+/**
  *  Encoded as `string`.
  *
  *  Value: "STRING"
@@ -3581,6 +3594,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        `"-Infinity"`. (Value: "FLOAT64")
  *    @arg @c kGTLRSpanner_Type_Code_Int64 Encoded as `string`, in decimal
  *        format. (Value: "INT64")
+ *    @arg @c kGTLRSpanner_Type_Code_Numeric Encoded as `string`, in decimal
+ *        format or scientific notation format.
+ *        <br>Decimal format:
+ *        <br>`[+-]Digits[.[Digits]]` or
+ *        <br>`+-.Digits`
+ *        Scientific notation:
+ *        <br>`[+-]Digits[.[Digits]][ExponentIndicator[+-]Digits]` or
+ *        <br>`+-.Digits[ExponentIndicator[+-]Digits]`
+ *        <br>(ExponentIndicator is `"e"` or `"E"`) (Value: "NUMERIC")
  *    @arg @c kGTLRSpanner_Type_Code_String Encoded as `string`. (Value:
  *        "STRING")
  *    @arg @c kGTLRSpanner_Type_Code_Struct Encoded as `list`, where list

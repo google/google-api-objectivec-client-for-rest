@@ -25,6 +25,8 @@
 @class GTLRCloudAsset_AuditLogConfig;
 @class GTLRCloudAsset_BigQueryDestination;
 @class GTLRCloudAsset_Binding;
+@class GTLRCloudAsset_Explanation;
+@class GTLRCloudAsset_Explanation_MatchedPermissions;
 @class GTLRCloudAsset_Expr;
 @class GTLRCloudAsset_Feed;
 @class GTLRCloudAsset_FeedOutputConfig;
@@ -43,13 +45,18 @@
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig;
 @class GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices;
+@class GTLRCloudAsset_IamPolicySearchResult;
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_OutputConfig;
+@class GTLRCloudAsset_Permissions;
 @class GTLRCloudAsset_Policy;
 @class GTLRCloudAsset_PubsubDestination;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
+@class GTLRCloudAsset_ResourceSearchResult;
+@class GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes;
+@class GTLRCloudAsset_ResourceSearchResult_Labels;
 @class GTLRCloudAsset_Status;
 @class GTLRCloudAsset_Status_Details_Item;
 @class GTLRCloudAsset_TemporalAsset;
@@ -284,6 +291,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  Value: "PERIMETER_TYPE_REGULAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_TemporalAsset.priorAssetState
+
+/**
+ *  prior_asset is a deletion.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_Deleted;
+/**
+ *  Current asset is the first known state.
+ *
+ *  Value: "DOES_NOT_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_DoesNotExist;
+/**
+ *  Failed to set prior_asset.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_Invalid;
+/**
+ *  prior_asset is populated correctly.
+ *
+ *  Value: "PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_Present;
+/**
+ *  prior_asset is not applicable for the current asset.
+ *
+ *  Value: "PRIOR_ASSET_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUnspecified;
 
 /**
  *  An asset in Google Cloud. An asset can be any resource in the Google Cloud
@@ -631,14 +672,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
+ *  Explanation about the IAM policy search result.
+ */
+@interface GTLRCloudAsset_Explanation : GTLRObject
+
+/**
+ *  The map from roles to their included permissions that match the
+ *  permission query (i.e., a query containing `policy.role.permissions:`).
+ *  Example: if query `policy.role.permissions : "compute.disk.get"`
+ *  matches a policy binding that contains owner role, the
+ *  matched_permissions will be `{"roles/owner": ["compute.disk.get"]}`. The
+ *  roles can also be found in the returned `policy` bindings. Note that the
+ *  map is populated only for requests with permission queries.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Explanation_MatchedPermissions *matchedPermissions;
+
+@end
+
+
+/**
+ *  The map from roles to their included permissions that match the
+ *  permission query (i.e., a query containing `policy.role.permissions:`).
+ *  Example: if query `policy.role.permissions : "compute.disk.get"`
+ *  matches a policy binding that contains owner role, the
+ *  matched_permissions will be `{"roles/owner": ["compute.disk.get"]}`. The
+ *  roles can also be found in the returned `policy` bindings. Note that the
+ *  map is populated only for requests with permission queries.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudAsset_Permissions. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAsset_Explanation_MatchedPermissions : GTLRObject
+@end
+
+
+/**
  *  Export asset request.
  */
 @interface GTLRCloudAsset_ExportAssetsRequest : GTLRObject
 
 /**
- *  A list of asset types of which to take a snapshot for. Example:
- *  "compute.googleapis.com/Disk". If specified, only matching assets will be
- *  returned. See [Introduction to Cloud Asset
+ *  A list of asset types to take a snapshot for. For example:
+ *  "compute.googleapis.com/Disk".
+ *  Regular expressions are also supported. For example:
+ *  * "compute.googleapis.com.*" snapshots resources whose asset type starts
+ *  with "compute.googleapis.com".
+ *  * ".*Instance" snapshots resources whose asset type ends with "Instance".
+ *  * ".*Instance.*" snapshots resources whose asset type contains "Instance".
+ *  See [RE2](https://github.com/google/re2/wiki/Syntax) for all supported
+ *  regular expression syntax. If the regular expression does not match any
+ *  supported asset type, an INVALID_ARGUMENT error will be returned.
+ *  If specified, only matching assets will be returned, otherwise, it will
+ *  snapshot all asset types. See [Introduction to Cloud Asset
  *  Inventory](https://cloud.google.com/asset-inventory/docs/overview)
  *  for all supported asset types.
  */
@@ -769,6 +856,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  for a list of all supported asset types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
+
+/**
+ *  A condition which determines whether an asset update should be published.
+ *  If specified, an asset will be returned only when the expression evaluates
+ *  to true.
+ *  When set, `expression` field in the `Expr` must be a valid [CEL expression]
+ *  (https://github.com/google/cel-spec) on a TemporalAsset with name
+ *  `temporal_asset`. Example: a Feed with expression ("temporal_asset.deleted
+ *  == true") will only publish Asset deletions. Other fields of `Expr` are
+ *  optional.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
 
 /**
  *  Asset content type. If not specified, no content but the asset name and
@@ -1557,6 +1656,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
+ *  A result of IAM Policy search, containing information of an IAM policy.
+ */
+@interface GTLRCloudAsset_IamPolicySearchResult : GTLRObject
+
+/**
+ *  Explanation about the IAM policy search result. It contains additional
+ *  information to explain why the search result matches the query.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Explanation *explanation;
+
+/**
+ *  The IAM policy directly set on the given resource. Note that the original
+ *  IAM policy can contain multiple bindings. This only contains the bindings
+ *  that match the given query. For queries that don't contain a constrain on
+ *  policies (e.g., an empty query), this contains all the bindings.
+ *  To search against the `policy` bindings:
+ *  * use a field query, as following:
+ *  - query by the policy contained members. Example:
+ *  `policy : "amy\@gmail.com"`
+ *  - query by the policy contained roles. Example:
+ *  `policy : "roles/compute.admin"`
+ *  - query by the policy contained roles' implied permissions. Example:
+ *  `policy.role.permissions : "compute.instances.create"`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
+
+/**
+ *  The project that the associated GCP resource belongs to, in the form of
+ *  projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource (like VM
+ *  instance, Cloud Storage bucket), the project field will indicate the
+ *  project that contains the resource. If an IAM policy is set on a folder or
+ *  orgnization, the project field will be empty.
+ *  To search against the `project`:
+ *  * specify the `scope` field as this project in your search request.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The full resource name of the resource associated with this IAM policy.
+ *  Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
+ *  See [Cloud Asset Inventory Resource Name
+ *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
+ *  for more information.
+ *  To search against the `resource`:
+ *  * use a field query. Example: `resource : "organizations/123"`
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
  *  GTLRCloudAsset_ListFeedsResponse
  */
 @interface GTLRCloudAsset_ListFeedsResponse : GTLRObject
@@ -1662,6 +1814,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 /** Destination on Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GcsDestination *gcsDestination;
+
+@end
+
+
+/**
+ *  IAM permissions
+ */
+@interface GTLRCloudAsset_Permissions : GTLRObject
+
+/** A list of permissions. A sample permission string: `compute.disk.get`. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 
@@ -1877,6 +2040,214 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 
 
 /**
+ *  A result of Resource Search, containing information of a cloud resoure.
+ */
+@interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
+
+/**
+ *  The additional attributes of this resource. The attributes may vary from
+ *  one resource type to another. Examples: `projectId` for Project,
+ *  `dnsName` for DNS ManagedZone. This field contains a subset of the resource
+ *  metadata fields that are returned by the List or Get APIs provided by the
+ *  corresponding GCP service (e.g., Compute Engine). see [API
+ *  references](https://cloud.google.com/asset-inventory/docs/supported-asset-types#supported_resource_types)
+ *  of CAIS supported resource types. You can search values of these fields
+ *  through free text search. However, you should not consume the field
+ *  programically as the field names and values may change as the GCP service
+ *  (e.g., Compute Engine) updates to a new incompatible API version.
+ *  To search against the `additional_attributes`:
+ *  * use a free text query to match the attributes values. Example: to search
+ *  `additional_attributes = { dnsName: "foobar" }`, you can issue a query
+ *  `"foobar"`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes *additionalAttributes;
+
+/**
+ *  The type of this resource. Example: `compute.googleapis.com/Disk`.
+ *  To search against the `asset_type`:
+ *  * specify the `asset_type` field in your search request.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
+ *  One or more paragraphs of text description of this resource. Maximum length
+ *  could be up to 1M bytes.
+ *  To search against the `description`:
+ *  * use a field query. Example: `description : "*important instance*"`
+ *  * use a free text query. Example: `"*important instance*"`
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The display name of this resource.
+ *  To search against the `display_name`:
+ *  * use a field query. Example: `displayName : "My Instance"`
+ *  * use a free text query. Example: `"My Instance"`
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Labels associated with this resource. See [Labelling and grouping GCP
+ *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
+ *  for more information.
+ *  To search against the `labels`:
+ *  * use a field query, as following:
+ *  - query on any label's key or value. Example: `labels : "prod"`
+ *  - query by a given label. Example: `labels.env : "prod"`
+ *  - query by a given label'sexistence. Example: `labels.env : *`
+ *  * use a free text query. Example: `"prod"`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Labels *labels;
+
+/**
+ *  Location can be `global`, regional like `us-east1`, or zonal like
+ *  `us-west1-b`.
+ *  To search against the `location`:
+ *  * use a field query. Example: `location : "us-west*"`
+ *  * use a free text query. Example: `"us-west*"`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The full resource name of this resource. Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
+ *  See [Cloud Asset Inventory Resource Name
+ *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
+ *  for more information.
+ *  To search against the `name`:
+ *  * use a field query. Example: `name : "instance1"`
+ *  * use a free text query. Example: `"instance1"`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Network tags associated with this resource. Like labels, network tags are a
+ *  type of annotations used to group GCP resources. See [Labelling GCP
+ *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
+ *  for more information.
+ *  To search against the `network_tags`:
+ *  * use a field query. Example: `networkTags : "internal"`
+ *  * use a free text query. Example: `"internal"`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
+
+/**
+ *  The project that this resource belongs to, in the form of
+ *  projects/{PROJECT_NUMBER}.
+ *  To search against the `project`:
+ *  * specify the `scope` field as this project in your search request.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+@end
+
+
+/**
+ *  The additional attributes of this resource. The attributes may vary from
+ *  one resource type to another. Examples: `projectId` for Project,
+ *  `dnsName` for DNS ManagedZone. This field contains a subset of the resource
+ *  metadata fields that are returned by the List or Get APIs provided by the
+ *  corresponding GCP service (e.g., Compute Engine). see [API
+ *  references](https://cloud.google.com/asset-inventory/docs/supported-asset-types#supported_resource_types)
+ *  of CAIS supported resource types. You can search values of these fields
+ *  through free text search. However, you should not consume the field
+ *  programically as the field names and values may change as the GCP service
+ *  (e.g., Compute Engine) updates to a new incompatible API version.
+ *  To search against the `additional_attributes`:
+ *  * use a free text query to match the attributes values. Example: to search
+ *  `additional_attributes = { dnsName: "foobar" }`, you can issue a query
+ *  `"foobar"`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes : GTLRObject
+@end
+
+
+/**
+ *  Labels associated with this resource. See [Labelling and grouping GCP
+ *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
+ *  for more information.
+ *  To search against the `labels`:
+ *  * use a field query, as following:
+ *  - query on any label's key or value. Example: `labels : "prod"`
+ *  - query by a given label. Example: `labels.env : "prod"`
+ *  - query by a given label'sexistence. Example: `labels.env : *`
+ *  * use a free text query. Example: `"prod"`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAsset_ResourceSearchResult_Labels : GTLRObject
+@end
+
+
+/**
+ *  Search all IAM policies response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudAsset_SearchAllIamPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  Set if there are more results than those appearing in this response; to get
+ *  the next set of results, call this method again, using this value as the
+ *  `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of IamPolicy that match the search query. Related information such
+ *  as the associated resource is returned along with the policy.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_IamPolicySearchResult *> *results;
+
+@end
+
+
+/**
+ *  Search all resources response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudAsset_SearchAllResourcesResponse : GTLRCollectionObject
+
+/**
+ *  If there are more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of Resources that match the search query. It contains the resource
+ *  standard metadata information.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_ResourceSearchResult *> *results;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1937,6 +2308,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleted;
+
+/**
+ *  Prior copy of the asset. Populated if prior_asset_state is PRESENT.
+ *  Currently this is only set for responses in Real-Time Feed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Asset *priorAsset;
+
+/**
+ *  State of prior_asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_TemporalAsset_PriorAssetState_Deleted prior_asset
+ *        is a deletion. (Value: "DELETED")
+ *    @arg @c kGTLRCloudAsset_TemporalAsset_PriorAssetState_DoesNotExist Current
+ *        asset is the first known state. (Value: "DOES_NOT_EXIST")
+ *    @arg @c kGTLRCloudAsset_TemporalAsset_PriorAssetState_Invalid Failed to
+ *        set prior_asset. (Value: "INVALID")
+ *    @arg @c kGTLRCloudAsset_TemporalAsset_PriorAssetState_Present prior_asset
+ *        is populated correctly. (Value: "PRESENT")
+ *    @arg @c kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUnspecified
+ *        prior_asset is not applicable for the current asset. (Value:
+ *        "PRIOR_ASSET_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priorAssetState;
 
 /** The time window when the asset data and state was observed. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_TimeWindow *window;

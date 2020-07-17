@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services API (games/v1)
+//   Google Play Game Services (games/v1)
 // Description:
-//   The API for Google Play Game Services.
+//   The Google Play games service allows developers to enhance games with
+//   social leaderboards,
+//   achievements, game state, sign-in with Google, and more.
 // Documentation:
-//   https://developers.google.com/games/services/
+//   https://developers.google.com/games/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -21,10 +23,10 @@
 #endif
 
 @class GTLRGames_AchievementDefinition;
+@class GTLRGames_AchievementIncrement;
+@class GTLRGames_AchievementSetStepsAtLeast;
 @class GTLRGames_AchievementUpdateRequest;
 @class GTLRGames_AchievementUpdateResponse;
-@class GTLRGames_AggregateStats;
-@class GTLRGames_AnonymousPlayer;
 @class GTLRGames_ApplicationCategory;
 @class GTLRGames_Category;
 @class GTLRGames_EventBatchRecordFailure;
@@ -34,8 +36,6 @@
 @class GTLRGames_EventPeriodUpdate;
 @class GTLRGames_EventRecordFailure;
 @class GTLRGames_EventUpdateRequest;
-@class GTLRGames_GamesAchievementIncrement;
-@class GTLRGames_GamesAchievementSetStepsAtLeast;
 @class GTLRGames_ImageAsset;
 @class GTLRGames_Instance;
 @class GTLRGames_InstanceAndroidDetails;
@@ -44,11 +44,6 @@
 @class GTLRGames_Leaderboard;
 @class GTLRGames_LeaderboardEntry;
 @class GTLRGames_LeaderboardScoreRank;
-@class GTLRGames_NetworkDiagnostics;
-@class GTLRGames_ParticipantResult;
-@class GTLRGames_PeerChannelDiagnostics;
-@class GTLRGames_PeerSessionDiagnostics;
-@class GTLRGames_Played;
 @class GTLRGames_Player;
 @class GTLRGames_Player_Name;
 @class GTLRGames_PlayerAchievement;
@@ -59,25 +54,9 @@
 @class GTLRGames_PlayerScore;
 @class GTLRGames_PlayerScoreResponse;
 @class GTLRGames_ProfileSettings;
-@class GTLRGames_PushTokenId;
-@class GTLRGames_PushTokenId_Ios;
-@class GTLRGames_Room;
-@class GTLRGames_RoomAutoMatchingCriteria;
-@class GTLRGames_RoomAutoMatchStatus;
-@class GTLRGames_RoomClientAddress;
-@class GTLRGames_RoomLeaveDiagnostics;
-@class GTLRGames_RoomModification;
-@class GTLRGames_RoomP2PStatus;
-@class GTLRGames_RoomParticipant;
 @class GTLRGames_ScoreSubmission;
 @class GTLRGames_Snapshot;
 @class GTLRGames_SnapshotImage;
-@class GTLRGames_TurnBasedAutoMatchingCriteria;
-@class GTLRGames_TurnBasedMatch;
-@class GTLRGames_TurnBasedMatchData;
-@class GTLRGames_TurnBasedMatchDataRequest;
-@class GTLRGames_TurnBasedMatchModification;
-@class GTLRGames_TurnBasedMatchParticipant;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -86,16 +65,533 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRGames_AchievementDefinition.achievementType
+
 /**
- *  This is a JSON template for an achievement definition object.
+ *  Safe default, don't use.
+ *
+ *  Value: "ACHIEVEMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementType_AchievementTypeUnspecified;
+/**
+ *  Achievement is incremental.
+ *
+ *  Value: "INCREMENTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementType_Incremental;
+/**
+ *  Achievement is either locked or unlocked.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementType_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_AchievementDefinition.initialState
+
+/**
+ *  Achievement is hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState_Hidden;
+/**
+ *  Safe default, don't use.
+ *
+ *  Value: "INITIAL_ACHIEVEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState_InitialAchievementStateUnspecified;
+/**
+ *  Achievement is revealed.
+ *
+ *  Value: "REVEALED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState_Revealed;
+/**
+ *  Achievement is unlocked.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_InitialState_Unlocked;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_AchievementRevealResponse.currentState
+
+/**
+ *  Safe default, don't use.
+ *
+ *  Value: "REVEAL_ACHIEVEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_RevealAchievementStateUnspecified;
+/**
+ *  Achievement is revealed.
+ *
+ *  Value: "REVEALED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_Revealed;
+/**
+ *  Achievement is unlocked.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementRevealResponse_CurrentState_Unlocked;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_AchievementUpdateRequest.updateType
+
+/**
+ *  Safe default, don't use.
+ *
+ *  Value: "ACHIEVEMENT_UPDATE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_AchievementUpdateTypeUnspecified;
+/**
+ *  Achievement is incremented.
+ *
+ *  Value: "INCREMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Increment;
+/**
+ *  Achievement is revealed.
+ *
+ *  Value: "REVEAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Reveal;
+/**
+ *  Achievement progress is set to at least the passed value.
+ *
+ *  Value: "SET_STEPS_AT_LEAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_SetStepsAtLeast;
+/**
+ *  Achievement is unlocked.
+ *
+ *  Value: "UNLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateRequest_UpdateType_Unlock;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_AchievementUpdateResponse.currentState
+
+/**
+ *  Achievement is hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Hidden;
+/**
+ *  Achievement is revealed.
+ *
+ *  Value: "REVEALED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Revealed;
+/**
+ *  Achievement is unlocked.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked;
+/**
+ *  Safe default, don't use.
+ *
+ *  Value: "UPDATED_ACHIEVEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentState_UpdatedAchievementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_Application.enabledFeatures
+
+/** Value: "APPLICATION_FEATURE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_ApplicationFeatureUnspecified;
+/** Value: "SNAPSHOTS" */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_Snapshots;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_EventBatchRecordFailure.failureCause
+
+/**
+ *  An attempt was made to record a batch of data which was already seen.
+ *
+ *  Value: "ALREADY_UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "EVENT_FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified;
+/**
+ *  An attempt was made to record data faster than the server
+ *  will apply updates.
+ *
+ *  Value: "RECORD_RATE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh;
+/**
+ *  A batch was sent with data too far in the past to record.
+ *
+ *  Value: "TIME_PERIOD_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodExpired;
+/**
+ *  A batch was sent with a time range that was too long.
+ *
+ *  Value: "TIME_PERIOD_LONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodLong;
+/**
+ *  A batch was sent with a time range that was too short.
+ *
+ *  Value: "TIME_PERIOD_SHORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodShort;
+/**
+ *  A batch request was issued with more events than are allowed in
+ *  a single batch.
+ *
+ *  Value: "TOO_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TooLarge;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_EventDefinition.visibility
+
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "EVENT_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified;
+/**
+ *  This event should only be shown to users that have recorded this event
+ *  at least once.
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventDefinition_Visibility_Hidden;
+/**
+ *  This event should be visible to all users.
+ *
+ *  Value: "REVEALED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventDefinition_Visibility_Revealed;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_EventRecordFailure.failureCause
+
+/**
+ *  Default value. Should not use.
+ *
+ *  Value: "EVENT_UPDATE_FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventRecordFailure_FailureCause_EventUpdateFailureCauseUnspecified;
+/**
+ *  An attempt was made to increment an event by a non-positive value.
+ *
+ *  Value: "INVALID_UPDATE_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventRecordFailure_FailureCause_InvalidUpdateValue;
+/**
+ *  An attempt was made to set an event that was not defined.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_EventRecordFailure_FailureCause_NotFound;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_Instance.platformType
+
+/**
+ *  Instance is for Android.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_Android;
+/**
+ *  Instance is for iOS.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_Ios;
+/**
+ *  Default value. Should be unused.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_PlatformTypeUnspecified;
+/**
+ *  Instance is for Web App.
+ *
+ *  Value: "WEB_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Instance_PlatformType_WebApp;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_Leaderboard.order
+
+/**
+ *  Larger values are better; scores are sorted in descending order
+ *
+ *  Value: "LARGER_IS_BETTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Leaderboard_Order_LargerIsBetter;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_ORDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Leaderboard_Order_ScoreOrderUnspecified;
+/**
+ *  Smaller values are better; scores are sorted in ascending order
+ *
+ *  Value: "SMALLER_IS_BETTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Leaderboard_Order_SmallerIsBetter;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_LeaderboardEntry.timeSpan
+
+/**
+ *  The score is an all-time score.
+ *
+ *  Value: "ALL_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_AllTime;
+/**
+ *  The score is a daily score.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Daily;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_ScoreTimeSpanUnspecified;
+/**
+ *  The score is a weekly score.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_LeaderboardEntry_TimeSpan_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_Player.friendStatus
+
+/**
+ *  The player and requester are friends.
+ *
+ *  Value: "FRIEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Player_FriendStatus_Friend;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FRIEND_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Player_FriendStatus_FriendStatusUnspecified;
+/**
+ *  There is no relationship between the players.
+ *
+ *  Value: "NO_RELATIONSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Player_FriendStatus_NoRelationship;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_PlayerAchievement.achievementState
+
+/**
+ *  Achievement is hidden.
+ *
+ *  Value: "HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState_Hidden;
+/**
+ *  Achievement is revealed.
+ *
+ *  Value: "REVEALED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState_Revealed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState_StateUnspecified;
+/**
+ *  Achievement is unlocked.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerAchievement_AchievementState_Unlocked;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_PlayerLeaderboardScore.timeSpan
+
+/**
+ *  The score is an all-time score.
+ *
+ *  Value: "ALL_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_AllTime;
+/**
+ *  The score is a daily score.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Daily;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_ScoreTimeSpanUnspecified;
+/**
+ *  The score is a weekly score.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerLeaderboardScore_TimeSpan_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_PlayerScore.timeSpan
+
+/**
+ *  The score is an all-time score.
+ *
+ *  Value: "ALL_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_AllTime;
+/**
+ *  The score is a daily score.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_Daily;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_ScoreTimeSpanUnspecified;
+/**
+ *  The score is a weekly score.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_PlayerScoreResponse.beatenScoreTimeSpans
+
+/** Value: "ALL_TIME" */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_AllTime;
+/** Value: "DAILY" */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Daily;
+/** Value: "SCORE_TIME_SPAN_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_ScoreTimeSpanUnspecified;
+/** Value: "WEEKLY" */
+FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_ProfileSettings.friendsListVisibility
+
+/**
+ *  Unused.
+ *
+ *  Value: "FRIENDS_LIST_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_FriendsListVisibilityUnspecified;
+/**
+ *  The developer does not have access to the friends list, but can call the
+ *  Android API to show a consent dialog.
+ *
+ *  Value: "REQUEST_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequired;
+/**
+ *  The friends list is currently unavailable for this user, and it is not
+ *  possible to request access at this time, either because the user has
+ *  permanently declined or the friends feature is not available to them. In
+ *  this state, any attempts to request access to the friends list will be
+ *  unsuccessful.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Unavailable;
+/**
+ *  The friends list is currently visible to the game.
+ *
+ *  Value: "VISIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Visible;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_RevisionCheckResponse.revisionStatus
+
+/**
+ *  There is currently a newer version available, but the revision being used
+ *  still works.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Deprecated;
+/**
+ *  The revision being used is not supported in any released version.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Invalid;
+/**
+ *  The revision being used is current.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Ok;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "REVISION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_RevisionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGames_Snapshot.type
+
+/**
+ *  A snapshot representing a save game.
+ *
+ *  Value: "SAVE_GAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SNAPSHOT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified;
+
+/**
+ *  An achievement definition object.
  */
 @interface GTLRGames_AchievementDefinition : GTLRObject
 
 /**
  *  The type of the achievement.
- *  Possible values are:
- *  - "STANDARD" - Achievement is either locked or unlocked.
- *  - "INCREMENTAL" - Achievement is incremental.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_AchievementDefinition_AchievementType_AchievementTypeUnspecified
+ *        Safe default, don't use. (Value: "ACHIEVEMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_AchievementDefinition_AchievementType_Incremental
+ *        Achievement is incremental. (Value: "INCREMENTAL")
+ *    @arg @c kGTLRGames_AchievementDefinition_AchievementType_Standard
+ *        Achievement is either locked or unlocked. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *achievementType;
 
@@ -125,24 +621,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The initial state of the achievement.
- *  Possible values are:
- *  - "HIDDEN" - Achievement is hidden.
- *  - "REVEALED" - Achievement is revealed.
- *  - "UNLOCKED" - Achievement is unlocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_AchievementDefinition_InitialState_Hidden Achievement
+ *        is hidden. (Value: "HIDDEN")
+ *    @arg @c kGTLRGames_AchievementDefinition_InitialState_InitialAchievementStateUnspecified
+ *        Safe default, don't use. (Value:
+ *        "INITIAL_ACHIEVEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_AchievementDefinition_InitialState_Revealed Achievement
+ *        is revealed. (Value: "REVEALED")
+ *    @arg @c kGTLRGames_AchievementDefinition_InitialState_Unlocked Achievement
+ *        is unlocked. (Value: "UNLOCKED")
  */
 @property(nonatomic, copy, nullable) NSString *initialState;
 
 /**
- *  Indicates whether the revealed icon image being returned is a default image,
- *  or is provided by the game.
+ *  Indicates whether the revealed icon image being returned is a default
+ *  image, or is provided by the game.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isRevealedIconUrlDefault;
 
 /**
- *  Indicates whether the unlocked icon image being returned is a default image,
- *  or is game-provided.
+ *  Indicates whether the unlocked icon image being returned is a default
+ *  image, or is game-provided.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -150,7 +653,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementDefinition.
+ *  string `games#achievementDefinition`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -174,7 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of achievement definition objects.
+ *  A list of achievement definition objects.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -193,7 +696,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementDefinitionsListResponse.
+ *  string `games#achievementDefinitionsListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -204,7 +707,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement increment response
+ *  The payload to request to increment an
+ *  achievement.
+ */
+@interface GTLRGames_AchievementIncrement : GTLRObject
+
+/**
+ *  Uniquely identifies the type of this resource. Value is always the fixed
+ *  string `games#GamesAchievementIncrement`.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The requestId associated with an increment to an achievement.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestId;
+
+/**
+ *  The number of steps to be incremented.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *steps;
+
+@end
+
+
+/**
+ *  An achievement increment response
  */
 @interface GTLRGames_AchievementIncrementResponse : GTLRObject
 
@@ -217,7 +749,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementIncrementResponse.
+ *  string `games#achievementIncrementResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -233,22 +765,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement reveal response
+ *  An achievement reveal response
  */
 @interface GTLRGames_AchievementRevealResponse : GTLRObject
 
 /**
  *  The current state of the achievement for which a reveal was attempted. This
- *  might be UNLOCKED if the achievement was already unlocked.
- *  Possible values are:
- *  - "REVEALED" - Achievement is revealed.
- *  - "UNLOCKED" - Achievement is unlocked.
+ *  might be `UNLOCKED` if the achievement was already unlocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_AchievementRevealResponse_CurrentState_RevealAchievementStateUnspecified
+ *        Safe default, don't use. (Value:
+ *        "REVEAL_ACHIEVEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_AchievementRevealResponse_CurrentState_Revealed
+ *        Achievement is revealed. (Value: "REVEALED")
+ *    @arg @c kGTLRGames_AchievementRevealResponse_CurrentState_Unlocked
+ *        Achievement is unlocked. (Value: "UNLOCKED")
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementRevealResponse.
+ *  string `games#achievementRevealResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -256,7 +794,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement set steps at least response.
+ *  The payload to request to increment an
+ *  achievement.
+ */
+@interface GTLRGames_AchievementSetStepsAtLeast : GTLRObject
+
+/**
+ *  Uniquely identifies the type of this resource. Value is always the fixed
+ *  string `games#GamesAchievementSetStepsAtLeast`.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The minimum number of steps for the achievement to be set to.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *steps;
+
+@end
+
+
+/**
+ *  An achievement set steps at least response.
  */
 @interface GTLRGames_AchievementSetStepsAtLeastResponse : GTLRObject
 
@@ -269,12 +829,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementSetStepsAtLeastResponse.
+ *  string `games#achievementSetStepsAtLeastResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Whether the the current steps for the achievement has reached the number of
+ *  Whether the current steps for the achievement has reached the number of
  *  steps required to unlock.
  *
  *  Uses NSNumber of boolValue.
@@ -285,13 +845,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement unlock response
+ *  An achievement unlock response
  */
 @interface GTLRGames_AchievementUnlockResponse : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementUnlockResponse.
+ *  string `games#achievementUnlockResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -307,13 +867,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of achievement update requests.
+ *  A list of achievement update requests.
  */
 @interface GTLRGames_AchievementUpdateMultipleRequest : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementUpdateMultipleRequest.
+ *  string `games#achievementUpdateMultipleRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -324,13 +884,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement unlock response.
+ *  GTLRGames_AchievementUpdateMultipleResponse
  */
 @interface GTLRGames_AchievementUpdateMultipleResponse : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementUpdateMultipleResponse.
+ *  string `games#achievementUpdateMultipleResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -341,7 +901,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a request to update an achievement.
+ *  A request to update an achievement.
  */
 @interface GTLRGames_AchievementUpdateRequest : GTLRObject
 
@@ -349,31 +909,39 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
- *  The payload if an update of type INCREMENT was requested for the
- *  achievement.
+ *  The payload if an update of type `INCREMENT` was requested for
+ *  the achievement.
  */
-@property(nonatomic, strong, nullable) GTLRGames_GamesAchievementIncrement *incrementPayload;
+@property(nonatomic, strong, nullable) GTLRGames_AchievementIncrement *incrementPayload;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementUpdateRequest.
+ *  string `games#achievementUpdateRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The payload if an update of type SET_STEPS_AT_LEAST was requested for the
- *  achievement.
+ *  The payload if an update of type `SET_STEPS_AT_LEAST` was
+ *  requested for the achievement.
  */
-@property(nonatomic, strong, nullable) GTLRGames_GamesAchievementSetStepsAtLeast *setStepsAtLeastPayload;
+@property(nonatomic, strong, nullable) GTLRGames_AchievementSetStepsAtLeast *setStepsAtLeastPayload;
 
 /**
  *  The type of update being applied.
- *  Possible values are:
- *  - "REVEAL" - Achievement is revealed.
- *  - "UNLOCK" - Achievement is unlocked.
- *  - "INCREMENT" - Achievement is incremented.
- *  - "SET_STEPS_AT_LEAST" - Achievement progress is set to at least the passed
- *  value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_AchievementUpdateTypeUnspecified
+ *        Safe default, don't use. (Value:
+ *        "ACHIEVEMENT_UPDATE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_Increment
+ *        Achievement is incremented. (Value: "INCREMENT")
+ *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_Reveal Achievement
+ *        is revealed. (Value: "REVEAL")
+ *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_SetStepsAtLeast
+ *        Achievement progress is set to at least the passed value. (Value:
+ *        "SET_STEPS_AT_LEAST")
+ *    @arg @c kGTLRGames_AchievementUpdateRequest_UpdateType_Unlock Achievement
+ *        is unlocked. (Value: "UNLOCK")
  */
 @property(nonatomic, copy, nullable) NSString *updateType;
 
@@ -381,7 +949,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement update response.
+ *  An updated achievement.
  */
 @interface GTLRGames_AchievementUpdateResponse : GTLRObject
 
@@ -390,10 +958,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The current state of the achievement.
- *  Possible values are:
- *  - "HIDDEN" - Achievement is hidden.
- *  - "REVEALED" - Achievement is revealed.
- *  - "UNLOCKED" - Achievement is unlocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_AchievementUpdateResponse_CurrentState_Hidden
+ *        Achievement is hidden. (Value: "HIDDEN")
+ *    @arg @c kGTLRGames_AchievementUpdateResponse_CurrentState_Revealed
+ *        Achievement is revealed. (Value: "REVEALED")
+ *    @arg @c kGTLRGames_AchievementUpdateResponse_CurrentState_Unlocked
+ *        Achievement is unlocked. (Value: "UNLOCKED")
+ *    @arg @c kGTLRGames_AchievementUpdateResponse_CurrentState_UpdatedAchievementStateUnspecified
+ *        Safe default, don't use. (Value:
+ *        "UPDATED_ACHIEVEMENT_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
@@ -406,7 +981,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#achievementUpdateResponse.
+ *  string `games#achievementUpdateResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -429,69 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for aggregate stats.
- */
-@interface GTLRGames_AggregateStats : GTLRObject
-
-/**
- *  The number of messages sent between a pair of peers.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#aggregateStats.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The maximum amount.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *max;
-
-/**
- *  The minimum amount.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *min;
-
-/**
- *  The total number of bytes sent for messages between a pair of peers.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sum;
-
-@end
-
-
-/**
- *  This is a JSON template for an anonymous player
- */
-@interface GTLRGames_AnonymousPlayer : GTLRObject
-
-/** The base URL for the image to display for the anonymous player. */
-@property(nonatomic, copy, nullable) NSString *avatarImageUrl;
-
-/** The name to display for the anonymous player. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#anonymousPlayer.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  This is a JSON template for the Application resource.
+ *  The Application resource.
  */
 @interface GTLRGames_Application : GTLRObject
 
@@ -518,11 +1031,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  A list of features that have been enabled for the application.
- *  Possible values are:
- *  - "SNAPSHOTS" - Snapshots has been enabled
- */
+/** A list of features that have been enabled for the application. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledFeatures;
 
 /**
@@ -537,7 +1046,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#application.
+ *  string `games#application`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -568,13 +1077,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an application category object.
+ *  An application category object.
  */
 @interface GTLRGames_ApplicationCategory : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#applicationCategory.
+ *  string `games#applicationCategory`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -588,8 +1097,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a third party application verification response
- *  resource.
+ *  A third party application verification response resource.
  */
 @interface GTLRGames_ApplicationVerifyResponse : GTLRObject
 
@@ -601,7 +1109,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#applicationVerifyResponse.
+ *  string `games#applicationVerifyResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -614,7 +1122,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for data related to individual game categories.
+ *  Data related to individual game categories.
  */
 @interface GTLRGames_Category : GTLRObject
 
@@ -630,7 +1138,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#category.
+ *  string `games#category`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -638,7 +1146,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of category data objects.
+ *  A third party list metagame categories response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -657,7 +1165,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#categoryListResponse.
+ *  string `games#categoryListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -668,30 +1176,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a batch update failure resource.
+ *  A batch update failure resource.
  */
 @interface GTLRGames_EventBatchRecordFailure : GTLRObject
 
 /**
  *  The cause for the update failure.
- *  Possible values are:
- *  - "TOO_LARGE": A batch request was issued with more events than are allowed
- *  in a single batch.
- *  - "TIME_PERIOD_EXPIRED": A batch was sent with data too far in the past to
- *  record.
- *  - "TIME_PERIOD_SHORT": A batch was sent with a time range that was too
- *  short.
- *  - "TIME_PERIOD_LONG": A batch was sent with a time range that was too long.
- *  - "ALREADY_UPDATED": An attempt was made to record a batch of data which was
- *  already seen.
- *  - "RECORD_RATE_HIGH": An attempt was made to record data faster than the
- *  server will apply updates.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_AlreadyUpdated An
+ *        attempt was made to record a batch of data which was already seen.
+ *        (Value: "ALREADY_UPDATED")
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "EVENT_FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh An
+ *        attempt was made to record data faster than the server
+ *        will apply updates. (Value: "RECORD_RATE_HIGH")
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodExpired
+ *        A batch was sent with data too far in the past to record. (Value:
+ *        "TIME_PERIOD_EXPIRED")
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodLong A
+ *        batch was sent with a time range that was too long. (Value:
+ *        "TIME_PERIOD_LONG")
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodShort A
+ *        batch was sent with a time range that was too short. (Value:
+ *        "TIME_PERIOD_SHORT")
+ *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_TooLarge A batch
+ *        request was issued with more events than are allowed in
+ *        a single batch. (Value: "TOO_LARGE")
  */
 @property(nonatomic, copy, nullable) NSString *failureCause;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventBatchRecordFailure.
+ *  string `games#eventBatchRecordFailure`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -702,7 +1221,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event child relationship resource.
+ *  An event child relationship resource.
  */
 @interface GTLRGames_EventChild : GTLRObject
 
@@ -711,7 +1230,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventChild.
+ *  string `games#eventChild`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -719,7 +1238,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event definition resource.
+ *  An event definition resource.
  */
 @interface GTLRGames_EventDefinition : GTLRObject
 
@@ -756,16 +1275,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventDefinition.
+ *  string `games#eventDefinition`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The visibility of event being tracked in this definition.
- *  Possible values are:
- *  - "REVEALED": This event should be visible to all users.
- *  - "HIDDEN": This event should only be shown to users that have recorded this
- *  event at least once.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "EVENT_VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRGames_EventDefinition_Visibility_Hidden This event should
+ *        only be shown to users that have recorded this event
+ *        at least once. (Value: "HIDDEN")
+ *    @arg @c kGTLRGames_EventDefinition_Visibility_Revealed This event should
+ *        be visible to all users. (Value: "REVEALED")
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
@@ -773,7 +1298,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a ListDefinitions response.
+ *  A ListDefinitions response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -792,7 +1317,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventDefinitionListResponse.
+ *  string `games#eventDefinitionListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -803,13 +1328,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event period time range.
+ *  An event period time range.
  */
 @interface GTLRGames_EventPeriodRange : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventPeriodRange.
+ *  string `games#eventPeriodRange`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -833,13 +1358,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event period update resource.
+ *  An event period update resource.
  */
 @interface GTLRGames_EventPeriodUpdate : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventPeriodUpdate.
+ *  string `games#eventPeriodUpdate`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -853,7 +1378,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event update failure resource.
+ *  An event update failure resource.
  */
 @interface GTLRGames_EventRecordFailure : GTLRObject
 
@@ -862,16 +1387,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The cause for the update failure.
- *  Possible values are:
- *  - "NOT_FOUND" - An attempt was made to set an event that was not defined.
- *  - "INVALID_UPDATE_VALUE" - An attempt was made to increment an event by a
- *  non-positive value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_EventRecordFailure_FailureCause_EventUpdateFailureCauseUnspecified
+ *        Default value. Should not use. (Value:
+ *        "EVENT_UPDATE_FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_EventRecordFailure_FailureCause_InvalidUpdateValue An
+ *        attempt was made to increment an event by a non-positive value.
+ *        (Value: "INVALID_UPDATE_VALUE")
+ *    @arg @c kGTLRGames_EventRecordFailure_FailureCause_NotFound An attempt was
+ *        made to set an event that was not defined. (Value: "NOT_FOUND")
  */
 @property(nonatomic, copy, nullable) NSString *failureCause;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventRecordFailure.
+ *  string `games#eventRecordFailure`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -879,7 +1410,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event period update resource.
+ *  An event period update resource.
  */
 @interface GTLRGames_EventRecordRequest : GTLRObject
 
@@ -893,7 +1424,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventRecordRequest.
+ *  string `games#eventRecordRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -911,7 +1442,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event period update resource.
+ *  An event period update resource.
  */
 @interface GTLRGames_EventUpdateRequest : GTLRObject
 
@@ -920,7 +1451,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventUpdateRequest.
+ *  string `games#eventUpdateRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -935,7 +1466,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event period update resource.
+ *  An event period update resource.
  */
 @interface GTLRGames_EventUpdateResponse : GTLRObject
 
@@ -947,7 +1478,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#eventUpdateResponse.
+ *  string `games#eventUpdateResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -958,58 +1489,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the payload to request to increment an
- *  achievement.
- */
-@interface GTLRGames_GamesAchievementIncrement : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#GamesAchievementIncrement.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The requestId associated with an increment to an achievement.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestId;
-
-/**
- *  The number of steps to be incremented.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *steps;
-
-@end
-
-
-/**
- *  This is a JSON template for the payload to request to increment an
- *  achievement.
- */
-@interface GTLRGames_GamesAchievementSetStepsAtLeast : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#GamesAchievementSetStepsAtLeast.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The minimum number of steps for the achievement to be set to.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *steps;
-
-@end
-
-
-/**
- *  This is a JSON template for an image asset object.
+ *  An image asset object.
  */
 @interface GTLRGames_ImageAsset : GTLRObject
 
@@ -1022,7 +1502,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#imageAsset.
+ *  string `games#imageAsset`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1043,7 +1523,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the Instance resource.
+ *  The Instance resource.
  */
 @interface GTLRGames_Instance : GTLRObject
 
@@ -1058,7 +1538,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#instance.
+ *  string `games#instance`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1067,10 +1547,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The platform type.
- *  Possible values are:
- *  - "ANDROID" - Instance is for Android.
- *  - "IOS" - Instance is for iOS
- *  - "WEB_APP" - Instance is for Web App.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_Instance_PlatformType_Android Instance is for Android.
+ *        (Value: "ANDROID")
+ *    @arg @c kGTLRGames_Instance_PlatformType_Ios Instance is for iOS. (Value:
+ *        "IOS")
+ *    @arg @c kGTLRGames_Instance_PlatformType_PlatformTypeUnspecified Default
+ *        value. Should be unused. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_Instance_PlatformType_WebApp Instance is for Web App.
+ *        (Value: "WEB_APP")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
@@ -1095,7 +1581,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the Android instance details resource.
+ *  The Android instance details resource.
  */
 @interface GTLRGames_InstanceAndroidDetails : GTLRObject
 
@@ -1108,7 +1594,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#instanceAndroidDetails.
+ *  string `games#instanceAndroidDetails`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1126,7 +1612,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the iOS details resource.
+ *  The iOS details resource.
  */
 @interface GTLRGames_InstanceIosDetails : GTLRObject
 
@@ -1138,7 +1624,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#instanceIosDetails.
+ *  string `games#instanceIosDetails`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1176,13 +1662,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the Web details resource.
+ *  The Web details resource.
  */
 @interface GTLRGames_InstanceWebDetails : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#instanceWebDetails.
+ *  string `games#instanceWebDetails`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1200,7 +1686,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the Leaderboard resource.
+ *  The Leaderboard resource.
  */
 @interface GTLRGames_Leaderboard : GTLRObject
 
@@ -1224,7 +1710,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#leaderboard.
+ *  string `games#leaderboard`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1233,11 +1719,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  How scores are ordered.
- *  Possible values are:
- *  - "LARGER_IS_BETTER" - Larger values are better; scores are sorted in
- *  descending order.
- *  - "SMALLER_IS_BETTER" - Smaller values are better; scores are sorted in
- *  ascending order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_Leaderboard_Order_LargerIsBetter Larger values are
+ *        better; scores are sorted in descending order (Value:
+ *        "LARGER_IS_BETTER")
+ *    @arg @c kGTLRGames_Leaderboard_Order_ScoreOrderUnspecified Default value.
+ *        This value is unused. (Value: "SCORE_ORDER_UNSPECIFIED")
+ *    @arg @c kGTLRGames_Leaderboard_Order_SmallerIsBetter Smaller values are
+ *        better; scores are sorted in ascending order (Value:
+ *        "SMALLER_IS_BETTER")
  */
 @property(nonatomic, copy, nullable) NSString *order;
 
@@ -1245,7 +1736,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the Leaderboard Entry resource.
+ *  The Leaderboard Entry resource.
  */
 @interface GTLRGames_LeaderboardEntry : GTLRObject
 
@@ -1257,7 +1748,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#leaderboardEntry.
+ *  string `games#leaderboardEntry`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1272,8 +1763,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *scoreRank;
 
 /**
- *  Additional information about the score. Values must contain no more than 64
- *  URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about the score. Values must contain no more than
+ *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -1286,10 +1777,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The time span of this high score.
- *  Possible values are:
- *  - "ALL_TIME" - The score is an all-time high score.
- *  - "WEEKLY" - The score is a weekly high score.
- *  - "DAILY" - The score is a daily high score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_AllTime The score is an
+ *        all-time score. (Value: "ALL_TIME")
+ *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_Daily The score is a daily
+ *        score. (Value: "DAILY")
+ *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_ScoreTimeSpanUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGames_LeaderboardEntry_TimeSpan_Weekly The score is a weekly
+ *        score. (Value: "WEEKLY")
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1305,7 +1803,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of leaderboard objects.
+ *  A list of leaderboard objects.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -1324,7 +1822,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#leaderboardListResponse.
+ *  string `games#leaderboardListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1335,7 +1833,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a score rank in a leaderboard.
+ *  A score rank in a leaderboard.
  */
 @interface GTLRGames_LeaderboardScoreRank : GTLRObject
 
@@ -1347,7 +1845,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#leaderboardScoreRank.
+ *  string `games#leaderboardScoreRank`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1369,7 +1867,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a ListScores response.
+ *  A ListScores response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -1388,7 +1886,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#leaderboardScores.
+ *  string `games#leaderboardScores`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1406,7 +1904,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  The score of the requesting player on the leaderboard. The player's score
  *  may appear both here and in the list of scores above. If you are viewing a
  *  public leaderboard and the player is not sharing their gameplay information
- *  publicly, the scoreRank and formattedScoreRank values will not be present.
+ *  publicly, the `scoreRank`and `formattedScoreRank`
+ *  values will not be present.
  */
 @property(nonatomic, strong, nullable) GTLRGames_LeaderboardEntry *playerScore;
 
@@ -1417,7 +1916,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for the metagame config resource
+ *  The metagame config resource
  */
 @interface GTLRGames_MetagameConfig : GTLRObject
 
@@ -1431,7 +1930,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#metagameConfig.
+ *  string `games#metagameConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1442,218 +1941,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for network diagnostics reported for a client.
- */
-@interface GTLRGames_NetworkDiagnostics : GTLRObject
-
-/**
- *  The Android network subtype.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *androidNetworkSubtype;
-
-/**
- *  The Android network type.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *androidNetworkType;
-
-/**
- *  iOS network type as defined in Reachability.h.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iosNetworkType;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#networkDiagnostics.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The MCC+MNC code for the client's network connection. On Android:
- *  http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperator()
- *  On iOS, see:
- *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html
- */
-@property(nonatomic, copy, nullable) NSString *networkOperatorCode;
-
-/**
- *  The name of the carrier of the client's network connection. On Android:
- *  http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperatorName()
- *  On iOS:
- *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName
- */
-@property(nonatomic, copy, nullable) NSString *networkOperatorName;
-
-/**
- *  The amount of time in milliseconds it took for the client to establish a
- *  connection with the XMPP server.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *registrationLatencyMillis;
-
-@end
-
-
-/**
- *  This is a JSON template for a result for a match participant.
- */
-@interface GTLRGames_ParticipantResult : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#participantResult.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The ID of the participant. */
-@property(nonatomic, copy, nullable) NSString *participantId;
-
-/**
- *  The placement or ranking of the participant in the match results; a number
- *  from one to the number of participants in the match. Multiple participants
- *  may have the same placing value in case of a type.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *placing;
-
-/**
- *  The result of the participant for this match.
- *  Possible values are:
- *  - "MATCH_RESULT_WIN" - The participant won the match.
- *  - "MATCH_RESULT_LOSS" - The participant lost the match.
- *  - "MATCH_RESULT_TIE" - The participant tied the match.
- *  - "MATCH_RESULT_NONE" - There was no winner for the match (nobody wins or
- *  loses this kind of game.)
- *  - "MATCH_RESULT_DISCONNECT" - The participant disconnected / left during the
- *  match.
- *  - "MATCH_RESULT_DISAGREED" - Different clients reported different results
- *  for this participant.
- */
-@property(nonatomic, copy, nullable) NSString *result;
-
-@end
-
-
-/**
- *  This is a JSON template for peer channel diagnostics.
- */
-@interface GTLRGames_PeerChannelDiagnostics : GTLRObject
-
-/** Number of bytes received. */
-@property(nonatomic, strong, nullable) GTLRGames_AggregateStats *bytesReceived;
-
-/** Number of bytes sent. */
-@property(nonatomic, strong, nullable) GTLRGames_AggregateStats *bytesSent;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#peerChannelDiagnostics.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Number of messages lost.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numMessagesLost;
-
-/**
- *  Number of messages received.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numMessagesReceived;
-
-/**
- *  Number of messages sent.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numMessagesSent;
-
-/**
- *  Number of send failures.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numSendFailures;
-
-/** Roundtrip latency stats in milliseconds. */
-@property(nonatomic, strong, nullable) GTLRGames_AggregateStats *roundtripLatencyMillis;
-
-@end
-
-
-/**
- *  This is a JSON template for peer session diagnostics.
- */
-@interface GTLRGames_PeerSessionDiagnostics : GTLRObject
-
-/**
- *  Connected time in milliseconds.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *connectedTimestampMillis;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#peerSessionDiagnostics.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The participant ID of the peer. */
-@property(nonatomic, copy, nullable) NSString *participantId;
-
-/** Reliable channel diagnostics. */
-@property(nonatomic, strong, nullable) GTLRGames_PeerChannelDiagnostics *reliableChannel;
-
-/** Unreliable channel diagnostics. */
-@property(nonatomic, strong, nullable) GTLRGames_PeerChannelDiagnostics *unreliableChannel;
-
-@end
-
-
-/**
- *  This is a JSON template for metadata about a player playing a game with the
- *  currently authenticated user.
- */
-@interface GTLRGames_Played : GTLRObject
-
-/**
- *  True if the player was auto-matched with the currently authenticated user.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoMatched;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#played.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The last time the player played the game in milliseconds since the epoch in
- *  UTC.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *timeMillis;
-
-@end
-
-
-/**
- *  This is a JSON template for a Player resource.
+ *  A Player resource.
  */
 @interface GTLRGames_Player : GTLRObject
 
@@ -1675,33 +1963,31 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The friend status of the given player, relative to the requester. This is
  *  unset if the player is not sharing their friends list with the game.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_Player_FriendStatus_Friend The player and requester are
+ *        friends. (Value: "FRIEND")
+ *    @arg @c kGTLRGames_Player_FriendStatus_FriendStatusUnspecified Default
+ *        value. This value is unused. (Value: "FRIEND_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRGames_Player_FriendStatus_NoRelationship There is no
+ *        relationship between the players. (Value: "NO_RELATIONSHIP")
  */
 @property(nonatomic, copy, nullable) NSString *friendStatus;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#player.
+ *  string `games#player`
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  Details about the last time this player played a multiplayer game with the
- *  currently authenticated player. Populated for PLAYED_WITH player collection
- *  members.
- */
-@property(nonatomic, strong, nullable) GTLRGames_Played *lastPlayedWith;
-
-/**
- *  An object representation of the individual components of the player's name.
- *  For some players, these fields may not be present.
- */
+/** A representation of the individual components of the name. */
 @property(nonatomic, strong, nullable) GTLRGames_Player_Name *name;
 
 /**
  *  The player ID that was used for this player the first time they signed into
- *  the game in question. This is only populated for calls to player.get for the
- *  requesting player, only if the player ID has subsequently changed, and only
- *  to clients that support remapping player IDs.
+ *  the game in question. This is only populated for calls to player.get for
+ *  the requesting player, only if the player ID has subsequently changed, and
+ *  only to clients that support remapping player IDs.
  */
 @property(nonatomic, copy, nullable) NSString *originalPlayerId;
 
@@ -1721,8 +2007,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  An object representation of the individual components of the player's name.
- *  For some players, these fields may not be present.
+ *  A representation of the individual components of the name.
  */
 @interface GTLRGames_Player_Name : GTLRObject
 
@@ -1742,16 +2027,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an achievement object.
+ *  An achievement object.
  */
 @interface GTLRGames_PlayerAchievement : GTLRObject
 
 /**
  *  The state of the achievement.
- *  Possible values are:
- *  - "HIDDEN" - Achievement is hidden.
- *  - "REVEALED" - Achievement is revealed.
- *  - "UNLOCKED" - Achievement is unlocked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_Hidden Achievement
+ *        is hidden. (Value: "HIDDEN")
+ *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_Revealed Achievement
+ *        is revealed. (Value: "REVEALED")
+ *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGames_PlayerAchievement_AchievementState_Unlocked Achievement
+ *        is unlocked. (Value: "UNLOCKED")
  */
 @property(nonatomic, copy, nullable) NSString *achievementState;
 
@@ -1783,7 +2074,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerAchievement.
+ *  string `games#playerAchievement`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1798,7 +2089,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of achievement objects.
+ *  A list of achievement objects.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -1817,7 +2108,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerAchievementListResponse.
+ *  string `games#playerAchievementListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1828,7 +2119,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an event status resource.
+ *  An event status resource.
  */
 @interface GTLRGames_PlayerEvent : GTLRObject
 
@@ -1844,7 +2135,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerEvent.
+ *  string `games#playerEvent`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1862,7 +2153,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a ListByPlayer response.
+ *  A ListByPlayer response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -1881,7 +2172,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerEventListResponse.
+ *  string `games#playerEventListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1892,7 +2183,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for 1P/3P metadata about the player's experience.
+ *  1P/3P metadata about the player's experience.
  */
 @interface GTLRGames_PlayerExperienceInfo : GTLRObject
 
@@ -1908,7 +2199,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerExperienceInfo.
+ *  string `games#playerExperienceInfo`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1930,13 +2221,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a player leaderboard score object.
+ *  A player leaderboard score object.
  */
 @interface GTLRGames_PlayerLeaderboardScore : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerLeaderboardScore.
+ *  string `games#playerLeaderboardScore`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1953,8 +2244,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *scoreString;
 
 /**
- *  Additional information about the score. Values must contain no more than 64
- *  URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about the score. Values must contain no more than
+ *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -1970,10 +2261,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The time span of this score.
- *  Possible values are:
- *  - "ALL_TIME" - The score is an all-time score.
- *  - "WEEKLY" - The score is a weekly score.
- *  - "DAILY" - The score is a daily score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_AllTime The score is an
+ *        all-time score. (Value: "ALL_TIME")
+ *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_Daily The score is a
+ *        daily score. (Value: "DAILY")
+ *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_ScoreTimeSpanUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGames_PlayerLeaderboardScore_TimeSpan_Weekly The score is a
+ *        weekly score. (Value: "WEEKLY")
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1989,7 +2287,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of player leaderboard scores.
+ *  A list of player leaderboard scores.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -2008,7 +2306,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerLeaderboardScoreListResponse.
+ *  string `games#playerLeaderboardScoreListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2022,13 +2320,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for 1P/3P metadata about a user's level.
+ *  1P/3P metadata about a user's level.
  */
 @interface GTLRGames_PlayerLevel : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerLevel.
+ *  string `games#playerLevel`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2057,7 +2355,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a third party player list response.
+ *  A third party player list response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -2076,7 +2374,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerListResponse.
+ *  string `games#playerListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2087,7 +2385,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a player score.
+ *  A player score.
  */
 @interface GTLRGames_PlayerScore : GTLRObject
 
@@ -2096,7 +2394,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerScore.
+ *  string `games#playerScore`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2108,17 +2406,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  Additional information about this score. Values will contain no more than 64
- *  URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about this score. Values will contain no more than
+ *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The time span for this player score.
- *  Possible values are:
- *  - "ALL_TIME" - The score is an all-time score.
- *  - "WEEKLY" - The score is a weekly score.
- *  - "DAILY" - The score is a daily score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_PlayerScore_TimeSpan_AllTime The score is an all-time
+ *        score. (Value: "ALL_TIME")
+ *    @arg @c kGTLRGames_PlayerScore_TimeSpan_Daily The score is a daily score.
+ *        (Value: "DAILY")
+ *    @arg @c kGTLRGames_PlayerScore_TimeSpan_ScoreTimeSpanUnspecified Default
+ *        value. This value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGames_PlayerScore_TimeSpan_Weekly The score is a weekly
+ *        score. (Value: "WEEKLY")
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -2126,13 +2430,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of score submission statuses.
+ *  A list of score submission statuses.
  */
 @interface GTLRGames_PlayerScoreListResponse : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerScoreListResponse.
+ *  string `games#playerScoreListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2143,17 +2447,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of leaderboard entry resources.
+ *  A list of leaderboard entry resources.
  */
 @interface GTLRGames_PlayerScoreResponse : GTLRObject
 
 /**
  *  The time spans where the submitted score is better than the existing score
  *  for that time span.
- *  Possible values are:
- *  - "ALL_TIME" - The score is an all-time score.
- *  - "WEEKLY" - The score is a weekly score.
- *  - "DAILY" - The score is a daily score.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *beatenScoreTimeSpans;
 
@@ -2162,7 +2462,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerScoreResponse.
+ *  string `games#playerScoreResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2170,15 +2470,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  Additional information about this score. Values will contain no more than 64
- *  URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about this score. Values will contain no more than
+ *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The scores in time spans that have not been beaten. As an example, the
- *  submitted score may be better than the player's DAILY score, but not better
- *  than the player's scores for the WEEKLY or ALL_TIME time spans.
+ *  submitted score may be better than the
+ *  player's `DAILY` score, but not better than the player's scores
+ *  for the `WEEKLY` or `ALL_TIME` time spans.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerScore *> *unbeatenScores;
 
@@ -2186,13 +2487,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of score submission requests
+ *  A list of score submission requests.
  */
 @interface GTLRGames_PlayerScoreSubmissionList : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#playerScoreSubmissionList.
+ *  string `games#playerScoreSubmissionList`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2203,21 +2504,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for profile settings
+ *  Profile settings
  */
 @interface GTLRGames_ProfileSettings : GTLRObject
 
-/** Whether the player's friends list is visible to the game. */
+/**
+ *  friendsListVisibility
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_FriendsListVisibilityUnspecified
+ *        Unused. (Value: "FRIENDS_LIST_VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequired
+ *        The developer does not have access to the friends list, but can call
+ *        the
+ *        Android API to show a consent dialog. (Value: "REQUEST_REQUIRED")
+ *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_Unavailable The
+ *        friends list is currently unavailable for this user, and it is not
+ *        possible to request access at this time, either because the user has
+ *        permanently declined or the friends feature is not available to them.
+ *        In
+ *        this state, any attempts to request access to the friends list will be
+ *        unsuccessful. (Value: "UNAVAILABLE")
+ *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_Visible The
+ *        friends list is currently visible to the game. (Value: "VISIBLE")
+ */
 @property(nonatomic, copy, nullable) NSString *friendsListVisibility;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#profileSettings.
+ *  string `games#profileSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  profileVisible
+ *  Whether the player's profile is visible to the currently signed in player.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2227,82 +2547,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a push token resource.
- */
-@interface GTLRGames_PushToken : GTLRObject
-
-/**
- *  The revision of the client SDK used by your application, in the same format
- *  that's used by revisions.check. Used to send backward compatible messages.
- *  Format: [PLATFORM_TYPE]:[VERSION_NUMBER]. Possible values of PLATFORM_TYPE
- *  are:
- *  - IOS - Push token is for iOS
- */
-@property(nonatomic, copy, nullable) NSString *clientRevision;
-
-/**
- *  Unique identifier for this push token.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, strong, nullable) GTLRGames_PushTokenId *identifier;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#pushToken.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The preferred language for notifications that are sent using this token.
- */
-@property(nonatomic, copy, nullable) NSString *language;
-
-@end
-
-
-/**
- *  This is a JSON template for a push token ID resource.
- */
-@interface GTLRGames_PushTokenId : GTLRObject
-
-/** A push token ID for iOS devices. */
-@property(nonatomic, strong, nullable) GTLRGames_PushTokenId_Ios *ios;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#pushTokenId.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  A push token ID for iOS devices.
- */
-@interface GTLRGames_PushTokenId_Ios : GTLRObject
-
-/**
- *  Device token supplied by an iOS system call to register for remote
- *  notifications. Encode this field as web-safe base64.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *apnsDeviceToken;
-
-/**
- *  Indicates whether this token should be used for the production or sandbox
- *  APNS server.
- */
-@property(nonatomic, copy, nullable) NSString *apnsEnvironment;
-
-@end
-
-
-/**
- *  This is a JSON template for the result of checking a revision.
+ *  A third party checking a revision response.
  */
 @interface GTLRGames_RevisionCheckResponse : GTLRObject
 
@@ -2314,18 +2559,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#revisionCheckResponse.
+ *  string `games#revisionCheckResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The result of the revision check.
- *  Possible values are:
- *  - "OK" - The revision being used is current.
- *  - "DEPRECATED" - There is currently a newer version available, but the
- *  revision being used still works.
- *  - "INVALID" - The revision being used is not supported in any released
- *  version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_RevisionCheckResponse_RevisionStatus_Deprecated There
+ *        is currently a newer version available, but the revision being used
+ *        still works. (Value: "DEPRECATED")
+ *    @arg @c kGTLRGames_RevisionCheckResponse_RevisionStatus_Invalid The
+ *        revision being used is not supported in any released version. (Value:
+ *        "INVALID")
+ *    @arg @c kGTLRGames_RevisionCheckResponse_RevisionStatus_Ok The revision
+ *        being used is current. (Value: "OK")
+ *    @arg @c kGTLRGames_RevisionCheckResponse_RevisionStatus_RevisionStatusUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "REVISION_STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *revisionStatus;
 
@@ -2333,621 +2585,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a room resource object.
- */
-@interface GTLRGames_Room : GTLRObject
-
-/** The ID of the application being played. */
-@property(nonatomic, copy, nullable) NSString *applicationId;
-
-/** Criteria for auto-matching players into this room. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchingCriteria *autoMatchingCriteria;
-
-/**
- *  Auto-matching status for this room. Not set if the room is not currently in
- *  the auto-matching queue.
- */
-@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchStatus *autoMatchingStatus;
-
-/** Details about the room creation. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomModification *creationDetails;
-
-/**
- *  This short description is generated by our servers and worded relative to
- *  the player requesting the room. It is intended to be displayed when the room
- *  is shown in a list (that is, an invitation to a room.)
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  The ID of the participant that invited the user to the room. Not set if the
- *  user was not invited to the room.
- */
-@property(nonatomic, copy, nullable) NSString *inviterId;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#room.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Details about the last update to the room. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomModification *lastUpdateDetails;
-
-/**
- *  The participants involved in the room, along with their statuses. Includes
- *  participants who have left or declined invitations.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_RoomParticipant *> *participants;
-
-/** Globally unique ID for a room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  The version of the room status: an increasing counter, used by the client to
- *  ignore out-of-order updates to room status.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *roomStatusVersion;
-
-/**
- *  The status of the room.
- *  Possible values are:
- *  - "ROOM_INVITING" - One or more players have been invited and not responded.
- *  - "ROOM_AUTO_MATCHING" - One or more slots need to be filled by
- *  auto-matching.
- *  - "ROOM_CONNECTING" - Players have joined and are connecting to each other
- *  (either before or after auto-matching).
- *  - "ROOM_ACTIVE" - All players have joined and connected to each other.
- *  - "ROOM_DELETED" - The room should no longer be shown on the client.
- *  Returned in sync calls when a player joins a room (as a tombstone), or for
- *  rooms where all joined participants have left.
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  The variant / mode of the application being played; can be any integer
- *  value, or left blank.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *variant;
-
-@end
-
-
-/**
- *  This is a JSON template for a room auto-match criteria object.
- */
-@interface GTLRGames_RoomAutoMatchingCriteria : GTLRObject
-
-/**
- *  A bitmask indicating when auto-matches are valid. When ANDed with other
- *  exclusive bitmasks, the result must be zero. Can be used to support
- *  exclusive roles within a game.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *exclusiveBitmask;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomAutoMatchingCriteria.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The maximum number of players that should be added to the room by
- *  auto-matching.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxAutoMatchingPlayers;
-
-/**
- *  The minimum number of players that should be added to the room by
- *  auto-matching.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minAutoMatchingPlayers;
-
-@end
-
-
-/**
- *  This is a JSON template for status of room automatching that is in progress.
- */
-@interface GTLRGames_RoomAutoMatchStatus : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomAutoMatchStatus.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  An estimate for the amount of time (in seconds) that auto-matching is
- *  expected to take to complete.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *waitEstimateSeconds;
-
-@end
-
-
-/**
- *  This is a JSON template for the client address when setting up a room.
- */
-@interface GTLRGames_RoomClientAddress : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomClientAddress.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The XMPP address of the client on the Google Games XMPP network. */
-@property(nonatomic, copy, nullable) NSString *xmppAddress;
-
-@end
-
-
-/**
- *  This is a JSON template for a room creation request.
- */
-@interface GTLRGames_RoomCreateRequest : GTLRObject
-
-/** Criteria for auto-matching players into this room. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchingCriteria *autoMatchingCriteria;
-
-/** The capabilities that this client supports for realtime communication. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
-
-/** Client address for the player creating the room. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
-
-/** The player IDs to invite to the room. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *invitedPlayerIds;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomCreateRequest.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Network diagnostics for the client creating the room. */
-@property(nonatomic, strong, nullable) GTLRGames_NetworkDiagnostics *networkDiagnostics;
-
-/**
- *  A randomly generated numeric ID. This number is used at the server to ensure
- *  that the request is handled correctly across retries.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestId;
-
-/**
- *  The variant / mode of the application to be played. This can be any integer
- *  value, or left blank. You should use a small number of variants to keep the
- *  auto-matching pool as large as possible.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *variant;
-
-@end
-
-
-/**
- *  This is a JSON template for a join room request.
- */
-@interface GTLRGames_RoomJoinRequest : GTLRObject
-
-/** The capabilities that this client supports for realtime communication. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
-
-/** Client address for the player joining the room. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomJoinRequest.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Network diagnostics for the client joining the room. */
-@property(nonatomic, strong, nullable) GTLRGames_NetworkDiagnostics *networkDiagnostics;
-
-@end
-
-
-/**
- *  This is a JSON template for room leave diagnostics.
- */
-@interface GTLRGames_RoomLeaveDiagnostics : GTLRObject
-
-/**
- *  Android network subtype.
- *  http://developer.android.com/reference/android/net/NetworkInfo.html#getSubtype()
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *androidNetworkSubtype;
-
-/**
- *  Android network type.
- *  http://developer.android.com/reference/android/net/NetworkInfo.html#getType()
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *androidNetworkType;
-
-/**
- *  iOS network type as defined in Reachability.h.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iosNetworkType;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomLeaveDiagnostics.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The MCC+MNC code for the client's network connection. On Android:
- *  http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperator()
- *  On iOS, see:
- *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html
- */
-@property(nonatomic, copy, nullable) NSString *networkOperatorCode;
-
-/**
- *  The name of the carrier of the client's network connection. On Android:
- *  http://developer.android.com/reference/android/telephony/TelephonyManager.html#getNetworkOperatorName()
- *  On iOS:
- *  https://developer.apple.com/library/ios/documentation/NetworkingInternet/Reference/CTCarrier/Reference/Reference.html#//apple_ref/occ/instp/CTCarrier/carrierName
- */
-@property(nonatomic, copy, nullable) NSString *networkOperatorName;
-
-/** Diagnostics about all peer sessions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_PeerSessionDiagnostics *> *peerSession;
-
-/**
- *  Whether or not sockets were used.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *socketsUsed;
-
-@end
-
-
-/**
- *  This is a JSON template for a leave room request.
- */
-@interface GTLRGames_RoomLeaveRequest : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomLeaveRequest.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Diagnostics for a player leaving the room. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomLeaveDiagnostics *leaveDiagnostics;
-
-/**
- *  Reason for leaving the match.
- *  Possible values are:
- *  - "PLAYER_LEFT" - The player chose to leave the room..
- *  - "GAME_LEFT" - The game chose to remove the player from the room.
- *  - "REALTIME_ABANDONED" - The player switched to another application and
- *  abandoned the room.
- *  - "REALTIME_PEER_CONNECTION_FAILURE" - The client was unable to establish a
- *  connection to other peer(s).
- *  - "REALTIME_SERVER_CONNECTION_FAILURE" - The client was unable to
- *  communicate with the server.
- *  - "REALTIME_SERVER_ERROR" - The client received an error response when it
- *  tried to communicate with the server.
- *  - "REALTIME_TIMEOUT" - The client timed out while waiting for a room.
- *  - "REALTIME_CLIENT_DISCONNECTING" - The client disconnects without first
- *  calling Leave.
- *  - "REALTIME_SIGN_OUT" - The user signed out of G+ while in the room.
- *  - "REALTIME_GAME_CRASHED" - The game crashed.
- *  - "REALTIME_ROOM_SERVICE_CRASHED" - RoomAndroidService crashed.
- *  - "REALTIME_DIFFERENT_CLIENT_ROOM_OPERATION" - Another client is trying to
- *  enter a room.
- *  - "REALTIME_SAME_CLIENT_ROOM_OPERATION" - The same client is trying to enter
- *  a new room.
- */
-@property(nonatomic, copy, nullable) NSString *reason;
-
-@end
-
-
-/**
- *  This is a JSON template for a list of rooms.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRGames_RoomList : GTLRCollectionObject
-
-/**
- *  The rooms.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_Room *> *items;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomList.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The pagination token for the next page of results. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  This is a JSON template for room modification metadata.
- */
-@interface GTLRGames_RoomModification : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomModification.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The timestamp at which they modified the room, in milliseconds since the
- *  epoch in UTC.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *modifiedTimestampMillis;
-
-/** The ID of the participant that modified the room. */
-@property(nonatomic, copy, nullable) NSString *participantId;
-
-@end
-
-
-/**
- *  This is a JSON template for an update on the status of a peer in a room.
- */
-@interface GTLRGames_RoomP2PStatus : GTLRObject
-
-/**
- *  The amount of time in milliseconds it took to establish connections with
- *  this peer.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *connectionSetupLatencyMillis;
-
-/**
- *  The error code in event of a failure.
- *  Possible values are:
- *  - "P2P_FAILED" - The client failed to establish a P2P connection with the
- *  peer.
- *  - "PRESENCE_FAILED" - The client failed to register to receive P2P
- *  connections.
- *  - "RELAY_SERVER_FAILED" - The client received an error when trying to use
- *  the relay server to establish a P2P connection with the peer.
- */
-@property(nonatomic, copy, nullable) NSString *error;
-
-/** More detailed diagnostic message returned in event of a failure. */
-@property(nonatomic, copy, nullable) NSString *errorReason;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomP2PStatus.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The ID of the participant. */
-@property(nonatomic, copy, nullable) NSString *participantId;
-
-/**
- *  The status of the peer in the room.
- *  Possible values are:
- *  - "CONNECTION_ESTABLISHED" - The client established a P2P connection with
- *  the peer.
- *  - "CONNECTION_FAILED" - The client failed to establish directed presence
- *  with the peer.
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  The amount of time in milliseconds it took to send packets back and forth on
- *  the unreliable channel with this peer.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *unreliableRoundtripLatencyMillis;
-
-@end
-
-
-/**
- *  This is a JSON template for an update on the status of peers in a room.
- */
-@interface GTLRGames_RoomP2PStatuses : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomP2PStatuses.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The updates for the peers. */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_RoomP2PStatus *> *updates;
-
-@end
-
-
-/**
- *  This is a JSON template for a participant in a room.
- */
-@interface GTLRGames_RoomParticipant : GTLRObject
-
-/**
- *  True if this participant was auto-matched with the requesting player.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoMatched;
-
-/**
- *  Information about a player that has been anonymously auto-matched against
- *  the requesting player. (Either player or autoMatchedPlayer will be set.)
- */
-@property(nonatomic, strong, nullable) GTLRGames_AnonymousPlayer *autoMatchedPlayer;
-
-/**
- *  The capabilities which can be used when communicating with this participant.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
-
-/** Client address for the participant. */
-@property(nonatomic, strong, nullable) GTLRGames_RoomClientAddress *clientAddress;
-
-/**
- *  True if this participant is in the fully connected set of peers in the room.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *connected;
-
-/**
- *  An identifier for the participant in the scope of the room. Cannot be used
- *  to identify a player across rooms or in other contexts.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomParticipant.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The reason the participant left the room; populated if the participant
- *  status is PARTICIPANT_LEFT.
- *  Possible values are:
- *  - "PLAYER_LEFT" - The player explicitly chose to leave the room.
- *  - "GAME_LEFT" - The game chose to remove the player from the room.
- *  - "ABANDONED" - The player switched to another application and abandoned the
- *  room.
- *  - "PEER_CONNECTION_FAILURE" - The client was unable to establish or maintain
- *  a connection to other peer(s) in the room.
- *  - "SERVER_ERROR" - The client received an error response when it tried to
- *  communicate with the server.
- *  - "TIMEOUT" - The client timed out while waiting for players to join and
- *  connect.
- *  - "PRESENCE_FAILURE" - The client's XMPP connection ended abruptly.
- */
-@property(nonatomic, copy, nullable) NSString *leaveReason;
-
-/**
- *  Information about the player. Not populated if this player was anonymously
- *  auto-matched against the requesting player. (Either player or
- *  autoMatchedPlayer will be set.)
- */
-@property(nonatomic, strong, nullable) GTLRGames_Player *player;
-
-/**
- *  The status of the participant with respect to the room.
- *  Possible values are:
- *  - "PARTICIPANT_INVITED" - The participant has been invited to join the room,
- *  but has not yet responded.
- *  - "PARTICIPANT_JOINED" - The participant has joined the room (either after
- *  creating it or accepting an invitation.)
- *  - "PARTICIPANT_DECLINED" - The participant declined an invitation to join
- *  the room.
- *  - "PARTICIPANT_LEFT" - The participant joined the room and then left it.
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  This is a JSON template for the status of a room that the player has joined.
- */
-@interface GTLRGames_RoomStatus : GTLRObject
-
-/**
- *  Auto-matching status for this room. Not set if the room is not currently in
- *  the automatching queue.
- */
-@property(nonatomic, strong, nullable) GTLRGames_RoomAutoMatchStatus *autoMatchingStatus;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#roomStatus.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The participants involved in the room, along with their statuses. Includes
- *  participants who have left or declined invitations.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_RoomParticipant *> *participants;
-
-/** Globally unique ID for a room. */
-@property(nonatomic, copy, nullable) NSString *roomId;
-
-/**
- *  The status of the room.
- *  Possible values are:
- *  - "ROOM_INVITING" - One or more players have been invited and not responded.
- *  - "ROOM_AUTO_MATCHING" - One or more slots need to be filled by
- *  auto-matching.
- *  - "ROOM_CONNECTING" - Players have joined are connecting to each other
- *  (either before or after auto-matching).
- *  - "ROOM_ACTIVE" - All players have joined and connected to each other.
- *  - "ROOM_DELETED" - All joined players have left.
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  The version of the status for the room: an increasing counter, used by the
- *  client to ignore out-of-order updates to room status.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *statusVersion;
-
-@end
-
-
-/**
- *  This is a JSON template for a request to submit a score to leaderboards.
+ *  A request to submit a score to leaderboards.
  */
 @interface GTLRGames_ScoreSubmission : GTLRObject
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#scoreSubmission.
+ *  string `games#scoreSubmission`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2962,8 +2606,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  Additional information about this score. Values will contain no more than 64
- *  URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about this score. Values will contain no more than
+ *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -2977,7 +2621,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an snapshot object.
+ *  An snapshot object.
  */
 @interface GTLRGames_Snapshot : GTLRObject
 
@@ -3014,7 +2658,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#snapshot.
+ *  string `games#snapshot`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3039,8 +2683,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of this snapshot.
- *  Possible values are:
- *  - "SAVE_GAME" - A snapshot representing a save game.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_Snapshot_Type_SaveGame A snapshot representing a save
+ *        game. (Value: "SAVE_GAME")
+ *    @arg @c kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified Default value.
+ *        This value is unused. (Value: "SNAPSHOT_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3051,7 +2699,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an image of a snapshot.
+ *  An image of a snapshot.
  */
 @interface GTLRGames_SnapshotImage : GTLRObject
 
@@ -3064,7 +2712,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#snapshotImage.
+ *  string `games#snapshotImage`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3072,8 +2720,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  The URL of the image. This URL may be invalidated at any time and should not
- *  be cached.
+ *  The URL of the image. This URL may be invalidated at any time and should
+ *  not be cached.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -3088,7 +2736,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for a list of snapshot objects.
+ *  A third party list snapshots response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -3107,7 +2755,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#snapshotListResponse.
+ *  string `games#snapshotListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3121,505 +2769,103 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  This is a JSON template for an turn-based auto-match criteria object.
+ *  A third party stats resource.
  */
-@interface GTLRGames_TurnBasedAutoMatchingCriteria : GTLRObject
+@interface GTLRGames_StatsResponse : GTLRObject
 
 /**
- *  A bitmask indicating when auto-matches are valid. When ANDed with other
- *  exclusive bitmasks, the result must be zero. Can be used to support
- *  exclusive roles within a game.
+ *  Average session length in minutes of the player. E.g., 1, 30, 60, ... . Not
+ *  populated if there is not enough information.
  *
- *  Uses NSNumber of longLongValue.
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *exclusiveBitmask;
+@property(nonatomic, strong, nullable) NSNumber *avgSessionLengthMinutes;
 
 /**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedAutoMatchingCriteria.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The maximum number of players that should be added to the match by
- *  auto-matching.
+ *  The probability of the player not returning to play the game in the next
+ *  day. E.g., 0, 0.1, 0.5, ..., 1.0. Not populated if there is not enough
+ *  information.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxAutoMatchingPlayers;
+@property(nonatomic, strong, nullable) NSNumber *churnProbability;
 
 /**
- *  The minimum number of players that should be added to the match by
- *  auto-matching.
+ *  Number of days since the player last played this game. E.g., 0, 1, 5, 10,
+ *  ... . Not populated if there is not enough information.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *minAutoMatchingPlayers;
-
-@end
-
+@property(nonatomic, strong, nullable) NSNumber *daysSinceLastPlayed;
 
 /**
- *  This is a JSON template for a turn-based match resource object.
- */
-@interface GTLRGames_TurnBasedMatch : GTLRObject
-
-/** The ID of the application being played. */
-@property(nonatomic, copy, nullable) NSString *applicationId;
-
-/** Criteria for auto-matching players into this match. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedAutoMatchingCriteria *autoMatchingCriteria;
-
-/** Details about the match creation. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchModification *creationDetails;
-
-/** The data / game state for this match. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchData *data;
-
-/**
- *  This short description is generated by our servers based on turn state and
- *  is localized and worded relative to the player requesting the match. It is
- *  intended to be displayed when the match is shown in a list.
+ *  The probability of the player going to spend beyond a threshold amount of
+ *  money. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough
+ *  information.
  *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  The ID of the participant that invited the user to the match. Not set if the
- *  user was not invited to the match.
- */
-@property(nonatomic, copy, nullable) NSString *inviterId;
+@property(nonatomic, strong, nullable) NSNumber *highSpenderProbability;
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatch.
+ *  string `games#statsResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Details about the last update to the match. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchModification *lastUpdateDetails;
-
-/** Globally unique ID for a turn-based match. */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
 /**
- *  The number of the match in a chain of rematches. Will be set to 1 for the
- *  first match and incremented by 1 for each rematch.
+ *  Number of in-app purchases made by the player in this game. E.g., 0, 1, 5,
+ *  10, ... . Not populated if there is not enough information.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *matchNumber;
+@property(nonatomic, strong, nullable) NSNumber *numPurchases;
 
 /**
- *  The version of this match: an increasing counter, used to avoid out-of-date
- *  updates to the match.
+ *  The approximate number of sessions of the player within the last 28 days,
+ *  where a session begins when the player is connected to Play Games Services
+ *  and ends when they are disconnected. E.g., 0, 1, 5, 10, ... . Not populated
+ *  if there is not enough information.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *matchVersion;
+@property(nonatomic, strong, nullable) NSNumber *numSessions;
 
 /**
- *  The participants involved in the match, along with their statuses. Includes
- *  participants who have left or declined invitations.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_TurnBasedMatchParticipant *> *participants;
-
-/** The ID of the participant that is taking a turn. */
-@property(nonatomic, copy, nullable) NSString *pendingParticipantId;
-
-/**
- *  The data / game state for the previous match; set for the first turn of
- *  rematches only.
- */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchData *previousMatchData;
-
-/**
- *  The ID of a rematch of this match. Only set for completed matches that have
- *  been rematched.
- */
-@property(nonatomic, copy, nullable) NSString *rematchId;
-
-/** The results reported for this match. */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
-
-/**
- *  The status of the match.
- *  Possible values are:
- *  - "MATCH_AUTO_MATCHING" - One or more slots need to be filled by
- *  auto-matching; the match cannot be established until they are filled.
- *  - "MATCH_ACTIVE" - The match has started.
- *  - "MATCH_COMPLETE" - The match has finished.
- *  - "MATCH_CANCELED" - The match was canceled.
- *  - "MATCH_EXPIRED" - The match expired due to inactivity.
- *  - "MATCH_DELETED" - The match should no longer be shown on the client.
- *  Returned only for tombstones for matches when sync is called.
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-/**
- *  The status of the current user in the match. Derived from the match type,
- *  match status, the user's participant status, and the pending participant for
- *  the match.
- *  Possible values are:
- *  - "USER_INVITED" - The user has been invited to join the match and has not
- *  responded yet.
- *  - "USER_AWAITING_TURN" - The user is waiting for their turn.
- *  - "USER_TURN" - The user has an action to take in the match.
- *  - "USER_MATCH_COMPLETED" - The match has ended (it is completed, canceled,
- *  or expired.)
- */
-@property(nonatomic, copy, nullable) NSString *userMatchStatus;
-
-/**
- *  The variant / mode of the application being played; can be any integer
- *  value, or left blank.
+ *  The approximation of the sessions percentile of the player within the last
+ *  30 days, where a session begins when the player is connected to Play Games
+ *  Services and ends when they are disconnected. E.g., 0, 0.25, 0.5, 0.75. Not
+ *  populated if there is not enough information.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *variant;
+@property(nonatomic, strong, nullable) NSNumber *numSessionsPercentile;
 
 /**
- *  The ID of another participant in the match that can be used when describing
- *  the participants the user is playing with.
- */
-@property(nonatomic, copy, nullable) NSString *withParticipantId;
-
-@end
-
-
-/**
- *  This is a JSON template for a turn-based match creation request.
- */
-@interface GTLRGames_TurnBasedMatchCreateRequest : GTLRObject
-
-/** Criteria for auto-matching players into this match. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedAutoMatchingCriteria *autoMatchingCriteria;
-
-/** The player ids to invite to the match. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *invitedPlayerIds;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchCreateRequest.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  A randomly generated numeric ID. This number is used at the server to ensure
- *  that the request is handled correctly across retries.
+ *  The approximate spend percentile of the player in this game. E.g., 0, 0.25,
+ *  0.5, 0.75. Not populated if there is not enough information.
  *
- *  Uses NSNumber of longLongValue.
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *requestId;
+@property(nonatomic, strong, nullable) NSNumber *spendPercentile;
 
 /**
- *  The variant / mode of the application to be played. This can be any integer
- *  value, or left blank. You should use a small number of variants to keep the
- *  auto-matching pool as large as possible.
+ *  The probability of the player going to spend the game in the next seven
+ *  days. E.g., 0, 0.25, 0.50, 0.75. Not populated if there is not enough
+ *  information.
  *
- *  Uses NSNumber of intValue.
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *variant;
-
-@end
-
+@property(nonatomic, strong, nullable) NSNumber *spendProbability;
 
 /**
- *  This is a JSON template for a turn-based match data object.
- */
-@interface GTLRGames_TurnBasedMatchData : GTLRObject
-
-/**
- *  The byte representation of the data (limited to 128 kB), as a Base64-encoded
- *  string with the URL_SAFE encoding option.
+ *  The predicted amount of money that the player going to spend in the next 28
+ *  days. E.g., 1, 30, 60, ... . Not populated if there is not enough
+ *  information.
  *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, copy, nullable) NSString *data;
-
-/**
- *  True if this match has data available but it wasn't returned in a list
- *  response; fetching the match individually will retrieve this data.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dataAvailable;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchData.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  This is a JSON template for sending a turn-based match data object.
- */
-@interface GTLRGames_TurnBasedMatchDataRequest : GTLRObject
-
-/**
- *  The byte representation of the data (limited to 128 kB), as a Base64-encoded
- *  string with the URL_SAFE encoding option.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *data;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchDataRequest.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  This is a JSON template for a list of turn-based matches.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRGames_TurnBasedMatchList : GTLRCollectionObject
-
-/**
- *  The matches.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_TurnBasedMatch *> *items;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchList.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The pagination token for the next page of results. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  This is a JSON template for turn-based match modification metadata.
- */
-@interface GTLRGames_TurnBasedMatchModification : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchModification.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The timestamp at which they modified the match, in milliseconds since the
- *  epoch in UTC.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *modifiedTimestampMillis;
-
-/** The ID of the participant that modified the match. */
-@property(nonatomic, copy, nullable) NSString *participantId;
-
-@end
-
-
-/**
- *  This is a JSON template for a participant in a turn-based match.
- */
-@interface GTLRGames_TurnBasedMatchParticipant : GTLRObject
-
-/**
- *  True if this participant was auto-matched with the requesting player.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoMatched;
-
-/**
- *  Information about a player that has been anonymously auto-matched against
- *  the requesting player. (Either player or autoMatchedPlayer will be set.)
- */
-@property(nonatomic, strong, nullable) GTLRGames_AnonymousPlayer *autoMatchedPlayer;
-
-/**
- *  An identifier for the participant in the scope of the match. Cannot be used
- *  to identify a player across matches or in other contexts.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchParticipant.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Information about the player. Not populated if this player was anonymously
- *  auto-matched against the requesting player. (Either player or
- *  autoMatchedPlayer will be set.)
- */
-@property(nonatomic, strong, nullable) GTLRGames_Player *player;
-
-/**
- *  The status of the participant with respect to the match.
- *  Possible values are:
- *  - "PARTICIPANT_NOT_INVITED_YET" - The participant is slated to be invited to
- *  the match, but the invitation has not been sent; the invite will be sent
- *  when it becomes their turn.
- *  - "PARTICIPANT_INVITED" - The participant has been invited to join the
- *  match, but has not yet responded.
- *  - "PARTICIPANT_JOINED" - The participant has joined the match (either after
- *  creating it or accepting an invitation.)
- *  - "PARTICIPANT_DECLINED" - The participant declined an invitation to join
- *  the match.
- *  - "PARTICIPANT_LEFT" - The participant joined the match and then left it.
- *  - "PARTICIPANT_FINISHED" - The participant finished playing in the match.
- *  - "PARTICIPANT_UNRESPONSIVE" - The participant did not take their turn in
- *  the allotted time.
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
- *  This is a JSON template for a rematch response.
- */
-@interface GTLRGames_TurnBasedMatchRematch : GTLRObject
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchRematch.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The old match that the rematch was created from; will be updated such that
- *  the rematchId field will point at the new match.
- */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatch *previousMatch;
-
-/**
- *  The newly created match; a rematch of the old match with the same
- *  participants.
- */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatch *rematch;
-
-@end
-
-
-/**
- *  This is a JSON template for a turn-based match results object.
- */
-@interface GTLRGames_TurnBasedMatchResults : GTLRObject
-
-/** The final match data. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchDataRequest *data;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchResults.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The version of the match being updated.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *matchVersion;
-
-/** The match results for the participants in the match. */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
-
-@end
-
-
-/**
- *  This is a JSON template for a list of turn-based matches returned from a
- *  sync.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRGames_TurnBasedMatchSync : GTLRCollectionObject
-
-/**
- *  The matches.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_TurnBasedMatch *> *items;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchSync.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  True if there were more matches available to fetch at the time the response
- *  was generated (which were not returned due to page size limits.)
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *moreAvailable;
-
-/** The pagination token for the next page of results. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  This is a JSON template for the object representing a turn.
- */
-@interface GTLRGames_TurnBasedMatchTurn : GTLRObject
-
-/** The shared game state data after the turn is over. */
-@property(nonatomic, strong, nullable) GTLRGames_TurnBasedMatchDataRequest *data;
-
-/**
- *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string games#turnBasedMatchTurn.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The version of this match: an increasing counter, used to avoid out-of-date
- *  updates to the match.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *matchVersion;
-
-/**
- *  The ID of the participant who should take their turn next. May be set to the
- *  current player's participant ID to update match state without changing the
- *  turn. If not set, the match will wait for other player(s) to join via
- *  automatching; this is only valid if automatch criteria is set on the match
- *  with remaining slots for automatched players.
- */
-@property(nonatomic, copy, nullable) NSString *pendingParticipantId;
-
-/** The match results for the participants in the match. */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_ParticipantResult *> *results;
+@property(nonatomic, strong, nullable) NSNumber *totalSpendNext28Days;
 
 @end
 

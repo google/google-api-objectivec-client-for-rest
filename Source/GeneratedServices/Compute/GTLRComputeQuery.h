@@ -133,6 +133,7 @@
 @class GTLRCompute_SubnetworksExpandIpCidrRangeRequest;
 @class GTLRCompute_SubnetworksSetPrivateIpGoogleAccessRequest;
 @class GTLRCompute_Tags;
+@class GTLRCompute_TargetGrpcProxy;
 @class GTLRCompute_TargetHttpProxy;
 @class GTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest;
 @class GTLRCompute_TargetHttpsProxiesSetSslCertificatesRequest;
@@ -26953,6 +26954,273 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Deletes the specified TargetGrpcProxy in the given scope
+ *
+ *  Method: compute.targetGrpcProxies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetGrpcProxiesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetGrpcProxiesDeleteWithproject:targetGrpcProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the TargetGrpcProxy resource to delete. */
+@property(nonatomic, copy, nullable) NSString *targetGrpcProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified TargetGrpcProxy in the given scope
+ *
+ *  @param project Project ID for this request.
+ *  @param targetGrpcProxy Name of the TargetGrpcProxy resource to delete.
+ *
+ *  @return GTLRComputeQuery_TargetGrpcProxiesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                 targetGrpcProxy:(NSString *)targetGrpcProxy;
+
+@end
+
+/**
+ *  Returns the specified TargetGrpcProxy resource in the given scope.
+ *
+ *  Method: compute.targetGrpcProxies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_TargetGrpcProxiesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetGrpcProxiesGetWithproject:targetGrpcProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the TargetGrpcProxy resource to return. */
+@property(nonatomic, copy, nullable) NSString *targetGrpcProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_TargetGrpcProxy.
+ *
+ *  Returns the specified TargetGrpcProxy resource in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param targetGrpcProxy Name of the TargetGrpcProxy resource to return.
+ *
+ *  @return GTLRComputeQuery_TargetGrpcProxiesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                 targetGrpcProxy:(NSString *)targetGrpcProxy;
+
+@end
+
+/**
+ *  Creates a TargetGrpcProxy in the specified project in the given scope using
+ *  the parameters that are included in the request.
+ *
+ *  Method: compute.targetGrpcProxies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetGrpcProxiesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetGrpcProxiesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a TargetGrpcProxy in the specified project in the given scope using
+ *  the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_TargetGrpcProxy to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_TargetGrpcProxiesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetGrpcProxy *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the TargetGrpcProxies for a project in the given scope.
+ *
+ *  Method: compute.targetGrpcProxies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_TargetGrpcProxiesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetGrpcProxiesListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_TargetGrpcProxyList.
+ *
+ *  Lists the TargetGrpcProxies for a project in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_TargetGrpcProxiesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified TargetGrpcProxy resource with the data included in the
+ *  request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  Method: compute.targetGrpcProxies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetGrpcProxiesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetGrpcProxiesPatchWithObject:project:targetGrpcProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the TargetGrpcProxy resource to patch. */
+@property(nonatomic, copy, nullable) NSString *targetGrpcProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified TargetGrpcProxy resource with the data included in the
+ *  request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_TargetGrpcProxy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetGrpcProxy Name of the TargetGrpcProxy resource to patch.
+ *
+ *  @return GTLRComputeQuery_TargetGrpcProxiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetGrpcProxy *)object
+                        project:(NSString *)project
+                targetGrpcProxy:(NSString *)targetGrpcProxy;
 
 @end
 

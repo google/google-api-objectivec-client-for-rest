@@ -6607,7 +6607,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Brand of the item. */
 @property(nonatomic, copy, nullable) NSString *brand;
 
-/** Link to the canonical version of the landing page. */
+/** URL for the canonical version of your item's landing page. */
 @property(nonatomic, copy, nullable) NSString *canonicalLink;
 
 /**
@@ -6788,7 +6788,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *minHandlingTime;
 
-/** Link to a mobile-optimized version of the landing page. */
+/** URL for the mobile-optimized version of your item's landing page. */
 @property(nonatomic, copy, nullable) NSString *mobileLink;
 
 /** Manufacturer Part Number (MPN) of the item. */
@@ -6817,10 +6817,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/** Technical specification or additional product details */
+/** Technical specification or additional product details. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductProductDetail *> *productDetails;
 
-/** List of important bullet points describing the product */
+/** Bullet points describing the most relevant highlights of a product. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productHighlights;
 
 /** Categories of the item (formatted as in products data specification). */

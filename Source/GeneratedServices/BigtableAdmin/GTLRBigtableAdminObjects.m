@@ -19,6 +19,11 @@ NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataRead = @"DATA_REA
 NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRBigtableAdmin_Backup.state
+NSString * const kGTLRBigtableAdmin_Backup_State_Creating      = @"CREATING";
+NSString * const kGTLRBigtableAdmin_Backup_State_Ready         = @"READY";
+NSString * const kGTLRBigtableAdmin_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRBigtableAdmin_Cluster.defaultStorageType
 NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Hdd = @"HDD";
 NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_Ssd = @"SSD";
@@ -35,6 +40,7 @@ NSString * const kGTLRBigtableAdmin_Cluster_State_StateNotKnown = @"STATE_NOT_KN
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Initializing = @"INITIALIZING";
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_PlannedMaintenance = @"PLANNED_MAINTENANCE";
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Ready = @"READY";
+NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_ReadyOptimizing = @"READY_OPTIMIZING";
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown = @"STATE_NOT_KNOWN";
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance = @"UNPLANNED_MAINTENANCE";
 
@@ -47,6 +53,14 @@ NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKnown = @"STATE_NOT_K
 NSString * const kGTLRBigtableAdmin_Instance_Type_Development  = @"DEVELOPMENT";
 NSString * const kGTLRBigtableAdmin_Instance_Type_Production   = @"PRODUCTION";
 NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRBigtableAdmin_RestoreInfo.sourceType
+NSString * const kGTLRBigtableAdmin_RestoreInfo_SourceType_Backup = @"BACKUP";
+NSString * const kGTLRBigtableAdmin_RestoreInfo_SourceType_RestoreSourceTypeUnspecified = @"RESTORE_SOURCE_TYPE_UNSPECIFIED";
+
+// GTLRBigtableAdmin_RestoreTableMetadata.sourceType
+NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_Backup = @"BACKUP";
+NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_SourceType_RestoreSourceTypeUnspecified = @"RESTORE_SOURCE_TYPE_UNSPECIFIED";
 
 // GTLRBigtableAdmin_Table.granularity
 NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis   = @"MILLIS";
@@ -117,6 +131,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_Backup
+//
+
+@implementation GTLRBigtableAdmin_Backup
+@dynamic endTime, expireTime, name, sizeBytes, sourceTable, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_BackupInfo
+//
+
+@implementation GTLRBigtableAdmin_BackupInfo
+@dynamic backup, endTime, sourceTable, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_Binding
 //
 
@@ -180,6 +214,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_ColumnFamily
 @dynamic gcRule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_CreateBackupMetadata
+//
+
+@implementation GTLRBigtableAdmin_CreateBackupMetadata
+@dynamic endTime, name, sourceTable, startTime;
 @end
 
 
@@ -424,6 +468,28 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ListBackupsResponse
+//
+
+@implementation GTLRBigtableAdmin_ListBackupsResponse
+@dynamic backups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRBigtableAdmin_Backup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_ListClustersResponse
 //
 
@@ -654,6 +720,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_OperationProgress
+//
+
+@implementation GTLRBigtableAdmin_OperationProgress
+@dynamic endTime, progressPercent, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_OptimizeRestoredTableMetadata
+//
+
+@implementation GTLRBigtableAdmin_OptimizeRestoredTableMetadata
+@dynamic name, progress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_PartialUpdateInstanceRequest
 //
 
@@ -682,6 +768,36 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_RestoreInfo
+//
+
+@implementation GTLRBigtableAdmin_RestoreInfo
+@dynamic backupInfo, sourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_RestoreTableMetadata
+//
+
+@implementation GTLRBigtableAdmin_RestoreTableMetadata
+@dynamic backupInfo, name, optimizeTableOperationName, progress, sourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_RestoreTableRequest
+//
+
+@implementation GTLRBigtableAdmin_RestoreTableRequest
+@dynamic backup, tableId;
 @end
 
 
@@ -753,7 +869,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Table
-@dynamic clusterStates, columnFamilies, granularity, name;
+@dynamic clusterStates, columnFamilies, granularity, name, restoreInfo;
 @end
 
 

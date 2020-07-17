@@ -181,6 +181,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the metadata of a message attachment. The attachment data is fetched
+ *  using the media API.
+ *
+ *  Method: chat.spaces.messages.attachments.get
+ */
+@interface GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet : GTLRHangoutsChatQuery
+// Previous library name was
+//   +[GTLQueryHangoutsChat queryForSpacesMessagesAttachmentsGetWithname:]
+
+/**
+ *  Resource name of the attachment, in the form
+ *  "spaces/ * /messages/ * /attachments/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Attachment.
+ *
+ *  Gets the metadata of a message attachment. The attachment data is fetched
+ *  using the media API.
+ *
+ *  @param name Resource name of the attachment, in the form
+ *    "spaces/ * /messages/ * /attachments/ *".
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a message.
  *
  *  Method: chat.spaces.messages.create

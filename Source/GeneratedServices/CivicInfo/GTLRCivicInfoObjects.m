@@ -174,11 +174,11 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 @implementation GTLRCivicInfo_Contest
 @dynamic ballotPlacement, ballotTitle, candidates, district,
          electorateSpecifications, identifier, level, numberElected,
-         numberVotingFor, office, primaryParty, referendumBallotResponses,
-         referendumBrief, referendumConStatement, referendumEffectOfAbstain,
-         referendumPassageThreshold, referendumProStatement, referendumSubtitle,
-         referendumText, referendumTitle, referendumUrl, roles, sources,
-         special, type;
+         numberVotingFor, office, primaryParties, primaryParty,
+         referendumBallotResponses, referendumBrief, referendumConStatement,
+         referendumEffectOfAbstain, referendumPassageThreshold,
+         referendumProStatement, referendumSubtitle, referendumText,
+         referendumTitle, referendumUrl, roles, sources, special, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -188,6 +188,7 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
   NSDictionary<NSString *, Class> *map = @{
     @"candidates" : [GTLRCivicInfo_Candidate class],
     @"level" : [NSString class],
+    @"primaryParties" : [NSString class],
     @"referendumBallotResponses" : [NSString class],
     @"roles" : [NSString class],
     @"sources" : [GTLRCivicInfo_Source class]

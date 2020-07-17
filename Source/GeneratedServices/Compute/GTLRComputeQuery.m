@@ -12408,6 +12408,129 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_TargetGrpcProxiesDelete
+
+@dynamic project, requestId, targetGrpcProxy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                 targetGrpcProxy:(NSString *)targetGrpcProxy {
+  NSArray *pathParams = @[
+    @"project", @"targetGrpcProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies/{targetGrpcProxy}";
+  GTLRComputeQuery_TargetGrpcProxiesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.targetGrpcProxy = targetGrpcProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetGrpcProxies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetGrpcProxiesGet
+
+@dynamic project, targetGrpcProxy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                 targetGrpcProxy:(NSString *)targetGrpcProxy {
+  NSArray *pathParams = @[
+    @"project", @"targetGrpcProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies/{targetGrpcProxy}";
+  GTLRComputeQuery_TargetGrpcProxiesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.targetGrpcProxy = targetGrpcProxy;
+  query.expectedObjectClass = [GTLRCompute_TargetGrpcProxy class];
+  query.loggingName = @"compute.targetGrpcProxies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetGrpcProxiesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetGrpcProxy *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies";
+  GTLRComputeQuery_TargetGrpcProxiesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetGrpcProxies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetGrpcProxiesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies";
+  GTLRComputeQuery_TargetGrpcProxiesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_TargetGrpcProxyList class];
+  query.loggingName = @"compute.targetGrpcProxies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetGrpcProxiesPatch
+
+@dynamic project, requestId, targetGrpcProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetGrpcProxy *)object
+                        project:(NSString *)project
+                targetGrpcProxy:(NSString *)targetGrpcProxy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetGrpcProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies/{targetGrpcProxy}";
+  GTLRComputeQuery_TargetGrpcProxiesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetGrpcProxy = targetGrpcProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetGrpcProxies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_TargetHttpProxiesAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;

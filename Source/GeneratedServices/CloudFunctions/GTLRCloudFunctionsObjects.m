@@ -130,7 +130,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_CloudFunction
-@dynamic availableMemoryMb, descriptionProperty, entryPoint,
+@dynamic availableMemoryMb, buildId, descriptionProperty, entryPoint,
          environmentVariables, eventTrigger, httpsTrigger, ingressSettings,
          labels, maxInstances, name, network, runtime, serviceAccountEmail,
          sourceArchiveUrl, sourceRepository, sourceUploadUrl, status, timeout,
@@ -404,7 +404,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1
-@dynamic request, target, type, updateTime, versionId;
+@dynamic buildId, request, target, type, updateTime, versionId;
 @end
 
 

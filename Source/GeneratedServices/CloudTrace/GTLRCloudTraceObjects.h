@@ -107,7 +107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_MessageEvent_Type_TypeUnspeci
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_Client;
 /**
- *  Indicates that the span describes consumer recieving a message from a
+ *  Indicates that the span describes consumer receiving a message from a
  *  broker. Unlike client and server, there is no direct critical path
  *  latency relationship between producer and consumer spans (e.g. receiving
  *  a message from a pubsub service subscription).
@@ -413,7 +413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 
 /**
  *  Required. A description of the span's operation (up to 128 bytes).
- *  Stackdriver Trace displays the description in the
+ *  Trace displays the description in the
  *  Google Cloud Platform Console.
  *  For example, the display name can be a qualified method name or a file name
  *  and a line number where the operation is called. A best practice is to use
@@ -434,12 +434,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, strong, nullable) GTLRCloudTrace_Links *links;
 
 /**
- *  The resource name of the span in the following format:
+ *  Required. The resource name of the span in the following format:
  *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
  *  for a trace within a project;
  *  it is a 32-character hexadecimal encoding of a 16-byte array.
  *  [SPAN_ID] is a unique identifier for a span within a trace; it
- *  is a 16-character hexadecimal encoding of an 8-byte array.
+ *  is a 16-character hexadecimal encoding of an 8-byte array. It should not
+ *  be zero.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -452,8 +453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 /**
  *  Optional. Set this parameter to indicate whether this span is in
  *  the same process as its parent. If you do not set this parameter,
- *  Stackdriver Trace is unable to take advantage of this helpful
- *  information.
+ *  Trace is unable to take advantage of this helpful information.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -463,7 +463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
 @property(nonatomic, copy, nullable) NSString *spanId;
 
 /**
- *  Distinguishes between spans generated in a particular context. For example,
+ *  Optional. Distinguishes between spans generated in a particular context. For
+ *  example,
  *  two spans with the same name may be distinguished using `CLIENT` (caller)
  *  and `SERVER` (callee) to identify an RPC call.
  *
@@ -472,7 +473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTrace_Span_SpanKind_SpanKindUnspeci
  *        covers the client-side wrapper around an RPC or
  *        other remote request. (Value: "CLIENT")
  *    @arg @c kGTLRCloudTrace_Span_SpanKind_Consumer Indicates that the span
- *        describes consumer recieving a message from a
+ *        describes consumer receiving a message from a
  *        broker. Unlike client and server, there is no direct critical path
  *        latency relationship between producer and consumer spans (e.g.
  *        receiving

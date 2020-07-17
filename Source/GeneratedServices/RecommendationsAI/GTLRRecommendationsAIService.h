@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Run Admin API (run/v1)
+//   Recommendations AI (recommendationengine/v1beta1)
 // Description:
-//   Deploy and manage user provided container images that scale automatically
-//   based on HTTP traffic.
+//   Recommendations AI service enables customers to build end-to-end
+//   personalized recommendation systems without requiring a high level of
+//   expertise in machine learning, recommendation system, or Google Cloud.
 // Documentation:
-//   https://cloud.google.com/run/
+//   https://cloud.google.com/recommendations/docs/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -37,25 +38,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRunCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeRecommendationsAICloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudRunService
+//   GTLRRecommendationsAIService
 //
 
 /**
- *  Service for executing Cloud Run Admin API queries.
+ *  Service for executing Recommendations AI queries.
  *
- *  Deploy and manage user provided container images that scale automatically
- *  based on HTTP traffic.
+ *  Recommendations AI service enables customers to build end-to-end
+ *  personalized recommendation systems without requiring a high level of
+ *  expertise in machine learning, recommendation system, or Google Cloud.
  */
-@interface GTLRCloudRunService : GTLRService
+@interface GTLRRecommendationsAIService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudRunQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRRecommendationsAIQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

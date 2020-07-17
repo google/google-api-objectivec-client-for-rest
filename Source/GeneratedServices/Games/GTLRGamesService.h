@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services API (games/v1)
+//   Google Play Game Services (games/v1)
 // Description:
-//   The API for Google Play Game Services.
+//   The Google Play games service allows developers to enhance games with
+//   social leaderboards,
+//   achievements, game state, sign-in with Google, and more.
 // Documentation:
-//   https://developers.google.com/games/services/
+//   https://developers.google.com/games/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -50,9 +52,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGamesDriveAppdata;
 //
 
 /**
- *  Service for executing Google Play Game Services API queries.
+ *  Service for executing Google Play Game Services queries.
  *
- *  The API for Google Play Game Services.
+ *  The Google Play games service allows developers to enhance games with social
+ *  leaderboards,
+ *  achievements, game state, sign-in with Google, and more.
  */
 @interface GTLRGamesService : GTLRService
 

@@ -156,6 +156,7 @@
 @class GTLRCompute_ForwardingRulesScopedList_Warning;
 @class GTLRCompute_ForwardingRulesScopedList_Warning_Data_Item;
 @class GTLRCompute_GlobalSetLabelsRequest_Labels;
+@class GTLRCompute_GRPCHealthCheck;
 @class GTLRCompute_GuestAttributesEntry;
 @class GTLRCompute_GuestAttributesValue;
 @class GTLRCompute_GuestOsFeature;
@@ -526,6 +527,9 @@
 @class GTLRCompute_SubnetworksScopedList_Warning;
 @class GTLRCompute_SubnetworksScopedList_Warning_Data_Item;
 @class GTLRCompute_Tags;
+@class GTLRCompute_TargetGrpcProxy;
+@class GTLRCompute_TargetGrpcProxyList_Warning;
+@class GTLRCompute_TargetGrpcProxyList_Warning_Data_Item;
 @class GTLRCompute_TargetHttpProxiesScopedList;
 @class GTLRCompute_TargetHttpProxiesScopedList_Warning;
 @class GTLRCompute_TargetHttpProxiesScopedList_Warning_Data_Item;
@@ -1402,6 +1406,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendService.protocol
 
+/** Value: "GRPC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Grpc;
 /** Value: "HTTP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Http;
 /** Value: "HTTP2" */
@@ -2534,6 +2540,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_GRPCHealthCheck.portSpecification
+
+/** Value: "USE_FIXED_PORT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseFixedPort;
+/** Value: "USE_NAMED_PORT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort;
+/** Value: "USE_SERVING_PORT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseServingPort;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_GuestOsFeature.type
 
 /** Value: "FEATURE_TYPE_UNSPECIFIED" */
@@ -2554,6 +2570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Windows;
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthCheck.type
 
+/** Value: "GRPC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Grpc;
 /** Value: "HTTP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheck_Type_Http;
 /** Value: "HTTP2" */
@@ -7844,6 +7862,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_TargetGrpcProxyList_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_TargetHttpProxiesScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -12513,6 +12581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  information.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_BackendService_Protocol_Grpc Value "GRPC"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Http Value "HTTP"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Http2 Value "HTTP2"
  *    @arg @c kGTLRCompute_BackendService_Protocol_Https Value "HTTPS"
@@ -17278,6 +17347,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_GRPCHealthCheck
+ */
+@interface GTLRCompute_GRPCHealthCheck : GTLRObject
+
+/**
+ *  The gRPC service name for the health check. This field is optional. The
+ *  value of grpc_service_name has the following meanings by convention:
+ *  - Empty service_name means the overall status of all services at the
+ *  backend.
+ *  - Non-empty service_name means the health of that gRPC service, as defined
+ *  by the owner of the service.
+ *  The grpc_service_name can only be ASCII.
+ */
+@property(nonatomic, copy, nullable) NSString *grpcServiceName;
+
+/**
+ *  The port number for the health check request. Must be specified if port_name
+ *  and port_specification are not set or if port_specification is
+ *  USE_FIXED_PORT. Valid values are 1 through 65535.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Port name as defined in InstanceGroup#NamedPort#name. If both port and
+ *  port_name are defined, port takes precedence. The port_name should conform
+ *  to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *portName;
+
+/**
+ *  Specifies how port is selected for health checking, can be one of following
+ *  values:
+ *  USE_FIXED_PORT: The port number in port is used for health checking.
+ *  USE_NAMED_PORT: The portName is used for health checking.
+ *  USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each
+ *  network endpoint is used for health checking. For other backends, the port
+ *  or named port specified in the Backend Service is used for health checking.
+ *  If not specified, gRPC health check follows behavior specified in port and
+ *  portName fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseFixedPort Value
+ *        "USE_FIXED_PORT"
+ *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort Value
+ *        "USE_NAMED_PORT"
+ *    @arg @c kGTLRCompute_GRPCHealthCheck_PortSpecification_UseServingPort
+ *        Value "USE_SERVING_PORT"
+ */
+@property(nonatomic, copy, nullable) NSString *portSpecification;
+
+@end
+
+
+/**
  *  A guest attributes entry.
  */
 @interface GTLRCompute_GuestAttributes : GTLRObject
@@ -17408,6 +17533,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+@property(nonatomic, strong, nullable) GTLRCompute_GRPCHealthCheck *grpcHealthCheck;
+
 /**
  *  A so-far unhealthy instance will be marked healthy after this many
  *  consecutive successes. The default value is 2.
@@ -17475,6 +17602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  type field.
  *
  *  Likely values:
+ *    @arg @c kGTLRCompute_HealthCheck_Type_Grpc Value "GRPC"
  *    @arg @c kGTLRCompute_HealthCheck_Type_Http Value "HTTP"
  *    @arg @c kGTLRCompute_HealthCheck_Type_Http2 Value "HTTP2"
  *    @arg @c kGTLRCompute_HealthCheck_Type_Https Value "HTTPS"
@@ -38480,6 +38608,239 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  RFC1035.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *items;
+
+@end
+
+
+/**
+ *  Represents a Target gRPC Proxy resource.
+ *  A target gRPC proxy is a component of load balancers intended for load
+ *  balancing gRPC traffic. Global forwarding rules reference a target gRPC
+ *  proxy. The Target gRPC Proxy references a URL map which specifies how
+ *  traffic routes to gRPC backend services.
+ */
+@interface GTLRCompute_TargetGrpcProxy : GTLRObject
+
+/** [Output Only] Creation timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *creationTimestamp;
+
+/**
+ *  An optional description of this resource. Provide this property when you
+ *  create the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Fingerprint of this resource. A hash of the contents stored in this object.
+ *  This field is used in optimistic locking. This field will be ignored when
+ *  inserting a TargetGrpcProxy. An up-to-date fingerprint must be provided in
+ *  order to patch/update the TargetGrpcProxy; otherwise, the request will fail
+ *  with error 412 conditionNotMet. To see the latest fingerprint, make a get()
+ *  request to retrieve the TargetGrpcProxy.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  [Output Only] The unique identifier for the resource type. The server
+ *  generates this identifier.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#targetGrpcProxy for
+ *  target grpc proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Name of the resource. Provided by the client when the resource is created.
+ *  The name must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the name must be 1-63 characters long and match the regular
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must
+ *  be a lowercase letter, and all following characters must be a dash,
+ *  lowercase letter, or digit, except the last character, which cannot be a
+ *  dash.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** [Output Only] Server-defined URL for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Server-defined URL with id for the resource. */
+@property(nonatomic, copy, nullable) NSString *selfLinkWithId;
+
+/**
+ *  URL to the UrlMap resource that defines the mapping from URL to the
+ *  BackendService. The protocol field in the BackendService must be set to
+ *  GRPC.
+ */
+@property(nonatomic, copy, nullable) NSString *urlMap;
+
+/**
+ *  If true, indicates that the BackendServices referenced by the urlMap may be
+ *  accessed by gRPC applications without using a sidecar proxy. This will
+ *  enable configuration checks on urlMap and its referenced BackendServices to
+ *  not allow unsupported features. A gRPC application must use
+ *  "xds-experimental:///" scheme in the target URI of the service it is
+ *  connecting to. If false, indicates that the BackendServices referenced by
+ *  the urlMap will be accessed by gRPC applications via a sidecar proxy. In
+ *  this case, a gRPC application must not use "xds-experimental:///" scheme in
+ *  the target URI of the service it is connecting to
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateForProxyless;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetGrpcProxyList
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_TargetGrpcProxyList : GTLRCollectionObject
+
+/**
+ *  [Output Only] Unique identifier for the resource; defined by the server.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of TargetGrpcProxy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetGrpcProxy *> *items;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#targetGrpcProxy for
+ *  target grpc proxies.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Server-defined URL for this resource. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_TargetGrpcProxyList_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_TargetGrpcProxyList_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_CleanupFailed Value
+ *        "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_Unreachable Value
+ *        "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_TargetGrpcProxyList_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_TargetGrpcProxyList_Warning_Data_Item
+ */
+@interface GTLRCompute_TargetGrpcProxyList_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

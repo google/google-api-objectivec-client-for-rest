@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRFirestore_BatchGetDocumentsRequest;
+@class GTLRFirestore_BatchWriteRequest;
 @class GTLRFirestore_BeginTransactionRequest;
 @class GTLRFirestore_CommitRequest;
 @class GTLRFirestore_Document;
@@ -32,6 +33,7 @@
 @class GTLRFirestore_GoogleLongrunningCancelOperationRequest;
 @class GTLRFirestore_ListCollectionIdsRequest;
 @class GTLRFirestore_ListenRequest;
+@class GTLRFirestore_PartitionQueryRequest;
 @class GTLRFirestore_RollbackRequest;
 @class GTLRFirestore_RunQueryRequest;
 @class GTLRFirestore_WriteRequest;
@@ -459,6 +461,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Applies a batch of write operations.
+ *  The BatchWrite method does not apply the write operations atomically
+ *  and can apply them out of order. Method does not allow more than one write
+ *  per document. Each write succeeds or fails independently. See the
+ *  BatchWriteResponse for the success status of each write.
+ *  If you require an atomically applied set of writes, use
+ *  Commit instead.
+ *
+ *  Method: firestore.projects.databases.documents.batchWrite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchWrite : GTLRFirestoreQuery
+// Previous library name was
+//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsBatchWriteWithObject:database:]
+
+/**
+ *  Required. The database name. In the format:
+ *  `projects/{project_id}/databases/{database_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Fetches a @c GTLRFirestore_BatchWriteResponse.
+ *
+ *  Applies a batch of write operations.
+ *  The BatchWrite method does not apply the write operations atomically
+ *  and can apply them out of order. Method does not allow more than one write
+ *  per document. Each write succeeds or fails independently. See the
+ *  BatchWriteResponse for the success status of each write.
+ *  If you require an atomically applied set of writes, use
+ *  Commit instead.
+ *
+ *  @param object The @c GTLRFirestore_BatchWriteRequest to include in the
+ *    query.
+ *  @param database Required. The database name. In the format:
+ *    `projects/{project_id}/databases/{database_id}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchWrite
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_BatchWriteRequest *)object
+                       database:(NSString *)database;
+
+@end
+
+/**
  *  Starts a new transaction.
  *
  *  Method: firestore.projects.databases.documents.beginTransaction
@@ -856,6 +906,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirestore_ListenRequest *)object
                        database:(NSString *)database;
+
+@end
+
+/**
+ *  Partitions a query by returning partition cursors that can be used to run
+ *  the query in parallel. The returned partition cursors are split points that
+ *  can be used by RunQuery as starting/end points for the query results.
+ *
+ *  Method: firestore.projects.databases.documents.partitionQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsPartitionQuery : GTLRFirestoreQuery
+// Previous library name was
+//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsPartitionQueryWithObject:parent:]
+
+/**
+ *  Required. The parent resource name. In the format:
+ *  `projects/{project_id}/databases/{database_id}/documents`.
+ *  Document resource names are not supported; only database resource names
+ *  can be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_PartitionQueryResponse.
+ *
+ *  Partitions a query by returning partition cursors that can be used to run
+ *  the query in parallel. The returned partition cursors are split points that
+ *  can be used by RunQuery as starting/end points for the query results.
+ *
+ *  @param object The @c GTLRFirestore_PartitionQueryRequest to include in the
+ *    query.
+ *  @param parent Required. The parent resource name. In the format:
+ *    `projects/{project_id}/databases/{database_id}/documents`.
+ *    Document resource names are not supported; only database resource names
+ *    can be specified.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsPartitionQuery
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_PartitionQueryRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

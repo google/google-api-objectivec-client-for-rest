@@ -1858,7 +1858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  - `campaignId`
  *  - `insertionOrderId`
  *  - `entityStatus`
- *  - `lineItemType`.
+ *  - `lineItemType`
  *  Examples:
  *  * All line items under an insertion order: `insertionOrderId="1234"`
  *  * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`
@@ -1875,6 +1875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Acceptable values are:
  *  * "displayName" (default)
  *  * "entityStatus"
+ *  * “flight.dateRange.endDate”
  *  The default sorting order is ascending. To specify descending order for
  *  a field, a suffix "desc" should be added to the field name. Example:
  *  `displayName desc`.

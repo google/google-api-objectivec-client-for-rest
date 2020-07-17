@@ -21,6 +21,7 @@ NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseO
 
 // GTLRTesting_AndroidModel.form
 NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified = @"DEVICE_FORM_UNSPECIFIED";
+NSString * const kGTLRTesting_AndroidModel_Form_Emulator       = @"EMULATOR";
 NSString * const kGTLRTesting_AndroidModel_Form_Physical       = @"PHYSICAL";
 NSString * const kGTLRTesting_AndroidModel_Form_Virtual        = @"VIRTUAL";
 
@@ -972,8 +973,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestSetup
-@dynamic account, additionalApks, directoriesToPull, environmentVariables,
-         filesToPush, networkProfile, systrace;
+@dynamic account, additionalApks, directoriesToPull, dontAutograntPermissions,
+         environmentVariables, filesToPush, networkProfile, systrace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

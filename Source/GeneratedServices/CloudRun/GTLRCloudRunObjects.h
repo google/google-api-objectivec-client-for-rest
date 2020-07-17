@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Run API (run/v1)
+//   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
 //   based on HTTP traffic.
@@ -2328,7 +2328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
 /**
- *  timeoutSeconds
+ *  TimeoutSeconds holds the max duration the instance is allowed for
+ *  responding to a request.
+ *  Cloud Run fully managed: defaults to 300 seconds (5 minutes). Maximum
+ *  allowed value is 900 seconds (15 minutes).
+ *  Cloud Run for Anthos: defaults to 300 seconds (5 minutes). Maximum allowed
+ *  value is configurable by the cluster operator.
  *
  *  Uses NSNumber of intValue.
  */
