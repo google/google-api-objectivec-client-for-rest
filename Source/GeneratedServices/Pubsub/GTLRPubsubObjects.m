@@ -232,7 +232,7 @@
 //
 
 @implementation GTLRPubsub_Message
-@dynamic attributes, data, messageId, publishTime;
+@dynamic attributes, data, messageId, orderingKey, publishTime;
 @end
 
 
@@ -495,9 +495,9 @@
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, deadLetterPolicy, expirationPolicy, filter, labels,
-         messageRetentionDuration, name, pushConfig, retainAckedMessages,
-         retryPolicy, topic;
+@dynamic ackDeadlineSeconds, deadLetterPolicy, enableMessageOrdering,
+         expirationPolicy, filter, labels, messageRetentionDuration, name,
+         pushConfig, retainAckedMessages, retryPolicy, topic;
 @end
 
 

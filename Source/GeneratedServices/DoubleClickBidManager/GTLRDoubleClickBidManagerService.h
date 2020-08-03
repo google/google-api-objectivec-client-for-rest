@@ -4,7 +4,8 @@
 // API:
 //   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
-//   API for viewing and managing your reports in DoubleClick Bid Manager.
+//   DoubleClick Bid Manager API allows users to manage and create campaigns and
+//   reports.
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
@@ -44,7 +45,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDoubleClickBidManager;
 /**
  *  Service for executing DoubleClick Bid Manager API queries.
  *
- *  API for viewing and managing your reports in DoubleClick Bid Manager.
+ *  DoubleClick Bid Manager API allows users to manage and create campaigns and
+ *  reports.
  */
 @interface GTLRDoubleClickBidManagerService : GTLRService
 

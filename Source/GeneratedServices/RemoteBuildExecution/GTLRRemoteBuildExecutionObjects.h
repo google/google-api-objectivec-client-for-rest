@@ -235,6 +235,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError;
 /**
+ *  Docker failed to run containers with CreateComputeSystem error that
+ *  involves an incorrect parameter (more specific version of
+ *  DOCKER_CREATE_COMPUTE_SYSTEM_ERROR that is user-caused).
+ *
+ *  Value: "DOCKER_CREATE_COMPUTE_SYSTEM_INCORRECT_PARAMETER_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemIncorrectParameterError;
+/**
  *  The bot couldn't start the container.
  *
  *  Value: "DOCKER_CREATE_CONTAINER_ERROR"
@@ -2180,6 +2188,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError
  *        Docker failed to run containers with CreateComputeSystem error.
  *        (Value: "DOCKER_CREATE_COMPUTE_SYSTEM_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemIncorrectParameterError
+ *        Docker failed to run containers with CreateComputeSystem error that
+ *        involves an incorrect parameter (more specific version of
+ *        DOCKER_CREATE_COMPUTE_SYSTEM_ERROR that is user-caused). (Value:
+ *        "DOCKER_CREATE_COMPUTE_SYSTEM_INCORRECT_PARAMETER_ERROR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateContainerError
  *        The bot couldn't start the container. (Value:
  *        "DOCKER_CREATE_CONTAINER_ERROR")

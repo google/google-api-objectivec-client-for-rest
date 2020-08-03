@@ -1632,7 +1632,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_TimeSeries
-@dynamic metadata, metric, metricKind, points, resource, valueType;
+@dynamic metadata, metric, metricKind, points, resource, unit, valueType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1770,7 +1770,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ValueDescriptor
-@dynamic key, metricKind, valueType;
+@dynamic key, metricKind, unit, valueType;
 @end
 
 

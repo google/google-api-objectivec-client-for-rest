@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1beta2)
+//   Cloud Memorystore for Memcached API (memcache/v1)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.
@@ -24,8 +24,6 @@
 @class GTLRCloudMemorystoreforMemcached_ApplyParametersRequest;
 @class GTLRCloudMemorystoreforMemcached_CancelOperationRequest;
 @class GTLRCloudMemorystoreforMemcached_Instance;
-@class GTLRCloudMemorystoreforMemcached_SetIamPolicyRequest;
-@class GTLRCloudMemorystoreforMemcached_TestIamPermissionsRequest;
 @class GTLRCloudMemorystoreforMemcached_UpdateParametersRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -230,56 +228,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
- *
- *  Method: memcache.projects.locations.instances.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
- */
-@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesGetIamPolicyWithresource:]
-
-/**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudMemorystoreforMemcached_Policy.
- *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists Instances in a given project and location.
  *
  *  Method: memcache.projects.locations.instances.list
@@ -396,93 +344,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_Instance *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
- *
- *  Method: memcache.projects.locations.instances.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
- */
-@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesSetIamPolicyWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudMemorystoreforMemcached_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRCloudMemorystoreforMemcached_SetIamPolicyRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
- *
- *  Method: memcache.projects.locations.instances.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
- */
-@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesTestIamPermissions : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesTestIamPermissionsWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudMemorystoreforMemcached_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
- *
- *  @param object The @c
- *    GTLRCloudMemorystoreforMemcached_TestIamPermissionsRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
- *
- *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 

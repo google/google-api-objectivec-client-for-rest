@@ -1410,7 +1410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @interface GTLRServiceConsumerManagement_CreateTenancyUnitRequest : GTLRObject
 
 /**
- *  Optional service producer-provided identifier of the tenancy unit.
+ *  Optional. Optional service producer-provided identifier of the tenancy unit.
  *  Must be no longer than 40 characters and preferably URI friendly.
  *  If it isn't provided, a UID for the tenancy unit is automatically
  *  generated. The identifier must be unique across a managed service.
@@ -2460,7 +2460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  existing data unusable.
  *  The following are specific rules for service defined Monitoring metric
  *  descriptors:
- *  * `type`, `metric_kind`, `value_type`, `description`, and `display_name`
+ *  * `type`, `metric_kind`, `value_type` and `description`
  *  fields are all required. The `unit` field must be specified
  *  if the `value_type` is any of DOUBLE, INT64, DISTRIBUTION.
  *  * Maximum of default 500 metric descriptors per service is allowed.

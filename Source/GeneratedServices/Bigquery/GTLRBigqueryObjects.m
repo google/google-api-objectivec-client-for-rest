@@ -24,6 +24,15 @@ NSString * const kGTLRBigquery_Argument_Mode_Inout           = @"INOUT";
 NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Argument_Mode_Out             = @"OUT";
 
+// GTLRBigquery_ArimaForecastingMetrics.seasonalPeriods
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Monthly = @"MONTHLY";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Quarterly = @"QUARTERLY";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified = @"SEASONAL_PERIOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Weekly = @"WEEKLY";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Yearly = @"YEARLY";
+
 // GTLRBigquery_ArimaModelInfo.seasonalPeriods
 NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily = @"DAILY";
 NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Monthly = @"MONTHLY";
@@ -42,6 +51,15 @@ NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_SeasonalPeriodTypeUns
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Weekly = @"WEEKLY";
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly = @"YEARLY";
 
+// GTLRBigquery_ArimaSingleModelForecastingMetrics.seasonalPeriods
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Monthly = @"MONTHLY";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Quarterly = @"QUARTERLY";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified = @"SEASONAL_PERIOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Weekly = @"WEEKLY";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Yearly = @"YEARLY";
+
 // GTLRBigquery_AuditLogConfig.logType
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -49,6 +67,7 @@ NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRBigquery_Model.modelType
+NSString * const kGTLRBigquery_Model_ModelType_Arima           = @"ARIMA";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier = @"AUTOML_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
 NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier = @"BOOSTED_TREE_CLASSIFIER";
@@ -94,6 +113,16 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time = @"TIME";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified = @"TYPE_KIND_UNSPECIFIED";
 
+// GTLRBigquery_TrainingOptions.dataFrequency
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_AutoFrequency = @"AUTO_FREQUENCY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Daily = @"DAILY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_DataFrequencyUnspecified = @"DATA_FREQUENCY_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Hourly = @"HOURLY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Monthly = @"MONTHLY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Quarterly = @"QUARTERLY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Weekly = @"WEEKLY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Yearly = @"YEARLY";
+
 // GTLRBigquery_TrainingOptions.dataSplitMethod
 NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_AutoSplit = @"AUTO_SPLIT";
 NSString * const kGTLRBigquery_TrainingOptions_DataSplitMethod_Custom = @"CUSTOM";
@@ -111,6 +140,77 @@ NSString * const kGTLRBigquery_TrainingOptions_DistanceType_Euclidean = @"EUCLID
 NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Explicit = @"EXPLICIT";
 NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_FeedbackTypeUnspecified = @"FEEDBACK_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Implicit = @"IMPLICIT";
+
+// GTLRBigquery_TrainingOptions.holidayRegion
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ae = @"AE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ar = @"AR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_At = @"AT";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Au = @"AU";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Be = @"BE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Br = @"BR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ca = @"CA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ch = @"CH";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cl = @"CL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cn = @"CN";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Co = @"CO";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cs = @"CS";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cz = @"CZ";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_De = @"DE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Dk = @"DK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Dz = @"DZ";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ec = @"EC";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ee = @"EE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Eg = @"EG";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Emea = @"EMEA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Es = @"ES";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Fi = @"FI";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Fr = @"FR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Gb = @"GB";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Global = @"GLOBAL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Gr = @"GR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Hk = @"HK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_HolidayRegionUnspecified = @"HOLIDAY_REGION_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Hu = @"HU";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Id = @"ID";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ie = @"IE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Il = @"IL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_In = @"IN";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ir = @"IR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_It = @"IT";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Japac = @"JAPAC";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Jp = @"JP";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Kr = @"KR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Lac = @"LAC";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Lv = @"LV";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ma = @"MA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Mx = @"MX";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_My = @"MY";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Na = @"NA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ng = @"NG";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Nl = @"NL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_No = @"NO";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Nz = @"NZ";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pe = @"PE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ph = @"PH";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pk = @"PK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pl = @"PL";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pt = @"PT";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ro = @"RO";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Rs = @"RS";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ru = @"RU";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Sa = @"SA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Se = @"SE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Sg = @"SG";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Si = @"SI";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Sk = @"SK";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Th = @"TH";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Tr = @"TR";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Tw = @"TW";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ua = @"UA";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Us = @"US";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ve = @"VE";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Vn = @"VN";
+NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Za = @"ZA";
 
 // GTLRBigquery_TrainingOptions.kmeansInitializationMethod
 NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Custom = @"CUSTOM";
@@ -185,6 +285,30 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_ArimaForecastingMetrics
+//
+
+@implementation GTLRBigquery_ArimaForecastingMetrics
+@dynamic arimaFittingMetrics, arimaSingleModelForecastingMetrics, hasDrift,
+         nonSeasonalOrder, seasonalPeriods, timeSeriesId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"arimaFittingMetrics" : [GTLRBigquery_ArimaFittingMetrics class],
+    @"arimaSingleModelForecastingMetrics" : [GTLRBigquery_ArimaSingleModelForecastingMetrics class],
+    @"hasDrift" : [NSNumber class],
+    @"nonSeasonalOrder" : [GTLRBigquery_ArimaOrder class],
+    @"seasonalPeriods" : [NSString class],
+    @"timeSeriesId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_ArimaModelInfo
 //
 
@@ -223,6 +347,25 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"arimaModelInfo" : [GTLRBigquery_ArimaModelInfo class],
+    @"seasonalPeriods" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ArimaSingleModelForecastingMetrics
+//
+
+@implementation GTLRBigquery_ArimaSingleModelForecastingMetrics
+@dynamic arimaFittingMetrics, hasDrift, nonSeasonalOrder, seasonalPeriods,
+         timeSeriesId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
     @"seasonalPeriods" : [NSString class]
   };
   return map;
@@ -727,8 +870,9 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_EvaluationMetrics
-@dynamic binaryClassificationMetrics, clusteringMetrics,
-         multiClassClassificationMetrics, rankingMetrics, regressionMetrics;
+@dynamic arimaForecastingMetrics, binaryClassificationMetrics,
+         clusteringMetrics, multiClassClassificationMetrics, rankingMetrics,
+         regressionMetrics;
 @end
 
 
@@ -1838,6 +1982,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_SnapshotDefinition
+//
+
+@implementation GTLRBigquery_SnapshotDefinition
+@dynamic baseTableReference, snapshotTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_StandardSqlDataType
 //
 
@@ -1895,7 +2049,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
          identifier, kind, labels, lastModifiedTime, location, materializedView,
          model, numBytes, numLongTermBytes, numPhysicalBytes, numRows,
          rangePartitioning, requirePartitionFilter, schema, selfLink,
-         streamingBuffer, tableReference, timePartitioning, type, view;
+         snapshotDefinition, streamingBuffer, tableReference, timePartitioning,
+         type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2242,15 +2397,17 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_TrainingOptions
-@dynamic batchSize, dataSplitColumn, dataSplitEvalFraction, dataSplitMethod,
-         distanceType, dropout, earlyStop, feedbackType, hiddenUnits,
-         initialLearnRate, inputLabelColumns, itemColumn,
+@dynamic autoArima, batchSize, dataFrequency, dataSplitColumn,
+         dataSplitEvalFraction, dataSplitMethod, distanceType, dropout,
+         earlyStop, feedbackType, hiddenUnits, holidayRegion, horizon,
+         includeDrift, initialLearnRate, inputLabelColumns, itemColumn,
          kmeansInitializationColumn, kmeansInitializationMethod,
          l1Regularization, l2Regularization, labelClassWeights, learnRate,
          learnRateStrategy, lossType, maxIterations, maxTreeDepth,
-         minRelativeProgress, minSplitLoss, modelUri, numClusters, numFactors,
-         optimizationStrategy, preserveInputStructs, subsample, userColumn,
-         walsAlpha, warmStart;
+         minRelativeProgress, minSplitLoss, modelUri, nonSeasonalOrder,
+         numClusters, numFactors, optimizationStrategy, preserveInputStructs,
+         subsample, timeSeriesDataColumn, timeSeriesIdColumn,
+         timeSeriesTimestampColumn, userColumn, walsAlpha, warmStart;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

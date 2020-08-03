@@ -20,7 +20,6 @@
 
 @class GTLRSASPortal_Assignment;
 @class GTLRSASPortal_Customer;
-@class GTLRSASPortal_Deployment;
 @class GTLRSASPortal_Device;
 @class GTLRSASPortal_DeviceAirInterface;
 @class GTLRSASPortal_DeviceConfig;
@@ -46,39 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRSASPortal_Deployment.allowedBillingModes
-
-/** Value: "BILLING_MODE_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Deployment_AllowedBillingModes_BillingModeUnspecified;
-/** Value: "FIXED_WIRELESS" */
-FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Deployment_AllowedBillingModes_FixedWireless;
-/** Value: "MOBILE" */
-FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Deployment_AllowedBillingModes_Mobile;
-
-// ----------------------------------------------------------------------------
-// GTLRSASPortal_Deployment.defaultBillingMode
-
-/**
- *  Billing mode has not been specified.
- *
- *  Value: "BILLING_MODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Deployment_DefaultBillingMode_BillingModeUnspecified;
-/**
- *  Price is based on type of CBSD: Base station or CPE.
- *
- *  Value: "FIXED_WIRELESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Deployment_DefaultBillingMode_FixedWireless;
-/**
- *  Price is based on category of CBSD: Category A, Category B registered with
- *  SAS.
- *
- *  Value: "MOBILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Deployment_DefaultBillingMode_Mobile;
 
 // ----------------------------------------------------------------------------
 // GTLRSASPortal_Device.state
@@ -322,45 +288,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** User IDs used by the devices belonging to this customer. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *sasUserIds;
-
-@end
-
-
-/**
- *  The Deployment.
- */
-@interface GTLRSASPortal_Deployment : GTLRObject
-
-/** The allowed billing modes under this deployment. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedBillingModes;
-
-/**
- *  Default billing mode for the deployment and devices under it.
- *
- *  Likely values:
- *    @arg @c kGTLRSASPortal_Deployment_DefaultBillingMode_BillingModeUnspecified
- *        Billing mode has not been specified. (Value:
- *        "BILLING_MODE_UNSPECIFIED")
- *    @arg @c kGTLRSASPortal_Deployment_DefaultBillingMode_FixedWireless Price
- *        is based on type of CBSD: Base station or CPE. (Value:
- *        "FIXED_WIRELESS")
- *    @arg @c kGTLRSASPortal_Deployment_DefaultBillingMode_Mobile Price is based
- *        on category of CBSD: Category A, Category B registered with
- *        SAS. (Value: "MOBILE")
- */
-@property(nonatomic, copy, nullable) NSString *defaultBillingMode;
-
-/** The deployment's display name. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Output only. Resource name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  User id used by the devices belonging to this deployment. Each deployment
- *  should be associated with one unique user_id.
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sasUserIds;
 
 @end
@@ -869,36 +796,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  that indicates from
  *  where listing should continue. If the field is missing or empty, it means
  *  there are no more customers.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Response for ListDeployments method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "deployments" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRSASPortal_ListDeploymentsResponse : GTLRCollectionObject
-
-/**
- *  The deployments that match the
- *  request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Deployment *> *deployments;
-
-/**
- *  A pagination token returned from a previous call to
- *  ListDeployments method that indicates
- *  from where listing should continue. If the field is missing or empty, it
- *  means there is no more deployments.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

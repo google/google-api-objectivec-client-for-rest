@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns NOT_FOUND if the domain does not exist.
  *
  *  Method: gmailpostmastertools.domains.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsGet : GTLRPostmasterToolsQuery
 // Previous library name was
@@ -78,6 +81,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  domains will not necessarily be added to the end of this list.
  *
  *  Method: gmailpostmastertools.domains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsList : GTLRPostmasterToolsQuery
 // Previous library name was
@@ -120,6 +126,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  TrafficStats for the domain.
  *
  *  Method: gmailpostmastertools.domains.trafficStats.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsTrafficStatsGet : GTLRPostmasterToolsQuery
 // Previous library name was
@@ -153,6 +162,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  TrafficStats for the domain.
  *
  *  Method: gmailpostmastertools.domains.trafficStats.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsTrafficStatsList : GTLRPostmasterToolsQuery
 // Previous library name was

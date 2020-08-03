@@ -17,6 +17,11 @@
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable = @"REGION_UNREACHABLE";
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified = @"SQL_API_WARNING_CODE_UNSPECIFIED";
 
+// GTLRSQLAdmin_BackupRun.backupKind
+NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Physical   = @"PHYSICAL";
+NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot   = @"SNAPSHOT";
+NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_SqlBackupKindUnspecified = @"SQL_BACKUP_KIND_UNSPECIFIED";
+
 // GTLRSQLAdmin_BackupRun.status
 NSString * const kGTLRSQLAdmin_BackupRun_Status_Deleted        = @"DELETED";
 NSString * const kGTLRSQLAdmin_BackupRun_Status_DeletionFailed = @"DELETION_FAILED";
@@ -208,11 +213,18 @@ NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRON
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled = @"BINLOG_NOT_ENABLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWorkerProcesses = @"INSUFFICIENT_MAX_WORKER_PROCESSES";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege = @"INSUFFICIENT_PRIVILEGE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidRdsLogicalReplication = @"INVALID_RDS_LOGICAL_REPLICATION";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPreloadLibrary = @"INVALID_SHARED_PRELOAD_LIBRARY";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel = @"INVALID_WAL_LEVEL";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 
 // ----------------------------------------------------------------------------
@@ -266,9 +278,10 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 //
 
 @implementation GTLRSQLAdmin_BackupRun
-@dynamic descriptionProperty, diskEncryptionConfiguration, diskEncryptionStatus,
-         endTime, enqueuedTime, error, identifier, instance, kind, location,
-         selfLink, startTime, status, type, windowStartTime;
+@dynamic backupKind, descriptionProperty, diskEncryptionConfiguration,
+         diskEncryptionStatus, endTime, enqueuedTime, error, identifier,
+         instance, kind, location, selfLink, startTime, status, type,
+         windowStartTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -539,8 +552,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 //
 
 @implementation GTLRSQLAdmin_ExportContext
-@dynamic csvExportOptions, databases, fileType, kind, offload, sqlExportOptions,
-         uri;
+@dynamic csvExportOptions, databases, fileType, kind, sqlExportOptions, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1104,11 +1116,11 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 
 @implementation GTLRSQLAdmin_Settings
 @dynamic activationPolicy, authorizedGaeApplications, availabilityType,
-         backupConfiguration, crashSafeReplicationEnabled, databaseFlags,
-         databaseReplicationEnabled, dataDiskSizeGb, dataDiskType,
-         ipConfiguration, kind, locationPreference, maintenanceWindow,
-         pricingPlan, replicationType, settingsVersion, storageAutoResize,
-         storageAutoResizeLimit, tier, userLabels;
+         backupConfiguration, collation, crashSafeReplicationEnabled,
+         databaseFlags, databaseReplicationEnabled, dataDiskSizeGb,
+         dataDiskType, ipConfiguration, kind, locationPreference,
+         maintenanceWindow, pricingPlan, replicationType, settingsVersion,
+         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

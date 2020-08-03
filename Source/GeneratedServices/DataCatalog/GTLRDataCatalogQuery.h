@@ -26,6 +26,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag;
@@ -1572,6 +1573,48 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Renames an enum value in a tag template. The enum values have to be unique
+ *  within one enum field. Thus, an enum value cannot be renamed with a name
+ *  used in any other enum value within the same enum field.
+ *
+ *  Method: datacatalog.projects.locations.tagTemplates.fields.enumValues.rename
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename : GTLRDataCatalogQuery
+// Previous library name was
+//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsEnumValuesRenameWithObject:name:]
+
+/**
+ *  Required. The name of the enum field value. Example:
+ *  *
+ *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField.
+ *
+ *  Renames an enum value in a tag template. The enum values have to be unique
+ *  within one enum field. Thus, an enum value cannot be renamed with a name
+ *  used in any other enum value within the same enum field.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest
+ *    to include in the query.
+ *  @param name Required. The name of the enum field value. Example:
+ *    *
+ *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest *)object
+                           name:(NSString *)name;
 
 @end
 

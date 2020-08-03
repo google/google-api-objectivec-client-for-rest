@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1beta2)
+//   Cloud Memorystore for Memcached API (memcache/v1)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.
@@ -13,12 +13,6 @@
 
 // ----------------------------------------------------------------------------
 // Constants
-
-// GTLRCloudMemorystoreforMemcached_AuditLogConfig.logType
-NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCloudMemorystoreforMemcached_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
 NSString * const kGTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
@@ -71,60 +65,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_AuditConfig
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudMemorystoreforMemcached_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_AuditLogConfig
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_Binding
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_CancelOperationRequest
 //
 
@@ -143,49 +83,10 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_Expr
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 //
 
-@implementation GTLRCloudMemorystoreforMemcached_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata
-@dynamic availableZones;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudMemorystoreforMemcached_ZoneMetadata class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2OperationMetadata
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2OperationMetadata
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
 @end
@@ -523,6 +424,30 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_LocationMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_LocationMetadata
+@dynamic availableZones;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_ZoneMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_MemcacheParameters
 //
 
@@ -615,34 +540,12 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_Policy
+//   GTLRCloudMemorystoreforMemcached_OperationMetadata
 //
 
-@implementation GTLRCloudMemorystoreforMemcached_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRCloudMemorystoreforMemcached_AuditConfig class],
-    @"bindings" : [GTLRCloudMemorystoreforMemcached_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_SetIamPolicyRequest
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@implementation GTLRCloudMemorystoreforMemcached_OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
 @end
 
 
@@ -673,42 +576,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_TestIamPermissionsRequest
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_TestIamPermissionsResponse
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
 }
 
 @end

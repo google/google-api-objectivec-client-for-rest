@@ -149,8 +149,16 @@
 //
 
 @implementation GTLRShoppingContent_AccountsCustomBatchRequestEntry
-@dynamic account, accountId, batchId, force, linkRequest, merchantId, method,
-         overwrite;
+@dynamic account, accountId, batchId, force, labelIds, linkRequest, merchantId,
+         method, overwrite;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelIds" : [NSNumber class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -73,8 +73,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_Healthy;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_Health_Timeout;
 /**
- *  The node is under maintenance/priority boost caused rescheduling and
- *  will resume running once rescheduled.
+ *  The node is under maintenance/priority boost caused rescheduling and will
+ *  resume running once rescheduled.
  *
  *  Value: "UNHEALTHY_MAINTENANCE"
  */
@@ -132,8 +132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Ready;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Reimaging;
 /**
- *  TPU node is being repaired and may be unusable. Details can be
- *  found in the `help_description` field.
+ *  TPU node is being repaired and may be unusable. Details can be found in the
+ *  `help_description` field.
  *
  *  Value: "REPAIRING"
  */
@@ -199,11 +199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRTPU_Empty : GTLRObject
 @end
@@ -344,8 +342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 @interface GTLRTPU_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -365,8 +363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 @property(nonatomic, strong, nullable) GTLRTPU_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -422,21 +420,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  */
 @interface GTLRTPU_Node : GTLRObject
 
-/**
- *  The type of hardware accelerators associated with this node.
- *  Required.
- */
+/** The type of hardware accelerators associated with this node. Required. */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  The CIDR block that the TPU node will use when selecting an IP address.
- *  This CIDR block must be a /29 block; the Compute Engine networks API
- *  forbids a smaller block, and using a larger block would be wasteful (a
- *  node can only consume one IP address). Errors will occur if the CIDR block
- *  has already been used for a currently existing TPU node, the CIDR block
- *  conflicts with any subnetworks in the user's provided network, or the
- *  provided network is peered with another network that is using that CIDR
- *  block.
+ *  The CIDR block that the TPU node will use when selecting an IP address. This
+ *  CIDR block must be a /29 block; the Compute Engine networks API forbids a
+ *  smaller block, and using a larger block would be wasteful (a node can only
+ *  consume one IP address). Errors will occur if the CIDR block has already
+ *  been used for a currently existing TPU node, the CIDR block conflicts with
+ *  any subnetworks in the user's provided network, or the provided network is
+ *  peered with another network that is using that CIDR block.
  */
 @property(nonatomic, copy, nullable) NSString *cidrBlock;
 
@@ -463,8 +457,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *    @arg @c kGTLRTPU_Node_Health_Timeout The resource is unresponsive. (Value:
  *        "TIMEOUT")
  *    @arg @c kGTLRTPU_Node_Health_UnhealthyMaintenance The node is under
- *        maintenance/priority boost caused rescheduling and
- *        will resume running once rescheduled. (Value: "UNHEALTHY_MAINTENANCE")
+ *        maintenance/priority boost caused rescheduling and will resume running
+ *        once rescheduled. (Value: "UNHEALTHY_MAINTENANCE")
  *    @arg @c kGTLRTPU_Node_Health_UnhealthyTensorflow The in-guest ML stack is
  *        unhealthy. (Value: "UNHEALTHY_TENSORFLOW")
  */
@@ -472,15 +466,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  Output only. If this field is populated, it contains a description of why
- *  the TPU Node
- *  is unhealthy.
+ *  the TPU Node is unhealthy.
  */
 @property(nonatomic, copy, nullable) NSString *healthDescription;
 
 /**
- *  Output only. DEPRECATED! Use network_endpoints instead.
- *  The network address for the TPU Node as visible to Compute Engine
- *  instances.
+ *  Output only. DEPRECATED! Use network_endpoints instead. The network address
+ *  for the TPU Node as visible to Compute Engine instances.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -505,8 +497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkEndpoint *> *networkEndpoints;
 
 /**
- *  Output only. DEPRECATED! Use network_endpoints instead.
- *  The network port for the TPU Node as visible to Compute Engine instances.
+ *  Output only. DEPRECATED! Use network_endpoints instead. The network port for
+ *  the TPU Node as visible to Compute Engine instances.
  */
 @property(nonatomic, copy, nullable) NSString *port;
 
@@ -514,8 +506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  Output only. The service account used to run the tensor flow services within
- *  the node.
- *  To share resources, including Google Cloud Storage data, with the
+ *  the node. To share resources, including Google Cloud Storage data, with the
  *  Tensorflow job running in the Node, this account must have permissions to
  *  that data.
  */
@@ -540,8 +531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *    @arg @c kGTLRTPU_Node_State_Reimaging TPU node is undergoing reimaging.
  *        (Value: "REIMAGING")
  *    @arg @c kGTLRTPU_Node_State_Repairing TPU node is being repaired and may
- *        be unusable. Details can be
- *        found in the `help_description` field. (Value: "REPAIRING")
+ *        be unusable. Details can be found in the `help_description` field.
+ *        (Value: "REPAIRING")
  *    @arg @c kGTLRTPU_Node_State_Restarting TPU node is restarting. (Value:
  *        "RESTARTING")
  *    @arg @c kGTLRTPU_Node_State_Starting TPU node is currently starting.
@@ -553,17 +544,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *    @arg @c kGTLRTPU_Node_State_Stopping TPU node is currently stopping.
  *        (Value: "STOPPING")
  *    @arg @c kGTLRTPU_Node_State_Terminated TPU node has been terminated due to
- *        maintenance or has reached the end of
- *        its life cycle (for preemptible nodes). (Value: "TERMINATED")
+ *        maintenance or has reached the end of its life cycle (for preemptible
+ *        nodes). (Value: "TERMINATED")
  *    @arg @c kGTLRTPU_Node_State_Unhiding TPU node is currently unhiding.
  *        (Value: "UNHIDING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/**
- *  The version of Tensorflow running in the Node.
- *  Required.
- */
+/** The version of Tensorflow running in the Node. Required. */
 @property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
 @end
@@ -588,8 +576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 @interface GTLRTPU_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -601,16 +589,16 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRTPU_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -619,10 +607,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRTPU_Operation_Response *response;
 
@@ -631,8 +618,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -649,10 +636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -672,10 +658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation
- *  of the operation. Operations that have successfully been cancelled
- *  have Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  [Output only] Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -745,9 +731,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRTPU_Status : GTLRObject
 

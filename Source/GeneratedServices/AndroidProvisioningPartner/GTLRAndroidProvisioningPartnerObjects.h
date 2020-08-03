@@ -139,9 +139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRu
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending;
 /**
- *  Processed.
- *  This doesn't mean all items were processed successfully, you should
- *  check the `response` field for the result of every item.
+ *  Processed. This doesn't mean all items were processed successfully, you
+ *  should check the `response` field for the result of every item.
  *
  *  Value: "BATCH_PROCESS_PROCESSED"
  */
@@ -235,9 +234,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStat
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusInvalidSectionType;
 /**
- *  Other error.
- *  We know/expect this error, but there's no defined error code for the
- *  error.
+ *  Other error. We know/expect this error, but there's no defined error code
+ *  for the error.
  *
  *  Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR"
  */
@@ -261,8 +259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStat
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess;
 /**
- *  Unknown error.
- *  We don't expect this error to occur here.
+ *  Unknown error. We don't expect this error to occur here.
  *
  *  Value: "SINGLE_DEVICE_STATUS_UNKNOWN_ERROR"
  */
@@ -371,8 +368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_Company : GTLRObject
 
 /**
- *  Optional. Email address of customer's users in the admin role.
- *  Each email address must be associated with a Google Account.
+ *  Optional. Email address of customer's users in the admin role. Each email
+ *  address must be associated with a Google Account.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *adminEmails;
 
@@ -391,27 +388,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Output only. The API resource name of the company. The resource name is one
- *  of the following formats:
- *  * `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`
- *  * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]`
- *  * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]/customers/[CUSTOMER_ID]`
- *  Assigned by the server.
+ *  of the following formats: * `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`
+ *  * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]` *
+ *  `partners/[PARTNER_ID]/vendors/[VENDOR_ID]/customers/[CUSTOMER_ID]` Assigned
+ *  by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Input only. Email address of customer's users in the owner role.
- *  At least
- *  one `owner_email` is required. Each email address must be associated with a
- *  Google Account. Owners share the same access as admins but can also add,
- *  delete, and edit your organization's portal users.
+ *  At least one `owner_email` is required. Each email address must be
+ *  associated with a Google Account. Owners share the same access as admins but
+ *  can also add, delete, and edit your organization's portal users.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
 
 /**
- *  Output only. Whether any user from the company has accepted the latest
- *  Terms of Service (ToS). See
- *  TermsStatus.
+ *  Output only. Whether any user from the company has accepted the latest Terms
+ *  of Service (ToS). See TermsStatus.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusAccepted
@@ -422,8 +416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *        "TERMS_STATUS_NOT_ACCEPTED")
  *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale
  *        None of the company's users has accepted the current ToS but at least
- *        one
- *        user accepted a previous ToS. (Value: "TERMS_STATUS_STALE")
+ *        one user accepted a previous ToS. (Value: "TERMS_STATUS_STALE")
  *    @arg @c kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified
  *        Default value. This value should never be set if the enum is present.
  *        (Value: "TERMS_STATUS_UNSPECIFIED")
@@ -435,13 +428,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  A configuration collects the provisioning options for Android devices. Each
- *  configuration combines the following:
- *  * The EMM device policy controller (DPC) installed on the devices.
- *  * EMM policies enforced on the devices.
- *  * Metadata displayed on the device to help users during setup.
- *  Customers can add as many configurations as they need. However, zero-touch
- *  enrollment works best when a customer sets a default configuration that's
- *  applied to any new devices the organization purchases.
+ *  configuration combines the following: * The EMM device policy controller
+ *  (DPC) installed on the devices. * EMM policies enforced on the devices. *
+ *  Metadata displayed on the device to help users during setup. Customers can
+ *  add as many configurations as they need. However, zero-touch enrollment
+ *  works best when a customer sets a default configuration that's applied to
+ *  any new devices the organization purchases.
  */
 @interface GTLRAndroidProvisioningPartner_Configuration : GTLRObject
 
@@ -467,23 +459,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Required. The email address that device users can contact to get help.
- *  Zero-touch enrollment shows this email address to device users before
- *  device provisioning. The value is validated on input.
+ *  Zero-touch enrollment shows this email address to device users before device
+ *  provisioning. The value is validated on input.
  */
 @property(nonatomic, copy, nullable) NSString *contactEmail;
 
 /**
  *  Required. The telephone number that device users can call, using another
- *  device, to get help. Zero-touch enrollment shows this number to device
- *  users before device provisioning. Accepts numerals, spaces, the plus sign,
+ *  device, to get help. Zero-touch enrollment shows this number to device users
+ *  before device provisioning. Accepts numerals, spaces, the plus sign,
  *  hyphens, and parentheses.
  */
 @property(nonatomic, copy, nullable) NSString *contactPhone;
 
 /**
- *  A message, containing one or two sentences, to help device users get help
- *  or give them more details about what’s happening to their device.
- *  Zero-touch enrollment shows this message before the device is provisioned.
+ *  A message, containing one or two sentences, to help device users get help or
+ *  give them more details about what’s happening to their device. Zero-touch
+ *  enrollment shows this message before the device is provisioned.
  */
 @property(nonatomic, copy, nullable) NSString *customMessage;
 
@@ -493,8 +485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /**
  *  Required. The resource name of the selected DPC (device policy controller)
  *  in the format `customers/[CUSTOMER_ID]/dpcs/ *`. To list the supported DPCs,
- *  call
- *  `customers.dpcs.list`.
+ *  call `customers.dpcs.list`.
  */
 @property(nonatomic, copy, nullable) NSString *dpcResourcePath;
 
@@ -511,8 +502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Output only. The API resource name in the format
- *  `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by
- *  the server.
+ *  `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by the
+ *  server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -660,11 +651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /**
  *  Output only. The provisioning claims for a device. Devices claimed for
  *  zero-touch enrollment have a claim with the type `SECTION_TYPE_ZERO_TOUCH`.
- *  Call
- *  `partners.devices.unclaim`
- *  or
- *  `partners.devices.unclaimAsync`
- *  to remove the device from zero-touch enrollment.
+ *  Call `partners.devices.unclaim` or `partners.devices.unclaimAsync` to remove
+ *  the device from zero-touch enrollment.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_DeviceClaim *> *claims;
 
@@ -685,8 +673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**
- *  The metadata attached to the device. Structured as key-value pairs. To
- *  learn more, read [Device
+ *  The metadata attached to the device. Structured as key-value pairs. To learn
+ *  more, read [Device
  *  metadata](https://developers.google.com/zero-touch/guides/metadata).
  */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceMetadata *deviceMetadata;
@@ -703,8 +691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /**
  *  A record of a device claimed by a reseller for a customer. Devices claimed
  *  for zero-touch enrollment have a claim with the type
- *  `SECTION_TYPE_ZERO_TOUCH`. To learn more, read
- *  [Claim devices for customers](/zero-touch/guides/how-it-works#claim).
+ *  `SECTION_TYPE_ZERO_TOUCH`. To learn more, read [Claim devices for
+ *  customers](/zero-touch/guides/how-it-works#claim).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceClaim : GTLRObject
 
@@ -751,8 +739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 
 /**
- *  Encapsulates hardware and product IDs to identify a manufactured device.
- *  To understand requirements on identifier sets, read
+ *  Encapsulates hardware and product IDs to identify a manufactured device. To
+ *  understand requirements on identifier sets, read
  *  [Identifiers](https://developers.google.com/zero-touch/guides/identifiers).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceIdentifier : GTLRObject
@@ -761,9 +749,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, copy, nullable) NSString *imei;
 
 /**
- *  The device manufacturer’s name. Matches the device's built-in
- *  value returned from `android.os.Build.MANUFACTURER`. Allowed values are
- *  listed in
+ *  The device manufacturer’s name. Matches the device's built-in value returned
+ *  from `android.os.Build.MANUFACTURER`. Allowed values are listed in
  *  [manufacturers](/zero-touch/resources/manufacturer-names#manufacturers-names).
  */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
@@ -813,14 +800,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  A `DeviceReference` is an API abstraction that lets you supply a _device_
- *  argument to a method using one of the following identifier types:
- *  * A numeric API resource ID.
- *  * Real-world hardware IDs, such as IMEI number, belonging to the
- *  manufactured
- *  device.
- *  Methods that operate on devices take a `DeviceReference` as a parameter type
- *  because it's more flexible for the caller. To learn more about device
- *  identifiers, read
+ *  argument to a method using one of the following identifier types: * A
+ *  numeric API resource ID. * Real-world hardware IDs, such as IMEI number,
+ *  belonging to the manufactured device. Methods that operate on devices take a
+ *  `DeviceReference` as a parameter type because it's more flexible for the
+ *  caller. To learn more about device identifiers, read
  *  [Identifiers](https://developers.google.com/zero-touch/guides/identifiers).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceReference : GTLRObject
@@ -847,8 +831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  The number of metadata updates in the operation. This might be different
- *  from the number of updates in the request if the API can't parse some of
- *  the updates.
+ *  from the number of updates in the request if the API can't parse some of the
+ *  updates.
  *
  *  Uses NSNumber of intValue.
  */
@@ -863,10 +847,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessPending
  *        Pending. (Value: "BATCH_PROCESS_PENDING")
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessProcessed
- *        Processed.
- *        This doesn't mean all items were processed successfully, you should
- *        check the `response` field for the result of every item. (Value:
- *        "BATCH_PROCESS_PROCESSED")
+ *        Processed. This doesn't mean all items were processed successfully,
+ *        you should check the `response` field for the result of every item.
+ *        (Value: "BATCH_PROCESS_PROCESSED")
  *    @arg @c kGTLRAndroidProvisioningPartner_DevicesLongRunningOperationMetadata_ProcessingStatus_BatchProcessStatusUnspecified
  *        Invalid code. Shouldn't be used. (Value:
  *        "BATCH_PROCESS_STATUS_UNSPECIFIED")
@@ -875,8 +858,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  The processing progress of the operation. Measured as a number from 0 to
- *  100. A value of 10O doesnt always mean the operation completed—check for
- *  the inclusion of a `done` field.
+ *  100. A value of 10O doesnt always mean the operation completed—check for the
+ *  inclusion of a `done` field.
  *
  *  Uses NSNumber of intValue.
  */
@@ -887,14 +870,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Tracks the status of a long-running operation to claim, unclaim, or attach
- *  metadata to devices. To learn more, read
- *  [Long‑running batch operations](/zero-touch/guides/how-it-works#operations).
+ *  metadata to devices. To learn more, read [Long‑running batch
+ *  operations](/zero-touch/guides/how-it-works#operations).
  */
 @interface GTLRAndroidProvisioningPartner_DevicesLongRunningOperationResponse : GTLRObject
 
 /**
- *  The processing status for each device in the operation.
- *  One `PerDeviceStatus` per device. The list order matches the items in the
+ *  The processing status for each device in the operation. One
+ *  `PerDeviceStatus` per device. The list order matches the items in the
  *  original request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_OperationPerDevice *> *perDeviceStatus;
@@ -915,8 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  controller](http://developer.android.com/work/dpc/build-dpc.html)).
  *  Zero-touch enrollment installs a DPC (listed in the `Configuration`) on a
  *  device to maintain the customer's mobile policies. All the DPCs listed by
- *  the
- *  API support zero-touch enrollment and are available in Google Play.
+ *  the API support zero-touch enrollment and are available in Google Play.
  */
 @interface GTLRAndroidProvisioningPartner_Dpc : GTLRObject
 
@@ -928,16 +910,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Output only. The API resource name in the format
- *  `customers/[CUSTOMER_ID]/dpcs/[DPC_ID]`. Assigned by
- *  the server. To maintain a reference to a DPC across customer accounts,
- *  persist and match the last path component (`DPC_ID`).
+ *  `customers/[CUSTOMER_ID]/dpcs/[DPC_ID]`. Assigned by the server. To maintain
+ *  a reference to a DPC across customer accounts, persist and match the last
+ *  path component (`DPC_ID`).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The DPC's Android application ID that looks like a Java
- *  package name. Zero-touch enrollment installs the DPC app onto a device
- *  using this identifier.
+ *  Output only. The DPC's Android application ID that looks like a Java package
+ *  name. Zero-touch enrollment installs the DPC app onto a device using this
+ *  identifier.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -947,11 +929,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAndroidProvisioningPartner_Empty : GTLRObject
 @end
@@ -1071,8 +1051,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidProvisioningPartner_Device *> *devices;
 
 /**
- *  A token used to access the next page of results.
- *  Omitted if no further results are available.
+ *  A token used to access the next page of results. Omitted if no further
+ *  results are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1196,8 +1176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @interface GTLRAndroidProvisioningPartner_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1221,8 +1201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1265,8 +1245,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 
 /**
- *  A task for each device in the operation. Corresponds to each device
- *  change in the request.
+ *  A task for each device in the operation. Corresponds to each device change
+ *  in the request.
  */
 @interface GTLRAndroidProvisioningPartner_OperationPerDevice : GTLRObject
 
@@ -1349,8 +1329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Optional. The duration of the vacation unlock starting from when the request
- *  is
- *  processed. (1 day is treated as 24 hours)
+ *  is processed. (1 day is treated as 24 hours)
  *
  *  Uses NSNumber of intValue.
  */
@@ -1391,9 +1370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *        Invalid section type. (Value:
  *        "SINGLE_DEVICE_STATUS_INVALID_SECTION_TYPE")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusOtherError
- *        Other error.
- *        We know/expect this error, but there's no defined error code for the
- *        error. (Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR")
+ *        Other error. We know/expect this error, but there's no defined error
+ *        code for the error. (Value: "SINGLE_DEVICE_STATUS_OTHER_ERROR")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusPermissionDenied
  *        Permission denied. (Value: "SINGLE_DEVICE_STATUS_PERMISSION_DENIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSectionNotYours
@@ -1402,8 +1380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusSuccess
  *        Success. (Value: "SINGLE_DEVICE_STATUS_SUCCESS")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnknownError
- *        Unknown error.
- *        We don't expect this error to occur here. (Value:
+ *        Unknown error. We don't expect this error to occur here. (Value:
  *        "SINGLE_DEVICE_STATUS_UNKNOWN_ERROR")
  *    @arg @c kGTLRAndroidProvisioningPartner_PerDeviceStatusInBatch_Status_SingleDeviceStatusUnspecified
  *        Invalid code. Shouldn't be used. (Value:
@@ -1418,9 +1395,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRAndroidProvisioningPartner_Status : GTLRObject
 

@@ -49,10 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCustomSearch_Promotion : GTLRObject
 
 /**
- *  An array of block objects for this promotion. See [Google WebSearch
- *  Protocol
- *  reference](https://developers.google.com/custom-search/docs/xml_results)
- *  for more information.
+ *  An array of block objects for this promotion. See [Google WebSearch Protocol
+ *  reference](https://developers.google.com/custom-search/docs/xml_results) for
+ *  more information.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomSearch_Promotion_BodyLines_Item *> *bodyLines;
 
@@ -242,8 +241,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCustomSearch_Result_Labels_Item : GTLRObject
 
 /**
- *  The display name of a refinement label. This is the name you should
- *  display in your user interface.
+ *  The display name of a refinement label. This is the name you should display
+ *  in your user interface.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -251,8 +250,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *labelWithOp;
 
 /**
- *  The name of a refinement label, which you can use to refine searches.
- *  Don't display this in your user interface; instead, use displayName.
+ *  The name of a refinement label, which you can use to refine searches. Don't
+ *  display this in your user interface; instead, use displayName.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -282,10 +281,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCustomSearch_Search : GTLRCollectionObject
 
 /**
- *  Metadata and refinements associated with the given search engine,
- *  including:
- *  * The name of the search engine that was used for the query.
- *  * A set of [facet
+ *  Metadata and refinements associated with the given search engine, including:
+ *  * The name of the search engine that was used for the query. * A set of
+ *  [facet
  *  objects](https://developers.google.com/custom-search/docs/refinements#create)
  *  (refinements) you can use for refining a search.
  */
@@ -329,10 +327,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Metadata and refinements associated with the given search engine,
- *  including:
- *  * The name of the search engine that was used for the query.
- *  * A set of [facet
+ *  Metadata and refinements associated with the given search engine, including:
+ *  * The name of the search engine that was used for the query. * A set of
+ *  [facet
  *  objects](https://developers.google.com/custom-search/docs/refinements#create)
  *  (refinements) you can use for refining a search.
  *
@@ -368,8 +365,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCustomSearch_Search_SearchInformation : GTLRObject
 
 /**
- *  The time taken for the server to return search results, formatted
- *  according to locale style.
+ *  The time taken for the server to return search results, formatted according
+ *  to locale style.
  */
 @property(nonatomic, copy, nullable) NSString *formattedSearchTime;
 
@@ -419,7 +416,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *templateProperty;
 
-/** The MIME type of the OpenSearch URL template for the Custom Search API. */
+/**
+ *  The MIME type of the OpenSearch URL template for the Custom Search JSON API.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -438,14 +437,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  Restricts search results to documents originating in a particular
- *  country. You may use [Boolean
+ *  Restricts search results to documents originating in a particular country.
+ *  You may use [Boolean
  *  operators](https://developers.google.com/custom-search/docs/xml_results#booleanOperators)
- *  in the `cr` parameter's value.
- *  Google WebSearch determines the country of a document by analyzing the
- *  following:
- *  * The top-level domain (TLD) of the document's URL.
- *  * The geographic location of the web server's IP address.
+ *  in the `cr` parameter's value. Google WebSearch determines the country of a
+ *  document by analyzing the following: * The top-level domain (TLD) of the
+ *  document's URL. * The geographic location of the web server's IP address.
  *  See [Country (cr) Parameter
  *  Values](https://developers.google.com/custom-search/docs/xml_results#countryCollections)
  *  for a list of valid values for this parameter.
@@ -453,87 +450,72 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *cr;
 
 /**
- *  The identifier of a custom search engine created using the Custom Search
- *  [Control Panel](https://cse.google.com/). This is a custom property not
- *  defined in the OpenSearch spec. This parameter is **required**.
+ *  The identifier of an engine created using the Programmable Search Engine
+ *  [Control Panel](https://programmablesearchengine.google.com/). This is a
+ *  custom property not defined in the OpenSearch spec. This parameter is
+ *  **required**.
  */
 @property(nonatomic, copy, nullable) NSString *cx;
 
 /**
- *  Restricts results to URLs based on date. Supported values include:
- *  * `d[number]`: requests results from the specified number of past days.
- *  * `w[number]`: requests results from the specified number of past weeks.
- *  * `m[number]`: requests results from the specified number of past months.
- *  * `y[number]`: requests results from the specified number of past years.
+ *  Restricts results to URLs based on date. Supported values include: *
+ *  `d[number]`: requests results from the specified number of past days. *
+ *  `w[number]`: requests results from the specified number of past weeks. *
+ *  `m[number]`: requests results from the specified number of past months. *
+ *  `y[number]`: requests results from the specified number of past years.
  */
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
  *  Enables or disables the [Simplified and Traditional Chinese
  *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch)
- *  feature.
- *  Supported values are:
- *  * `0`: enabled (default)
- *  * `1`: disabled
+ *  feature. Supported values are: * `0`: enabled (default) * `1`: disabled
  */
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
 
 /**
- *  Identifies a phrase that all documents in the search results must
- *  contain.
+ *  Identifies a phrase that all documents in the search results must contain.
  */
 @property(nonatomic, copy, nullable) NSString *exactTerms;
 
 /**
- *  Identifies a word or phrase that should not appear in any documents in
- *  the search results.
+ *  Identifies a word or phrase that should not appear in any documents in the
+ *  search results.
  */
 @property(nonatomic, copy, nullable) NSString *excludeTerms;
 
 /**
- *  Restricts results to files of a specified extension. Filetypes supported
- *  by Google include:
- *  * Adobe Portable Document Format (`pdf`)
- *  * Adobe PostScript (`ps`)
- *  * Lotus 1-2-3 (`wk1`, `wk2`, `wk3`, `wk4`, `wk5`, `wki`, `wks`, `wku`)
- *  * Lotus WordPro (`lwp`)
- *  * Macwrite (`mw`)
- *  * Microsoft Excel (`xls`)
- *  * Microsoft PowerPoint (`ppt`)
- *  * Microsoft Word (`doc`)
- *  * Microsoft Works (`wks`, `wps`, `wdb`)
- *  * Microsoft Write (`wri`)
- *  * Rich Text Format (`rtf`)
- *  * Shockwave Flash (`swf`)
- *  * Text (`ans`, `txt`).
- *  Additional filetypes may be added in the future. An up-to-date list can
- *  always be found in Google's [file type
- *  FAQ](https://support.google.com/webmasters/answer/35287).
+ *  Restricts results to files of a specified extension. Filetypes supported by
+ *  Google include: * Adobe Portable Document Format (`pdf`) * Adobe PostScript
+ *  (`ps`) * Lotus 1-2-3 (`wk1`, `wk2`, `wk3`, `wk4`, `wk5`, `wki`, `wks`,
+ *  `wku`) * Lotus WordPro (`lwp`) * Macwrite (`mw`) * Microsoft Excel (`xls`) *
+ *  Microsoft PowerPoint (`ppt`) * Microsoft Word (`doc`) * Microsoft Works
+ *  (`wks`, `wps`, `wdb`) * Microsoft Write (`wri`) * Rich Text Format (`rtf`) *
+ *  Shockwave Flash (`swf`) * Text (`ans`, `txt`). Additional filetypes may be
+ *  added in the future. An up-to-date list can always be found in Google's
+ *  [file type FAQ](https://support.google.com/webmasters/answer/35287).
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  Activates or deactivates the automatic filtering of Google search
- *  results. See [Automatic
+ *  Activates or deactivates the automatic filtering of Google search results.
+ *  See [Automatic
  *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
- *  for more information about Google's search results filters. Valid values
- *  for this parameter are:
- *  * `0`: Disabled
- *  * `1`: Enabled (default)
- *  **Note**: By default, Google applies filtering to all search results to
- *  improve the quality of those results.
+ *  for more information about Google's search results filters. Valid values for
+ *  this parameter are: * `0`: Disabled * `1`: Enabled (default) **Note**: By
+ *  default, Google applies filtering to all search results to improve the
+ *  quality of those results.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Boosts search results whose country of origin matches the parameter
- *  value. See [Country
+ *  Boosts search results whose country of origin matches the parameter value.
+ *  See [Country
  *  Codes](https://developers.google.com/custom-search/docs/xml_results#countryCodes)
- *  for a list of valid values.
- *  Specifying a `gl` parameter value in WebSearch requests should improve
- *  the relevance of results. This is particularly true for international
- *  customers and, even more specifically, for customers in English-speaking
- *  countries other than the United States.
+ *  for a list of valid values. Specifying a `gl` parameter value in WebSearch
+ *  requests should improve the relevance of results. This is particularly true
+ *  for international customers and, even more specifically, for customers in
+ *  English-speaking countries other than the United States.
  */
 @property(nonatomic, copy, nullable) NSString *gl;
 
@@ -552,9 +534,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the interface language (host language) of your user interface.
- *  Explicitly setting this parameter improves the performance and the
- *  quality of your search results.
- *  See the [Interface
+ *  Explicitly setting this parameter improves the performance and the quality
+ *  of your search results. See the [Interface
  *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
  *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
@@ -571,49 +552,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *hq;
 
 /**
- *  Restricts results to images of a specified color type. Supported values
- *  are:
- *  * `mono` (black and white)
- *  * `gray` (grayscale)
- *  * `color` (color)
+ *  Restricts results to images of a specified color type. Supported values are:
+ *  * `mono` (black and white) * `gray` (grayscale) * `color` (color)
  */
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Restricts results to images with a specific dominant color. Supported
- *  values are:
- *  * `red`
- *  * `orange`
- *  * `yellow`
- *  * `green`
- *  * `teal`
- *  * `blue`
- *  * `purple`
- *  * `pink`
- *  * `white`
- *  * `gray`
- *  * `black`
- *  * `brown`
+ *  Restricts results to images with a specific dominant color. Supported values
+ *  are: * `red` * `orange` * `yellow` * `green` * `teal` * `blue` * `purple` *
+ *  `pink` * `white` * `gray` * `black` * `brown`
  */
 @property(nonatomic, copy, nullable) NSString *imgDominantColor;
 
 /**
- *  Restricts results to images of a specified size. Supported values are:
- *  * `icon` (small)
- *  * `small | medium | large | xlarge` (medium)
- *  * `xxlarge` (large)
- *  * `huge` (extra-large)
+ *  Restricts results to images of a specified size. Supported values are: *
+ *  `icon` (small) * `small | medium | large | xlarge` (medium) * `xxlarge`
+ *  (large) * `huge` (extra-large)
  */
 @property(nonatomic, copy, nullable) NSString *imgSize;
 
 /**
- *  Restricts results to images of a specified type. Supported values are:
- *  * `clipart` (Clip art)
- *  * `face` (Face)
- *  * `lineart` (Line drawing)
- *  * `photo` (Photo)
- *  * `animated` (Animated)
- *  * `stock` (Stock)
+ *  Restricts results to images of a specified type. Supported values are: *
+ *  `clipart` (Clip art) * `face` (Face) * `lineart` (Line drawing) * `photo`
+ *  (Photo) * `animated` (Animated) * `stock` (Stock)
  */
 @property(nonatomic, copy, nullable) NSString *imgType;
 
@@ -635,8 +596,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Provides additional search terms to check for in a document, where each
- *  document in the search results must contain at least one of the
- *  additional search terms. You can also use the [Boolean
+ *  document in the search results must contain at least one of the additional
+ *  search terms. You can also use the [Boolean
  *  OR](https://developers.google.com/custom-search/docs/xml_results#BooleanOrqt)
  *  query term for this type of query.
  */
@@ -652,22 +613,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *relatedSite;
 
 /**
- *  Filters based on licensing. Supported values include:
- *  * `cc_publicdomain`
- *  * `cc_attribute`
- *  * `cc_sharealike`
- *  * `cc_noncommercial`
- *  * `cc_nonderived`
+ *  Filters based on licensing. Supported values include: * `cc_publicdomain` *
+ *  `cc_attribute` * `cc_sharealike` * `cc_noncommercial` * `cc_nonderived`
  */
 @property(nonatomic, copy, nullable) NSString *rights;
 
 /**
  *  Specifies the [SafeSearch
  *  level](https://developers.google.com/custom-search/docs/xml_results#safeSearchLevels)
- *  used for filtering out adult results. This is a custom property not
- *  defined in the OpenSearch spec. Valid parameter values are:
- *  * `"off"`: Disable SafeSearch
- *  * `"active"`: Enable SafeSearch
+ *  used for filtering out adult results. This is a custom property not defined
+ *  in the OpenSearch spec. Valid parameter values are: * `"off"`: Disable
+ *  SafeSearch * `"active"`: Enable SafeSearch
  */
 @property(nonatomic, copy, nullable) NSString *safe;
 
@@ -675,8 +631,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *searchTerms;
 
 /**
- *  Allowed values are `web` or `image`. If unspecified, results are limited
- *  to webpages.
+ *  Allowed values are `web` or `image`. If unspecified, results are limited to
+ *  webpages.
  */
 @property(nonatomic, copy, nullable) NSString *searchType;
 
@@ -684,10 +640,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *siteSearch;
 
 /**
- *  Specifies whether to include or exclude results from the site named in
- *  the `sitesearch` parameter. Supported values are:
- *  * `i`: include content from site
- *  * `e`: exclude content from site
+ *  Specifies whether to include or exclude results from the site named in the
+ *  `sitesearch` parameter. Supported values are: * `i`: include content from
+ *  site * `e`: exclude content from site
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
@@ -706,8 +661,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
- *  The page number of this set of results, where the page length is set by
- *  the `count` property.
+ *  The page number of this set of results, where the page length is set by the
+ *  `count` property.
  *
  *  Uses NSNumber of intValue.
  */
@@ -739,14 +694,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  Restricts search results to documents originating in a particular
- *  country. You may use [Boolean
+ *  Restricts search results to documents originating in a particular country.
+ *  You may use [Boolean
  *  operators](https://developers.google.com/custom-search/docs/xml_results#booleanOperators)
- *  in the `cr` parameter's value.
- *  Google WebSearch determines the country of a document by analyzing the
- *  following:
- *  * The top-level domain (TLD) of the document's URL.
- *  * The geographic location of the web server's IP address.
+ *  in the `cr` parameter's value. Google WebSearch determines the country of a
+ *  document by analyzing the following: * The top-level domain (TLD) of the
+ *  document's URL. * The geographic location of the web server's IP address.
  *  See [Country (cr) Parameter
  *  Values](https://developers.google.com/custom-search/docs/xml_results#countryCollections)
  *  for a list of valid values for this parameter.
@@ -754,87 +707,72 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *cr;
 
 /**
- *  The identifier of a custom search engine created using the Custom Search
- *  [Control Panel](https://cse.google.com/). This is a custom property not
- *  defined in the OpenSearch spec. This parameter is **required**.
+ *  The identifier of an engine created using the Programmable Search Engine
+ *  [Control Panel](https://programmablesearchengine.google.com/). This is a
+ *  custom property not defined in the OpenSearch spec. This parameter is
+ *  **required**.
  */
 @property(nonatomic, copy, nullable) NSString *cx;
 
 /**
- *  Restricts results to URLs based on date. Supported values include:
- *  * `d[number]`: requests results from the specified number of past days.
- *  * `w[number]`: requests results from the specified number of past weeks.
- *  * `m[number]`: requests results from the specified number of past months.
- *  * `y[number]`: requests results from the specified number of past years.
+ *  Restricts results to URLs based on date. Supported values include: *
+ *  `d[number]`: requests results from the specified number of past days. *
+ *  `w[number]`: requests results from the specified number of past weeks. *
+ *  `m[number]`: requests results from the specified number of past months. *
+ *  `y[number]`: requests results from the specified number of past years.
  */
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
  *  Enables or disables the [Simplified and Traditional Chinese
  *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch)
- *  feature.
- *  Supported values are:
- *  * `0`: enabled (default)
- *  * `1`: disabled
+ *  feature. Supported values are: * `0`: enabled (default) * `1`: disabled
  */
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
 
 /**
- *  Identifies a phrase that all documents in the search results must
- *  contain.
+ *  Identifies a phrase that all documents in the search results must contain.
  */
 @property(nonatomic, copy, nullable) NSString *exactTerms;
 
 /**
- *  Identifies a word or phrase that should not appear in any documents in
- *  the search results.
+ *  Identifies a word or phrase that should not appear in any documents in the
+ *  search results.
  */
 @property(nonatomic, copy, nullable) NSString *excludeTerms;
 
 /**
- *  Restricts results to files of a specified extension. Filetypes supported
- *  by Google include:
- *  * Adobe Portable Document Format (`pdf`)
- *  * Adobe PostScript (`ps`)
- *  * Lotus 1-2-3 (`wk1`, `wk2`, `wk3`, `wk4`, `wk5`, `wki`, `wks`, `wku`)
- *  * Lotus WordPro (`lwp`)
- *  * Macwrite (`mw`)
- *  * Microsoft Excel (`xls`)
- *  * Microsoft PowerPoint (`ppt`)
- *  * Microsoft Word (`doc`)
- *  * Microsoft Works (`wks`, `wps`, `wdb`)
- *  * Microsoft Write (`wri`)
- *  * Rich Text Format (`rtf`)
- *  * Shockwave Flash (`swf`)
- *  * Text (`ans`, `txt`).
- *  Additional filetypes may be added in the future. An up-to-date list can
- *  always be found in Google's [file type
- *  FAQ](https://support.google.com/webmasters/answer/35287).
+ *  Restricts results to files of a specified extension. Filetypes supported by
+ *  Google include: * Adobe Portable Document Format (`pdf`) * Adobe PostScript
+ *  (`ps`) * Lotus 1-2-3 (`wk1`, `wk2`, `wk3`, `wk4`, `wk5`, `wki`, `wks`,
+ *  `wku`) * Lotus WordPro (`lwp`) * Macwrite (`mw`) * Microsoft Excel (`xls`) *
+ *  Microsoft PowerPoint (`ppt`) * Microsoft Word (`doc`) * Microsoft Works
+ *  (`wks`, `wps`, `wdb`) * Microsoft Write (`wri`) * Rich Text Format (`rtf`) *
+ *  Shockwave Flash (`swf`) * Text (`ans`, `txt`). Additional filetypes may be
+ *  added in the future. An up-to-date list can always be found in Google's
+ *  [file type FAQ](https://support.google.com/webmasters/answer/35287).
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  Activates or deactivates the automatic filtering of Google search
- *  results. See [Automatic
+ *  Activates or deactivates the automatic filtering of Google search results.
+ *  See [Automatic
  *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
- *  for more information about Google's search results filters. Valid values
- *  for this parameter are:
- *  * `0`: Disabled
- *  * `1`: Enabled (default)
- *  **Note**: By default, Google applies filtering to all search results to
- *  improve the quality of those results.
+ *  for more information about Google's search results filters. Valid values for
+ *  this parameter are: * `0`: Disabled * `1`: Enabled (default) **Note**: By
+ *  default, Google applies filtering to all search results to improve the
+ *  quality of those results.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Boosts search results whose country of origin matches the parameter
- *  value. See [Country
+ *  Boosts search results whose country of origin matches the parameter value.
+ *  See [Country
  *  Codes](https://developers.google.com/custom-search/docs/xml_results#countryCodes)
- *  for a list of valid values.
- *  Specifying a `gl` parameter value in WebSearch requests should improve
- *  the relevance of results. This is particularly true for international
- *  customers and, even more specifically, for customers in English-speaking
- *  countries other than the United States.
+ *  for a list of valid values. Specifying a `gl` parameter value in WebSearch
+ *  requests should improve the relevance of results. This is particularly true
+ *  for international customers and, even more specifically, for customers in
+ *  English-speaking countries other than the United States.
  */
 @property(nonatomic, copy, nullable) NSString *gl;
 
@@ -853,9 +791,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the interface language (host language) of your user interface.
- *  Explicitly setting this parameter improves the performance and the
- *  quality of your search results.
- *  See the [Interface
+ *  Explicitly setting this parameter improves the performance and the quality
+ *  of your search results. See the [Interface
  *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
  *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
@@ -872,49 +809,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *hq;
 
 /**
- *  Restricts results to images of a specified color type. Supported values
- *  are:
- *  * `mono` (black and white)
- *  * `gray` (grayscale)
- *  * `color` (color)
+ *  Restricts results to images of a specified color type. Supported values are:
+ *  * `mono` (black and white) * `gray` (grayscale) * `color` (color)
  */
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Restricts results to images with a specific dominant color. Supported
- *  values are:
- *  * `red`
- *  * `orange`
- *  * `yellow`
- *  * `green`
- *  * `teal`
- *  * `blue`
- *  * `purple`
- *  * `pink`
- *  * `white`
- *  * `gray`
- *  * `black`
- *  * `brown`
+ *  Restricts results to images with a specific dominant color. Supported values
+ *  are: * `red` * `orange` * `yellow` * `green` * `teal` * `blue` * `purple` *
+ *  `pink` * `white` * `gray` * `black` * `brown`
  */
 @property(nonatomic, copy, nullable) NSString *imgDominantColor;
 
 /**
- *  Restricts results to images of a specified size. Supported values are:
- *  * `icon` (small)
- *  * `small | medium | large | xlarge` (medium)
- *  * `xxlarge` (large)
- *  * `huge` (extra-large)
+ *  Restricts results to images of a specified size. Supported values are: *
+ *  `icon` (small) * `small | medium | large | xlarge` (medium) * `xxlarge`
+ *  (large) * `huge` (extra-large)
  */
 @property(nonatomic, copy, nullable) NSString *imgSize;
 
 /**
- *  Restricts results to images of a specified type. Supported values are:
- *  * `clipart` (Clip art)
- *  * `face` (Face)
- *  * `lineart` (Line drawing)
- *  * `photo` (Photo)
- *  * `animated` (Animated)
- *  * `stock` (Stock)
+ *  Restricts results to images of a specified type. Supported values are: *
+ *  `clipart` (Clip art) * `face` (Face) * `lineart` (Line drawing) * `photo`
+ *  (Photo) * `animated` (Animated) * `stock` (Stock)
  */
 @property(nonatomic, copy, nullable) NSString *imgType;
 
@@ -936,8 +853,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Provides additional search terms to check for in a document, where each
- *  document in the search results must contain at least one of the
- *  additional search terms. You can also use the [Boolean
+ *  document in the search results must contain at least one of the additional
+ *  search terms. You can also use the [Boolean
  *  OR](https://developers.google.com/custom-search/docs/xml_results#BooleanOrqt)
  *  query term for this type of query.
  */
@@ -953,22 +870,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *relatedSite;
 
 /**
- *  Filters based on licensing. Supported values include:
- *  * `cc_publicdomain`
- *  * `cc_attribute`
- *  * `cc_sharealike`
- *  * `cc_noncommercial`
- *  * `cc_nonderived`
+ *  Filters based on licensing. Supported values include: * `cc_publicdomain` *
+ *  `cc_attribute` * `cc_sharealike` * `cc_noncommercial` * `cc_nonderived`
  */
 @property(nonatomic, copy, nullable) NSString *rights;
 
 /**
  *  Specifies the [SafeSearch
  *  level](https://developers.google.com/custom-search/docs/xml_results#safeSearchLevels)
- *  used for filtering out adult results. This is a custom property not
- *  defined in the OpenSearch spec. Valid parameter values are:
- *  * `"off"`: Disable SafeSearch
- *  * `"active"`: Enable SafeSearch
+ *  used for filtering out adult results. This is a custom property not defined
+ *  in the OpenSearch spec. Valid parameter values are: * `"off"`: Disable
+ *  SafeSearch * `"active"`: Enable SafeSearch
  */
 @property(nonatomic, copy, nullable) NSString *safe;
 
@@ -976,8 +888,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *searchTerms;
 
 /**
- *  Allowed values are `web` or `image`. If unspecified, results are limited
- *  to webpages.
+ *  Allowed values are `web` or `image`. If unspecified, results are limited to
+ *  webpages.
  */
 @property(nonatomic, copy, nullable) NSString *searchType;
 
@@ -985,10 +897,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *siteSearch;
 
 /**
- *  Specifies whether to include or exclude results from the site named in
- *  the `sitesearch` parameter. Supported values are:
- *  * `i`: include content from site
- *  * `e`: exclude content from site
+ *  Specifies whether to include or exclude results from the site named in the
+ *  `sitesearch` parameter. Supported values are: * `i`: include content from
+ *  site * `e`: exclude content from site
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
@@ -1007,8 +918,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
- *  The page number of this set of results, where the page length is set by
- *  the `count` property.
+ *  The page number of this set of results, where the page length is set by the
+ *  `count` property.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1040,14 +951,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  Restricts search results to documents originating in a particular
- *  country. You may use [Boolean
+ *  Restricts search results to documents originating in a particular country.
+ *  You may use [Boolean
  *  operators](https://developers.google.com/custom-search/docs/xml_results#booleanOperators)
- *  in the `cr` parameter's value.
- *  Google WebSearch determines the country of a document by analyzing the
- *  following:
- *  * The top-level domain (TLD) of the document's URL.
- *  * The geographic location of the web server's IP address.
+ *  in the `cr` parameter's value. Google WebSearch determines the country of a
+ *  document by analyzing the following: * The top-level domain (TLD) of the
+ *  document's URL. * The geographic location of the web server's IP address.
  *  See [Country (cr) Parameter
  *  Values](https://developers.google.com/custom-search/docs/xml_results#countryCollections)
  *  for a list of valid values for this parameter.
@@ -1055,87 +964,72 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *cr;
 
 /**
- *  The identifier of a custom search engine created using the Custom Search
- *  [Control Panel](https://cse.google.com/). This is a custom property not
- *  defined in the OpenSearch spec. This parameter is **required**.
+ *  The identifier of an engine created using the Programmable Search Engine
+ *  [Control Panel](https://programmablesearchengine.google.com/). This is a
+ *  custom property not defined in the OpenSearch spec. This parameter is
+ *  **required**.
  */
 @property(nonatomic, copy, nullable) NSString *cx;
 
 /**
- *  Restricts results to URLs based on date. Supported values include:
- *  * `d[number]`: requests results from the specified number of past days.
- *  * `w[number]`: requests results from the specified number of past weeks.
- *  * `m[number]`: requests results from the specified number of past months.
- *  * `y[number]`: requests results from the specified number of past years.
+ *  Restricts results to URLs based on date. Supported values include: *
+ *  `d[number]`: requests results from the specified number of past days. *
+ *  `w[number]`: requests results from the specified number of past weeks. *
+ *  `m[number]`: requests results from the specified number of past months. *
+ *  `y[number]`: requests results from the specified number of past years.
  */
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
  *  Enables or disables the [Simplified and Traditional Chinese
  *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch)
- *  feature.
- *  Supported values are:
- *  * `0`: enabled (default)
- *  * `1`: disabled
+ *  feature. Supported values are: * `0`: enabled (default) * `1`: disabled
  */
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
 
 /**
- *  Identifies a phrase that all documents in the search results must
- *  contain.
+ *  Identifies a phrase that all documents in the search results must contain.
  */
 @property(nonatomic, copy, nullable) NSString *exactTerms;
 
 /**
- *  Identifies a word or phrase that should not appear in any documents in
- *  the search results.
+ *  Identifies a word or phrase that should not appear in any documents in the
+ *  search results.
  */
 @property(nonatomic, copy, nullable) NSString *excludeTerms;
 
 /**
- *  Restricts results to files of a specified extension. Filetypes supported
- *  by Google include:
- *  * Adobe Portable Document Format (`pdf`)
- *  * Adobe PostScript (`ps`)
- *  * Lotus 1-2-3 (`wk1`, `wk2`, `wk3`, `wk4`, `wk5`, `wki`, `wks`, `wku`)
- *  * Lotus WordPro (`lwp`)
- *  * Macwrite (`mw`)
- *  * Microsoft Excel (`xls`)
- *  * Microsoft PowerPoint (`ppt`)
- *  * Microsoft Word (`doc`)
- *  * Microsoft Works (`wks`, `wps`, `wdb`)
- *  * Microsoft Write (`wri`)
- *  * Rich Text Format (`rtf`)
- *  * Shockwave Flash (`swf`)
- *  * Text (`ans`, `txt`).
- *  Additional filetypes may be added in the future. An up-to-date list can
- *  always be found in Google's [file type
- *  FAQ](https://support.google.com/webmasters/answer/35287).
+ *  Restricts results to files of a specified extension. Filetypes supported by
+ *  Google include: * Adobe Portable Document Format (`pdf`) * Adobe PostScript
+ *  (`ps`) * Lotus 1-2-3 (`wk1`, `wk2`, `wk3`, `wk4`, `wk5`, `wki`, `wks`,
+ *  `wku`) * Lotus WordPro (`lwp`) * Macwrite (`mw`) * Microsoft Excel (`xls`) *
+ *  Microsoft PowerPoint (`ppt`) * Microsoft Word (`doc`) * Microsoft Works
+ *  (`wks`, `wps`, `wdb`) * Microsoft Write (`wri`) * Rich Text Format (`rtf`) *
+ *  Shockwave Flash (`swf`) * Text (`ans`, `txt`). Additional filetypes may be
+ *  added in the future. An up-to-date list can always be found in Google's
+ *  [file type FAQ](https://support.google.com/webmasters/answer/35287).
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  Activates or deactivates the automatic filtering of Google search
- *  results. See [Automatic
+ *  Activates or deactivates the automatic filtering of Google search results.
+ *  See [Automatic
  *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
- *  for more information about Google's search results filters. Valid values
- *  for this parameter are:
- *  * `0`: Disabled
- *  * `1`: Enabled (default)
- *  **Note**: By default, Google applies filtering to all search results to
- *  improve the quality of those results.
+ *  for more information about Google's search results filters. Valid values for
+ *  this parameter are: * `0`: Disabled * `1`: Enabled (default) **Note**: By
+ *  default, Google applies filtering to all search results to improve the
+ *  quality of those results.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Boosts search results whose country of origin matches the parameter
- *  value. See [Country
+ *  Boosts search results whose country of origin matches the parameter value.
+ *  See [Country
  *  Codes](https://developers.google.com/custom-search/docs/xml_results#countryCodes)
- *  for a list of valid values.
- *  Specifying a `gl` parameter value in WebSearch requests should improve
- *  the relevance of results. This is particularly true for international
- *  customers and, even more specifically, for customers in English-speaking
- *  countries other than the United States.
+ *  for a list of valid values. Specifying a `gl` parameter value in WebSearch
+ *  requests should improve the relevance of results. This is particularly true
+ *  for international customers and, even more specifically, for customers in
+ *  English-speaking countries other than the United States.
  */
 @property(nonatomic, copy, nullable) NSString *gl;
 
@@ -1154,9 +1048,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the interface language (host language) of your user interface.
- *  Explicitly setting this parameter improves the performance and the
- *  quality of your search results.
- *  See the [Interface
+ *  Explicitly setting this parameter improves the performance and the quality
+ *  of your search results. See the [Interface
  *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
  *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
@@ -1173,49 +1066,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *hq;
 
 /**
- *  Restricts results to images of a specified color type. Supported values
- *  are:
- *  * `mono` (black and white)
- *  * `gray` (grayscale)
- *  * `color` (color)
+ *  Restricts results to images of a specified color type. Supported values are:
+ *  * `mono` (black and white) * `gray` (grayscale) * `color` (color)
  */
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Restricts results to images with a specific dominant color. Supported
- *  values are:
- *  * `red`
- *  * `orange`
- *  * `yellow`
- *  * `green`
- *  * `teal`
- *  * `blue`
- *  * `purple`
- *  * `pink`
- *  * `white`
- *  * `gray`
- *  * `black`
- *  * `brown`
+ *  Restricts results to images with a specific dominant color. Supported values
+ *  are: * `red` * `orange` * `yellow` * `green` * `teal` * `blue` * `purple` *
+ *  `pink` * `white` * `gray` * `black` * `brown`
  */
 @property(nonatomic, copy, nullable) NSString *imgDominantColor;
 
 /**
- *  Restricts results to images of a specified size. Supported values are:
- *  * `icon` (small)
- *  * `small | medium | large | xlarge` (medium)
- *  * `xxlarge` (large)
- *  * `huge` (extra-large)
+ *  Restricts results to images of a specified size. Supported values are: *
+ *  `icon` (small) * `small | medium | large | xlarge` (medium) * `xxlarge`
+ *  (large) * `huge` (extra-large)
  */
 @property(nonatomic, copy, nullable) NSString *imgSize;
 
 /**
- *  Restricts results to images of a specified type. Supported values are:
- *  * `clipart` (Clip art)
- *  * `face` (Face)
- *  * `lineart` (Line drawing)
- *  * `photo` (Photo)
- *  * `animated` (Animated)
- *  * `stock` (Stock)
+ *  Restricts results to images of a specified type. Supported values are: *
+ *  `clipart` (Clip art) * `face` (Face) * `lineart` (Line drawing) * `photo`
+ *  (Photo) * `animated` (Animated) * `stock` (Stock)
  */
 @property(nonatomic, copy, nullable) NSString *imgType;
 
@@ -1237,8 +1110,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Provides additional search terms to check for in a document, where each
- *  document in the search results must contain at least one of the
- *  additional search terms. You can also use the [Boolean
+ *  document in the search results must contain at least one of the additional
+ *  search terms. You can also use the [Boolean
  *  OR](https://developers.google.com/custom-search/docs/xml_results#BooleanOrqt)
  *  query term for this type of query.
  */
@@ -1254,22 +1127,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *relatedSite;
 
 /**
- *  Filters based on licensing. Supported values include:
- *  * `cc_publicdomain`
- *  * `cc_attribute`
- *  * `cc_sharealike`
- *  * `cc_noncommercial`
- *  * `cc_nonderived`
+ *  Filters based on licensing. Supported values include: * `cc_publicdomain` *
+ *  `cc_attribute` * `cc_sharealike` * `cc_noncommercial` * `cc_nonderived`
  */
 @property(nonatomic, copy, nullable) NSString *rights;
 
 /**
  *  Specifies the [SafeSearch
  *  level](https://developers.google.com/custom-search/docs/xml_results#safeSearchLevels)
- *  used for filtering out adult results. This is a custom property not
- *  defined in the OpenSearch spec. Valid parameter values are:
- *  * `"off"`: Disable SafeSearch
- *  * `"active"`: Enable SafeSearch
+ *  used for filtering out adult results. This is a custom property not defined
+ *  in the OpenSearch spec. Valid parameter values are: * `"off"`: Disable
+ *  SafeSearch * `"active"`: Enable SafeSearch
  */
 @property(nonatomic, copy, nullable) NSString *safe;
 
@@ -1277,8 +1145,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *searchTerms;
 
 /**
- *  Allowed values are `web` or `image`. If unspecified, results are limited
- *  to webpages.
+ *  Allowed values are `web` or `image`. If unspecified, results are limited to
+ *  webpages.
  */
 @property(nonatomic, copy, nullable) NSString *searchType;
 
@@ -1286,10 +1154,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *siteSearch;
 
 /**
- *  Specifies whether to include or exclude results from the site named in
- *  the `sitesearch` parameter. Supported values are:
- *  * `i`: include content from site
- *  * `e`: exclude content from site
+ *  Specifies whether to include or exclude results from the site named in the
+ *  `sitesearch` parameter. Supported values are: * `i`: include content from
+ *  site * `e`: exclude content from site
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
@@ -1308,8 +1175,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
- *  The page number of this set of results, where the page length is set by
- *  the `count` property.
+ *  The page number of this set of results, where the page length is set by the
+ *  `count` property.
  *
  *  Uses NSNumber of intValue.
  */

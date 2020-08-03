@@ -40,6 +40,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Downloads media. Download is supported
+ *  on the URI `/v1/media/{+name}?alt=media`.
+ *
+ *  Method: chat.media.download
+ */
+@interface GTLRHangoutsChatQuery_MediaDownload : GTLRHangoutsChatQuery
+// Previous library name was
+//   +[GTLQueryHangoutsChat queryForMediaDownloadWithresourceName:]
+
+/**
+ *  Name of the media that is being downloaded. See
+ *  ReadRequest.resource_name.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Media.
+ *
+ *  Downloads media. Download is supported
+ *  on the URI `/v1/media/{+name}?alt=media`.
+ *
+ *  @param resourceName Name of the media that is being downloaded. See
+ *    ReadRequest.resource_name.
+ *
+ *  @return GTLRHangoutsChatQuery_MediaDownload
+ */
++ (instancetype)queryWithResourceName:(NSString *)resourceName;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Downloads media. Download is supported
+ *  on the URI `/v1/media/{+name}?alt=media`.
+ *
+ *  @param resourceName Name of the media that is being downloaded. See
+ *    ReadRequest.resource_name.
+ *
+ *  @return GTLRHangoutsChatQuery_MediaDownload
+ */
++ (instancetype)queryForMediaWithResourceName:(NSString *)resourceName;
+
+@end
+
+/**
  *  Returns a space.
  *
  *  Method: chat.spaces.get

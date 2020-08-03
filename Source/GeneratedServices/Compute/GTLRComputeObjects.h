@@ -64,6 +64,7 @@
 @class GTLRCompute_AutoscalingPolicyCpuUtilization;
 @class GTLRCompute_AutoscalingPolicyCustomMetricUtilization;
 @class GTLRCompute_AutoscalingPolicyLoadBalancingUtilization;
+@class GTLRCompute_AutoscalingPolicyScaleInControl;
 @class GTLRCompute_Backend;
 @class GTLRCompute_BackendBucket;
 @class GTLRCompute_BackendBucketCdnPolicy;
@@ -163,7 +164,6 @@
 @class GTLRCompute_HealthCheck;
 @class GTLRCompute_HealthCheckList_Warning;
 @class GTLRCompute_HealthCheckList_Warning_Data_Item;
-@class GTLRCompute_HealthCheckLogConfig;
 @class GTLRCompute_HealthCheckReference;
 @class GTLRCompute_HealthChecksAggregatedList_Items;
 @class GTLRCompute_HealthChecksAggregatedList_Warning;
@@ -1772,6 +1772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_Attribution;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_Authority;
 /** Value: "CREDENTIALS_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_CredentialsType;
+/** Value: "CREDS_ASSERTION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_CredsAssertion;
 /** Value: "JUSTIFICATION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Condition_Iam_JustificationType;
 /** Value: "NO_ATTR" */
@@ -2340,6 +2342,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_Single
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_FirewallLogConfig.metadata
+
+/** Value: "EXCLUDE_ALL_METADATA" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallLogConfig_Metadata_ExcludeAllMetadata;
+/** Value: "INCLUDE_ALL_METADATA" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallLogConfig_Metadata_IncludeAllMetadata;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRule.IPProtocol
@@ -5912,6 +5922,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Cpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions;
 /** Value: "DISKS_TOTAL_GB" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb;
+/** Value: "EXTERNAL_NETWORK_LB_FORWARDING_RULES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalNetworkLbForwardingRules;
 /** Value: "EXTERNAL_VPN_GATEWAYS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways;
 /** Value: "FIREWALLS" */
@@ -5946,6 +5958,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Interconnects;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InterconnectTotalGbps;
 /** Value: "INTERNAL_ADDRESSES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InternalAddresses;
+/** Value: "INTERNAL_TRAFFIC_DIRECTOR_FORWARDING_RULES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InternalTrafficDirectorForwardingRules;
 /** Value: "IN_USE_ADDRESSES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_InUseAddresses;
 /** Value: "IN_USE_BACKUP_SCHEDULES" */
@@ -11811,6 +11825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
+@property(nonatomic, strong, nullable) GTLRCompute_AutoscalingPolicyScaleInControl *scaleInControl;
+
 @end
 
 
@@ -11891,6 +11907,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *utilizationTarget;
+
+@end
+
+
+/**
+ *  Configuration that allows for slower scale in so that even if Autoscaler
+ *  recommends an abrupt scale in of a MIG, it will be throttled as specified by
+ *  the parameters below.
+ */
+@interface GTLRCompute_AutoscalingPolicyScaleInControl : GTLRObject
+
+/**
+ *  Maximum allowed number (or %) of VMs that can be deducted from the peak
+ *  recommendation during the window autoscaler looks at when computing
+ *  recommendations. Possibly all these VMs can be deleted at once so user
+ *  service needs to be prepared to lose that many VMs in one step.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_FixedOrPercent *maxScaledInReplicas;
+
+/**
+ *  How long back autoscaling should look when computing recommendations to
+ *  include directives regarding slower scale in, as described above.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timeWindowSec;
 
 @end
 
@@ -13910,6 +13952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Condition_Iam_Authority Value "AUTHORITY"
  *    @arg @c kGTLRCompute_Condition_Iam_CredentialsType Value
  *        "CREDENTIALS_TYPE"
+ *    @arg @c kGTLRCompute_Condition_Iam_CredsAssertion Value "CREDS_ASSERTION"
  *    @arg @c kGTLRCompute_Condition_Iam_JustificationType Value
  *        "JUSTIFICATION_TYPE"
  *    @arg @c kGTLRCompute_Condition_Iam_NoAttr Value "NO_ATTR"
@@ -16472,6 +16515,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
+/**
+ *  This field can only be specified for a particular firewall rule if logging
+ *  is enabled for that rule. This field denotes whether to include or exclude
+ *  metadata for firewall logs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_FirewallLogConfig_Metadata_ExcludeAllMetadata Value
+ *        "EXCLUDE_ALL_METADATA"
+ *    @arg @c kGTLRCompute_FirewallLogConfig_Metadata_IncludeAllMetadata Value
+ *        "INCLUDE_ALL_METADATA"
+ */
+@property(nonatomic, copy, nullable) NSString *metadata;
+
 @end
 
 
@@ -17506,9 +17562,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Google Compute Engine has two Health Check resources:
  *  * [Global](/compute/docs/reference/rest/{$api_version}/healthChecks) *
  *  [Regional](/compute/docs/reference/rest/{$api_version}/regionHealthChecks)
- *  Internal HTTP(S) load balancers use regional health checks. All other types
- *  of GCP load balancers and managed instance group auto-healing use global
- *  health checks. For more information, read Health Check Concepts.
+ *  Internal HTTP(S) load balancers must use regional health checks. Internal
+ *  TCP/UDP load balancers can use either regional or global health checks. All
+ *  other types of GCP load balancers and managed instance group auto-healing
+ *  must use global health checks. For more information, read Health Check
+ *  Concepts.
  *  To perform health checks on network load balancers, you must use either
  *  httpHealthChecks or httpsHealthChecks.
  */
@@ -17559,9 +17617,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Type of the resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/** Configure logging on this health check. */
-@property(nonatomic, strong, nullable) GTLRCompute_HealthCheckLogConfig *logConfig;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.
@@ -17758,23 +17813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  Configuration of logging on a health check. If logging is enabled, logs will
- *  be exported to Stackdriver.
- */
-@interface GTLRCompute_HealthCheckLogConfig : GTLRObject
-
-/**
- *  Indicates whether or not to export logs. This is false by default, which
- *  means no health check logging will be done.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enable;
 
 @end
 
@@ -26441,6 +26479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_Network : GTLRObject
 
 /**
+ *  Must be set to create a VPC network. If not set, a legacy network is
+ *  created.
  *  When set to true, the VPC network is created in auto mode. When set to
  *  false, the VPC network is created in custom mode.
  *  An auto mode VPC network starts with one subnet per region. Each subnet has
@@ -26585,7 +26625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  reached, whether they are reachable, and where they are located. For more
  *  information about using NEGs, see Setting up internet NEGs or Setting up
  *  zonal NEGs. (== resource_for {$api_version}.networkEndpointGroups ==) (==
- *  resource_for {$api_version}.globalNetworkEndpointGroups ==)
+ *  resource_for {$api_version}.globalNetworkEndpointGroups ==) (== resource_for
+ *  {$api_version}.regionNetworkEndpointGroups ==)
  */
 @interface GTLRCompute_NetworkEndpointGroup : GTLRObject
 
@@ -31676,6 +31717,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_Cpus Value "CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CpusAllRegions Value "CPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_DisksTotalGb Value "DISKS_TOTAL_GB"
+ *    @arg @c kGTLRCompute_Quota_Metric_ExternalNetworkLbForwardingRules Value
+ *        "EXTERNAL_NETWORK_LB_FORWARDING_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_ExternalVpnGateways Value
  *        "EXTERNAL_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_Firewalls Value "FIREWALLS"
@@ -31702,6 +31745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "INTERCONNECT_TOTAL_GBPS"
  *    @arg @c kGTLRCompute_Quota_Metric_InternalAddresses Value
  *        "INTERNAL_ADDRESSES"
+ *    @arg @c kGTLRCompute_Quota_Metric_InternalTrafficDirectorForwardingRules
+ *        Value "INTERNAL_TRAFFIC_DIRECTOR_FORWARDING_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_InUseAddresses Value "IN_USE_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_InUseBackupSchedules Value
  *        "IN_USE_BACKUP_SCHEDULES"
@@ -36333,8 +36378,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  [Output Only] The position of the next byte of content from the serial
- *  console output. Use this value in the next request as the start parameter.
+ *  [Output Only] The position of the next byte of content, regardless of
+ *  whether the content exists, following the output returned in the `contents`
+ *  property. Use this value in the next request as the start parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -36346,8 +36392,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The starting byte position of the output that was returned. This should
  *  match the start parameter sent with the request. If the serial console
- *  output exceeds the size of the buffer, older output will be overwritten by
- *  newer content and the start values will be mismatched.
+ *  output exceeds the size of the buffer (1 MB), older output is overwritten by
+ *  newer content. The output start value will indicate the byte position of the
+ *  output that was returned, which might be different than the `start` value
+ *  that was specified in the request.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -37925,9 +37973,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The range of internal addresses that are owned by this subnetwork. Provide
  *  this property when you create the subnetwork. For example, 10.0.0.0/8 or
- *  192.168.0.0/16. Ranges must be unique and non-overlapping within a network.
- *  Only IPv4 is supported. This field is set at resource creation time. The
- *  range can be expanded after creation using expandIpCidrRange.
+ *  100.64.0.0/10. Ranges must be unique and non-overlapping within a network.
+ *  Only IPv4 is supported. This field is set at resource creation time. This
+ *  may be a RFC 1918 IP range, or a privately routed, non-RFC 1918 IP range,
+ *  not belonging to Google. The range can be expanded after creation using
+ *  expandIpCidrRange.
  */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 
@@ -38431,7 +38481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The range of IP addresses belonging to this subnetwork secondary range.
  *  Provide this property when you create the subnetwork. Ranges must be unique
  *  and non-overlapping with all primary and secondary IP ranges within a
- *  network. Only IPv4 is supported.
+ *  network. Only IPv4 is supported. This may be a RFC 1918 IP range, or a
+ *  privately, non-RFC 1918 IP range, not belonging to Google.
  */
 @property(nonatomic, copy, nullable) NSString *ipCidrRange;
 

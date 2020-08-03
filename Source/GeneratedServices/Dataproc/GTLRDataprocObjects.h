@@ -337,23 +337,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_JobStatus_Substate_Unspecified;
 // ----------------------------------------------------------------------------
 // GTLRDataproc_LoggingConfig_DriverLogLevels.driverLogLevel
 
-/** Value: "ALL" */
+/**
+ *  Use ALL level for log4j.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_All;
-/** Value: "DEBUG" */
+/**
+ *  Use DEBUG level for log4j.
+ *
+ *  Value: "DEBUG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Debug;
-/** Value: "ERROR" */
+/**
+ *  Use ERROR level for log4j.
+ *
+ *  Value: "ERROR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Error;
-/** Value: "FATAL" */
+/**
+ *  Use FATAL level for log4j.
+ *
+ *  Value: "FATAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Fatal;
-/** Value: "INFO" */
+/**
+ *  Use INFO level for log4j.
+ *
+ *  Value: "INFO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Info;
-/** Value: "LEVEL_UNSPECIFIED" */
+/**
+ *  Level is unspecified. Use default level for log4j.
+ *
+ *  Value: "LEVEL_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_LevelUnspecified;
-/** Value: "OFF" */
+/**
+ *  Turn off log4j.
+ *
+ *  Value: "OFF"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off;
-/** Value: "TRACE" */
+/**
+ *  Use TRACE level for log4j.
+ *
+ *  Value: "TRACE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace;
-/** Value: "WARN" */
+/**
+ *  Use WARN level for log4j.
+ *
+ *  Value: "WARN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
 
 // ----------------------------------------------------------------------------
@@ -384,19 +420,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
 
-/** Value: "ANACONDA" */
+/**
+ *  The Anaconda python distribution.
+ *
+ *  Value: "ANACONDA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda;
-/** Value: "COMPONENT_UNSPECIFIED" */
+/**
+ *  Unspecified component. Specifying this will cause Cluster creation to fail.
+ *
+ *  Value: "COMPONENT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified;
-/** Value: "HIVE_WEBHCAT" */
+/**
+ *  The Hive Web HCatalog (the REST service for accessing HCatalog).
+ *
+ *  Value: "HIVE_WEBHCAT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat;
-/** Value: "JUPYTER" */
+/**
+ *  The Jupyter Notebook.
+ *
+ *  Value: "JUPYTER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter;
-/** Value: "PRESTO" */
+/**
+ *  The Presto query engine.
+ *
+ *  Value: "PRESTO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto;
-/** Value: "ZEPPELIN" */
+/**
+ *  The Zeppelin notebook.
+ *
+ *  Value: "ZEPPELIN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin;
-/** Value: "ZOOKEEPER" */
+/**
+ *  The Zookeeper service.
+ *
+ *  Value: "ZOOKEEPER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
 
 // ----------------------------------------------------------------------------
@@ -592,12 +656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies, the resource name of the policy
- *  has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies, the resource name of the policy
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies, the resource name of the policy has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies, the resource name of the policy has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -713,25 +777,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  members can have the following values:
- *  allUsers: A special identifier that represents anyone who is on the
- *  internet; with or without a Google account.
+ *  members can have the following values: allUsers: A special identifier that
+ *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
- *  authenticated with a Google account or a service account.
- *  user:{emailid}: An email address that represents a specific Google account.
- *  For example, alice\@example.com .
- *  serviceAccount:{emailid}: An email address that represents a service
- *  account. For example, my-other-app\@appspot.gserviceaccount.com.
- *  group:{emailid}: An email address that represents a Google group. For
- *  example, admins\@example.com.
+ *  authenticated with a Google account or a service account. user:{emailid}: An
+ *  email address that represents a specific Google account. For example,
+ *  alice\@example.com . serviceAccount:{emailid}: An email address that
+ *  represents a service account. For example,
+ *  my-other-app\@appspot.gserviceaccount.com. group:{emailid}: An email address
+ *  that represents a Google group. For example, admins\@example.com.
  *  deleted:user:{emailid}?uid={uniqueid}: An email address (plus unique
  *  identifier) representing a user that has been recently deleted. For example,
  *  alice\@example.com?uid=123456789012345678901. If the user is recovered, this
  *  value reverts to user:{emailid} and the recovered user retains the role in
- *  the binding.
- *  deleted:serviceAccount:{emailid}?uid={uniqueid}: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
+ *  the binding. deleted:serviceAccount:{emailid}?uid={uniqueid}: An email
+ *  address (plus unique identifier) representing a service account that has
+ *  been recently deleted. For example,
  *  my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901. If the
  *  service account is undeleted, this value reverts to serviceAccount:{emailid}
  *  and the undeleted service account retains the role in the binding.
@@ -739,9 +800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  identifier) representing a Google group that has been recently deleted. For
  *  example, admins\@example.com?uid=123456789012345678901. If the group is
  *  recovered, this value reverts to group:{emailid} and the recovered group
- *  retains the role in the binding.
- *  domain:{domain}: The G Suite domain (primary) that represents all the users
- *  of that domain. For example, google.com or example.com.
+ *  retains the role in the binding. domain:{domain}: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  google.com or example.com.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -871,14 +932,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. Commands to execute on each node after config is completed. By
  *  default, executables are run on master and all worker nodes. You can test a
  *  node's role metadata to run an executable on a master or worker node, as
- *  shown below using curl (you can also use wget):
- *  ROLE=$(curl -H Metadata-Flavor:Google
- *  http://metadata/computeMetadata/v1/instance/attributes/dataproc-role)
- *  if [[ "${ROLE}" == 'Master' ]]; then
- *  ... master specific actions ...
- *  else
- *  ... worker specific actions ...
- *  fi
+ *  shown below using curl (you can also use wget): ROLE=$(curl -H
+ *  Metadata-Flavor:Google
+ *  http://metadata/computeMetadata/v1/instance/attributes/dataproc-role) if [[
+ *  "${ROLE}" == 'Master' ]]; then ... master specific actions ... else ...
+ *  worker specific actions ... fi
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_NodeInitializationAction *> *initializationActions;
 
@@ -1208,11 +1266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for Empty is empty JSON object {}.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for Empty is empty JSON object {}.
  */
 @interface GTLRDataproc_Empty : GTLRObject
 @end
@@ -1271,24 +1327,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec.Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRDataproc_Expr : GTLRObject
 
@@ -1354,8 +1405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (https://cloud.google.com/compute/docs/subnetworks) for more information).A
  *  full URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default
- *  projects/[project_id]/regions/global/default
- *  default
+ *  projects/[project_id]/regions/global/default default
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
@@ -1393,8 +1443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  communications. Cannot be specified with network_uri.A full URL, partial
  *  URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/subnetworks/sub0
- *  projects/[project_id]/regions/us-east1/subnetworks/sub0
- *  sub0
+ *  projects/[project_id]/regions/us-east1/subnetworks/sub0 sub0
  */
 @property(nonatomic, copy, nullable) NSString *subnetworkUri;
 
@@ -1411,8 +1460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  corresponding Compute Engine region. On a get request, zone will always be
  *  present.A full URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]
- *  projects/[project_id]/zones/[zone]
- *  us-central1-f
+ *  projects/[project_id]/zones/[zone] us-central1-f
  */
 @property(nonatomic, copy, nullable) NSString *zoneUri;
 
@@ -1684,9 +1732,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. The Compute Engine image resource used for cluster instances.The
  *  URI can represent an image or image family.Image examples:
  *  https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/[image-id]
- *  projects/[project_id]/global/images/[image-id]
- *  image-idImage family examples. Dataproc will use the most recent image from
- *  the family:
+ *  projects/[project_id]/global/images/[image-id] image-idImage family
+ *  examples. Dataproc will use the most recent image from the family:
  *  https://www.googleapis.com/compute/beta/projects/[project_id]/global/images/family/[custom-image-family-name]
  *  projects/[project_id]/global/images/family/[custom-image-family-name]If the
  *  URI is unspecified, it will be inferred from SoftwareConfig.image_version or
@@ -1729,7 +1776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Specifies the minimum cpu platform for the Instance Group. See
- *  Dataproc -&gt; Minimum CPU Platform
+ *  Dataproc -> Minimum CPU Platform
  *  (https://cloud.google.com/dataproc/docs/concepts/compute/dataproc-min-cpu).
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
@@ -1878,7 +1925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The fully qualified reference to the job, which can be used to
  *  obtain the equivalent REST path of the job resource. If this property is not
- *  specified when a job is created, the server generates a <code>job_id</code>.
+ *  specified when a job is created, the server generates a job_id.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobReference *reference;
 
@@ -1896,8 +1943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. The job status. Additional application-specific status
- *  information may be contained in the <code>type_job</code> and
- *  <code>yarn_applications</code> fields.
+ *  information may be contained in the type_job and yarn_applications fields.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_JobStatus *status;
 
@@ -2015,7 +2061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Output only. Job state details, such as an error description if
- *  the state is <code>ERROR</code>.
+ *  the state is ERROR.
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
@@ -2299,7 +2345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. This token is included in the response if there are more results
  *  to fetch. To fetch additional results, provide this value as the page_token
- *  in a subsequent <code>ListJobsRequest</code>.
+ *  in a subsequent ListJobsRequest.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2343,7 +2389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Output only. This token is included in the response if there are more
  *  results to fetch. To fetch additional results, provide this value as the
- *  page_token in a subsequent <code>ListWorkflowTemplatesRequest</code>.
+ *  page_token in a subsequent ListWorkflowTemplatesRequest.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2731,52 +2777,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  resource, or both. To learn which resources support conditions in their IAM
  *  policies, see the IAM documentation
  *  (https://cloud.google.com/iam/help/conditions/resource-policies).JSON
- *  example:
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  YAML example:
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the IAM documentation
- *  (https://cloud.google.com/iam/docs/).
+ *  example: { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } YAML example: bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the IAM
+ *  documentation (https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataproc_Policy : GTLRObject
 
@@ -2809,18 +2826,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Specifies the format of the policy.Valid values are 0, 1, and 3. Requests
  *  that specify an invalid value are rejected.Any operation that affects
  *  conditional role bindings must specify version 3. This requirement applies
- *  to the following operations:
- *  Getting a policy that includes a conditional role binding
- *  Adding a conditional role binding to a policy
- *  Changing a conditional role binding in a policy
- *  Removing any role binding, with or without a condition, from a policy that
- *  includes conditionsImportant: If you use IAM Conditions, you must include
- *  the etag field whenever you call setIamPolicy. If you omit this field, then
- *  IAM allows you to overwrite a version 3 policy with a version 1 policy, and
- *  all of the conditions in the version 3 policy are lost.If a policy does not
- *  include any conditions, operations on that policy may specify any valid
- *  version or leave the field unset.To learn which resources support conditions
- *  in their IAM policies, see the IAM documentation
+ *  to the following operations: Getting a policy that includes a conditional
+ *  role binding Adding a conditional role binding to a policy Changing a
+ *  conditional role binding in a policy Removing any role binding, with or
+ *  without a condition, from a policy that includes conditionsImportant: If you
+ *  use IAM Conditions, you must include the etag field whenever you call
+ *  setIamPolicy. If you omit this field, then IAM allows you to overwrite a
+ *  version 3 policy with a version 1 policy, and all of the conditions in the
+ *  version 3 policy are lost.If a policy does not include any conditions,
+ *  operations on that policy may specify any valid version or leave the field
+ *  unset.To learn which resources support conditions in their IAM policies, see
+ *  the IAM documentation
  *  (https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -2971,16 +2987,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Required. The queries to execute. You do not need to terminate a query with
  *  a semicolon. Multiple queries can be specified in one string by separating
  *  each with a semicolon. Here is an example of an Cloud Dataproc API snippet
- *  that uses a QueryList to specify a HiveJob:
- *  "hiveJob": {
- *  "queryList": {
- *  "queries": [
- *  "query1",
- *  "query2",
- *  "query3;query4",
- *  ]
- *  }
- *  }
+ *  that uses a QueryList to specify a HiveJob: "hiveJob": { "queryList": {
+ *  "queries": [ "query1", "query2", "query3;query4", ] } }
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
 
@@ -3081,16 +3089,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The properties to set on daemon config files.Property keys are
  *  specified in prefix:property format, for example core:hadoop.tmp.dir. The
- *  following are supported prefixes and their mappings:
- *  capacity-scheduler: capacity-scheduler.xml
- *  core: core-site.xml
- *  distcp: distcp-default.xml
- *  hdfs: hdfs-site.xml
- *  hive: hive-site.xml
- *  mapred: mapred-site.xml
- *  pig: pig.properties
- *  spark: spark-defaults.conf
- *  yarn: yarn-site.xmlFor more information, see Cluster properties
+ *  following are supported prefixes and their mappings: capacity-scheduler:
+ *  capacity-scheduler.xml core: core-site.xml distcp: distcp-default.xml hdfs:
+ *  hdfs-site.xml hive: hive-site.xml mapred: mapred-site.xml pig:
+ *  pig.properties spark: spark-defaults.conf yarn: yarn-site.xmlFor more
+ *  information, see Cluster properties
  *  (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_SoftwareConfig_Properties *properties;
@@ -3101,16 +3104,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The properties to set on daemon config files.Property keys are
  *  specified in prefix:property format, for example core:hadoop.tmp.dir. The
- *  following are supported prefixes and their mappings:
- *  capacity-scheduler: capacity-scheduler.xml
- *  core: core-site.xml
- *  distcp: distcp-default.xml
- *  hdfs: hdfs-site.xml
- *  hive: hive-site.xml
- *  mapred: mapred-site.xml
- *  pig: pig.properties
- *  spark: spark-defaults.conf
- *  yarn: yarn-site.xmlFor more information, see Cluster properties
+ *  following are supported prefixes and their mappings: capacity-scheduler:
+ *  capacity-scheduler.xml core: core-site.xml distcp: distcp-default.xml hdfs:
+ *  hdfs-site.xml hive: hive-site.xml mapred: mapred-site.xml pig:
+ *  pig.properties spark: spark-defaults.conf yarn: yarn-site.xmlFor more
+ *  information, see Cluster properties
  *  (https://cloud.google.com/dataproc/docs/concepts/cluster-properties).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3401,34 +3399,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  path is similar in syntax to a google.protobuf.FieldMask. For example, a
  *  field path that references the zone field of a workflow template's cluster
  *  selector would be specified as placement.clusterSelector.zone.Also, field
- *  paths can reference fields using the following syntax:
- *  Values in maps can be referenced by key:
- *  labels'key'
- *  placement.clusterSelector.clusterLabels'key'
+ *  paths can reference fields using the following syntax: Values in maps can be
+ *  referenced by key: labels'key' placement.clusterSelector.clusterLabels'key'
  *  placement.managedCluster.labels'key'
- *  placement.clusterSelector.clusterLabels'key'
- *  jobs'step-id'.labels'key'
- *  Jobs in the jobs list can be referenced by step-id:
- *  jobs'step-id'.hadoopJob.mainJarFileUri
- *  jobs'step-id'.hiveJob.queryFileUri
+ *  placement.clusterSelector.clusterLabels'key' jobs'step-id'.labels'key' Jobs
+ *  in the jobs list can be referenced by step-id:
+ *  jobs'step-id'.hadoopJob.mainJarFileUri jobs'step-id'.hiveJob.queryFileUri
  *  jobs'step-id'.pySparkJob.mainPythonFileUri
- *  jobs'step-id'.hadoopJob.jarFileUris0
- *  jobs'step-id'.hadoopJob.archiveUris0
- *  jobs'step-id'.hadoopJob.fileUris0
- *  jobs'step-id'.pySparkJob.pythonFileUris0
+ *  jobs'step-id'.hadoopJob.jarFileUris0 jobs'step-id'.hadoopJob.archiveUris0
+ *  jobs'step-id'.hadoopJob.fileUris0 jobs'step-id'.pySparkJob.pythonFileUris0
  *  Items in repeated fields can be referenced by a zero-based index:
- *  jobs'step-id'.sparkJob.args0
- *  Other examples:
- *  jobs'step-id'.hadoopJob.properties'key'
- *  jobs'step-id'.hadoopJob.args0
+ *  jobs'step-id'.sparkJob.args0 Other examples:
+ *  jobs'step-id'.hadoopJob.properties'key' jobs'step-id'.hadoopJob.args0
  *  jobs'step-id'.hiveJob.scriptVariables'key'
- *  jobs'step-id'.hadoopJob.mainJarFileUri
- *  placement.clusterSelector.zoneIt may not be possible to parameterize maps
- *  and repeated fields in their entirety since only individual map values and
- *  individual items in repeated fields can be referenced. For example, the
- *  following field paths are invalid:
- *  placement.clusterSelector.clusterLabels
- *  jobs'step-id'.sparkJob.args
+ *  jobs'step-id'.hadoopJob.mainJarFileUri placement.clusterSelector.zoneIt may
+ *  not be possible to parameterize maps and repeated fields in their entirety
+ *  since only individual map values and individual items in repeated fields can
+ *  be referenced. For example, the following field paths are invalid:
+ *  placement.clusterSelector.clusterLabels jobs'step-id'.sparkJob.args
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fields;
 
@@ -3543,12 +3531,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. The resource name of the workflow template as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates, the resource name of the template
- *  has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates, the resource name of the template
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates, the resource name of the template has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates, the resource name of the template has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
@@ -3648,12 +3636,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Output only. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates, the resource name of the template
- *  has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates, the resource name of the template
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates, the resource name of the template has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates, the resource name of the template has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3726,9 +3714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  A YARN application created by a job. Application information is a subset of
- *  <code>org.apache.hadoop.yarn.proto.YarnProtos.ApplicationReportProto</code>.Beta
- *  Feature: This report is available for testing purposes only. It may be
- *  changed before final release.
+ *  org.apache.hadoop.yarn.proto.YarnProtos.ApplicationReportProto.Beta Feature:
+ *  This report is available for testing purposes only. It may be changed before
+ *  final release.
  */
 @interface GTLRDataproc_YarnApplication : GTLRObject
 

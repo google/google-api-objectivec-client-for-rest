@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Control API (servicecontrol/v1)
+//   Service Control API (servicecontrol/v2)
 // Description:
 //   Provides control plane functionality to managed services, such as logging,
 //   monitoring, and status checks.
@@ -19,33 +19,6 @@
 
 @end
 
-@implementation GTLRServiceControlQuery_ServicesAllocateQuota
-
-@dynamic serviceName;
-
-+ (instancetype)queryWithObject:(GTLRServiceControl_AllocateQuotaRequest *)object
-                    serviceName:(NSString *)serviceName {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"serviceName" ];
-  NSString *pathURITemplate = @"v1/services/{serviceName}:allocateQuota";
-  GTLRServiceControlQuery_ServicesAllocateQuota *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.serviceName = serviceName;
-  query.expectedObjectClass = [GTLRServiceControl_AllocateQuotaResponse class];
-  query.loggingName = @"servicecontrol.services.allocateQuota";
-  return query;
-}
-
-@end
-
 @implementation GTLRServiceControlQuery_ServicesCheck
 
 @dynamic serviceName;
@@ -59,7 +32,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
-  NSString *pathURITemplate = @"v1/services/{serviceName}:check";
+  NSString *pathURITemplate = @"v2/services/{serviceName}:check";
   GTLRServiceControlQuery_ServicesCheck *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -86,7 +59,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"serviceName" ];
-  NSString *pathURITemplate = @"v1/services/{serviceName}:report";
+  NSString *pathURITemplate = @"v2/services/{serviceName}:report";
   GTLRServiceControlQuery_ServicesReport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

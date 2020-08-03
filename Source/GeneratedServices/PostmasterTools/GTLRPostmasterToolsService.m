@@ -12,6 +12,15 @@
 
 #import "GTLRPostmasterTools.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopePostmasterToolsPostmasterReadonly = @"https://www.googleapis.com/auth/postmaster.readonly";
+
+// ----------------------------------------------------------------------------
+//   GTLRPostmasterToolsService
+//
+
 @implementation GTLRPostmasterToolsService
 
 - (instancetype)init {

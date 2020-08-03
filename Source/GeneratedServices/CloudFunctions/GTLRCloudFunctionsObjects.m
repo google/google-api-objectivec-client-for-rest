@@ -44,12 +44,6 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_DeleteFunction = @
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @"UPDATE_FUNCTION";
 
-// GTLRCloudFunctions_OperationMetadataV1Beta2.type
-NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction = @"CREATE_FUNCTION";
-NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction = @"DELETE_FUNCTION";
-NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified = @"OPERATION_UNSPECIFIED";
-NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction = @"UPDATE_FUNCTION";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudFunctions_AuditConfig
@@ -414,30 +408,6 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunctio
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1_Request
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_OperationMetadataV1Beta2
-//
-
-@implementation GTLRCloudFunctions_OperationMetadataV1Beta2
-@dynamic request, target, type, updateTime, versionId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudFunctions_OperationMetadataV1Beta2_Request
-//
-
-@implementation GTLRCloudFunctions_OperationMetadataV1Beta2_Request
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

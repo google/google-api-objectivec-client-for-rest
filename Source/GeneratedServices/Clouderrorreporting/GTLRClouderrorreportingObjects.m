@@ -13,6 +13,16 @@
 #import "GTLRClouderrorreportingObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRClouderrorreporting_ErrorGroup.resolutionStatus
+NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Acknowledged = @"ACKNOWLEDGED";
+NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Muted = @"MUTED";
+NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Open = @"OPEN";
+NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_ResolutionStatusUnspecified = @"RESOLUTION_STATUS_UNSPECIFIED";
+NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Resolved = @"RESOLVED";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRClouderrorreporting_DeleteEventsResponse
 //
@@ -55,7 +65,7 @@
 //
 
 @implementation GTLRClouderrorreporting_ErrorGroup
-@dynamic groupId, name, trackingIssues;
+@dynamic groupId, name, resolutionStatus, trackingIssues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

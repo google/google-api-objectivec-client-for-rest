@@ -44,6 +44,12 @@ NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_TestStateUnspec
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_UnsupportedEnvironment = @"UNSUPPORTED_ENVIRONMENT";
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Validating = @"VALIDATING";
 
+// GTLRTesting_DeviceIpBlock.form
+NSString * const kGTLRTesting_DeviceIpBlock_Form_DeviceFormUnspecified = @"DEVICE_FORM_UNSPECIFIED";
+NSString * const kGTLRTesting_DeviceIpBlock_Form_Emulator      = @"EMULATOR";
+NSString * const kGTLRTesting_DeviceIpBlock_Form_Physical      = @"PHYSICAL";
+NSString * const kGTLRTesting_DeviceIpBlock_Form_Virtual       = @"VIRTUAL";
+
 // GTLRTesting_IosModel.formFactor
 NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
 NSString * const kGTLRTesting_IosModel_FormFactor_Phone        = @"PHONE";
@@ -434,6 +440,34 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_DeviceFile
 @dynamic obbFile, regularFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_DeviceIpBlock
+//
+
+@implementation GTLRTesting_DeviceIpBlock
+@dynamic addedDate, block, form;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_DeviceIpBlockCatalog
+//
+
+@implementation GTLRTesting_DeviceIpBlockCatalog
+@dynamic ipBlocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipBlocks" : [GTLRTesting_DeviceIpBlock class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -926,8 +960,8 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestEnvironmentCatalog
-@dynamic androidDeviceCatalog, iosDeviceCatalog, networkConfigurationCatalog,
-         softwareCatalog;
+@dynamic androidDeviceCatalog, deviceIpBlockCatalog, iosDeviceCatalog,
+         networkConfigurationCatalog, softwareCatalog;
 @end
 
 

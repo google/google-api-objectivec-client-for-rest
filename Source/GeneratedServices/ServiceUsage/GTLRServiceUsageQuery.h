@@ -46,15 +46,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: serviceusage.operations.cancel
  *
@@ -73,15 +72,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceUsage_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRServiceUsage_CancelOperationRequest to include in
  *    the query.
@@ -164,14 +162,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: serviceusage.operations.list
  *
@@ -199,14 +197,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceUsage_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @return GTLRServiceUsageQuery_OperationsList
  *
@@ -234,10 +232,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceUsage queryForServicesBatchEnableWithObject:parent:]
 
 /**
- *  Parent to enable services on.
- *  An example name would be:
- *  `projects/123` where `123` is the project number.
- *  The `BatchEnableServices` method currently only supports projects.
+ *  Parent to enable services on. An example name would be: `projects/123` where
+ *  `123` is the project number. The `BatchEnableServices` method currently only
+ *  supports projects.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -250,10 +247,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceUsage_BatchEnableServicesRequest to include
  *    in the query.
- *  @param parent Parent to enable services on.
- *    An example name would be:
- *    `projects/123` where `123` is the project number.
- *    The `BatchEnableServices` method currently only supports projects.
+ *  @param parent Parent to enable services on. An example name would be:
+ *    `projects/123` where `123` is the project number. The
+ *    `BatchEnableServices` method currently only supports projects.
  *
  *  @return GTLRServiceUsageQuery_ServicesBatchEnable
  */
@@ -277,20 +273,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceUsage queryForServicesBatchGetWithparent:]
 
 /**
- *  Names of the services to retrieve.
- *  An example name would be:
+ *  Names of the services to retrieve. An example name would be:
  *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
- *  project number.
- *  A single request can get a maximum of 30 services at a time.
+ *  project number. A single request can get a maximum of 30 services at a time.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
 /**
- *  Parent to retrieve services from.
- *  If this is set, the parent of all of the services specified in `names` must
- *  match this field. An example name would be: `projects/123` where `123` is
- *  the project number. The `BatchGetServices` method currently only supports
- *  projects.
+ *  Parent to retrieve services from. If this is set, the parent of all of the
+ *  services specified in `names` must match this field. An example name would
+ *  be: `projects/123` where `123` is the project number. The `BatchGetServices`
+ *  method currently only supports projects.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -300,12 +293,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the service configurations and enabled states for a given list of
  *  services.
  *
- *  @param parent Parent to retrieve services from.
- *    If this is set, the parent of all of the services specified in `names`
- *    must
- *    match this field. An example name would be: `projects/123` where `123` is
- *    the project number. The `BatchGetServices` method currently only supports
- *    projects.
+ *  @param parent Parent to retrieve services from. If this is set, the parent
+ *    of all of the services specified in `names` must match this field. An
+ *    example name would be: `projects/123` where `123` is the project number.
+ *    The `BatchGetServices` method currently only supports projects.
  *
  *  @return GTLRServiceUsageQuery_ServicesBatchGet
  */
@@ -314,12 +305,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable a service so that it can no longer be used with a project.
- *  This prevents unintended usage that may cause unexpected billing
- *  charges or security leaks.
- *  It is not valid to call the disable method on a service that is not
- *  currently enabled. Callers will receive a `FAILED_PRECONDITION` status if
- *  the target service is not currently enabled.
+ *  Disable a service so that it can no longer be used with a project. This
+ *  prevents unintended usage that may cause unexpected billing charges or
+ *  security leaks. It is not valid to call the disable method on a service that
+ *  is not currently enabled. Callers will receive a `FAILED_PRECONDITION`
+ *  status if the target service is not currently enabled.
  *
  *  Method: serviceusage.services.disable
  *
@@ -332,9 +322,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceUsage queryForServicesDisableWithObject:name:]
 
 /**
- *  Name of the consumer and service to disable the service on.
- *  The enable and disable methods currently only support projects.
- *  An example name would be:
+ *  Name of the consumer and service to disable the service on. The enable and
+ *  disable methods currently only support projects. An example name would be:
  *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
  *  project number.
  */
@@ -343,20 +332,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceUsage_Operation.
  *
- *  Disable a service so that it can no longer be used with a project.
- *  This prevents unintended usage that may cause unexpected billing
- *  charges or security leaks.
- *  It is not valid to call the disable method on a service that is not
- *  currently enabled. Callers will receive a `FAILED_PRECONDITION` status if
- *  the target service is not currently enabled.
+ *  Disable a service so that it can no longer be used with a project. This
+ *  prevents unintended usage that may cause unexpected billing charges or
+ *  security leaks. It is not valid to call the disable method on a service that
+ *  is not currently enabled. Callers will receive a `FAILED_PRECONDITION`
+ *  status if the target service is not currently enabled.
  *
  *  @param object The @c GTLRServiceUsage_DisableServiceRequest to include in
  *    the query.
- *  @param name Name of the consumer and service to disable the service on.
- *    The enable and disable methods currently only support projects.
- *    An example name would be:
- *    `projects/123/services/serviceusage.googleapis.com` where `123` is the
- *    project number.
+ *  @param name Name of the consumer and service to disable the service on. The
+ *    enable and disable methods currently only support projects. An example
+ *    name would be: `projects/123/services/serviceusage.googleapis.com` where
+ *    `123` is the project number.
  *
  *  @return GTLRServiceUsageQuery_ServicesDisable
  */
@@ -379,12 +366,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceUsage queryForServicesEnableWithObject:name:]
 
 /**
- *  Name of the consumer and service to enable the service on.
- *  The `EnableService` and `DisableService` methods currently only support
- *  projects.
- *  Enabling a service requires that the service is public or is shared with
- *  the user enabling the service.
- *  An example name would be:
+ *  Name of the consumer and service to enable the service on. The
+ *  `EnableService` and `DisableService` methods currently only support
+ *  projects. Enabling a service requires that the service is public or is
+ *  shared with the user enabling the service. An example name would be:
  *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
  *  project number.
  */
@@ -397,12 +382,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceUsage_EnableServiceRequest to include in the
  *    query.
- *  @param name Name of the consumer and service to enable the service on.
- *    The `EnableService` and `DisableService` methods currently only support
- *    projects.
- *    Enabling a service requires that the service is public or is shared with
- *    the user enabling the service.
- *    An example name would be:
+ *  @param name Name of the consumer and service to enable the service on. The
+ *    `EnableService` and `DisableService` methods currently only support
+ *    projects. Enabling a service requires that the service is public or is
+ *    shared with the user enabling the service. An example name would be:
  *    `projects/123/services/serviceusage.googleapis.com` where `123` is the
  *    project number.
  *
@@ -427,10 +410,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceUsage queryForServicesGetWithname:]
 
 /**
- *  Name of the consumer and service to get the `ConsumerState` for.
- *  An example name would be:
- *  `projects/123/services/serviceusage.googleapis.com` where `123` is the
- *  project number.
+ *  Name of the consumer and service to get the `ConsumerState` for. An example
+ *  name would be: `projects/123/services/serviceusage.googleapis.com` where
+ *  `123` is the project number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -451,13 +433,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all services available to the specified project, and the current
- *  state of those services with respect to the project. The list includes
- *  all public services, all services for which the calling user has the
+ *  List all services available to the specified project, and the current state
+ *  of those services with respect to the project. The list includes all public
+ *  services, all services for which the calling user has the
  *  `servicemanagement.services.bind` permission, and all services that have
- *  already been enabled on the project. The list can be filtered to
- *  only include services in a specific state, for example to only include
- *  services enabled on the project.
+ *  already been enabled on the project. The list can be filtered to only
+ *  include services in a specific state, for example to only include services
+ *  enabled on the project.
  *
  *  Method: serviceusage.services.list
  *
@@ -470,15 +452,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceUsage queryForServicesListWithparent:]
 
 /**
- *  Only list services that conform to the given filter.
- *  The allowed filter strings are `state:ENABLED` and `state:DISABLED`.
+ *  Only list services that conform to the given filter. The allowed filter
+ *  strings are `state:ENABLED` and `state:DISABLED`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Requested size of the next page of data.
- *  Requested page size cannot exceed 200.
- *  If not set, the default page size is 50.
+ *  Requested size of the next page of data. Requested page size cannot exceed
+ *  200. If not set, the default page size is 50.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -489,25 +470,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Parent to search for services on.
- *  An example name would be:
- *  `projects/123` where `123` is the project number.
+ *  Parent to search for services on. An example name would be: `projects/123`
+ *  where `123` is the project number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceUsage_ListServicesResponse.
  *
- *  List all services available to the specified project, and the current
- *  state of those services with respect to the project. The list includes
- *  all public services, all services for which the calling user has the
+ *  List all services available to the specified project, and the current state
+ *  of those services with respect to the project. The list includes all public
+ *  services, all services for which the calling user has the
  *  `servicemanagement.services.bind` permission, and all services that have
- *  already been enabled on the project. The list can be filtered to
- *  only include services in a specific state, for example to only include
- *  services enabled on the project.
+ *  already been enabled on the project. The list can be filtered to only
+ *  include services in a specific state, for example to only include services
+ *  enabled on the project.
  *
- *  @param parent Parent to search for services on.
- *    An example name would be:
+ *  @param parent Parent to search for services on. An example name would be:
  *    `projects/123` where `123` is the project number.
  *
  *  @return GTLRServiceUsageQuery_ServicesList

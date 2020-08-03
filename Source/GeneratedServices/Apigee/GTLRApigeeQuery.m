@@ -1796,7 +1796,7 @@
 
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeployments
 
-@dynamic name;
+@dynamic name, sequencedRollout;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

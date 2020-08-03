@@ -28,8 +28,8 @@ NSString * const kGTLRAuthScopeGamesDriveAppdata = @"https://www.googleapis.com/
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.batchPath = @"batch/games/v1";
+    self.rootURLString = @"https://games.googleapis.com/";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

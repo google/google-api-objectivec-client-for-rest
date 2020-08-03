@@ -43,8 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRYouTubeAnalytics_ErrorProto.locationType
 
 /**
- *  other location type which can safely be shared
- *  externally.
+ *  other location type which can safely be shared externally.
  *
  *  Value: "OTHER"
  */
@@ -57,8 +56,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Parameter;
 /**
- *  location is an xpath-like path pointing
- *  to the request field that caused the error.
+ *  location is an xpath-like path pointing to the request field that caused the
+ *  error.
  *
  *  Value: "PATH"
  */
@@ -101,29 +100,26 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @interface GTLRYouTubeAnalytics_ErrorProto : GTLRObject
 
 /**
- *  Error arguments, to be used when building user-friendly error messages
- *  given the error domain and code. Different error codes require different
+ *  Error arguments, to be used when building user-friendly error messages given
+ *  the error domain and code. Different error codes require different
  *  arguments.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *argument;
 
 /**
- *  Error code in the error domain. This should correspond to
- *  a value of the enum type whose name is in domain. See
- *  the core error domain in error_domain.proto.
+ *  Error code in the error domain. This should correspond to a value of the
+ *  enum type whose name is in domain. See the core error domain in
+ *  error_domain.proto.
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
-/**
- *  Debugging information, which should not be
- *  shared externally.
- */
+/** Debugging information, which should not be shared externally. */
 @property(nonatomic, copy, nullable) NSString *debugInfo;
 
 /**
- *  Error domain. RoSy services can define their own
- *  domain and error codes. This should normally be
- *  the name of an enum type, such as: gdata.CoreErrorDomain
+ *  Error domain. RoSy services can define their own domain and error codes.
+ *  This should normally be the name of an enum type, such as:
+ *  gdata.CoreErrorDomain
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -131,22 +127,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
  *  A short explanation for the error, which can be shared outside Google.
  *  Please set domain, code and arguments whenever possible instead of this
  *  error message so that external APIs can build safe error messages
- *  themselves.
- *  External messages built in a RoSy interface will most likely refer to
- *  information and concepts that are not available externally and should not
- *  be exposed. It is safer if external APIs can understand the errors and
- *  decide what the error message should look like.
+ *  themselves. External messages built in a RoSy interface will most likely
+ *  refer to information and concepts that are not available externally and
+ *  should not be exposed. It is safer if external APIs can understand the
+ *  errors and decide what the error message should look like.
  */
 @property(nonatomic, copy, nullable) NSString *externalErrorMessage;
 
 /**
- *  Location of the error, as specified by the location type.
- *  If location_type is PATH, this should be a path to a field that's
- *  relative to the request, using FieldPath notation
- *  (net/proto2/util/public/field_path.h).
- *  Examples:
- *  authenticated_user.gaia_id
- *  resource.address[2].country
+ *  Location of the error, as specified by the location type. If location_type
+ *  is PATH, this should be a path to a field that's relative to the request,
+ *  using FieldPath notation (net/proto2/util/public/field_path.h). Examples:
+ *  authenticated_user.gaia_id resource.address[2].country
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -155,14 +147,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
  *
  *  Likely values:
  *    @arg @c kGTLRYouTubeAnalytics_ErrorProto_LocationType_Other other location
- *        type which can safely be shared
- *        externally. (Value: "OTHER")
+ *        type which can safely be shared externally. (Value: "OTHER")
  *    @arg @c kGTLRYouTubeAnalytics_ErrorProto_LocationType_Parameter Location
- *        is request paramater. This maps to the {\@link PARAMETERS} in
- *        {\@link MessageLocation}. (Value: "PARAMETER")
+ *        is request paramater. This maps to the {\@link PARAMETERS} in {\@link
+ *        MessageLocation}. (Value: "PARAMETER")
  *    @arg @c kGTLRYouTubeAnalytics_ErrorProto_LocationType_Path location is an
- *        xpath-like path pointing
- *        to the request field that caused the error. (Value: "PATH")
+ *        xpath-like path pointing to the request field that caused the error.
+ *        (Value: "PATH")
  */
 @property(nonatomic, copy, nullable) NSString *locationType;
 
@@ -170,16 +161,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 
 
 /**
- *  Request Error information.
- *  The presence of an error field signals that the operation
- *  has failed.
+ *  Request Error information. The presence of an error field signals that the
+ *  operation has failed.
  */
 @interface GTLRYouTubeAnalytics_Errors : GTLRObject
 
 /**
- *  Global error code. Deprecated and ignored.
- *  Set custom error codes in ErrorProto.domain and ErrorProto.code
- *  instead.
+ *  Global error code. Deprecated and ignored. Set custom error codes in
+ *  ErrorProto.domain and ErrorProto.code instead.
  *
  *  Likely values:
  *    @arg @c kGTLRYouTubeAnalytics_Errors_Code_BadRequest Value "BAD_REQUEST"
@@ -200,8 +189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_ErrorProto *> *error;
 
 /**
- *  Request identifier generated by the service, which can be
- *  used to identify the error in the logs
+ *  Request identifier generated by the service, which can be used to identify
+ *  the error in the logs
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -214,8 +203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @interface GTLRYouTubeAnalytics_Group : GTLRObject
 
 /**
- *  The `contentDetails` object contains additional information about the
- *  group, such as the number and type of items that it contains.
+ *  The `contentDetails` object contains additional information about the group,
+ *  such as the number and type of items that it contains.
  */
 @property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_GroupContentDetails *contentDetails;
 
@@ -257,12 +246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @property(nonatomic, strong, nullable) NSNumber *itemCount;
 
 /**
- *  The type of resources that the group contains.
- *  Valid values for this property are:
- *  * `youtube#channel`
- *  * `youtube#playlist`
- *  * `youtube#video`
- *  * `youtubePartner#asset`
+ *  The type of resources that the group contains. Valid values for this
+ *  property are: * `youtube#channel` * `youtube#playlist` * `youtube#video` *
+ *  `youtubePartner#asset`
  */
 @property(nonatomic, copy, nullable) NSString *itemType;
 
@@ -290,9 +276,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
  *  The ID that YouTube uses to uniquely identify the `channel`, `video`,
  *  `playlist`, or `asset` resource that is included in the group. Note that
  *  this ID refers specifically to the inclusion of that resource in a
- *  particular group and is different than the channel ID, video ID,
- *  playlist ID, or asset ID that uniquely identifies the resource itself.
- *  The `resource.id` property's value specifies the unique channel, video,
+ *  particular group and is different than the channel ID, video ID, playlist
+ *  ID, or asset ID that uniquely identifies the resource itself. The
+ *  `resource.id` property's value specifies the unique channel, video,
  *  playlist, or asset ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -327,12 +313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Identifies the type of resource being added to the group.
- *  Valid values for this property are:
- *  * `youtube#channel`
- *  * `youtube#playlist`
- *  * `youtube#video`
- *  * `youtubePartner#asset`
+ *  Identifies the type of resource being added to the group. Valid values for
+ *  this property are: * `youtube#channel` * `youtube#playlist` *
+ *  `youtube#video` * `youtubePartner#asset`
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -345,8 +328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @interface GTLRYouTubeAnalytics_GroupSnippet : GTLRObject
 
 /**
- *  The date and time that the group was created. The value is specified in
- *  ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+ *  The date and time that the group was created. The value is specified in ISO
+ *  8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
@@ -435,15 +418,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 
 /**
  *  This value specifies information about the data returned in the `rows`
- *  fields. Each item in the `columnHeaders` list identifies a field returned
- *  in the `rows` value, which contains a list of comma-delimited data. The
+ *  fields. Each item in the `columnHeaders` list identifies a field returned in
+ *  the `rows` value, which contains a list of comma-delimited data. The
  *  `columnHeaders` list will begin with the dimensions specified in the API
- *  request, which will be followed by the metrics specified in the API
- *  request. The order of both dimensions and metrics will match the ordering
- *  in the API request. For example, if the API request contains the parameters
- *  `dimensions=ageGroup,gender&metrics=viewerPercentage`, the API response
- *  will return columns in this order: `ageGroup`, `gender`,
- *  `viewerPercentage`.
+ *  request, which will be followed by the metrics specified in the API request.
+ *  The order of both dimensions and metrics will match the ordering in the API
+ *  request. For example, if the API request contains the parameters
+ *  `dimensions=ageGroup,gender&metrics=viewerPercentage`, the API response will
+ *  return columns in this order: `ageGroup`, `gender`, `viewerPercentage`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRYouTubeAnalytics_ResultTableColumnHeader *> *columnHeaders;
 
@@ -451,21 +433,20 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
 @property(nonatomic, strong, nullable) GTLRYouTubeAnalytics_Errors *errors;
 
 /**
- *  This value specifies the type of data included in the API response.
- *  For the query method, the kind property value will be
+ *  This value specifies the type of data included in the API response. For the
+ *  query method, the kind property value will be
  *  `youtubeAnalytics#resultTable`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The list contains all rows of the result table. Each item in the list is
- *  an array that contains comma-delimited data corresponding to a single row
- *  of data. The order of the comma-delimited data fields will match the
- *  order of the columns listed in the `columnHeaders` field.
- *  If no data is available for the given query, the `rows` element will be
- *  omitted from the response.
- *  The response for a query with the `day` dimension will not contain rows for
- *  the most recent days.
+ *  The list contains all rows of the result table. Each item in the list is an
+ *  array that contains comma-delimited data corresponding to a single row of
+ *  data. The order of the comma-delimited data fields will match the order of
+ *  the columns listed in the `columnHeaders` field. If no data is available for
+ *  the given query, the `rows` element will be omitted from the response. The
+ *  response for a query with the `day` dimension will not contain rows for the
+ *  most recent days.
  *
  *  Can be any valid JSON type.
  */

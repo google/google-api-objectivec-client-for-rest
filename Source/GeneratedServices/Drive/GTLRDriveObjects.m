@@ -644,7 +644,7 @@
 @implementation GTLRDrive_Revision
 @dynamic exportLinks, identifier, keepForever, kind, lastModifyingUser,
          md5Checksum, mimeType, modifiedTime, originalFilename, publishAuto,
-         published, publishedOutsideDomain, size;
+         published, publishedLink, publishedOutsideDomain, size;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

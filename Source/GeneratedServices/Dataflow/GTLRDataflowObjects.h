@@ -3429,7 +3429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_TeardownPolicy_Teard
 
 /**
  *  Exactly one of step or steps_location should be specified.
- *  The top-level steps that constitute the entire job.
+ *  The top-level steps that constitute the entire job. Only retrieved with
+ *  JOB_VIEW_ALL.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Step *> *steps;
 

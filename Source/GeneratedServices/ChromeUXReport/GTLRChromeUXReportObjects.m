@@ -42,7 +42,7 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 //
 
 @implementation GTLRChromeUXReport_Key
-@dynamic formFactor, origin, url;
+@dynamic effectiveConnectionType, formFactor, origin, url;
 @end
 
 
@@ -80,7 +80,7 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 //
 
 @implementation GTLRChromeUXReport_QueryRequest
-@dynamic formFactor, metrics, origin, url;
+@dynamic effectiveConnectionType, formFactor, metrics, origin, url;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

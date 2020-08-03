@@ -2665,9 +2665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1IngressConfig : GTLRObject
 
-/** Time at which the IngressConfig was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
 /** List of environment groups in the organization. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig *> *environmentGroups;
 
@@ -2677,6 +2674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Time at which the IngressConfig revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
+
 /**
  *  Revision id that defines the ordering on IngressConfig resources.
  *  The higher the revision, the more recently the configuration
@@ -2685,13 +2685,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *revisionId;
-
-/**
- *  DEPRECATED: Use revision_id
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sequenceNumber;
 
 /**
  *  A unique id for the ingress config that will only change if the

@@ -846,6 +846,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AutoApproveSmartMessagingEntriesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AutoApproveSmartMessagingEntriesResponse
+@dynamic disabledCount, enabledCount, unreviewedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2beta1BatchUpdateEntityTypesResponse
 //
 

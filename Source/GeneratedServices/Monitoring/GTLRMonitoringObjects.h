@@ -1554,10 +1554,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  The alignment_period specifies a time interval, in seconds, that is used to
  *  divide the data in all the time series into consistent blocks of time. This
  *  will be done before the per-series aligner can be applied to the data.The
- *  value must be at least 60 seconds. If a per-series aligner other than
- *  ALIGN_NONE is specified, this field is required or an error is returned. If
- *  no per-series aligner is specified, or the aligner ALIGN_NONE is specified,
- *  then this field is ignored.
+ *  value must be at least 60 seconds, at most 104 weeks. If a per-series
+ *  aligner other than ALIGN_NONE is specified, this field is required or an
+ *  error is returned. If no per-series aligner is specified, or the aligner
+ *  ALIGN_NONE is specified, then this field is ignored.The maximum value of the
+ *  alignment_period is 2 years, or 104 weeks.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *alignmentPeriod;
 
@@ -2563,18 +2564,18 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  A set of (label, value) pairs which were dropped during aggregation,
- *  attached to google.api.Distribution.Exemplars in google.api.Distribution
- *  values during aggregation.These values are used in combination with the
- *  label values that remain on the aggregated Distribution timeseries to
- *  construct the full label set for the exemplar values. The resulting full
- *  label set may be used to identify the specific task/job/instance (for
- *  example) which may be contributing to a long-tail, while allowing the
- *  storage savings of only storing aggregated distribution values for a large
- *  group.Note that there are no guarantees on ordering of the labels from
- *  exemplar-to-exemplar and from distribution-to-distribution in the same
- *  stream, and there may be duplicates. It is up to clients to resolve any
- *  ambiguities.
+ *  A set of (label, value) pairs that were removed from a Distribution time
+ *  series during aggregation and then added as an attachment to a
+ *  Distribution.Exemplar.The full label set for the exemplars is constructed by
+ *  using the dropped pairs in combination with the label values that remain on
+ *  the aggregated Distribution time series. The constructed full label set can
+ *  be used to identify the specific entity, such as the instance or job, which
+ *  might be contributing to a long-tail. However, with dropped labels, the
+ *  storage requirements are reduced because only the aggregated distribution
+ *  values for a large group of time series are stored.Note that there are no
+ *  guarantees on ordering of the labels from exemplar-to-exemplar and from
+ *  distribution-to-distribution in the same stream, and there may be
+ *  duplicates. It is up to clients to resolve any ambiguities.
  */
 @interface GTLRMonitoring_DroppedLabels : GTLRObject
 
@@ -3770,9 +3771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  deleting or altering it stops data collection and makes the metric type's
  *  existing data unusable.The following are specific rules for service defined
  *  Monitoring metric descriptors:
- *  type, metric_kind, value_type, description, display_name, launch_stage
- *  fields are all required. The unit field must be specified if the value_type
- *  is any of DOUBLE, INT64, DISTRIBUTION.
+ *  type, metric_kind, value_type and description fields are all required. The
+ *  unit field must be specified if the value_type is any of DOUBLE, INT64,
+ *  DISTRIBUTION.
  *  Maximum of default 500 metric descriptors per service is allowed.
  *  Maximum of default 10 labels per metric descriptor is allowed.The default
  *  maximum limit can be overridden. Please follow
@@ -5187,18 +5188,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  includes both: [startTime, endTime]. Valid time intervals depend on the
  *  MetricKind of the metric value. In no case can the end time be earlier than
  *  the start time.
- *  For a GAUGE metric, the startTime value is technically optional; if no value
+ *  For GAUGE metrics, the startTime value is technically optional; if no value
  *  is specified, the start time defaults to the value of the end time, and the
  *  interval represents a single point in time. If both start and end times are
  *  specified, they must be identical. Such an interval is valid only for GAUGE
- *  metrics, which are point-in-time measurements.
- *  For DELTA and CUMULATIVE metrics, the start time must be earlier than the
- *  end time.
- *  In all cases, the start time of the next interval must be at least a
- *  millisecond after the end time of the previous interval. Because the
- *  interval is closed, if the start time of a new interval is the same as the
- *  end time of the previous interval, data written at the new start time could
- *  overwrite data written at the previous end time.
+ *  metrics, which are point-in-time measurements. The end time of a new
+ *  interval must be at least a millisecond after the end time of the previous
+ *  interval.
+ *  For DELTA metrics, the start time and end time must specify a non-zero
+ *  interval, with subsequent points specifying contiguous and non-overlapping
+ *  intervals. For DELTA metrics, the start time of the next interval must be at
+ *  least a millisecond after the end time of the previous interval.
+ *  For CUMULATIVE metrics, the start time and end time must specify a a
+ *  non-zero interval, with subsequent points specifying the same start time and
+ *  increasing end times, until an event resets the cumulative value to zero and
+ *  sets a new start time for the following points. The new start time must be
+ *  at least a millisecond after the end time of the previous interval.
+ *  The start time of a new interval must be at least a millisecond after the
+ *  end time of the previous interval because intervals are closed. If the start
+ *  time of a new interval is the same as the end time of the previous interval,
+ *  then data written at the new start time could overwrite data written at the
+ *  previous end time.
  */
 @interface GTLRMonitoring_TimeInterval : GTLRObject
 
@@ -5275,6 +5285,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  monitored resource types in their time series data.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
+
+/**
+ *  The units in which the metric value is reported. It is only applicable if
+ *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
+ *  representation of the stored metric values.
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
 
 /**
  *  The value type of the time series. When listing time series, this value type
@@ -5635,6 +5652,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        Do not use this default value. (Value: "METRIC_KIND_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *metricKind;
+
+/**
+ *  The unit in which time_series point values are reported. unit follows the
+ *  UCUM format for units as seen in https://unitsofmeasure.org/ucum.html. unit
+ *  is only valid if value_type is INTEGER, DOUBLE, DISTRIBUTION.
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
 
 /**
  *  The value type.

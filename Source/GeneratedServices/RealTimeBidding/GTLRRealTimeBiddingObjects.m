@@ -142,6 +142,7 @@ NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_RedirectionE
 // GTLRRealTimeBidding_DestinationNotWorkingEvidence.urlRejected
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_BadRequest = @"BAD_REQUEST";
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_MalformedUrl = @"MALFORMED_URL";
+NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnknown = @"URL_REJECTED_UNKNOWN";
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnspecified = @"URL_REJECTED_UNSPECIFIED";
 
 // GTLRRealTimeBidding_MediaFile.mimeType

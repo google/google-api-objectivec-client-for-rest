@@ -1012,7 +1012,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** When given and format is METADATA, only include headers specified. */
+/**
+ *  When given and format is `METADATA`, only include headers
+ *  specified.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metadataHeaders;
 
 /**

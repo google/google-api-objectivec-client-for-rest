@@ -39,6 +39,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo;
 /**
+ *  Authorization scope: Create, see, and edit Display & Video 360 Campaign
+ *  entities and see billing invoices
+ *
+ *  Value "https://www.googleapis.com/auth/display-video-mediaplanning"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning;
+/**
+ *  Authorization scope: New Service:
+ *  https://www.googleapis.com/auth/display-video-user-management
+ *
+ *  Value "https://www.googleapis.com/auth/display-video-user-management"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoUserManagement;
+/**
  *  Authorization scope: View and manage your reports in DoubleClick Bid Manager
  *
  *  Value "https://www.googleapis.com/auth/doubleclickbidmanager"

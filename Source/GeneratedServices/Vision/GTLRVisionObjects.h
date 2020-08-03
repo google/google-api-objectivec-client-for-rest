@@ -12446,6 +12446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  Image content, represented as a stream of bytes.
  *  Note: As with all `bytes` fields, protobuffers use a pure binary
  *  representation, whereas JSON representations use base64.
+ *  Currently, this field only works for BatchAnnotateImages requests. It does
+ *  not work for AsyncBatchAnnotateImages requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

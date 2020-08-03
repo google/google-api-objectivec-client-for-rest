@@ -352,6 +352,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_Media
+//
+
+@implementation GTLRHangoutsChat_Media
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Membership
 //
 

@@ -15,6 +15,8 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo        = @"https://www.googleapis.com/auth/display-video";
+NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning = @"https://www.googleapis.com/auth/display-video-mediaplanning";
+NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoUserManagement = @"https://www.googleapis.com/auth/display-video-user-management";
 NSString * const kGTLRAuthScopeDisplayVideoDoubleclickbidmanager = @"https://www.googleapis.com/auth/doubleclickbidmanager";
 
 // ----------------------------------------------------------------------------

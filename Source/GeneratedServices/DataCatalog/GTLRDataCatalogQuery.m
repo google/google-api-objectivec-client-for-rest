@@ -691,6 +691,33 @@
 
 @end
 
+@implementation GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:rename";
+  GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField class];
+  query.loggingName = @"datacatalog.projects.locations.tagTemplates.fields.enumValues.rename";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsPatch
 
 @dynamic name, updateMask;

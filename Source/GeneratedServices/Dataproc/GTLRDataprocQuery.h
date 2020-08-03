@@ -45,11 +45,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // jobStateMatcher
 
-/** Value: "ACTIVE" */
+/**
+ *  Only match jobs in non-terminal states: PENDING, RUNNING, or CANCEL_PENDING.
+ *
+ *  Value: "ACTIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherActive;
-/** Value: "ALL" */
+/**
+ *  Match all jobs, regardless of state.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherAll;
-/** Value: "NON_ACTIVE" */
+/**
+ *  Only match jobs in terminal states: CANCELLED, DONE, or ERROR.
+ *
+ *  Value: "NON_ACTIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 // ----------------------------------------------------------------------------
@@ -80,10 +92,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.create, the resource name of the
- *  region has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.autoscalingPolicies.create, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.create, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.autoscalingPolicies.create, the resource name of the
  *  location has the following format:
  *  projects/{project_id}/locations/{location}
  */
@@ -96,8 +108,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_AutoscalingPolicy to include in the query.
  *  @param parent Required. The "resource name" of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.create, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.create, the resource name of the
  *    region has the following format: projects/{project_id}/regions/{region}
  *    For projects.locations.autoscalingPolicies.create, the resource name of
  *    the location has the following format:
@@ -125,11 +137,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.delete, the resource name of the
- *  policy has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies.delete, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.delete, the resource name of the policy
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies.delete, the resource name of the
  *  policy has the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
@@ -142,12 +154,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  policy that is in use by one or more clusters.
  *
  *  @param name Required. The "resource name" of the autoscaling policy, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.delete, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.delete, the resource name of the
  *    policy has the following format:
- *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *    For projects.locations.autoscalingPolicies.delete, the resource name of
- *    the policy has the following format:
+ *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *    projects.locations.autoscalingPolicies.delete, the resource name of the
+ *    policy has the following format:
  *    projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesDelete
@@ -170,12 +182,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.get, the resource name of the
- *  policy has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies.get, the resource name of the
- *  policy has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.get, the resource name of the policy
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies.get, the resource name of the policy
+ *  has the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -186,11 +198,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Retrieves autoscaling policy.
  *
  *  @param name Required. The "resource name" of the autoscaling policy, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.get, the resource name of the
- *    policy has the following format:
- *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *    For projects.locations.autoscalingPolicies.get, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.get, the resource name of the policy
+ *    has the following format:
+ *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *    projects.locations.autoscalingPolicies.get, the resource name of the
  *    policy has the following format:
  *    projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  *
@@ -264,10 +276,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.list, the resource name of the
- *  region has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.autoscalingPolicies.list, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.list, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.autoscalingPolicies.list, the resource name of the
  *  location has the following format:
  *  projects/{project_id}/locations/{location}
  */
@@ -279,10 +291,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Lists autoscaling policies in the project.
  *
  *  @param parent Required. The "resource name" of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.list, the resource name of the
- *    region has the following format: projects/{project_id}/regions/{region}
- *    For projects.locations.autoscalingPolicies.list, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.list, the resource name of the region
+ *    has the following format: projects/{project_id}/regions/{region} For
+ *    projects.locations.autoscalingPolicies.list, the resource name of the
  *    location has the following format:
  *    projects/{project_id}/locations/{location}
  *
@@ -395,12 +407,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Output only. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies, the resource name of the policy
- *  has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies, the resource name of the policy
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies, the resource name of the policy has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies, the resource name of the policy has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -413,12 +425,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_AutoscalingPolicy to include in the query.
  *  @param name Output only. The "resource name" of the autoscaling policy, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies, the resource name of the policy
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies, the resource name of the policy has
+ *    the following format:
+ *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *    projects.locations.autoscalingPolicies, the resource name of the policy
  *    has the following format:
- *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *    For projects.locations.autoscalingPolicies, the resource name of the
- *    policy has the following format:
  *    projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesUpdate
@@ -442,10 +454,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates,create, the resource name of the
- *  region has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.workflowTemplates.create, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates,create, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.workflowTemplates.create, the resource name of the
  *  location has the following format:
  *  projects/{project_id}/locations/{location}
  */
@@ -458,10 +470,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates,create, the resource name of the
- *    region has the following format: projects/{project_id}/regions/{region}
- *    For projects.locations.workflowTemplates.create, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates,create, the resource name of the region
+ *    has the following format: projects/{project_id}/regions/{region} For
+ *    projects.locations.workflowTemplates.create, the resource name of the
  *    location has the following format:
  *    projects/{project_id}/locations/{location}
  *
@@ -486,12 +498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates.delete, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates.delete, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates.instantiate, the resource name of the
  *  template has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates.instantiate, the resource name of
- *  the template has the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -509,12 +521,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Deletes a workflow template. It does not cancel in-progress workflows.
  *
  *  @param name Required. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates.delete, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates.delete, the resource name of the
  *    template has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates.instantiate, the resource name of
- *    the template has the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates.instantiate, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesDelete
@@ -538,12 +550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates.get, the resource name of the
- *  template has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates.get, the resource name of the
- *  template has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates.get, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates.get, the resource name of the template
+ *  has the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -562,11 +574,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  template by specifying optional version parameter.
  *
  *  @param name Required. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates.get, the resource name of the
- *    template has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates.get, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates.get, the resource name of the template
+ *    has the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates.get, the resource name of the
  *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
@@ -637,12 +649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates.instantiate, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates.instantiate, the resource name of the
  *  template has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates.instantiate, the resource name of
- *  the template has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates.instantiate, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -664,12 +676,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_InstantiateWorkflowTemplateRequest to
  *    include in the query.
  *  @param name Required. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates.instantiate, the resource name of
- *    the template has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates.instantiate, the resource name of
- *    the template has the following format:
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates.instantiate, the resource name of the
+ *    template has the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates.instantiate, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiate
@@ -704,10 +716,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates,instantiateinline, the resource name
- *  of the region has the following format:
- *  projects/{project_id}/regions/{region}
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates,instantiateinline, the resource name of
+ *  the region has the following format: projects/{project_id}/regions/{region}
  *  For projects.locations.workflowTemplates.instantiateinline, the resource
  *  name of the location has the following format:
  *  projects/{project_id}/locations/{location}
@@ -742,12 +753,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates,instantiateinline, the resource
- *    name of the region has the following format:
- *    projects/{project_id}/regions/{region}
- *    For projects.locations.workflowTemplates.instantiateinline, the resource
- *    name of the location has the following format:
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates,instantiateinline, the resource name of
+ *    the region has the following format:
+ *    projects/{project_id}/regions/{region} For
+ *    projects.locations.workflowTemplates.instantiateinline, the resource name
+ *    of the location has the following format:
  *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiateInline
@@ -780,12 +791,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates,list, the resource name of the region
- *  has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.workflowTemplates.list, the resource name of the
- *  location has the following format:
- *  projects/{project_id}/locations/{location}
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates,list, the resource name of the region has
+ *  the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.workflowTemplates.list, the resource name of the location
+ *  has the following format: projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -795,10 +805,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Lists workflows that match the specified filter in the request.
  *
  *  @param parent Required. The resource name of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates,list, the resource name of the
- *    region has the following format: projects/{project_id}/regions/{region}
- *    For projects.locations.workflowTemplates.list, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates,list, the resource name of the region
+ *    has the following format: projects/{project_id}/regions/{region} For
+ *    projects.locations.workflowTemplates.list, the resource name of the
  *    location has the following format:
  *    projects/{project_id}/locations/{location}
  *
@@ -911,12 +921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Output only. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates, the resource name of the template
- *  has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates, the resource name of the template
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates, the resource name of the template has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates, the resource name of the template has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -929,12 +939,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param name Output only. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates, the resource name of the template
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates, the resource name of the template has
+ *    the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates, the resource name of the template
  *    has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates, the resource name of the
- *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesUpdate
@@ -958,10 +968,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.create, the resource name of the
- *  region has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.autoscalingPolicies.create, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.create, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.autoscalingPolicies.create, the resource name of the
  *  location has the following format:
  *  projects/{project_id}/locations/{location}
  */
@@ -974,8 +984,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_AutoscalingPolicy to include in the query.
  *  @param parent Required. The "resource name" of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.create, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.create, the resource name of the
  *    region has the following format: projects/{project_id}/regions/{region}
  *    For projects.locations.autoscalingPolicies.create, the resource name of
  *    the location has the following format:
@@ -1003,11 +1013,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.delete, the resource name of the
- *  policy has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies.delete, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.delete, the resource name of the policy
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies.delete, the resource name of the
  *  policy has the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
@@ -1020,12 +1030,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  policy that is in use by one or more clusters.
  *
  *  @param name Required. The "resource name" of the autoscaling policy, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.delete, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.delete, the resource name of the
  *    policy has the following format:
- *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *    For projects.locations.autoscalingPolicies.delete, the resource name of
- *    the policy has the following format:
+ *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *    projects.locations.autoscalingPolicies.delete, the resource name of the
+ *    policy has the following format:
  *    projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesDelete
@@ -1048,12 +1058,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.get, the resource name of the
- *  policy has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies.get, the resource name of the
- *  policy has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.get, the resource name of the policy
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies.get, the resource name of the policy
+ *  has the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1064,11 +1074,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Retrieves autoscaling policy.
  *
  *  @param name Required. The "resource name" of the autoscaling policy, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.get, the resource name of the
- *    policy has the following format:
- *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *    For projects.locations.autoscalingPolicies.get, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.get, the resource name of the policy
+ *    has the following format:
+ *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *    projects.locations.autoscalingPolicies.get, the resource name of the
  *    policy has the following format:
  *    projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  *
@@ -1142,10 +1152,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The "resource name" of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies.list, the resource name of the
- *  region has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.autoscalingPolicies.list, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies.list, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.autoscalingPolicies.list, the resource name of the
  *  location has the following format:
  *  projects/{project_id}/locations/{location}
  */
@@ -1157,10 +1167,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Lists autoscaling policies in the project.
  *
  *  @param parent Required. The "resource name" of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies.list, the resource name of the
- *    region has the following format: projects/{project_id}/regions/{region}
- *    For projects.locations.autoscalingPolicies.list, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies.list, the resource name of the region
+ *    has the following format: projects/{project_id}/regions/{region} For
+ *    projects.locations.autoscalingPolicies.list, the resource name of the
  *    location has the following format:
  *    projects/{project_id}/locations/{location}
  *
@@ -1273,12 +1283,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Output only. The "resource name" of the autoscaling policy, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.autoscalingPolicies, the resource name of the policy
- *  has the following format:
- *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *  For projects.locations.autoscalingPolicies, the resource name of the policy
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.autoscalingPolicies, the resource name of the policy has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *  projects.locations.autoscalingPolicies, the resource name of the policy has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1291,12 +1301,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_AutoscalingPolicy to include in the query.
  *  @param name Output only. The "resource name" of the autoscaling policy, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.autoscalingPolicies, the resource name of the policy
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.autoscalingPolicies, the resource name of the policy has
+ *    the following format:
+ *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id} For
+ *    projects.locations.autoscalingPolicies, the resource name of the policy
  *    has the following format:
- *    projects/{project_id}/regions/{region}/autoscalingPolicies/{policy_id}
- *    For projects.locations.autoscalingPolicies, the resource name of the
- *    policy has the following format:
  *    projects/{project_id}/locations/{location}/autoscalingPolicies/{policy_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesUpdate
@@ -1674,35 +1684,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  For example, to change the number of workers in a cluster to 5, the
  *  update_mask parameter would be specified as
  *  config.worker_config.num_instances, and the PATCH request body would specify
- *  the new value, as follows:
- *  {
- *  "config":{
- *  "workerConfig":{
- *  "numInstances":"5"
- *  }
- *  }
- *  }
- *  Similarly, to change the number of preemptible workers in a cluster to 5,
- *  the update_mask parameter would be
+ *  the new value, as follows: { "config":{ "workerConfig":{ "numInstances":"5"
+ *  } } } Similarly, to change the number of preemptible workers in a cluster to
+ *  5, the update_mask parameter would be
  *  config.secondary_worker_config.num_instances, and the PATCH request body
- *  would be set as follows:
- *  {
- *  "config":{
- *  "secondaryWorkerConfig":{
- *  "numInstances":"5"
- *  }
- *  }
- *  }
- *  <strong>Note:</strong> Currently, only the following fields can be
- *  updated:<table> <tbody> <tr> <td><strong>Mask</strong></td>
- *  <td><strong>Purpose</strong></td> </tr> <tr>
- *  <td><strong><em>labels</em></strong></td> <td>Update labels</td> </tr> <tr>
- *  <td><strong><em>config.worker_config.num_instances</em></strong></td>
- *  <td>Resize primary worker group</td> </tr> <tr>
- *  <td><strong><em>config.secondary_worker_config.num_instances</em></strong></td>
- *  <td>Resize secondary worker group</td> </tr> <tr>
- *  <td>config.autoscaling_config.policy_uri</td><td>Use, stop using, or change
- *  autoscaling policies</td> </tr> </tbody> </table>
+ *  would be set as follows: { "config":{ "secondaryWorkerConfig":{
+ *  "numInstances":"5" } } } *Note:* Currently, only the following fields can be
+ *  updated: *Mask* *Purpose* *labels* Update labels
+ *  *config.worker_config.num_instances* Resize primary worker group
+ *  *config.secondary_worker_config.num_instances* Resize secondary worker group
+ *  config.autoscaling_config.policy_uri Use, stop using, or change autoscaling
+ *  policies
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2024,9 +2016,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  ALL jobs).If filter is provided, jobStateMatcher will be ignored.
  *
  *  Likely values:
- *    @arg @c kGTLRDataprocJobStateMatcherAll Value "ALL"
- *    @arg @c kGTLRDataprocJobStateMatcherActive Value "ACTIVE"
- *    @arg @c kGTLRDataprocJobStateMatcherNonActive Value "NON_ACTIVE"
+ *    @arg @c kGTLRDataprocJobStateMatcherAll Match all jobs, regardless of
+ *        state. (Value: "ALL")
+ *    @arg @c kGTLRDataprocJobStateMatcherActive Only match jobs in non-terminal
+ *        states: PENDING, RUNNING, or CANCEL_PENDING. (Value: "ACTIVE")
+ *    @arg @c kGTLRDataprocJobStateMatcherNonActive Only match jobs in terminal
+ *        states: CANCELLED, DONE, or ERROR. (Value: "NON_ACTIVE")
  */
 @property(nonatomic, copy, nullable) NSString *jobStateMatcher;
 
@@ -2093,12 +2088,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Required. Specifies the path, relative to <code>Job</code>, of the field to
- *  update. For example, to update the labels of a Job the
- *  <code>update_mask</code> parameter would be specified as
- *  <code>labels</code>, and the PATCH request body would specify the new value.
- *  <strong>Note:</strong> Currently, <code>labels</code> is the only field that
- *  can be updated.
+ *  Required. Specifies the path, relative to Job, of the field to update. For
+ *  example, to update the labels of a Job the update_mask parameter would be
+ *  specified as labels, and the PATCH request body would specify the new value.
+ *  *Note:* Currently, labels is the only field that can be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2589,10 +2582,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates,create, the resource name of the
- *  region has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.workflowTemplates.create, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates,create, the resource name of the region
+ *  has the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.workflowTemplates.create, the resource name of the
  *  location has the following format:
  *  projects/{project_id}/locations/{location}
  */
@@ -2605,10 +2598,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates,create, the resource name of the
- *    region has the following format: projects/{project_id}/regions/{region}
- *    For projects.locations.workflowTemplates.create, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates,create, the resource name of the region
+ *    has the following format: projects/{project_id}/regions/{region} For
+ *    projects.locations.workflowTemplates.create, the resource name of the
  *    location has the following format:
  *    projects/{project_id}/locations/{location}
  *
@@ -2633,12 +2626,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates.delete, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates.delete, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates.instantiate, the resource name of the
  *  template has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates.instantiate, the resource name of
- *  the template has the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2656,12 +2649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Deletes a workflow template. It does not cancel in-progress workflows.
  *
  *  @param name Required. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates.delete, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates.delete, the resource name of the
  *    template has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates.instantiate, the resource name of
- *    the template has the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates.instantiate, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesDelete
@@ -2685,12 +2678,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates.get, the resource name of the
- *  template has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates.get, the resource name of the
- *  template has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates.get, the resource name of the template
+ *  has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates.get, the resource name of the template
+ *  has the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2709,11 +2702,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  template by specifying optional version parameter.
  *
  *  @param name Required. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates.get, the resource name of the
- *    template has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates.get, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates.get, the resource name of the template
+ *    has the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates.get, the resource name of the
  *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
@@ -2784,12 +2777,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates.instantiate, the resource name of the
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates.instantiate, the resource name of the
  *  template has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates.instantiate, the resource name of
- *  the template has the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates.instantiate, the resource name of the
+ *  template has the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2811,12 +2804,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_InstantiateWorkflowTemplateRequest to
  *    include in the query.
  *  @param name Required. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates.instantiate, the resource name of
- *    the template has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates.instantiate, the resource name of
- *    the template has the following format:
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates.instantiate, the resource name of the
+ *    template has the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates.instantiate, the resource name of the
+ *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiate
@@ -2851,10 +2844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates,instantiateinline, the resource name
- *  of the region has the following format:
- *  projects/{project_id}/regions/{region}
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates,instantiateinline, the resource name of
+ *  the region has the following format: projects/{project_id}/regions/{region}
  *  For projects.locations.workflowTemplates.instantiateinline, the resource
  *  name of the location has the following format:
  *  projects/{project_id}/locations/{location}
@@ -2889,12 +2881,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates,instantiateinline, the resource
- *    name of the region has the following format:
- *    projects/{project_id}/regions/{region}
- *    For projects.locations.workflowTemplates.instantiateinline, the resource
- *    name of the location has the following format:
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates,instantiateinline, the resource name of
+ *    the region has the following format:
+ *    projects/{project_id}/regions/{region} For
+ *    projects.locations.workflowTemplates.instantiateinline, the resource name
+ *    of the location has the following format:
  *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiateInline
@@ -2927,12 +2919,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Required. The resource name of the region or location, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates,list, the resource name of the region
- *  has the following format: projects/{project_id}/regions/{region}
- *  For projects.locations.workflowTemplates.list, the resource name of the
- *  location has the following format:
- *  projects/{project_id}/locations/{location}
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates,list, the resource name of the region has
+ *  the following format: projects/{project_id}/regions/{region} For
+ *  projects.locations.workflowTemplates.list, the resource name of the location
+ *  has the following format: projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2942,10 +2933,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Lists workflows that match the specified filter in the request.
  *
  *  @param parent Required. The resource name of the region or location, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates,list, the resource name of the
- *    region has the following format: projects/{project_id}/regions/{region}
- *    For projects.locations.workflowTemplates.list, the resource name of the
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates,list, the resource name of the region
+ *    has the following format: projects/{project_id}/regions/{region} For
+ *    projects.locations.workflowTemplates.list, the resource name of the
  *    location has the following format:
  *    projects/{project_id}/locations/{location}
  *
@@ -3058,12 +3049,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Output only. The resource name of the workflow template, as described in
- *  https://cloud.google.com/apis/design/resource_names.
- *  For projects.regions.workflowTemplates, the resource name of the template
- *  has the following format:
- *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *  For projects.locations.workflowTemplates, the resource name of the template
- *  has the following format:
+ *  https://cloud.google.com/apis/design/resource_names. For
+ *  projects.regions.workflowTemplates, the resource name of the template has
+ *  the following format:
+ *  projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *  projects.locations.workflowTemplates, the resource name of the template has
+ *  the following format:
  *  projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3076,12 +3067,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param name Output only. The resource name of the workflow template, as
- *    described in https://cloud.google.com/apis/design/resource_names.
- *    For projects.regions.workflowTemplates, the resource name of the template
+ *    described in https://cloud.google.com/apis/design/resource_names. For
+ *    projects.regions.workflowTemplates, the resource name of the template has
+ *    the following format:
+ *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id} For
+ *    projects.locations.workflowTemplates, the resource name of the template
  *    has the following format:
- *    projects/{project_id}/regions/{region}/workflowTemplates/{template_id}
- *    For projects.locations.workflowTemplates, the resource name of the
- *    template has the following format:
  *    projects/{project_id}/locations/{location}/workflowTemplates/{template_id}
  *
  *  @return GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesUpdate

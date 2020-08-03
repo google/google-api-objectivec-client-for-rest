@@ -18,6 +18,15 @@ NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_Data
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss = @"FORCE_DATA_LOSS";
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_LimitedDataLoss = @"LIMITED_DATA_LOSS";
 
+// GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Error = @"ERROR";
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Ready = @"READY";
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Repairing = @"REPAIRING";
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating = @"UPDATING";
+
 // GTLRCloudRedis_Instance.connectMode
 NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified = @"CONNECT_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering = @"DIRECT_PEERING";
@@ -129,6 +138,184 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 //
 
 @implementation GTLRCloudRedis_GoogleCloudRedisV1ZoneMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance
+@dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
+         maintenanceSchedules, maintenanceSettings, name, producerMetadata,
+         provisionedResources, slmInstanceTemplate, sloMetadata,
+         softwareVersions, state, tenantProjectId, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"provisionedResources" : [GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
+@dynamic canReschedule, endTime, rolloutManagementPolicy, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+@dynamic exclude;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
+@dynamic exclusions, location, nodeId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusions" : [GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
+@dynamic resourceType, resourceUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility
+@dynamic eligible, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
+@dynamic duration, reason, sliName, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
+//
+
+@implementation GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
+@dynamic eligibility, exclusions, nodes, tier;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusions" : [GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class],
+    @"nodes" : [GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata class]
+  };
+  return map;
+}
+
 @end
 
 

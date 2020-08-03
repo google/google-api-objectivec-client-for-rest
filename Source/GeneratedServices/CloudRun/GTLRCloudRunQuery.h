@@ -69,8 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Rpc to get information about a namespace.
  *
  *  @param name Required. The name of the namespace being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ApiV1NamespacesGet
  */
@@ -97,8 +96,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Indicates which fields in the provided namespace to update.
- *  This field is currently unused.
+ *  Required. Indicates which fields in the provided namespace to update. This
+ *  field is currently unused.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -111,8 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_Namespace to include in the query.
  *  @param name Required. The name of the namespace being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ApiV1NamespacesPatch
  */
@@ -134,8 +132,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForApiV1NamespacesSecretsCreateWithObject:parent:]
 
 /**
- *  Required. The project ID or project number in which this secret should
- *  be created.
+ *  Required. The project ID or project number in which this secret should be
+ *  created.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -146,8 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_Secret to include in the query.
  *  @param parent Required. The project ID or project number in which this
- *    secret should
- *    be created.
+ *    secret should be created.
  *
  *  @return GTLRCloudRunQuery_ApiV1NamespacesSecretsCreate
  */
@@ -180,8 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Rpc to get information about a secret.
  *
  *  @param name Required. The name of the secret being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ApiV1NamespacesSecretsGet
  */
@@ -190,12 +186,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Rpc to replace a secret.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Rpc to replace a secret. Only the spec and metadata labels and annotations
+ *  are modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  Method: run.api.v1.namespaces.secrets.replaceSecret
  *
@@ -215,17 +209,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_Secret.
  *
- *  Rpc to replace a secret.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Rpc to replace a secret. Only the spec and metadata labels and annotations
+ *  are modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Secret to include in the query.
  *  @param name Required. The name of the secret being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ApiV1NamespacesSecretsReplaceSecret
  */
@@ -252,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name of the parent Application resource. Example: `apps/myapp`. */
+/** Name of the parent Project resource. Example: `projects/myproject`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -260,8 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List authorized domains.
  *
- *  @param parent Name of the parent Application resource. Example:
- *    `apps/myapp`.
+ *  @param parent Name of the parent Project resource. Example:
+ *    `projects/myproject`.
  *
  *  @return GTLRCloudRunQuery_NamespacesAuthorizeddomainsList
  *
@@ -286,9 +277,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesConfigurationsGetWithname:]
 
 /**
- *  The name of the configuration to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the configuration to retrieve. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -297,9 +287,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a configuration.
  *
- *  @param name The name of the configuration to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the configuration to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesConfigurationsGet
  */
@@ -327,9 +316,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -337,8 +326,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -346,9 +335,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the configurations should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the configurations should be listed. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -392,9 +380,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesDomainmappingsCreateWithObject:parent:]
 
 /**
- *  The namespace in which the domain mapping should be created.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace in which the domain mapping should be created. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -434,15 +421,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the domain mapping to delete.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the domain mapping to delete. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the propagation policy of delete. Cloud Run currently ignores
- *  this setting, and deletes in the background. Please see
+ *  Specifies the propagation policy of delete. Cloud Run currently ignores this
+ *  setting, and deletes in the background. Please see
  *  kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ for
  *  more information.
  */
@@ -453,9 +439,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a domain mapping.
  *
- *  @param name The name of the domain mapping to delete.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the domain mapping to delete. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsDelete
  */
@@ -476,9 +461,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesDomainmappingsGetWithname:]
 
 /**
- *  The name of the domain mapping to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the domain mapping to retrieve. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -487,9 +471,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a domain mapping.
  *
- *  @param name The name of the domain mapping to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the domain mapping to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesDomainmappingsGet
  */
@@ -517,9 +500,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -527,8 +510,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -536,9 +519,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the domain mappings should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the domain mappings should be listed. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -588,15 +570,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the revision to delete.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the revision to delete. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the propagation policy of delete. Cloud Run currently ignores
- *  this setting, and deletes in the background. Please see
+ *  Specifies the propagation policy of delete. Cloud Run currently ignores this
+ *  setting, and deletes in the background. Please see
  *  kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ for
  *  more information.
  */
@@ -607,9 +588,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a revision.
  *
- *  @param name The name of the revision to delete.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the revision to delete. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRevisionsDelete
  */
@@ -630,9 +610,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesRevisionsGetWithname:]
 
 /**
- *  The name of the revision to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the revision to retrieve. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -641,9 +620,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a revision.
  *
- *  @param name The name of the revision to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the revision to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRevisionsGet
  */
@@ -671,9 +649,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -681,8 +659,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -690,9 +668,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the revisions should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the revisions should be listed. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -713,9 +690,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List revisions.
  *
- *  @param parent The namespace from which the revisions should be listed.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace from which the revisions should be listed. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRevisionsList
  */
@@ -736,9 +713,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesRoutesGetWithname:]
 
 /**
- *  The name of the route to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the route to retrieve. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -747,9 +723,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a route.
  *
- *  @param name The name of the route to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the route to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesGet
  */
@@ -777,9 +752,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -787,8 +762,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -796,9 +771,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the routes should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the routes should be listed. For Cloud Run (fully
+ *  managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -819,9 +793,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List routes.
  *
- *  @param parent The namespace from which the routes should be listed.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace from which the routes should be listed. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_NamespacesRoutesList
  */
@@ -842,9 +816,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesServicesCreateWithObject:parent:]
 
 /**
- *  The namespace in which the service should be created.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace in which the service should be created. For Cloud Run (fully
+ *  managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -854,9 +827,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a service.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param parent The namespace in which the service should be created.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace in which the service should be created. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesCreate
  */
@@ -866,9 +839,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Delete a service.
- *  This will cause the Service to stop serving traffic and will delete the
- *  child entities like Routes, Configurations and Revisions.
+ *  Delete a service. This will cause the Service to stop serving traffic and
+ *  will delete the child entities like Routes, Configurations and Revisions.
  *
  *  Method: run.namespaces.services.delete
  *
@@ -886,15 +858,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the service to delete.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the service to delete. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the propagation policy of delete. Cloud Run currently ignores
- *  this setting, and deletes in the background. Please see
+ *  Specifies the propagation policy of delete. Cloud Run currently ignores this
+ *  setting, and deletes in the background. Please see
  *  kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ for
  *  more information.
  */
@@ -903,13 +874,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_Status.
  *
- *  Delete a service.
- *  This will cause the Service to stop serving traffic and will delete the
- *  child entities like Routes, Configurations and Revisions.
+ *  Delete a service. This will cause the Service to stop serving traffic and
+ *  will delete the child entities like Routes, Configurations and Revisions.
  *
- *  @param name The name of the service to delete.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the service to delete. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesDelete
  */
@@ -930,9 +899,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesServicesGetWithname:]
 
 /**
- *  The name of the service to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the service to retrieve. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -941,9 +909,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a service.
  *
- *  @param name The name of the service to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the service to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesGet
  */
@@ -971,9 +938,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -981,8 +948,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -990,9 +957,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the services should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the services should be listed. For Cloud Run (fully
+ *  managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1013,9 +979,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List services.
  *
- *  @param parent The namespace from which the services should be listed.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace from which the services should be listed. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesList
  */
@@ -1024,12 +990,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Replace a service.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Replace a service. Only the spec and metadata labels and annotations are
+ *  modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  Method: run.namespaces.services.replaceService
  *
@@ -1041,31 +1005,66 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForNamespacesServicesReplaceServiceWithObject:name:]
 
 /**
- *  The name of the service being replaced.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the service being replaced. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRun_Service.
  *
- *  Replace a service.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Replace a service. Only the spec and metadata labels and annotations are
+ *  modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param name The name of the service being replaced.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the service being replaced. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_NamespacesServicesReplaceService
  */
 + (instancetype)queryWithObject:(GTLRCloudRun_Service *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  List authorized domains.
+ *
+ *  Method: run.projects.authorizeddomains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsAuthorizeddomainsList : GTLRCloudRunQuery
+// Previous library name was
+//   +[GTLQueryCloudRun queryForProjectsAuthorizeddomainsListWithparent:]
+
+/** Maximum results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the parent Project resource. Example: `projects/myproject`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRun_ListAuthorizedDomainsResponse.
+ *
+ *  List authorized domains.
+ *
+ *  @param parent Name of the parent Project resource. Example:
+ *    `projects/myproject`.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsAuthorizeddomainsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1087,7 +1086,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Name of the parent Application resource. Example: `apps/myapp`. */
+/** Name of the parent Project resource. Example: `projects/myproject`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1095,8 +1094,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List authorized domains.
  *
- *  @param parent Name of the parent Application resource. Example:
- *    `apps/myapp`.
+ *  @param parent Name of the parent Project resource. Example:
+ *    `projects/myproject`.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsAuthorizeddomainsList
  *
@@ -1121,9 +1120,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsConfigurationsGetWithname:]
 
 /**
- *  The name of the configuration to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the configuration to retrieve. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1132,9 +1130,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a configuration.
  *
- *  @param name The name of the configuration to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the configuration to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsConfigurationsGet
  */
@@ -1162,9 +1159,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -1172,8 +1169,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -1181,9 +1178,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the configurations should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the configurations should be listed. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1227,9 +1223,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsCreateWithObject:parent:]
 
 /**
- *  The namespace in which the domain mapping should be created.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace in which the domain mapping should be created. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1269,15 +1264,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the domain mapping to delete.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the domain mapping to delete. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the propagation policy of delete. Cloud Run currently ignores
- *  this setting, and deletes in the background. Please see
+ *  Specifies the propagation policy of delete. Cloud Run currently ignores this
+ *  setting, and deletes in the background. Please see
  *  kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ for
  *  more information.
  */
@@ -1288,9 +1282,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a domain mapping.
  *
- *  @param name The name of the domain mapping to delete.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the domain mapping to delete. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsDelete
  */
@@ -1311,9 +1304,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsGetWithname:]
 
 /**
- *  The name of the domain mapping to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the domain mapping to retrieve. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1322,9 +1314,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a domain mapping.
  *
- *  @param name The name of the domain mapping to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the domain mapping to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsDomainmappingsGet
  */
@@ -1352,9 +1343,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -1362,8 +1353,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -1371,9 +1362,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the domain mappings should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the domain mappings should be listed. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1469,8 +1459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Rpc to get information about a namespace.
  *
  *  @param name Required. The name of the namespace being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsNamespacesGet
  */
@@ -1497,8 +1486,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Indicates which fields in the provided namespace to update.
- *  This field is currently unused.
+ *  Required. Indicates which fields in the provided namespace to update. This
+ *  field is currently unused.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1511,8 +1500,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_Namespace to include in the query.
  *  @param name Required. The name of the namespace being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsNamespacesPatch
  */
@@ -1540,15 +1528,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the revision to delete.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the revision to delete. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the propagation policy of delete. Cloud Run currently ignores
- *  this setting, and deletes in the background. Please see
+ *  Specifies the propagation policy of delete. Cloud Run currently ignores this
+ *  setting, and deletes in the background. Please see
  *  kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ for
  *  more information.
  */
@@ -1559,9 +1546,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a revision.
  *
- *  @param name The name of the revision to delete.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the revision to delete. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRevisionsDelete
  */
@@ -1582,9 +1568,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsRevisionsGetWithname:]
 
 /**
- *  The name of the revision to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the revision to retrieve. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1593,9 +1578,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a revision.
  *
- *  @param name The name of the revision to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the revision to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRevisionsGet
  */
@@ -1623,9 +1607,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -1633,8 +1617,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -1642,9 +1626,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the revisions should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the revisions should be listed. For Cloud Run
+ *  (fully managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1665,9 +1648,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List revisions.
  *
- *  @param parent The namespace from which the revisions should be listed.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace from which the revisions should be listed. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRevisionsList
  */
@@ -1688,9 +1671,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsRoutesGetWithname:]
 
 /**
- *  The name of the route to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the route to retrieve. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1699,9 +1681,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a route.
  *
- *  @param name The name of the route to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the route to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesGet
  */
@@ -1729,9 +1710,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -1739,8 +1720,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -1748,9 +1729,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the routes should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the routes should be listed. For Cloud Run (fully
+ *  managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1771,9 +1751,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List routes.
  *
- *  @param parent The namespace from which the routes should be listed.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace from which the routes should be listed. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsRoutesList
  */
@@ -1794,8 +1774,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsSecretsCreateWithObject:parent:]
 
 /**
- *  Required. The project ID or project number in which this secret should
- *  be created.
+ *  Required. The project ID or project number in which this secret should be
+ *  created.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1806,8 +1786,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_Secret to include in the query.
  *  @param parent Required. The project ID or project number in which this
- *    secret should
- *    be created.
+ *    secret should be created.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsSecretsCreate
  */
@@ -1840,8 +1819,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Rpc to get information about a secret.
  *
  *  @param name Required. The name of the secret being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsSecretsGet
  */
@@ -1850,12 +1828,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Rpc to replace a secret.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Rpc to replace a secret. Only the spec and metadata labels and annotations
+ *  are modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  Method: run.projects.locations.secrets.replaceSecret
  *
@@ -1875,17 +1851,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_Secret.
  *
- *  Rpc to replace a secret.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Rpc to replace a secret. Only the spec and metadata labels and annotations
+ *  are modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Secret to include in the query.
  *  @param name Required. The name of the secret being retrieved. If needed,
- *    replace
- *    {namespace_id} with the project ID.
+ *    replace {namespace_id} with the project ID.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsSecretsReplaceSecret
  */
@@ -1907,9 +1880,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesCreateWithObject:parent:]
 
 /**
- *  The namespace in which the service should be created.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace in which the service should be created. For Cloud Run (fully
+ *  managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1919,9 +1891,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Create a service.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param parent The namespace in which the service should be created.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace in which the service should be created. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesCreate
  */
@@ -1931,9 +1903,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Delete a service.
- *  This will cause the Service to stop serving traffic and will delete the
- *  child entities like Routes, Configurations and Revisions.
+ *  Delete a service. This will cause the Service to stop serving traffic and
+ *  will delete the child entities like Routes, Configurations and Revisions.
  *
  *  Method: run.projects.locations.services.delete
  *
@@ -1951,15 +1922,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the service to delete.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the service to delete. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies the propagation policy of delete. Cloud Run currently ignores
- *  this setting, and deletes in the background. Please see
+ *  Specifies the propagation policy of delete. Cloud Run currently ignores this
+ *  setting, and deletes in the background. Please see
  *  kubernetes.io/docs/concepts/workloads/controllers/garbage-collection/ for
  *  more information.
  */
@@ -1968,13 +1938,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_Status.
  *
- *  Delete a service.
- *  This will cause the Service to stop serving traffic and will delete the
- *  child entities like Routes, Configurations and Revisions.
+ *  Delete a service. This will cause the Service to stop serving traffic and
+ *  will delete the child entities like Routes, Configurations and Revisions.
  *
- *  @param name The name of the service to delete.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the service to delete. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesDelete
  */
@@ -1995,9 +1963,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesGetWithname:]
 
 /**
- *  The name of the service to retrieve.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the service to retrieve. For Cloud Run (fully managed), replace
+ *  {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2006,9 +1973,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get information about a service.
  *
- *  @param name The name of the service to retrieve.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the service to retrieve. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesGet
  */
@@ -2017,8 +1983,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the IAM Access Control policy currently in effect for the given
- *  Cloud Run service. This result does not include any inherited policies.
+ *  Get the IAM Access Control policy currently in effect for the given Cloud
+ *  Run service. This result does not include any inherited policies.
  *
  *  Method: run.projects.locations.services.getIamPolicy
  *
@@ -2030,33 +1996,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudRun_Policy.
  *
- *  Get the IAM Access Control policy currently in effect for the given
- *  Cloud Run service. This result does not include any inherited policies.
+ *  Get the IAM Access Control policy currently in effect for the given Cloud
+ *  Run service. This result does not include any inherited policies.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesGetIamPolicy
  */
@@ -2084,9 +2048,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *continueProperty;
 
 /**
- *  Allows to filter resources based on a specific value for a field name.
- *  Send this in a query string format. i.e. 'metadata.name%3Dlorem'.
- *  Not currently used by Cloud Run.
+ *  Allows to filter resources based on a specific value for a field name. Send
+ *  this in a query string format. i.e. 'metadata.name%3Dlorem'. Not currently
+ *  used by Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *fieldSelector;
 
@@ -2094,8 +2058,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL includeUninitialized;
 
 /**
- *  Allows to filter resources based on a label. Supported operations are
- *  =, !=, exists, in, and notIn.
+ *  Allows to filter resources based on a label. Supported operations are =, !=,
+ *  exists, in, and notIn.
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
@@ -2103,9 +2067,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger limit;
 
 /**
- *  The namespace from which the services should be listed.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The namespace from which the services should be listed. For Cloud Run (fully
+ *  managed), replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2126,9 +2089,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List services.
  *
- *  @param parent The namespace from which the services should be listed.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param parent The namespace from which the services should be listed. For
+ *    Cloud Run (fully managed), replace {namespace_id} with the project ID or
+ *    number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesList
  */
@@ -2137,12 +2100,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Replace a service.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Replace a service. Only the spec and metadata labels and annotations are
+ *  modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  Method: run.projects.locations.services.replaceService
  *
@@ -2154,26 +2115,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesReplaceServiceWithObject:name:]
 
 /**
- *  The name of the service being replaced.
- *  For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *  or number.
+ *  The name of the service being replaced. For Cloud Run (fully managed),
+ *  replace {namespace_id} with the project ID or number.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudRun_Service.
  *
- *  Replace a service.
- *  Only the spec and metadata labels and annotations are modifiable. After
- *  the Update request, Cloud Run will work to make the 'status'
- *  match the requested 'spec'.
- *  May provide metadata.resourceVersion to enforce update from last read for
- *  optimistic concurrency control.
+ *  Replace a service. Only the spec and metadata labels and annotations are
+ *  modifiable. After the Update request, Cloud Run will work to make the
+ *  'status' match the requested 'spec'. May provide metadata.resourceVersion to
+ *  enforce update from last read for optimistic concurrency control.
  *
  *  @param object The @c GTLRCloudRun_Service to include in the query.
- *  @param name The name of the service being replaced.
- *    For Cloud Run (fully managed), replace {namespace_id} with the project ID
- *    or number.
+ *  @param name The name of the service being replaced. For Cloud Run (fully
+ *    managed), replace {namespace_id} with the project ID or number.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesReplaceService
  */
@@ -2183,8 +2140,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the IAM Access control policy for the specified Service. Overwrites
- *  any existing policy.
+ *  Sets the IAM Access control policy for the specified Service. Overwrites any
+ *  existing policy.
  *
  *  Method: run.projects.locations.services.setIamPolicy
  *
@@ -2196,22 +2153,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudRun_Policy.
  *
- *  Sets the IAM Access control policy for the specified Service. Overwrites
- *  any existing policy.
+ *  Sets the IAM Access control policy for the specified Service. Overwrites any
+ *  existing policy.
  *
  *  @param object The @c GTLRCloudRun_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesSetIamPolicy
  */
@@ -2221,8 +2178,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified Project.
- *  There are no permissions required for making this API call.
+ *  Returns permissions that a caller has on the specified Project. There are no
+ *  permissions required for making this API call.
  *
  *  Method: run.projects.locations.services.testIamPermissions
  *
@@ -2234,22 +2191,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudRun queryForProjectsLocationsServicesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudRun_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified Project.
- *  There are no permissions required for making this API call.
+ *  Returns permissions that a caller has on the specified Project. There are no
+ *  permissions required for making this API call.
  *
  *  @param object The @c GTLRCloudRun_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesTestIamPermissions
  */

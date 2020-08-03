@@ -559,7 +559,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_ContentRestriction : GTLRObject
 
 /**
- *  Whether the content of the file is read-only.
+ *  Whether the content of the file is read-only. If a file is read-only, a new
+ *  revision of the file may not be added, comments may not be added or
+ *  modified, and the title of the file may not be modified.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2289,6 +2291,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *published;
+
+/** A link to the published revision. */
+@property(nonatomic, copy, nullable) NSString *publishedLink;
 
 /**
  *  Whether this revision is published outside the domain. This is only

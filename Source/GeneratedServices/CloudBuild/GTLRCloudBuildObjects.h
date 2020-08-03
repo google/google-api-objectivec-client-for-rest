@@ -132,13 +132,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
 // GTLRCloudBuild_BuildOptions.logging
 
 /**
+ *  Only Cloud Logging is enabled. Note that logs for both the Cloud Console
+ *  UI and Cloud SDK are based on Cloud Storage logs, so neither will provide
+ *  logs if this option is chosen.
+ *
+ *  Value: "CLOUD_LOGGING_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly;
+/**
  *  Only Cloud Storage logging is enabled.
  *
  *  Value: "GCS_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
 /**
- *  Cloud Logging (Stackdriver) and Cloud Storage logging are enabled.
+ *  Cloud Logging and Cloud Storage logging are enabled.
  *
  *  Value: "LEGACY"
  */
@@ -152,14 +160,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
 /**
  *  Turn off all logging. No build logs will be captured.
+ *  Next ID: 6
  *
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_None;
 /**
- *  Only Cloud Logging (Stackdriver) is enabled. Note that logs for both the
- *  Cloud Console UI and Cloud SDK are based on Cloud Storage logs, so
- *  neither will provide logs if this option is chosen.
+ *  This option is the same as CLOUD_LOGGING_ONLY.
  *
  *  Value: "STACKDRIVER_ONLY"
  */
@@ -668,21 +675,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  logs are stored.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly Only Cloud
+ *        Logging is enabled. Note that logs for both the Cloud Console
+ *        UI and Cloud SDK are based on Cloud Storage logs, so neither will
+ *        provide
+ *        logs if this option is chosen. (Value: "CLOUD_LOGGING_ONLY")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_GcsOnly Only Cloud Storage
  *        logging is enabled. (Value: "GCS_ONLY")
- *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Cloud Logging
- *        (Stackdriver) and Cloud Storage logging are enabled. (Value: "LEGACY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Cloud Logging and
+ *        Cloud Storage logging are enabled. (Value: "LEGACY")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified The
  *        service determines the logging mode. The default is `LEGACY`. Do not
  *        rely on the default logging behavior as it may change in the future.
  *        (Value: "LOGGING_UNSPECIFIED")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_None Turn off all logging. No
- *        build logs will be captured. (Value: "NONE")
- *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly Only Cloud
- *        Logging (Stackdriver) is enabled. Note that logs for both the
- *        Cloud Console UI and Cloud SDK are based on Cloud Storage logs, so
- *        neither will provide logs if this option is chosen. (Value:
- *        "STACKDRIVER_ONLY")
+ *        build logs will be captured.
+ *        Next ID: 6 (Value: "NONE")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly This option
+ *        is the same as CLOUD_LOGGING_ONLY. (Value: "STACKDRIVER_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *logging;
 

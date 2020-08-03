@@ -35,6 +35,20 @@ NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sou
 NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleService_CopyOtherContactToMyContactsGroupRequest_Sources_ReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 
+// GTLRPeopleService_MiscKeyword.type
+NSString * const kGTLRPeopleService_MiscKeyword_Type_Home      = @"HOME";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_Other     = @"OTHER";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookBillingInformation = @"OUTLOOK_BILLING_INFORMATION";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookDirectoryServer = @"OUTLOOK_DIRECTORY_SERVER";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookKeyword = @"OUTLOOK_KEYWORD";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookMileage = @"OUTLOOK_MILEAGE";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookPriority = @"OUTLOOK_PRIORITY";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookSensitivity = @"OUTLOOK_SENSITIVITY";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookSubject = @"OUTLOOK_SUBJECT";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_OutlookUser = @"OUTLOOK_USER";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRPeopleService_MiscKeyword_Type_Work      = @"WORK";
+
 // GTLRPeopleService_Nickname.type
 NSString * const kGTLRPeopleService_Nickname_Type_AlternateName = @"ALTERNATE_NAME";
 NSString * const kGTLRPeopleService_Nickname_Type_Default      = @"DEFAULT";
@@ -148,6 +162,16 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 @implementation GTLRPeopleService_BraggingRights
 @dynamic metadata, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_CalendarUrl
+//
+
+@implementation GTLRPeopleService_CalendarUrl
+@dynamic formattedType, metadata, type, url;
 @end
 
 
@@ -303,6 +327,16 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 @implementation GTLRPeopleService_Event
 @dynamic date, formattedType, metadata, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_ExternalId
+//
+
+@implementation GTLRPeopleService_ExternalId
+@dynamic formattedType, metadata, type, value;
 @end
 
 
@@ -484,6 +518,16 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPeopleService_MiscKeyword
+//
+
+@implementation GTLRPeopleService_MiscKeyword
+@dynamic formattedType, metadata, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPeopleService_ModifyContactGroupMembersRequest
 //
 
@@ -572,11 +616,12 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 @implementation GTLRPeopleService_Person
 @dynamic addresses, ageRange, ageRanges, biographies, birthdays, braggingRights,
-         coverPhotos, emailAddresses, ETag, events, fileAses, genders,
-         imClients, interests, locales, memberships, metadata, names, nicknames,
-         occupations, organizations, phoneNumbers, photos, relations,
-         relationshipInterests, relationshipStatuses, residences, resourceName,
-         sipAddresses, skills, taglines, urls, userDefined;
+         calendarUrls, coverPhotos, emailAddresses, ETag, events, externalIds,
+         fileAses, genders, imClients, interests, locales, memberships,
+         metadata, miscKeywords, names, nicknames, occupations, organizations,
+         phoneNumbers, photos, relations, relationshipInterests,
+         relationshipStatuses, residences, resourceName, sipAddresses, skills,
+         taglines, urls, userDefined;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -589,15 +634,18 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
     @"biographies" : [GTLRPeopleService_Biography class],
     @"birthdays" : [GTLRPeopleService_Birthday class],
     @"braggingRights" : [GTLRPeopleService_BraggingRights class],
+    @"calendarUrls" : [GTLRPeopleService_CalendarUrl class],
     @"coverPhotos" : [GTLRPeopleService_CoverPhoto class],
     @"emailAddresses" : [GTLRPeopleService_EmailAddress class],
     @"events" : [GTLRPeopleService_Event class],
+    @"externalIds" : [GTLRPeopleService_ExternalId class],
     @"fileAses" : [GTLRPeopleService_FileAs class],
     @"genders" : [GTLRPeopleService_Gender class],
     @"imClients" : [GTLRPeopleService_ImClient class],
     @"interests" : [GTLRPeopleService_Interest class],
     @"locales" : [GTLRPeopleService_Locale class],
     @"memberships" : [GTLRPeopleService_Membership class],
+    @"miscKeywords" : [GTLRPeopleService_MiscKeyword class],
     @"names" : [GTLRPeopleService_Name class],
     @"nicknames" : [GTLRPeopleService_Nickname class],
     @"occupations" : [GTLRPeopleService_Occupation class],

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Control API (servicecontrol/v1)
+//   Service Control API (servicecontrol/v2)
 // Description:
 //   Provides control plane functionality to managed services, such as logging,
 //   monitoring, and status checks.
@@ -12,118 +12,27 @@
 #import "GTLRServiceControlObjects.h"
 
 // ----------------------------------------------------------------------------
-// Constants
+//
+//   GTLRServiceControl_Api
+//
 
-// GTLRServiceControl_CheckError.code
-NSString * const kGTLRServiceControl_CheckError_Code_AbuserDetected = @"ABUSER_DETECTED";
-NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyExpired = @"API_KEY_EXPIRED";
-NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyInvalid = @"API_KEY_INVALID";
-NSString * const kGTLRServiceControl_CheckError_Code_ApiKeyNotFound = @"API_KEY_NOT_FOUND";
-NSString * const kGTLRServiceControl_CheckError_Code_ApiTargetBlocked = @"API_TARGET_BLOCKED";
-NSString * const kGTLRServiceControl_CheckError_Code_BillingDisabled = @"BILLING_DISABLED";
-NSString * const kGTLRServiceControl_CheckError_Code_BillingStatusUnavailable = @"BILLING_STATUS_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_BudgetExceeded = @"BUDGET_EXCEEDED";
-NSString * const kGTLRServiceControl_CheckError_Code_ClientAppBlocked = @"CLIENT_APP_BLOCKED";
-NSString * const kGTLRServiceControl_CheckError_Code_CloudResourceManagerBackendUnavailable = @"CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_ConsumerInvalid = @"CONSUMER_INVALID";
-NSString * const kGTLRServiceControl_CheckError_Code_DenialOfServiceDetected = @"DENIAL_OF_SERVICE_DETECTED";
-NSString * const kGTLRServiceControl_CheckError_Code_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
-NSString * const kGTLRServiceControl_CheckError_Code_InvalidCredential = @"INVALID_CREDENTIAL";
-NSString * const kGTLRServiceControl_CheckError_Code_IpAddressBlocked = @"IP_ADDRESS_BLOCKED";
-NSString * const kGTLRServiceControl_CheckError_Code_LoadShedding = @"LOAD_SHEDDING";
-NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectDisabled = @"LOAS_PROJECT_DISABLED";
-NSString * const kGTLRServiceControl_CheckError_Code_LoasProjectLookupUnavailable = @"LOAS_PROJECT_LOOKUP_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_LoasRoleInvalid = @"LOAS_ROLE_INVALID";
-NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyBackendUnavailable = @"LOCATION_POLICY_BACKEND_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_LocationPolicyViolated = @"LOCATION_POLICY_VIOLATED";
-NSString * const kGTLRServiceControl_CheckError_Code_NamespaceLookupUnavailable = @"NAMESPACE_LOOKUP_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_NoLoasProject = @"NO_LOAS_PROJECT";
-NSString * const kGTLRServiceControl_CheckError_Code_NotFound  = @"NOT_FOUND";
-NSString * const kGTLRServiceControl_CheckError_Code_PermissionDenied = @"PERMISSION_DENIED";
-NSString * const kGTLRServiceControl_CheckError_Code_ProjectDeleted = @"PROJECT_DELETED";
-NSString * const kGTLRServiceControl_CheckError_Code_ProjectInvalid = @"PROJECT_INVALID";
-NSString * const kGTLRServiceControl_CheckError_Code_QuotaCheckUnavailable = @"QUOTA_CHECK_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_RefererBlocked = @"REFERER_BLOCKED";
-NSString * const kGTLRServiceControl_CheckError_Code_ResourceExhausted = @"RESOURCE_EXHAUSTED";
-NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyBackendUnavailable = @"SECURITY_POLICY_BACKEND_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_SecurityPolicyViolated = @"SECURITY_POLICY_VIOLATED";
-NSString * const kGTLRServiceControl_CheckError_Code_ServiceNotActivated = @"SERVICE_NOT_ACTIVATED";
-NSString * const kGTLRServiceControl_CheckError_Code_ServiceStatusUnavailable = @"SERVICE_STATUS_UNAVAILABLE";
-NSString * const kGTLRServiceControl_CheckError_Code_SpatulaHeaderInvalid = @"SPATULA_HEADER_INVALID";
-NSString * const kGTLRServiceControl_CheckError_Code_VisibilityDenied = @"VISIBILITY_DENIED";
+@implementation GTLRServiceControl_Api
+@dynamic operation, protocol, service, version;
+@end
 
-// GTLRServiceControl_ConsumerInfo.type
-NSString * const kGTLRServiceControl_ConsumerInfo_Type_ConsumerTypeUnspecified = @"CONSUMER_TYPE_UNSPECIFIED";
-NSString * const kGTLRServiceControl_ConsumerInfo_Type_Folder  = @"FOLDER";
-NSString * const kGTLRServiceControl_ConsumerInfo_Type_Organization = @"ORGANIZATION";
-NSString * const kGTLRServiceControl_ConsumerInfo_Type_Project = @"PROJECT";
-NSString * const kGTLRServiceControl_ConsumerInfo_Type_ServiceSpecific = @"SERVICE_SPECIFIC";
-
-// GTLRServiceControl_LogEntry.severity
-NSString * const kGTLRServiceControl_LogEntry_Severity_Alert   = @"ALERT";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Critical = @"CRITICAL";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Debug   = @"DEBUG";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Default = @"DEFAULT";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Emergency = @"EMERGENCY";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Error   = @"ERROR";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Info    = @"INFO";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Notice  = @"NOTICE";
-NSString * const kGTLRServiceControl_LogEntry_Severity_Warning = @"WARNING";
-
-// GTLRServiceControl_Operation.importance
-NSString * const kGTLRServiceControl_Operation_Importance_Debug = @"DEBUG";
-NSString * const kGTLRServiceControl_Operation_Importance_High = @"HIGH";
-NSString * const kGTLRServiceControl_Operation_Importance_Low  = @"LOW";
-
-// GTLRServiceControl_QuotaError.code
-NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyExpired = @"API_KEY_EXPIRED";
-NSString * const kGTLRServiceControl_QuotaError_Code_ApiKeyInvalid = @"API_KEY_INVALID";
-NSString * const kGTLRServiceControl_QuotaError_Code_BillingNotActive = @"BILLING_NOT_ACTIVE";
-NSString * const kGTLRServiceControl_QuotaError_Code_BillingStatusUnavailable = @"BILLING_STATUS_UNAVAILABLE";
-NSString * const kGTLRServiceControl_QuotaError_Code_LoasRoleInvalid = @"LOAS_ROLE_INVALID";
-NSString * const kGTLRServiceControl_QuotaError_Code_NoLoasProject = @"NO_LOAS_PROJECT";
-NSString * const kGTLRServiceControl_QuotaError_Code_OutOfRange = @"OUT_OF_RANGE";
-NSString * const kGTLRServiceControl_QuotaError_Code_ProjectDeleted = @"PROJECT_DELETED";
-NSString * const kGTLRServiceControl_QuotaError_Code_ProjectStatusUnavailable = @"PROJECT_STATUS_UNAVAILABLE";
-NSString * const kGTLRServiceControl_QuotaError_Code_QuotaSystemUnavailable = @"QUOTA_SYSTEM_UNAVAILABLE";
-NSString * const kGTLRServiceControl_QuotaError_Code_ResourceExhausted = @"RESOURCE_EXHAUSTED";
-NSString * const kGTLRServiceControl_QuotaError_Code_ServiceStatusUnavailable = @"SERVICE_STATUS_UNAVAILABLE";
-NSString * const kGTLRServiceControl_QuotaError_Code_SpatulaHeaderInvalid = @"SPATULA_HEADER_INVALID";
-NSString * const kGTLRServiceControl_QuotaError_Code_Unspecified = @"UNSPECIFIED";
-
-// GTLRServiceControl_QuotaOperation.quotaMode
-NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_AdjustOnly = @"ADJUST_ONLY";
-NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_BestEffort = @"BEST_EFFORT";
-NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_CheckOnly = @"CHECK_ONLY";
-NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Normal = @"NORMAL";
-NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_QueryOnly = @"QUERY_ONLY";
-NSString * const kGTLRServiceControl_QuotaOperation_QuotaMode_Unspecified = @"UNSPECIFIED";
-
-// GTLRServiceControl_QuotaProperties.quotaMode
-NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Acquire = @"ACQUIRE";
-NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_AcquireBestEffort = @"ACQUIRE_BEST_EFFORT";
-NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Check = @"CHECK";
-NSString * const kGTLRServiceControl_QuotaProperties_QuotaMode_Release = @"RELEASE";
-
-// GTLRServiceControl_TraceSpan.spanKind
-NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Client = @"CLIENT";
-NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Consumer = @"CONSUMER";
-NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Internal = @"INTERNAL";
-NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Producer = @"PRODUCER";
-NSString * const kGTLRServiceControl_TraceSpan_SpanKind_Server = @"SERVER";
-NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_AllocateInfo
+//   GTLRServiceControl_AttributeContext
 //
 
-@implementation GTLRServiceControl_AllocateInfo
-@dynamic unusedArguments;
+@implementation GTLRServiceControl_AttributeContext
+@dynamic api, destination, extensions, origin, request, resource, response,
+         source;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"unusedArguments" : [NSString class]
+    @"extensions" : [GTLRServiceControl_AttributeContext_Extensions_Item class]
   };
   return map;
 }
@@ -133,65 +42,15 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_AllocateQuotaRequest
+//   GTLRServiceControl_AttributeContext_Extensions_Item
 //
 
-@implementation GTLRServiceControl_AllocateQuotaRequest
-@dynamic allocateOperation, serviceConfigId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_AllocateQuotaResponse
-//
-
-@implementation GTLRServiceControl_AllocateQuotaResponse
-@dynamic allocateErrors, allocateInfo, operationId, quotaMetrics,
-         serviceConfigId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allocateErrors" : [GTLRServiceControl_QuotaError class],
-    @"quotaMetrics" : [GTLRServiceControl_MetricValueSet class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Attributes
-//
-
-@implementation GTLRServiceControl_Attributes
-@dynamic attributeMap, droppedAttributesCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Attributes_AttributeMap
-//
-
-@implementation GTLRServiceControl_Attributes_AttributeMap
+@implementation GTLRServiceControl_AttributeContext_Extensions_Item
 
 + (Class)classForAdditionalProperties {
-  return [GTLRServiceControl_AttributeValue class];
+  return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_AttributeValue
-//
-
-@implementation GTLRServiceControl_AttributeValue
-@dynamic boolValue, intValue, stringValue;
 @end
 
 
@@ -365,40 +224,19 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_CheckError
-//
-
-@implementation GTLRServiceControl_CheckError
-@dynamic code, detail, status, subject;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_CheckInfo
-//
-
-@implementation GTLRServiceControl_CheckInfo
-@dynamic consumerInfo, unusedArguments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"unusedArguments" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceControl_CheckRequest
 //
 
 @implementation GTLRServiceControl_CheckRequest
-@dynamic operation, requestProjectSettings, serviceConfigId,
-         skipActivationCheck;
+@dynamic attributes, resources, serviceConfigId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRServiceControl_ResourceInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -408,106 +246,21 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 //
 
 @implementation GTLRServiceControl_CheckResponse
-@dynamic checkErrors, checkInfo, operationId, quotaInfo, serviceConfigId,
-         serviceRolloutId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"checkErrors" : [GTLRServiceControl_CheckError class]
-  };
-  return map;
-}
-
+@dynamic headers, status;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_ConsumerInfo
+//   GTLRServiceControl_CheckResponse_Headers
 //
 
-@implementation GTLRServiceControl_ConsumerInfo
-@dynamic consumerNumber, projectNumber, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Distribution
-//
-
-@implementation GTLRServiceControl_Distribution
-@dynamic bucketCounts, count, exemplars, explicitBuckets, exponentialBuckets,
-         linearBuckets, maximum, mean, minimum, sumOfSquaredDeviation;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bucketCounts" : [NSNumber class],
-    @"exemplars" : [GTLRServiceControl_Exemplar class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Exemplar
-//
-
-@implementation GTLRServiceControl_Exemplar
-@dynamic attachments, timestamp, value;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attachments" : [GTLRServiceControl_Exemplar_Attachments_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Exemplar_Attachments_Item
-//
-
-@implementation GTLRServiceControl_Exemplar_Attachments_Item
+@implementation GTLRServiceControl_CheckResponse_Headers
 
 + (Class)classForAdditionalProperties {
-  return [NSObject class];
+  return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_ExplicitBuckets
-//
-
-@implementation GTLRServiceControl_ExplicitBuckets
-@dynamic bounds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bounds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_ExponentialBuckets
-//
-
-@implementation GTLRServiceControl_ExponentialBuckets
-@dynamic growthFactor, numFiniteBuckets, scale;
 @end
 
 
@@ -530,225 +283,6 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_HttpRequest
-//
-
-@implementation GTLRServiceControl_HttpRequest
-@dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
-         latency, protocol, referer, remoteIp, requestMethod, requestSize,
-         requestUrl, responseSize, serverIp, status, userAgent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LinearBuckets
-//
-
-@implementation GTLRServiceControl_LinearBuckets
-@dynamic numFiniteBuckets, offset, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LogEntry
-//
-
-@implementation GTLRServiceControl_LogEntry
-@dynamic httpRequest, insertId, labels, name, operation, protoPayload, severity,
-         sourceLocation, structPayload, textPayload, timestamp, trace;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LogEntry_Labels
-//
-
-@implementation GTLRServiceControl_LogEntry_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LogEntry_ProtoPayload
-//
-
-@implementation GTLRServiceControl_LogEntry_ProtoPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LogEntry_StructPayload
-//
-
-@implementation GTLRServiceControl_LogEntry_StructPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LogEntryOperation
-//
-
-@implementation GTLRServiceControl_LogEntryOperation
-@dynamic first, identifier, last, producer;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_LogEntrySourceLocation
-//
-
-@implementation GTLRServiceControl_LogEntrySourceLocation
-@dynamic file, function, line;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_MetricValue
-//
-
-@implementation GTLRServiceControl_MetricValue
-@dynamic boolValue, distributionValue, doubleValue, endTime, int64Value, labels,
-         moneyValue, startTime, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_MetricValue_Labels
-//
-
-@implementation GTLRServiceControl_MetricValue_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_MetricValueSet
-//
-
-@implementation GTLRServiceControl_MetricValueSet
-@dynamic metricName, metricValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metricValues" : [GTLRServiceControl_MetricValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Money
-//
-
-@implementation GTLRServiceControl_Money
-@dynamic currencyCode, nanos, units;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Operation
-//
-
-@implementation GTLRServiceControl_Operation
-@dynamic consumerId, endTime, extensions, importance, labels, logEntries,
-         metricValueSets, operationId, operationName, quotaProperties,
-         resources, startTime, traceSpans, userLabels;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extensions" : [GTLRServiceControl_Operation_Extensions_Item class],
-    @"logEntries" : [GTLRServiceControl_LogEntry class],
-    @"metricValueSets" : [GTLRServiceControl_MetricValueSet class],
-    @"resources" : [GTLRServiceControl_ResourceInfo class],
-    @"traceSpans" : [GTLRServiceControl_TraceSpan class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Operation_Extensions_Item
-//
-
-@implementation GTLRServiceControl_Operation_Extensions_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Operation_Labels
-//
-
-@implementation GTLRServiceControl_Operation_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_Operation_UserLabels
-//
-
-@implementation GTLRServiceControl_Operation_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end
@@ -780,116 +314,6 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceControl_QuotaError
-//
-
-@implementation GTLRServiceControl_QuotaError
-@dynamic code, descriptionProperty, subject;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_QuotaInfo
-//
-
-@implementation GTLRServiceControl_QuotaInfo
-@dynamic limitExceeded, quotaConsumed, quotaMetrics;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"limitExceeded" : [NSString class],
-    @"quotaMetrics" : [GTLRServiceControl_MetricValueSet class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_QuotaInfo_QuotaConsumed
-//
-
-@implementation GTLRServiceControl_QuotaInfo_QuotaConsumed
-
-+ (Class)classForAdditionalProperties {
-  return [NSNumber class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_QuotaOperation
-//
-
-@implementation GTLRServiceControl_QuotaOperation
-@dynamic consumerId, labels, methodName, operationId, quotaMetrics, quotaMode;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"quotaMetrics" : [GTLRServiceControl_MetricValueSet class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_QuotaOperation_Labels
-//
-
-@implementation GTLRServiceControl_QuotaOperation_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_QuotaProperties
-//
-
-@implementation GTLRServiceControl_QuotaProperties
-@dynamic quotaMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_ReportError
-//
-
-@implementation GTLRServiceControl_ReportError
-@dynamic operationId, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_ReportInfo
-//
-
-@implementation GTLRServiceControl_ReportInfo
-@dynamic operationId, quotaInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceControl_ReportRequest
 //
 
@@ -898,7 +322,7 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRServiceControl_Operation class]
+    @"operations" : [GTLRServiceControl_AttributeContext class]
   };
   return map;
 }
@@ -912,16 +336,6 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 //
 
 @implementation GTLRServiceControl_ReportResponse
-@dynamic reportErrors, reportInfos, serviceConfigId, serviceRolloutId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reportErrors" : [GTLRServiceControl_ReportError class],
-    @"reportInfos" : [GTLRServiceControl_ReportInfo class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -996,7 +410,7 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
 //
 
 @implementation GTLRServiceControl_ResourceInfo
-@dynamic resourceContainer, resourceLocation, resourceName;
+@dynamic name, permission, type;
 @end
 
 
@@ -1014,6 +428,30 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
     @"originalLocations" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Response
+//
+
+@implementation GTLRServiceControl_Response
+@dynamic code, headers, size, time;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Response_Headers
+//
+
+@implementation GTLRServiceControl_Response_Headers
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1092,25 +530,4 @@ NSString * const kGTLRServiceControl_TraceSpan_SpanKind_SpanKindUnspecified = @"
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_TraceSpan
-//
-
-@implementation GTLRServiceControl_TraceSpan
-@dynamic attributes, childSpanCount, displayName, endTime, name, parentSpanId,
-         sameProcessAsParentSpan, spanId, spanKind, startTime, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceControl_TruncatableString
-//
-
-@implementation GTLRServiceControl_TruncatableString
-@dynamic truncatedByteCount, value;
 @end

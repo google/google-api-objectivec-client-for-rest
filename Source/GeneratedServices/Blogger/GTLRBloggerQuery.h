@@ -4,8 +4,8 @@
 // API:
 //   Blogger API v3 (blogger/v3)
 // Description:
-//   The Blogger API provides access to posts, comments and pages of a
-//   Blogger blog.
+//   The Blogger API provides access to posts, comments and pages of a Blogger
+//   blog.
 // Documentation:
 //   https://developers.google.com/blogger/docs/3.0/getting_started
 

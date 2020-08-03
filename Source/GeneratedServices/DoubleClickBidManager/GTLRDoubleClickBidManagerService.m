@@ -4,7 +4,8 @@
 // API:
 //   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
-//   API for viewing and managing your reports in DoubleClick Bid Manager.
+//   DoubleClick Bid Manager API allows users to manage and create campaigns and
+//   reports.
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
@@ -26,19 +27,10 @@ NSString * const kGTLRAuthScopeDoubleClickBidManager = @"https://www.googleapis.
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"doubleclickbidmanager/v1.1/";
-    self.batchPath = @"batch/doubleclickbidmanager/v1.1";
+    self.batchPath = @"batch/doubleclickbidmanager";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"doubleclickbidmanager#listQueriesResponse" : [GTLRDoubleClickBidManager_ListQueriesResponse class],
-    @"doubleclickbidmanager#listReportsResponse" : [GTLRDoubleClickBidManager_ListReportsResponse class],
-    @"doubleclickbidmanager#query" : [GTLRDoubleClickBidManager_Query class],
-  };
 }
 
 @end

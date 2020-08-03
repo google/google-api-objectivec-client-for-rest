@@ -56,24 +56,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Default priority for notification messages. FCM attempts to deliver high
- *  priority messages immediately, allowing the FCM service to wake a
- *  sleeping device when possible and open a network connection to your app
- *  server. Apps with instant messaging, chat, or voice call alerts, for
- *  example, generally need to open a network connection and make sure FCM
- *  delivers the message to the device without delay. Set high priority if
- *  the message is time-critical and requires the user's immediate
- *  interaction, but beware that setting your messages to high priority
- *  contributes more to battery drain compared with normal priority messages.
+ *  priority messages immediately, allowing the FCM service to wake a sleeping
+ *  device when possible and open a network connection to your app server. Apps
+ *  with instant messaging, chat, or voice call alerts, for example, generally
+ *  need to open a network connection and make sure FCM delivers the message to
+ *  the device without delay. Set high priority if the message is time-critical
+ *  and requires the user's immediate interaction, but beware that setting your
+ *  messages to high priority contributes more to battery drain compared with
+ *  normal priority messages.
  *
  *  Value: "HIGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_High;
 /**
  *  Default priority for data messages. Normal priority messages won't open
- *  network connections on a sleeping device, and their delivery may be
- *  delayed to conserve the battery. For less time-sensitive messages, such
- *  as notifications of new email or other data to sync, choose normal
- *  delivery priority.
+ *  network connections on a sleeping device, and their delivery may be delayed
+ *  to conserve the battery. For less time-sensitive messages, such as
+ *  notifications of new email or other data to sync, choose normal delivery
+ *  priority.
  *
  *  Value: "NORMAL"
  */
@@ -90,8 +90,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidConfig_Pri
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault;
 /**
- *  Higher notification priority. Use this for more important notifications
- *  or alerts. The UI may choose to show these notifications larger, or at a
+ *  Higher notification priority. Use this for more important notifications or
+ *  alerts. The UI may choose to show these notifications larger, or at a
  *  different position in the notification lists, compared with notifications
  *  with `PRIORITY_DEFAULT`.
  *
@@ -100,23 +100,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh;
 /**
  *  Lower notification priority. The UI may choose to show the notifications
- *  smaller, or at a different position in the list, compared with
- *  notifications with `PRIORITY_DEFAULT`.
+ *  smaller, or at a different position in the list, compared with notifications
+ *  with `PRIORITY_DEFAULT`.
  *
  *  Value: "PRIORITY_LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow;
 /**
- *  Highest notification priority. Use this for the application's most
- *  important items that require the user's prompt attention or input.
+ *  Highest notification priority. Use this for the application's most important
+ *  items that require the user's prompt attention or input.
  *
  *  Value: "PRIORITY_MAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax;
 /**
- *  Lowest notification priority. Notifications with this `PRIORITY_MIN`
- *  might not be shown to the user except under special circumstances,
- *  such as detailed notification logs.
+ *  Lowest notification priority. Notifications with this `PRIORITY_MIN` might
+ *  not be shown to the user except under special circumstances, such as
+ *  detailed notification logs.
  *
  *  Value: "PRIORITY_MIN"
  */
@@ -133,8 +133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 // GTLRFirebaseCloudMessaging_AndroidNotification.visibility
 
 /**
- *  Show this notification on all lockscreens, but conceal sensitive or
- *  private information on secure lockscreens.
+ *  Show this notification on all lockscreens, but conceal sensitive or private
+ *  information on secure lockscreens.
  *
  *  Value: "PRIVATE"
  */
@@ -159,14 +159,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotification_Visibility_VisibilityUnspecified;
 
 /**
- *  Android specific options for messages sent through
- *  [FCM connection server](https://goo.gl/4GLdUl).
+ *  Android specific options for messages sent through [FCM connection
+ *  server](https://goo.gl/4GLdUl).
  */
 @interface GTLRFirebaseCloudMessaging_AndroidConfig : GTLRObject
 
 /**
- *  An identifier of a group of messages that can be collapsed, so that only
- *  the last message gets sent when delivery can be resumed. A maximum of 4
+ *  An identifier of a group of messages that can be collapsed, so that only the
+ *  last message gets sent when delivery can be resumed. A maximum of 4
  *  different collapse keys is allowed at any given time.
  */
 @property(nonatomic, copy, nullable) NSString *collapseKey;
@@ -193,30 +193,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidNotification *notification;
 
 /**
- *  Message priority. Can take "normal" and "high" values.
- *  For more information, see [Setting the priority of a
- *  message](https://goo.gl/GjONJv).
+ *  Message priority. Can take "normal" and "high" values. For more information,
+ *  see [Setting the priority of a message](https://goo.gl/GjONJv).
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_High Default
  *        priority for notification messages. FCM attempts to deliver high
  *        priority messages immediately, allowing the FCM service to wake a
  *        sleeping device when possible and open a network connection to your
- *        app
- *        server. Apps with instant messaging, chat, or voice call alerts, for
- *        example, generally need to open a network connection and make sure FCM
- *        delivers the message to the device without delay. Set high priority if
- *        the message is time-critical and requires the user's immediate
- *        interaction, but beware that setting your messages to high priority
- *        contributes more to battery drain compared with normal priority
- *        messages. (Value: "HIGH")
+ *        app server. Apps with instant messaging, chat, or voice call alerts,
+ *        for example, generally need to open a network connection and make sure
+ *        FCM delivers the message to the device without delay. Set high
+ *        priority if the message is time-critical and requires the user's
+ *        immediate interaction, but beware that setting your messages to high
+ *        priority contributes more to battery drain compared with normal
+ *        priority messages. (Value: "HIGH")
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_Normal Default
  *        priority for data messages. Normal priority messages won't open
  *        network connections on a sleeping device, and their delivery may be
  *        delayed to conserve the battery. For less time-sensitive messages,
- *        such
- *        as notifications of new email or other data to sync, choose normal
- *        delivery priority. (Value: "NORMAL")
+ *        such as notifications of new email or other data to sync, choose
+ *        normal delivery priority. (Value: "NORMAL")
  */
 @property(nonatomic, copy, nullable) NSString *priority;
 
@@ -229,15 +226,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  How long (in seconds) the message should be kept in FCM storage if the
  *  device is offline. The maximum time to live supported is 4 weeks, and the
- *  default value is 4 weeks if not set. Set it to 0 if want to send the
- *  message immediately.
- *  In JSON format, the Duration type is encoded as a string rather than an
- *  object, where the string ends in the suffix "s" (indicating seconds) and
- *  is preceded by the number of seconds, with nanoseconds expressed as
+ *  default value is 4 weeks if not set. Set it to 0 if want to send the message
+ *  immediately. In JSON format, the Duration type is encoded as a string rather
+ *  than an object, where the string ends in the suffix "s" (indicating seconds)
+ *  and is preceded by the number of seconds, with nanoseconds expressed as
  *  fractional seconds. For example, 3 seconds with 0 nanoseconds should be
- *  encoded in JSON format as "3s", while 3 seconds and 1 nanosecond should
- *  be expressed in JSON format as "3.000000001s". The ttl will be rounded down
- *  to the nearest second.
+ *  encoded in JSON format as "3s", while 3 seconds and 1 nanosecond should be
+ *  expressed in JSON format as "3.000000001s". The ttl will be rounded down to
+ *  the nearest second.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
@@ -282,15 +278,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Variable string values to be used in place of the format specifiers in
  *  body_loc_key to use to localize the body text to the user's current
- *  localization.
- *  See [Formatting and Styling](https://goo.gl/MalYE3) for more information.
+ *  localization. See [Formatting and Styling](https://goo.gl/MalYE3) for more
+ *  information.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *bodyLocArgs;
 
 /**
  *  The key to the body string in the app's string resources to use to localize
- *  the body text to the user's current localization.
- *  See [String Resources](https://goo.gl/NdFZGI) for more information.
+ *  the body text to the user's current localization. See [String
+ *  Resources](https://goo.gl/NdFZGI) for more information.
  */
 @property(nonatomic, copy, nullable) NSString *bodyLocKey;
 
@@ -306,9 +302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *channelId;
 
 /**
- *  The action associated with a user click on the notification.
- *  If specified, an activity with a matching intent filter is launched when
- *  a user clicks on the notification.
+ *  The action associated with a user click on the notification. If specified,
+ *  an activity with a matching intent filter is launched when a user clicks on
+ *  the notification.
  */
 @property(nonatomic, copy, nullable) NSString *clickAction;
 
@@ -319,9 +315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  If set to true, use the Android framework's default LED light settings for
  *  the notification. Default values are specified in
  *  [config.xml](https://android.googlesource.com/platform/frameworks/base/+/master/core/res/res/values/config.xml).
- *  If `default_light_settings` is set to true and `light_settings` is also
- *  set, the user-specified `light_settings` is used instead of the
- *  default value.
+ *  If `default_light_settings` is set to true and `light_settings` is also set,
+ *  the user-specified `light_settings` is used instead of the default value.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -356,10 +351,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  The notification's icon.
- *  Sets the notification icon to myicon for drawable resource myicon.
- *  If you don't send this key in the request, FCM displays the launcher icon
- *  specified in your app manifest.
+ *  The notification's icon. Sets the notification icon to myicon for drawable
+ *  resource myicon. If you don't send this key in the request, FCM displays the
+ *  launcher icon specified in your app manifest.
  */
 @property(nonatomic, copy, nullable) NSString *icon;
 
@@ -371,17 +365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  Settings to control the notification's LED blinking rate and color if LED
- *  is available on the device. The total blinking time is controlled by the
- *  OS.
+ *  Settings to control the notification's LED blinking rate and color if LED is
+ *  available on the device. The total blinking time is controlled by the OS.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_LightSettings *lightSettings;
 
 /**
- *  Set whether or not this notification is relevant only to the current
- *  device. Some notifications can be bridged to other devices for remote
- *  display, such as a Wear OS watch. This hint can be set to recommend this
- *  notification not be bridged. See [Wear OS
+ *  Set whether or not this notification is relevant only to the current device.
+ *  Some notifications can be bridged to other devices for remote display, such
+ *  as a Wear OS watch. This hint can be set to recommend this notification not
+ *  be bridged. See [Wear OS
  *  guides](https://developer.android.com/training/wearables/notifications/bridger#existing-method-of-preventing-bridging)
  *
  *  Uses NSNumber of boolValue.
@@ -389,15 +382,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) NSNumber *localOnly;
 
 /**
- *  Sets the number of items this notification represents. May be displayed as
- *  a badge count for launchers that support badging.See [Notification
- *  Badge](https://developer.android.com/training/notify-user/badges).
- *  For example, this might be useful if you're using just one notification to
- *  represent multiple new messages but you want the count here to represent
- *  the number of total new messages.
- *  If zero or unspecified, systems that support badging use the default, which
- *  is to increment a number displayed on the long-press menu each time a new
- *  notification arrives.
+ *  Sets the number of items this notification represents. May be displayed as a
+ *  badge count for launchers that support badging.See [Notification
+ *  Badge](https://developer.android.com/training/notify-user/badges). For
+ *  example, this might be useful if you're using just one notification to
+ *  represent multiple new messages but you want the count here to represent the
+ *  number of total new messages. If zero or unspecified, systems that support
+ *  badging use the default, which is to increment a number displayed on the
+ *  long-press menu each time a new notification arrives.
  *
  *  Uses NSNumber of intValue.
  */
@@ -405,35 +397,31 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 /**
  *  Set the relative priority for this notification. Priority is an indication
- *  of how much of the user's attention should be consumed by this
- *  notification. Low-priority notifications may be hidden from the user in
- *  certain situations, while the user might be interrupted for a
- *  higher-priority notification. The effect of setting the same priorities may
- *  differ slightly on different platforms. Note this priority differs from
- *  `AndroidMessagePriority`. This priority is processed by the client after
- *  the message has been delivered, whereas
+ *  of how much of the user's attention should be consumed by this notification.
+ *  Low-priority notifications may be hidden from the user in certain
+ *  situations, while the user might be interrupted for a higher-priority
+ *  notification. The effect of setting the same priorities may differ slightly
+ *  on different platforms. Note this priority differs from
+ *  `AndroidMessagePriority`. This priority is processed by the client after the
+ *  message has been delivered, whereas
  *  [AndroidMessagePriority](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidmessagepriority)
  *  is an FCM concept that controls when the message is delivered.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityDefault
  *        Default notification priority. If the application does not prioritize
- *        its
- *        own notifications, use this value for all notifications. (Value:
+ *        its own notifications, use this value for all notifications. (Value:
  *        "PRIORITY_DEFAULT")
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityHigh
  *        Higher notification priority. Use this for more important
- *        notifications
- *        or alerts. The UI may choose to show these notifications larger, or at
- *        a
- *        different position in the notification lists, compared with
- *        notifications
- *        with `PRIORITY_DEFAULT`. (Value: "PRIORITY_HIGH")
+ *        notifications or alerts. The UI may choose to show these notifications
+ *        larger, or at a different position in the notification lists, compared
+ *        with notifications with `PRIORITY_DEFAULT`. (Value: "PRIORITY_HIGH")
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityLow
  *        Lower notification priority. The UI may choose to show the
- *        notifications
- *        smaller, or at a different position in the list, compared with
- *        notifications with `PRIORITY_DEFAULT`. (Value: "PRIORITY_LOW")
+ *        notifications smaller, or at a different position in the list,
+ *        compared with notifications with `PRIORITY_DEFAULT`. (Value:
+ *        "PRIORITY_LOW")
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidNotification_NotificationPriority_PriorityMax
  *        Highest notification priority. Use this for the application's most
  *        important items that require the user's prompt attention or input.
@@ -449,16 +437,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *notificationPriority;
 
 /**
- *  The sound to play when the device receives the notification.
- *  Supports "default" or the filename of a sound resource bundled in the app.
- *  Sound files must reside in /res/raw/.
+ *  The sound to play when the device receives the notification. Supports
+ *  "default" or the filename of a sound resource bundled in the app. Sound
+ *  files must reside in /res/raw/.
  */
 @property(nonatomic, copy, nullable) NSString *sound;
 
 /**
- *  When set to false or unset, the notification is automatically
- *  dismissed when the user clicks it in the panel. When set to true, the
- *  notification persists even when the user clicks it.
+ *  When set to false or unset, the notification is automatically dismissed when
+ *  the user clicks it in the panel. When set to true, the notification persists
+ *  even when the user clicks it.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -466,17 +454,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 /**
  *  Identifier used to replace existing notifications in the notification
- *  drawer.
- *  If not specified, each request creates a new notification.
- *  If specified and a notification with the same tag is already being shown,
- *  the new notification replaces the existing one in the notification drawer.
+ *  drawer. If not specified, each request creates a new notification. If
+ *  specified and a notification with the same tag is already being shown, the
+ *  new notification replaces the existing one in the notification drawer.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
 /**
- *  Sets the "ticker" text, which is sent to accessibility services.
- *  Prior to API level 21 (`Lollipop`), sets the text that is displayed in the
- *  status bar when the notification first arrives.
+ *  Sets the "ticker" text, which is sent to accessibility services. Prior to
+ *  API level 21 (`Lollipop`), sets the text that is displayed in the status bar
+ *  when the notification first arrives.
  */
 @property(nonatomic, copy, nullable) NSString *ticker;
 
@@ -489,15 +476,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Variable string values to be used in place of the format specifiers in
  *  title_loc_key to use to localize the title text to the user's current
- *  localization.
- *  See [Formatting and Styling](https://goo.gl/MalYE3) for more information.
+ *  localization. See [Formatting and Styling](https://goo.gl/MalYE3) for more
+ *  information.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *titleLocArgs;
 
 /**
- *  The key to the title string in the app's string resources to use to
- *  localize the title text to the user's current localization.
- *  See [String Resources](https://goo.gl/NdFZGI) for more information.
+ *  The key to the title string in the app's string resources to use to localize
+ *  the title text to the user's current localization. See [String
+ *  Resources](https://goo.gl/NdFZGI) for more information.
  */
 @property(nonatomic, copy, nullable) NSString *titleLocKey;
 
@@ -505,11 +492,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  Set the vibration pattern to use. Pass in an array of
  *  [protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration)
  *  to turn on or off the vibrator. The first value indicates the `Duration` to
- *  wait before turning the vibrator on. The next value indicates the
- *  `Duration` to keep the vibrator on. Subsequent values alternate between
- *  `Duration` to turn the vibrator off and to turn the vibrator on.
- *  If `vibrate_timings` is set and `default_vibrate_timings` is set to `true`,
- *  the default value is used instead of the user-specified `vibrate_timings`.
+ *  wait before turning the vibrator on. The next value indicates the `Duration`
+ *  to keep the vibrator on. Subsequent values alternate between `Duration` to
+ *  turn the vibrator off and to turn the vibrator on. If `vibrate_timings` is
+ *  set and `default_vibrate_timings` is set to `true`, the default value is
+ *  used instead of the user-specified `vibrate_timings`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDuration *> *vibrateTimings;
 
@@ -557,8 +544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  APNs payload as a JSON object, including both `aps` dictionary and custom
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
- *  If present, it overrides google.firebase.fcm.v1.Notification.title
- *  and google.firebase.fcm.v1.Notification.body.
+ *  If present, it overrides google.firebase.fcm.v1.Notification.title and
+ *  google.firebase.fcm.v1.Notification.body.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Payload *payload;
 
@@ -584,8 +571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  APNs payload as a JSON object, including both `aps` dictionary and custom
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
- *  If present, it overrides google.firebase.fcm.v1.Notification.title
- *  and google.firebase.fcm.v1.Notification.body.
+ *  If present, it overrides google.firebase.fcm.v1.Notification.title and
+ *  google.firebase.fcm.v1.Notification.body.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -621,120 +608,61 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
  *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS "rgba()" string in JavaScript, as well.
- *  Note: this proto does not carry information about the absolute color space
- *  that should be used to interpret the RGB value (e.g. sRGB, Adobe RGB,
- *  DCI-P3, BT.2020, etc.). By default, applications SHOULD assume the sRGB
- *  color
- *  space.
- *  Note: when color equality needs to be decided, implementations, unless
- *  documented otherwise, will treat two colors to be equal if all their red,
- *  green, blue and alpha values each differ by at most 1e-5.
- *  Example (Java):
- *  import com.google.type.Color;
- *  // ...
- *  public static java.awt.Color fromProto(Color protocolor) {
- *  float alpha = protocolor.hasAlpha()
- *  ? protocolor.getAlpha().getValue()
- *  : 1.0;
- *  return new java.awt.Color(
- *  protocolor.getRed(),
- *  protocolor.getGreen(),
- *  protocolor.getBlue(),
- *  alpha);
- *  }
- *  public static Color toProto(java.awt.Color color) {
- *  float red = (float) color.getRed();
- *  float green = (float) color.getGreen();
- *  float blue = (float) color.getBlue();
- *  float denominator = 255.0;
- *  Color.Builder resultBuilder =
- *  Color
- *  .newBuilder()
- *  .setRed(red / denominator)
- *  .setGreen(green / denominator)
- *  .setBlue(blue / denominator);
- *  int alpha = color.getAlpha();
- *  if (alpha != 255) {
- *  result.setAlpha(
- *  FloatValue
- *  .newBuilder()
- *  .setValue(((float) alpha) / denominator)
- *  .build());
- *  }
- *  return resultBuilder.build();
- *  }
- *  // ...
- *  Example (iOS / Obj-C):
- *  // ...
- *  static UIColor* fromProto(Color* protocolor) {
- *  float red = [protocolor red];
- *  float green = [protocolor green];
- *  float blue = [protocolor blue];
- *  FloatValue* alpha_wrapper = [protocolor alpha];
- *  float alpha = 1.0;
- *  if (alpha_wrapper != nil) {
- *  alpha = [alpha_wrapper value];
- *  }
- *  return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
- *  }
- *  static Color* toProto(UIColor* color) {
- *  CGFloat red, green, blue, alpha;
- *  if (![color getRed:&red green:&green blue:&blue alpha:&alpha]) {
- *  return nil;
- *  }
- *  Color* result = [[Color alloc] init];
- *  [result setRed:red];
- *  [result setGreen:green];
- *  [result setBlue:blue];
- *  if (alpha <= 0.9999) {
- *  [result setAlpha:floatWrapperWithValue(alpha)];
- *  }
- *  [result autorelease];
- *  return result;
- *  }
- *  // ...
- *  Example (JavaScript):
- *  // ...
- *  var protoToCssColor = function(rgb_color) {
- *  var redFrac = rgb_color.red || 0.0;
- *  var greenFrac = rgb_color.green || 0.0;
- *  var blueFrac = rgb_color.blue || 0.0;
- *  var red = Math.floor(redFrac * 255);
- *  var green = Math.floor(greenFrac * 255);
- *  var blue = Math.floor(blueFrac * 255);
- *  if (!('alpha' in rgb_color)) {
- *  return rgbToCssColor_(red, green, blue);
- *  }
- *  var alphaFrac = rgb_color.alpha.value || 0.0;
- *  var rgbParams = [red, green, blue].join(',');
- *  return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
- *  };
- *  var rgbToCssColor_ = function(red, green, blue) {
- *  var rgbNumber = new Number((red << 16) | (green << 8) | blue);
- *  var hexString = rgbNumber.toString(16);
- *  var missingZeros = 6 - hexString.length;
- *  var resultBuilder = ['#'];
- *  for (var i = 0; i < missingZeros; i++) {
- *  resultBuilder.push('0');
- *  }
- *  resultBuilder.push(hexString);
- *  return resultBuilder.join('');
- *  };
- *  // ...
+ *  a CSS "rgba()" string in JavaScript, as well. Note: this proto does not
+ *  carry information about the absolute color space that should be used to
+ *  interpret the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By
+ *  default, applications SHOULD assume the sRGB color space. Note: when color
+ *  equality needs to be decided, implementations, unless documented otherwise,
+ *  will treat two colors to be equal if all their red, green, blue and alpha
+ *  values each differ by at most 1e-5. Example (Java): import
+ *  com.google.type.Color; // ... public static java.awt.Color fromProto(Color
+ *  protocolor) { float alpha = protocolor.hasAlpha() ?
+ *  protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color(
+ *  protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); }
+ *  public static Color toProto(java.awt.Color color) { float red = (float)
+ *  color.getRed(); float green = (float) color.getGreen(); float blue = (float)
+ *  color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder =
+ *  Color .newBuilder() .setRed(red / denominator) .setGreen(green /
+ *  denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if
+ *  (alpha != 255) { result.setAlpha( FloatValue .newBuilder()
+ *  .setValue(((float) alpha) / denominator) .build()); } return
+ *  resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static
+ *  UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float
+ *  green = [protocolor green]; float blue = [protocolor blue]; FloatValue*
+ *  alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper !=
+ *  nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red
+ *  green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color)
+ *  { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green
+ *  blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc]
+ *  init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue];
+ *  if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; }
+ *  [result autorelease]; return result; } // ... Example (JavaScript): // ...
+ *  var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red ||
+ *  0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue
+ *  || 0.0; var red = Math.floor(redFrac * 255); var green =
+ *  Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if
+ *  (!('alpha' in rgb_color)) { return rgbToCssColor_(red, green, blue); } var
+ *  alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green,
+ *  blue].join(','); return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
+ *  }; var rgbToCssColor_ = function(red, green, blue) { var rgbNumber = new
+ *  Number((red << 16) | (green << 8) | blue); var hexString =
+ *  rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var
+ *  resultBuilder = ['#']; for (var i = 0; i < missingZeros; i++) {
+ *  resultBuilder.push('0'); } resultBuilder.push(hexString); return
+ *  resultBuilder.join(''); }; // ...
  */
 @interface GTLRFirebaseCloudMessaging_Color : GTLRObject
 
 /**
- *  The fraction of this color that should be applied to the pixel. That is,
- *  the final pixel color is defined by the equation:
- *  pixel color = alpha * (this color) + (1.0 - alpha) * (background color)
- *  This means that a value of 1.0 corresponds to a solid color, whereas
- *  a value of 0.0 corresponds to a completely transparent color. This
- *  uses a wrapper message rather than a simple float scalar so that it is
- *  possible to distinguish between a default value and the value being unset.
- *  If omitted, this color object is to be rendered as a solid color
- *  (as if the alpha value had been explicitly given with a value of 1.0).
+ *  The fraction of this color that should be applied to the pixel. That is, the
+ *  final pixel color is defined by the equation: pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
+ *  completely transparent color. This uses a wrapper message rather than a
+ *  simple float scalar so that it is possible to distinguish between a default
+ *  value and the value being unset. If omitted, this color object is to be
+ *  rendered as a solid color (as if the alpha value had been explicitly given
+ *  with a value of 1.0).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -809,8 +737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @interface GTLRFirebaseCloudMessaging_Message : GTLRObject
 
 /**
- *  Input only. Android specific options for messages sent through
- *  [FCM connection server](https://goo.gl/4GLdUl).
+ *  Input only. Android specific options for messages sent through [FCM
+ *  connection server](https://goo.gl/4GLdUl).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidConfig *android;
 
@@ -821,8 +749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig *apns;
 
 /**
- *  Condition to send a message to,
- *  e.g. "'foo' in topics && 'bar' in topics".
+ *  Condition to send a message to, e.g. "'foo' in topics && 'bar' in topics".
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
@@ -839,8 +766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_FcmOptions *fcmOptions;
 
 /**
- *  Output Only. The identifier of the message sent, in the format of
- *  `projects/ * /messages/{message_id}`.
+ *  Output Only. The identifier of the message sent, in the format of `projects/
+ *  * /messages/{message_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -851,14 +778,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
- *  Topic name to send a message to, e.g. "weather".
- *  Note: "/topics/" prefix should not be provided.
+ *  Topic name to send a message to, e.g. "weather". Note: "/topics/" prefix
+ *  should not be provided.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
 /**
- *  Input only. [Webpush protocol](https://tools.ietf.org/html/rfc8030)
- *  options.
+ *  Input only. [Webpush protocol](https://tools.ietf.org/html/rfc8030) options.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_WebpushConfig *webpush;
 
@@ -888,13 +814,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 /**
  *  Contains the URL of an image that is going to be downloaded on the device
- *  and displayed in a notification.
- *  JPEG, PNG, BMP have full support across platforms. Animated GIF and video
- *  only work on iOS. WebP and HEIF have varying levels of support across
- *  platforms and platform versions.
- *  Android has 1MB image size limit.
- *  Quota usage and implications/costs for hosting image on Firebase Storage:
- *  https://firebase.google.com/pricing
+ *  and displayed in a notification. JPEG, PNG, BMP have full support across
+ *  platforms. Animated GIF and video only work on iOS. WebP and HEIF have
+ *  varying levels of support across platforms and platform versions. Android
+ *  has 1MB image size limit. Quota usage and implications/costs for hosting
+ *  image on Firebase Storage: https://firebase.google.com/pricing
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -937,9 +861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_WebpushFcmOptions *fcmOptions;
 
 /**
- *  HTTP headers defined in webpush protocol. Refer to
- *  [Webpush protocol](https://tools.ietf.org/html/rfc8030#section-5) for
- *  supported headers, e.g. "TTL": "15".
+ *  HTTP headers defined in webpush protocol. Refer to [Webpush
+ *  protocol](https://tools.ietf.org/html/rfc8030#section-5) for supported
+ *  headers, e.g. "TTL": "15".
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_WebpushConfig_Headers *headers;
 
@@ -970,9 +894,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 
 /**
- *  HTTP headers defined in webpush protocol. Refer to
- *  [Webpush protocol](https://tools.ietf.org/html/rfc8030#section-5) for
- *  supported headers, e.g. "TTL": "15".
+ *  HTTP headers defined in webpush protocol. Refer to [Webpush
+ *  protocol](https://tools.ietf.org/html/rfc8030#section-5) for supported
+ *  headers, e.g. "TTL": "15".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1009,8 +933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *analyticsLabel;
 
 /**
- *  The link to open when the user clicks on the notification.
- *  For all URL values, HTTPS is required.
+ *  The link to open when the user clicks on the notification. For all URL
+ *  values, HTTPS is required.
  */
 @property(nonatomic, copy, nullable) NSString *link;
 

@@ -2,11 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud DNS API (dns/v1)
-// Description:
-//   Configures and serves authoritative DNS records.
+//   Cloud DNS API (dns/v1)
 // Documentation:
-//   https://developers.google.com/cloud-dns
+//   http://developers.google.com/cloud-dns
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -62,9 +60,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite;
 //
 
 /**
- *  Service for executing Google Cloud DNS API queries.
- *
- *  Configures and serves authoritative DNS records.
+ *  Service for executing Cloud DNS API queries.
  */
 @interface GTLRDnsService : GTLRService
 

@@ -93,8 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource domain name, project name and location using the
- *  form:
- *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ *  form: `projects/{project_id}/locations/global/domains/{domain_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -131,17 +130,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsCreateWithObject:parent:]
 
 /**
- *  Required. The fully qualified domain name.
- *  e.g. mydomain.myorganization.com, with the following restrictions:
- *  * Must contain only lowercase letters, numbers, periods and hyphens.
- *  * Must start with a letter.
- *  * Must contain between 2-64 characters.
- *  * Must end with a number or a letter.
- *  * Must not start with period.
- *  * First segement length (mydomain form example above) shouldn't exceed
- *  15 chars.
- *  * The last segment cannot be fully numeric.
- *  * Must be unique within the customer project.
+ *  Required. The fully qualified domain name. e.g. mydomain.myorganization.com,
+ *  with the following restrictions: * Must contain only lowercase letters,
+ *  numbers, periods and hyphens. * Must start with a letter. * Must contain
+ *  between 2-64 characters. * Must end with a number or a letter. * Must not
+ *  start with period. * First segement length (mydomain form example above)
+ *  shouldn't exceed 15 chars. * The last segment cannot be fully numeric. *
+ *  Must be unique within the customer project.
  */
 @property(nonatomic, copy, nullable) NSString *domainName;
 
@@ -161,8 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain to include
  *    in the query.
  *  @param parent Required. The resource project name and location using the
- *    form:
- *    `projects/{project_id}/locations/global`
+ *    form: `projects/{project_id}/locations/global`
  *
  *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCreate
  */
@@ -218,8 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource domain name, project name, and location using the
- *  form:
- *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ *  form: `projects/{project_id}/locations/global/domains/{domain_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -277,9 +270,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: managedidentities.projects.locations.global.domains.getIamPolicy
  *
@@ -291,21 +283,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -313,13 +303,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetIamPolicy
  */
@@ -340,33 +329,29 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsListWithparent:]
 
 /**
- *  Optional. A filter specifying constraints of a list operation.
- *  For example, `Domain.fqdn="mydomain.myorginization"`.
+ *  Optional. A filter specifying constraints of a list operation. For example,
+ *  `Domain.fqdn="mydomain.myorginization"`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Specifies the ordering of results. See
- *  [Sorting
+ *  Optional. Specifies the ordering of results. See [Sorting
  *  order](https://cloud.google.com/apis/design/design_patterns#sorting_order)
  *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of items to return.
- *  If not specified, a default value of 1000 will be used.
- *  Regardless of the page_size value, the response may include a partial list.
- *  Callers should rely on a response's
- *  next_page_token
- *  to determine if there are additional results to list.
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used. Regardless of the page_size value, the response
+ *  may include a partial list. Callers should rely on a response's
+ *  next_page_token to determine if there are additional results to list.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. The `next_page_token` value returned from a previous
- *  ListDomainsRequest
- *  request, if any.
+ *  ListDomainsRequest request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -383,8 +368,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists domains in a project.
  *
  *  @param parent Required. The resource name of the domain location using the
- *    form:
- *    `projects/{project_id}/locations/global`
+ *    form: `projects/{project_id}/locations/global`
  *
  *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsList
  *
@@ -416,12 +400,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this
- *  field. The elements of the repeated paths field may only include
- *  fields from Domain:
- *  * `labels`
- *  * `locations`
- *  * `authorized_networks`
+ *  this field. The elements of the repeated paths field may only include fields
+ *  from Domain: * `labels` * `locations` * `authorized_networks`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -460,8 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource domain name, project name and location using the
- *  form:
- *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ *  form: `projects/{project_id}/locations/global/domains/{domain_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -524,8 +503,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: managedidentities.projects.locations.global.domains.setIamPolicy
  *
@@ -537,8 +516,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -547,15 +526,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c
  *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest
  *    to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSetIamPolicy
  */
@@ -565,12 +544,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: managedidentities.projects.locations.global.domains.testIamPermissions
  *
@@ -582,8 +560,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -591,19 +569,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c
  *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest
  *    to include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsTestIamPermissions
  */
@@ -627,8 +604,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource domain name, project name, and location using the
- *  form:
- *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ *  form: `projects/{project_id}/locations/global/domains/{domain_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -655,15 +631,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: managedidentities.projects.locations.global.operations.cancel
  *
@@ -681,15 +656,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c
  *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest
@@ -772,14 +746,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: managedidentities.projects.locations.global.operations.list
  *
@@ -807,14 +781,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *

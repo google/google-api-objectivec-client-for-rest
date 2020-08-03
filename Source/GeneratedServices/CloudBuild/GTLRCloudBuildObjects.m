@@ -25,6 +25,7 @@ NSString * const kGTLRCloudBuild_Build_Status_Timeout       = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
 
 // GTLRCloudBuild_BuildOptions.logging
+NSString * const kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly  = @"GCS_ONLY";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy   = @"LEGACY";
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified = @"LOGGING_UNSPECIFIED";

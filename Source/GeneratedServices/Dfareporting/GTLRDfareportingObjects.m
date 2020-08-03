@@ -904,6 +904,18 @@ NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContact
 NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeChangeOrder = @"PLANNING_ORDER_TYPE_CHANGE_ORDER";
 NSString * const kGTLRDfareporting_OrderDocument_Type_PlanningOrderTypeInsertionOrder = @"PLANNING_ORDER_TYPE_INSERTION_ORDER";
 
+// GTLRDfareporting_PathFilter.pathMatchPosition
+NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Any = @"ANY";
+NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_First = @"FIRST";
+NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Last = @"LAST";
+NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_PathMatchPositionUnspecified = @"PATH_MATCH_POSITION_UNSPECIFIED";
+
+// GTLRDfareporting_PathReportDimensionValue.matchType
+NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith = @"BEGINS_WITH";
+NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains = @"CONTAINS";
+NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact = @"EXACT";
+NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression = @"WILDCARD_EXPRESSION";
+
 // GTLRDfareporting_Placement.compatibility
 NSString * const kGTLRDfareporting_Placement_Compatibility_App = @"APP";
 NSString * const kGTLRDfareporting_Placement_Compatibility_AppInterstitial = @"APP_INTERSTITIAL";
@@ -1028,6 +1040,8 @@ NSString * const kGTLRDfareporting_Report_Format_Excel = @"EXCEL";
 // GTLRDfareporting_Report.type
 NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach = @"CROSS_DIMENSION_REACH";
 NSString * const kGTLRDfareporting_Report_Type_Floodlight      = @"FLOODLIGHT";
+NSString * const kGTLRDfareporting_Report_Type_Path            = @"PATH";
+NSString * const kGTLRDfareporting_Report_Type_PathAttribution = @"PATH_ATTRIBUTION";
 NSString * const kGTLRDfareporting_Report_Type_PathToConversion = @"PATH_TO_CONVERSION";
 NSString * const kGTLRDfareporting_Report_Type_Reach           = @"REACH";
 NSString * const kGTLRDfareporting_Report_Type_Standard        = @"STANDARD";
@@ -1846,6 +1860,42 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_ChannelGrouping
+//
+
+@implementation GTLRDfareporting_ChannelGrouping
+@dynamic fallbackName, kind, name, rules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRDfareporting_ChannelGroupingRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ChannelGroupingRule
+//
+
+@implementation GTLRDfareporting_ChannelGroupingRule
+@dynamic disjunctiveMatchStatements, kind, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disjunctiveMatchStatements" : [GTLRDfareporting_DisjunctiveMatchStatement class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_CitiesListResponse
 //
 
@@ -1940,6 +1990,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @implementation GTLRDfareporting_CompatibleFields
 @dynamic crossDimensionReachReportCompatibleFields,
          floodlightReportCompatibleFields, kind,
+         pathAttributionReportCompatibleFields, pathReportCompatibleFields,
          pathToConversionReportCompatibleFields, reachReportCompatibleFields,
          reportCompatibleFields;
 @end
@@ -2971,6 +3022,24 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_DisjunctiveMatchStatement
+//
+
+@implementation GTLRDfareporting_DisjunctiveMatchStatement
+@dynamic eventFilters, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventFilters" : [GTLRDfareporting_EventFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_DV3Ids
 //
 
@@ -3015,6 +3084,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_EncryptionInfo
 @dynamic encryptionEntityId, encryptionEntityType, encryptionSource, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_EventFilter
+//
+
+@implementation GTLRDfareporting_EventFilter
+@dynamic dimensionFilter, kind;
 @end
 
 
@@ -3176,14 +3255,14 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_FloodlightActivity
-@dynamic accountId, advertiserId, advertiserIdDimensionValue, cacheBustingType,
-         countingMethod, defaultTags, expectedUrl, floodlightActivityGroupId,
-         floodlightActivityGroupName, floodlightActivityGroupTagString,
-         floodlightActivityGroupType, floodlightConfigurationId,
-         floodlightConfigurationIdDimensionValue, floodlightTagType, identifier,
-         idDimensionValue, kind, name, notes, publisherTags, secure,
-         sslCompliant, sslRequired, status, subaccountId, tagFormat, tagString,
-         userDefinedVariableTypes;
+@dynamic accountId, advertiserId, advertiserIdDimensionValue,
+         attributionEnabled, cacheBustingType, countingMethod, defaultTags,
+         expectedUrl, floodlightActivityGroupId, floodlightActivityGroupName,
+         floodlightActivityGroupTagString, floodlightActivityGroupType,
+         floodlightConfigurationId, floodlightConfigurationIdDimensionValue,
+         floodlightTagType, identifier, idDimensionValue, kind, name, notes,
+         publisherTags, secure, sslCompliant, sslRequired, status, subaccountId,
+         tagFormat, tagString, userDefinedVariableTypes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -3933,6 +4012,64 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_PathFilter
+//
+
+@implementation GTLRDfareporting_PathFilter
+@dynamic eventFilters, kind, pathMatchPosition;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventFilters" : [GTLRDfareporting_EventFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_PathReportCompatibleFields
+//
+
+@implementation GTLRDfareporting_PathReportCompatibleFields
+@dynamic channelGroupings, dimensions, kind, metrics, pathFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channelGroupings" : [GTLRDfareporting_Dimension class],
+    @"dimensions" : [GTLRDfareporting_Dimension class],
+    @"metrics" : [GTLRDfareporting_Metric class],
+    @"pathFilters" : [GTLRDfareporting_Dimension class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_PathReportDimensionValue
+//
+
+@implementation GTLRDfareporting_PathReportDimensionValue
+@dynamic dimensionName, ids, kind, matchType, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ids" : [NSString class],
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_PathToConversionReportCompatibleFields
 //
 
@@ -4438,8 +4575,9 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 @implementation GTLRDfareporting_Report
 @dynamic accountId, criteria, crossDimensionReachCriteria, delivery, ETag,
          fileName, floodlightCriteria, format, identifier, kind,
-         lastModifiedTime, name, ownerProfileId, pathToConversionCriteria,
-         reachCriteria, schedule, subAccountId, type;
+         lastModifiedTime, name, ownerProfileId, pathAttributionCriteria,
+         pathCriteria, pathToConversionCriteria, reachCriteria, schedule,
+         subAccountId, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4528,6 +4666,50 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
     @"dimensionFilters" : [GTLRDfareporting_DimensionValue class],
     @"dimensions" : [GTLRDfareporting_SortedDimension class],
     @"metricNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_Report_PathAttributionCriteria
+//
+
+@implementation GTLRDfareporting_Report_PathAttributionCriteria
+@dynamic activityFilters, customChannelGrouping, dateRange, dimensions,
+         floodlightConfigId, metricNames, pathFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activityFilters" : [GTLRDfareporting_DimensionValue class],
+    @"dimensions" : [GTLRDfareporting_SortedDimension class],
+    @"metricNames" : [NSString class],
+    @"pathFilters" : [GTLRDfareporting_PathFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_Report_PathCriteria
+//
+
+@implementation GTLRDfareporting_Report_PathCriteria
+@dynamic activityFilters, customChannelGrouping, dateRange, dimensions,
+         floodlightConfigId, metricNames, pathFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activityFilters" : [GTLRDfareporting_DimensionValue class],
+    @"dimensions" : [GTLRDfareporting_SortedDimension class],
+    @"metricNames" : [NSString class],
+    @"pathFilters" : [GTLRDfareporting_PathFilter class]
   };
   return map;
 }
@@ -4826,8 +5008,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_SiteVideoSettings
-@dynamic companionSettings, kind, orientation, skippableSettings,
-         transcodeSettings;
+@dynamic companionSettings, kind, obaEnabled, obaSettings, orientation,
+         skippableSettings, transcodeSettings;
 @end
 
 
@@ -5332,6 +5514,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 //
 
 @implementation GTLRDfareporting_VideoSettings
-@dynamic companionSettings, kind, orientation, skippableSettings,
-         transcodeSettings;
+@dynamic companionSettings, kind, obaEnabled, obaSettings, orientation,
+         skippableSettings, transcodeSettings;
 @end

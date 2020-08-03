@@ -459,6 +459,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *messageId;
 
 /**
+ *  If non-empty, identifies related messages for which publish order should be
+ *  respected. If a `Subscription` has `enable_message_ordering` set to `true`,
+ *  messages published with the same non-empty `ordering_key` value will be
+ *  delivered to subscribers in the order in which they are received by the
+ *  Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
+ *  must specify the same `ordering_key` value.
+ */
+@property(nonatomic, copy, nullable) NSString *orderingKey;
+
+/**
  *  The time at which the message was published, populated by the server when
  *  it receives the `Publish` call. It must not be populated by the
  *  publisher in a `Publish` call.
@@ -1031,6 +1041,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission to Acknowledge() messages on this subscription.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_DeadLetterPolicy *deadLetterPolicy;
+
+/**
+ *  If true, messages published with the same `ordering_key` in `PubsubMessage`
+ *  will be delivered to the subscribers in the order in which they
+ *  are received by the Pub/Sub system. Otherwise, they may be delivered in
+ *  any order.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableMessageOrdering;
 
 /**
  *  A policy that specifies the conditions for this subscription's expiration.

@@ -992,7 +992,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1IngressConfig
-@dynamic createTime, environmentGroups, name, revisionId, sequenceNumber, uid;
+@dynamic environmentGroups, name, revisionCreateTime, revisionId, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

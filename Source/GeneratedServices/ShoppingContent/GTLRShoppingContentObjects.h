@@ -516,6 +516,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *force;
 
+/**
+ *  Label IDs for the 'updatelabels' request.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *labelIds;
+
 /** Details about the `link` request. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest *linkRequest;
 
@@ -5214,6 +5221,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "`ptt`" (PTT Turkish Post)
  *  - "`eub`" (ePacket)
  *  - "`chukou1`" (Chukou1 Logistics)
+ *  - "`bestex`" (Best Express)
+ *  - "`canada post`" (Canada Post)
+ *  - "`purolator`" (Purolator)
+ *  - "`canpar`" (Canpar)
+ *  - "`india post`" (India Post)
+ *  - "`blue dart`" (Blue Dart)
+ *  - "`delhivery`" (Delhivery)
+ *  - "`dtdc`" (DTDC)
+ *  - "`tpc india`" (TPC India)
  *  Supported carriers for FR are:
  *  - "`la poste`" (La Poste) automatic status updates
  *  - "`colissimo`" (Colissimo by La Poste) automatic status updates

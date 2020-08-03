@@ -97,10 +97,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Marks the specified alert for deletion. An alert that has been marked for
- *  deletion is removed from Alert Center after 30 days.
- *  Marking an alert for deletion has no effect on an alert which has
- *  already been marked for deletion. Attempting to mark a nonexistent alert
- *  for deletion results in a `NOT_FOUND` error.
+ *  deletion is removed from Alert Center after 30 days. Marking an alert for
+ *  deletion has no effect on an alert which has already been marked for
+ *  deletion. Attempting to mark a nonexistent alert for deletion results in a
+ *  `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.delete
  *
@@ -116,8 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert is associated with. Inferred from the caller identity if
+ *  not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -125,10 +125,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAlertCenter_Empty.
  *
  *  Marks the specified alert for deletion. An alert that has been marked for
- *  deletion is removed from Alert Center after 30 days.
- *  Marking an alert for deletion has no effect on an alert which has
- *  already been marked for deletion. Attempting to mark a nonexistent alert
- *  for deletion results in a `NOT_FOUND` error.
+ *  deletion is removed from Alert Center after 30 days. Marking an alert for
+ *  deletion has no effect on an alert which has already been marked for
+ *  deletion. Attempting to mark a nonexistent alert for deletion results in a
+ *  `NOT_FOUND` error.
  *
  *  @param alertId Required. The identifier of the alert to delete.
  *
@@ -139,8 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates new feedback for an alert. Attempting to create a feedback for
- *  a non-existent alert returns `NOT_FOUND` error. Attempting to create a
+ *  Creates new feedback for an alert. Attempting to create a feedback for a
+ *  non-existent alert returns `NOT_FOUND` error. Attempting to create a
  *  feedback for an alert that is marked for deletion returns
  *  `FAILED_PRECONDITION' error.
  *
@@ -158,16 +158,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert is associated with. Inferred from the caller identity if
+ *  not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRAlertCenter_AlertFeedback.
  *
- *  Creates new feedback for an alert. Attempting to create a feedback for
- *  a non-existent alert returns `NOT_FOUND` error. Attempting to create a
+ *  Creates new feedback for an alert. Attempting to create a feedback for a
+ *  non-existent alert returns `NOT_FOUND` error. Attempting to create a
  *  feedback for an alert that is marked for deletion returns
  *  `FAILED_PRECONDITION' error.
  *
@@ -183,8 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the feedback for an alert. Attempting to list feedbacks for
- *  a non-existent alert returns `NOT_FOUND` error.
+ *  Lists all the feedback for an alert. Attempting to list feedbacks for a
+ *  non-existent alert returns `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.feedback.list
  *
@@ -196,23 +196,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAlertCenter queryForAlertsFeedbackListWithalertId:]
 
 /**
- *  Required. The alert identifier.
- *  The "-" wildcard could be used to represent all alerts.
+ *  Required. The alert identifier. The "-" wildcard could be used to represent
+ *  all alerts.
  */
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert feedback are associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert feedback are associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Optional. A query string for filtering alert feedback results.
- *  For more details, see [Query
- *  filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
- *  query filter
+ *  Optional. A query string for filtering alert feedback results. For more
+ *  details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters)
+ *  and [Supported query filter
  *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -220,11 +219,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAlertCenter_ListAlertFeedbackResponse.
  *
- *  Lists all the feedback for an alert. Attempting to list feedbacks for
- *  a non-existent alert returns `NOT_FOUND` error.
+ *  Lists all the feedback for an alert. Attempting to list feedbacks for a
+ *  non-existent alert returns `NOT_FOUND` error.
  *
- *  @param alertId Required. The alert identifier.
- *    The "-" wildcard could be used to represent all alerts.
+ *  @param alertId Required. The alert identifier. The "-" wildcard could be
+ *    used to represent all alerts.
  *
  *  @return GTLRAlertCenterQuery_AlertsFeedbackList
  */
@@ -250,8 +249,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert is associated with. Inferred from the caller identity if
+ *  not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -270,8 +269,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the metadata of an alert. Attempting to get metadata for
- *  a non-existent alert returns `NOT_FOUND` error.
+ *  Returns the metadata of an alert. Attempting to get metadata for a
+ *  non-existent alert returns `NOT_FOUND` error.
  *
  *  Method: alertcenter.alerts.getMetadata
  *
@@ -287,16 +286,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert metadata is associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert metadata is associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRAlertCenter_AlertMetadata.
  *
- *  Returns the metadata of an alert. Attempting to get metadata for
- *  a non-existent alert returns `NOT_FOUND` error.
+ *  Returns the metadata of an alert. Attempting to get metadata for a
+ *  non-existent alert returns `NOT_FOUND` error.
  *
  *  @param alertId Required. The identifier of the alert this metadata belongs
  *    to.
@@ -321,25 +320,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alerts are associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alerts are associated with. Inferred from the caller identity
+ *  if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Optional. A query string for filtering alert results.
- *  For more details, see [Query
- *  filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
+ *  Optional. A query string for filtering alert results. For more details, see
+ *  [Query filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
  *  query filter
  *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The sort order of the list results.
- *  If not specified results may be returned in arbitrary order.
- *  You can sort the results in descending order based on the creation
- *  timestamp using `order_by="create_time desc"`.
+ *  Optional. The sort order of the list results. If not specified results may
+ *  be returned in arbitrary order. You can sort the results in descending order
+ *  based on the creation timestamp using `order_by="create_time desc"`.
  *  Currently, supported sorting are `create_time asc`, `create_time desc`,
  *  `update_time desc`
  */
@@ -352,10 +349,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results the server should return.
- *  If empty, a new iteration is started. To continue an iteration, pass in
- *  the value from the previous ListAlertsResponse's
- *  next_page_token field.
+ *  Optional. A token identifying a page of results the server should return. If
+ *  empty, a new iteration is started. To continue an iteration, pass in the
+ *  value from the previous ListAlertsResponse's next_page_token field.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -378,8 +374,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Restores, or "undeletes", an alert that was marked for deletion within the
  *  past 30 days. Attempting to undelete an alert which was marked for deletion
  *  over 30 days ago (which has been removed from the Alert Center database) or
- *  a nonexistent alert returns a `NOT_FOUND` error. Attempting to
- *  undelete an alert which has not been marked for deletion has no effect.
+ *  a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an
+ *  alert which has not been marked for deletion has no effect.
  *
  *  Method: alertcenter.alerts.undelete
  *
@@ -399,8 +395,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Restores, or "undeletes", an alert that was marked for deletion within the
  *  past 30 days. Attempting to undelete an alert which was marked for deletion
  *  over 30 days ago (which has been removed from the Alert Center database) or
- *  a nonexistent alert returns a `NOT_FOUND` error. Attempting to
- *  undelete an alert which has not been marked for deletion has no effect.
+ *  a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an
+ *  alert which has not been marked for deletion has no effect.
  *
  *  @param object The @c GTLRAlertCenter_UndeleteAlertRequest to include in the
  *    query.
@@ -427,8 +423,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert settings are associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert settings are associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -457,8 +453,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert settings are associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert settings are associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 

@@ -40,6 +40,8 @@
 @class GTLRTesting_ClientInfoDetail;
 @class GTLRTesting_Date;
 @class GTLRTesting_DeviceFile;
+@class GTLRTesting_DeviceIpBlock;
+@class GTLRTesting_DeviceIpBlockCatalog;
 @class GTLRTesting_Distribution;
 @class GTLRTesting_Environment;
 @class GTLRTesting_EnvironmentMatrix;
@@ -267,6 +269,36 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestSta
  *  Value: "VALIDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Validating;
+
+// ----------------------------------------------------------------------------
+// GTLRTesting_DeviceIpBlock.form
+
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "DEVICE_FORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceIpBlock_Form_DeviceFormUnspecified;
+/**
+ *  Android virtual device using emulator in nested virtualization. Equivalent
+ *  to Android Studio.
+ *
+ *  Value: "EMULATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceIpBlock_Form_Emulator;
+/**
+ *  Actual hardware.
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceIpBlock_Form_Physical;
+/**
+ *  Android virtual device using Compute Engine native virtualization. Firebase
+ *  Test Lab only.
+ *
+ *  Value: "VIRTUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceIpBlock_Form_Virtual;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_IosModel.formFactor
@@ -1505,6 +1537,48 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  A single device IP block
+ */
+@interface GTLRTesting_DeviceIpBlock : GTLRObject
+
+/** The date this block was added to Firebase Test Lab */
+@property(nonatomic, strong, nullable) GTLRTesting_Date *addedDate;
+
+/** An IP address block in CIDR notation eg: 34.68.194.64/29 */
+@property(nonatomic, copy, nullable) NSString *block;
+
+/**
+ *  Whether this block is used by physical or virtual devices
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_DeviceIpBlock_Form_DeviceFormUnspecified Do not use.
+ *        For proto versioning only. (Value: "DEVICE_FORM_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_DeviceIpBlock_Form_Emulator Android virtual device
+ *        using emulator in nested virtualization. Equivalent
+ *        to Android Studio. (Value: "EMULATOR")
+ *    @arg @c kGTLRTesting_DeviceIpBlock_Form_Physical Actual hardware. (Value:
+ *        "PHYSICAL")
+ *    @arg @c kGTLRTesting_DeviceIpBlock_Form_Virtual Android virtual device
+ *        using Compute Engine native virtualization. Firebase
+ *        Test Lab only. (Value: "VIRTUAL")
+ */
+@property(nonatomic, copy, nullable) NSString *form;
+
+@end
+
+
+/**
+ *  List of IP blocks used by the Firebase Test Lab
+ */
+@interface GTLRTesting_DeviceIpBlockCatalog : GTLRObject
+
+/** The device IP blocks used by Firebase Test Lab */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_DeviceIpBlock *> *ipBlocks;
+
+@end
+
+
+/**
  *  Data about the relative number of devices running a
  *  given configuration of the Android platform.
  */
@@ -2307,6 +2381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** Supported Android devices. */
 @property(nonatomic, strong, nullable) GTLRTesting_AndroidDeviceCatalog *androidDeviceCatalog;
+
+/** The IP blocks used by devices in the test environment. */
+@property(nonatomic, strong, nullable) GTLRTesting_DeviceIpBlockCatalog *deviceIpBlockCatalog;
 
 /** Supported iOS devices. */
 @property(nonatomic, strong, nullable) GTLRTesting_IosDeviceCatalog *iosDeviceCatalog;

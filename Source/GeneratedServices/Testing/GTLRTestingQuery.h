@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "ANDROID" */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeAndroid;
+/** Value: "DEVICE_IP_BLOCKS" */
+FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeDeviceIpBlocks;
 /** Value: "ENVIRONMENT_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified;
 /** Value: "IOS" */
@@ -254,6 +256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *        "NETWORK_CONFIGURATION"
  *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
  *        "PROVIDED_SOFTWARE"
+ *    @arg @c kGTLRTestingEnvironmentTypeDeviceIpBlocks Value "DEVICE_IP_BLOCKS"
  */
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
@@ -283,6 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *        "NETWORK_CONFIGURATION"
  *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
  *        "PROVIDED_SOFTWARE"
+ *    @arg @c kGTLRTestingEnvironmentTypeDeviceIpBlocks Value "DEVICE_IP_BLOCKS"
  *
  *  @return GTLRTestingQuery_TestEnvironmentCatalogGet
  */

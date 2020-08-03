@@ -903,6 +903,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
 
+/** Parent folder id. */
+@property(nonatomic, copy, nullable) NSString *parentFolderId;
+
 /** GTM client's API relative path. */
 @property(nonatomic, copy, nullable) NSString *path;
 

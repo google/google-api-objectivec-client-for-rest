@@ -8,7 +8,7 @@
 //   personalized recommendation systems without requiring a high level of
 //   expertise in machine learning, recommendation system, or Google Cloud.
 // Documentation:
-//   https://cloud.google.com/recommendations/docs/
+//   https://cloud.google.com/recommendations-ai/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -374,8 +374,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  Required. Intermediate gcs dir used for the import.
- *  .
+ *  Optional. Intermediate Cloud Storage directory used for the import. Can be
+ *  specified
+ *  if one wants to have the BigQuery export to a specific Cloud Storage
+ *  directory.
  */
 @property(nonatomic, copy, nullable) NSString *gcsStagingDir;
 
@@ -1130,9 +1132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
  *  * filterOutOfStockItems tag=(-"promotional")
  *  * filterOutOfStockItems
- *  If your filter blocks all prediction results, generic (unfiltered) popular
- *  items are returned. This behavior can be overridden by setting
- *  `strictFiltering` to true in `PredictRequest.params`.
+ *  If your filter blocks all prediction results, nothing will be returned. If
+ *  you want generic (unfiltered) popular items to be returned instead, set
+ *  `strictFiltering` to false in `PredictRequest.params`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1171,9 +1173,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  field in the prediction response. The given 'score' indicates the
  *  probability of an item being clicked/purchased given the user's context
  *  and history.
- *  * `strictFiltering`: Boolean. If set to true, the service will return empty
- *  instead of generic (unfiltered) popular items if your filter blocks all
- *  prediction results.
+ *  * `strictFiltering`: Boolean. True by default. If set to false, the service
+ *  will return generic (unfiltered) popular items instead of empty if your
+ *  filter blocks all prediction results.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest_Params *params;
 
@@ -1218,9 +1220,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  field in the prediction response. The given 'score' indicates the
  *  probability of an item being clicked/purchased given the user's context
  *  and history.
- *  * `strictFiltering`: Boolean. If set to true, the service will return empty
- *  instead of generic (unfiltered) popular items if your filter blocks all
- *  prediction results.
+ *  * `strictFiltering`: Boolean. True by default. If set to false, the service
+ *  will return generic (unfiltered) popular items instead of empty if your
+ *  filter blocks all prediction results.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

@@ -18,6 +18,33 @@
 
 @end
 
+@implementation GTLRHangoutsChatQuery_MediaDownload
+
+@dynamic resourceName;
+
++ (instancetype)queryWithResourceName:(NSString *)resourceName {
+  NSArray *pathParams = @[ @"resourceName" ];
+  NSString *pathURITemplate = @"v1/media/{+resourceName}";
+  GTLRHangoutsChatQuery_MediaDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resourceName = resourceName;
+  query.expectedObjectClass = [GTLRHangoutsChat_Media class];
+  query.loggingName = @"chat.media.download";
+  return query;
+}
+
++ (instancetype)queryForMediaWithResourceName:(NSString *)resourceName {
+  GTLRHangoutsChatQuery_MediaDownload *query =
+    [self queryWithResourceName:resourceName];
+  query.downloadAsDataObjectType = @"media";
+  query.loggingName = @"Download chat.media.download";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesGet
 
 @dynamic name;

@@ -4,7 +4,8 @@
 // API:
 //   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
-//   API for viewing and managing your reports in DoubleClick Bid Manager.
+//   DoubleClick Bid Manager API allows users to manage and create campaigns and
+//   reports.
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
@@ -1781,6 +1782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
  *  Value: "METRIC_PROGRAMMATIC_GUARANTEED_SAVINGS_RE_INVESTED_DUE_TO_FREQUENCY_ADVERTISER_CURRENCY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProgrammaticGuaranteedSavingsReInvestedDueToFrequencyAdvertiserCurrency;
+/** Value: "METRIC_PROVISIONAL_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProvisionalImpressions;
 /** Value: "METRIC_REFUND_BILLABLE_COST_ADVERTISER_CURRENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundBillableCostAdvertiserCurrency;
 /** Value: "METRIC_REFUND_MEDIA_COST_ADVERTISER_CURRENCY" */
@@ -2290,8 +2293,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @interface GTLRDoubleClickBidManager_DownloadLineItemsRequest : GTLRObject
 
 /**
- *  File specification (column names, types, order) in which the line items will
- *  be returned. Default to EWF.
+ *  File specification (column names, types, order) in which the line items
+ *  will be returned. Default to <code>EWF</code>.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Ewf
@@ -2321,7 +2324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @property(nonatomic, copy, nullable) NSString *filterType;
 
 /**
- *  Format in which the line items will be returned. Default to CSV.
+ *  Format in which the line items will be returned. Default to
+ *  <code>CSV</code>.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_Format_Csv
@@ -2338,8 +2342,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @interface GTLRDoubleClickBidManager_DownloadLineItemsResponse : GTLRObject
 
 /**
- *  Retrieved line items in CSV format. For more information about file formats,
- *  see Entity Write File Format.
+ *  Retrieved line items in CSV format. For more information about file
+ *  formats, see
+ *  <a href="https://developers.google.com/bid-manager/guides/entity-write/format">
+ *  Entity Write File Format</a>.
  */
 @property(nonatomic, copy, nullable) NSString *lineItems;
 
@@ -2348,20 +2354,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  Request to fetch stored inventory sources, campaigns, insertion orders, line
- *  items, TrueView ad groups and ads.
+ *  items, YouTube ad groups and ads.
  */
 @interface GTLRDoubleClickBidManager_DownloadRequest : GTLRObject
 
 /**
- *  File types that will be returned. If INVENTORY_SOURCE is requested, no other
- *  file types may be requested.
- *  Acceptable values are:
- *  - "AD"
- *  - "AD_GROUP"
- *  - "CAMPAIGN"
- *  - "INSERTION_ORDER"
- *  - "INVENTORY_SOURCE"
- *  - "LINE_ITEM"
+ *  File types that will be returned. If INVENTORY_SOURCE is requested, no
+ *  other file types may be requested. <br><br>Acceptable values are: <ul>
+ *  <li>"<code>AD</code>"</li> <li>"<code>AD_GROUP</code>"</li>
+ *  <li>"<code>CAMPAIGN</code>"</li> <li>"<code>INSERTION_ORDER</code>"</li>
+ *  <li>"<code>INVENTORY_SOURCE</code>"</li> <li>"<code>LINE_ITEM</code>"</li>
+ *  </ul>
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
@@ -2395,7 +2398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  SDF Version (column names, types, order) in which the entities will be
- *  returned. Default to 5.
+ *  returned. Default to <code>5</code>.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -2974,7 +2977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "doubleclickbidmanager#listQueriesResponse".
+ *  <code>"doubleclickbidmanager#listQueriesResponse"</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3004,7 +3007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "doubleclickbidmanager#listReportsResponse".
+ *  <code>"doubleclickbidmanager#listReportsResponse"</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3144,7 +3147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "doubleclickbidmanager#query".
+ *  <code>"doubleclickbidmanager#query"</code>.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3163,8 +3166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  The ending time for the data that is shown in the report. Note,
- *  reportDataEndTimeMs is required if metadata.dataRange is CUSTOM_DATES and
- *  ignored otherwise.
+ *  <code>reportDataEndTimeMs</code> is required if
+ *  <code>metadata.dataRange</code> is <code>CUSTOM_DATES</code> and ignored
+ *  otherwise.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3172,8 +3176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  The starting time for the data that is shown in the report. Note,
- *  reportDataStartTimeMs is required if metadata.dataRange is CUSTOM_DATES and
- *  ignored otherwise.
+ *  <code>reportDataStartTimeMs</code> is required if
+ *  <code>metadata.dataRange</code> is <code>CUSTOM_DATES</code> and ignored
+ *  otherwise.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3183,7 +3188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_QuerySchedule *schedule;
 
 /**
- *  Canonical timezone code for report data time. Defaults to America/New_York.
+ *  Canonical timezone code for report data time. Defaults to
+ *  <code>America/New_York</code>.
  */
 @property(nonatomic, copy, nullable) NSString *timezoneCode;
 
@@ -3270,11 +3276,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @property(nonatomic, strong, nullable) NSNumber *latestReportRunTimeMs;
 
 /**
- *  Locale of the generated reports. Valid values are cs CZECH de GERMAN en
- *  ENGLISH es SPANISH fr FRENCH it ITALIAN ja JAPANESE ko KOREAN pl POLISH
- *  pt-BR BRAZILIAN_PORTUGUESE ru RUSSIAN tr TURKISH uk UKRAINIAN zh-CN
- *  CHINA_CHINESE zh-TW TAIWAN_CHINESE
- *  An locale string not in the list above will generate reports in English.
+ *  Locale of the generated reports. Valid values are cs CZECH de
+ *  GERMAN en ENGLISH es SPANISH fr FRENCH it ITALIAN ja
+ *  JAPANESE ko KOREAN pl POLISH pt-BR BRAZILIAN_PORTUGUESE ru
+ *  RUSSIAN tr TURKISH uk UKRAINIAN zh-CN CHINA_CHINESE zh-TW
+ *  TAIWAN_CHINESE <br><br> An locale string not in the list above will
+ *  generate reports in English.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
@@ -3302,7 +3309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  List of email addresses which are sent email notifications when the report
- *  is finished. Separate from sendNotification.
+ *  is finished. Separate from <code>sendNotification</code>.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shareEmailAddress;
 
@@ -3353,7 +3360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  Canonical timezone code for report generation time. Defaults to
- *  America/New_York.
+ *  <code>America/New_York</code>.
  */
 @property(nonatomic, copy, nullable) NSString *nextRunTimezoneCode;
 
@@ -3463,7 +3470,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @interface GTLRDoubleClickBidManager_ReportMetadata : GTLRObject
 
 /**
- *  The path to the location in Google Cloud Storage where the report is stored.
+ *  The path to the location in Google Cloud Storage where the report is
+ *  stored.
  */
 @property(nonatomic, copy, nullable) NSString *googleCloudStoragePath;
 
@@ -3628,8 +3636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  The ending time for the data that is shown in the report. Note,
- *  reportDataEndTimeMs is required if dataRange is CUSTOM_DATES and ignored
- *  otherwise.
+ *  <code>reportDataEndTimeMs</code> is required if <code>dataRange</code> is
+ *  <code>CUSTOM_DATES</code> and ignored otherwise.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3637,15 +3645,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 /**
  *  The starting time for the data that is shown in the report. Note,
- *  reportDataStartTimeMs is required if dataRange is CUSTOM_DATES and ignored
- *  otherwise.
+ *  <code>reportDataStartTimeMs</code> is required if <code>dataRange</code> is
+ *  <code>CUSTOM_DATES</code> and ignored otherwise.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reportDataStartTimeMs;
 
 /**
- *  Canonical timezone code for report data time. Defaults to America/New_York.
+ *  Canonical timezone code for report data time. Defaults to
+ *  <code>America/New_York</code>.
  */
 @property(nonatomic, copy, nullable) NSString *timezoneCode;
 
@@ -3658,14 +3667,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @interface GTLRDoubleClickBidManager_UploadLineItemsRequest : GTLRObject
 
 /**
- *  Set to true to get upload status without actually persisting the line items.
+ *  Set to <code>true</code> to get upload status without actually persisting
+ *  the line items.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
- *  Format the line items are in. Default to CSV.
+ *  Format the line items are in. Default to <code>CSV</code>.
  *
  *  Likely values:
  *    @arg @c kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv Value
@@ -3674,8 +3684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Line items in CSV to upload. Refer to Entity Write File Format for more
- *  information on file format.
+ *  Line items in CSV to upload. Refer to
+ *  <a href="https://developers.google.com/bid-manager/guides/entity-write/format">
+ *  Entity Write File Format</a> for more information on file format.
  */
 @property(nonatomic, copy, nullable) NSString *lineItems;
 

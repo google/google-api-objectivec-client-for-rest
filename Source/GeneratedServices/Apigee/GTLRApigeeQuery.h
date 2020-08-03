@@ -3827,6 +3827,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  If true, a best-effort attempt will be made to remove the environment group
+ *  routing rules corresponding to this deployment before removing the
+ *  deployment from the runtime. This is likely to be a rare use case; it is
+ *  only needed when the intended effect of undeploying this proxy is to cause
+ *  the traffic it currently handles to be rerouted to some other existing
+ *  proxy in the environment group. The GenerateUndeployChangeReport API may be
+ *  used to examine routing changes before issuing the undeployment request,
+ *  and its response will indicate if a sequenced rollout is recommended for
+ *  the undeployment.
+ */
+@property(nonatomic, assign) BOOL sequencedRollout;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
  *  Undeploys an API proxy revision from an environment.
@@ -6354,7 +6367,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsGetDeployedIngressConfigWithname:]
 
 /**
- *  Name of the deployed configuration for the organization in the following
+ *  Required. Name of the deployed configuration for the organization in the
+ *  following
  *  format: 'organizations/{org}/deployedIngressConfig'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6364,8 +6378,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the deployed ingress configuration for an organization.
  *
- *  @param name Name of the deployed configuration for the organization in the
- *    following
+ *  @param name Required. Name of the deployed configuration for the
+ *    organization in the following
  *    format: 'organizations/{org}/deployedIngressConfig'.
  *
  *  @return GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig
@@ -6649,7 +6663,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsInstancesDeleteWithname:]
 
 /**
- *  Name of the instance. Use the following structure in your request:
+ *  Required. Name of the instance. Use the following structure in your request:
  *  `organizations/{org}/instance/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6661,8 +6675,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  requests and the runtime data is deleted.
  *  **Note:** Not supported for Apigee hybrid.
  *
- *  @param name Name of the instance. Use the following structure in your
- *    request:
+ *  @param name Required. Name of the instance. Use the following structure in
+ *    your request:
  *    `organizations/{org}/instance/{instance}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesDelete
@@ -6685,7 +6699,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsInstancesGetWithname:]
 
 /**
- *  Name of the instance. Use the following structure in your request:
+ *  Required. Name of the instance. Use the following structure in your request:
  *  `organizations/{org}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6696,8 +6710,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details for an Apigee runtime instance.
  *  **Note:** Not supported for Apigee hybrid.
  *
- *  @param name Name of the instance. Use the following structure in your
- *    request:
+ *  @param name Required. Name of the instance. Use the following structure in
+ *    your request:
  *    `organizations/{org}/instances/{instance}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesGet
@@ -6729,7 +6743,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Name of the organization. Use the following structure in your request:
+ *  Required. Name of the organization. Use the following structure in your
+ *  request:
  *  `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -6740,8 +6755,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all Apigee runtime instances for the organization.
  *  **Note:** Not supported for Apigee hybrid.
  *
- *  @param parent Name of the organization. Use the following structure in your
- *    request:
+ *  @param parent Required. Name of the organization. Use the following
+ *    structure in your request:
  *    `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesList

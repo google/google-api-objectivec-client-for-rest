@@ -37,7 +37,6 @@
 @class GTLRCloudFunctions_Operation_Metadata;
 @class GTLRCloudFunctions_Operation_Response;
 @class GTLRCloudFunctions_OperationMetadataV1_Request;
-@class GTLRCloudFunctions_OperationMetadataV1Beta2_Request;
 @class GTLRCloudFunctions_Policy;
 @class GTLRCloudFunctions_Retry;
 @class GTLRCloudFunctions_SourceRepository;
@@ -201,34 +200,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  Value: "UPDATE_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_OperationMetadataV1Beta2.type
-
-/**
- *  Triggered by CreateFunction call
- *
- *  Value: "CREATE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction;
-/**
- *  Triggered by DeleteFunction call.
- *
- *  Value: "DELETE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction;
-/**
- *  Unknown operation type.
- *
- *  Value: "OPERATION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified;
-/**
- *  Triggered by UpdateFunction call
- *
- *  Value: "UPDATE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction;
 
 /**
  *  Specifies the audit configuration for a service.
@@ -1137,61 +1108,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1Beta2_
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudFunctions_OperationMetadataV1_Request : GTLRObject
-@end
-
-
-/**
- *  Metadata describing an Operation
- */
-@interface GTLRCloudFunctions_OperationMetadataV1Beta2 : GTLRObject
-
-/** The original request that started the operation. */
-@property(nonatomic, strong, nullable) GTLRCloudFunctions_OperationMetadataV1Beta2_Request *request;
-
-/**
- *  Target of the operation - for example
- *  projects/project-1/locations/region-1/functions/function-1
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/**
- *  Type of operation.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_CreateFunction
- *        Triggered by CreateFunction call (Value: "CREATE_FUNCTION")
- *    @arg @c kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_DeleteFunction
- *        Triggered by DeleteFunction call. (Value: "DELETE_FUNCTION")
- *    @arg @c kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_OperationUnspecified
- *        Unknown operation type. (Value: "OPERATION_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_OperationMetadataV1Beta2_Type_UpdateFunction
- *        Triggered by UpdateFunction call (Value: "UPDATE_FUNCTION")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/** The last update timestamp of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/**
- *  Version id of the function created or updated by an API call.
- *  This field is only populated for Create and Update operations.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *versionId;
-
-@end
-
-
-/**
- *  The original request that started the operation.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudFunctions_OperationMetadataV1Beta2_Request : GTLRObject
 @end
 
 

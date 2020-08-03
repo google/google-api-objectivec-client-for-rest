@@ -66,15 +66,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -107,15 +107,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -156,15 +156,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -196,8 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryYouTubeAnalytics queryForGroupsDelete]
 
 /**
- *  The `id` parameter specifies the YouTube group ID of the group that is
- *  being deleted.
+ *  The `id` parameter specifies the YouTube group ID of the group that is being
+ *  deleted.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -205,15 +205,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -246,15 +246,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -273,8 +273,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a collection of groups that match the API request parameters. For
- *  example, you can retrieve all groups that the authenticated user owns,
- *  or you can retrieve one or more groups by their unique IDs.
+ *  example, you can retrieve all groups that the authenticated user owns, or
+ *  you can retrieve one or more groups by their unique IDs.
  *
  *  Method: youtubeAnalytics.groups.list
  *
@@ -291,11 +291,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The `id` parameter specifies a comma-separated list of the YouTube group
- *  ID(s) for the resource(s) that are being retrieved. Each group must be
- *  owned by the authenticated user. In a `group` resource, the `id` property
- *  specifies the group's YouTube group ID.
- *  Note that if you do not specify a value for the `id` parameter, then you
- *  must set the `mine` parameter to `true`.
+ *  ID(s) for the resource(s) that are being retrieved. Each group must be owned
+ *  by the authenticated user. In a `group` resource, the `id` property
+ *  specifies the group's YouTube group ID. Note that if you do not specify a
+ *  value for the `id` parameter, then you must set the `mine` parameter to
+ *  `true`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -310,15 +310,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -333,8 +333,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRYouTubeAnalytics_ListGroupsResponse.
  *
  *  Returns a collection of groups that match the API request parameters. For
- *  example, you can retrieve all groups that the authenticated user owns,
- *  or you can retrieve one or more groups by their unique IDs.
+ *  example, you can retrieve all groups that the authenticated user owns, or
+ *  you can retrieve one or more groups by their unique IDs.
  *
  *  @return GTLRYouTubeAnalyticsQuery_GroupsList
  *
@@ -364,15 +364,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
- *  This parameter is intended exclusively for YouTube content partners that
- *  own and manage many different YouTube channels.
- *  The `onBehalfOfContentOwner` parameter indicates that the request's
- *  authorization credentials identify a YouTube user who is acting on behalf
- *  of the content owner specified in the parameter value. It allows content
- *  owners to authenticate once and get access to all their video and channel
- *  data, without having to provide authentication credentials for each
- *  individual channel. The account that the user authenticates with must be
- *  linked to the specified YouTube content owner.
+ *  This parameter is intended exclusively for YouTube content partners that own
+ *  and manage many different YouTube channels. The `onBehalfOfContentOwner`
+ *  parameter indicates that the request's authorization credentials identify a
+ *  YouTube user who is acting on behalf of the content owner specified in the
+ *  parameter value. It allows content owners to authenticate once and get
+ *  access to all their video and channel data, without having to provide
+ *  authentication credentials for each individual channel. The account that the
+ *  user authenticates with must be linked to the specified YouTube content
+ *  owner.
  */
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
@@ -407,28 +407,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The currency to which financial metrics should be converted. The default is
- *  US Dollar (USD). If the result contains no financial metrics, this flag
- *  will be ignored. Responds with an error if the specified currency is not
- *  recognized.",
- *  pattern: [A-Z]{3}
+ *  US Dollar (USD). If the result contains no financial metrics, this flag will
+ *  be ignored. Responds with an error if the specified currency is not
+ *  recognized.", pattern: [A-Z]{3}
  */
 @property(nonatomic, copy, nullable) NSString *currency;
 
 /**
  *  A comma-separated list of YouTube Analytics dimensions, such as `views` or
  *  `ageGroup,gender`. See the [Available
- *  Reports](/youtube/analytics/v2/available_reports) document for a list of
- *  the reports that you can retrieve and the dimensions used for those
- *  reports. Also see the [Dimensions](/youtube/analytics/v2/dimsmets/dims)
- *  document for definitions of those dimensions."
- *  pattern: [0-9a-zA-Z,]+
+ *  Reports](/youtube/analytics/v2/available_reports) document for a list of the
+ *  reports that you can retrieve and the dimensions used for those reports.
+ *  Also see the [Dimensions](/youtube/analytics/v2/dimsmets/dims) document for
+ *  definitions of those dimensions." pattern: [0-9a-zA-Z,]+
  */
 @property(nonatomic, copy, nullable) NSString *dimensions;
 
 /**
  *  The end date for fetching YouTube Analytics data. The value should be in
- *  `YYYY-MM-DD` format.
- *  required: true, pattern: [0-9]{4}-[0-9]{2}-[0-9]{2}
+ *  `YYYY-MM-DD` format. required: true, pattern: [0-9]{4}-[0-9]{2}-[0-9]{2}
  */
 @property(nonatomic, copy, nullable) NSString *endDate;
 
@@ -446,61 +443,51 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filters;
 
 /**
- *  Identifies the YouTube channel or content owner for which you are
- *  retrieving YouTube Analytics data.
- *  - To request data for a YouTube user, set the `ids` parameter value to
- *  `channel==CHANNEL_ID`, where `CHANNEL_ID` specifies the unique YouTube
- *  channel ID.
- *  - To request data for a YouTube CMS content owner, set the `ids` parameter
- *  value to `contentOwner==OWNER_NAME`, where `OWNER_NAME` is the CMS name
- *  of the content owner.
- *  required: true, pattern: [a-zA-Z]+==[a-zA-Z0-9_+-]+
+ *  Identifies the YouTube channel or content owner for which you are retrieving
+ *  YouTube Analytics data. - To request data for a YouTube user, set the `ids`
+ *  parameter value to `channel==CHANNEL_ID`, where `CHANNEL_ID` specifies the
+ *  unique YouTube channel ID. - To request data for a YouTube CMS content
+ *  owner, set the `ids` parameter value to `contentOwner==OWNER_NAME`, where
+ *  `OWNER_NAME` is the CMS name of the content owner. required: true, pattern:
+ *  [a-zA-Z]+==[a-zA-Z0-9_+-]+
  */
 @property(nonatomic, copy, nullable) NSString *ids;
 
 /**
- *  If set to true historical data (i.e. channel data from before the linking
- *  of the channel to the content owner) will be retrieved.",
+ *  If set to true historical data (i.e. channel data from before the linking of
+ *  the channel to the content owner) will be retrieved.",
  */
 @property(nonatomic, assign) BOOL includeHistoricalChannelData;
 
-/**
- *  The maximum number of rows to include in the response.",
- *  minValue: 1
- */
+/** The maximum number of rows to include in the response.", minValue: 1 */
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
  *  A comma-separated list of YouTube Analytics metrics, such as `views` or
- *  `likes,dislikes`. See the
- *  [Available Reports](/youtube/analytics/v2/available_reports) document for
- *  a list of the reports that you can retrieve and the metrics
- *  available in each report, and see the
- *  [Metrics](/youtube/analytics/v2/dimsmets/mets) document for definitions of
- *  those metrics.
- *  required: true, pattern: [0-9a-zA-Z,]+
+ *  `likes,dislikes`. See the [Available
+ *  Reports](/youtube/analytics/v2/available_reports) document for a list of the
+ *  reports that you can retrieve and the metrics available in each report, and
+ *  see the [Metrics](/youtube/analytics/v2/dimsmets/mets) document for
+ *  definitions of those metrics. required: true, pattern: [0-9a-zA-Z,]+
  */
 @property(nonatomic, copy, nullable) NSString *metrics;
 
 /**
  *  A comma-separated list of dimensions or metrics that determine the sort
  *  order for YouTube Analytics data. By default the sort order is ascending.
- *  The '`-`' prefix causes descending sort order.",
- *  pattern: [-0-9a-zA-Z,]+
+ *  The '`-`' prefix causes descending sort order.", pattern: [-0-9a-zA-Z,]+
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
 /**
  *  The start date for fetching YouTube Analytics data. The value should be in
- *  `YYYY-MM-DD` format.
- *  required: true, pattern: "[0-9]{4}-[0-9]{2}-[0-9]{2}
+ *  `YYYY-MM-DD` format. required: true, pattern: "[0-9]{4}-[0-9]{2}-[0-9]{2}
  */
 @property(nonatomic, copy, nullable) NSString *startDate;
 
 /**
- *  An index of the first entity to retrieve. Use this parameter as a
- *  pagination mechanism along with the max-results parameter (one-based,
- *  inclusive).",
+ *  An index of the first entity to retrieve. Use this parameter as a pagination
+ *  mechanism along with the max-results parameter (one-based, inclusive).",
  *  minValue: 1
  */
 @property(nonatomic, assign) NSInteger startIndex;

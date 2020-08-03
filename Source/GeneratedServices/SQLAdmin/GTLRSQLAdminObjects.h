@@ -98,6 +98,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachab
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BackupRun.backupKind
+
+/**
+ *  Physical backups
+ *
+ *  Value: "PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Physical;
+/**
+ *  The snapshot based backups
+ *
+ *  Value: "SNAPSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot;
+/**
+ *  This is an unknown BackupKind.
+ *
+ *  Value: "SQL_BACKUP_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_SqlBackupKindUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRun.status
 
 /**
@@ -981,8 +1003,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure;
 /** Value: "INCOMPATIBLE_DATABASE_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion;
+/**
+ *  The value of parameter max_replication_slots is not sufficient.
+ *
+ *  Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots;
+/**
+ *  The value of parameter max_wal_senders is not sufficient.
+ *
+ *  Value: "INSUFFICIENT_MAX_WAL_SENDERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWalSenders;
+/**
+ *  The value of parameter max_worker_processes is not sufficient.
+ *
+ *  Value: "INSUFFICIENT_MAX_WORKER_PROCESSES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWorkerProcesses;
 /** Value: "INSUFFICIENT_PRIVILEGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege;
+/**
+ *  The value of parameter rds.logical_replication is not set to 1.
+ *
+ *  Value: "INVALID_RDS_LOGICAL_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidRdsLogicalReplication;
+/**
+ *  The value of parameter shared_preload_libraries does not include
+ *  pglogical.
+ *
+ *  Value: "INVALID_SHARED_PRELOAD_LIBRARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPreloadLibrary;
+/**
+ *  The value of parameter wal_level is not set to logical.
+ *
+ *  Value: "INVALID_WAL_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel;
 /**
  *  No pglogical extension installed on databases, applicable for postgres.
  *
@@ -1000,6 +1059,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Value: "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified;
 /**
+ *  Extensions installed are either not supported or having unsupported
+ *  versions
+ *
+ *  Value: "UNSUPPORTED_EXTENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions;
+/**
  *  Unsupported migration type.
  *
  *  Value: "UNSUPPORTED_MIGRATION_TYPE"
@@ -1015,11 +1081,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time when this access control entry expires in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
-/** This is always <code>sql#aclEntry</code>. */
+/** This is always <b>sql#aclEntry</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Optional. A label to identify this entry. */
@@ -1075,7 +1141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
-/** This is always <code>sql#backupConfiguration</code>. */
+/** This is always <b>sql#backupConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Location of the backup */
@@ -1097,7 +1163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Start time for the daily backup configuration in UTC timezone in the 24
- *  hour format - <code>HH:MM</code>.
+ *  hour format - <b>HH:MM</b>.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
@@ -1108,6 +1174,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  A BackupRun resource.
  */
 @interface GTLRSQLAdmin_BackupRun : GTLRObject
+
+/**
+ *  Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_Physical Physical backups
+ *        (Value: "PHYSICAL")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot The snapshot based
+ *        backups (Value: "SNAPSHOT")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_BackupKind_SqlBackupKindUnspecified This
+ *        is an unknown BackupKind. (Value: "SQL_BACKUP_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *backupKind;
 
 /**
  *  The description of this run, only applicable to on-demand backups.
@@ -1132,7 +1211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time the backup operation completed in UTC timezone in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1140,7 +1219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time the run was enqueued in UTC timezone in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *enqueuedTime;
 
@@ -1163,7 +1242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Name of the database instance. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** This is always <code>sql#backupRun</code>. */
+/** This is always <b>sql#backupRun</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Location of the backups. */
@@ -1176,7 +1255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time the backup operation actually started in UTC timezone in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -1227,7 +1306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /**
  *  The start time of the backup window during which this the backup was
  *  attempted in <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a>
- *  format, for example <code>2012-11-15T16:19:00.094Z</code>.
+ *  format, for example <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *windowStartTime;
 
@@ -1252,7 +1331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_BackupRun *> *items;
 
-/** This is always <code>sql#backupRunsList</code>. */
+/** This is always <b>sql#backupRunsList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1279,7 +1358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSNumber *binLogPosition;
 
-/** This is always <code>sql#binLogCoordinates</code>. */
+/** This is always <b>sql#binLogCoordinates</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -1300,7 +1379,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Name of the Cloud SQL instance to be created as a clone. */
 @property(nonatomic, copy, nullable) NSString *destinationInstanceName;
 
-/** This is always <code>sql#cloneContext</code>. */
+/** This is always <b>sql#cloneContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1321,10 +1400,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_Database : GTLRObject
 
-/** The MySQL charset value. */
+/** The Cloud SQL charset value. */
 @property(nonatomic, copy, nullable) NSString *charset;
 
-/** The MySQL collation value. */
+/** The Cloud SQL collation value. */
 @property(nonatomic, copy, nullable) NSString *collation;
 
 /**
@@ -1338,7 +1417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** This is always <code>sql#database</code>. */
+/** This is always <b>sql#database</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1376,8 +1455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The value of the flag. Booleans should be set to <code>on</code> for true
- *  and <code>off</code> for false. This field must be omitted if the flag
+ *  The value of the flag. Booleans should be set to <b>on</b> for true
+ *  and <b>off</b> for false. This field must be omitted if the flag
  *  doesn't take a value.
  */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -1387,16 +1466,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  A Cloud SQL instance resource.
+ *  Next field: 34
  */
 @interface GTLRSQLAdmin_DatabaseInstance : GTLRObject
 
 /**
- *  <code>FIRST_GEN</code>: First Generation instance. MySQL only.
- *  <br /><code>SECOND_GEN</code>: Second Generation instance or PostgreSQL
- *  instance. <br /><code>EXTERNAL</code>: A database server that is not
+ *  <br><b>SECOND_GEN</b>: Cloud SQL database instance.
+ *  <br><b>EXTERNAL</b>: A database server that is not
  *  managed by Google. <br>This property is read-only; use the
- *  <code>tier</code> property in the <code>settings</code> object to determine
- *  the database type and Second or First Generation.
+ *  <b>tier</b> property in the <b>settings</b> object to determine
+ *  the database type.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_BackendType_External On premises
@@ -1427,12 +1506,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, strong, nullable) NSNumber *currentDiskSize;
 
 /**
- *  The database engine type and version. The <code>databaseVersion</code>
- *  field can not be changed after instance creation. MySQL Second Generation
- *  instances: <code>MYSQL_5_7</code> (default) or <code>MYSQL_5_6</code>.
- *  PostgreSQL instances: <code>POSTGRES_9_6</code> (default) or
- *  <code>POSTGRES_11 Beta</code> MySQL First Generation
- *  instances: <code>MYSQL_5_6</code> (default) or <code>MYSQL_5_5</code>
+ *  The database engine type and version. The <b>databaseVersion</b>
+ *  field cannot be changed after instance creation.
+ *  <br>MySQL instances: <b>MYSQL_5_7</b> (default), or <b>MYSQL_5_6</b>.
+ *  <br>PostgreSQL instances: <b>POSTGRES_9_6</b> (default), or
+ *  <b>POSTGRES_10</b>, or <b>POSTGRES_11 Beta</b>, or <b>POSTGRES_12</b>.
+ *  <br>SQL Server instances: <b>SQLSERVER_2017_STANDARD</b> (default),
+ *  <b>SQLSERVER_2017_ENTERPRISE</b>, <b>SQLSERVER_2017_EXPRESS</b>, or
+ *  <b>SQLSERVER_2017_WEB</b>.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 The
@@ -1485,7 +1566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  This field is deprecated and will be removed from a future version of the
- *  API. Use the <code>settings.settingsVersion</code> field instead.
+ *  API. Use the <b>settings.settingsVersion</b> field instead.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1504,11 +1585,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The instance type. This can be one of the following.
- *  <br><code>CLOUD_SQL_INSTANCE</code>: A Cloud SQL instance that is not
- *  replicating from a master. <br><code>ON_PREMISES_INSTANCE</code>: An
- *  instance running on the
- *  customer's premises. <br><code>READ_REPLICA_INSTANCE</code>: A Cloud SQL
- *  instance configured as a read-replica.
+ *  <br><b>CLOUD_SQL_INSTANCE</b>: A Cloud SQL instance that is not replicating
+ *  from a master. <br><b>ON_PREMISES_INSTANCE</b>: An instance running on the
+ *  customer's premises. <br><b>READ_REPLICA_INSTANCE</b>: A Cloud SQL instance
+ *  configured as a read-replica.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance A
@@ -1529,12 +1609,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
 
 /**
- *  The IPv6 address assigned to the instance. This property is applicable only
+ *  The IPv6 address assigned to the instance.
+ *  (Deprecated) This property was applicable only
  *  to First Generation instances.
  */
 @property(nonatomic, copy, nullable) NSString *ipv6Address;
 
-/** This is always <code>sql#instance</code>. */
+/** This is always <b>sql#instance</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1562,13 +1643,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  The geographical region. Can be <code>us-central</code>
- *  (<code>FIRST_GEN</code> instances only), <code>us-central1</code>
- *  (<code>SECOND_GEN</code> instances only), <code>asia-east1</code> or
- *  <code>europe-west1</code>. Defaults to <code>us-central</code> or
- *  <code>us-central1</code> depending on the instance type (First Generation
- *  or Second Generation). The region can not be changed after instance
- *  creation.
+ *  The geographical region. Can be
+ *  <br><b>us-central</b> (<b>FIRST_GEN</b> instances only)
+ *  <br><b>us-central1</b> (<b>SECOND_GEN</b> instances only)
+ *  <br><b>asia-east1</b> or <b>europe-west1</b>.
+ *  <br>Defaults to <b>us-central</b> or
+ *  <b>us-central1</b> depending on the instance type.
+ *  The region cannot be changed after instance creation.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -1601,13 +1682,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The current serving state of the Cloud SQL instance. This can be one of the
- *  following. <br><code>RUNNABLE</code>: The instance is running, or is ready
- *  to run when accessed. <br><code>SUSPENDED</code>: The instance is not
+ *  following. <br><b>RUNNABLE</b>: The instance is running, or is ready
+ *  to run when accessed. <br><b>SUSPENDED</b>: The instance is not
  *  available, for example due to problems with billing.
- *  <br><code>PENDING_CREATE</code>: The instance is being created.
- *  <br><code>MAINTENANCE</code>: The instance is down for maintenance.
- *  <br><code>FAILED</code>: The instance creation failed.
- *  <br><code>UNKNOWN_STATE</code>: The state of the instance is unknown.
+ *  <br><b>PENDING_CREATE</b>: The instance is being created.
+ *  <br><b>MAINTENANCE</b>: The instance is down for maintenance.
+ *  <br><b>FAILED</b>: The instance creation failed.
+ *  <br><b>UNKNOWN_STATE</b>: The state of the instance is unknown.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Failed The instance failed to
@@ -1677,7 +1758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Database *> *items;
 
-/** This is always <code>sql#databasesList</code>. */
+/** This is always <b>sql#databasesList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -1688,7 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_DemoteMasterConfiguration : GTLRObject
 
-/** This is always <code>sql#demoteMasterConfiguration</code>. */
+/** This is always <b>sql#demoteMasterConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1696,7 +1777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  master. Replication configuration information such as the username,
  *  password, certificates, and keys are not stored in the instance metadata.
  *  The configuration information is used only to set up the replication
- *  connection and is stored by MySQL in a file named <code>master.info</code>
+ *  connection and is stored by MySQL in a file named <b>master.info</b>
  *  in the data directory.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration *mysqlReplicaConfiguration;
@@ -1709,7 +1790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_DemoteMasterContext : GTLRObject
 
-/** This is always <code>sql#demoteMasterContext</code>. */
+/** This is always <b>sql#demoteMasterContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1726,7 +1807,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Verify GTID consistency for demote operation. Default value:
- *  <code>True</code>. Second Generation instances only. Setting this flag to
+ *  <b>True</b>. Second Generation instances only. Setting this flag to
  *  false enables you to bypass GTID consistency check between on-premises
  *  master and Cloud SQL instance during the demotion operation but also
  *  exposes you to the risk of future replication failures. Change the value
@@ -1758,7 +1839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
-/** This is always <code>sql#demoteMasterMysqlReplicaConfiguration</code>. */
+/** This is always <b>sql#demoteMasterMysqlReplicaConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The password for the replication connection. */
@@ -1775,7 +1856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_DiskEncryptionConfiguration : GTLRObject
 
-/** This is always <code>sql#diskEncryptionConfiguration</code>. */
+/** This is always <b>sql#diskEncryptionConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Resource name of KMS key for disk encryption */
@@ -1789,7 +1870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_DiskEncryptionStatus : GTLRObject
 
-/** This is always <code>sql#diskEncryptionStatus</code>. */
+/** This is always <b>sql#diskEncryptionStatus</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** KMS key version used to encrypt the Cloud SQL instance resource */
@@ -1808,21 +1889,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Databases to be exported. <br /> <b>MySQL instances:</b> If
- *  <code>fileType</code> is <code>SQL</code> and no database is specified, all
- *  databases are exported, except for the <code>mysql</code> system database.
- *  If <code>fileType</code> is <code>CSV</code>, you can specify one database,
+ *  <b>fileType</b> is <b>SQL</b> and no database is specified, all
+ *  databases are exported, except for the <b>mysql</b> system database.
+ *  If <b>fileType</b> is <b>CSV</b>, you can specify one database,
  *  either by using this property or by using the
- *  <code>csvExportOptions.selectQuery</code> property, which takes precedence
+ *  <b>csvExportOptions.selectQuery</b> property, which takes precedence
  *  over this property. <br /> <b>PostgreSQL instances:</b> You must specify
- *  one database to be exported. If <code>fileType</code> is <code>CSV</code>,
+ *  one database to be exported. If <b>fileType</b> is <b>CSV</b>,
  *  this database must match the one specified in the
- *  <code>csvExportOptions.selectQuery</code> property.
+ *  <b>csvExportOptions.selectQuery</b> property.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
 /**
- *  The file type for the specified uri. <br><code>SQL</code>: The file
- *  contains SQL statements. <br><code>CSV</code>: The file contains CSV data.
+ *  The file type for the specified uri. <br><b>SQL</b>: The file
+ *  contains SQL statements. <br><b>CSV</b>: The file contains CSV data.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ExportContext_FileType_Bak Value "BAK"
@@ -1835,25 +1916,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
-/** This is always <code>sql#exportContext</code>. */
+/** This is always <b>sql#exportContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Option for export offload.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *offload;
 
 /** Options for exporting data as SQL statements. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_SqlExportOptions *sqlExportOptions;
 
 /**
  *  The path to the file in Google Cloud Storage where the export will be
- *  stored. The URI is in the form <code>gs:
- *  //bucketName/fileName</code>. If the file already exists, the requests
- *  // succeeds, but the operation fails. If <code>fileType</code> is
- *  // <code>SQL</code> and the filename ends with .gz, the contents are
+ *  stored. The URI is in the form <b>gs:
+ *  //bucketName/fileName</b>. If the file already exists, the requests
+ *  // succeeds, but the operation fails. If <b>fileType</b> is
+ *  // <b>SQL</b> and the filename ends with .gz, the contents are
  *  // compressed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -1904,9 +1978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Option to include SQL statement required to set up replication.
- *  If set to <code>1</code>, the dump file includes
+ *  <br>If set to <b>1</b>, the dump file includes
  *  a CHANGE MASTER TO statement with the binary log coordinates.
- *  If set to <code>2</code>, the CHANGE MASTER TO statement is written as
+ *  <br>If set to <b>2</b>, the CHANGE MASTER TO statement is written as
  *  a SQL comment, and has no effect.
  *  All other values are ignored.
  *
@@ -1922,7 +1996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_FailoverContext : GTLRObject
 
-/** This is always <code>sql#failoverContext</code>. */
+/** This is always <b>sql#failoverContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1950,14 +2024,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowedIntValues;
 
 /**
- *  For <code>STRING</code> flags, a list of strings that the value can be set
+ *  For <b>STRING</b> flags, a list of strings that the value can be set
  *  to.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedStringValues;
 
 /**
- *  The database version this flag applies to. Can be <code>MYSQL_5_5</code>,
- *  <code>MYSQL_5_6</code>, or <code>MYSQL_5_7</code>. <code>MYSQL_5_7</code>
+ *  The database version this flag applies to. Can be <b>MYSQL_5_5</b>,
+ *  <b>MYSQL_5_6</b>, or <b>MYSQL_5_7</b>. <b>MYSQL_5_7</b>
  *  is applicable only to Second Generation instances.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appliesTo;
@@ -1969,18 +2043,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSNumber *inBeta;
 
-/** This is always <code>sql#flag</code>. */
+/** This is always <b>sql#flag</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  For <code>INTEGER</code> flags, the maximum allowed value.
+ *  For <b>INTEGER</b> flags, the maximum allowed value.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxValue;
 
 /**
- *  For <code>INTEGER</code> flags, the minimum allowed value.
+ *  For <b>INTEGER</b> flags, the minimum allowed value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1988,7 +2062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  This is the name of the flag. Flag names always use underscores, not
- *  hyphens, e.g. <code>max_allowed_packet</code>
+ *  hyphens, e.g. <b>max_allowed_packet</b>
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2001,10 +2075,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, strong, nullable) NSNumber *requiresRestart;
 
 /**
- *  The type of the flag. Flags are typed to being <code>BOOLEAN</code>,
- *  <code>STRING</code>, <code>INTEGER</code> or <code>NONE</code>.
- *  <code>NONE</code> is used for flags which do not take a value, such as
- *  <code>skip_grant_tables</code>.
+ *  The type of the flag. Flags are typed to being <b>BOOLEAN</b>,
+ *  <b>STRING</b>, <b>INTEGER</b> or <b>NONE</b>.
+ *  <b>NONE</b> is used for flags which do not take a value, such as
+ *  <b>skip_grant_tables</b>.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Flag_Type_Boolean Boolean type flag. (Value:
@@ -2044,7 +2118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Flag *> *items;
 
-/** This is always <code>sql#flagsList</code>. */
+/** This is always <b>sql#flagsList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -2062,17 +2136,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_CsvImportOptions *csvImportOptions;
 
 /**
- *  The target database for the import. If <code>fileType</code> is
- *  <code>SQL</code>, this field is required only if the import file does not
+ *  The target database for the import. If <b>fileType</b> is
+ *  <b>SQL</b>, this field is required only if the import file does not
  *  specify a database, and is overridden by any database specification in the
- *  import file. If <code>fileType</code> is <code>CSV</code>, one database
+ *  import file. If <b>fileType</b> is <b>CSV</b>, one database
  *  must be specified.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
- *  The file type for the specified uri. <br><code>SQL</code>: The file
- *  contains SQL statements. <br><code>CSV</code>: The file contains CSV data.
+ *  The file type for the specified uri. <br><b>SQL</b>: The file
+ *  contains SQL statements. <br><b>CSV</b>: The file contains CSV data.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ImportContext_FileType_Bak Value "BAK"
@@ -2090,14 +2164,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, copy, nullable) NSString *importUser;
 
-/** This is always <code>sql#importContext</code>. */
+/** This is always <b>sql#importContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Path to the import file in Cloud Storage, in the form
- *  <code>gs:
- *  //bucketName/fileName</code>. Compressed gzip files (.gz) are supported
- *  // when <code>fileType</code> is <code>SQL</code>. The instance must have
+ *  <b>gs:
+ *  //bucketName/fileName</b>. Compressed gzip files (.gz) are supported
+ *  // when <b>fileType</b> is <b>SQL</b>. The instance must have
  *  // write permissions to the bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -2139,7 +2213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Path to the Certificate (.cer) in Cloud Storage, in the form
- *  <code>gs://bucketName/fileName</code>. The instance must have
+ *  <b>gs://bucketName/fileName</b>. The instance must have
  *  write permissions to the bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *certPath;
@@ -2149,7 +2223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Path to the Certificate Private Key (.pvk) in Cloud Storage, in the
- *  form <code>gs://bucketName/fileName</code>. The instance must have
+ *  form <b>gs://bucketName/fileName</b>. The instance must have
  *  write permissions to the bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *pvkPath;
@@ -2230,7 +2304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DatabaseInstance *> *items;
 
-/** This is always <code>sql#instancesList</code>. */
+/** This is always <b>sql#instancesList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2255,7 +2329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** List of server CA certificates for the instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *certs;
 
-/** This is always <code>sql#instancesListServerCas</code>. */
+/** This is always <b>sql#instancesListServerCas</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -2301,10 +2375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The list of external networks that are allowed to connect to the instance
- *  using the IP. In
- *  <a href="http://en.wikipedia.org/wiki/CIDR_notation#CIDR_notation">CIDR
- *  notation</a>, also known as 'slash' notation (e.g.
- *  <code>192.168.100.0/24</code>).
+ *  using the IP. In 'CIDR' notation, also known as 'slash' notation (e.g.
+ *  <b>192.168.100.0/24</b>).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
 
@@ -2318,7 +2390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /**
  *  The resource link for the VPC network from which the Cloud SQL instance is
  *  accessible for private IP. For example,
- *  <code>/projects/myProject/global/networks/default</code>. This setting can
+ *  <b>/projects/myProject/global/networks/default</b>. This setting can
  *  be updated, but it cannot be removed after it is set.
  */
 @property(nonatomic, copy, nullable) NSString *privateNetwork;
@@ -2345,16 +2417,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The due time for this IP to be retired in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>. This field is only available when
+ *  <b>2012-11-15T16:19:00.094Z</b>. This field is only available when
  *  the IP is scheduled to be retired.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeToRetire;
 
 /**
- *  The type of this IP address. A <code>PRIMARY</code> address is a public
- *  address that can accept incoming connections. A <code>PRIVATE</code>
+ *  The type of this IP address. A <b>PRIMARY</b> address is a public
+ *  address that can accept incoming connections. A <b>PRIVATE</b>
  *  address is a private address that can accept incoming connections. An
- *  <code>OUTGOING</code> address is the source address of connections
+ *  <b>OUTGOING</b> address is the source address of connections
  *  originating from the instance, if supported.
  *
  *  Likely values:
@@ -2391,12 +2463,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @interface GTLRSQLAdmin_LocationPreference : GTLRObject
 
 /**
- *  The AppEngine application to follow, it must be in the same region as the
+ *  The App Engine application to follow, it must be in the same region as the
  *  Cloud SQL instance.
  */
 @property(nonatomic, copy, nullable) NSString *followGaeApplication;
 
-/** This is always <code>sql#locationPreference</code>. */
+/** This is always <b>sql#locationPreference</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2430,12 +2502,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSNumber *hour;
 
-/** This is always <code>sql#maintenanceWindow</code>. */
+/** This is always <b>sql#maintenanceWindow</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Maintenance timing setting: <code>canary</code> (Earlier) or
- *  <code>stable</code> (Later). <br /><a
+ *  Maintenance timing setting: <b>canary</b> (Earlier) or
+ *  <b>stable</b> (Later). <br /><a
  *  href="/sql/docs/db_path/instance-settings#maintenance-timing-2ndgen">
  *  Learn more</a>.
  *
@@ -2484,15 +2556,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Path to a SQL dump file in Google Cloud Storage from which the slave
- *  instance is to be created. The URI is in the form gs:
- *  //bucketName/fileName. Compressed gzip files (.gz) are also supported.
- *  // Dumps should have the binlog co-ordinates from which replication should
- *  // begin. This can be accomplished by setting --master-data to 1 when using
- *  // mysqldump.
+ *  instance is to be created. The URI is in the form gs://bucketName/fileName.
+ *  Compressed gzip files (.gz) are also supported.
+ *  Dumps should have the binlog co-ordinates from which replication should
+ *  begin. This can be accomplished by setting --master-data to 1 when using
+ *  mysqldump.
  */
 @property(nonatomic, copy, nullable) NSString *dumpFilePath;
 
-/** This is always <code>sql#mysqlReplicaConfiguration</code>. */
+/** This is always <b>sql#mysqlReplicaConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2545,7 +2617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** The host and port of the on-premises instance in host:port format */
 @property(nonatomic, copy, nullable) NSString *hostPort;
 
-/** This is always <code>sql#onPremisesConfiguration</code>. */
+/** This is always <b>sql#onPremisesConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The password for connecting to on-premises instance. */
@@ -2568,7 +2640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time this operation finished in UTC timezone in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -2588,11 +2660,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time this operation was enqueued in UTC timezone in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
 
-/** This is always <code>sql#operation</code>. */
+/** This is always <b>sql#operation</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2603,12 +2675,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The type of the operation. Valid values are <code>CREATE</code>,
- *  <code>DELETE</code>, <code>UPDATE</code>, <code>RESTART</code>,
- *  <code>IMPORT</code>, <code>EXPORT</code>, <code>BACKUP_VOLUME</code>,
- *  <code>RESTORE_VOLUME</code>, <code>CREATE_USER</code>,
- *  <code>DELETE_USER</code>, <code>CREATE_DATABASE</code>,
- *  <code>DELETE_DATABASE</code> .
+ *  The type of the operation. Valid values are:
+ *  <br><b>CREATE</b>
+ *  <br><b>DELETE</b>
+ *  <br><b>UPDATE</b>
+ *  <br><b>RESTART</b>
+ *  <br><b>IMPORT</b>
+ *  <br><b>EXPORT</b>
+ *  <br><b>BACKUP_VOLUME</b>
+ *  <br><b>RESTORE_VOLUME</b>
+ *  <br><b>CREATE_USER</b>
+ *  <br><b>DELETE_USER</b>
+ *  <br><b>CREATE_DATABASE</b>
+ *  <br><b>DELETE_DATABASE</b>
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Backup Value "BACKUP"
@@ -2699,14 +2778,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time this operation actually started in UTC timezone in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The status of an operation. Valid values are <code>PENDING</code>,
- *  <code>RUNNING</code>, <code>DONE</code>,
- *  <code>SQL_OPERATION_STATUS_UNSPECIFIED</code>.
+ *  The status of an operation. Valid values are:
+ *  <br><b>PENDING</b>
+ *  <br><b>RUNNING</b>
+ *  <br><b>DONE</b>
+ *  <br><b>SQL_OPERATION_STATUS_UNSPECIFIED</b>
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Operation_Status_Done The operation completed.
@@ -2743,7 +2824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Identifies the specific error that occurred. */
 @property(nonatomic, copy, nullable) NSString *code;
 
-/** This is always <code>sql#operationError</code>. */
+/** This is always <b>sql#operationError</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional information about the error encountered. */
@@ -2760,7 +2841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** The list of errors encountered while processing this operation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_OperationError *> *errors;
 
-/** This is always <code>sql#operationErrors</code>. */
+/** This is always <b>sql#operationErrors</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -2784,7 +2865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Operation *> *items;
 
-/** This is always <code>sql#operationsList</code>. */
+/** This is always <b>sql#operationsList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2803,7 +2884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Specifies if the replica is the failover target. If the field is set to
- *  <code>true</code> the replica will be designated as a failover replica. In
+ *  <b>true</b> the replica will be designated as a failover replica. In
  *  case the master instance fails, the replica instance will be promoted as
  *  the new master instance. <p>Only one replica can be specified as failover
  *  target, and the replica has to be in different zone with the master
@@ -2813,7 +2894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSNumber *failoverTarget;
 
-/** This is always <code>sql#replicaConfiguration</code>. */
+/** This is always <b>sql#replicaConfiguration</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2821,7 +2902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  master. Replication configuration information such as the username,
  *  password, certificates, and keys are not stored in the instance metadata.
  *  The configuration information is used only to set up the replication
- *  connection and is stored by MySQL in a file named <code>master.info</code>
+ *  connection and is stored by MySQL in a file named <b>master.info</b>
  *  in the data directory.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlReplicaConfiguration *mysqlReplicaConfiguration;
@@ -2855,7 +2936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Optional. Timestamp when the maintenance shall be rescheduled to if
  *  reschedule_type=SPECIFIC_TIME, in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
- *  example <code>2012-11-15T16:19:00.094Z</code>.
+ *  example <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
 
@@ -2878,7 +2959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** The ID of the instance that the backup was taken from. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
-/** This is always <code>sql#restoreBackupContext</code>. */
+/** This is always <b>sql#restoreBackupContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The full project ID of the source instance. */
@@ -2892,7 +2973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_RotateServerCaContext : GTLRObject
 
-/** This is always <code>sql#rotateServerCaContext</code>. */
+/** This is always <b>sql#rotateServerCaContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2911,15 +2992,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The activation policy specifies when the instance is activated; it is
- *  applicable only when the instance state is <code>RUNNABLE</code>. Valid
- *  values: <br><code>ALWAYS</code>: The instance is on, and remains so even in
- *  the absence of connection requests. <br><code>NEVER</code>: The instance is
- *  off; it is not activated, even if a connection request arrives.
- *  <br><code>ON_DEMAND</code>: First Generation instances only. The instance
- *  responds to incoming requests, and turns itself off when not in use.
- *  Instances with <code>PER_USE</code> pricing turn off after 15 minutes of
- *  inactivity. Instances with <code>PER_PACKAGE</code> pricing turn off after
- *  12 hours of inactivity.
+ *  applicable only when the instance state is RUNNABLE. Valid values:
+ *  <br><b>ALWAYS</b>: The instance is on, and remains so even in
+ *  the absence of connection requests.
+ *  <br><b>NEVER</b>: The instance is off; it is not activated, even if a
+ *  connection request arrives.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_ActivationPolicy_Always The instance is
@@ -2934,19 +3011,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, copy, nullable) NSString *activationPolicy;
 
 /**
- *  The App Engine app IDs that can access this instance. First Generation
- *  instances only.
+ *  The App Engine app IDs that can access this instance.
+ *  (Deprecated) Applied to First Generation instances only.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
 /**
- *  Availability type (PostgreSQL and MySQL instances only). Potential values:
- *  <br><code>ZONAL</code>: The instance serves data from only one zone.
- *  Outages in that zone affect data accessibility. <br><code>REGIONAL</code>:
- *  The instance can serve data from more than one zone in a region (it is
- *  highly available). <br>For more information, see
- *  <a href="https://cloud.google.com/sql/docs/postgres/high-availability">Overview
- *  of the High Availability Configuration</a>.
+ *  Availability type. Potential values:
+ *  <br><b>ZONAL</b>: The instance serves data from only one zone.
+ *  Outages in that zone affect data accessibility.
+ *  <br><b>REGIONAL</b>: The instance can serve data from more than one zone
+ *  in a region
+ *  (it is highly available). <br>For more information, see
+ *  <a href="/sql/docs/postgres/high-availability">
+ *  Overview of the High Availability Configuration</a>.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_AvailabilityType_Regional Regional
@@ -2962,9 +3040,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** The daily backup configuration for the instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupConfiguration *backupConfiguration;
 
+/** The name of server Instance collation. */
+@property(nonatomic, copy, nullable) NSString *collation;
+
 /**
  *  Configuration specific to read replica instances. Indicates whether
- *  database flags for crash-safe replication are enabled. This property is
+ *  database flags for crash-safe replication are enabled. This property was
  *  only applicable to First Generation instances.
  *
  *  Uses NSNumber of boolValue.
@@ -2983,16 +3064,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, strong, nullable) NSNumber *databaseReplicationEnabled;
 
 /**
- *  The size of data disk, in GB. The data disk size minimum is 10GB. Not used
- *  for First Generation instances.
+ *  The size of data disk, in GB. The data disk size minimum is 10GB.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataDiskSizeGb;
 
 /**
- *  The type of data disk: <code>PD_SSD</code> (default) or
- *  <code>PD_HDD</code>. Not used for First Generation instances.
+ *  The type of data disk: PD_SSD (default) or
+ *  PD_HDD. Not used for First Generation instances.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd This field is
@@ -3015,27 +3095,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_IpConfiguration *ipConfiguration;
 
-/** This is always <code>sql#settings</code>. */
+/** This is always <b>sql#settings</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The location preference settings. This allows the instance to be located as
  *  near as possible to either an App Engine app or Compute Engine zone for
- *  better performance. App Engine co-location is only applicable to First
+ *  better performance. App Engine co-location was only applicable to First
  *  Generation instances.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
 
 /**
  *  The maintenance window for this instance. This specifies when the instance
- *  can be restarted for maintenance purposes. Not used for First Generation
- *  instances.
+ *  can be restarted for maintenance purposes.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
 
 /**
- *  The pricing plan for this instance. This can be either <code>PER_USE</code>
- *  or <code>PACKAGE</code>. Only <code>PER_USE</code> is supported for Second
+ *  The pricing plan for this instance. This can be either <b>PER_USE</b>
+ *  or <b>PACKAGE</b>. Only <b>PER_USE</b> is supported for Second
  *  Generation instances.
  *
  *  Likely values:
@@ -3051,8 +3130,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The type of replication this instance uses. This can be either
- *  <code>ASYNCHRONOUS</code> or <code>SYNCHRONOUS</code>. This property is
- *  only applicable to First Generation instances.
+ *  <b>ASYNCHRONOUS</b> or <b>SYNCHRONOUS</b>.
+ *  (Deprecated_ This property was only applicable to
+ *  First Generation instances.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_ReplicationType_Asynchronous The
@@ -3082,7 +3162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  Configuration to increase storage size automatically. The default value is
- *  true. Not used for First Generation instances.
+ *  true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3090,8 +3170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The maximum size to which storage capacity can be automatically increased.
- *  The default value is 0, which specifies that there is no limit. Not used
- *  for First Generation instances.
+ *  The default value is 0, which specifies that there is no limit.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3099,11 +3178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The tier (or machine type) for this instance, for example
- *  <code>db-n1-standard-1</code> (MySQL instances) or
- *  <code>db-custom-1-3840</code> (PostgreSQL instances). For MySQL instances,
- *  this property determines whether the instance is First or Second
- *  Generation. For more information, see
- *  <a href="/sql/docs/db_path/instance-settings">Instance Settings</a>.
+ *  <b>db-n1-standard-1</b> (MySQL instances) or
+ *  <b>db-custom-1-3840</b> (PostgreSQL instances).
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -3137,7 +3213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Additional information about the error encountered. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
-/** This is always <code>sql#migrationSettingError</code>. */
+/** This is always <b>sql#migrationSettingError</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -3150,8 +3226,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *        Value "CONNECTION_FAILURE"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion
  *        Value "INCOMPATIBLE_DATABASE_VERSION"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots
+ *        The value of parameter max_replication_slots is not sufficient.
+ *        (Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWalSenders
+ *        The value of parameter max_wal_senders is not sufficient. (Value:
+ *        "INSUFFICIENT_MAX_WAL_SENDERS")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWorkerProcesses
+ *        The value of parameter max_worker_processes is not sufficient. (Value:
+ *        "INSUFFICIENT_MAX_WORKER_PROCESSES")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege
  *        Value "INSUFFICIENT_PRIVILEGE"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidRdsLogicalReplication
+ *        The value of parameter rds.logical_replication is not set to 1.
+ *        (Value: "INVALID_RDS_LOGICAL_REPLICATION")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPreloadLibrary
+ *        The value of parameter shared_preload_libraries does not include
+ *        pglogical. (Value: "INVALID_SHARED_PRELOAD_LIBRARY")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel The
+ *        value of parameter wal_level is not set to logical. (Value:
+ *        "INVALID_WAL_LEVEL")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled
  *        No pglogical extension installed on databases, applicable for
  *        postgres. (Value: "NO_PGLOGICAL_INSTALLED")
@@ -3162,6 +3256,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *        Value "REPLICA_ALREADY_SETUP"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified
  *        Value "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions
+ *        Extensions installed are either not supported or having unsupported
+ *        versions (Value: "UNSUPPORTED_EXTENSIONS")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType
  *        Unsupported migration type. (Value: "UNSUPPORTED_MIGRATION_TYPE")
  */
@@ -3189,7 +3286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** List of migration violations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SqlExternalSyncSettingError *> *errors;
 
-/** This is always <code>sql#migrationSettingErrorList</code>. */
+/** This is always <b>sql#migrationSettingErrorList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -3274,7 +3371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time when the certificate was created in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>
+ *  <b>2012-11-15T16:19:00.094Z</b>
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3282,14 +3379,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  The time when the certificate expires in
  *  <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> format, for
  *  example
- *  <code>2012-11-15T16:19:00.094Z</code>.
+ *  <b>2012-11-15T16:19:00.094Z</b>.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /** Name of the database instance. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** This is always <code>sql#sslCert</code>. */
+/** This is always <b>sql#sslCert</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The URI of this resource. */
@@ -3348,14 +3445,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_SslCertsInsertResponse : GTLRObject
 
-/**
- *  The new client certificate and private key. For First Generation
- *  instances, the new certificate does not take effect until the instance is
- *  restarted.
- */
+/** The new client certificate and private key. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCertDetail *clientCert;
 
-/** This is always <code>sql#sslCertsInsert</code>. */
+/** This is always <b>sql#sslCertsInsert</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The operation to track the ssl certs insert request. */
@@ -3387,7 +3480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *items;
 
-/** This is always <code>sql#sslCertsList</code>. */
+/** This is always <b>sql#sslCertsList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -3405,7 +3498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSNumber *DiskQuota;
 
-/** This is always <code>sql#tier</code>. */
+/** This is always <b>sql#tier</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -3443,7 +3536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Tier *> *items;
 
-/** This is always <code>sql#tiersList</code>. */
+/** This is always <b>sql#tiersList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -3454,12 +3547,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @interface GTLRSQLAdmin_TruncateLogContext : GTLRObject
 
-/** This is always <code>sql#truncateLogContext</code>. */
+/** This is always <b>sql#truncateLogContext</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The type of log to truncate. Valid values are
- *  <code>MYSQL_GENERAL_TABLE</code> and <code>MYSQL_SLOW_TABLE</code>.
+ *  <b>MYSQL_GENERAL_TABLE</b> and <b>MYSQL_SLOW_TABLE</b>.
  */
 @property(nonatomic, copy, nullable) NSString *logType;
 
@@ -3478,8 +3571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The host name from which the user can connect. For <code>insert</code>
- *  operations, host defaults to an empty string. For <code>update</code>
+ *  The host name from which the user can connect. For <b>insert</b>
+ *  operations, host defaults to an empty string. For <b>update</b>
  *  operations, host is specified as part of the request URL. The host name
  *  cannot be updated after insertion.
  */
@@ -3487,17 +3580,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 
 /**
  *  The name of the Cloud SQL instance. This does not include the project ID.
- *  Can be omitted for <code>update</code> since it is already specified on the
+ *  Can be omitted for <b>update</b> since it is already specified on the
  *  URL.
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** This is always <code>sql#user</code>. */
+/** This is always <b>sql#user</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The name of the user in the Cloud SQL instance. Can be omitted for
- *  <code>update</code> since it is already specified in the URL.
+ *  <b>update</b> since it is already specified in the URL.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3507,7 +3600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /**
  *  The project ID of the project containing the Cloud SQL database. The Google
  *  apps domain is prefixed if applicable. Can be omitted for
- *  <code>update</code> since it is already specified on the URL.
+ *  <b>update</b> since it is already specified on the URL.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -3534,7 +3627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_User *> *items;
 
-/** This is always <code>sql#usersList</code>. */
+/** This is always <b>sql#usersList</b>. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**

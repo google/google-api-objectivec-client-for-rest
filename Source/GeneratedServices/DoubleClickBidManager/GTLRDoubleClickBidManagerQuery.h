@@ -4,7 +4,8 @@
 // API:
 //   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
-//   API for viewing and managing your reports in DoubleClick Bid Manager.
+//   DoubleClick Bid Manager API allows users to manage and create campaigns and
+//   reports.
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
@@ -44,7 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves line items in CSV format. TrueView line items are not supported.
+ *  Retrieves line items in CSV format. YouTube & partners line items are not
+ *  supported.
  *
  *  Method: doubleclickbidmanager.lineitems.downloadlineitems
  *
@@ -58,7 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_DownloadLineItemsResponse.
  *
- *  Retrieves line items in CSV format. TrueView line items are not supported.
+ *  Retrieves line items in CSV format. YouTube & partners line items are not
+ *  supported.
  *
  *  @param object The @c GTLRDoubleClickBidManager_DownloadLineItemsRequest to
  *    include in the query.
@@ -70,7 +73,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Uploads line items in CSV format. TrueView line items are not supported.
+ *  Uploads line items in CSV format. YouTube & partners line items are not
+ *  supported.
  *
  *  Method: doubleclickbidmanager.lineitems.uploadlineitems
  *
@@ -84,7 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_UploadLineItemsResponse.
  *
- *  Uploads line items in CSV format. TrueView line items are not supported.
+ *  Uploads line items in CSV format. YouTube & partners line items are not
+ *  supported.
  *
  *  @param object The @c GTLRDoubleClickBidManager_UploadLineItemsRequest to
  *    include in the query.
@@ -108,8 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesCreatequeryWithObject:]
 
 /**
- *  If true, tries to run the query asynchronously. Only applicable when the
- *  frequency is ONE_TIME.
+ *  If true, tries to run the query asynchronously. Only applicable when
+ *  the frequency is <code>ONE_TIME</code>.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -199,8 +204,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForQueriesListqueries]
 
 /**
- *  Maximum number of results per page. Must be between 1 and 100. Defaults to
- *  100 if unspecified.
+ *  Maximum number of results per page. Must be between <code>1</code> and
+ *  <code>100</code>. Defaults to <code>100</code> if unspecified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -274,8 +279,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDoubleClickBidManager queryForReportsListreportsWithqueryId:]
 
 /**
- *  Maximum number of results per page. Must be between 1 and 100. Defaults to
- *  100 if unspecified.
+ *  Maximum number of results per page. Must be between <code>1</code> and
+ *  <code>100</code>. Defaults to <code>100</code> if unspecified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

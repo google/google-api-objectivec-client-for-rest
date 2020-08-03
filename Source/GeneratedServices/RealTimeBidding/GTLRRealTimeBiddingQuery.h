@@ -42,11 +42,24 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "CREATIVE_VIEW_UNSPECIFIED" */
+/**
+ *  Not specified, equivalent to SERVING_DECISION_ONLY.
+ *
+ *  Value: "CREATIVE_VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewCreativeViewUnspecified;
-/** Value: "FULL" */
+/**
+ *  The entire creative resource (including the declared fields and the creative
+ *  content) is included in the response.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewFull;
-/** Value: "SERVING_DECISION_ONLY" */
+/**
+ *  Only creativeServingDecision is included in the response.
+ *
+ *  Value: "SERVING_DECISION_ONLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 // ----------------------------------------------------------------------------
@@ -69,7 +82,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.bidders.creatives.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersCreativesList : GTLRRealTimeBiddingQuery
@@ -77,63 +89,60 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 //   +[GTLQueryRealTimeBidding queryForBiddersCreativesListWithparent:]
 
 /**
- *  Query string to filter creatives. If no filter is specified,
- *  all active creatives will be returned.
- *  Example: 'accountId=12345 AND (dealsStatus:DISAPPROVED AND
- *  disapprovalReason:UNACCEPTABLE_CONTENT) OR
+ *  Query string to filter creatives. If no filter is specified, all active
+ *  creatives will be returned. Example: 'accountId=12345 AND
+ *  (dealsStatus:DISAPPROVED AND disapprovalReason:UNACCEPTABLE_CONTENT) OR
  *  declaredAttributes:IS_COOKIE_TARGETED'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Requested page size. The server may return fewer creatives than requested
- *  (due to timeout constraint) even if more are available via another call.
- *  If unspecified, server will pick an appropriate default.
- *  Acceptable values are 1 to 1000, inclusive.
+ *  (due to timeout constraint) even if more are available via another call. If
+ *  unspecified, server will pick an appropriate default. Acceptable values are
+ *  1 to 1000, inclusive.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListCreativesResponse.nextPageToken
- *  returned from the previous call to the 'ListCreatives' method.
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListCreativesResponse.nextPageToken returned from the
+ *  previous call to the 'ListCreatives' method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the parent buyer that owns the creatives.
- *  The pattern for this resource is either `buyers/{buyerAccountId}` or
- *  `bidders/{bidderAccountId}`.
- *  For `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the
- *  following:
- *  1. The ID of the buyer that is accessing their own creatives.
- *  2. The ID of the child seat buyer under a bidder account.
- *  So for listing creatives pertaining to the child seat buyer (`456`)
- *  under bidder account (`123`), you would use the pattern: `buyers/456`.
- *  3. The ID of the bidder itself.
- *  So for listing creatives pertaining to bidder (`123`),
- *  you would use `buyers/123`.
- *  If you want to access all creatives pertaining to both the bidder and all
- *  of its child seat accounts, you would use `bidders/{bidderAccountId}`,
- *  e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
+ *  Required. Name of the parent buyer that owns the creatives. The pattern for
+ *  this resource is either `buyers/{buyerAccountId}` or
+ *  `bidders/{bidderAccountId}`. For `buyers/{buyerAccountId}`, the
+ *  `buyerAccountId` can be one of the following: 1. The ID of the buyer that is
+ *  accessing their own creatives. 2. The ID of the child seat buyer under a
+ *  bidder account. So for listing creatives pertaining to the child seat buyer
+ *  (`456`) under bidder account (`123`), you would use the pattern:
+ *  `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
+ *  pertaining to bidder (`123`), you would use `buyers/123`. If you want to
+ *  access all creatives pertaining to both the bidder and all of its child seat
+ *  accounts, you would use `bidders/{bidderAccountId}`, e.g., for all creatives
+ *  pertaining to bidder (`123`), use `bidders/123`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Controls the amount of information included in the response.
- *  By default only
- *  creativeServingDecision
- *  is included. To retrieve the entire creative
- *  resource (including the declared
- *  fields and the creative content) specify the view as "FULL".
+ *  Controls the amount of information included in the response. By default only
+ *  creativeServingDecision is included. To retrieve the entire creative
+ *  resource (including the declared fields and the creative content) specify
+ *  the view as "FULL".
  *
  *  Likely values:
- *    @arg @c kGTLRRealTimeBiddingViewCreativeViewUnspecified Value
- *        "CREATIVE_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRRealTimeBiddingViewServingDecisionOnly Value
- *        "SERVING_DECISION_ONLY"
- *    @arg @c kGTLRRealTimeBiddingViewFull Value "FULL"
+ *    @arg @c kGTLRRealTimeBiddingViewCreativeViewUnspecified Not specified,
+ *        equivalent to SERVING_DECISION_ONLY. (Value:
+ *        "CREATIVE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRRealTimeBiddingViewServingDecisionOnly Only
+ *        creativeServingDecision is included in the response. (Value:
+ *        "SERVING_DECISION_ONLY")
+ *    @arg @c kGTLRRealTimeBiddingViewFull The entire creative resource
+ *        (including the declared fields and the creative content) is included
+ *        in the response. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -144,19 +153,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param parent Required. Name of the parent buyer that owns the creatives.
  *    The pattern for this resource is either `buyers/{buyerAccountId}` or
- *    `bidders/{bidderAccountId}`.
- *    For `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the
- *    following:
- *    1. The ID of the buyer that is accessing their own creatives.
- *    2. The ID of the child seat buyer under a bidder account.
- *    So for listing creatives pertaining to the child seat buyer (`456`)
- *    under bidder account (`123`), you would use the pattern: `buyers/456`.
- *    3. The ID of the bidder itself.
- *    So for listing creatives pertaining to bidder (`123`),
- *    you would use `buyers/123`.
- *    If you want to access all creatives pertaining to both the bidder and all
- *    of its child seat accounts, you would use `bidders/{bidderAccountId}`,
- *    e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
+ *    `bidders/{bidderAccountId}`. For `buyers/{buyerAccountId}`, the
+ *    `buyerAccountId` can be one of the following: 1. The ID of the buyer that
+ *    is accessing their own creatives. 2. The ID of the child seat buyer under
+ *    a bidder account. So for listing creatives pertaining to the child seat
+ *    buyer (`456`) under bidder account (`123`), you would use the pattern:
+ *    `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
+ *    pertaining to bidder (`123`), you would use `buyers/123`. If you want to
+ *    access all creatives pertaining to both the bidder and all of its child
+ *    seat accounts, you would use `bidders/{bidderAccountId}`, e.g., for all
+ *    creatives pertaining to bidder (`123`), use `bidders/123`.
  *
  *  @return GTLRRealTimeBiddingQuery_BiddersCreativesList
  *
@@ -171,16 +177,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Watches all creatives pertaining to a bidder. It is sufficient to invoke
  *  this endpoint once per bidder. A Pub/Sub topic will be created and
- *  notifications will be pushed to the topic when any of the bidder's
- *  creatives change status. All of the bidder's service accounts will have
- *  access to read from the topic.
- *  Subsequent invocations of this method will return the existing
- *  Pub/Sub configuration.
+ *  notifications will be pushed to the topic when any of the bidder's creatives
+ *  change status. All of the bidder's service accounts will have access to read
+ *  from the topic. Subsequent invocations of this method will return the
+ *  existing Pub/Sub configuration.
  *
  *  Method: realtimebidding.bidders.creatives.watch
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersCreativesWatch : GTLRRealTimeBiddingQuery
@@ -189,8 +193,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Required. To watch all creatives pertaining to the bidder and all its child
- *  seat
- *  accounts, the bidder must follow the pattern `bidders/{bidderAccountId}`.
+ *  seat accounts, the bidder must follow the pattern
+ *  `bidders/{bidderAccountId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -199,17 +203,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  Watches all creatives pertaining to a bidder. It is sufficient to invoke
  *  this endpoint once per bidder. A Pub/Sub topic will be created and
- *  notifications will be pushed to the topic when any of the bidder's
- *  creatives change status. All of the bidder's service accounts will have
- *  access to read from the topic.
- *  Subsequent invocations of this method will return the existing
- *  Pub/Sub configuration.
+ *  notifications will be pushed to the topic when any of the bidder's creatives
+ *  change status. All of the bidder's service accounts will have access to read
+ *  from the topic. Subsequent invocations of this method will return the
+ *  existing Pub/Sub configuration.
  *
  *  @param object The @c GTLRRealTimeBidding_WatchCreativesRequest to include in
  *    the query.
  *  @param parent Required. To watch all creatives pertaining to the bidder and
- *    all its child seat
- *    accounts, the bidder must follow the pattern `bidders/{bidderAccountId}`.
+ *    all its child seat accounts, the bidder must follow the pattern
+ *    `bidders/{bidderAccountId}`.
  *
  *  @return GTLRRealTimeBiddingQuery_BiddersCreativesWatch
  */
@@ -224,7 +227,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.creatives.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesCreate : GTLRRealTimeBiddingQuery
@@ -233,8 +235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Required. The name of the parent buyer that the new creative belongs to that
- *  must
- *  follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}`
+ *  must follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}`
  *  represents the account ID of the buyer who owns a creative. For a bidder
  *  accessing creatives on behalf of a child seat buyer, `{buyerAccountId}`
  *  should represent the account ID of the child seat buyer.
@@ -248,11 +249,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param object The @c GTLRRealTimeBidding_Creative to include in the query.
  *  @param parent Required. The name of the parent buyer that the new creative
- *    belongs to that must
- *    follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}`
- *    represents the account ID of the buyer who owns a creative. For a bidder
- *    accessing creatives on behalf of a child seat buyer, `{buyerAccountId}`
- *    should represent the account ID of the child seat buyer.
+ *    belongs to that must follow the pattern `buyers/{buyerAccountId}`, where
+ *    `{buyerAccountId}` represents the account ID of the buyer who owns a
+ *    creative. For a bidder accessing creatives on behalf of a child seat
+ *    buyer, `{buyerAccountId}` should represent the account ID of the child
+ *    seat buyer.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersCreativesCreate
  */
@@ -267,33 +268,31 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.creatives.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesGet : GTLRRealTimeBiddingQuery
 // Previous library name was
 //   +[GTLQueryRealTimeBidding queryForBuyersCreativesGetWithname:]
 
-/**
- *  Required. Name of the creative to retrieve. See
- *  creative.name.
- */
+/** Required. Name of the creative to retrieve. See creative.name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Controls the amount of information included in the response.
- *  By default only
- *  creativeServingDecision
- *  is included. To retrieve the entire creative
- *  resource (including the declared
- *  fields and the creative content) specify the view as "FULL".
+ *  Controls the amount of information included in the response. By default only
+ *  creativeServingDecision is included. To retrieve the entire creative
+ *  resource (including the declared fields and the creative content) specify
+ *  the view as "FULL".
  *
  *  Likely values:
- *    @arg @c kGTLRRealTimeBiddingViewCreativeViewUnspecified Value
- *        "CREATIVE_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRRealTimeBiddingViewServingDecisionOnly Value
- *        "SERVING_DECISION_ONLY"
- *    @arg @c kGTLRRealTimeBiddingViewFull Value "FULL"
+ *    @arg @c kGTLRRealTimeBiddingViewCreativeViewUnspecified Not specified,
+ *        equivalent to SERVING_DECISION_ONLY. (Value:
+ *        "CREATIVE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRRealTimeBiddingViewServingDecisionOnly Only
+ *        creativeServingDecision is included in the response. (Value:
+ *        "SERVING_DECISION_ONLY")
+ *    @arg @c kGTLRRealTimeBiddingViewFull The entire creative resource
+ *        (including the declared fields and the creative content) is included
+ *        in the response. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -302,8 +301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  Gets a creative.
  *
- *  @param name Required. Name of the creative to retrieve. See
- *    creative.name.
+ *  @param name Required. Name of the creative to retrieve. See creative.name.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersCreativesGet
  */
@@ -317,7 +315,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.creatives.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesList : GTLRRealTimeBiddingQuery
@@ -325,63 +322,60 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 //   +[GTLQueryRealTimeBidding queryForBuyersCreativesListWithparent:]
 
 /**
- *  Query string to filter creatives. If no filter is specified,
- *  all active creatives will be returned.
- *  Example: 'accountId=12345 AND (dealsStatus:DISAPPROVED AND
- *  disapprovalReason:UNACCEPTABLE_CONTENT) OR
+ *  Query string to filter creatives. If no filter is specified, all active
+ *  creatives will be returned. Example: 'accountId=12345 AND
+ *  (dealsStatus:DISAPPROVED AND disapprovalReason:UNACCEPTABLE_CONTENT) OR
  *  declaredAttributes:IS_COOKIE_TARGETED'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Requested page size. The server may return fewer creatives than requested
- *  (due to timeout constraint) even if more are available via another call.
- *  If unspecified, server will pick an appropriate default.
- *  Acceptable values are 1 to 1000, inclusive.
+ *  (due to timeout constraint) even if more are available via another call. If
+ *  unspecified, server will pick an appropriate default. Acceptable values are
+ *  1 to 1000, inclusive.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListCreativesResponse.nextPageToken
- *  returned from the previous call to the 'ListCreatives' method.
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListCreativesResponse.nextPageToken returned from the
+ *  previous call to the 'ListCreatives' method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the parent buyer that owns the creatives.
- *  The pattern for this resource is either `buyers/{buyerAccountId}` or
- *  `bidders/{bidderAccountId}`.
- *  For `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the
- *  following:
- *  1. The ID of the buyer that is accessing their own creatives.
- *  2. The ID of the child seat buyer under a bidder account.
- *  So for listing creatives pertaining to the child seat buyer (`456`)
- *  under bidder account (`123`), you would use the pattern: `buyers/456`.
- *  3. The ID of the bidder itself.
- *  So for listing creatives pertaining to bidder (`123`),
- *  you would use `buyers/123`.
- *  If you want to access all creatives pertaining to both the bidder and all
- *  of its child seat accounts, you would use `bidders/{bidderAccountId}`,
- *  e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
+ *  Required. Name of the parent buyer that owns the creatives. The pattern for
+ *  this resource is either `buyers/{buyerAccountId}` or
+ *  `bidders/{bidderAccountId}`. For `buyers/{buyerAccountId}`, the
+ *  `buyerAccountId` can be one of the following: 1. The ID of the buyer that is
+ *  accessing their own creatives. 2. The ID of the child seat buyer under a
+ *  bidder account. So for listing creatives pertaining to the child seat buyer
+ *  (`456`) under bidder account (`123`), you would use the pattern:
+ *  `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
+ *  pertaining to bidder (`123`), you would use `buyers/123`. If you want to
+ *  access all creatives pertaining to both the bidder and all of its child seat
+ *  accounts, you would use `bidders/{bidderAccountId}`, e.g., for all creatives
+ *  pertaining to bidder (`123`), use `bidders/123`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Controls the amount of information included in the response.
- *  By default only
- *  creativeServingDecision
- *  is included. To retrieve the entire creative
- *  resource (including the declared
- *  fields and the creative content) specify the view as "FULL".
+ *  Controls the amount of information included in the response. By default only
+ *  creativeServingDecision is included. To retrieve the entire creative
+ *  resource (including the declared fields and the creative content) specify
+ *  the view as "FULL".
  *
  *  Likely values:
- *    @arg @c kGTLRRealTimeBiddingViewCreativeViewUnspecified Value
- *        "CREATIVE_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRRealTimeBiddingViewServingDecisionOnly Value
- *        "SERVING_DECISION_ONLY"
- *    @arg @c kGTLRRealTimeBiddingViewFull Value "FULL"
+ *    @arg @c kGTLRRealTimeBiddingViewCreativeViewUnspecified Not specified,
+ *        equivalent to SERVING_DECISION_ONLY. (Value:
+ *        "CREATIVE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRRealTimeBiddingViewServingDecisionOnly Only
+ *        creativeServingDecision is included in the response. (Value:
+ *        "SERVING_DECISION_ONLY")
+ *    @arg @c kGTLRRealTimeBiddingViewFull The entire creative resource
+ *        (including the declared fields and the creative content) is included
+ *        in the response. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -392,19 +386,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param parent Required. Name of the parent buyer that owns the creatives.
  *    The pattern for this resource is either `buyers/{buyerAccountId}` or
- *    `bidders/{bidderAccountId}`.
- *    For `buyers/{buyerAccountId}`, the `buyerAccountId` can be one of the
- *    following:
- *    1. The ID of the buyer that is accessing their own creatives.
- *    2. The ID of the child seat buyer under a bidder account.
- *    So for listing creatives pertaining to the child seat buyer (`456`)
- *    under bidder account (`123`), you would use the pattern: `buyers/456`.
- *    3. The ID of the bidder itself.
- *    So for listing creatives pertaining to bidder (`123`),
- *    you would use `buyers/123`.
- *    If you want to access all creatives pertaining to both the bidder and all
- *    of its child seat accounts, you would use `bidders/{bidderAccountId}`,
- *    e.g., for all creatives pertaining to bidder (`123`), use `bidders/123`.
+ *    `bidders/{bidderAccountId}`. For `buyers/{buyerAccountId}`, the
+ *    `buyerAccountId` can be one of the following: 1. The ID of the buyer that
+ *    is accessing their own creatives. 2. The ID of the child seat buyer under
+ *    a bidder account. So for listing creatives pertaining to the child seat
+ *    buyer (`456`) under bidder account (`123`), you would use the pattern:
+ *    `buyers/456`. 3. The ID of the bidder itself. So for listing creatives
+ *    pertaining to bidder (`123`), you would use `buyers/123`. If you want to
+ *    access all creatives pertaining to both the bidder and all of its child
+ *    seat accounts, you would use `bidders/{bidderAccountId}`, e.g., for all
+ *    creatives pertaining to bidder (`123`), use `bidders/123`.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersCreativesList
  *
@@ -422,17 +413,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.creatives.patch
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesPatch : GTLRRealTimeBiddingQuery
 // Previous library name was
 //   +[GTLQueryRealTimeBidding queryForBuyersCreativesPatchWithObject:name:]
 
-/**
- *  Name of the creative to update. See
- *  creative.name.
- */
+/** Name of the creative to update. See creative.name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -448,8 +435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Updates a creative.
  *
  *  @param object The @c GTLRRealTimeBidding_Creative to include in the query.
- *  @param name Name of the creative to update. See
- *    creative.name.
+ *  @param name Name of the creative to update. See creative.name.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersCreativesPatch
  */
@@ -459,15 +445,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
- *  Gets remarketing tag for a buyer. A remarketing tag is a piece of
- *  JavaScript code that can be placed on a web page. When a user
- *  visits a page containing a remarketing tag, Google adds the user to a user
- *  list.
+ *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
+ *  code that can be placed on a web page. When a user visits a page containing
+ *  a remarketing tag, Google adds the user to a user list.
  *
  *  Method: realtimebidding.buyers.getRemarketingTag
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag : GTLRRealTimeBiddingQuery
@@ -476,14 +460,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Required. To fetch remarketing tag for an account, name must follow the
- *  pattern
- *  `buyers/{accountId}` where `{accountId}`
- *  represents ID of a buyer that owns the remarketing tag. For a
- *  bidder accessing remarketing tag on behalf of a child seat buyer,
- *  `{accountId}` should represent the ID of the child seat buyer.
- *  To fetch remarketing tag for a specific user list, name
- *  must follow the pattern
- *  `buyers/{accountId}/userLists/{userListId}`. See
+ *  pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer
+ *  that owns the remarketing tag. For a bidder accessing remarketing tag on
+ *  behalf of a child seat buyer, `{accountId}` should represent the ID of the
+ *  child seat buyer. To fetch remarketing tag for a specific user list, name
+ *  must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See
  *  UserList.name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -491,21 +472,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_GetRemarketingTagResponse.
  *
- *  Gets remarketing tag for a buyer. A remarketing tag is a piece of
- *  JavaScript code that can be placed on a web page. When a user
- *  visits a page containing a remarketing tag, Google adds the user to a user
- *  list.
+ *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
+ *  code that can be placed on a web page. When a user visits a page containing
+ *  a remarketing tag, Google adds the user to a user list.
  *
  *  @param name Required. To fetch remarketing tag for an account, name must
- *    follow the pattern
- *    `buyers/{accountId}` where `{accountId}`
- *    represents ID of a buyer that owns the remarketing tag. For a
- *    bidder accessing remarketing tag on behalf of a child seat buyer,
- *    `{accountId}` should represent the ID of the child seat buyer.
- *    To fetch remarketing tag for a specific user list, name
- *    must follow the pattern
- *    `buyers/{accountId}/userLists/{userListId}`. See
- *    UserList.name.
+ *    follow the pattern `buyers/{accountId}` where `{accountId}` represents ID
+ *    of a buyer that owns the remarketing tag. For a bidder accessing
+ *    remarketing tag on behalf of a child seat buyer, `{accountId}` should
+ *    represent the ID of the child seat buyer. To fetch remarketing tag for a
+ *    specific user list, name must follow the pattern
+ *    `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag
  */
@@ -520,17 +497,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.userLists.close
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsClose : GTLRRealTimeBiddingQuery
 // Previous library name was
 //   +[GTLQueryRealTimeBidding queryForBuyersUserListsCloseWithObject:name:]
 
-/**
- *  Required. The name of the user list to close.
- *  See UserList.name
- */
+/** Required. The name of the user list to close. See UserList.name */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -541,8 +514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param object The @c GTLRRealTimeBidding_CloseUserListRequest to include in
  *    the query.
- *  @param name Required. The name of the user list to close.
- *    See UserList.name
+ *  @param name Required. The name of the user list to close. See UserList.name
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsClose
  */
@@ -557,7 +529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.userLists.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsCreate : GTLRRealTimeBiddingQuery
@@ -580,12 +551,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param object The @c GTLRRealTimeBidding_UserList to include in the query.
  *  @param parent Required. The name of the parent buyer of the user list to be
- *    retrieved that
- *    must follow the pattern `buyers/{buyerAccountId}`, where
- *    `{buyerAccountId}`
- *    represents the account ID of the buyer who owns user lists. For a bidder
- *    accessing user lists on behalf of a child seat buyer , `{buyerAccountId}`
- *    should represent the account ID of the child seat buyer.
+ *    retrieved that must follow the pattern `buyers/{buyerAccountId}`, where
+ *    `{buyerAccountId}` represents the account ID of the buyer who owns user
+ *    lists. For a bidder accessing user lists on behalf of a child seat buyer ,
+ *    `{buyerAccountId}` should represent the account ID of the child seat
+ *    buyer.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsCreate
  */
@@ -600,17 +570,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.userLists.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsGet : GTLRRealTimeBiddingQuery
 // Previous library name was
 //   +[GTLQueryRealTimeBidding queryForBuyersUserListsGetWithname:]
 
-/**
- *  Required. The name of the user list to be retrieved. See
- *  UserList.name.
- */
+/** Required. The name of the user list to be retrieved. See UserList.name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -628,15 +594,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
- *  Gets remarketing tag for a buyer. A remarketing tag is a piece of
- *  JavaScript code that can be placed on a web page. When a user
- *  visits a page containing a remarketing tag, Google adds the user to a user
- *  list.
+ *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
+ *  code that can be placed on a web page. When a user visits a page containing
+ *  a remarketing tag, Google adds the user to a user list.
  *
  *  Method: realtimebidding.buyers.userLists.getRemarketingTag
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsGetRemarketingTag : GTLRRealTimeBiddingQuery
@@ -645,14 +609,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Required. To fetch remarketing tag for an account, name must follow the
- *  pattern
- *  `buyers/{accountId}` where `{accountId}`
- *  represents ID of a buyer that owns the remarketing tag. For a
- *  bidder accessing remarketing tag on behalf of a child seat buyer,
- *  `{accountId}` should represent the ID of the child seat buyer.
- *  To fetch remarketing tag for a specific user list, name
- *  must follow the pattern
- *  `buyers/{accountId}/userLists/{userListId}`. See
+ *  pattern `buyers/{accountId}` where `{accountId}` represents ID of a buyer
+ *  that owns the remarketing tag. For a bidder accessing remarketing tag on
+ *  behalf of a child seat buyer, `{accountId}` should represent the ID of the
+ *  child seat buyer. To fetch remarketing tag for a specific user list, name
+ *  must follow the pattern `buyers/{accountId}/userLists/{userListId}`. See
  *  UserList.name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -660,21 +621,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  Fetches a @c GTLRRealTimeBidding_GetRemarketingTagResponse.
  *
- *  Gets remarketing tag for a buyer. A remarketing tag is a piece of
- *  JavaScript code that can be placed on a web page. When a user
- *  visits a page containing a remarketing tag, Google adds the user to a user
- *  list.
+ *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
+ *  code that can be placed on a web page. When a user visits a page containing
+ *  a remarketing tag, Google adds the user to a user list.
  *
  *  @param name Required. To fetch remarketing tag for an account, name must
- *    follow the pattern
- *    `buyers/{accountId}` where `{accountId}`
- *    represents ID of a buyer that owns the remarketing tag. For a
- *    bidder accessing remarketing tag on behalf of a child seat buyer,
- *    `{accountId}` should represent the ID of the child seat buyer.
- *    To fetch remarketing tag for a specific user list, name
- *    must follow the pattern
- *    `buyers/{accountId}/userLists/{userListId}`. See
- *    UserList.name.
+ *    follow the pattern `buyers/{accountId}` where `{accountId}` represents ID
+ *    of a buyer that owns the remarketing tag. For a bidder accessing
+ *    remarketing tag on behalf of a child seat buyer, `{accountId}` should
+ *    represent the ID of the child seat buyer. To fetch remarketing tag for a
+ *    specific user list, name must follow the pattern
+ *    `buyers/{accountId}/userLists/{userListId}`. See UserList.name.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsGetRemarketingTag
  */
@@ -688,7 +645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.userLists.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsList : GTLRRealTimeBiddingQuery
@@ -703,11 +659,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Required. The name of the parent buyer for the user lists to be returned
- *  that must
- *  follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}`
- *  represents the account ID of the buyer who owns user lists. For a bidder
- *  accessing user lists on behalf of a child seat buyer , `{buyerAccountId}`
- *  should represent the account ID of the child seat buyer.
+ *  that must follow the pattern `buyers/{buyerAccountId}`, where
+ *  `{buyerAccountId}` represents the account ID of the buyer who owns user
+ *  lists. For a bidder accessing user lists on behalf of a child seat buyer ,
+ *  `{buyerAccountId}` should represent the account ID of the child seat buyer.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -717,11 +672,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Lists the user lists visible to the current user.
  *
  *  @param parent Required. The name of the parent buyer for the user lists to
- *    be returned that must
- *    follow the pattern `buyers/{buyerAccountId}`, where `{buyerAccountId}`
- *    represents the account ID of the buyer who owns user lists. For a bidder
- *    accessing user lists on behalf of a child seat buyer , `{buyerAccountId}`
- *    should represent the account ID of the child seat buyer.
+ *    be returned that must follow the pattern `buyers/{buyerAccountId}`, where
+ *    `{buyerAccountId}` represents the account ID of the buyer who owns user
+ *    lists. For a bidder accessing user lists on behalf of a child seat buyer ,
+ *    `{buyerAccountId}` should represent the account ID of the child seat
+ *    buyer.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsList
  *
@@ -740,17 +695,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.userLists.open
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsOpen : GTLRRealTimeBiddingQuery
 // Previous library name was
 //   +[GTLQueryRealTimeBidding queryForBuyersUserListsOpenWithObject:name:]
 
-/**
- *  Required. The name of the user list to open.
- *  See UserList.name
- */
+/** Required. The name of the user list to open. See UserList.name */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -761,8 +712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param object The @c GTLRRealTimeBidding_OpenUserListRequest to include in
  *    the query.
- *  @param name Required. The name of the user list to open.
- *    See UserList.name
+ *  @param name Required. The name of the user list to open. See UserList.name
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsOpen
  */
@@ -778,7 +728,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Method: realtimebidding.buyers.userLists.update
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsUpdate : GTLRRealTimeBiddingQuery
@@ -787,11 +736,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Output only. Name of the user list that must follow the pattern
- *  `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents
- *  the account ID of the buyer who owns the user list. For a bidder accessing
- *  user lists on behalf of a child seat buyer, `{buyer}` represents
- *  the account ID of the child seat buyer. `{user_list}` is an int64
- *  identifier assigned by Google to uniquely identify a user list.
+ *  `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the
+ *  account ID of the buyer who owns the user list. For a bidder accessing user
+ *  lists on behalf of a child seat buyer, `{buyer}` represents the account ID
+ *  of the child seat buyer. `{user_list}` is an int64 identifier assigned by
+ *  Google to uniquely identify a user list.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -803,11 +752,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param object The @c GTLRRealTimeBidding_UserList to include in the query.
  *  @param name Output only. Name of the user list that must follow the pattern
- *    `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents
- *    the account ID of the buyer who owns the user list. For a bidder accessing
- *    user lists on behalf of a child seat buyer, `{buyer}` represents
- *    the account ID of the child seat buyer. `{user_list}` is an int64
- *    identifier assigned by Google to uniquely identify a user list.
+ *    `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the
+ *    account ID of the buyer who owns the user list. For a bidder accessing
+ *    user lists on behalf of a child seat buyer, `{buyer}` represents the
+ *    account ID of the child seat buyer. `{user_list}` is an int64 identifier
+ *    assigned by Google to uniquely identify a user list.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersUserListsUpdate
  */

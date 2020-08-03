@@ -26,8 +26,8 @@ NSString * const kGTLRAuthScopeSQLAdminSqlserviceAdmin = @"https://www.googleapi
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://sqladmin.googleapis.com/";
-    self.batchPath = @"batch";
+    self.rootURLString = @"https://www.googleapis.com/";
+    self.batchPath = @"batch/sql";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

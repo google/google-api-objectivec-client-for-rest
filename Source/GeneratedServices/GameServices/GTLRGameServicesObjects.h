@@ -170,20 +170,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_CloudAuditOptions_LogName_U
 // GTLRGameServices_Condition.iam
 
 /**
- *  An approver (distinct from the requester) that has authorized this
- *  request.
+ *  An approver (distinct from the requester) that has authorized this request.
  *  When used with IN, the condition indicates that one of the approvers
- *  associated with the request matches the specified principal, or is a
- *  member of the specified group. Approvers can only grant additional
- *  access, and are thus only used in a strictly positive context
- *  (e.g. ALLOW/IN or DENY/NOT_IN).
+ *  associated with the request matches the specified principal, or is a member
+ *  of the specified group. Approvers can only grant additional access, and are
+ *  thus only used in a strictly positive context (e.g. ALLOW/IN or
+ *  DENY/NOT_IN).
  *
  *  Value: "APPROVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Approver;
 /**
- *  The principal (even if an authority selector is present), which
- *  must only be used for attribution, not authorization.
+ *  The principal (even if an authority selector is present), which must only be
+ *  used for attribution, not authorization.
  *
  *  Value: "ATTRIBUTION"
  */
@@ -195,13 +194,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Attribution;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Authority;
 /**
- *  What type of credentials have been supplied with this request.
- *  String values should match enum names from
- *  security_loas_l2.CredentialsType - currently, only CREDS_TYPE_EMERGENCY
- *  is supported.
- *  It is not permitted to grant access based on the *absence* of a
- *  credentials type, so the conditions can only be used in a "positive"
- *  context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *  What type of credentials have been supplied with this request. String values
+ *  should match enum names from security_loas_l2.CredentialsType - currently,
+ *  only CREDS_TYPE_EMERGENCY is supported. It is not permitted to grant access
+ *  based on the *absence* of a credentials type, so the conditions can only be
+ *  used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
  *
  *  Value: "CREDENTIALS_TYPE"
  */
@@ -213,14 +210,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredentialsTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredsAssertion;
 /**
- *  What types of justifications have been supplied with this request.
- *  String values should match enum names from
- *  security.credentials.JustificationType, e.g. "MANUAL_STRING". It is not
- *  permitted to grant access based on the *absence* of a justification, so
- *  justification conditions can only be used in a "positive" context
- *  (e.g., ALLOW/IN or DENY/NOT_IN).
- *  Multiple justifications, e.g., a Buganizer ID and a manually-entered
- *  reason, are normal and supported.
+ *  What types of justifications have been supplied with this request. String
+ *  values should match enum names from security.credentials.JustificationType,
+ *  e.g. "MANUAL_STRING". It is not permitted to grant access based on the
+ *  *absence* of a justification, so justification conditions can only be used
+ *  in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN). Multiple
+ *  justifications, e.g., a Buganizer ID and a manually-entered reason, are
+ *  normal and supported.
  *
  *  Value: "JUSTIFICATION_TYPE"
  */
@@ -232,23 +228,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Justification
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_NoAttr;
 /**
- *  Any of the security realms in the IAMContext (go/security-realms).
- *  When used with IN, the condition indicates "any of the request's realms
- *  match one of the given values; with NOT_IN, "none of the realms match
- *  any of the given values". Note that a value can be:
- *  - 'self' (i.e., allow connections from clients that are in the same
- *  security realm)
- *  - 'self:cloud-region' (i.e., allow connections from clients that are in
- *  the same cloud region)
- *  - 'guardians' (i.e., allow connections from its guardian realms. See
- *  go/security-realms-glossary#guardian for more information.)
- *  - a realm (e.g., 'campus-abc')
- *  - a realm group (e.g., 'realms-for-borg-cell-xx', see: go/realm-groups)
- *  A match is determined by a realm group
- *  membership check performed by a RealmAclRep object (go/realm-acl-howto).
- *  It is not permitted to grant access based on the *absence* of a realm, so
- *  realm conditions can only be used in a "positive" context (e.g., ALLOW/IN
- *  or DENY/NOT_IN).
+ *  Any of the security realms in the IAMContext (go/security-realms). When used
+ *  with IN, the condition indicates "any of the request's realms match one of
+ *  the given values; with NOT_IN, "none of the realms match any of the given
+ *  values". Note that a value can be: - 'self' (i.e., allow connections from
+ *  clients that are in the same security realm) - 'self:metro' (i.e., clients
+ *  that are in the same metro) - 'self:cloud-region' (i.e., allow connections
+ *  from clients that are in the same cloud region) - 'guardians' (i.e., allow
+ *  connections from its guardian realms. See
+ *  go/security-realms-glossary#guardian for more information.) - a realm (e.g.,
+ *  'campus-abc') - a realm group (e.g., 'realms-for-borg-cell-xx', see:
+ *  go/realm-groups) A match is determined by a realm group membership check
+ *  performed by a RealmAclRep object (go/realm-acl-howto). It is not permitted
+ *  to grant access based on the *absence* of a realm, so realm conditions can
+ *  only be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
  *
  *  Value: "SECURITY_REALM"
  */
@@ -270,8 +263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_Discharged;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_Equals;
 /**
- *  The condition is true if the subject (or any element of it if it is
- *  a set) matches any of the supplied values.
+ *  The condition is true if the subject (or any element of it if it is a set)
+ *  matches any of the supplied values.
  *
  *  Value: "IN"
  */
@@ -289,8 +282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_NoOp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Op_NotEquals;
 /**
- *  The condition is true if the subject (or every element of it if it is
- *  a set) matches none of the supplied values.
+ *  The condition is true if the subject (or every element of it if it is a set)
+ *  matches none of the supplied values.
  *
  *  Value: "NOT_IN"
  */
@@ -334,23 +327,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Sys_Service;
 // GTLRGameServices_DataAccessOptions.logMode
 
 /**
- *  The application's operation in the context of which this authorization
- *  check is being made may only be performed if it is successfully logged
- *  to Gin. For instance, the authorization library may satisfy this
- *  obligation by emitting a partial log entry at authorization check time
- *  and only returning ALLOW to the application if it succeeds.
- *  If a matching Rule has this directive, but the client has not indicated
- *  that it will honor such requirements, then the IAM check will result in
- *  authorization failure by setting CheckPolicyResponse.success=false.
+ *  The application's operation in the context of which this authorization check
+ *  is being made may only be performed if it is successfully logged to Gin. For
+ *  instance, the authorization library may satisfy this obligation by emitting
+ *  a partial log entry at authorization check time and only returning ALLOW to
+ *  the application if it succeeds. If a matching Rule has this directive, but
+ *  the client has not indicated that it will honor such requirements, then the
+ *  IAM check will result in authorization failure by setting
+ *  CheckPolicyResponse.success=false.
  *
  *  Value: "LOG_FAIL_CLOSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogFailClosed;
 /**
- *  Client is not required to write a partial Gin log immediately after
- *  the authorization check. If client chooses to write one and it fails,
- *  client may either fail open (allow the operation to continue) or
- *  fail closed (handle as a DENY outcome).
+ *  Client is not required to write a partial Gin log immediately after the
+ *  authorization check. If client chooses to write one and it fails, client may
+ *  either fail open (allow the operation to continue) or fail closed (handle as
+ *  a DENY outcome).
  *
  *  Value: "LOG_MODE_UNSPECIFIED"
  */
@@ -378,8 +371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_OperationStatus_ErrorCode_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_Allow;
 /**
- *  Matching 'Entries' grant access and the caller promises to log
- *  the request per the returned log_configs.
+ *  Matching 'Entries' grant access and the caller promises to log the request
+ *  per the returned log_configs.
  *
  *  Value: "ALLOW_WITH_LOG"
  */
@@ -391,8 +384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_AllowWithLog;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_Deny;
 /**
- *  Matching 'Entries' deny access and the caller promises to log
- *  the request per the returned log_configs.
+ *  Matching 'Entries' deny access and the caller promises to log the request
+ *  per the returned log_configs.
  *
  *  Value: "DENY_WITH_LOG"
  */
@@ -411,50 +404,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_Log;
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -467,9 +429,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -477,30 +439,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRGameServices_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -560,56 +509,51 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -658,68 +602,53 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *
  *  Likely values:
  *    @arg @c kGTLRGameServices_Condition_Iam_Approver An approver (distinct
- *        from the requester) that has authorized this
- *        request.
- *        When used with IN, the condition indicates that one of the approvers
- *        associated with the request matches the specified principal, or is a
- *        member of the specified group. Approvers can only grant additional
- *        access, and are thus only used in a strictly positive context
- *        (e.g. ALLOW/IN or DENY/NOT_IN). (Value: "APPROVER")
+ *        from the requester) that has authorized this request. When used with
+ *        IN, the condition indicates that one of the approvers associated with
+ *        the request matches the specified principal, or is a member of the
+ *        specified group. Approvers can only grant additional access, and are
+ *        thus only used in a strictly positive context (e.g. ALLOW/IN or
+ *        DENY/NOT_IN). (Value: "APPROVER")
  *    @arg @c kGTLRGameServices_Condition_Iam_Attribution The principal (even if
- *        an authority selector is present), which
- *        must only be used for attribution, not authorization. (Value:
- *        "ATTRIBUTION")
+ *        an authority selector is present), which must only be used for
+ *        attribution, not authorization. (Value: "ATTRIBUTION")
  *    @arg @c kGTLRGameServices_Condition_Iam_Authority Either principal or (if
  *        present) authority selector. (Value: "AUTHORITY")
  *    @arg @c kGTLRGameServices_Condition_Iam_CredentialsType What type of
- *        credentials have been supplied with this request.
- *        String values should match enum names from
- *        security_loas_l2.CredentialsType - currently, only
- *        CREDS_TYPE_EMERGENCY
- *        is supported.
- *        It is not permitted to grant access based on the *absence* of a
- *        credentials type, so the conditions can only be used in a "positive"
- *        context (e.g., ALLOW/IN or DENY/NOT_IN). (Value: "CREDENTIALS_TYPE")
+ *        credentials have been supplied with this request. String values should
+ *        match enum names from security_loas_l2.CredentialsType - currently,
+ *        only CREDS_TYPE_EMERGENCY is supported. It is not permitted to grant
+ *        access based on the *absence* of a credentials type, so the conditions
+ *        can only be used in a "positive" context (e.g., ALLOW/IN or
+ *        DENY/NOT_IN). (Value: "CREDENTIALS_TYPE")
  *    @arg @c kGTLRGameServices_Condition_Iam_CredsAssertion EXPERIMENTAL -- DO
- *        NOT USE.
- *        (Value: "CREDS_ASSERTION")
+ *        NOT USE. (Value: "CREDS_ASSERTION")
  *    @arg @c kGTLRGameServices_Condition_Iam_JustificationType What types of
- *        justifications have been supplied with this request.
- *        String values should match enum names from
- *        security.credentials.JustificationType, e.g. "MANUAL_STRING". It is
- *        not
- *        permitted to grant access based on the *absence* of a justification,
- *        so
- *        justification conditions can only be used in a "positive" context
- *        (e.g., ALLOW/IN or DENY/NOT_IN).
- *        Multiple justifications, e.g., a Buganizer ID and a manually-entered
- *        reason, are normal and supported. (Value: "JUSTIFICATION_TYPE")
+ *        justifications have been supplied with this request. String values
+ *        should match enum names from security.credentials.JustificationType,
+ *        e.g. "MANUAL_STRING". It is not permitted to grant access based on the
+ *        *absence* of a justification, so justification conditions can only be
+ *        used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN). Multiple
+ *        justifications, e.g., a Buganizer ID and a manually-entered reason,
+ *        are normal and supported. (Value: "JUSTIFICATION_TYPE")
  *    @arg @c kGTLRGameServices_Condition_Iam_NoAttr Default non-attribute.
  *        (Value: "NO_ATTR")
  *    @arg @c kGTLRGameServices_Condition_Iam_SecurityRealm Any of the security
- *        realms in the IAMContext (go/security-realms).
- *        When used with IN, the condition indicates "any of the request's
- *        realms
- *        match one of the given values; with NOT_IN, "none of the realms match
- *        any of the given values". Note that a value can be:
- *        - 'self' (i.e., allow connections from clients that are in the same
- *        security realm)
- *        - 'self:cloud-region' (i.e., allow connections from clients that are
- *        in
- *        the same cloud region)
- *        - 'guardians' (i.e., allow connections from its guardian realms. See
- *        go/security-realms-glossary#guardian for more information.)
- *        - a realm (e.g., 'campus-abc')
- *        - a realm group (e.g., 'realms-for-borg-cell-xx', see:
- *        go/realm-groups)
- *        A match is determined by a realm group
- *        membership check performed by a RealmAclRep object
- *        (go/realm-acl-howto).
- *        It is not permitted to grant access based on the *absence* of a realm,
- *        so
- *        realm conditions can only be used in a "positive" context (e.g.,
- *        ALLOW/IN
- *        or DENY/NOT_IN). (Value: "SECURITY_REALM")
+ *        realms in the IAMContext (go/security-realms). When used with IN, the
+ *        condition indicates "any of the request's realms match one of the
+ *        given values; with NOT_IN, "none of the realms match any of the given
+ *        values". Note that a value can be: - 'self' (i.e., allow connections
+ *        from clients that are in the same security realm) - 'self:metro'
+ *        (i.e., clients that are in the same metro) - 'self:cloud-region'
+ *        (i.e., allow connections from clients that are in the same cloud
+ *        region) - 'guardians' (i.e., allow connections from its guardian
+ *        realms. See go/security-realms-glossary#guardian for more
+ *        information.) - a realm (e.g., 'campus-abc') - a realm group (e.g.,
+ *        'realms-for-borg-cell-xx', see: go/realm-groups) A match is determined
+ *        by a realm group membership check performed by a RealmAclRep object
+ *        (go/realm-acl-howto). It is not permitted to grant access based on the
+ *        *absence* of a realm, so realm conditions can only be used in a
+ *        "positive" context (e.g., ALLOW/IN or DENY/NOT_IN). (Value:
+ *        "SECURITY_REALM")
  */
 @property(nonatomic, copy, nullable) NSString *iam;
 
@@ -732,15 +661,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *    @arg @c kGTLRGameServices_Condition_Op_Equals DEPRECATED. Use IN instead.
  *        (Value: "EQUALS")
  *    @arg @c kGTLRGameServices_Condition_Op_In The condition is true if the
- *        subject (or any element of it if it is
- *        a set) matches any of the supplied values. (Value: "IN")
+ *        subject (or any element of it if it is a set) matches any of the
+ *        supplied values. (Value: "IN")
  *    @arg @c kGTLRGameServices_Condition_Op_NoOp Default no-op. (Value:
  *        "NO_OP")
  *    @arg @c kGTLRGameServices_Condition_Op_NotEquals DEPRECATED. Use NOT_IN
  *        instead. (Value: "NOT_EQUALS")
  *    @arg @c kGTLRGameServices_Condition_Op_NotIn The condition is true if the
- *        subject (or every element of it if it is
- *        a set) matches none of the supplied values. (Value: "NOT_IN")
+ *        subject (or every element of it if it is a set) matches none of the
+ *        supplied values. (Value: "NOT_IN")
  */
 @property(nonatomic, copy, nullable) NSString *op;
 
@@ -748,8 +677,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *svc;
 
 /**
- *  Trusted attributes supplied by any service that owns resources and uses
- *  the IAM system for access control.
+ *  Trusted attributes supplied by any service that owns resources and uses the
+ *  IAM system for access control.
  *
  *  Likely values:
  *    @arg @c kGTLRGameServices_Condition_Sys_Ip IP address of the caller
@@ -772,22 +701,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Increment a streamz counter with the specified metric and field names.
- *  Metric names should start with a '/', generally be lowercase-only,
- *  and end in "_count". Field names should not contain an initial slash.
- *  The actual exported metric names will have "/iam/policy" prepended.
- *  Field names correspond to IAM request parameters and field values are
- *  their respective values.
- *  Supported field names:
- *  - "authority", which is "[token]" if IAMContext.token is present,
- *  otherwise the value of IAMContext.authority_selector if present, and
- *  otherwise a representation of IAMContext.principal; or
- *  - "iam_principal", a representation of IAMContext.principal even if a
- *  token or authority selector is present; or
- *  - "" (empty string), resulting in a counter with no fields.
- *  Examples:
- *  counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/debug_access_count
- *  {iam_principal=[value of IAMContext.principal]}
+ *  Metric names should start with a '/', generally be lowercase-only, and end
+ *  in "_count". Field names should not contain an initial slash. The actual
+ *  exported metric names will have "/iam/policy" prepended. Field names
+ *  correspond to IAM request parameters and field values are their respective
+ *  values. Supported field names: - "authority", which is "[token]" if
+ *  IAMContext.token is present, otherwise the value of
+ *  IAMContext.authority_selector if present, and otherwise a representation of
+ *  IAMContext.principal; or - "iam_principal", a representation of
+ *  IAMContext.principal even if a token or authority selector is present; or -
+ *  "" (empty string), resulting in a counter with no fields. Examples: counter
+ *  { metric: "/debug_access_count" field: "iam_principal" } ==> increment
+ *  counter /iam/policy/debug_access_count {iam_principal=[value of
+ *  IAMContext.principal]}
  */
 @interface GTLRGameServices_CounterOptions : GTLRObject
 
@@ -804,10 +730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  Custom fields.
- *  These can be used to create a counter with arbitrary field/value
- *  pairs.
- *  See: go/rpcsp-custom-fields.
+ *  Custom fields. These can be used to create a counter with arbitrary
+ *  field/value pairs. See: go/rpcsp-custom-fields.
  */
 @interface GTLRGameServices_CustomField : GTLRObject
 
@@ -816,8 +740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Value is the field value. It is important that in contrast to the
- *  CounterOptions.field, the value here is a constant that is not
- *  derived from the IAMContext.
+ *  CounterOptions.field, the value here is a constant that is not derived from
+ *  the IAMContext.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -838,19 +762,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        check is being made may only be performed if it is successfully logged
  *        to Gin. For instance, the authorization library may satisfy this
  *        obligation by emitting a partial log entry at authorization check time
- *        and only returning ALLOW to the application if it succeeds.
- *        If a matching Rule has this directive, but the client has not
- *        indicated
+ *        and only returning ALLOW to the application if it succeeds. If a
+ *        matching Rule has this directive, but the client has not indicated
  *        that it will honor such requirements, then the IAM check will result
- *        in
- *        authorization failure by setting CheckPolicyResponse.success=false.
+ *        in authorization failure by setting CheckPolicyResponse.success=false.
  *        (Value: "LOG_FAIL_CLOSED")
  *    @arg @c kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified
  *        Client is not required to write a partial Gin log immediately after
  *        the authorization check. If client chooses to write one and it fails,
- *        client may either fail open (allow the operation to continue) or
- *        fail closed (handle as a DENY outcome). (Value:
- *        "LOG_MODE_UNSPECIFIED")
+ *        client may either fail open (allow the operation to continue) or fail
+ *        closed (handle as a DENY outcome). (Value: "LOG_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logMode;
 
@@ -866,8 +787,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *cluster;
 
 /**
- *  The details about the Agones fleets and autoscalers created in the
- *  game server cluster.
+ *  The details about the Agones fleets and autoscalers created in the game
+ *  server cluster.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_DeployedFleetDetails *> *fleetDetails;
 
@@ -886,14 +807,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *fleetSpec;
 
 /**
- *  The source spec that is used to create the Agones fleet.
- *  The GameServerConfig resource may no longer exist in the system.
+ *  The source spec that is used to create the Agones fleet. The
+ *  GameServerConfig resource may no longer exist in the system.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
 
 /**
- *  The current status of the Agones fleet.
- *  Includes count of game servers in various states.
+ *  The current status of the Agones fleet. Includes count of game servers in
+ *  various states.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_DeployedFleetStatus *status;
 
@@ -912,8 +833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *fleetAutoscalerSpec;
 
 /**
- *  The source spec that is used to create the autoscaler.
- *  The GameServerConfig resource may no longer exist in the system.
+ *  The source spec that is used to create the autoscaler. The GameServerConfig
+ *  resource may no longer exist in the system.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
 
@@ -935,8 +856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  DeployedFleetStatus has details about the Agones fleets such as how many
- *  are running, how many allocated, and so on.
+ *  DeployedFleetStatus has details about the Agones fleets such as how many are
+ *  running, how many allocated, and so on.
  */
 @interface GTLRGameServices_DeployedFleetStatus : GTLRObject
 
@@ -963,8 +884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The number of GameServer replicas in the RESERVED state in this fleet.
- *  Reserved instances won't be deleted on scale down, but won't cause
- *  an autoscaler to scale up.
+ *  Reserved instances won't be deleted on scale down, but won't cause an
+ *  autoscaler to scale up.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -976,11 +897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRGameServices_Empty : GTLRObject
 @end
@@ -989,27 +908,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRGameServices_Expr : GTLRObject
 
@@ -1034,9 +946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -1147,9 +1058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_GkeClusterReference *gkeClusterReference;
 
 /**
- *  Namespace designated on the game server cluster where the Agones game
- *  server instances will be created. Existence of the namespace will be
- *  validated during creation.
+ *  Namespace designated on the game server cluster where the Agones game server
+ *  instances will be created. Existence of the namespace will be validated
+ *  during creation.
  *
  *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
  */
@@ -1174,8 +1085,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  FleetConfig contains a list of Agones fleet specs. Only one FleetConfig
- *  is allowed.
+ *  FleetConfig contains a list of Agones fleet specs. Only one FleetConfig is
+ *  allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_FleetConfig *> *fleetConfigs;
 
@@ -1257,7 +1168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  The resource name of the game server deployment. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *  For example,
- *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment`.
+ *  `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1290,8 +1201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The default game server config is applied to all realms unless overridden
- *  in the rollout. For example,
+ *  The default game server config is applied to all realms unless overridden in
+ *  the rollout. For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
  */
 @property(nonatomic, copy, nullable) NSString *defaultGameServerConfig;
@@ -1301,8 +1212,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Contains the game server config rollout overrides. Overrides are processed
- *  in the order they are listed. Once a match is found for a realm, the rest
- *  of the list is not processed.
+ *  in the order they are listed. Once a match is found for a realm, the rest of
+ *  the list is not processed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerConfigOverride *> *gameServerConfigOverrides;
 
@@ -1310,7 +1221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  The resource name of the game server deployment rollout. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
- *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
+ *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1326,14 +1237,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_GkeClusterReference : GTLRObject
 
 /**
- *  The full or partial name of a GKE cluster, using one of the following
- *  forms:
- *  * `projects/{project}/locations/{location}/clusters/{cluster}`
- *  * `locations/{location}/clusters/{cluster}`
- *  * `{cluster}`
- *  If project and location are not specified, the project and location of the
- *  GameServerCluster resource are used to generate the full name of the
- *  GKE cluster.
+ *  The full or partial name of a GKE cluster, using one of the following forms:
+ *  * `projects/{project}/locations/{location}/clusters/{cluster}` *
+ *  `locations/{location}/clusters/{cluster}` * `{cluster}` If project and
+ *  location are not specified, the project and location of the
+ *  GameServerCluster resource are used to generate the full name of the GKE
+ *  cluster.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
@@ -1537,8 +1446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1558,8 +1467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1616,8 +1525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1629,16 +1538,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1647,10 +1556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_Operation_Response *response;
 
@@ -1659,8 +1567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1677,10 +1585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1707,18 +1614,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Output only. Operation status for Game Services API operations. Operation
- *  status is in
- *  the form of key-value pairs where keys are resource IDs and the values show
- *  the status of the operation. In case of failures, the value includes an
- *  error code and error message.
+ *  status is in the form of key-value pairs where keys are resource IDs and the
+ *  values show the status of the operation. In case of failures, the value
+ *  includes an error code and error message.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_OperationMetadata_OperationStatus *operationStatus;
 
 /**
- *  Output only. Identifies whether the user has requested cancellation
- *  of the operation. Operations that have successfully been cancelled
- *  have Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1743,10 +1649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Output only. Operation status for Game Services API operations. Operation
- *  status is in
- *  the form of key-value pairs where keys are resource IDs and the values show
- *  the status of the operation. In case of failures, the value includes an
- *  error code and error message.
+ *  status is in the form of key-value pairs where keys are resource IDs and the
+ *  values show the status of the operation. In case of failures, the value
+ *  includes an error code and error message.
  *
  *  @note This class is documented as having more properties of
  *        GTLRGameServices_OperationStatus. Use @c -additionalJSONKeys and @c
@@ -1792,66 +1697,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRGameServices_Policy : GTLRObject
 
@@ -1860,23 +1733,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1892,36 +1765,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  If more than one rule is specified, the rules are applied in the following
- *  manner:
- *  - All matching LOG rules are always applied.
- *  - If any DENY/DENY_WITH_LOG rule matches, permission is denied.
- *  Logging will be applied if one or more matching rule requires logging.
- *  - Otherwise, if any ALLOW/ALLOW_WITH_LOG rule matches, permission is
- *  granted.
- *  Logging will be applied if one or more matching rule requires logging.
- *  - Otherwise, if no rule applies, permission is denied.
+ *  manner: - All matching LOG rules are always applied. - If any
+ *  DENY/DENY_WITH_LOG rule matches, permission is denied. Logging will be
+ *  applied if one or more matching rule requires logging. - Otherwise, if any
+ *  ALLOW/ALLOW_WITH_LOG rule matches, permission is granted. Logging will be
+ *  applied if one or more matching rule requires logging. - Otherwise, if no
+ *  rule applies, permission is denied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_Rule *> *rules;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1962,8 +1829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 
 /**
- *  Response message for PreviewGameServerDeploymentRollout.
- *  This has details about the Agones fleet and autoscaler to be actuated.
+ *  Response message for PreviewGameServerDeploymentRollout. This has details
+ *  about the Agones fleet and autoscaler to be actuated.
  */
 @interface GTLRGameServices_PreviewGameServerDeploymentRolloutResponse : GTLRObject
 
@@ -2031,15 +1898,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The resource name of the realm. Uses the form:
- *  `projects/{project}/locations/{location}/realms/{realm}`. For
- *  example, `projects/my-project/locations/{location}/realms/my-realm`.
+ *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
+ *  `projects/my-project/locations/{location}/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Time zone where all policies targeting this realm are evaluated.
- *  The value
- *  of this field must be from the IANA time zone database:
+ *  The value of this field must be from the IANA time zone database:
  *  https://www.iana.org/time-zones.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
@@ -2085,13 +1951,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *    @arg @c kGTLRGameServices_Rule_Action_Allow Matching 'Entries' grant
  *        access. (Value: "ALLOW")
  *    @arg @c kGTLRGameServices_Rule_Action_AllowWithLog Matching 'Entries'
- *        grant access and the caller promises to log
- *        the request per the returned log_configs. (Value: "ALLOW_WITH_LOG")
+ *        grant access and the caller promises to log the request per the
+ *        returned log_configs. (Value: "ALLOW_WITH_LOG")
  *    @arg @c kGTLRGameServices_Rule_Action_Deny Matching 'Entries' deny access.
  *        (Value: "DENY")
  *    @arg @c kGTLRGameServices_Rule_Action_DenyWithLog Matching 'Entries' deny
- *        access and the caller promises to log
- *        the request per the returned log_configs. (Value: "DENY_WITH_LOG")
+ *        access and the caller promises to log the request per the returned
+ *        log_configs. (Value: "DENY_WITH_LOG")
  *    @arg @c kGTLRGameServices_Rule_Action_Log Matching 'Entries' tell
  *        IAM.Check callers to generate logs. (Value: "LOG")
  *    @arg @c kGTLRGameServices_Rule_Action_NoAction Default no action. (Value:
@@ -2113,8 +1979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  If one or more 'in' clauses are specified, the rule matches if
- *  the PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
+ *  If one or more 'in' clauses are specified, the rule matches if the
+ *  PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
  *
  *  Remapped to 'inProperty' to avoid language reserved word 'in'.
  */
@@ -2127,17 +1993,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_LogConfig *> *logConfig;
 
 /**
- *  If one or more 'not_in' clauses are specified, the rule matches
- *  if the PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries.
- *  The format for in and not_in entries can be found at in the Local IAM
- *  documentation (see go/local-iam#features).
+ *  If one or more 'not_in' clauses are specified, the rule matches if the
+ *  PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries. The format for in
+ *  and not_in entries can be found at in the Local IAM documentation (see
+ *  go/local-iam#features).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notIn;
 
 /**
- *  A permission is a string of form '<service>.<resource type>.<verb>'
- *  (e.g., 'storage.buckets.list'). A value of '*' matches all permissions,
- *  and a verb part of '*' (e.g., 'storage.buckets.*') matches all verbs.
+ *  A permission is a string of form '..' (e.g., 'storage.buckets.list'). A
+ *  value of '*' matches all permissions, and a verb part of '*' (e.g.,
+ *  'storage.buckets.*') matches all verbs.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2211,17 +2077,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_Policy *policy;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  `paths: "bindings, etag"`
+ *  following default mask is used: `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2254,9 +2118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRGameServices_Status : GTLRObject
 
@@ -2329,8 +2193,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Encapsulates the source of the Agones fleet spec.
- *  The Agones fleet spec source.
+ *  Encapsulates the source of the Agones fleet spec. The Agones fleet spec
+ *  source.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
 
@@ -2346,8 +2210,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Encapsulates the source of the Agones fleet spec.
- *  Details about the Agones autoscaler spec.
+ *  Encapsulates the source of the Agones fleet spec. Details about the Agones
+ *  autoscaler spec.
  */
 @property(nonatomic, strong, nullable) GTLRGameServices_SpecSource *specSource;
 
@@ -2386,9 +2250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2401,8 +2264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

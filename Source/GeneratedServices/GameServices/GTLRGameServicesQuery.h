@@ -180,11 +180,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of items to return. If unspecified, server
- *  will pick an appropriate default. Server may return fewer items than
- *  requested. A caller should only rely on response's
- *  next_page_token to
- *  determine if there are more GameServerConfigs left to be queried.
+ *  Optional. The maximum number of items to return. If unspecified, server will
+ *  pick an appropriate default. Server may return fewer items than requested. A
+ *  caller should only rely on response's next_page_token to determine if there
+ *  are more GameServerConfigs left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -293,9 +292,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves information about the current state of the game server
- *  deployment. Gathers all the Agones fleets and Agones autoscalers,
- *  including fleets running an older version of the game server deployment.
+ *  Retrieves information about the current state of the game server deployment.
+ *  Gathers all the Agones fleets and Agones autoscalers, including fleets
+ *  running an older version of the game server deployment.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.fetchDeploymentState
  *
@@ -315,9 +314,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGameServices_FetchDeploymentStateResponse.
  *
- *  Retrieves information about the current state of the game server
- *  deployment. Gathers all the Agones fleets and Agones autoscalers,
- *  including fleets running an older version of the game server deployment.
+ *  Retrieves information about the current state of the game server deployment.
+ *  Gathers all the Agones fleets and Agones autoscalers, including fleets
+ *  running an older version of the game server deployment.
  *
  *  @param object The @c GTLRGameServices_FetchDeploymentStateRequest to include
  *    in the query.
@@ -365,9 +364,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.getIamPolicy
  *
@@ -379,34 +377,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRGameServices_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetIamPolicy
  */
@@ -471,8 +466,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The maximum number of items to return. If unspecified, the server
  *  will pick an appropriate default. The server may return fewer items than
- *  requested. A caller should only rely on response's
- *  next_page_token to
+ *  requested. A caller should only rely on response's next_page_token to
  *  determine if there are more GameServerDeployments left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -523,16 +517,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the game server deployment. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *  For example,
- *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment`.
+ *  `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see https:
+ *  //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -548,7 +541,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The resource name of the game server deployment. Uses the form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *    For example,
- *    `projects/my-project/locations/{location}/gameServerDeployments/my-deployment`.
+ *    `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsPatch
  */
@@ -574,23 +567,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the game server deployment rollout. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
- *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
+ *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The target timestamp to compute the preview. Defaults to the
- *  immediately
- *  after the proposed rollout completes.
+ *  immediately after the proposed rollout completes.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *previewTime;
 
 /**
  *  Optional. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see https:
+ *  //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -608,7 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *    For example,
- *    `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
+ *    `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsPreviewRollout
  */
@@ -619,8 +610,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.setIamPolicy
  *
@@ -632,8 +623,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -641,14 +632,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGameServices_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRGameServices_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsSetIamPolicy
  */
@@ -658,12 +649,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.testIamPermissions
  *
@@ -675,26 +665,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRGameServices_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRGameServices_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsTestIamPermissions
  */
@@ -704,12 +693,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Patches a single game server deployment rollout.
- *  The method will not return an error if the update does not affect any
- *  existing realms. For example - if the default_game_server_config is changed
- *  but all existing realms use the override, that is valid. Similarly, if a
- *  non existing realm is explicitly called out in game_server_config_overrides
- *  field, that will also not result in an error.
+ *  Patches a single game server deployment rollout. The method will not return
+ *  an error if the update does not affect any existing realms. For example - if
+ *  the default_game_server_config is changed but all existing realms use the
+ *  override, that is valid. Similarly, if a non existing realm is explicitly
+ *  called out in game_server_config_overrides field, that will also not result
+ *  in an error.
  *
  *  Method: gameservices.projects.locations.gameServerDeployments.updateRollout
  *
@@ -724,16 +713,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  The resource name of the game server deployment rollout. Uses the form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
- *  `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
+ *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see https:
+ *  //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -742,12 +730,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGameServices_Operation.
  *
- *  Patches a single game server deployment rollout.
- *  The method will not return an error if the update does not affect any
- *  existing realms. For example - if the default_game_server_config is changed
- *  but all existing realms use the override, that is valid. Similarly, if a
- *  non existing realm is explicitly called out in game_server_config_overrides
- *  field, that will also not result in an error.
+ *  Patches a single game server deployment rollout. The method will not return
+ *  an error if the update does not affect any existing realms. For example - if
+ *  the default_game_server_config is changed but all existing realms use the
+ *  override, that is valid. Similarly, if a non existing realm is explicitly
+ *  called out in game_server_config_overrides field, that will also not result
+ *  in an error.
  *
  *  @param object The @c GTLRGameServices_GameServerDeploymentRollout to include
  *    in the query.
@@ -755,7 +743,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    the form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *    For example,
- *    `projects/my-project/locations/{location}/gameServerDeployments/my-deployment/rollout`.
+ *    `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsUpdateRollout
  */
@@ -841,15 +829,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: gameservices.projects.locations.operations.cancel
  *
@@ -867,15 +854,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGameServices_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRGameServices_CancelOperationRequest to include in
  *    the query.
@@ -956,14 +942,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: gameservices.projects.locations.operations.list
  *
@@ -990,14 +976,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGameServices_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1208,8 +1194,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The maximum number of items to return. If unspecified, the server
  *  will pick an appropriate default. The server may return fewer items than
- *  requested. A caller should only rely on response's
- *  next_page_token to
+ *  requested. A caller should only rely on response's next_page_token to
  *  determine if there are more GameServerClusters left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1266,10 +1251,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see https:
+ *  //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1399,10 +1383,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see https:
+ *  //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1482,11 +1465,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of items to return. If unspecified, server
- *  will pick an appropriate default. Server may return fewer items than
- *  requested. A caller should only rely on response's
- *  next_page_token to
- *  determine if there are more realms left to be queried.
+ *  Optional. The maximum number of items to return. If unspecified, server will
+ *  pick an appropriate default. Server may return fewer items than requested. A
+ *  caller should only rely on response's next_page_token to determine if there
+ *  are more realms left to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1534,17 +1516,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the realm. Uses the form:
- *  `projects/{project}/locations/{location}/realms/{realm}`. For
- *  example, `projects/my-project/locations/{location}/realms/my-realm`.
+ *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
+ *  `projects/my-project/locations/{location}/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The update mask applies to the resource. For the `FieldMask`
- *  definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  definition, see https: //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1557,8 +1537,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
  *  @param name The resource name of the realm. Uses the form:
- *    `projects/{project}/locations/{location}/realms/{realm}`. For
- *    example, `projects/my-project/locations/{location}/realms/my-realm`.
+ *    `projects/{project}/locations/{location}/realms/{realm}`. For example,
+ *    `projects/my-project/locations/{location}/realms/my-realm`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsPatch
  */
@@ -1581,8 +1561,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the realm. Uses the form:
- *  `projects/{project}/locations/{location}/realms/{realm}`. For
- *  example, `projects/my-project/locations/{location}/realms/my-realm`.
+ *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
+ *  `projects/my-project/locations/{location}/realms/my-realm`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1591,10 +1571,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The update mask applies to the resource. For the `FieldMask`
- *  definition, see
- *  https:
- *  //developers.google.com/protocol-buffers
- *  // /docs/reference/google.protobuf#fieldmask
+ *  definition, see https: //developers.google.com/protocol-buffers //
+ *  /docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1607,8 +1585,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
  *  @param name The resource name of the realm. Uses the form:
- *    `projects/{project}/locations/{location}/realms/{realm}`. For
- *    example, `projects/my-project/locations/{location}/realms/my-realm`.
+ *    `projects/{project}/locations/{location}/realms/{realm}`. For example,
+ *    `projects/my-project/locations/{location}/realms/my-realm`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsPreviewUpdate
  */

@@ -2,11 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud DNS API (dns/v1)
-// Description:
-//   Configures and serves authoritative DNS records.
+//   Cloud DNS API (dns/v1)
 // Documentation:
-//   https://developers.google.com/cloud-dns
+//   http://developers.google.com/cloud-dns
 
 #import "GTLRDnsQuery.h"
 
@@ -46,7 +44,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/changes";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/changes";
   GTLRDnsQuery_ChangesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -71,7 +69,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"changeId", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/changes/{changeId}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/changes/{changeId}";
   GTLRDnsQuery_ChangesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -95,7 +93,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/changes";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/changes";
   GTLRDnsQuery_ChangesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -119,7 +117,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"dnsKeyId", @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/dnsKeys/{dnsKeyId}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/dnsKeys/{dnsKeyId}";
   GTLRDnsQuery_DnsKeysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -143,7 +141,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/dnsKeys";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/dnsKeys";
   GTLRDnsQuery_DnsKeysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -167,7 +165,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/operations/{operation}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/operations/{operation}";
   GTLRDnsQuery_ManagedZoneOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -191,7 +189,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/operations";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/operations";
   GTLRDnsQuery_ManagedZoneOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -218,7 +216,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/managedZones";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones";
   GTLRDnsQuery_ManagedZonesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -241,7 +239,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -263,7 +261,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -283,7 +281,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/managedZones";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones";
   GTLRDnsQuery_ManagedZonesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -312,7 +310,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -343,7 +341,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}";
   GTLRDnsQuery_ManagedZonesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -371,7 +369,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/policies";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies";
   GTLRDnsQuery_PoliciesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -394,7 +392,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
   GTLRDnsQuery_PoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -416,7 +414,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
   GTLRDnsQuery_PoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -436,7 +434,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/policies";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies";
   GTLRDnsQuery_PoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -465,7 +463,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
   GTLRDnsQuery_PoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -496,7 +494,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"policy", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/policies/{policy}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/policies/{policy}";
   GTLRDnsQuery_PoliciesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -517,7 +515,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}";
   GTLRDnsQuery_ProjectsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -539,7 +537,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
   NSArray *pathParams = @[
     @"managedZone", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/managedZones/{managedZone}/rrsets";
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/managedZones/{managedZone}/rrsets";
   GTLRDnsQuery_ResourceRecordSetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

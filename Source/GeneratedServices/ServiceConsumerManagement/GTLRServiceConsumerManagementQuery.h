@@ -231,18 +231,18 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesSearchWithparent:]
 
 /**
- *  The maximum number of results returned by this request. Currently, the
+ *  Optional. The maximum number of results returned by this request. Currently,
+ *  the
  *  default maximum is set to 1000. If `page_size` isn't provided or the size
  *  provided is a number larger than 1000, it's automatically set to 1000.
- *  Optional.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The continuation token, which is used to page through large result sets.
+ *  Optional. The continuation token, which is used to page through large result
+ *  sets.
  *  To get the next page of results, set this parameter to the value of
  *  `nextPageToken` from the previous response.
- *  Optional.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -254,7 +254,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Set a query `{expression}` for querying tenancy units. Your `{expression}`
+ *  Optional. Set a query `{expression}` for querying tenancy units. Your
+ *  `{expression}`
  *  must be in the format: `field_name=literal_string`. The `field_name` is the
  *  name of the field you want to compare. Supported fields are
  *  `tenant_resources.tag` and `tenant_resources.resource`.
@@ -266,7 +267,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Multiple expressions can be joined with `AND`s. Tenancy units must match
  *  all expressions to be included in the result set. For example,
  *  `tenant_resources.tag=xyz AND tenant_resources.resource=projects/123456`
- *  Optional.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -465,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a tenancy unit with no tenant resources.
  *  If tenancy unit already exists, it will be returned,
  *  however, in this case, returned TenancyUnit does not have tenant_resources
- *  field set and ListTenancyUnit has to be used to get a complete
+ *  field set and ListTenancyUnits has to be used to get a complete
  *  TenancyUnit with all fields populated.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.create
@@ -493,7 +493,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a tenancy unit with no tenant resources.
  *  If tenancy unit already exists, it will be returned,
  *  however, in this case, returned TenancyUnit does not have tenant_resources
- *  field set and ListTenancyUnit has to be used to get a complete
+ *  field set and ListTenancyUnits has to be used to get a complete
  *  TenancyUnit with all fields populated.
  *
  *  @param object The @c GTLRServiceConsumerManagement_CreateTenancyUnitRequest

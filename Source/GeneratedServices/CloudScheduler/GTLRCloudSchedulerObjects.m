@@ -241,7 +241,7 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 //
 
 @implementation GTLRCloudScheduler_PubsubMessage
-@dynamic attributes, data, messageId, publishTime;
+@dynamic attributes, data, messageId, orderingKey, publishTime;
 @end
 
 

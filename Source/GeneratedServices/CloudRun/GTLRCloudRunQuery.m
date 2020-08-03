@@ -510,6 +510,25 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsAuthorizeddomainsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/authorizeddomains";
+  GTLRCloudRunQuery_ProjectsAuthorizeddomainsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRun_ListAuthorizedDomainsResponse class];
+  query.loggingName = @"run.projects.authorizeddomains.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsAuthorizeddomainsList
 
 @dynamic pageSize, pageToken, parent;
