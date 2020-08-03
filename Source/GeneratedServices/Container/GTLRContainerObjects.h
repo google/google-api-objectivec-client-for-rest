@@ -35,6 +35,7 @@
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
@@ -727,6 +728,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  managed Knative service.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_CloudRunConfig *cloudRunConfig;
+
+/**
+ *  Configuration for the ConfigConnector add-on, a Kubernetes
+ *  extension to manage hosted GCP services through the Kubernetes API
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ConfigConnectorConfig *configConnectorConfig;
 
 /** Configuration for NodeLocalDNS, a dns cache running on cluster nodes */
 @property(nonatomic, strong, nullable) GTLRContainer_DnsCacheConfig *dnsCacheConfig;
@@ -1510,6 +1517,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Configuration options for the Config Connector add-on.
+ */
+@interface GTLRContainer_ConfigConnectorConfig : GTLRObject
+
+/**
+ *  Whether Cloud Connector is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -2452,6 +2474,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
+
+/**
+ *  Setting this field will assign instances of this
+ *  pool to run on the specified node group. This is useful for running
+ *  workloads on [sole tenant
+ *  nodes](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes).
+ */
+@property(nonatomic, copy, nullable) NSString *nodeGroup;
 
 /**
  *  The set of Google API scopes to be made available on all of the

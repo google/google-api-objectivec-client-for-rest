@@ -1104,12 +1104,14 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything
 
-@dynamic xCount, xPageToken, end, name, start;
+@dynamic xCount, xPageToken, xSince, xType, end, name, start;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"xCount" : @"_count",
-    @"xPageToken" : @"_page_token"
+    @"xPageToken" : @"_page_token",
+    @"xSince" : @"_since",
+    @"xType" : @"_type"
   };
   return map;
 }

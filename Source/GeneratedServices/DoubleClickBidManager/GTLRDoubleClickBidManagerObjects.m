@@ -4,7 +4,8 @@
 // API:
 //   DoubleClick Bid Manager API (doubleclickbidmanager/v1.1)
 // Description:
-//   API for viewing and managing your reports in DoubleClick Bid Manager.
+//   DoubleClick Bid Manager API allows users to manage and create campaigns and
+//   reports.
 // Documentation:
 //   https://developers.google.com/bid-manager/
 
@@ -863,6 +864,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProfitViewa
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProfitViewableEcpmUsd = @"METRIC_PROFIT_VIEWABLE_ECPM_USD";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProgrammaticGuaranteedImpressionsPassedDueToFrequency = @"METRIC_PROGRAMMATIC_GUARANTEED_IMPRESSIONS_PASSED_DUE_TO_FREQUENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProgrammaticGuaranteedSavingsReInvestedDueToFrequencyAdvertiserCurrency = @"METRIC_PROGRAMMATIC_GUARANTEED_SAVINGS_RE_INVESTED_DUE_TO_FREQUENCY_ADVERTISER_CURRENCY";
+NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricProvisionalImpressions = @"METRIC_PROVISIONAL_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundBillableCostAdvertiserCurrency = @"METRIC_REFUND_BILLABLE_COST_ADVERTISER_CURRENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundMediaCostAdvertiserCurrency = @"METRIC_REFUND_MEDIA_COST_ADVERTISER_CURRENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricRefundPlatformFeeAdvertiserCurrency = @"METRIC_REFUND_PLATFORM_FEE_ADVERTISER_CURRENCY";
@@ -1196,6 +1198,12 @@ NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv = 
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"queries";
 }
@@ -1216,6 +1224,12 @@ NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv = 
     @"reports" : [GTLRDoubleClickBidManager_Report class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -1263,6 +1277,13 @@ NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv = 
 @implementation GTLRDoubleClickBidManager_Query
 @dynamic kind, metadata, params, queryId, reportDataEndTimeMs,
          reportDataStartTimeMs, schedule, timezoneCode;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 

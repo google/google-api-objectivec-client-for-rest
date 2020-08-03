@@ -727,6 +727,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType : GTLRObject
 
 /**
+ *  The set of allowed values for this enum. This set must not be empty, the
+ *  display names of the values in this set must not be empty and the display
+ *  names of the values must be case-insensitively unique within this set.
+ *  The order of items in this list is preserved. This field can be used to
  *  Required on create; optional on update. The set of allowed values for
  *  this enum. This set must not be empty, the display names of the values in
  *  this set must not be empty and the display names of the values must be
@@ -758,10 +762,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec : GTLRObject
 
 /**
- *  Required. Patterns to identify a set of files in Google Cloud Storage. See
- *  [Cloud
- *  Storage documentation](/storage/docs/gsutil/addlhelp/WildcardNames) for
- *  more information. Note that bucket wildcards are currently not supported.
+ *  Required. Patterns to identify a set of files in Google Cloud Storage.
+ *  See [Cloud Storage
+ *  documentation](https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames)
+ *  for more information. Note that bucket wildcards are currently not
+ *  supported.
  *  Examples of valid file_patterns:
  *  * `gs://bucket_name/dir/ *`: matches all files within `bucket_name/dir`
  *  directory.
@@ -1035,6 +1040,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  empty string.
  */
 @property(nonatomic, copy, nullable) NSString *parentPolicyTag;
+
+@end
+
+
+/**
+ *  Request message for
+ *  RenameTagTemplateFieldEnumValue.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest : GTLRObject
+
+/**
+ *  Required. The new display name of the enum value. For example,
+ *  `my_new_enum_value`.
+ */
+@property(nonatomic, copy, nullable) NSString *newEnumValueDisplayName NS_RETURNS_NOT_RETAINED;
 
 @end
 

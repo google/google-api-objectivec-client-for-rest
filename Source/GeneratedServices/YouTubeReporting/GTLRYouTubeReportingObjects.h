@@ -164,11 +164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRYouTubeReporting_Empty : GTLRObject
 @end
@@ -661,8 +659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The date/time when this job will expire/expired. After a job expired, no
- *  new reports are generated.
+ *  The date/time when this job will expire/expired. After a job expired, no new
+ *  reports are generated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
@@ -677,8 +675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The type of reports this job creates. Corresponds to the ID of a
- *  ReportType.
+ *  The type of reports this job creates. Corresponds to the ID of a ReportType.
  */
 @property(nonatomic, copy, nullable) NSString *reportTypeId;
 
@@ -712,11 +709,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @property(nonatomic, strong, nullable) NSArray<GTLRYouTubeReporting_Job *> *jobs;
 
 /**
- *  A token to retrieve next page of results.
- *  Pass this value in the
- *  ListJobsRequest.page_token
- *  field in the subsequent call to `ListJobs` method to retrieve the next
- *  page of results.
+ *  A token to retrieve next page of results. Pass this value in the
+ *  ListJobsRequest.page_token field in the subsequent call to `ListJobs` method
+ *  to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -734,11 +729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @interface GTLRYouTubeReporting_ListReportsResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve next page of results.
- *  Pass this value in the
- *  ListReportsRequest.page_token
- *  field in the subsequent call to `ListReports` method to retrieve the next
- *  page of results.
+ *  A token to retrieve next page of results. Pass this value in the
+ *  ListReportsRequest.page_token field in the subsequent call to `ListReports`
+ *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -764,11 +757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @interface GTLRYouTubeReporting_ListReportTypesResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve next page of results.
- *  Pass this value in the
- *  ListReportTypesRequest.page_token
- *  field in the subsequent call to `ListReportTypes` method to retrieve the
- *  next page of results.
+ *  A token to retrieve next page of results. Pass this value in the
+ *  ListReportTypesRequest.page_token field in the subsequent call to
+ *  `ListReportTypes` method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

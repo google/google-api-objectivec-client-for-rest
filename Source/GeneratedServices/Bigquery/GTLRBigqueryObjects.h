@@ -24,9 +24,11 @@
 @class GTLRBigquery_Argument;
 @class GTLRBigquery_ArimaCoefficients;
 @class GTLRBigquery_ArimaFittingMetrics;
+@class GTLRBigquery_ArimaForecastingMetrics;
 @class GTLRBigquery_ArimaModelInfo;
 @class GTLRBigquery_ArimaOrder;
 @class GTLRBigquery_ArimaResult;
+@class GTLRBigquery_ArimaSingleModelForecastingMetrics;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
 @class GTLRBigquery_BigtableColumn;
@@ -115,6 +117,7 @@
 @class GTLRBigquery_RowLevelSecurityStatistics;
 @class GTLRBigquery_ScriptStackFrame;
 @class GTLRBigquery_ScriptStatistics;
+@class GTLRBigquery_SnapshotDefinition;
 @class GTLRBigquery_StandardSqlDataType;
 @class GTLRBigquery_StandardSqlField;
 @class GTLRBigquery_StandardSqlStructType;
@@ -194,6 +197,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_ModeUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Out;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_ArimaForecastingMetrics.seasonalPeriods
+
+/** Value: "DAILY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Daily;
+/** Value: "MONTHLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Monthly;
+/** Value: "NO_SEASONALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_NoSeasonality;
+/** Value: "QUARTERLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Quarterly;
+/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
+/** Value: "WEEKLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Weekly;
+/** Value: "YEARLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Yearly;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_ArimaModelInfo.seasonalPeriods
 
 /** Value: "DAILY" */
@@ -230,6 +251,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Wee
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_ArimaSingleModelForecastingMetrics.seasonalPeriods
+
+/** Value: "DAILY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Daily;
+/** Value: "MONTHLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Monthly;
+/** Value: "NO_SEASONALITY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_NoSeasonality;
+/** Value: "QUARTERLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Quarterly;
+/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
+/** Value: "WEEKLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Weekly;
+/** Value: "YEARLY" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Yearly;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_AuditLogConfig.logType
 
 /**
@@ -261,37 +300,43 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeU
 // GTLRBigquery_Model.modelType
 
 /**
- *  AutoML Tables classification model.
+ *  [Beta] ARIMA model.
+ *
+ *  Value: "ARIMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Arima;
+/**
+ *  [Beta] AutoML Tables classification model.
  *
  *  Value: "AUTOML_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier;
 /**
- *  AutoML Tables regression model.
+ *  [Beta] AutoML Tables regression model.
  *
  *  Value: "AUTOML_REGRESSOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor;
 /**
- *  Boosted tree classifier model.
+ *  [Beta] Boosted tree classifier model.
  *
  *  Value: "BOOSTED_TREE_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier;
 /**
- *  Boosted tree regressor model.
+ *  [Beta] Boosted tree regressor model.
  *
  *  Value: "BOOSTED_TREE_REGRESSOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegressor;
 /**
- *  DNN classifier model.
+ *  [Beta] DNN classifier model.
  *
  *  Value: "DNN_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnClassifier;
 /**
- *  DNN regressor model.
+ *  [Beta] DNN regressor model.
  *
  *  Value: "DNN_REGRESSOR"
  */
@@ -315,7 +360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LinearRegressio
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_LogisticRegression;
 /**
- *  Matrix factorization model.
+ *  [Beta] Matrix factorization model.
  *
  *  Value: "MATRIX_FACTORIZATION"
  */
@@ -485,6 +530,54 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Ti
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.dataFrequency
+
+/**
+ *  Automatically inferred from timestamps.
+ *
+ *  Value: "AUTO_FREQUENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_AutoFrequency;
+/**
+ *  Daily data.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Daily;
+/** Value: "DATA_FREQUENCY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_DataFrequencyUnspecified;
+/**
+ *  Hourly data.
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Hourly;
+/**
+ *  Monthly data.
+ *
+ *  Value: "MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Monthly;
+/**
+ *  Quarterly data.
+ *
+ *  Value: "QUARTERLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Quarterly;
+/**
+ *  Weekly data.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Weekly;
+/**
+ *  Yearly data.
+ *
+ *  Value: "YEARLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Yearly;
+
+// ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.dataSplitMethod
 
 /**
@@ -556,6 +649,425 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Fe
  *  Value: "IMPLICIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_FeedbackType_Implicit;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.holidayRegion
+
+/**
+ *  United Arab Emirates
+ *
+ *  Value: "AE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ae;
+/**
+ *  Argentina
+ *
+ *  Value: "AR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ar;
+/**
+ *  Austria
+ *
+ *  Value: "AT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_At;
+/**
+ *  Australia
+ *
+ *  Value: "AU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Au;
+/**
+ *  Belgium
+ *
+ *  Value: "BE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Be;
+/**
+ *  Brazil
+ *
+ *  Value: "BR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Br;
+/**
+ *  Canada
+ *
+ *  Value: "CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ca;
+/**
+ *  Switzerland
+ *
+ *  Value: "CH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ch;
+/**
+ *  Chile
+ *
+ *  Value: "CL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cl;
+/**
+ *  China
+ *
+ *  Value: "CN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cn;
+/**
+ *  Colombia
+ *
+ *  Value: "CO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Co;
+/**
+ *  Czechoslovakia
+ *
+ *  Value: "CS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cs;
+/**
+ *  Czech Republic
+ *
+ *  Value: "CZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Cz;
+/**
+ *  Germany
+ *
+ *  Value: "DE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_De;
+/**
+ *  Denmark
+ *
+ *  Value: "DK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Dk;
+/**
+ *  Algeria
+ *
+ *  Value: "DZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Dz;
+/**
+ *  Ecuador
+ *
+ *  Value: "EC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ec;
+/**
+ *  Estonia
+ *
+ *  Value: "EE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ee;
+/**
+ *  Egypt
+ *
+ *  Value: "EG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Eg;
+/**
+ *  Europe, the Middle East and Africa.
+ *
+ *  Value: "EMEA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Emea;
+/**
+ *  Spain
+ *
+ *  Value: "ES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Es;
+/**
+ *  Finland
+ *
+ *  Value: "FI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Fi;
+/**
+ *  France
+ *
+ *  Value: "FR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Fr;
+/**
+ *  Great Britain (United Kingdom)
+ *
+ *  Value: "GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Gb;
+/**
+ *  Global.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Global;
+/**
+ *  Greece
+ *
+ *  Value: "GR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Gr;
+/**
+ *  Hong Kong
+ *
+ *  Value: "HK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Hk;
+/**
+ *  Holiday region unspecified.
+ *
+ *  Value: "HOLIDAY_REGION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_HolidayRegionUnspecified;
+/**
+ *  Hungary
+ *
+ *  Value: "HU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Hu;
+/**
+ *  Indonesia
+ *
+ *  Value: "ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Id;
+/**
+ *  Ireland
+ *
+ *  Value: "IE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ie;
+/**
+ *  Israel
+ *
+ *  Value: "IL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Il;
+/**
+ *  India
+ *
+ *  Value: "IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_In;
+/**
+ *  Iran
+ *
+ *  Value: "IR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ir;
+/**
+ *  Italy
+ *
+ *  Value: "IT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_It;
+/**
+ *  Japan and Asia Pacific: Korea, Greater China, India, Australia, and New
+ *  Zealand.
+ *
+ *  Value: "JAPAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Japac;
+/**
+ *  Japan
+ *
+ *  Value: "JP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Jp;
+/**
+ *  Korea (South)
+ *
+ *  Value: "KR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Kr;
+/**
+ *  Latin America and the Caribbean.
+ *
+ *  Value: "LAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Lac;
+/**
+ *  Latvia
+ *
+ *  Value: "LV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Lv;
+/**
+ *  Morocco
+ *
+ *  Value: "MA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ma;
+/**
+ *  Mexico
+ *
+ *  Value: "MX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Mx;
+/**
+ *  Malaysia
+ *
+ *  Value: "MY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_My;
+/**
+ *  North America.
+ *
+ *  Value: "NA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Na;
+/**
+ *  Nigeria
+ *
+ *  Value: "NG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ng;
+/**
+ *  Netherlands
+ *
+ *  Value: "NL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Nl;
+/**
+ *  Norway
+ *
+ *  Value: "NO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_No;
+/**
+ *  New Zealand
+ *
+ *  Value: "NZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Nz;
+/**
+ *  Peru
+ *
+ *  Value: "PE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pe;
+/**
+ *  Philippines
+ *
+ *  Value: "PH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ph;
+/**
+ *  Pakistan
+ *
+ *  Value: "PK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pk;
+/**
+ *  Poland
+ *
+ *  Value: "PL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pl;
+/**
+ *  Portugal
+ *
+ *  Value: "PT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Pt;
+/**
+ *  Romania
+ *
+ *  Value: "RO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ro;
+/**
+ *  Serbia
+ *
+ *  Value: "RS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Rs;
+/**
+ *  Russian Federation
+ *
+ *  Value: "RU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ru;
+/**
+ *  Saudi Arabia
+ *
+ *  Value: "SA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Sa;
+/**
+ *  Sweden
+ *
+ *  Value: "SE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Se;
+/**
+ *  Singapore
+ *
+ *  Value: "SG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Sg;
+/**
+ *  Slovenia
+ *
+ *  Value: "SI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Si;
+/**
+ *  Slovakia
+ *
+ *  Value: "SK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Sk;
+/**
+ *  Thailand
+ *
+ *  Value: "TH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Th;
+/**
+ *  Turkey
+ *
+ *  Value: "TR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Tr;
+/**
+ *  Taiwan
+ *
+ *  Value: "TW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Tw;
+/**
+ *  Ukraine
+ *
+ *  Value: "UA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ua;
+/**
+ *  United States
+ *
+ *  Value: "US"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Us;
+/**
+ *  Venezuela
+ *
+ *  Value: "VE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Ve;
+/**
+ *  Viet Nam
+ *
+ *  Value: "VN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Vn;
+/**
+ *  South Africa
+ *
+ *  Value: "ZA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Za;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.kmeansInitializationMethod
@@ -814,6 +1326,43 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  Model evaluation metrics for ARIMA forecasting models.
+ */
+@interface GTLRBigquery_ArimaForecastingMetrics : GTLRObject
+
+/** Arima model fitting metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaFittingMetrics *> *arimaFittingMetrics;
+
+/**
+ *  Repeated as there can be many metric sets (one for each model) in
+ *  auto-arima and the large-scale case.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaSingleModelForecastingMetrics *> *arimaSingleModelForecastingMetrics;
+
+/**
+ *  Whether Arima model fitted with drift or not. It is always false when d
+ *  is not 1.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *hasDrift;
+
+/** Non-seasonal order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ArimaOrder *> *nonSeasonalOrder;
+
+/**
+ *  Seasonal periods. Repeated because multiple periods are supported for one
+ *  time series.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
+
+/** Id to differentiate different time series for the large-scale case. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesId;
+
+@end
+
+
+/**
  *  Arima model information.
  */
 @interface GTLRBigquery_ArimaModelInfo : GTLRObject
@@ -893,6 +1442,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  one time series.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
+
+@end
+
+
+/**
+ *  Model evaluation metrics for a single ARIMA forecasting model.
+ */
+@interface GTLRBigquery_ArimaSingleModelForecastingMetrics : GTLRObject
+
+/** Arima fitting metrics. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArimaFittingMetrics *arimaFittingMetrics;
+
+/**
+ *  Is arima model fitted with drift or not. It is always false when d
+ *  is not 1.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasDrift;
+
+/** Non-seasonal order. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
+
+/**
+ *  Seasonal periods. Repeated because multiple periods are supported
+ *  for one time series.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
+
+/** The id to indicate different time series. */
+@property(nonatomic, copy, nullable) NSString *timeSeriesId;
 
 @end
 
@@ -2139,6 +2719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @interface GTLRBigquery_EvaluationMetrics : GTLRObject
 
+/** Populated for ARIMA models. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArimaForecastingMetrics *arimaForecastingMetrics;
+
 /** Populated for binary classification/classifier models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BinaryClassificationMetrics *binaryClassificationMetrics;
 
@@ -2148,10 +2731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** Populated for multi-class classification/classifier models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MultiClassClassificationMetrics *multiClassClassificationMetrics;
 
-/**
- *  [Alpha] Populated for implicit feedback type matrix factorization
- *  models.
- */
+/** Populated for implicit feedback type matrix factorization models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_RankingMetrics *rankingMetrics;
 
 /**
@@ -4223,25 +4803,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Output only. Type of the model resource.
  *
  *  Likely values:
- *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier AutoML Tables
- *        classification model. (Value: "AUTOML_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor AutoML Tables
+ *    @arg @c kGTLRBigquery_Model_ModelType_Arima [Beta] ARIMA model. (Value:
+ *        "ARIMA")
+ *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier [Beta] AutoML
+ *        Tables classification model. (Value: "AUTOML_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor [Beta] AutoML Tables
  *        regression model. (Value: "AUTOML_REGRESSOR")
- *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeClassifier Boosted tree
- *        classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeRegressor Boosted tree
- *        regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
- *    @arg @c kGTLRBigquery_Model_ModelType_DnnClassifier DNN classifier model.
- *        (Value: "DNN_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_DnnRegressor DNN regressor model.
- *        (Value: "DNN_REGRESSOR")
+ *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeClassifier [Beta] Boosted
+ *        tree classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeRegressor [Beta] Boosted
+ *        tree regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
+ *    @arg @c kGTLRBigquery_Model_ModelType_DnnClassifier [Beta] DNN classifier
+ *        model. (Value: "DNN_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_DnnRegressor [Beta] DNN regressor
+ *        model. (Value: "DNN_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_Kmeans K-means clustering model.
  *        (Value: "KMEANS")
  *    @arg @c kGTLRBigquery_Model_ModelType_LinearRegression Linear regression
  *        model. (Value: "LINEAR_REGRESSION")
  *    @arg @c kGTLRBigquery_Model_ModelType_LogisticRegression Logistic
  *        regression based classification model. (Value: "LOGISTIC_REGRESSION")
- *    @arg @c kGTLRBigquery_Model_ModelType_MatrixFactorization Matrix
+ *    @arg @c kGTLRBigquery_Model_ModelType_MatrixFactorization [Beta] Matrix
  *        factorization model. (Value: "MATRIX_FACTORIZATION")
  *    @arg @c kGTLRBigquery_Model_ModelType_ModelTypeUnspecified Value
  *        "MODEL_TYPE_UNSPECIFIED"
@@ -5384,6 +5966,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_SnapshotDefinition
+ */
+@interface GTLRBigquery_SnapshotDefinition : GTLRObject
+
+/**
+ *  [Required] Reference describing the ID of the table that is snapshotted.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTableReference;
+
+/** [Required] The time at which the base table was snapshot. */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
+@end
+
+
+/**
  *  The type of a variable, e.g., a function argument.
  *  Examples:
  *  INT64: {type_kind="INT64"}
@@ -5665,6 +6263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** [Output-only] A URL that can be used to access this resource again. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output-only] Snapshot definition. */
+@property(nonatomic, strong, nullable) GTLRBigquery_SnapshotDefinition *snapshotDefinition;
+
 /**
  *  [Output-only] Contains information regarding this table's streaming buffer,
  *  if one is present. This field will be absent if the table is not being
@@ -5684,9 +6285,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  [Output-only] Describes the table type. The following values are supported:
  *  TABLE: A normal BigQuery table. VIEW: A virtual table defined by a SQL
- *  query. [TrustedTester] MATERIALIZED_VIEW: SQL query whose result is
- *  persisted. EXTERNAL: A table that references data stored in an external
- *  storage system, such as Google Cloud Storage. The default value is TABLE.
+ *  query. [TrustedTester] SNAPSHOT: An immutable, read-only table that is a
+ *  copy of another table. [TrustedTester] MATERIALIZED_VIEW: SQL query whose
+ *  result is persisted. EXTERNAL: A table that references data stored in an
+ *  external storage system, such as Google Cloud Storage. The default value is
+ *  TABLE.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6181,11 +6784,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_TrainingOptions : GTLRObject
 
 /**
+ *  Whether to enable auto ARIMA or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoArima;
+
+/**
  *  Batch size for dnn models.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/**
+ *  The data frequency of a time series.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_AutoFrequency
+ *        Automatically inferred from timestamps. (Value: "AUTO_FREQUENCY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Daily Daily data.
+ *        (Value: "DAILY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_DataFrequencyUnspecified
+ *        Value "DATA_FREQUENCY_UNSPECIFIED"
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Hourly Hourly data.
+ *        (Value: "HOURLY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Monthly Monthly data.
+ *        (Value: "MONTHLY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Quarterly Quarterly
+ *        data. (Value: "QUARTERLY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Weekly Weekly data.
+ *        (Value: "WEEKLY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Yearly Yearly data.
+ *        (Value: "YEARLY")
+ */
+@property(nonatomic, copy, nullable) NSString *dataFrequency;
 
 /**
  *  The column to split data with. This column won't be used as a
@@ -6280,6 +6913,159 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *hiddenUnits;
+
+/**
+ *  The geographical region based on which the holidays are considered in
+ *  time series modeling. If a valid value is specified, then holiday
+ *  effects modeling is enabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ae United Arab
+ *        Emirates (Value: "AE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ar Argentina (Value:
+ *        "AR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_At Austria (Value:
+ *        "AT")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Au Australia (Value:
+ *        "AU")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Be Belgium (Value:
+ *        "BE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Br Brazil (Value:
+ *        "BR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ca Canada (Value:
+ *        "CA")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ch Switzerland (Value:
+ *        "CH")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Cl Chile (Value: "CL")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Cn China (Value: "CN")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Co Colombia (Value:
+ *        "CO")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Cs Czechoslovakia
+ *        (Value: "CS")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Cz Czech Republic
+ *        (Value: "CZ")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_De Germany (Value:
+ *        "DE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Dk Denmark (Value:
+ *        "DK")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Dz Algeria (Value:
+ *        "DZ")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ec Ecuador (Value:
+ *        "EC")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ee Estonia (Value:
+ *        "EE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Eg Egypt (Value: "EG")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Emea Europe, the
+ *        Middle East and Africa. (Value: "EMEA")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Es Spain (Value: "ES")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Fi Finland (Value:
+ *        "FI")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Fr France (Value:
+ *        "FR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Gb Great Britain
+ *        (United Kingdom) (Value: "GB")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Global Global. (Value:
+ *        "GLOBAL")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Gr Greece (Value:
+ *        "GR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Hk Hong Kong (Value:
+ *        "HK")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_HolidayRegionUnspecified
+ *        Holiday region unspecified. (Value: "HOLIDAY_REGION_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Hu Hungary (Value:
+ *        "HU")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Id Indonesia (Value:
+ *        "ID")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ie Ireland (Value:
+ *        "IE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Il Israel (Value:
+ *        "IL")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_In India (Value: "IN")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ir Iran (Value: "IR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_It Italy (Value: "IT")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Japac Japan and Asia
+ *        Pacific: Korea, Greater China, India, Australia, and New
+ *        Zealand. (Value: "JAPAC")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Jp Japan (Value: "JP")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Kr Korea (South)
+ *        (Value: "KR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Lac Latin America and
+ *        the Caribbean. (Value: "LAC")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Lv Latvia (Value:
+ *        "LV")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ma Morocco (Value:
+ *        "MA")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Mx Mexico (Value:
+ *        "MX")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_My Malaysia (Value:
+ *        "MY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Na North America.
+ *        (Value: "NA")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ng Nigeria (Value:
+ *        "NG")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Nl Netherlands (Value:
+ *        "NL")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_No Norway (Value:
+ *        "NO")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Nz New Zealand (Value:
+ *        "NZ")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Pe Peru (Value: "PE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ph Philippines (Value:
+ *        "PH")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Pk Pakistan (Value:
+ *        "PK")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Pl Poland (Value:
+ *        "PL")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Pt Portugal (Value:
+ *        "PT")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ro Romania (Value:
+ *        "RO")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Rs Serbia (Value:
+ *        "RS")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ru Russian Federation
+ *        (Value: "RU")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Sa Saudi Arabia
+ *        (Value: "SA")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Se Sweden (Value:
+ *        "SE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Sg Singapore (Value:
+ *        "SG")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Si Slovenia (Value:
+ *        "SI")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Sk Slovakia (Value:
+ *        "SK")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Th Thailand (Value:
+ *        "TH")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Tr Turkey (Value:
+ *        "TR")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Tw Taiwan (Value:
+ *        "TW")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ua Ukraine (Value:
+ *        "UA")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Us United States
+ *        (Value: "US")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Ve Venezuela (Value:
+ *        "VE")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Vn Viet Nam (Value:
+ *        "VN")
+ *    @arg @c kGTLRBigquery_TrainingOptions_HolidayRegion_Za South Africa
+ *        (Value: "ZA")
+ */
+@property(nonatomic, copy, nullable) NSString *holidayRegion;
+
+/**
+ *  The number of periods ahead that need to be forecasted.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *horizon;
+
+/**
+ *  Include drift when fitting an ARIMA model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeDrift;
 
 /**
  *  Specifies the initial learning rate for the line search learn rate
@@ -6408,6 +7194,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *modelUri;
 
 /**
+ *  A specification of the non-seasonal part of the ARIMA model: the three
+ *  components (p, d, q) are the AR order, the degree of differencing, and
+ *  the MA order.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
+
+/**
  *  Number of clusters for clustering models.
  *
  *  Uses NSNumber of longLongValue.
@@ -6453,6 +7246,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *subsample;
+
+/** Column to be designated as time series data for ARIMA model. */
+@property(nonatomic, copy, nullable) NSString *timeSeriesDataColumn;
+
+/**
+ *  The id column that will be used to indicate different time series to
+ *  forecast in parallel.
+ */
+@property(nonatomic, copy, nullable) NSString *timeSeriesIdColumn;
+
+/** Column to be designated as time series timestamp for ARIMA model. */
+@property(nonatomic, copy, nullable) NSString *timeSeriesTimestampColumn;
 
 /** User column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *userColumn;

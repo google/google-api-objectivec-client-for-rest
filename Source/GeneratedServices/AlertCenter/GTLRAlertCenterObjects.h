@@ -143,13 +143,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
 
-/** Value: "ACTION_TYPE_UNSPECIFIED" */
+/**
+ *  Action type is unspecified.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified;
-/** Value: "ALERT" */
+/**
+ *  Send alert.
+ *
+ *  Value: "ALERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
-/** Value: "DRIVE_BLOCK_EXTERNAL_SHARING" */
+/**
+ *  Block sharing a file externally.
+ *
+ *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing;
-/** Value: "DRIVE_WARN_ON_EXTERNAL_SHARING" */
+/**
+ *  Show a warning message when sharing a file externally.
+ *
+ *  Value: "DRIVE_WARN_ON_EXTERNAL_SHARING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing;
 
 // ----------------------------------------------------------------------------
@@ -171,13 +187,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_Tr
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.triggeredActionTypes
 
-/** Value: "ACTION_TYPE_UNSPECIFIED" */
+/**
+ *  Action type is unspecified.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified;
-/** Value: "ALERT" */
+/**
+ *  Send alert.
+ *
+ *  Value: "ALERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
-/** Value: "DRIVE_BLOCK_EXTERNAL_SHARING" */
+/**
+ *  Block sharing a file externally.
+ *
+ *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing;
-/** Value: "DRIVE_WARN_ON_EXTERNAL_SHARING" */
+/**
+ *  Show a warning message when sharing a file externally.
+ *
+ *  Value: "DRIVE_WARN_ON_EXTERNAL_SHARING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing;
 
 /**
@@ -190,11 +222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /**
  *  Optional. Details of the login action associated with the warning event.
- *  This is only available for:
- *  * Suspicious login
- *  * Suspicious login (less secure app)
- *  * Suspicious programmatic login
- *  * User suspended (suspicious activity)
+ *  This is only available for: * Suspicious login * Suspicious login (less
+ *  secure app) * Suspicious programmatic login * User suspended (suspicious
+ *  activity)
  */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_LoginDetails *loginDetails;
 
@@ -229,8 +259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  List of alert IDs superseded by this alert. It is used to indicate that
- *  this alert is essentially extension of superseded alerts and we found the
+ *  List of alert IDs superseded by this alert. It is used to indicate that this
+ *  alert is essentially extension of superseded alerts and we found the
  *  relationship after creating these alerts.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supersededAlerts;
@@ -246,10 +276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, copy, nullable) NSString *threshold;
 
 /**
- *  The trigger sources for this rule.
- *  * GMAIL_EVENTS
- *  * DEVICE_EVENTS
- *  * USER_EVENTS
+ *  The trigger sources for this rule. * GMAIL_EVENTS * DEVICE_EVENTS *
+ *  USER_EVENTS
  */
 @property(nonatomic, copy, nullable) NSString *triggerSource;
 
@@ -292,19 +320,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, strong, nullable) NSNumber *deleted;
 
 /**
- *  Optional. The time the event that caused this alert ceased being active.
- *  If provided, the end time must not be earlier than the start time.
- *  If not provided, it indicates an ongoing alert.
+ *  Optional. The time the event that caused this alert ceased being active. If
+ *  provided, the end time must not be earlier than the start time. If not
+ *  provided, it indicates an ongoing alert.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  Optional. `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of an alert from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
+ *  prevent simultaneous updates of an alert from overwriting each other. It is
+ *  strongly suggested that systems make use of the `etag` in the
  *  read-modify-write cycle to perform alert updates in order to avoid race
- *  conditions: An `etag` is returned in the response which contains alerts,
- *  and systems are expected to put that etag in the request to update alert to
+ *  conditions: An `etag` is returned in the response which contains alerts, and
+ *  systems are expected to put that etag in the request to update alert to
  *  ensure that their change will be applied to the same version of the alert.
  *  If no `etag` is provided in the call to update alert, then the existing
  *  alert is overwritten blindly.
@@ -315,36 +343,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, strong, nullable) GTLRAlertCenter_AlertMetadata *metadata;
 
 /**
- *  Output only. An optional
- *  [Security Investigation Tool](https://support.google.com/a/answer/7575955)
- *  query for this alert.
+ *  Output only. An optional [Security Investigation
+ *  Tool](https://support.google.com/a/answer/7575955) query for this alert.
  */
 @property(nonatomic, copy, nullable) NSString *securityInvestigationToolLink;
 
 /**
- *  Required. A unique identifier for the system that reported the alert.
- *  This is output only after alert is created.
- *  Supported sources are any of the following:
- *  * Google Operations
- *  * Mobile device management
- *  * Gmail phishing
- *  * Domain wide takeout
- *  * State sponsored attack
- *  * Google identity
+ *  Required. A unique identifier for the system that reported the alert. This
+ *  is output only after alert is created. Supported sources are any of the
+ *  following: * Google Operations * Mobile device management * Gmail phishing *
+ *  Domain wide takeout * State sponsored attack * Google identity
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Required. The time the event that caused this alert was started or
- *  detected.
+ *  Required. The time the event that caused this alert was started or detected.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Required. The type of the alert.
- *  This is output only after alert is created.
- *  For a list of available alert types see
- *  [G Suite Alert types](/admin-sdk/alertcenter/reference/alert-types).
+ *  Required. The type of the alert. This is output only after alert is created.
+ *  For a list of available alert types see [G Suite Alert
+ *  types](/admin-sdk/alertcenter/reference/alert-types).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -425,36 +445,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Optional. `etag` is used for optimistic concurrency control as a way to
- *  help prevent simultaneous updates of an alert metadata from overwriting
- *  each other. It is strongly suggested that systems make use of the `etag` in
- *  the read-modify-write cycle to perform metatdata updates in order to avoid
- *  race conditions: An `etag` is returned in the response which contains alert
- *  metadata, and systems are expected to put that etag in the request to
- *  update alert metadata to ensure that their change will be applied to the
- *  same version of the alert metadata.
- *  If no `etag` is provided in the call to update alert metadata, then the
- *  existing alert metadata is overwritten blindly.
+ *  Optional. `etag` is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of an alert metadata from overwriting each
+ *  other. It is strongly suggested that systems make use of the `etag` in the
+ *  read-modify-write cycle to perform metatdata updates in order to avoid race
+ *  conditions: An `etag` is returned in the response which contains alert
+ *  metadata, and systems are expected to put that etag in the request to update
+ *  alert metadata to ensure that their change will be applied to the same
+ *  version of the alert metadata. If no `etag` is provided in the call to
+ *  update alert metadata, then the existing alert metadata is overwritten
+ *  blindly.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  The severity value of the alert. Alert Center will set this field at alert
- *  creation time, default's to an empty string when it could not be
- *  determined.
- *  The supported values for update actions on this field are the following:
- *  * HIGH
- *  * MEDIUM
- *  * LOW
+ *  creation time, default's to an empty string when it could not be determined.
+ *  The supported values for update actions on this field are the following: *
+ *  HIGH * MEDIUM * LOW
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
 /**
- *  The current status of the alert.
- *  The supported values are the following:
- *  * NOT_STARTED
- *  * IN_PROGRESS
- *  * CLOSED
+ *  The current status of the alert. The supported values are the following: *
+ *  NOT_STARTED * IN_PROGRESS * CLOSED
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -501,10 +515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 /** The list of messages contained by this alert. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_GmailMessageInfo *> *messages;
 
-/**
- *  The source IP address of the malicious email, for example,
- *  `127.0.0.1`.
- */
+/** The source IP address of the malicious email, for example, `127.0.0.1`. */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
 
 @end
@@ -597,16 +608,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
- *  A reference to a Cloud Pubsub topic.
- *  To register for notifications, the owner of the topic must grant
+ *  A reference to a Cloud Pubsub topic. To register for notifications, the
+ *  owner of the topic must grant
  *  `alerts-api-push-notifications\@system.gserviceaccount.com` the
  *  `projects.topics.publish` permission.
  */
 @interface GTLRAlertCenter_CloudPubsubTopic : GTLRObject
 
 /**
- *  Optional. The format of the payload that would be sent.
- *  If not specified the format will be JSON.
+ *  Optional. The format of the payload that would be sent. If not specified the
+ *  format will be JSON.
  *
  *  Likely values:
  *    @arg @c kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json Use JSON.
@@ -627,8 +638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
- *  A representation of a CSV file attachment, as a list of column headers and
- *  a list of data rows.
+ *  A representation of a CSV file attachment, as a list of column headers and a
+ *  list of data rows.
  */
 @interface GTLRAlertCenter_Csv : GTLRObject
 
@@ -650,8 +661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_CsvRow : GTLRObject
 
 /**
- *  The data entries in a CSV file row, as a string array rather than a
- *  single comma-separated string.
+ *  The data entries in a CSV file row, as a string array rather than a single
+ *  comma-separated string.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entries;
 
@@ -678,8 +689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_DeviceCompromisedSecurityDetail : GTLRObject
 
 /**
- *  The device compromised state. Possible values are "`Compromised`" or
- *  "`Not Compromised`".
+ *  The device compromised state. Possible values are "`Compromised`" or "`Not
+ *  Compromised`".
  */
 @property(nonatomic, copy, nullable) NSString *deviceCompromisedState;
 
@@ -710,11 +721,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_DlpRuleViolation : GTLRObject
 
 /**
- *  Details about the violated DLP rule.
- *  Admins can use the predefined detectors provided by Google Cloud DLP
- *  https://cloud.google.com/dlp/ when setting up a DLP rule. Matched Cloud DLP
- *  detectors in this violation if any will be captured in the
- *  MatchInfo.predefined_detector.
+ *  Details about the violated DLP rule. Admins can use the predefined detectors
+ *  provided by Google Cloud DLP https://cloud.google.com/dlp/ when setting up a
+ *  DLP rule. Matched Cloud DLP detectors in this violation if any will be
+ *  captured in the MatchInfo.predefined_detector.
  */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_RuleViolationInfo *ruleViolationInfo;
 
@@ -750,11 +760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAlertCenter_Empty : GTLRObject
 @end
@@ -806,9 +814,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, strong, nullable) NSArray<NSString *> *affectedUserEmails;
 
 /**
- *  Optional. Application-specific data for an incident, provided when the
- *  G Suite application which reported the incident cannot be completely
- *  restored to a valid state.
+ *  Optional. Application-specific data for an incident, provided when the G
+ *  Suite application which reported the incident cannot be completely restored
+ *  to a valid state.
  */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_Attachment *attachmentData;
 
@@ -831,8 +839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_ListAlertFeedbackResponse : GTLRObject
 
 /**
- *  The list of alert feedback.
- *  Feedback entries for each alert are ordered by creation time descending.
+ *  The list of alert feedback. Feedback entries for each alert are ordered by
+ *  creation time descending.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_AlertFeedback *> *feedback;
 
@@ -860,8 +868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 /**
  *  The token for the next page. If not empty, indicates that there may be more
  *  alerts that match the listing request; this value can be used in a
- *  subsequent ListAlertsRequest to get alerts continuing from last result
- *  of the current list call.
+ *  subsequent ListAlertsRequest to get alerts continuing from last result of
+ *  the current list call.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -874,8 +882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_LoginDetails : GTLRObject
 
 /**
- *  Optional. The human-readable IP address (for example,
- *  `11.22.33.44`) that is associated with the warning event.
+ *  Optional. The human-readable IP address (for example, `11.22.33.44`) that is
+ *  associated with the warning event.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -889,14 +897,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
- *  Proto for all phishing alerts with common payload.
- *  Supported types are any of the following:
- *  * User reported phishing
- *  * User reported spam spike
- *  * Suspicious message reported
- *  * Phishing reclassification
- *  * Malware reclassification
- *  * Gmail potential employee spoofing
+ *  Proto for all phishing alerts with common payload. Supported types are any
+ *  of the following: * User reported phishing * User reported spam spike *
+ *  Suspicious message reported * Phishing reclassification * Malware
+ *  reclassification * Gmail potential employee spoofing
  */
 @interface GTLRAlertCenter_MailPhishing : GTLRObject
 
@@ -965,8 +969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
- *  Settings for callback notifications.
- *  For more details see [G Suite Alert
+ *  Settings for callback notifications. For more details see [G Suite Alert
  *  Notification](/admin-sdk/alertcenter/guides/notifications).
  */
 @interface GTLRAlertCenter_Notification : GTLRObject
@@ -978,10 +981,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
- *  Alert for a spike in user reported phishing.
- *  <aside class="warning"><b>Warning</b>: This type has been deprecated. Use
+ *  Alert for a spike in user reported phishing. *Warning*: This type has been
+ *  deprecated. Use
  *  [MailPhishing](/admin-sdk/alertcenter/reference/rest/v1beta1/MailPhishing)
- *  instead.</aside>
+ *  instead.
  */
 @interface GTLRAlertCenter_PhishingSpike : GTLRObject
 
@@ -1021,8 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_RequestInfo : GTLRObject
 
 /**
- *  List of app developers who triggered notifications for above
- *  application.
+ *  List of app developers who triggered notifications for above application.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appDeveloperEmail;
 
@@ -1030,8 +1032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, copy, nullable) NSString *appKey;
 
 /**
- *  Required. Number of requests sent for this application to set up default
- *  SQL instance.
+ *  Required. Number of requests sent for this application to set up default SQL
+ *  instance.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1089,13 +1091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_MatchInfo *> *matchInfo;
 
 /**
- *  Resource recipients.
- *  For Drive, they are grantees that the Drive file was shared with at the
- *  time of rule triggering. Valid values include user emails, group emails,
- *  domains, or 'anyone' if the file was publicly accessible. If the file was
- *  private the recipients list will be empty.
- *  For Gmail, they are emails of the users or groups that the Gmail message
- *  was sent to.
+ *  Resource recipients. For Drive, they are grantees that the Drive file was
+ *  shared with at the time of rule triggering. Valid values include user
+ *  emails, group emails, domains, or 'anyone' if the file was publicly
+ *  accessible. If the file was private the recipients list will be empty. For
+ *  Gmail, they are emails of the users or groups that the Gmail message was
+ *  sent to.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *recipients;
 
@@ -1157,9 +1158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRAlertCenter_Status : GTLRObject
 
@@ -1254,8 +1255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /**
  *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with.
- *  Inferred from the caller identity if not provided.
+ *  customer the alert is associated with. Inferred from the caller identity if
+ *  not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 

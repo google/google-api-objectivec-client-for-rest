@@ -39,21 +39,53 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "ACQUIRE_METHOD_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodAcquireMethodUndefined;
-/** Value: "FAMILY_SHARED" */
+/**
+ *  Books acquired via Family Sharing
+ *
+ *  Value: "FAMILY_SHARED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodFamilyShared;
-/** Value: "PREORDERED" */
+/**
+ *  Preordered books (not yet available)
+ *
+ *  Value: "PREORDERED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPreordered;
-/** Value: "PREVIOUSLY_RENTED" */
+/**
+ *  User-rented books past their expiration time
+ *
+ *  Value: "PREVIOUSLY_RENTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPreviouslyRented;
-/** Value: "PUBLIC_DOMAIN" */
+/**
+ *  Public domain books
+ *
+ *  Value: "PUBLIC_DOMAIN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPublicDomain;
-/** Value: "PURCHASED" */
+/**
+ *  Purchased books
+ *
+ *  Value: "PURCHASED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodPurchased;
-/** Value: "RENTED" */
+/**
+ *  User-rented books
+ *
+ *  Value: "RENTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodRented;
-/** Value: "SAMPLE" */
+/**
+ *  Sample books
+ *
+ *  Value: "SAMPLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodSample;
-/** Value: "UPLOADED" */
+/**
+ *  User uploaded books
+ *
+ *  Value: "UPLOADED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodUploaded;
 
 // ----------------------------------------------------------------------------
@@ -61,17 +93,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksAcquireMethodUploaded;
 
 /** Value: "ACTION_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionActionUndefined;
-/** Value: "bookmark" */
+/**
+ *  User chose bookmark within volume.
+ *
+ *  Value: "bookmark"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionBookmark;
-/** Value: "chapter" */
+/**
+ *  User selected chapter from list.
+ *
+ *  Value: "chapter"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionChapter;
-/** Value: "next-page" */
+/**
+ *  Next page event.
+ *
+ *  Value: "next-page"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionNextPage;
-/** Value: "prev-page" */
+/**
+ *  Previous page event.
+ *
+ *  Value: "prev-page"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionPrevPage;
-/** Value: "scroll" */
+/**
+ *  User navigated to page.
+ *
+ *  Value: "scroll"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionScroll;
-/** Value: "search" */
+/**
+ *  User chose search results within volume.
+ *
+ *  Value: "search"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksActionSearch;
 
 // ----------------------------------------------------------------------------
@@ -79,11 +135,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksActionSearch;
 
 /** Value: "ASSOCIATION_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationAssociationUndefined;
-/** Value: "end-of-sample" */
+/**
+ *  Recommendations for display end-of-sample.
+ *
+ *  Value: "end-of-sample"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationEndOfSample;
-/** Value: "end-of-volume" */
+/**
+ *  Recommendations for display end-of-volume.
+ *
+ *  Value: "end-of-volume"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationEndOfVolume;
-/** Value: "related-for-play" */
+/**
+ *  Related volumes for Play Store.
+ *
+ *  Value: "related-for-play"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationRelatedForPlay;
 
 // ----------------------------------------------------------------------------
@@ -91,7 +159,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksAssociationRelatedForPlay;
 
 /** Value: "DOWNLOAD_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksDownloadDownloadUndefined;
-/** Value: "EPUB" */
+/**
+ *  All volumes with epub.
+ *
+ *  Value: "EPUB"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksDownloadEpub;
 
 // ----------------------------------------------------------------------------
@@ -99,23 +171,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksDownloadEpub;
 
 /** Value: "FEATURES_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFeaturesFeaturesUndefined;
-/** Value: "RENTALS" */
+/**
+ *  Client supports rentals.
+ *
+ *  Value: "RENTALS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFeaturesRentals;
 
 // ----------------------------------------------------------------------------
 // filter
 
-/** Value: "ebooks" */
+/**
+ *  All Google eBooks.
+ *
+ *  Value: "ebooks"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFilterEbooks;
 /** Value: "FILTER_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFilterFilterUndefined;
-/** Value: "free-ebooks" */
+/**
+ *  Google eBook with full volume text viewability.
+ *
+ *  Value: "free-ebooks"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFilterFreeEbooks;
-/** Value: "full" */
+/**
+ *  Public can view entire volume text.
+ *
+ *  Value: "full"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFilterFull;
-/** Value: "paid-ebooks" */
+/**
+ *  Google eBook with a price.
+ *
+ *  Value: "paid-ebooks"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFilterPaidEbooks;
-/** Value: "partial" */
+/**
+ *  Public able to see parts of text.
+ *
+ *  Value: "partial"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksFilterPartial;
 
 // ----------------------------------------------------------------------------
@@ -123,19 +219,39 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksFilterPartial;
 
 /** Value: "LIBRARY_RESTRICT_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLibraryRestrictLibraryRestrictUndefined;
-/** Value: "my-library" */
+/**
+ *  Restrict to the user's library, any shelf.
+ *
+ *  Value: "my-library"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLibraryRestrictMyLibrary;
-/** Value: "no-restrict" */
+/**
+ *  Do not restrict based on user's library.
+ *
+ *  Value: "no-restrict"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLibraryRestrictNoRestrict;
 
 // ----------------------------------------------------------------------------
 // licenseTypes
 
-/** Value: "BOTH" */
+/**
+ *  Both concurrent and download licenses.
+ *
+ *  Value: "BOTH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesBoth;
-/** Value: "CONCURRENT" */
+/**
+ *  Concurrent access license.
+ *
+ *  Value: "CONCURRENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesConcurrent;
-/** Value: "DOWNLOAD" */
+/**
+ *  Offline download access license.
+ *
+ *  Value: "DOWNLOAD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesDownload;
 /** Value: "LICENSE_TYPES_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesLicenseTypesUndefined;
@@ -143,31 +259,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksLicenseTypesLicenseTypesUndefined;
 // ----------------------------------------------------------------------------
 // maxAllowedMaturityRating
 
-/** Value: "MATURE" */
+/**
+ *  Show books which are rated mature or lower.
+ *
+ *  Value: "MATURE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingMature;
 /** Value: "MAX_ALLOWED_MATURITY_RATING_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined;
-/** Value: "not-mature" */
+/**
+ *  Show books which are rated not mature.
+ *
+ *  Value: "not-mature"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksMaxAllowedMaturityRatingNotMature;
 
 // ----------------------------------------------------------------------------
 // orderBy
 
-/** Value: "newest" */
+/**
+ *  Most recently published.
+ *
+ *  Value: "newest"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksOrderByNewest;
 /** Value: "ORDER_BY_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksOrderByOrderByUndefined;
-/** Value: "relevance" */
+/**
+ *  Relevance to search terms.
+ *
+ *  Value: "relevance"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksOrderByRelevance;
 
 // ----------------------------------------------------------------------------
 // printType
 
-/** Value: "ALL" */
+/**
+ *  All volume content types.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypeAll;
-/** Value: "BOOKS" */
+/**
+ *  Just books.
+ *
+ *  Value: "BOOKS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypeBooks;
-/** Value: "MAGAZINES" */
+/**
+ *  Just magazines.
+ *
+ *  Value: "MAGAZINES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypeMagazines;
 /** Value: "PRINT_TYPE_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypePrintTypeUndefined;
@@ -175,21 +319,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksPrintTypePrintTypeUndefined;
 // ----------------------------------------------------------------------------
 // processingState
 
-/** Value: "COMPLETED_FAILED" */
+/**
+ *  The volume processing hase failed.
+ *
+ *  Value: "COMPLETED_FAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateCompletedFailed;
-/** Value: "COMPLETED_SUCCESS" */
+/**
+ *  The volume processing was completed.
+ *
+ *  Value: "COMPLETED_SUCCESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateCompletedSuccess;
 /** Value: "PROCESSING_STATE_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateProcessingStateUndefined;
-/** Value: "RUNNING" */
+/**
+ *  The volume processing is not completed.
+ *
+ *  Value: "RUNNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProcessingStateRunning;
 
 // ----------------------------------------------------------------------------
 // projection
 
-/** Value: "FULL" */
+/**
+ *  Includes all volume data.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProjectionFull;
-/** Value: "LITE" */
+/**
+ *  Includes a subset of fields in volumeInfo and accessInfo.
+ *
+ *  Value: "LITE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProjectionLite;
 /** Value: "PROJECTION_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksProjectionProjectionUndefined;
@@ -197,9 +361,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksProjectionProjectionUndefined;
 // ----------------------------------------------------------------------------
 // rating
 
-/** Value: "HAVE_IT" */
+/**
+ *  Rating indicating a dismissal due to ownership.
+ *
+ *  Value: "HAVE_IT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksRatingHaveIt;
-/** Value: "NOT_INTERESTED" */
+/**
+ *  Rating indicating a negative dismissal of a volume.
+ *
+ *  Value: "NOT_INTERESTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksRatingNotInterested;
 /** Value: "RATING_UNDEFINED" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksRatingRatingUndefined;
@@ -207,9 +379,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksRatingRatingUndefined;
 // ----------------------------------------------------------------------------
 // reason
 
-/** Value: "IOS_PREX" */
+/**
+ *  Volumes added from the PREX flow on iOS.
+ *
+ *  Value: "IOS_PREX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksReasonIosPrex;
-/** Value: "IOS_SEARCH" */
+/**
+ *  Volumes added from the Search flow on iOS.
+ *
+ *  Value: "IOS_SEARCH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBooksReasonIosSearch;
 /** Value: "ONBOARDING" */
 FOUNDATION_EXTERN NSString * const kGTLRBooksReasonOnboarding;
@@ -869,8 +1049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Set to true to return deleted annotations. updatedMin must be in the
- *  request to use this. Defaults to false.
+ *  Set to true to return deleted annotations. updatedMin must be in the request
+ *  to use this. Defaults to false.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1005,9 +1185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksLicenseTypesLicenseTypesUndefined Value
  *        "LICENSE_TYPES_UNDEFINED"
- *    @arg @c kGTLRBooksLicenseTypesBoth Value "BOTH"
- *    @arg @c kGTLRBooksLicenseTypesConcurrent Value "CONCURRENT"
- *    @arg @c kGTLRBooksLicenseTypesDownload Value "DOWNLOAD"
+ *    @arg @c kGTLRBooksLicenseTypesBoth Both concurrent and download licenses.
+ *        (Value: "BOTH")
+ *    @arg @c kGTLRBooksLicenseTypesConcurrent Concurrent access license.
+ *        (Value: "CONCURRENT")
+ *    @arg @c kGTLRBooksLicenseTypesDownload Offline download access license.
+ *        (Value: "DOWNLOAD")
  */
 @property(nonatomic, copy, nullable) NSString *licenseTypes;
 
@@ -1055,7 +1238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksFeaturesFeaturesUndefined Value "FEATURES_UNDEFINED"
- *    @arg @c kGTLRBooksFeaturesRentals Value "RENTALS"
+ *    @arg @c kGTLRBooksFeaturesRentals Client supports rentals. (Value:
+ *        "RENTALS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *features;
 
@@ -1217,8 +1401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Set to true to return deleted annotations. updatedMin must be in the
- *  request to use this. Defaults to false.
+ *  Set to true to return deleted annotations. updatedMin must be in the request
+ *  to use this. Defaults to false.
  */
 @property(nonatomic, assign) BOOL showDeleted;
 
@@ -1334,9 +1518,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksReasonReasonUndefined Value "REASON_UNDEFINED"
- *    @arg @c kGTLRBooksReasonIosPrex Value "IOS_PREX"
- *    @arg @c kGTLRBooksReasonIosSearch Value "IOS_SEARCH"
- *    @arg @c kGTLRBooksReasonOnboarding Value "ONBOARDING"
+ *    @arg @c kGTLRBooksReasonIosPrex Volumes added from the PREX flow on iOS.
+ *        (Value: "IOS_PREX")
+ *    @arg @c kGTLRBooksReasonIosSearch Volumes added from the Search flow on
+ *        iOS. (Value: "IOS_SEARCH")
+ *    @arg @c kGTLRBooksReasonOnboarding Volumes added from the Onboarding flow.
+ *        (Value: "ONBOARDING")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -1474,8 +1661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 @property(nonatomic, copy, nullable) NSString *volumeId;
 
 /**
- *  Position on shelf to move the item (0 puts the item before the current
- *  first item, 1 puts it between the first and the second and so on.)
+ *  Position on shelf to move the item (0 puts the item before the current first
+ *  item, 1 puts it between the first and the second and so on.)
  */
 @property(nonatomic, assign) NSInteger volumePosition;
 
@@ -1509,7 +1696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksReasonReasonUndefined Value "REASON_UNDEFINED"
- *    @arg @c kGTLRBooksReasonOnboarding Value "ONBOARDING"
+ *    @arg @c kGTLRBooksReasonOnboarding Samples removed from the Onboarding
+ *        flow. (Value: "ONBOARDING")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -1559,8 +1747,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksProjectionProjectionUndefined Value
  *        "PROJECTION_UNDEFINED"
- *    @arg @c kGTLRBooksProjectionFull Value "FULL"
- *    @arg @c kGTLRBooksProjectionLite Value "LITE"
+ *    @arg @c kGTLRBooksProjectionFull Includes all volume data. (Value: "FULL")
+ *    @arg @c kGTLRBooksProjectionLite Includes a subset of fields in volumeInfo
+ *        and accessInfo. (Value: "LITE")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
@@ -1643,12 +1832,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksActionActionUndefined Value "ACTION_UNDEFINED"
- *    @arg @c kGTLRBooksActionBookmark Value "bookmark"
- *    @arg @c kGTLRBooksActionChapter Value "chapter"
- *    @arg @c kGTLRBooksActionNextPage Value "next-page"
- *    @arg @c kGTLRBooksActionPrevPage Value "prev-page"
- *    @arg @c kGTLRBooksActionScroll Value "scroll"
- *    @arg @c kGTLRBooksActionSearch Value "search"
+ *    @arg @c kGTLRBooksActionBookmark User chose bookmark within volume.
+ *        (Value: "bookmark")
+ *    @arg @c kGTLRBooksActionChapter User selected chapter from list. (Value:
+ *        "chapter")
+ *    @arg @c kGTLRBooksActionNextPage Next page event. (Value: "next-page")
+ *    @arg @c kGTLRBooksActionPrevPage Previous page event. (Value: "prev-page")
+ *    @arg @c kGTLRBooksActionScroll User navigated to page. (Value: "scroll")
+ *    @arg @c kGTLRBooksActionSearch User chose search results within volume.
+ *        (Value: "search")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -1767,14 +1959,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The maximum allowed maturity rating of returned volumes. Books with a
- *  higher maturity rating are filtered out.
+ *  The maximum allowed maturity rating of returned volumes. Books with a higher
+ *  maturity rating are filtered out.
  *
  *  Likely values:
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined
  *        Value "MAX_ALLOWED_MATURITY_RATING_UNDEFINED"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Value "MATURE"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Value "not-mature"
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Show books which are
+ *        rated mature or lower. (Value: "MATURE")
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
+ *        rated not mature. (Value: "not-mature")
  */
 @property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
@@ -1824,8 +2018,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined
  *        Value "MAX_ALLOWED_MATURITY_RATING_UNDEFINED"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Value "MATURE"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Value "not-mature"
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Show books which are
+ *        rated mature or lower. (Value: "MATURE")
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
+ *        rated not mature. (Value: "not-mature")
  */
 @property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
@@ -2054,9 +2250,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksAssociationAssociationUndefined Value
  *        "ASSOCIATION_UNDEFINED"
- *    @arg @c kGTLRBooksAssociationEndOfSample Value "end-of-sample"
- *    @arg @c kGTLRBooksAssociationEndOfVolume Value "end-of-volume"
- *    @arg @c kGTLRBooksAssociationRelatedForPlay Value "related-for-play"
+ *    @arg @c kGTLRBooksAssociationEndOfSample Recommendations for display
+ *        end-of-sample. (Value: "end-of-sample")
+ *    @arg @c kGTLRBooksAssociationEndOfVolume Recommendations for display
+ *        end-of-volume. (Value: "end-of-volume")
+ *    @arg @c kGTLRBooksAssociationRelatedForPlay Related volumes for Play
+ *        Store. (Value: "related-for-play")
  */
 @property(nonatomic, copy, nullable) NSString *association;
 
@@ -2073,8 +2272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined
  *        Value "MAX_ALLOWED_MATURITY_RATING_UNDEFINED"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Value "MATURE"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Value "not-mature"
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Show books which are
+ *        rated mature or lower. (Value: "MATURE")
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
+ *        rated not mature. (Value: "not-mature")
  */
 @property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
@@ -2124,8 +2325,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksProjectionProjectionUndefined Value
  *        "PROJECTION_UNDEFINED"
- *    @arg @c kGTLRBooksProjectionFull Value "FULL"
- *    @arg @c kGTLRBooksProjectionLite Value "LITE"
+ *    @arg @c kGTLRBooksProjectionFull Includes all volume data. (Value: "FULL")
+ *    @arg @c kGTLRBooksProjectionLite Includes a subset of fields in volumeInfo
+ *        and accessInfo. (Value: "LITE")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
@@ -2167,7 +2369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksDownloadDownloadUndefined Value "DOWNLOAD_UNDEFINED"
- *    @arg @c kGTLRBooksDownloadEpub Value "EPUB"
+ *    @arg @c kGTLRBooksDownloadEpub All volumes with epub. (Value: "EPUB")
  */
 @property(nonatomic, copy, nullable) NSString *download;
 
@@ -2176,11 +2378,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksFilterFilterUndefined Value "FILTER_UNDEFINED"
- *    @arg @c kGTLRBooksFilterEbooks Value "ebooks"
- *    @arg @c kGTLRBooksFilterFreeEbooks Value "free-ebooks"
- *    @arg @c kGTLRBooksFilterFull Value "full"
- *    @arg @c kGTLRBooksFilterPaidEbooks Value "paid-ebooks"
- *    @arg @c kGTLRBooksFilterPartial Value "partial"
+ *    @arg @c kGTLRBooksFilterEbooks All Google eBooks. (Value: "ebooks")
+ *    @arg @c kGTLRBooksFilterFreeEbooks Google eBook with full volume text
+ *        viewability. (Value: "free-ebooks")
+ *    @arg @c kGTLRBooksFilterFull Public can view entire volume text. (Value:
+ *        "full")
+ *    @arg @c kGTLRBooksFilterPaidEbooks Google eBook with a price. (Value:
+ *        "paid-ebooks")
+ *    @arg @c kGTLRBooksFilterPartial Public able to see parts of text. (Value:
+ *        "partial")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2193,8 +2399,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksLibraryRestrictLibraryRestrictUndefined Value
  *        "LIBRARY_RESTRICT_UNDEFINED"
- *    @arg @c kGTLRBooksLibraryRestrictMyLibrary Value "my-library"
- *    @arg @c kGTLRBooksLibraryRestrictNoRestrict Value "no-restrict"
+ *    @arg @c kGTLRBooksLibraryRestrictMyLibrary Restrict to the user's library,
+ *        any shelf. (Value: "my-library")
+ *    @arg @c kGTLRBooksLibraryRestrictNoRestrict Do not restrict based on
+ *        user's library. (Value: "no-restrict")
  */
 @property(nonatomic, copy, nullable) NSString *libraryRestrict;
 
@@ -2205,8 +2413,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined
  *        Value "MAX_ALLOWED_MATURITY_RATING_UNDEFINED"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Value "MATURE"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Value "not-mature"
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Show books which are
+ *        rated mature or lower. (Value: "MATURE")
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
+ *        rated not mature. (Value: "not-mature")
  */
 @property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
@@ -2218,8 +2428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksOrderByOrderByUndefined Value "ORDER_BY_UNDEFINED"
- *    @arg @c kGTLRBooksOrderByNewest Value "newest"
- *    @arg @c kGTLRBooksOrderByRelevance Value "relevance"
+ *    @arg @c kGTLRBooksOrderByNewest Most recently published. (Value: "newest")
+ *    @arg @c kGTLRBooksOrderByRelevance Relevance to search terms. (Value:
+ *        "relevance")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2231,9 +2442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksPrintTypePrintTypeUndefined Value "PRINT_TYPE_UNDEFINED"
- *    @arg @c kGTLRBooksPrintTypeAll Value "ALL"
- *    @arg @c kGTLRBooksPrintTypeBooks Value "BOOKS"
- *    @arg @c kGTLRBooksPrintTypeMagazines Value "MAGAZINES"
+ *    @arg @c kGTLRBooksPrintTypeAll All volume content types. (Value: "ALL")
+ *    @arg @c kGTLRBooksPrintTypeBooks Just books. (Value: "BOOKS")
+ *    @arg @c kGTLRBooksPrintTypeMagazines Just magazines. (Value: "MAGAZINES")
  */
 @property(nonatomic, copy, nullable) NSString *printType;
 
@@ -2243,8 +2454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksProjectionProjectionUndefined Value
  *        "PROJECTION_UNDEFINED"
- *    @arg @c kGTLRBooksProjectionFull Value "FULL"
- *    @arg @c kGTLRBooksProjectionLite Value "LITE"
+ *    @arg @c kGTLRBooksProjectionFull Includes all volume data. (Value: "FULL")
+ *    @arg @c kGTLRBooksProjectionLite Includes a subset of fields in volumeInfo
+ *        and accessInfo. (Value: "LITE")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
@@ -2289,14 +2501,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksAcquireMethodAcquireMethodUndefined Value
  *        "ACQUIRE_METHOD_UNDEFINED"
- *    @arg @c kGTLRBooksAcquireMethodFamilyShared Value "FAMILY_SHARED"
- *    @arg @c kGTLRBooksAcquireMethodPreordered Value "PREORDERED"
- *    @arg @c kGTLRBooksAcquireMethodPreviouslyRented Value "PREVIOUSLY_RENTED"
- *    @arg @c kGTLRBooksAcquireMethodPublicDomain Value "PUBLIC_DOMAIN"
- *    @arg @c kGTLRBooksAcquireMethodPurchased Value "PURCHASED"
- *    @arg @c kGTLRBooksAcquireMethodRented Value "RENTED"
- *    @arg @c kGTLRBooksAcquireMethodSample Value "SAMPLE"
- *    @arg @c kGTLRBooksAcquireMethodUploaded Value "UPLOADED"
+ *    @arg @c kGTLRBooksAcquireMethodFamilyShared Books acquired via Family
+ *        Sharing (Value: "FAMILY_SHARED")
+ *    @arg @c kGTLRBooksAcquireMethodPreordered Preordered books (not yet
+ *        available) (Value: "PREORDERED")
+ *    @arg @c kGTLRBooksAcquireMethodPreviouslyRented User-rented books past
+ *        their expiration time (Value: "PREVIOUSLY_RENTED")
+ *    @arg @c kGTLRBooksAcquireMethodPublicDomain Public domain books (Value:
+ *        "PUBLIC_DOMAIN")
+ *    @arg @c kGTLRBooksAcquireMethodPurchased Purchased books (Value:
+ *        "PURCHASED")
+ *    @arg @c kGTLRBooksAcquireMethodRented User-rented books (Value: "RENTED")
+ *    @arg @c kGTLRBooksAcquireMethodSample Sample books (Value: "SAMPLE")
+ *    @arg @c kGTLRBooksAcquireMethodUploaded User uploaded books (Value:
+ *        "UPLOADED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *acquireMethod;
 
@@ -2313,16 +2531,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  The processing state of the user uploaded volumes to be returned.
- *  Applicable only if the UPLOADED is specified in the acquireMethod.
+ *  The processing state of the user uploaded volumes to be returned. Applicable
+ *  only if the UPLOADED is specified in the acquireMethod.
  *
  *  Likely values:
  *    @arg @c kGTLRBooksProcessingStateProcessingStateUndefined Value
  *        "PROCESSING_STATE_UNDEFINED"
- *    @arg @c kGTLRBooksProcessingStateCompletedFailed Value "COMPLETED_FAILED"
- *    @arg @c kGTLRBooksProcessingStateCompletedSuccess Value
- *        "COMPLETED_SUCCESS"
- *    @arg @c kGTLRBooksProcessingStateRunning Value "RUNNING"
+ *    @arg @c kGTLRBooksProcessingStateCompletedFailed The volume processing
+ *        hase failed. (Value: "COMPLETED_FAILED")
+ *    @arg @c kGTLRBooksProcessingStateCompletedSuccess The volume processing
+ *        was completed. (Value: "COMPLETED_SUCCESS")
+ *    @arg @c kGTLRBooksProcessingStateRunning The volume processing is not
+ *        completed. (Value: "RUNNING")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *processingState;
 
@@ -2368,8 +2588,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMaxAllowedMaturityRatingUndefined
  *        Value "MAX_ALLOWED_MATURITY_RATING_UNDEFINED"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Value "MATURE"
- *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Value "not-mature"
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingMature Show books which are
+ *        rated mature or lower. (Value: "MATURE")
+ *    @arg @c kGTLRBooksMaxAllowedMaturityRatingNotMature Show books which are
+ *        rated not mature. (Value: "not-mature")
  */
 @property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
@@ -2410,8 +2632,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Likely values:
  *    @arg @c kGTLRBooksRatingRatingUndefined Value "RATING_UNDEFINED"
- *    @arg @c kGTLRBooksRatingHaveIt Value "HAVE_IT"
- *    @arg @c kGTLRBooksRatingNotInterested Value "NOT_INTERESTED"
+ *    @arg @c kGTLRBooksRatingHaveIt Rating indicating a dismissal due to
+ *        ownership. (Value: "HAVE_IT")
+ *    @arg @c kGTLRBooksRatingNotInterested Rating indicating a negative
+ *        dismissal of a volume. (Value: "NOT_INTERESTED")
  */
 @property(nonatomic, copy, nullable) NSString *rating;
 
@@ -2459,10 +2683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Likely values:
  *    @arg @c kGTLRBooksProcessingStateProcessingStateUndefined Value
  *        "PROCESSING_STATE_UNDEFINED"
- *    @arg @c kGTLRBooksProcessingStateCompletedFailed Value "COMPLETED_FAILED"
- *    @arg @c kGTLRBooksProcessingStateCompletedSuccess Value
- *        "COMPLETED_SUCCESS"
- *    @arg @c kGTLRBooksProcessingStateRunning Value "RUNNING"
+ *    @arg @c kGTLRBooksProcessingStateCompletedFailed The volume processing
+ *        hase failed. (Value: "COMPLETED_FAILED")
+ *    @arg @c kGTLRBooksProcessingStateCompletedSuccess The volume processing
+ *        was completed. (Value: "COMPLETED_SUCCESS")
+ *    @arg @c kGTLRBooksProcessingStateRunning The volume processing is not
+ *        completed. (Value: "RUNNING")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *processingState;
 

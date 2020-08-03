@@ -8,7 +8,7 @@
 //   personalized recommendation systems without requiring a high level of
 //   expertise in machine learning, recommendation system, or Google Cloud.
 // Documentation:
-//   https://cloud.google.com/recommendations/docs/
+//   https://cloud.google.com/recommendations-ai/docs
 
 #import "GTLRRecommendationsAIQuery.h"
 

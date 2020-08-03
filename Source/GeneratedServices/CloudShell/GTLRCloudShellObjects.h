@@ -532,8 +532,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudShell_StartEnvironmentMetadata_Stat
 
 /**
  *  Message included in the response field of operations returned from
- *  StartEnvironment once the
- *  operation is complete.
+ *  StartEnvironment
+ *  once the operation is complete.
  */
 @interface GTLRCloudShell_StartEnvironmentResponse : GTLRObject
 

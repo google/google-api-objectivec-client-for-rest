@@ -31,14 +31,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
-/**
- *  Authorization scope: Manage your Ad Exchange buyer account configuration
- *
- *  Value "https://www.googleapis.com/auth/adexchange.buyer"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer;
 /**
  *  Authorization scope: See, create, edit, and delete your Authorized Buyers
  *  and Open Bidding account entities

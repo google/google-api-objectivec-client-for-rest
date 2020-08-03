@@ -244,8 +244,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Cancels a transfer. Use the get method to check whether the cancellation
- *  succeeded or whether the operation completed despite cancellation.
+ *  Cancels a transfer. Use the
+ *  transferOperations.get method to
+ *  check if the cancellation succeeded or if the operation completed despite
+ *  the `cancel` request.
+ *  When you cancel an operation, the currently running transfer is
+ *  interrupted. For recurring transfer jobs, the next instance of the transfer
+ *  job
+ *  will still run. For example, if your job is configured to run every day
+ *  at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer
+ *  will stop. However, a transfer job will still be attempted on Tuesday.
+ *  This applies only to currently running operations. If an operation is
+ *  not currently running, `cancel` does nothing.
+ *  <aside class="caution">
+ *  <b>Caution:</b> Canceling a transfer job can leave your data in an unknown
+ *  state. We recommend that you restore the state at both the destination and
+ *  the
+ *  source after the `cancel` request completes so that your data is in a
+ *  consistent
+ *  state.
+ *  </aside>
+ *  When you cancel a job, the next job computes a delta of files and may repair
+ *  any
+ *  inconsistent state. For instance, if you run a job every day, and today's
+ *  job
+ *  found 10 new files and transferred five files before you canceled the job,
+ *  tomorrow's transfer operation will compute a new delta with the five files
+ *  that
+ *  were not copied today plus any new files discovered tomorrow.
  *
  *  Method: storagetransfer.transferOperations.cancel
  *
@@ -262,8 +288,34 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRStorageTransfer_Empty.
  *
- *  Cancels a transfer. Use the get method to check whether the cancellation
- *  succeeded or whether the operation completed despite cancellation.
+ *  Cancels a transfer. Use the
+ *  transferOperations.get method to
+ *  check if the cancellation succeeded or if the operation completed despite
+ *  the `cancel` request.
+ *  When you cancel an operation, the currently running transfer is
+ *  interrupted. For recurring transfer jobs, the next instance of the transfer
+ *  job
+ *  will still run. For example, if your job is configured to run every day
+ *  at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer
+ *  will stop. However, a transfer job will still be attempted on Tuesday.
+ *  This applies only to currently running operations. If an operation is
+ *  not currently running, `cancel` does nothing.
+ *  <aside class="caution">
+ *  <b>Caution:</b> Canceling a transfer job can leave your data in an unknown
+ *  state. We recommend that you restore the state at both the destination and
+ *  the
+ *  source after the `cancel` request completes so that your data is in a
+ *  consistent
+ *  state.
+ *  </aside>
+ *  When you cancel a job, the next job computes a delta of files and may repair
+ *  any
+ *  inconsistent state. For instance, if you run a job every day, and today's
+ *  job
+ *  found 10 new files and transferred five files before you canceled the job,
+ *  tomorrow's transfer operation will compute a new delta with the five files
+ *  that
+ *  were not copied today plus any new files discovered tomorrow.
  *
  *  @param name The name of the operation resource to be cancelled.
  *

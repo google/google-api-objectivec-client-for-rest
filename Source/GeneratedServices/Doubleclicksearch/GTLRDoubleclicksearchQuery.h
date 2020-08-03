@@ -90,8 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger rowCount;
 
 /**
- *  First date (inclusive) on which to retrieve conversions. Format is
- *  yyyymmdd.
+ *  First date (inclusive) on which to retrieve conversions. Format is yyyymmdd.
  *
  *  @note The documented range is 20091101..99991231.
  */
@@ -113,8 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param rowCount The number of conversions to return per call. (Range
  *    1..1000)
  *  @param startDate First date (inclusive) on which to retrieve conversions.
- *    Format is
- *    yyyymmdd. (Range 20091101..99991231)
+ *    Format is yyyymmdd. (Range 20091101..99991231)
  *  @param startRow The 0-based starting index for retrieving conversions
  *    results.
  *

@@ -994,6 +994,17 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Media resource.
+ */
+@interface GTLRHangoutsChat_Media : GTLRObject
+
+/** Name of the media resource. */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
  *  Represents a membership relation in Hangouts Chat.
  */
 @interface GTLRHangoutsChat_Membership : GTLRObject

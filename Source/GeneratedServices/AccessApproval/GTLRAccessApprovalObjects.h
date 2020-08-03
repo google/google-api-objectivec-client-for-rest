@@ -278,6 +278,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 /** The time at which the approval request was dismissed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *dismissTime;
 
+/**
+ *  This field will be true if the ApprovalRequest was implcitly dismissed due
+ *  to inaction by the access approval approvers (the request is not acted
+ *  on by the approvers before the exiration time).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *implicit;
+
 @end
 
 

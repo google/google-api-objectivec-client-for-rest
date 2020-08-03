@@ -2,11 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud DNS API (dns/v1)
-// Description:
-//   Configures and serves authoritative DNS records.
+//   Cloud DNS API (dns/v1)
 // Documentation:
-//   https://developers.google.com/cloud-dns
+//   http://developers.google.com/cloud-dns
 
 #import "GTLRDns.h"
 
@@ -29,8 +27,7 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
   if (self) {
     // From discovery.
     self.rootURLString = @"https://dns.googleapis.com/";
-    self.servicePath = @"dns/v1/projects/";
-    self.batchPath = @"batch/dns/v1";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

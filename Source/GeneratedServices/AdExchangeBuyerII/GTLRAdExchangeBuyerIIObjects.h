@@ -146,17 +146,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AdSize_SizeType_SizeTy
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_AppContext.appTypes
 
-/** Value: "NATIVE" */
+/**
+ *  Native app context.
+ *
+ *  Value: "NATIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Native;
-/** Value: "WEB" */
+/**
+ *  Mobile web app context.
+ *
+ *  Value: "WEB"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AppContext_AppTypes_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_AuctionContext.auctionTypes
 
-/** Value: "DIRECT_DEALS" */
+/**
+ *  The restriction applies to direct deals.
+ *
+ *  Value: "DIRECT_DEALS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_DirectDeals;
-/** Value: "OPEN_AUCTION" */
+/**
+ *  The restriction applies to open auction.
+ *
+ *  Value: "OPEN_AUCTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_AuctionTypes_OpenAuction;
 
 // ----------------------------------------------------------------------------
@@ -170,27 +186,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_AuctionContext_Auction
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBids;
 /**
  *  The response had no bids for the specified account, though it may have
- *  included bids on behalf of other accounts.
- *  Applies if:
- *  1. Request is on behalf of a bidder and an account filter is present.
- *  2. Request is on behalf of a child seat.
+ *  included bids on behalf of other accounts. Applies if: 1. Request is on
+ *  behalf of a bidder and an account filter is present. 2. Request is on behalf
+ *  of a child seat.
  *
  *  Value: "RESPONSES_WITHOUT_BIDS_FOR_ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForAccount;
 /**
- *  The response had no bids for the specified deal, though it may have
- *  included bids on other deals on behalf of the account to which the deal
- *  belongs. If request is on behalf of a bidder and an account filter is not
- *  present, this also includes responses that have bids on behalf of
- *  accounts other than the account to which the deal belongs.
+ *  The response had no bids for the specified deal, though it may have included
+ *  bids on other deals on behalf of the account to which the deal belongs. If
+ *  request is on behalf of a bidder and an account filter is not present, this
+ *  also includes responses that have bids on behalf of accounts other than the
+ *  account to which the deal belongs.
  *
  *  Value: "RESPONSES_WITHOUT_BIDS_FOR_DEAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForDeal;
 /**
- *  A placeholder for an undefined status.
- *  This value will never be returned in responses.
+ *  A placeholder for an undefined status. This value will never be returned in
+ *  responses.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
@@ -218,8 +233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Agen
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Brand;
 /**
- *  An explicit value for a client that was not yet classified
- *  as any particular entity.
+ *  An explicit value for a client that was not yet classified as any particular
+ *  entity.
  *
  *  Value: "ENTITY_TYPE_UNCLASSIFIED"
  */
@@ -235,28 +250,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_EntityType_Enti
 // GTLRAdExchangeBuyerII_Client.role
 
 /**
- *  Users associated with this client can approve eligible deals
- *  on your behalf. Some deals may still explicitly require publisher
- *  finalization. If this role is not selected, the sponsor buyer
- *  will need to manually approve each of their deals.
+ *  Users associated with this client can approve eligible deals on your behalf.
+ *  Some deals may still explicitly require publisher finalization. If this role
+ *  is not selected, the sponsor buyer will need to manually approve each of
+ *  their deals.
  *
  *  Value: "CLIENT_DEAL_APPROVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealApprover;
 /**
- *  Users associated with this client can respond to deal proposals
- *  sent to them by publishers. They can also initiate deal proposals
- *  of their own.
+ *  Users associated with this client can respond to deal proposals sent to them
+ *  by publishers. They can also initiate deal proposals of their own.
  *
  *  Value: "CLIENT_DEAL_NEGOTIATOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Client_Role_ClientDealNegotiator;
 /**
- *  Users associated with this client can see publisher deal offers
- *  in the Marketplace.
- *  They can neither negotiate proposals nor approve deals.
- *  If this client is visible to publishers, they can send deal proposals
- *  to this client.
+ *  Users associated with this client can see publisher deal offers in the
+ *  Marketplace. They can neither negotiate proposals nor approve deals. If this
+ *  client is visible to publishers, they can send deal proposals to this
+ *  client.
  *
  *  Value: "CLIENT_DEAL_VIEWER"
  */
@@ -349,8 +362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashF
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeRemoved;
 /**
- *  Properties consistent with In-banner video were found, so an
- *  In-Banner Video attribute was added.
+ *  Properties consistent with In-banner video were found, so an In-Banner Video
+ *  attribute was added.
  *
  *  Value: "IN_BANNER_VIDEO_ATTRIBUTE_ADDED"
  */
@@ -362,36 +375,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_InBann
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_MraidAttributeAdded;
 /**
- *  The ad did not declare a required creative attribute.
- *  The attribute was added.
+ *  The ad did not declare a required creative attribute. The attribute was
+ *  added.
  *
  *  Value: "REQUIRED_ATTRIBUTE_ADDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredAttributeAdded;
 /**
- *  The ad did not declare a required technology vendor.
- *  The technology vendor was added.
+ *  The ad did not declare a required technology vendor. The technology vendor
+ *  was added.
  *
  *  Value: "REQUIRED_VENDOR_ADDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_RequiredVendorAdded;
 /**
- *  The ad did not declare the SSL attribute but was SSL-compliant, so the
- *  SSL attribute was added.
+ *  The ad did not declare the SSL attribute but was SSL-compliant, so the SSL
+ *  attribute was added.
  *
  *  Value: "SSL_ATTRIBUTE_ADDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeAdded;
 /**
- *  The ad had the SSL attribute declared but was not SSL-compliant.
- *  The SSL attribute was removed.
+ *  The ad had the SSL attribute declared but was not SSL-compliant. The SSL
+ *  attribute was removed.
  *
  *  Value: "SSL_ATTRIBUTE_REMOVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeRemoved;
 /**
- *  The ad's declared vendors did not match the vendors that were detected.
- *  The detected vendors were added.
+ *  The ad's declared vendors did not match the vendors that were detected. The
+ *  detected vendors were added.
  *
  *  Value: "VENDOR_IDS_ADDED"
  */
@@ -406,81 +419,235 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Correction_Type_VideoI
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.attributes
 
-/** Value: "ADOBE_FLASH_FLV" */
+/**
+ *  The creative is of video type Adobe Flash FLV. For pretargeting.
+ *
+ *  Value: "ADOBE_FLASH_FLV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AdobeFlashFlv;
-/** Value: "ANY_INTERSTITIAL" */
+/**
+ *  The creative has an interstitial size of any interstitial. For pretargeting.
+ *
+ *  Value: "ANY_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AnyInterstitial;
-/** Value: "ATTRIBUTE_UNSPECIFIED" */
+/**
+ *  Do not use. This is a placeholder value only.
+ *
+ *  Value: "ATTRIBUTE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_AttributeUnspecified;
-/** Value: "CREATIVE_TYPE_HTML" */
+/**
+ *  The creative type is HTML.
+ *
+ *  Value: "CREATIVE_TYPE_HTML"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeHtml;
-/** Value: "CREATIVE_TYPE_VAST_VIDEO" */
+/**
+ *  The creative type is VAST video.
+ *
+ *  Value: "CREATIVE_TYPE_VAST_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_CreativeTypeVastVideo;
-/** Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND" */
+/**
+ *  The creative expands when rolled over.
+ *
+ *  Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingActionRolloverToExpand;
-/** Value: "EXPANDING_DIRECTION_ANY_DIAGONAL" */
+/**
+ *  The creative expands on any diagonal.
+ *
+ *  Value: "EXPANDING_DIRECTION_ANY_DIAGONAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionAnyDiagonal;
-/** Value: "EXPANDING_DIRECTION_DOWN" */
+/**
+ *  The creative expands down.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDown;
-/** Value: "EXPANDING_DIRECTION_DOWN_LEFT" */
+/**
+ *  The creative expands down and left.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownLeft;
-/** Value: "EXPANDING_DIRECTION_DOWN_RIGHT" */
+/**
+ *  The creative expands down and right.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionDownRight;
-/** Value: "EXPANDING_DIRECTION_LEFT" */
+/**
+ *  The creative expands left.
+ *
+ *  Value: "EXPANDING_DIRECTION_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeft;
-/** Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT" */
+/**
+ *  The creative expands left or right.
+ *
+ *  Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionLeftOrRight;
-/** Value: "EXPANDING_DIRECTION_NONE" */
+/**
+ *  The creative does not expand.
+ *
+ *  Value: "EXPANDING_DIRECTION_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionNone;
-/** Value: "EXPANDING_DIRECTION_RIGHT" */
+/**
+ *  The creative expands right.
+ *
+ *  Value: "EXPANDING_DIRECTION_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionRight;
-/** Value: "EXPANDING_DIRECTION_UP" */
+/**
+ *  The creative expands up.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUp;
-/** Value: "EXPANDING_DIRECTION_UP_LEFT" */
+/**
+ *  The creative expands up and left.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpLeft;
-/** Value: "EXPANDING_DIRECTION_UP_OR_DOWN" */
+/**
+ *  The creative expands up or down.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_OR_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpOrDown;
-/** Value: "EXPANDING_DIRECTION_UP_RIGHT" */
+/**
+ *  The creative expands up and right.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ExpandingDirectionUpRight;
-/** Value: "IMAGE_RICH_MEDIA" */
+/**
+ *  The creative is of type image/rich media. For pretargeting.
+ *
+ *  Value: "IMAGE_RICH_MEDIA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_ImageRichMedia;
-/** Value: "IN_BANNER_VIDEO" */
+/**
+ *  The video type is in-banner video.
+ *
+ *  Value: "IN_BANNER_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InBannerVideo;
-/** Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH" */
+/**
+ *  The instream vast video type is vpaid flash.
+ *
+ *  Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_InstreamVastVideoTypeVpaidFlash;
-/** Value: "IS_COOKIE_TARGETED" */
+/**
+ *  The creative is cookie targeted.
+ *
+ *  Value: "IS_COOKIE_TARGETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsCookieTargeted;
-/** Value: "IS_TAGGED" */
+/**
+ *  The creative is tagged.
+ *
+ *  Value: "IS_TAGGED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsTagged;
-/** Value: "IS_USER_INTEREST_TARGETED" */
+/**
+ *  The creative is user interest targeted.
+ *
+ *  Value: "IS_USER_INTEREST_TARGETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_IsUserInterestTargeted;
-/** Value: "NATIVE_ELIGIBILITY_ELIGIBLE" */
+/**
+ *  The creative is eligible for native.
+ *
+ *  Value: "NATIVE_ELIGIBILITY_ELIGIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityEligible;
-/** Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE" */
+/**
+ *  The creative is not eligible for native.
+ *
+ *  Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NativeEligibilityNotEligible;
-/** Value: "NON_INTERSTITIAL" */
+/**
+ *  The creative has an interstitial size of non interstitial. For pretargeting.
+ *
+ *  Value: "NON_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonInterstitial;
-/** Value: "NON_SKIPPABLE_INSTREAM_VIDEO" */
+/**
+ *  The creative has an instream VAST video type of non-skippable instream
+ *  video. For pretargeting.
+ *
+ *  Value: "NON_SKIPPABLE_INSTREAM_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonSkippableInstreamVideo;
-/** Value: "NON_VPAID" */
+/**
+ *  The creative has an instream VAST video type of non-VPAID. For pretargeting.
+ *
+ *  Value: "NON_VPAID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_NonVpaid;
-/** Value: "OMSDK_1_0" */
+/**
+ *  The open measurement SDK is supported.
+ *
+ *  Value: "OMSDK_1_0"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Omsdk10;
-/** Value: "RENDERING_SIZELESS_ADX" */
+/**
+ *  The creative can dynamically resize to fill a variety of slot sizes.
+ *
+ *  Value: "RENDERING_SIZELESS_ADX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RenderingSizelessAdx;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH" */
+/**
+ *  The creative is Flash.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeFlash;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5" */
+/**
+ *  The creative is HTML5.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeHtml5;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL" */
+/**
+ *  The creative is an interstitial.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeInterstitial;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID" */
+/**
+ *  The creative is MRAID.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeMraid;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL" */
+/**
+ *  The creative is non-SSL.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeNonSsl;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL" */
+/**
+ *  The creative is SSL.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_RichMediaCapabilityTypeSsl;
-/** Value: "SKIPPABLE_INSTREAM_VIDEO" */
+/**
+ *  The creative has an instream VAST video type of skippable instream video.
+ *  For pretargeting.
+ *
+ *  Value: "SKIPPABLE_INSTREAM_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_SkippableInstreamVideo;
 
 // ----------------------------------------------------------------------------
@@ -493,8 +660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_Attributes_Sk
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved;
 /**
- *  The creative has been conditionally approved.
- *  See serving_restrictions for details.
+ *  The creative has been conditionally approved. See serving_restrictions for
+ *  details.
  *
  *  Value: "CONDITIONALLY_APPROVED"
  */
@@ -540,8 +707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_DealsStatus_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Approved;
 /**
- *  The creative has been conditionally approved.
- *  See serving_restrictions for details.
+ *  The creative has been conditionally approved. See serving_restrictions for
+ *  details.
  *
  *  Value: "CONDITIONALLY_APPROVED"
  */
@@ -580,9 +747,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_OpenAuctionSt
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_Creative.restrictedCategories
 
-/** Value: "ALCOHOL" */
+/**
+ *  The alcohol restricted category.
+ *
+ *  Value: "ALCOHOL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_Alcohol;
-/** Value: "NO_RESTRICTED_CATEGORIES" */
+/**
+ *  The ad has no restricted categories
+ *
+ *  Value: "NO_RESTRICTED_CATEGORIES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Creative_RestrictedCategories_NoRestrictedCategories;
 
 // ----------------------------------------------------------------------------
@@ -612,10 +787,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_C
 // GTLRAdExchangeBuyerII_CreativeRestrictions.skippableAdType
 
 /**
- *  This video ad can be skipped after 5 seconds, and is counted as
- *  engaged view after 30 seconds. The creative is hosted on
- *  YouTube only, and viewcount of the YouTube video increments
- *  after the engaged view.
+ *  This video ad can be skipped after 5 seconds, and is counted as engaged view
+ *  after 30 seconds. The creative is hosted on YouTube only, and viewcount of
+ *  the YouTube video increments after the engaged view.
  *
  *  Value: "INSTREAM_SELECT"
  */
@@ -642,9 +816,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeRestrictions_S
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_CreativeSize.allowedFormats
 
-/** Value: "AUDIO" */
+/**
+ *  An audio-only ad (without any video).
+ *
+ *  Value: "AUDIO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Audio;
-/** Value: "UNKNOWN" */
+/**
+ *  A placeholder for an undefined allowed format.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_AllowedFormats_Unknown;
 
 // ----------------------------------------------------------------------------
@@ -725,10 +907,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_NativeTem
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_Generic;
 /**
- *  This video ad can be skipped after 5 seconds, and count as
- *  engaged view after 30 seconds. The creative is hosted on
- *  YouTube only, and viewcount of the YouTube video increments
- *  after the engaged view.
+ *  This video ad can be skipped after 5 seconds, and count as engaged view
+ *  after 30 seconds. The creative is hosted on YouTube only, and viewcount of
+ *  the YouTube video increments after the engaged view.
  *
  *  Value: "INSTREAM_SELECT"
  */
@@ -958,8 +1139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_DealTerms_BrandingType_BrandingTypeUnspecified;
 /**
- *  A TopLevelDomain or masked URL is sent in bid requests
- *  rather than the full one.
+ *  A TopLevelDomain or masked URL is sent in bid requests rather than the full
+ *  one.
  *
  *  Value: "SEMI_TRANSPARENT"
  */
@@ -1037,8 +1218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdS
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_AdultImageOrVideo;
 /**
- *  The ad automatically redirects to the destination site without a click,
- *  or reports a click when none were made.
+ *  The ad automatically redirects to the destination site without a click, or
+ *  reports a click when none were made.
  *
  *  Value: "AUTOMATED_AD_CLICKING"
  */
@@ -1267,9 +1448,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Inc
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectImageLayout;
 /**
- *  The ad targets consumers using remarketing lists and/or collects
- *  data for subsequent use in retargeting, but does not correctly declare
- *  that use.
+ *  The ad targets consumers using remarketing lists and/or collects data for
+ *  subsequent use in retargeting, but does not correctly declare that use.
  *
  *  Value: "INCORRECT_REMARKETING_DECLARATION"
  */
@@ -1534,8 +1714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Tem
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContent;
 /**
- *  The ad or landing page contains unacceptable content because it initiated
- *  a software or executable download.
+ *  The ad or landing page contains unacceptable content because it initiated a
+ *  software or executable download.
  *
  *  Value: "UNACCEPTABLE_CONTENT_SOFTWARE"
  */
@@ -1641,9 +1821,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_Vio
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.breakdownDimensions
 
-/** Value: "BREAKDOWN_DIMENSION_UNSPECIFIED" */
+/**
+ *  A placeholder for an unspecified dimension; should not be used.
+ *
+ *  Value: "BREAKDOWN_DIMENSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_BreakdownDimensionUnspecified;
-/** Value: "PUBLISHER_IDENTIFIER" */
+/**
+ *  The response should be broken down by publisher identifier. This option is
+ *  available only for Open Bidding buyers.
+ *
+ *  Value: "PUBLISHER_IDENTIFIER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_BreakdownDimensions_PublisherIdentifier;
 
 // ----------------------------------------------------------------------------
@@ -1673,8 +1862,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Environment_
 // GTLRAdExchangeBuyerII_FilterSet.format
 
 /**
- *  A placeholder for an undefined format; indicates that no format filter
- *  will be applied.
+ *  A placeholder for an undefined format; indicates that no format filter will
+ *  be applied.
  *
  *  Value: "FORMAT_UNSPECIFIED"
  */
@@ -1707,27 +1896,65 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Format_NonNa
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.formats
 
-/** Value: "FORMAT_UNSPECIFIED" */
+/**
+ *  A placeholder for an undefined format; indicates that no format filter will
+ *  be applied.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_FormatUnspecified;
-/** Value: "NATIVE_DISPLAY" */
+/**
+ *  The ad impression is a native ad, and display (i.e., image) format.
+ *
+ *  Value: "NATIVE_DISPLAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeDisplay;
-/** Value: "NATIVE_VIDEO" */
+/**
+ *  The ad impression is a native ad, and video format.
+ *
+ *  Value: "NATIVE_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NativeVideo;
-/** Value: "NON_NATIVE_DISPLAY" */
+/**
+ *  The ad impression is not a native ad, and display (i.e., image) format.
+ *
+ *  Value: "NON_NATIVE_DISPLAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeDisplay;
-/** Value: "NON_NATIVE_VIDEO" */
+/**
+ *  The ad impression is not a native ad, and video format.
+ *
+ *  Value: "NON_NATIVE_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Formats_NonNativeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_FilterSet.platforms
 
-/** Value: "DESKTOP" */
+/**
+ *  The ad impression appears on a desktop.
+ *
+ *  Value: "DESKTOP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Desktop;
-/** Value: "MOBILE" */
+/**
+ *  The ad impression appears on a mobile device.
+ *
+ *  Value: "MOBILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Mobile;
-/** Value: "PLATFORM_UNSPECIFIED" */
+/**
+ *  A placeholder for an undefined platform; indicates that no platform filter
+ *  will be applied.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_PlatformUnspecified;
-/** Value: "TABLET" */
+/**
+ *  The ad impression appears on a tablet.
+ *
+ *  Value: "TABLET"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_Platforms_Tablet;
 
 // ----------------------------------------------------------------------------
@@ -1746,8 +1973,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGr
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FilterSet_TimeSeriesGranularity_Hourly;
 /**
- *  A placeholder for an unspecified interval; no time series is applied.
- *  All rows in response will contain data for the entire requested time range.
+ *  A placeholder for an unspecified interval; no time series is applied. All
+ *  rows in response will contain data for the entire requested time range.
  *
  *  Value: "TIME_SERIES_GRANULARITY_UNSPECIFIED"
  */
@@ -1811,8 +2038,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitT
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute;
 /**
- *  A placeholder for an undefined status.
- *  This value will never be returned in responses.
+ *  A placeholder for an undefined status. This value will never be returned in
+ *  responses.
  *
  *  Value: "DETAIL_TYPE_UNSPECIFIED"
  */
@@ -1851,15 +2078,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBrea
 // GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow.status
 
 /**
- *  The buyer was not billed because the ad was not rendered by the
- *  publisher.
+ *  The buyer was not billed because the ad was not rendered by the publisher.
  *
  *  Value: "AD_NOT_RENDERED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_AdNotRendered;
 /**
- *  A video impression was served but a fatal error was reported from the
- *  client during playback.
+ *  A video impression was served but a fatal error was reported from the client
+ *  during playback.
  *
  *  Value: "FATAL_VAST_ERROR"
  */
@@ -1879,8 +2105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidS
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_LostInMediation;
 /**
- *  A placeholder for an undefined status.
- *  This value will never be returned in responses.
+ *  A placeholder for an undefined status. This value will never be returned in
+ *  responses.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
@@ -1911,11 +2137,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Note_CreatorRole_Selle
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_PlatformContext.platforms
 
-/** Value: "ANDROID" */
+/**
+ *  Android platform.
+ *
+ *  Value: "ANDROID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Android;
-/** Value: "DESKTOP" */
+/**
+ *  Desktop platform.
+ *
+ *  Value: "DESKTOP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Desktop;
-/** Value: "IOS" */
+/**
+ *  iOS platform.
+ *
+ *  Value: "IOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_PlatformContext_Platforms_Ios;
 
 // ----------------------------------------------------------------------------
@@ -2036,8 +2274,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Canceled;
 /**
- *  The proposal is finalized. During renegotiation, the proposal may
- *  not be in this state.
+ *  The proposal is finalized. During renegotiation, the proposal may not be in
+ *  this state.
  *
  *  Value: "FINALIZED"
  */
@@ -2064,9 +2302,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_SecurityContext.securities
 
-/** Value: "INSECURE" */
+/**
+ *  Matches impressions that require insecure compatibility.
+ *
+ *  Value: "INSECURE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Insecure;
-/** Value: "SSL" */
+/**
+ *  Matches impressions that require SSL compatibility.
+ *
+ *  Value: "SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Ssl;
 
 // ----------------------------------------------------------------------------
@@ -2104,48 +2350,77 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ServingRestriction_Sta
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_VideoTargeting.excludedPositionTypes
 
-/** Value: "MIDROLL" */
+/**
+ *  Ad is played during the video.
+ *
+ *  Value: "MIDROLL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Midroll;
-/** Value: "POSITION_TYPE_UNSPECIFIED" */
+/**
+ *  A placeholder for an undefined video position.
+ *
+ *  Value: "POSITION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_PositionTypeUnspecified;
-/** Value: "POSTROLL" */
+/**
+ *  Ad is played after the video.
+ *
+ *  Value: "POSTROLL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Postroll;
-/** Value: "PREROLL" */
+/**
+ *  Ad is played before the video.
+ *
+ *  Value: "PREROLL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_ExcludedPositionTypes_Preroll;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_VideoTargeting.targetedPositionTypes
 
-/** Value: "MIDROLL" */
+/**
+ *  Ad is played during the video.
+ *
+ *  Value: "MIDROLL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Midroll;
-/** Value: "POSITION_TYPE_UNSPECIFIED" */
+/**
+ *  A placeholder for an undefined video position.
+ *
+ *  Value: "POSITION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_PositionTypeUnspecified;
-/** Value: "POSTROLL" */
+/**
+ *  Ad is played after the video.
+ *
+ *  Value: "POSTROLL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Postroll;
-/** Value: "PREROLL" */
+/**
+ *  Ad is played before the video.
+ *
+ *  Value: "PREROLL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Preroll;
 
 /**
- *  An absolute date range, specified by its start date and end date.
- *  The supported range of dates begins 30 days before today and ends today.
+ *  An absolute date range, specified by its start date and end date. The
+ *  supported range of dates begins 30 days before today and ends today.
  *  Validity checked upon filter set creation. If a filter set with an absolute
  *  date range is run at a later date more than 30 days after start_date, it
- *  will
- *  fail.
+ *  will fail.
  */
 @interface GTLRAdExchangeBuyerII_AbsoluteDateRange : GTLRObject
 
 /**
- *  The end date of the range (inclusive).
- *  Must be within the 30 days leading up to current date, and must be equal to
- *  or after start_date.
+ *  The end date of the range (inclusive). Must be within the 30 days leading up
+ *  to current date, and must be equal to or after start_date.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Date *endDate;
 
 /**
- *  The start date of the range (inclusive).
- *  Must be within the 30 days leading up to current date, and must be equal to
- *  or before end_date.
+ *  The start date of the range (inclusive). Must be within the 30 days leading
+ *  up to current date, and must be equal to or before end_date.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Date *startDate;
 
@@ -2195,8 +2470,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_AdSize : GTLRObject
 
 /**
- *  The height of the ad slot in pixels.
- *  This field will be present only when size type is `PIXEL`.
+ *  The height of the ad slot in pixels. This field will be present only when
+ *  size type is `PIXEL`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2207,8 +2482,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Fluid Fluid size (i.e.,
- *        responsive size) can be resized automatically with the
- *        change of outside environment. (Value: "FLUID")
+ *        responsive size) can be resized automatically with the change of
+ *        outside environment. (Value: "FLUID")
  *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Interstitial Special size
  *        to describe an interstitial ad slot. (Value: "INTERSTITIAL")
  *    @arg @c kGTLRAdExchangeBuyerII_AdSize_SizeType_Native Native (mobile) ads
@@ -2222,8 +2497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *sizeType;
 
 /**
- *  The width of the ad slot in pixels.
- *  This field will be present only when size type is `PIXEL`.
+ *  The width of the ad slot in pixels. This field will be present only when
+ *  size type is `PIXEL`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2238,28 +2513,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_AdTechnologyProviders : GTLRObject
 
 /**
- *  The detected ad technology provider IDs for this creative.
- *  See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for
- *  mapping of provider ID to provided name, a privacy policy URL, and a list
- *  of domains which can be attributed to the provider.
- *  If the creative contains provider IDs that are outside of those listed in
- *  the `BidRequest.adslot.consented_providers_settings.consented_providers`
- *  field on the (Google bid
+ *  The detected ad technology provider IDs for this creative. See
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for
+ *  mapping of provider ID to provided name, a privacy policy URL, and a list of
+ *  domains which can be attributed to the provider. If the creative contains
+ *  provider IDs that are outside of those listed in the
+ *  `BidRequest.adslot.consented_providers_settings.consented_providers` field
+ *  on the (Google bid
  *  protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto]
  *  and the
- *  `BidRequest.user.ext.consented_providers_settings.consented_providers`
- *  field on the (OpenRTB
+ *  `BidRequest.user.ext.consented_providers_settings.consented_providers` field
+ *  on the (OpenRTB
  *  protocol)[https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto],
- *  and a bid is submitted with that creative for an impression that will
- *  serve to an EEA user, the bid will be filtered before the auction.
+ *  and a bid is submitted with that creative for an impression that will serve
+ *  to an EEA user, the bid will be filtered before the auction.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProviderIds;
 
 /**
- *  Whether the creative contains an unidentified ad technology provider.
- *  If true for a given creative, any bid submitted with that creative for an
+ *  Whether the creative contains an unidentified ad technology provider. If
+ *  true for a given creative, any bid submitted with that creative for an
  *  impression that will serve to an EEA user will be filtered before the
  *  auction.
  *
@@ -2312,14 +2587,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *impressionsWon;
 
 /**
- *  The number of bids for which the corresponding impression was measurable
- *  for viewability (as defined by Active View).
+ *  The number of bids for which the corresponding impression was measurable for
+ *  viewability (as defined by Active View).
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *measurableImpressions;
 
 /**
- *  The number of bids that won the auction and also won the mediation
- *  waterfall (if any).
+ *  The number of bids that won the auction and also won the mediation waterfall
+ *  (if any).
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *reachedQueries;
 
@@ -2359,24 +2634,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        The response had no bids. (Value: "RESPONSES_WITHOUT_BIDS")
  *    @arg @c kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForAccount
  *        The response had no bids for the specified account, though it may have
- *        included bids on behalf of other accounts.
- *        Applies if:
- *        1. Request is on behalf of a bidder and an account filter is present.
- *        2. Request is on behalf of a child seat. (Value:
+ *        included bids on behalf of other accounts. Applies if: 1. Request is
+ *        on behalf of a bidder and an account filter is present. 2. Request is
+ *        on behalf of a child seat. (Value:
  *        "RESPONSES_WITHOUT_BIDS_FOR_ACCOUNT")
  *    @arg @c kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_ResponsesWithoutBidsForDeal
  *        The response had no bids for the specified deal, though it may have
  *        included bids on other deals on behalf of the account to which the
- *        deal
- *        belongs. If request is on behalf of a bidder and an account filter is
- *        not
- *        present, this also includes responses that have bids on behalf of
- *        accounts other than the account to which the deal belongs. (Value:
- *        "RESPONSES_WITHOUT_BIDS_FOR_DEAL")
+ *        deal belongs. If request is on behalf of a bidder and an account
+ *        filter is not present, this also includes responses that have bids on
+ *        behalf of accounts other than the account to which the deal belongs.
+ *        (Value: "RESPONSES_WITHOUT_BIDS_FOR_DEAL")
  *    @arg @c kGTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow_Status_StatusUnspecified
- *        A placeholder for an undefined status.
- *        This value will never be returned in responses. (Value:
- *        "STATUS_UNSPECIFIED")
+ *        A placeholder for an undefined status. This value will never be
+ *        returned in responses. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -2398,14 +2669,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  The number of impressions with the specified dimension values where the
  *  corresponding bid request or bid response was not successful, as described
- *  by
- *  the specified callout status.
+ *  by the specified callout status.
  */
 @interface GTLRAdExchangeBuyerII_CalloutStatusRow : GTLRObject
 
 /**
- *  The ID of the callout status.
- *  See
+ *  The ID of the callout status. See
  *  [callout-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/callout-status-codes).
  *
  *  Uses NSNumber of intValue.
@@ -2432,44 +2701,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  A client resource represents a client buyer&mdash;an agency, a brand, or an
+ *  A client resource represents a client buyer—an agency, a brand, or an
  *  advertiser customer of the sponsor buyer. Users associated with the client
  *  buyer have restricted access to the Marketplace and certain other sections
- *  of
- *  the Authorized Buyers UI based on the role granted to the client buyer. All
- *  fields are required unless otherwise specified.
+ *  of the Authorized Buyers UI based on the role granted to the client buyer.
+ *  All fields are required unless otherwise specified.
  */
 @interface GTLRAdExchangeBuyerII_Client : GTLRObject
 
 /**
- *  The globally-unique numerical ID of the client.
- *  The value of this field is ignored in create and update operations.
+ *  The globally-unique numerical ID of the client. The value of this field is
+ *  ignored in create and update operations.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clientAccountId;
 
 /**
- *  Name used to represent this client to publishers.
- *  You may have multiple clients that map to the same entity,
- *  but for each client the combination of `clientName` and entity
- *  must be unique.
- *  You can specify this field as empty.
+ *  Name used to represent this client to publishers. You may have multiple
+ *  clients that map to the same entity, but for each client the combination of
+ *  `clientName` and entity must be unique. You can specify this field as empty.
  */
 @property(nonatomic, copy, nullable) NSString *clientName;
 
 /**
- *  Numerical identifier of the client entity.
- *  The entity can be an advertiser, a brand, or an agency.
- *  This identifier is unique among all the entities with the same type.
- *  The value of this field is ignored if the entity type is not provided.
- *  A list of all known advertisers with their identifiers is available in the
+ *  Numerical identifier of the client entity. The entity can be an advertiser,
+ *  a brand, or an agency. This identifier is unique among all the entities with
+ *  the same type. The value of this field is ignored if the entity type is not
+ *  provided. A list of all known advertisers with their identifiers is
+ *  available in the
  *  [advertisers.txt](https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt)
- *  file.
- *  A list of all known brands with their identifiers is available in the
+ *  file. A list of all known brands with their identifiers is available in the
  *  [brands.txt](https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt)
- *  file.
- *  A list of all known agencies with their identifiers is available in the
+ *  file. A list of all known agencies with their identifiers is available in
+ *  the
  *  [agencies.txt](https://storage.googleapis.com/adx-rtb-dictionaries/agencies.txt)
  *  file.
  *
@@ -2478,9 +2743,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *entityId;
 
 /**
- *  The name of the entity. This field is automatically fetched based on
- *  the type and ID.
- *  The value of this field is ignored in create and update operations.
+ *  The name of the entity. This field is automatically fetched based on the
+ *  type and ID. The value of this field is ignored in create and update
+ *  operations.
  *
  *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
  */
@@ -2498,8 +2763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_Brand A brand. (Value:
  *        "BRAND")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnclassified An
- *        explicit value for a client that was not yet classified
- *        as any particular entity. (Value: "ENTITY_TYPE_UNCLASSIFIED")
+ *        explicit value for a client that was not yet classified as any
+ *        particular entity. (Value: "ENTITY_TYPE_UNCLASSIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_EntityType_EntityTypeUnspecified A
  *        placeholder for an undefined client entity type. Should not be used.
  *        (Value: "ENTITY_TYPE_UNSPECIFIED")
@@ -2508,13 +2773,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Optional arbitrary unique identifier of this client buyer from the
- *  standpoint of its Ad Exchange sponsor buyer.
- *  This field can be used to associate a client buyer with the identifier
- *  in the namespace of its sponsor buyer, lookup client buyers by that
- *  identifier and verify whether an Ad Exchange counterpart of a given client
- *  buyer already exists.
- *  If present, must be unique among all the client buyers for its
- *  Ad Exchange sponsor buyer.
+ *  standpoint of its Ad Exchange sponsor buyer. This field can be used to
+ *  associate a client buyer with the identifier in the namespace of its sponsor
+ *  buyer, lookup client buyers by that identifier and verify whether an Ad
+ *  Exchange counterpart of a given client buyer already exists. If present,
+ *  must be unique among all the client buyers for its Ad Exchange sponsor
+ *  buyer.
  */
 @property(nonatomic, copy, nullable) NSString *partnerClientId;
 
@@ -2525,19 +2789,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Client_Role_ClientDealApprover Users
- *        associated with this client can approve eligible deals
- *        on your behalf. Some deals may still explicitly require publisher
- *        finalization. If this role is not selected, the sponsor buyer
- *        will need to manually approve each of their deals. (Value:
- *        "CLIENT_DEAL_APPROVER")
+ *        associated with this client can approve eligible deals on your behalf.
+ *        Some deals may still explicitly require publisher finalization. If
+ *        this role is not selected, the sponsor buyer will need to manually
+ *        approve each of their deals. (Value: "CLIENT_DEAL_APPROVER")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_Role_ClientDealNegotiator Users
- *        associated with this client can respond to deal proposals
- *        sent to them by publishers. They can also initiate deal proposals
- *        of their own. (Value: "CLIENT_DEAL_NEGOTIATOR")
+ *        associated with this client can respond to deal proposals sent to them
+ *        by publishers. They can also initiate deal proposals of their own.
+ *        (Value: "CLIENT_DEAL_NEGOTIATOR")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_Role_ClientDealViewer Users
- *        associated with this client can see publisher deal offers
- *        in the Marketplace.
- *        They can neither negotiate proposals nor approve deals.
+ *        associated with this client can see publisher deal offers in the
+ *        Marketplace. They can neither negotiate proposals nor approve deals.
  *        If this client is visible to publishers, they can send deal proposals
  *        to this client. (Value: "CLIENT_DEAL_VIEWER")
  *    @arg @c kGTLRAdExchangeBuyerII_Client_Role_ClientRoleUnspecified A
@@ -2573,29 +2835,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  A client user is created under a client buyer and has restricted access to
  *  the Marketplace and certain other sections of the Authorized Buyers UI based
- *  on the role granted to the associated client buyer.
- *  The only way a new client user can be created is via accepting an
- *  email invitation
- *  (see the
- *  accounts.clients.invitations.create
- *  method).
- *  All fields are required unless otherwise specified.
+ *  on the role granted to the associated client buyer. The only way a new
+ *  client user can be created is via accepting an email invitation (see the
+ *  accounts.clients.invitations.create method). All fields are required unless
+ *  otherwise specified.
  */
 @interface GTLRAdExchangeBuyerII_ClientUser : GTLRObject
 
 /**
- *  Numerical account ID of the client buyer
- *  with which the user is associated; the
- *  buyer must be a client of the current sponsor buyer.
- *  The value of this field is ignored in an update operation.
+ *  Numerical account ID of the client buyer with which the user is associated;
+ *  the buyer must be a client of the current sponsor buyer. The value of this
+ *  field is ignored in an update operation.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clientAccountId;
 
 /**
- *  User's email address. The value of this field
- *  is ignored in an update operation.
+ *  User's email address. The value of this field is ignored in an update
+ *  operation.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
@@ -2617,8 +2875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  The unique numerical ID of the client user
- *  that has accepted an invitation.
+ *  The unique numerical ID of the client user that has accepted an invitation.
  *  The value of this field is ignored in an update operation.
  *
  *  Uses NSNumber of longLongValue.
@@ -2635,24 +2892,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_ClientUserInvitation : GTLRObject
 
 /**
- *  Numerical account ID of the client buyer
- *  that the invited user is associated with.
- *  The value of this field is ignored in create operations.
+ *  Numerical account ID of the client buyer that the invited user is associated
+ *  with. The value of this field is ignored in create operations.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *clientAccountId;
 
 /**
- *  The email address to which the invitation is sent. Email
- *  addresses should be unique among all client users under each sponsor
- *  buyer.
+ *  The email address to which the invitation is sent. Email addresses should be
+ *  unique among all client users under each sponsor buyer.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The unique numerical ID of the invitation that is sent to the user.
- *  The value of this field is ignored in create operations.
+ *  The unique numerical ID of the invitation that is sent to the user. The
+ *  value of this field is ignored in create operations.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2709,30 +2964,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        "FLASH_FREE_ATTRIBUTE_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_FlashFreeAttributeRemoved
  *        The ad was declared as Flash-free but contained Flash, so the
- *        Flash-free
- *        attribute was removed. (Value: "FLASH_FREE_ATTRIBUTE_REMOVED")
+ *        Flash-free attribute was removed. (Value:
+ *        "FLASH_FREE_ATTRIBUTE_REMOVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_InBannerVideoAttributeAdded
- *        Properties consistent with In-banner video were found, so an
- *        In-Banner Video attribute was added. (Value:
- *        "IN_BANNER_VIDEO_ATTRIBUTE_ADDED")
+ *        Properties consistent with In-banner video were found, so an In-Banner
+ *        Video attribute was added. (Value: "IN_BANNER_VIDEO_ATTRIBUTE_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_MraidAttributeAdded The ad
  *        makes calls to the MRAID API so the MRAID attribute was added. (Value:
  *        "MRAID_ATTRIBUTE_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_RequiredAttributeAdded The
- *        ad did not declare a required creative attribute.
- *        The attribute was added. (Value: "REQUIRED_ATTRIBUTE_ADDED")
+ *        ad did not declare a required creative attribute. The attribute was
+ *        added. (Value: "REQUIRED_ATTRIBUTE_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_RequiredVendorAdded The ad
- *        did not declare a required technology vendor.
- *        The technology vendor was added. (Value: "REQUIRED_VENDOR_ADDED")
+ *        did not declare a required technology vendor. The technology vendor
+ *        was added. (Value: "REQUIRED_VENDOR_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeAdded The ad
- *        did not declare the SSL attribute but was SSL-compliant, so the
- *        SSL attribute was added. (Value: "SSL_ATTRIBUTE_ADDED")
+ *        did not declare the SSL attribute but was SSL-compliant, so the SSL
+ *        attribute was added. (Value: "SSL_ATTRIBUTE_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_SslAttributeRemoved The ad
- *        had the SSL attribute declared but was not SSL-compliant.
- *        The SSL attribute was removed. (Value: "SSL_ATTRIBUTE_REMOVED")
+ *        had the SSL attribute declared but was not SSL-compliant. The SSL
+ *        attribute was removed. (Value: "SSL_ATTRIBUTE_REMOVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_VendorIdsAdded The ad's
- *        declared vendors did not match the vendors that were detected.
- *        The detected vendors were added. (Value: "VENDOR_IDS_ADDED")
+ *        declared vendors did not match the vendors that were detected. The
+ *        detected vendors were added. (Value: "VENDOR_IDS_ADDED")
  *    @arg @c kGTLRAdExchangeBuyerII_Correction_Type_VideoInSnippetAttributeAdded
  *        The ad contains video content. (Value:
  *        "VIDEO_IN_SNIPPET_ATTRIBUTE_ADDED")
@@ -2748,10 +3002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_Creative : GTLRObject
 
 /**
- *  The account that this creative belongs to.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The account that this creative belongs to. Can be used to filter the
+ *  response of the creatives.list method.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
@@ -2775,10 +3027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRDateTime *apiUpdateTime;
 
 /**
- *  All attributes for the ads that may be shown from this creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  All attributes for the ads that may be shown from this creative. Can be used
+ *  to filter the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
 
@@ -2789,30 +3039,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Correction *> *corrections;
 
 /**
- *  The buyer-defined creative ID of this creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The buyer-defined creative ID of this creative. Can be used to filter the
+ *  response of the creatives.list method.
  */
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
- *  Output only. The top-level deals status of this creative.
- *  If disapproved, an entry for 'auctionType=DIRECT_DEALS' (or 'ALL') in
- *  serving_restrictions will also exist. Note
- *  that this may be nuanced with other contextual restrictions, in which case,
- *  it may be preferable to read from serving_restrictions directly.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Output only. The top-level deals status of this creative. If disapproved, an
+ *  entry for 'auctionType=DIRECT_DEALS' (or 'ALL') in serving_restrictions will
+ *  also exist. Note that this may be nuanced with other contextual
+ *  restrictions, in which case, it may be preferable to read from
+ *  serving_restrictions directly. Can be used to filter the response of the
+ *  creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_Approved The creative
  *        has been approved. (Value: "APPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_ConditionallyApproved
- *        The creative has been conditionally approved.
- *        See serving_restrictions for details. (Value:
- *        "CONDITIONALLY_APPROVED")
+ *        The creative has been conditionally approved. See serving_restrictions
+ *        for details. (Value: "CONDITIONALLY_APPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_Disapproved The
  *        creative has been disapproved. (Value: "DISAPPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_DealsStatus_NotChecked The
@@ -2849,19 +3094,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedLanguages;
 
 /**
- *  Output only. Detected product categories, if any.
- *  See the ad-product-categories.txt file in the technical documentation
- *  for a list of IDs.
+ *  Output only. Detected product categories, if any. See the
+ *  ad-product-categories.txt file in the technical documentation for a list of
+ *  IDs.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProductCategories;
 
 /**
- *  Output only. Detected sensitive categories, if any.
- *  See the ad-sensitive-categories.txt file in the technical documentation for
- *  a list of IDs. You should use these IDs along with the
- *  excluded-sensitive-category field in the bid request to filter your bids.
+ *  Output only. Detected sensitive categories, if any. See the
+ *  ad-sensitive-categories.txt file in the technical documentation for a list
+ *  of IDs. You should use these IDs along with the excluded-sensitive-category
+ *  field in the bid request to filter your bids.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2877,22 +3122,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_NativeContent *native;
 
 /**
- *  Output only. The top-level open auction status of this creative.
- *  If disapproved, an entry for 'auctionType = OPEN_AUCTION' (or 'ALL') in
- *  serving_restrictions will also exist. Note
- *  that this may be nuanced with other contextual restrictions, in which case,
- *  it may be preferable to read from serving_restrictions directly.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Output only. The top-level open auction status of this creative. If
+ *  disapproved, an entry for 'auctionType = OPEN_AUCTION' (or 'ALL') in
+ *  serving_restrictions will also exist. Note that this may be nuanced with
+ *  other contextual restrictions, in which case, it may be preferable to read
+ *  from serving_restrictions directly. Can be used to filter the response of
+ *  the creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Approved The
  *        creative has been approved. (Value: "APPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_ConditionallyApproved
- *        The creative has been conditionally approved.
- *        See serving_restrictions for details. (Value:
- *        "CONDITIONALLY_APPROVED")
+ *        The creative has been conditionally approved. See serving_restrictions
+ *        for details. (Value: "CONDITIONALLY_APPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_Disapproved The
  *        creative has been disapproved. (Value: "DISAPPROVED")
  *    @arg @c kGTLRAdExchangeBuyerII_Creative_OpenAuctionStatus_NotChecked The
@@ -2914,17 +3156,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedCategories;
 
 /**
- *  Output only. The granular status of this ad in specific contexts.
- *  A context here relates to where something ultimately serves (for example,
- *  a physical location, a platform, an HTTPS vs HTTP request, or the type
- *  of auction).
+ *  Output only. The granular status of this ad in specific contexts. A context
+ *  here relates to where something ultimately serves (for example, a physical
+ *  location, a platform, an HTTPS vs HTTP request, or the type of auction).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ServingRestriction *> *servingRestrictions;
 
 /**
- *  All vendor IDs for the ads that may be shown from this creative.
- *  See https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt
- *  for possible values.
+ *  All vendor IDs for the ads that may be shown from this creative. See
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible
+ *  values.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2962,8 +3203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Represents creative restrictions associated to Programmatic Guaranteed/
- *  Preferred Deal in Ad Manager.
- *  This doesn't apply to Private Auction and AdX Preferred Deals.
+ *  Preferred Deal in Ad Manager. This doesn't apply to Private Auction and AdX
+ *  Preferred Deals.
  */
 @interface GTLRAdExchangeBuyerII_CreativeRestrictions : GTLRObject
 
@@ -2991,9 +3232,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_InstreamSelect
  *        This video ad can be skipped after 5 seconds, and is counted as
- *        engaged view after 30 seconds. The creative is hosted on
- *        YouTube only, and viewcount of the YouTube video increments
- *        after the engaged view. (Value: "INSTREAM_SELECT")
+ *        engaged view after 30 seconds. The creative is hosted on YouTube only,
+ *        and viewcount of the YouTube video increments after the engaged view.
+ *        (Value: "INSTREAM_SELECT")
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_NotSkippable
  *        This video ad is not skippable. (Value: "NOT_SKIPPABLE")
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeRestrictions_SkippableAdType_Skippable
@@ -3013,10 +3254,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_CreativeSize : GTLRObject
 
 /**
- *  What formats are allowed by the publisher.
- *  If this repeated field is empty then all formats are allowed.
- *  For example, if this field contains AllowedFormatType.AUDIO then the
- *  publisher only allows an audio ad (without any video).
+ *  What formats are allowed by the publisher. If this repeated field is empty
+ *  then all formats are allowed. For example, if this field contains
+ *  AllowedFormatType.AUDIO then the publisher only allows an audio ad (without
+ *  any video).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedFormats;
 
@@ -3068,8 +3309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *nativeTemplate;
 
 /**
- *  For regular or video creative size type, specifies the size
- *  of the creative
+ *  For regular or video creative size type, specifies the size of the creative
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Size *size;
 
@@ -3081,10 +3321,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_Generic This
  *        video ad can be skipped after 5 seconds. (Value: "GENERIC")
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_InstreamSelect
- *        This video ad can be skipped after 5 seconds, and count as
- *        engaged view after 30 seconds. The creative is hosted on
- *        YouTube only, and viewcount of the YouTube video increments
- *        after the engaged view. (Value: "INSTREAM_SELECT")
+ *        This video ad can be skipped after 5 seconds, and count as engaged
+ *        view after 30 seconds. The creative is hosted on YouTube only, and
+ *        viewcount of the YouTube video increments after the engaged view.
+ *        (Value: "INSTREAM_SELECT")
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_NotSkippable
  *        This video ad is not skippable. (Value: "NOT_SKIPPABLE")
  *    @arg @c kGTLRAdExchangeBuyerII_CreativeSize_SkippableAdType_SkippableAdTypeUnspecified
@@ -3122,8 +3362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *bidCount;
 
 /**
- *  The ID of the creative status.
- *  See
+ *  The ID of the creative status. See
  *  [creative-status-codes](https://developers.google.com/authorized-buyers/rtb/downloads/creative-status-codes).
  *
  *  Uses NSNumber of intValue.
@@ -3161,22 +3400,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day
- *  and time zone are either specified elsewhere or are not significant. The
- *  date
- *  is relative to the Proleptic Gregorian Calendar. This can represent:
- *  * A full date, with non-zero year, month and day values
- *  * A month and day value, with a zero year, e.g. an anniversary
- *  * A year on its own, with zero month and day values
- *  * A year and month value, with a zero day, e.g. a credit card expiration
- *  date
- *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  day and time zone are either specified elsewhere or are not significant. The
+ *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
+ *  A full date, with non-zero year, month and day values * A month and day
+ *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
+ *  month and day values * A year and month value, with a zero day, e.g. a
+ *  credit card expiration date Related types are google.type.TimeOfDay and
+ *  `google.protobuf.Timestamp`.
  */
 @interface GTLRAdExchangeBuyerII_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -3192,8 +3428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3203,8 +3439,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Daypart targeting message that specifies if the ad can be shown
- *  only during certain parts of a day/week.
+ *  Daypart targeting message that specifies if the ad can be shown only during
+ *  certain parts of a day/week.
  */
 @interface GTLRAdExchangeBuyerII_DayPart : GTLRObject
 
@@ -3233,16 +3469,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *dayOfWeek;
 
 /**
- *  The ending time of the day for the ad to show (minute level
- *  granularity). The end time is exclusive. This field is not available
- *  for filtering in PQL queries.
+ *  The ending time of the day for the ad to show (minute level granularity).
+ *  The end time is exclusive. This field is not available for filtering in PQL
+ *  queries.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TimeOfDay *endTime;
 
 /**
- *  The starting time of day for the ad to show (minute level granularity).
- *  The start time is inclusive.
- *  This field is not available for filtering in PQL queries.
+ *  The starting time of day for the ad to show (minute level granularity). The
+ *  start time is inclusive. This field is not available for filtering in PQL
+ *  queries.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_TimeOfDay *startTime;
 
@@ -3275,25 +3511,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  A deal represents a segment of inventory for displaying ads on.
- *  A proposal can contain multiple deals. A deal contains the terms and
- *  targeting information that is used for serving.
+ *  A deal represents a segment of inventory for displaying ads on. A proposal
+ *  can contain multiple deals. A deal contains the terms and targeting
+ *  information that is used for serving.
  */
 @interface GTLRAdExchangeBuyerII_Deal : GTLRObject
 
 /**
- *  Proposed flight end time of the deal.
- *  This will generally be stored in a granularity of a second.
- *  A value is not required for Private Auction deals or Preferred Deals.
+ *  Proposed flight end time of the deal. This will generally be stored in a
+ *  granularity of a second. A value is not required for Private Auction deals
+ *  or Preferred Deals.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *availableEndTime;
 
 /**
- *  Optional proposed flight start time of the deal.
- *  This will generally be stored in the granularity of one second since deal
- *  serving starts at seconds boundary. Any time specified with more
- *  granularity (e.g., in milliseconds) will be truncated towards the start of
- *  time in seconds.
+ *  Optional proposed flight start time of the deal. This will generally be
+ *  stored in the granularity of one second since deal serving starts at seconds
+ *  boundary. Any time specified with more granularity (e.g., in milliseconds)
+ *  will be truncated towards the start of time in seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *availableStartTime;
 
@@ -3301,19 +3536,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_PrivateData *buyerPrivateData;
 
 /**
- *  The product ID from which this deal was created.
- *  Note: This field may be set only when creating the resource. Modifying
- *  this field while updating the resource will result in an error.
+ *  The product ID from which this deal was created. Note: This field may be set
+ *  only when creating the resource. Modifying this field while updating the
+ *  resource will result in an error.
  */
 @property(nonatomic, copy, nullable) NSString *createProductId;
 
 /**
- *  Optional revision number of the product that the deal was created from.
- *  If present on create, and the server `product_revision` has advanced sinced
- *  the passed-in `create_product_revision`, an `ABORTED` error will be
- *  returned.
- *  Note: This field may be set only when creating the resource. Modifying
- *  this field while updating the resource will result in an error.
+ *  Optional revision number of the product that the deal was created from. If
+ *  present on create, and the server `product_revision` has advanced sinced the
+ *  passed-in `create_product_revision`, an `ABORTED` error will be returned.
+ *  Note: This field may be set only when creating the resource. Modifying this
+ *  field while updating the resource will result in an error.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3393,17 +3627,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *externalDealId;
 
 /**
- *  Output only. True, if the buyside inventory setup is complete for this
- *  deal.
+ *  Output only. True, if the buyside inventory setup is complete for this deal.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSetupComplete;
 
 /**
- *  Output only. Specifies the creative source for programmatic deals.
- *  PUBLISHER means creative is provided by seller and ADVERTISER means
- *  creative is provided by buyer.
+ *  Output only. Specifies the creative source for programmatic deals. PUBLISHER
+ *  means creative is provided by seller and ADVERTISER means creative is
+ *  provided by buyer.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Deal_ProgrammaticCreativeSource_Advertiser
@@ -3424,9 +3657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *sellerContacts;
 
 /**
- *  The syndication product associated with the deal.
- *  Note: This field may be set only when creating the resource. Modifying
- *  this field while updating the resource will result in an error.
+ *  The syndication product associated with the deal. Note: This field may be
+ *  set only when creating the resource. Modifying this field while updating the
+ *  resource will result in an error.
  *
  *  Likely values:
  *    @arg @c kGTLRAdExchangeBuyerII_Deal_SyndicationProduct_Content This
@@ -3447,8 +3680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MarketplaceTargeting *targeting;
 
 /**
- *  The shared targeting visible to buyers and sellers. Each shared
- *  targeting entity is AND'd together.
+ *  The shared targeting visible to buyers and sellers. Each shared targeting
+ *  entity is AND'd together.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingCriteria *> *targetingCriterion;
 
@@ -3462,9 +3695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Tracks which parties (if any) have paused a deal.
- *  The deal is considered paused if either hasBuyerPaused or
- *  hasSellPaused is true.
+ *  Tracks which parties (if any) have paused a deal. The deal is considered
+ *  paused if either hasBuyerPaused or hasSellPaused is true.
  */
 @interface GTLRAdExchangeBuyerII_DealPauseStatus : GTLRObject
 
@@ -3533,8 +3765,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        A placeholder for an undefined branding type. (Value:
  *        "BRANDING_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_DealTerms_BrandingType_SemiTransparent A
- *        TopLevelDomain or masked URL is sent in bid requests
- *        rather than the full one. (Value: "SEMI_TRANSPARENT")
+ *        TopLevelDomain or masked URL is sent in bid requests rather than the
+ *        full one. (Value: "SEMI_TRANSPARENT")
  */
 @property(nonatomic, copy, nullable) NSString *brandingType;
 
@@ -3546,14 +3778,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Non-binding estimate of the estimated gross spend for this deal.
- *  Can be set by buyer or seller.
+ *  Non-binding estimate of the estimated gross spend for this deal. Can be set
+ *  by buyer or seller.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Price *estimatedGrossSpend;
 
 /**
- *  Non-binding estimate of the impressions served per day.
- *  Can be set by buyer or seller.
+ *  Non-binding estimate of the impressions served per day. Can be set by buyer
+ *  or seller.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3569,10 +3801,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_NonGuaranteedFixedPriceTerms *nonGuaranteedFixedPriceTerms;
 
 /**
- *  The time zone name. For deals with Cost Per Day billing, defines the
- *  time zone used to mark the boundaries of a day. It should be an
- *  IANA TZ name, such as "America/Los_Angeles". For more information,
- *  see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
+ *  The time zone name. For deals with Cost Per Day billing, defines the time
+ *  zone used to mark the boundaries of a day. It should be an IANA TZ name,
+ *  such as "America/Los_Angeles". For more information, see
+ *  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
  */
 @property(nonatomic, copy, nullable) NSString *sellerTimeZone;
 
@@ -3645,9 +3877,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        contains adult images or video content. (Value:
  *        "ADULT_IMAGE_OR_VIDEO")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_AutomatedAdClicking The
- *        ad automatically redirects to the destination site without a click,
- *        or reports a click when none were made. (Value:
- *        "AUTOMATED_AD_CLICKING")
+ *        ad automatically redirects to the destination site without a click, or
+ *        reports a click when none were made. (Value: "AUTOMATED_AD_CLICKING")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_BadUrlLegalDisapproval
  *        Bad URL: Legal disapproval. (Value: "BAD_URL_LEGAL_DISAPPROVAL")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_BailBonds Promotes
@@ -3747,9 +3978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectImageLayout
  *        Incorrect Image Layout. (Value: "INCORRECT_IMAGE_LAYOUT")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_IncorrectRemarketingDeclaration
- *        The ad targets consumers using remarketing lists and/or collects
- *        data for subsequent use in retargeting, but does not correctly declare
- *        that use. (Value: "INCORRECT_REMARKETING_DECLARATION")
+ *        The ad targets consumers using remarketing lists and/or collects data
+ *        for subsequent use in retargeting, but does not correctly declare that
+ *        use. (Value: "INCORRECT_REMARKETING_DECLARATION")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidBiddingMethod
  *        Invalid bidding method. (Value: "INVALID_BIDDING_METHOD")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_InvalidFourthPartyCall
@@ -3865,8 +4096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        "UNACCEPTABLE_CONTENT")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableContentSoftware
  *        The ad or landing page contains unacceptable content because it
- *        initiated
- *        a software or executable download. (Value:
+ *        initiated a software or executable download. (Value:
  *        "UNACCEPTABLE_CONTENT_SOFTWARE")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_UnacceptableImageContent
  *        For example, Image Trick to Click. (Value:
@@ -3919,11 +4149,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAdExchangeBuyerII_Empty : GTLRObject
 @end
@@ -3931,8 +4159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The number of filtered bids with the specified dimension values that have
- *  the
- *  specified creative.
+ *  the specified creative.
  */
 @interface GTLRAdExchangeBuyerII_FilteredBidCreativeRow : GTLRObject
 
@@ -3973,18 +4200,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  A set of filters that is applied to a request for data.
- *  Within a filter set, an AND operation is performed across the filters
- *  represented by each field. An OR operation is performed across the filters
- *  represented by the multiple values of a repeated field, e.g.,
- *  "format=VIDEO AND deal_id=12 AND (seller_network_id=34 OR
- *  seller_network_id=56)".
+ *  A set of filters that is applied to a request for data. Within a filter set,
+ *  an AND operation is performed across the filters represented by each field.
+ *  An OR operation is performed across the filters represented by the multiple
+ *  values of a repeated field, e.g., "format=VIDEO AND deal_id=12 AND
+ *  (seller_network_id=34 OR seller_network_id=56)".
  */
 @interface GTLRAdExchangeBuyerII_FilterSet : GTLRObject
 
 /**
- *  An absolute date range, defined by a start date and an end date.
- *  Interpreted relative to Pacific time zone.
+ *  An absolute date range, defined by a start date and an end date. Interpreted
+ *  relative to Pacific time zone.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_AbsoluteDateRange *absoluteDateRange;
 
@@ -4004,10 +4230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
- *  The ID of the deal on which to filter; optional. This field may be set
- *  only for a filter set that accesses account-level troubleshooting data,
- *  i.e., one whose name matches the `bidders/ * /accounts/ * /filterSets/ *`
- *  pattern.
+ *  The ID of the deal on which to filter; optional. This field may be set only
+ *  for a filter set that accesses account-level troubleshooting data, i.e., one
+ *  whose name matches the `bidders/ * /accounts/ * /filterSets/ *` pattern.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4021,8 +4246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        appears in an app. (Value: "APP")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Environment_EnvironmentUnspecified
  *        A placeholder for an undefined environment; indicates that no
- *        environment
- *        filter will be applied. (Value: "ENVIRONMENT_UNSPECIFIED")
+ *        environment filter will be applied. (Value: "ENVIRONMENT_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_FilterSet_Environment_Web The ad impression
  *        appears on the web. (Value: "WEB")
  */
@@ -4050,21 +4274,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Creative formats bidded on or allowed to bid on, can be empty. Although
- *  this field is a list, it can only be populated with a single item. A
- *  HTTP 400 bad request error will be returned in the response if you specify
- *  multiple items.
+ *  Creative formats bidded on or allowed to bid on, can be empty. Although this
+ *  field is a list, it can only be populated with a single item. A HTTP 400 bad
+ *  request error will be returned in the response if you specify multiple
+ *  items.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *formats;
 
 /**
  *  A user-defined name of the filter set. Filter set names must be unique
- *  globally and match one of the patterns:
- *  - `bidders/ * /filterSets/ *` (for accessing bidder-level troubleshooting
- *  data)
- *  - `bidders/ * /accounts/ * /filterSets/ *` (for accessing account-level
- *  troubleshooting data)
- *  This field is required in create operations.
+ *  globally and match one of the patterns: - `bidders/ * /filterSets/ *` (for
+ *  accessing bidder-level troubleshooting data) - `bidders/ * /accounts/ *
+ *  /filterSets/ *` (for accessing account-level troubleshooting data) This
+ *  field is required in create operations.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4076,10 +4298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<NSString *> *platforms;
 
 /**
- *  For Open Bidding partners only.
- *  The list of publisher identifiers on which to filter; may be empty.
- *  The filters represented by multiple publisher identifiers are ORed
- *  together.
+ *  For Open Bidding partners only. The list of publisher identifiers on which
+ *  to filter; may be empty. The filters represented by multiple publisher
+ *  identifiers are ORed together.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *publisherIdentifiers;
 
@@ -4096,11 +4317,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_RelativeDateRange *relativeDateRange;
 
 /**
- *  For Authorized Buyers only.
- *  The list of IDs of the seller (publisher) networks on which to filter;
- *  may be empty. The filters represented by multiple seller network IDs are
- *  ORed together (i.e., if non-empty, results must match any one of the
- *  publisher networks). See
+ *  For Authorized Buyers only. The list of IDs of the seller (publisher)
+ *  networks on which to filter; may be empty. The filters represented by
+ *  multiple seller network IDs are ORed together (i.e., if non-empty, results
+ *  must match any one of the publisher networks). See
  *  [seller-network-ids](https://developers.google.com/authorized-buyers/rtb/downloads/seller-network-ids)
  *  file for the set of existing seller network IDs.
  *
@@ -4129,12 +4349,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Represents a list of targeted and excluded mobile application IDs that
- *  publishers own.
- *  Mobile application IDs are from App Store and Google Play Store.
- *  Android App ID, for example, com.google.android.apps.maps, can be found in
- *  Google Play Store URL.
- *  iOS App ID (which is a number) can be found at the end of iTunes store URL.
- *  First party mobile applications is either included or excluded.
+ *  publishers own. Mobile application IDs are from App Store and Google Play
+ *  Store. Android App ID, for example, com.google.android.apps.maps, can be
+ *  found in Google Play Store URL. iOS App ID (which is a number) can be found
+ *  at the end of iTunes store URL. First party mobile applications is either
+ *  included or excluded.
  */
 @interface GTLRAdExchangeBuyerII_FirstPartyMobileApplicationTargeting : GTLRObject
 
@@ -4204,8 +4423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_PricePerBuyer *> *fixedPrices;
 
 /**
- *  Guaranteed impressions as a percentage. This is the percentage
- *  of guaranteed looks that the buyer is guaranteeing to buy.
+ *  Guaranteed impressions as a percentage. This is the percentage of guaranteed
+ *  looks that the buyer is guaranteeing to buy.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4254,8 +4473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  An image resource. You may provide a larger image than was requested,
- *  so long as the aspect ratio is preserved.
+ *  An image resource. You may provide a larger image than was requested, so
+ *  long as the aspect ratio is preserved.
  */
 @interface GTLRAdExchangeBuyerII_Image : GTLRObject
 
@@ -4287,8 +4506,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_ImpressionMetricsRow : GTLRObject
 
 /**
- *  The number of impressions available to the buyer on Ad Exchange.
- *  In some cases this value may be unavailable.
+ *  The number of impressions available to the buyer on Ad Exchange. In some
+ *  cases this value may be unavailable.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *availableImpressions;
 
@@ -4304,8 +4523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *inventoryMatches;
 
 /**
- *  The number of impressions for which Ad Exchange received a response from
- *  the buyer that contained at least one applicable bid.
+ *  The number of impressions for which Ad Exchange received a response from the
+ *  buyer that contained at least one applicable bid.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *responsesWithBids;
 
@@ -4322,10 +4541,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Represents the size of an ad unit that can be targeted on an ad
- *  request. It only applies to Private Auction, AdX Preferred Deals and
- *  Auction Packages. This targeting does not apply to Programmatic Guaranteed
- *  and Preferred Deals in Ad Manager.
+ *  Represents the size of an ad unit that can be targeted on an ad request. It
+ *  only applies to Private Auction, AdX Preferred Deals and Auction Packages.
+ *  This targeting does not apply to Programmatic Guaranteed and Preferred Deals
+ *  in Ad Manager.
  */
 @interface GTLRAdExchangeBuyerII_InventorySizeTargeting : GTLRObject
 
@@ -4358,11 +4577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_BidMetricsRow *> *bidMetricsRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListBidMetricsRequest.pageToken
- *  field in the subsequent call to the bidMetrics.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListBidMetricsRequest.pageToken field in the subsequent call to the
+ *  bidMetrics.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4389,11 +4606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_CalloutStatusRow *> *calloutStatusRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListBidResponseErrorsRequest.pageToken
- *  field in the subsequent call to the bidResponseErrors.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListBidResponseErrorsRequest.pageToken field in the subsequent call to the
+ *  bidResponseErrors.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4421,11 +4636,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_BidResponseWithoutBidsStatusRow *> *bidResponseWithoutBidsStatusRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListBidResponsesWithoutBidsRequest.pageToken
- *  field in the subsequent call to the bidResponsesWithoutBids.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListBidResponsesWithoutBidsRequest.pageToken field in the subsequent call to
+ *  the bidResponsesWithoutBids.list method to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4451,12 +4665,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Client *> *clients;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListClientsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.clients.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListClientsRequest.pageToken field in the subsequent call to the
+ *  accounts.clients.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4482,13 +4693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ClientUserInvitation *> *invitations;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListClientUserInvitationsRequest.pageToken
- *  field in the subsequent call to the
- *  clients.invitations.list
- *  method to retrieve the next
- *  page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListClientUserInvitationsRequest.pageToken field in the subsequent call to
+ *  the clients.invitations.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4506,13 +4713,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_ListClientUsersResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListClientUsersRequest.pageToken
- *  field in the subsequent call to the
- *  clients.invitations.list
- *  method to retrieve the next
- *  page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListClientUsersRequest.pageToken field in the subsequent call to the
+ *  clients.invitations.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4546,11 +4749,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Creative *> *creatives;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListCreativesRequest.page_token
- *  field in the subsequent call to `ListCreatives` method to retrieve the next
- *  page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListCreativesRequest.page_token field in the subsequent call to
+ *  `ListCreatives` method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4569,8 +4770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByCreativeResponse : GTLRCollectionObject
 
 /**
- *  List of rows, with counts of bids with a given creative status aggregated
- *  by creative.
+ *  List of rows, with counts of bids with a given creative status aggregated by
+ *  creative.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4578,11 +4779,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_FilteredBidCreativeRow *> *filteredBidCreativeRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListCreativeStatusBreakdownByCreativeRequest.pageToken
- *  field in the subsequent call to the filteredBids.creatives.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListCreativeStatusBreakdownByCreativeRequest.pageToken field in the
+ *  subsequent call to the filteredBids.creatives.list method to retrieve the
+ *  next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4591,8 +4791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Response message for listing all details associated with a given filtered
- *  bid
- *  reason.
+ *  bid reason.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "filteredBidDetailRows" property. If returned as the result of a
@@ -4610,9 +4809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        [publisher-excludable-creative-attributes](https://developers.google.com/authorized-buyers/rtb/downloads/publisher-excludable-creative-attributes).
  *        (Value: "CREATIVE_ATTRIBUTE")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified
- *        A placeholder for an undefined status.
- *        This value will never be returned in responses. (Value:
- *        "DETAIL_TYPE_UNSPECIFIED")
+ *        A placeholder for an undefined status. This value will never be
+ *        returned in responses. (Value: "DETAIL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason
  *        Indicates that the detail ID refers to a disapproval reason; see
  *        DisapprovalReason enum in
@@ -4634,8 +4832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *detailType;
 
 /**
- *  List of rows, with counts of bids with a given creative status aggregated
- *  by detail.
+ *  List of rows, with counts of bids with a given creative status aggregated by
+ *  detail.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4643,11 +4841,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_FilteredBidDetailRow *> *filteredBidDetailRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListCreativeStatusBreakdownByDetailRequest.pageToken
- *  field in the subsequent call to the filteredBids.details.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListCreativeStatusBreakdownByDetailRequest.pageToken field in the subsequent
+ *  call to the filteredBids.details.list method to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4673,11 +4870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_CreativeDealAssociation *> *associations;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListDealAssociationsRequest.page_token
- *  field in the subsequent call to 'ListDealAssociation' method to retrieve
- *  the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListDealAssociationsRequest.page_token field in the subsequent call to
+ *  'ListDealAssociation' method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4705,11 +4900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_CalloutStatusRow *> *calloutStatusRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListFilteredBidRequestsRequest.pageToken
- *  field in the subsequent call to the filteredBidRequests.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListFilteredBidRequestsRequest.pageToken field in the subsequent call to the
+ *  filteredBidRequests.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4737,11 +4930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_CreativeStatusRow *> *creativeStatusRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListFilteredBidsRequest.pageToken
- *  field in the subsequent call to the filteredBids.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListFilteredBidsRequest.pageToken field in the subsequent call to the
+ *  filteredBids.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4767,12 +4958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_FilterSet *> *filterSets;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListFilterSetsRequest.pageToken
- *  field in the subsequent call to the
- *  accounts.filterSets.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListFilterSetsRequest.pageToken field in the subsequent call to the
+ *  accounts.filterSets.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4799,11 +4987,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ImpressionMetricsRow *> *impressionMetricsRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListImpressionMetricsRequest.pageToken
- *  field in the subsequent call to the impressionMetrics.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListImpressionMetricsRequest.pageToken field in the subsequent call to the
+ *  impressionMetrics.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4830,11 +5016,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_CreativeStatusRow *> *creativeStatusRows;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListLosingBidsRequest.pageToken
- *  field in the subsequent call to the losingBids.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListLosingBidsRequest.pageToken field in the subsequent call to the
+ *  losingBids.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4843,8 +5027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Response message for listing all reasons for which a buyer was not billed
- *  for
- *  a winning bid.
+ *  for a winning bid.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "nonBillableWinningBidStatusRows" property. If returned as the
@@ -4854,11 +5037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_ListNonBillableWinningBidsResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListNonBillableWinningBidsRequest.pageToken
- *  field in the subsequent call to the nonBillableWinningBids.list
- *  method to retrieve the next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListNonBillableWinningBidsRequest.pageToken field in the subsequent call to
+ *  the nonBillableWinningBids.list method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4951,8 +5132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_LocationContext : GTLRObject
 
 /**
- *  IDs representing the geo location for this context.
- *  Please refer to the
+ *  IDs representing the geo location for this context. Please refer to the
  *  [geo-table.csv](https://storage.googleapis.com/adx-rtb-dictionaries/geo-table.csv)
  *  file for different geo criteria IDs.
  *
@@ -4966,10 +5146,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  Targeting represents different criteria that can be used by advertisers to
  *  target ad inventory. For example, they can choose to target ad requests only
- *  if the user is in the US.
- *  Multiple types of targeting are always applied as a logical AND, unless
- *  noted
- *  otherwise.
+ *  if the user is in the US. Multiple types of targeting are always applied as
+ *  a logical AND, unless noted otherwise.
  */
 @interface GTLRAdExchangeBuyerII_MarketplaceTargeting : GTLRObject
 
@@ -5007,13 +5185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *value;
 
 /**
- *  The variance (i.e. square of the standard deviation) of the metric value.
- *  If value is exact, variance is 0.
- *  Can be used to calculate margin of error as a percentage of value, using
- *  the following formula, where Z is the standard constant that depends on the
- *  desired size of the confidence interval (e.g. for 90% confidence interval,
- *  use Z = 1.645):
- *  marginOfError = 100 * Z * sqrt(variance) / value
+ *  The variance (i.e. square of the standard deviation) of the metric value. If
+ *  value is exact, variance is 0. Can be used to calculate margin of error as a
+ *  percentage of value, using the following formula, where Z is the standard
+ *  constant that depends on the desired size of the confidence interval (e.g.
+ *  for 90% confidence interval, use Z = 1.645): marginOfError = 100 * Z *
+ *  sqrt(variance) / value
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5028,8 +5205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_MobileApplicationTargeting : GTLRObject
 
 /**
- *  Publisher owned apps to be targeted or excluded by the publisher to
- *  display the ads in.
+ *  Publisher owned apps to be targeted or excluded by the publisher to display
+ *  the ads in.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_FirstPartyMobileApplicationTargeting *firstPartyTargeting;
 
@@ -5045,20 +5222,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Number of nano (10^-9) units of the amount.
- *  The value must be between -999,999,999 and +999,999,999 inclusive.
- *  If `units` is positive, `nanos` must be positive or zero.
- *  If `units` is zero, `nanos` can be positive, zero, or negative.
- *  If `units` is negative, `nanos` must be negative or zero.
- *  For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  The whole units of the amount.
- *  For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5149,9 +5325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        The buyer was not billed because the ad was outplaced in the mediation
  *        waterfall. (Value: "LOST_IN_MEDIATION")
  *    @arg @c kGTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow_Status_StatusUnspecified
- *        A placeholder for an undefined status.
- *        This value will never be returned in responses. (Value:
- *        "STATUS_UNSPECIFIED")
+ *        A placeholder for an undefined status. This value will never be
+ *        returned in responses. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -5165,8 +5340,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_NonGuaranteedAuctionTerms : GTLRObject
 
 /**
- *  True if open auction buyers are allowed to compete with invited buyers
- *  in this private auction.
+ *  True if open auction buyers are allowed to compete with invited buyers in
+ *  this private auction.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5213,10 +5388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *creatorRole;
 
 /**
- *  The actual note to attach.
- *  (max-length: 1024 unicode code units)
- *  Note: This field may be set only when creating the resource. Modifying
- *  this field while updating the resource will result in an error.
+ *  The actual note to attach. (max-length: 1024 unicode code units) Note: This
+ *  field may be set only when creating the resource. Modifying this field while
+ *  updating the resource will result in an error.
  */
 @property(nonatomic, copy, nullable) NSString *note;
 
@@ -5253,9 +5427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_PauseProposalRequest : GTLRObject
 
 /**
- *  The reason why the proposal is being paused.
- *  This human readable message will be displayed in the seller's UI.
- *  (Max length: 1000 unicode code units.)
+ *  The reason why the proposal is being paused. This human readable message
+ *  will be displayed in the seller's UI. (Max length: 1000 unicode code units.)
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -5264,14 +5437,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Represents targeting about where the ads can appear, e.g., certain sites or
- *  mobile applications.
- *  Different placement targeting types will be logically OR'ed.
+ *  mobile applications. Different placement targeting types will be logically
+ *  OR'ed.
  */
 @interface GTLRAdExchangeBuyerII_PlacementTargeting : GTLRObject
 
 /**
- *  Mobile application targeting information in a deal.
- *  This doesn't apply to Auction Packages.
+ *  Mobile application targeting information in a deal. This doesn't apply to
+ *  Auction Packages.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MobileApplicationTargeting *mobileApplicationTargeting;
 
@@ -5329,15 +5502,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_PricePerBuyer : GTLRObject
 
 /**
- *  The list of advertisers for this price when associated with this buyer.
- *  If empty, all advertisers with this buyer pay this price.
+ *  The list of advertisers for this price when associated with this buyer. If
+ *  empty, all advertisers with this buyer pay this price.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *advertiserIds;
 
 /**
  *  The buyer who will pay this price. If unset, all buyers can pay this price
- *  (if the
- *  advertisers match, and there's no more specific rule matching the buyer).
+ *  (if the advertisers match, and there's no more specific rule matching the
+ *  buyer).
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *buyer;
 
@@ -5364,17 +5537,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Note: this resource requires whitelisting for access. Please contact your
- *  account manager for access to Marketplace resources.
- *  A product is a segment of inventory that a seller wishes to sell. It is
- *  associated with certain terms and targeting information which helps the
- *  buyer
- *  know more about the inventory.
+ *  account manager for access to Marketplace resources. A product is a segment
+ *  of inventory that a seller wishes to sell. It is associated with certain
+ *  terms and targeting information which helps the buyer know more about the
+ *  inventory.
  */
 @interface GTLRAdExchangeBuyerII_Product : GTLRObject
 
 /**
- *  The proposed end time for the deal. The field will be truncated to the
- *  order of seconds during serving.
+ *  The proposed end time for the deal. The field will be truncated to the order
+ *  of seconds during serving.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *availableEndTime;
 
@@ -5415,8 +5587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *productRevision;
 
 /**
- *  An ID which can be used by the Publisher Profile API to get more
- *  information about the seller that created this product.
+ *  An ID which can be used by the Publisher Profile API to get more information
+ *  about the seller that created this product.
  */
 @property(nonatomic, copy, nullable) NSString *publisherProfileId;
 
@@ -5465,13 +5637,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Note: this resource requires whitelisting for access. Please contact your
- *  account manager for access to Marketplace resources.
- *  Represents a proposal in the Marketplace. A proposal is the unit of
- *  negotiation between a seller and a buyer and contains deals which
- *  are served.
- *  Note: you can not update, create, or otherwise modify Private
- *  Auction or Preferred Deals deals through the API.
- *  Fields are updatable unless noted otherwise.
+ *  account manager for access to Marketplace resources. Represents a proposal
+ *  in the Marketplace. A proposal is the unit of negotiation between a seller
+ *  and a buyer and contains deals which are served. Note: you can not update,
+ *  create, or otherwise modify Private Auction or Preferred Deals deals through
+ *  the API. Fields are updatable unless noted otherwise.
  */
 @interface GTLRAdExchangeBuyerII_Proposal : GTLRObject
 
@@ -5481,9 +5651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *billedBuyer;
 
 /**
- *  Reference to the buyer on the proposal.
- *  Note: This field may be set only when creating the resource. Modifying
- *  this field while updating the resource will result in an error.
+ *  Reference to the buyer on the proposal. Note: This field may be set only
+ *  when creating the resource. Modifying this field while updating the resource
+ *  will result in an error.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Buyer *buyer;
 
@@ -5559,13 +5729,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
- *  Output only. The revision number for the proposal.
- *  Each update to the proposal or the deal causes the proposal revision number
- *  to auto-increment. The buyer keeps track of the last revision number they
- *  know of and pass it in when making an update. If the head revision number
- *  on the server has since incremented, then an ABORTED error is returned
- *  during the update operation to let the buyer know that a subsequent update
- *  was made.
+ *  Output only. The revision number for the proposal. Each update to the
+ *  proposal or the deal causes the proposal revision number to auto-increment.
+ *  The buyer keeps track of the last revision number they know of and pass it
+ *  in when making an update. If the head revision number on the server has
+ *  since incremented, then an ABORTED error is returned during the update
+ *  operation to let the buyer know that a subsequent update was made.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5581,8 +5750,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        negotiations on the proposal were canceled and the proposal was never
  *        finalized. (Value: "CANCELED")
  *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_Finalized The
- *        proposal is finalized. During renegotiation, the proposal may
- *        not be in this state. (Value: "FINALIZED")
+ *        proposal is finalized. During renegotiation, the proposal may not be
+ *        in this state. (Value: "FINALIZED")
  *    @arg @c kGTLRAdExchangeBuyerII_Proposal_ProposalState_ProposalStateUnspecified
  *        A placeholder for an undefined proposal state. (Value:
  *        "PROPOSAL_STATE_UNSPECIFIED")
@@ -5594,9 +5763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *proposalState;
 
 /**
- *  Reference to the seller on the proposal.
- *  Note: This field may be set only when creating the resource. Modifying
- *  this field while updating the resource will result in an error.
+ *  Reference to the seller on the proposal. Note: This field may be set only
+ *  when creating the resource. Modifying this field while updating the resource
+ *  will result in an error.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Seller *seller;
 
@@ -5611,12 +5780,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  Note: this resource requires whitelisting for access. Please contact your
- *  account manager for access to Marketplace resources.
- *  Represents a publisher profile
- *  (https://support.google.com/admanager/answer/6035806?hl=en) in Marketplace.
- *  All fields are read only. All string fields are free-form text entered by
- *  the
- *  publisher unless noted otherwise.
+ *  account manager for access to Marketplace resources. Represents a publisher
+ *  profile (https://support.google.com/admanager/answer/6035806?hl=en) in
+ *  Marketplace. All fields are read only. All string fields are free-form text
+ *  entered by the publisher unless noted otherwise.
  */
 @interface GTLRAdExchangeBuyerII_PublisherProfile : GTLRObject
 
@@ -5641,9 +5808,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  The list of domains represented in this publisher profile. Empty if this is
- *  a parent profile. These are top private domains, meaning that these will
- *  not contain a string like "photos.google.co.uk/123", but will instead
- *  contain "google.co.uk".
+ *  a parent profile. These are top private domains, meaning that these will not
+ *  contain a string like "photos.google.co.uk/123", but will instead contain
+ *  "google.co.uk".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
@@ -5656,8 +5823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  profile that is created to brand a portion of inventory. One seller should
  *  have only one parent publisher profile, and can have multiple child
  *  profiles. Publisher profiles for the same seller will have same value of
- *  field google.ads.adexchange.buyer.v2beta1.PublisherProfile.seller.
- *  See https://support.google.com/admanager/answer/6035806?hl=en for details.
+ *  field google.ads.adexchange.buyer.v2beta1.PublisherProfile.seller. See
+ *  https://support.google.com/admanager/answer/6035806?hl=en for details.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5676,9 +5843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *overview;
 
 /**
- *  Contact information for programmatic deals. This is free text entered by
- *  the publisher and may include information like names, phone numbers and
- *  email addresses.
+ *  Contact information for programmatic deals. This is free text entered by the
+ *  publisher and may include information like names, phone numbers and email
+ *  addresses.
  */
 @property(nonatomic, copy, nullable) NSString *programmaticDealsContact;
 
@@ -5695,8 +5862,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Seller *seller;
 
 /**
- *  Up to three key metrics and rankings. Max 100 characters each.
- *  For example "#1 Mobile News Site for 20 Straight Months".
+ *  Up to three key metrics and rankings. Max 100 characters each. For example
+ *  "#1 Mobile News Site for 20 Straight Months".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *topHeadlines;
 
@@ -5704,9 +5871,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  An open-ended realtime time range specified by the start timestamp.
- *  For filter sets that specify a realtime time range RTB metrics continue to
- *  be aggregated throughout the lifetime of the filter set.
+ *  An open-ended realtime time range specified by the start timestamp. For
+ *  filter sets that specify a realtime time range RTB metrics continue to be
+ *  aggregated throughout the lifetime of the filter set.
  */
 @interface GTLRAdExchangeBuyerII_RealtimeTimeRange : GTLRObject
 
@@ -5717,12 +5884,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  A relative date range, specified by an offset and a duration.
- *  The supported range of dates begins 30 days before today and ends today,
- *  i.e., the limits for these values are:
- *  offset_days >= 0
- *  duration_days >= 1
- *  offset_days + duration_days <= 30
+ *  A relative date range, specified by an offset and a duration. The supported
+ *  range of dates begins 30 days before today and ends today, i.e., the limits
+ *  for these values are: offset_days >= 0 duration_days >= 1 offset_days +
+ *  duration_days <= 30
  */
 @interface GTLRAdExchangeBuyerII_RelativeDateRange : GTLRObject
 
@@ -5766,8 +5931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /**
  *  A response may include multiple rows, breaking down along various
- *  dimensions.
- *  Encapsulates the values of all dimensions for a given row.
+ *  dimensions. Encapsulates the values of all dimensions for a given row.
  */
 @interface GTLRAdExchangeBuyerII_RowDimensions : GTLRObject
 
@@ -5796,14 +5960,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Represents a seller of inventory. Each seller is identified by a unique
- *  Ad Manager account ID.
+ *  Represents a seller of inventory. Each seller is identified by a unique Ad
+ *  Manager account ID.
  */
 @interface GTLRAdExchangeBuyerII_Seller : GTLRObject
 
 /**
- *  The unique ID for the seller. The seller fills in this field.
- *  The seller account ID is then available to buyer in the product.
+ *  The unique ID for the seller. The seller fills in this field. The seller
+ *  account ID is then available to buyer in the product.
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
@@ -5849,11 +6013,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Output only. A representation of the status of an ad in a
- *  specific context. A context here relates to where something ultimately
- *  serves
- *  (for example, a user or publisher geo, a platform, an HTTPS vs HTTP request,
- *  or the type of auction).
+ *  Output only. A representation of the status of an ad in a specific context.
+ *  A context here relates to where something ultimately serves (for example, a
+ *  user or publisher geo, a platform, an HTTPS vs HTTP request, or the type of
+ *  auction).
  */
 @interface GTLRAdExchangeBuyerII_ServingRestriction : GTLRObject
 
@@ -5861,23 +6024,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ServingContext *> *contexts;
 
 /**
- *  Disapproval bound to this restriction.
- *  Only present if status=DISAPPROVED.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Disapproval bound to this restriction. Only present if status=DISAPPROVED.
+ *  Can be used to filter the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_Disapproval *disapproval;
 
 /**
- *  Any disapprovals bound to this restriction.
- *  Only present if status=DISAPPROVED.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
- *  Deprecated; please use
- *  disapproval
- *  field instead.
+ *  Any disapprovals bound to this restriction. Only present if
+ *  status=DISAPPROVED. Can be used to filter the response of the creatives.list
+ *  method. Deprecated; please use disapproval field instead.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_Disapproval *> *disapprovalReasons;
 
@@ -5899,8 +6054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Message depicting the size of the creative. The units of width and
- *  height depend on the type of the targeting.
+ *  Message depicting the size of the creative. The units of width and height
+ *  depend on the type of the targeting.
  */
 @interface GTLRAdExchangeBuyerII_Size : GTLRObject
 
@@ -5929,15 +6084,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Advertisers can target different attributes of an ad slot. For example,
- *  they can choose to show ads only if the user is in the U.S. Such
- *  targeting criteria can be specified as part of Shared Targeting.
+ *  Advertisers can target different attributes of an ad slot. For example, they
+ *  can choose to show ads only if the user is in the U.S. Such targeting
+ *  criteria can be specified as part of Shared Targeting.
  */
 @interface GTLRAdExchangeBuyerII_TargetingCriteria : GTLRObject
 
 /**
- *  The list of values to exclude from targeting. Each value is AND'd
- *  together.
+ *  The list of values to exclude from targeting. Each value is AND'd together.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingValue *> *exclusions;
 
@@ -5948,11 +6102,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_TargetingValue *> *inclusions;
 
 /**
- *  The key representing the shared targeting criterion.
- *  Targeting criteria defined by Google ad servers will begin with GOOG_.
- *  Third parties may define their own keys.
- *  A list of permissible keys along with the acceptable values will be
- *  provided as part of the external documentation.
+ *  The key representing the shared targeting criterion. Targeting criteria
+ *  defined by Google ad servers will begin with GOOG_. Third parties may define
+ *  their own keys. A list of permissible keys along with the acceptable values
+ *  will be provided as part of the external documentation.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -5965,16 +6118,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_TargetingValue : GTLRObject
 
 /**
- *  The creative size value to include/exclude.
- *  Filled in when key = GOOG_CREATIVE_SIZE
+ *  The creative size value to include/exclude. Filled in when key =
+ *  GOOG_CREATIVE_SIZE
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeSize *creativeSizeValue;
 
 /**
- *  The daypart targeting to include / exclude.
- *  Filled in when the key is GOOG_DAYPART_TARGETING.
- *  The definition of this targeting is derived from the structure
- *  used by Ad Manager.
+ *  The daypart targeting to include / exclude. Filled in when the key is
+ *  GOOG_DAYPART_TARGETING. The definition of this targeting is derived from the
+ *  structure used by Ad Manager.
  */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_DayPartTargeting *dayPartTargetingValue;
 
@@ -6036,8 +6188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
- *  to allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6069,10 +6221,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Represents a list of targeted and excluded URLs (e.g., google.com).
- *  For Private Auction and AdX Preferred Deals, URLs are either included or
- *  excluded.
- *  For Programmatic Guaranteed and Preferred Deals, this doesn't
+ *  Represents a list of targeted and excluded URLs (e.g., google.com). For
+ *  Private Auction and AdX Preferred Deals, URLs are either included or
+ *  excluded. For Programmatic Guaranteed and Preferred Deals, this doesn't
  *  apply.
  */
 @interface GTLRAdExchangeBuyerII_UrlTargeting : GTLRObject
@@ -6095,8 +6246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *videoUrl;
 
 /**
- *  The contents of a VAST document for a video ad.
- *  This document should conform to the VAST 2.0 or 3.0 standard.
+ *  The contents of a VAST document for a video ad. This document should conform
+ *  to the VAST 2.0 or 3.0 standard.
  */
 @property(nonatomic, copy, nullable) NSString *videoVastXml;
 
@@ -6109,15 +6260,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_VideoTargeting : GTLRObject
 
 /**
- *  A list of video positions to be excluded.
- *  Position types can either be included or excluded (XOR).
+ *  A list of video positions to be excluded. Position types can either be
+ *  included or excluded (XOR).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedPositionTypes;
 
 /**
- *  A list of video positions to be included.
- *  When the included list is present, the excluded list must be empty.
- *  When the excluded list is present, the included list must be empty.
+ *  A list of video positions to be included. When the included list is present,
+ *  the excluded list must be empty. When the excluded list is present, the
+ *  included list must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetedPositionTypes;
 
@@ -6130,10 +6281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @interface GTLRAdExchangeBuyerII_WatchCreativeRequest : GTLRObject
 
 /**
- *  The Pub/Sub topic to publish notifications to.
- *  This topic must already exist and must give permission to
- *  ad-exchange-buyside-reports\@google.com to write to the topic.
- *  This should be the full resource name in
+ *  The Pub/Sub topic to publish notifications to. This topic must already exist
+ *  and must give permission to ad-exchange-buyside-reports\@google.com to write
+ *  to the topic. This should be the full resource name in
  *  "projects/{project_id}/topics/{topic_id}" format.
  */
 @property(nonatomic, copy, nullable) NSString *topic;

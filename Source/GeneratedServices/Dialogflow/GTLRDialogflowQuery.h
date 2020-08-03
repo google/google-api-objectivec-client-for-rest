@@ -879,6 +879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  `User Id`. They can be a random number or some type of user and session
  *  identifiers (preferably hashed). The length of the `Session ID` and
  *  `User ID` must not exceed 36 characters.
+ *  For more information, see the [API interactions
+ *  guide](https://cloud.google.com/dialogflow/docs/api-overview).
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -904,6 +906,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *    `User Id`. They can be a random number or some type of user and session
  *    identifiers (preferably hashed). The length of the `Session ID` and
  *    `User ID` must not exceed 36 characters.
+ *    For more information, see the [API interactions
+ *    guide](https://cloud.google.com/dialogflow/docs/api-overview).
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentEnvironmentsUsersSessionsDetectIntent
  */
@@ -2164,6 +2168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *  `User Id`. They can be a random number or some type of user and session
  *  identifiers (preferably hashed). The length of the `Session ID` and
  *  `User ID` must not exceed 36 characters.
+ *  For more information, see the [API interactions
+ *  guide](https://cloud.google.com/dialogflow/docs/api-overview).
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -2189,6 +2195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowIntentViewIntentViewUnspecifie
  *    `User Id`. They can be a random number or some type of user and session
  *    identifiers (preferably hashed). The length of the `Session ID` and
  *    `User ID` must not exceed 36 characters.
+ *    For more information, see the [API interactions
+ *    guide](https://cloud.google.com/dialogflow/docs/api-overview).
  *
  *  @return GTLRDialogflowQuery_ProjectsAgentSessionsDetectIntent
  */

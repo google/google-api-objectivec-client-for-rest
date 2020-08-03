@@ -852,6 +852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  are equivalent to the GET requests specified in the Retrieve transaction.
  *  The method returns an Operation which
  *  will be marked successful when the deletion is complete.
+ *  Warning: Inserting instances into a study while a delete operation is
+ *  running for that study could result in the new instances not appearing in
+ *  search results until the deletion operation finishes.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.delete
  *
@@ -876,6 +879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  are equivalent to the GET requests specified in the Retrieve transaction.
  *  The method returns an Operation which
  *  will be marked successful when the deletion is complete.
+ *  Warning: Inserting instances into a study while a delete operation is
+ *  running for that study could result in the new instances not appearing in
+ *  search results until the deletion operation finishes.
  *
  *  @param parent NSString
  *  @param dicomWebPath The path of the DeleteStudy request. For example,
@@ -1086,6 +1092,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Retrieve transaction.
  *  The method returns an Operation which
  *  will be marked successful when the deletion is complete.
+ *  Warning: Inserting instances into a series while a delete operation is
+ *  running for that series could result in the new instances not appearing in
+ *  search results until the deletion operation finishes.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.delete
  *
@@ -1116,6 +1125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Retrieve transaction.
  *  The method returns an Operation which
  *  will be marked successful when the deletion is complete.
+ *  Warning: Inserting instances into a series while a delete operation is
+ *  running for that series could result in the new instances not appearing in
+ *  search results until the deletion operation finishes.
  *
  *  @param parent The name of the DICOM store that is being accessed. For
  *    example,
@@ -1918,6 +1930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `create`, see
+ *  [Creating a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.create
  *
@@ -1959,6 +1974,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `create`, see
+ *  [Creating a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent The name of the FHIR store this resource belongs to.
@@ -1990,6 +2008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  repository that can still be retrieved through vread
  *  and related methods, unless they are removed by the
  *  purge method.
+ *  For samples that show how to call `delete`, see
+ *  [Deleting a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete
  *
@@ -2017,6 +2038,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  repository that can still be retrieved through vread
  *  and related methods, unless they are removed by the
  *  purge method.
+ *  For samples that show how to call `delete`, see
+ *  [Deleting a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
  *  @param name The name of the resource to delete.
  *
@@ -2052,6 +2076,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  a JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead.
+ *  For samples that show how to call `executeBundle`, see
+ *  [Managing FHIR resources using FHIR
+ *  bundles](/healthcare/docs/how-tos/fhir-bundles).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.executeBundle
  *
@@ -2093,6 +2120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  a JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead.
+ *  For samples that show how to call `executeBundle`, see
+ *  [Managing FHIR resources using FHIR
+ *  bundles](/healthcare/docs/how-tos/fhir-bundles).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent Name of the FHIR store in which this bundle will be executed.
@@ -2118,6 +2148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `history`, see
+ *  [Listing FHIR resource
+ *  versions](/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.history
  *
@@ -2181,6 +2214,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `history`, see
+ *  [Listing FHIR resource
+ *  versions](/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
  *  @param name The name of the resource to retrieve.
  *
@@ -2206,6 +2242,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `patch`, see
+ *  [Patching a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.patch
  *
@@ -2237,6 +2276,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `patch`, see
+ *  [Patching a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param name The name of the resource to update.
@@ -2271,6 +2313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  [STU3](http://www.hl7.org/fhir/stu3/compartmentdefinition-patient.html),
  *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html)), which
  *  details the eligible resource types and referencing search parameters.
+ *  For samples that show how to call `Patient-everything`, see
+ *  [Getting all patient compartment
+ *  resources](/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient-everything
  *
@@ -2286,13 +2331,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Used to retrieve the next or previous page of results
- *  when using pagination. Value should be set to the value of page_token set
- *  in next or previous page links' urls. Next and previous page are returned
+ *  when using pagination. Set `_page_token` to the value of _page_token set
+ *  in next or previous page links' url. Next and previous page are returned
  *  in the response bundle's links field, where `link.relation` is "previous"
  *  or "next".
- *  Omit `page_token` if no previous request has been made.
+ *  Omit `_page_token` if no previous request has been made.
  */
 @property(nonatomic, copy, nullable) NSString *xPageToken;
+
+/**
+ *  If provided, only resources updated after this time are
+ *  returned. The time uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz.
+ *  For example, `2015-02-07T13:28:17.239+02:00` or `2017-01-01T00:00:00Z`.
+ *  The time must be specified to the second and include a time zone.
+ */
+@property(nonatomic, copy, nullable) NSString *xSince;
+
+/**
+ *  String of comma-delimited FHIR resource types. If provided, only resources
+ *  of the specified resource type(s) are returned.
+ */
+@property(nonatomic, copy, nullable) NSString *xType;
 
 /**
  *  The response includes records prior to the end date. If no end date is
@@ -2334,6 +2393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  [STU3](http://www.hl7.org/fhir/stu3/compartmentdefinition-patient.html),
  *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html)), which
  *  details the eligible resource types and referencing search parameters.
+ *  For samples that show how to call `Patient-everything`, see
+ *  [Getting all patient compartment
+ *  resources](/healthcare/docs/how-tos/fhir-resources#getting_all_patient_compartment_resources).
  *
  *  @param name Name of the `Patient` resource for which the information is
  *    required.
@@ -2362,6 +2424,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `read`, see
+ *  [Getting a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.read
  *
@@ -2395,6 +2460,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `read`, see
+ *  [Getting a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  @param name The name of the resource to retrieve.
  *
@@ -2409,6 +2477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  version) from the FHIR store. To remove all versions of a resource, first
  *  delete the current version and then call this method.
  *  This is not a FHIR standard operation.
+ *  For samples that show how to call `Resource-purge`, see
+ *  [Deleting historical versions of a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Resource-purge
  *
@@ -2429,6 +2500,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  version) from the FHIR store. To remove all versions of a resource, first
  *  delete the current version and then call this method.
  *  This is not a FHIR standard operation.
+ *  For samples that show how to call `Resource-purge`, see
+ *  [Deleting historical versions of a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#deleting_historical_versions_of_a_fhir_resource).
  *
  *  @param name The name of the resource to purge.
  *
@@ -2487,6 +2561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Note: FHIR resources are indexed asynchronously, so there might be a slight
  *  delay between the time a resource is created or changes and when the change
  *  is reflected in search results.
+ *  For samples and detailed information, see [Searching for FHIR
+ *  resources](/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
+ *  features](/healthcare/docs/how-tos/fhir-advanced-search).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.search
  *
@@ -2551,6 +2628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Note: FHIR resources are indexed asynchronously, so there might be a slight
  *  delay between the time a resource is created or changes and when the change
  *  is reflected in search results.
+ *  For samples and detailed information, see [Searching for FHIR
+ *  resources](/healthcare/docs/how-tos/fhir-search) and [Advanced FHIR search
+ *  features](/healthcare/docs/how-tos/fhir-advanced-search).
  *
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
@@ -2583,6 +2663,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `update`, see
+ *  [Updating a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
  *
@@ -2618,6 +2701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `update`, see
+ *  [Updating a FHIR
+ *  resource](/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param name The name of the resource to update.
@@ -2642,6 +2728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `vread`, see
+ *  [Retrieving a FHIR resource
+ *  version](/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.vread
  *
@@ -2670,6 +2759,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead.
+ *  For samples that show how to call `vread`, see
+ *  [Retrieving a FHIR resource
+ *  version](/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
  *  @param name The name of the resource version to retrieve.
  *
@@ -3375,12 +3467,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Creates a message and sends a notification to the Cloud Pub/Sub topic. If
- *  configured, the MLLP adapter listens to messages created by this method and
- *  sends those back to the hospital. A successful response indicates the
- *  message has been persisted to storage and a Cloud Pub/Sub notification has
- *  been sent. Sending to the hospital by the MLLP adapter happens
- *  asynchronously.
+ *  Parses and stores an HL7v2 message. This method triggers an asynchronous
+ *  notification to any Cloud Pub/Sub topic configured in
+ *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
+ *  filtering matches the message. If an MLLP adapter is configured to listen
+ *  to a Cloud Pub/Sub topic, the adapter transmits the message when a
+ *  notification is received.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.create
  *
@@ -3397,12 +3489,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_Message.
  *
- *  Creates a message and sends a notification to the Cloud Pub/Sub topic. If
- *  configured, the MLLP adapter listens to messages created by this method and
- *  sends those back to the hospital. A successful response indicates the
- *  message has been persisted to storage and a Cloud Pub/Sub notification has
- *  been sent. Sending to the hospital by the MLLP adapter happens
- *  asynchronously.
+ *  Parses and stores an HL7v2 message. This method triggers an asynchronous
+ *  notification to any Cloud Pub/Sub topic configured in
+ *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
+ *  filtering matches the message. If an MLLP adapter is configured to listen
+ *  to a Cloud Pub/Sub topic, the adapter transmits the message when a
+ *  notification is received.
  *
  *  @param object The @c GTLRCloudHealthcare_CreateMessageRequest to include in
  *    the query.
@@ -3486,9 +3578,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 @end
 
 /**
- *  Ingests a new HL7v2 message from the hospital and sends a notification to
- *  the Cloud Pub/Sub topic. Return is an HL7v2 ACK message if the message was
- *  successfully stored. Otherwise an error is returned.
+ *  Parses and stores an HL7v2 message. This method triggers an asynchronous
+ *  notification to any Cloud Pub/Sub topic configured in
+ *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
+ *  filtering matches the message. If an MLLP adapter is configured to listen
+ *  to a Cloud Pub/Sub topic, the adapter transmits the message when a
+ *  notification is received. This method also generates a response
+ *  containing an HL7v2 acknowledgement (`ACK`) message when successful or a
+ *  negative acknowledgement (`NACK`) message in case of error, suitable for
+ *  replying to HL7v2 interface systems that expect these acknowledgements.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.ingest
  *
@@ -3505,9 +3603,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_IngestMessageResponse.
  *
- *  Ingests a new HL7v2 message from the hospital and sends a notification to
- *  the Cloud Pub/Sub topic. Return is an HL7v2 ACK message if the message was
- *  successfully stored. Otherwise an error is returned.
+ *  Parses and stores an HL7v2 message. This method triggers an asynchronous
+ *  notification to any Cloud Pub/Sub topic configured in
+ *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
+ *  filtering matches the message. If an MLLP adapter is configured to listen
+ *  to a Cloud Pub/Sub topic, the adapter transmits the message when a
+ *  notification is received. This method also generates a response
+ *  containing an HL7v2 acknowledgement (`ACK`) message when successful or a
+ *  negative acknowledgement (`NACK`) message in case of error, suitable for
+ *  replying to HL7v2 interface systems that expect these acknowledgements.
  *
  *  @param object The @c GTLRCloudHealthcare_IngestMessageRequest to include in
  *    the query.

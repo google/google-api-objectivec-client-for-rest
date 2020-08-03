@@ -452,6 +452,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest
+@dynamic newEnumValueDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest
 //
 

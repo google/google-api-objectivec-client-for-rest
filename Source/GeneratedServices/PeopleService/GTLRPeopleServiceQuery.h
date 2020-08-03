@@ -40,39 +40,92 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // mergeSources
 
-/** Value: "DIRECTORY_MERGE_SOURCE_TYPE_CONTACT" */
+/**
+ *  User owned contact.
+ *
+ *  Value: "DIRECTORY_MERGE_SOURCE_TYPE_CONTACT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeContact;
-/** Value: "DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // sortOrder
 
-/** Value: "FIRST_NAME_ASCENDING" */
+/**
+ *  Sort people by first name.
+ *
+ *  Value: "FIRST_NAME_ASCENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderFirstNameAscending;
-/** Value: "LAST_MODIFIED_ASCENDING" */
+/**
+ *  Sort people by when they were changed; older entries first.
+ *
+ *  Value: "LAST_MODIFIED_ASCENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedAscending;
-/** Value: "LAST_MODIFIED_DESCENDING" */
+/**
+ *  Sort people by when they were changed; newer entries first.
+ *
+ *  Value: "LAST_MODIFIED_DESCENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastModifiedDescending;
-/** Value: "LAST_NAME_ASCENDING" */
+/**
+ *  Sort people by last name.
+ *
+ *  Value: "LAST_NAME_ASCENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 
 // ----------------------------------------------------------------------------
 // sources
 
-/** Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT" */
+/**
+ *  G Suite domain shared contact.
+ *
+ *  Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact;
-/** Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE" */
+/**
+ *  G Suite domain profile.
+ *
+ *  Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile;
-/** Value: "DIRECTORY_SOURCE_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "DIRECTORY_SOURCE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified;
-/** Value: "READ_SOURCE_TYPE_CONTACT" */
+/**
+ *  Returns SourceType.CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_CONTACT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeContact;
-/** Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT" */
+/**
+ *  Returns SourceType.DOMAIN_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeDomainContact;
-/** Value: "READ_SOURCE_TYPE_PROFILE" */
+/**
+ *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
+ *  SourceType.PROFILE.
+ *
+ *  Value: "READ_SOURCE_TYPE_PROFILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeProfile;
-/** Value: "READ_SOURCE_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "READ_SOURCE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -90,8 +143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Get a list of contact groups owned by the authenticated user by specifying
- *  a list of contact group resource names.
+ *  Get a list of contact groups owned by the authenticated user by specifying a
+ *  list of contact group resource names.
  *
  *  Method: people.contactGroups.batchGet
  *
@@ -105,8 +158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Specifies the maximum number of members to return for each group.
- *  Defaults
- *  to 0 if not set, which will return zero members.
+ *  Defaults to 0 if not set, which will return zero members.
  */
 @property(nonatomic, assign) NSInteger maxMembers;
 
@@ -116,8 +168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_BatchGetContactGroupsResponse.
  *
- *  Get a list of contact groups owned by the authenticated user by specifying
- *  a list of contact group resource names.
+ *  Get a list of contact groups owned by the authenticated user by specifying a
+ *  list of contact group resource names.
  *
  *  @return GTLRPeopleServiceQuery_ContactGroupsBatchGet
  */
@@ -188,8 +240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Get a specific contact group owned by the authenticated user by specifying
- *  a contact group resource name.
+ *  Get a specific contact group owned by the authenticated user by specifying a
+ *  contact group resource name.
  *
  *  Method: people.contactGroups.get
  *
@@ -203,8 +255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Specifies the maximum number of members to return. Defaults to 0
- *  if not
- *  set, which will return zero members.
+ *  if not set, which will return zero members.
  */
 @property(nonatomic, assign) NSInteger maxMembers;
 
@@ -214,8 +265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_ContactGroup.
  *
- *  Get a specific contact group owned by the authenticated user by specifying
- *  a contact group resource name.
+ *  Get a specific contact group owned by the authenticated user by specifying a
+ *  contact group resource name.
  *
  *  @param resourceName Required. The resource name of the contact group to get.
  *
@@ -241,15 +292,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. The maximum number of resources to return. Valid values are
- *  between 1 and
- *  1000, inclusive. Defaults to 30 if not set or set to 0.
+ *  between 1 and 1000, inclusive. Defaults to 30 if not set or set to 0.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. The next_page_token value returned from a previous call to
- *  [ListContactGroups](/people/api/rest/v1/contactgroups/list).
- *  Requests the next page of resources.
+ *  [ListContactGroups](/people/api/rest/v1/contactgroups/list). Requests the
+ *  next page of resources.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -276,10 +326,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Modify the members of a contact group owned by the authenticated user.
- *  The only system contact groups that can have members added are
- *  `contactGroups/myContacts` and `contactGroups/starred`. Other system
- *  contact groups are deprecated and can only have contacts removed.
+ *  Modify the members of a contact group owned by the authenticated user. The
+ *  only system contact groups that can have members added are
+ *  `contactGroups/myContacts` and `contactGroups/starred`. Other system contact
+ *  groups are deprecated and can only have contacts removed.
  *
  *  Method: people.contactGroups.members.modify
  *
@@ -296,10 +346,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_ModifyContactGroupMembersResponse.
  *
- *  Modify the members of a contact group owned by the authenticated user.
- *  The only system contact groups that can have members added are
- *  `contactGroups/myContacts` and `contactGroups/starred`. Other system
- *  contact groups are deprecated and can only have contacts removed.
+ *  Modify the members of a contact group owned by the authenticated user. The
+ *  only system contact groups that can have members added are
+ *  `contactGroups/myContacts` and `contactGroups/starred`. Other system contact
+ *  groups are deprecated and can only have contacts removed.
  *
  *  @param object The @c GTLRPeopleService_ModifyContactGroupMembersRequest to
  *    include in the query.
@@ -341,8 +391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  @param object The @c GTLRPeopleService_UpdateContactGroupRequest to include
  *    in the query.
  *  @param resourceName The resource name for the contact group, assigned by the
- *    server. An ASCII
- *    string, in the form of `contactGroups/{contact_group_id}`.
+ *    server. An ASCII string, in the form of
+ *    `contactGroups/{contact_group_id}`.
  *
  *  @return GTLRPeopleServiceQuery_ContactGroupsUpdate
  */
@@ -386,9 +436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  List all "Other contacts", that is contacts that are not in a contact
- *  group. "Other contacts" are typically auto created contacts from
- *  interactions.
+ *  List all "Other contacts", that is contacts that are not in a contact group.
+ *  "Other contacts" are typically auto created contacts from interactions.
  *
  *  Method: people.otherContacts.list
  *
@@ -401,26 +450,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. The number of "Other contacts" to include in the response. Valid
- *  values are
- *  between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0.
+ *  values are between 1 and 1000, inclusive. Defaults to 100 if not set or set
+ *  to 0.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. A page token, received from a previous `ListOtherContacts` call.
- *  Provide this to retrieve the subsequent page.
- *  When paginating, all other parameters provided to `ListOtherContacts`
- *  must match the call that provided the page token.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListOtherContacts` must match the call that provided
+ *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Valid values are:
- *  * emailAddresses
- *  * names
- *  * phoneNumbers
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * emailAddresses * names * phoneNumbers
  *
  *  String format is a comma-separated list of fields.
  */
@@ -428,28 +474,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Whether the response should include `next_sync_token`, which can
- *  be used to
- *  get all changes since the last request. For subsequent sync requests use
- *  the `sync_token` param instead. Initial sync requests that specify
- *  `request_sync_token` have an additional rate limit.
+ *  be used to get all changes since the last request. For subsequent sync
+ *  requests use the `sync_token` param instead. Initial sync requests that
+ *  specify `request_sync_token` have an additional rate limit.
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
 
 /**
  *  Optional. A sync token, received from a previous `ListOtherContacts` call.
  *  Provide this to retrieve only the resources changed since the last request.
- *  Sync requests that specify `sync_token` have an additional rate limit.
- *  When syncing, all other parameters provided to `ListOtherContacts`
- *  must match the call that provided the sync token.
+ *  Sync requests that specify `sync_token` have an additional rate limit. When
+ *  syncing, all other parameters provided to `ListOtherContacts` must match the
+ *  call that provided the sync token.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRPeopleService_ListOtherContactsResponse.
  *
- *  List all "Other contacts", that is contacts that are not in a contact
- *  group. "Other contacts" are typically auto created contacts from
- *  interactions.
+ *  List all "Other contacts", that is contacts that are not in a contact group.
+ *  "Other contacts" are typically auto created contacts from interactions.
  *
  *  @return GTLRPeopleServiceQuery_OtherContactsList
  *
@@ -462,8 +506,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Provides a list of the authenticated user's contacts.
- *  The request throws a 400 error if 'personFields' is not specified.
+ *  Provides a list of the authenticated user's contacts. The request throws a
+ *  400 error if 'personFields' is not specified.
  *
  *  Method: people.people.connections.list
  *
@@ -477,48 +521,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. The number of connections to include in the response. Valid values
- *  are
- *  between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0.
+ *  are between 1 and 1000, inclusive. Defaults to 100 if not set or set to 0.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. A page token, received from a previous `ListConnections` call.
- *  Provide this to retrieve the subsequent page.
- *  When paginating, all other parameters provided to `ListConnections`
- *  must match the call that provided the page token.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListConnections` must match the call that provided
+ *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * residences * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -526,9 +548,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. Comma-separated list of person fields to be included in the
- *  response. Each
- *  path should start with `person.`: for example, `person.names` or
- *  `person.photos`.
+ *  response. Each path should start with `person.`: for example, `person.names`
+ *  or `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -536,10 +557,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Whether the response should include `next_sync_token`, which can
- *  be used to
- *  get all changes since the last request. For subsequent sync requests use
- *  the `sync_token` param instead. Initial sync requests that specify
- *  `request_sync_token` have an additional rate limit.
+ *  be used to get all changes since the last request. For subsequent sync
+ *  requests use the `sync_token` param instead. Initial sync requests that
+ *  specify `request_sync_token` have an additional rate limit.
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
 
@@ -554,50 +574,50 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  `LAST_MODIFIED_ASCENDING`.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedAscending Value
- *        "LAST_MODIFIED_ASCENDING"
- *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedDescending Value
- *        "LAST_MODIFIED_DESCENDING"
- *    @arg @c kGTLRPeopleServiceSortOrderFirstNameAscending Value
- *        "FIRST_NAME_ASCENDING"
- *    @arg @c kGTLRPeopleServiceSortOrderLastNameAscending Value
- *        "LAST_NAME_ASCENDING"
+ *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedAscending Sort people by
+ *        when they were changed; older entries first. (Value:
+ *        "LAST_MODIFIED_ASCENDING")
+ *    @arg @c kGTLRPeopleServiceSortOrderLastModifiedDescending Sort people by
+ *        when they were changed; newer entries first. (Value:
+ *        "LAST_MODIFIED_DESCENDING")
+ *    @arg @c kGTLRPeopleServiceSortOrderFirstNameAscending Sort people by first
+ *        name. (Value: "FIRST_NAME_ASCENDING")
+ *    @arg @c kGTLRPeopleServiceSortOrderLastNameAscending Sort people by last
+ *        name. (Value: "LAST_NAME_ASCENDING")
  */
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT
- *  and
- *  ReadSourceType.PROFILE if not
- *  set.
+ *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Value
- *        "READ_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Value
- *        "READ_SOURCE_TYPE_PROFILE"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Value
- *        "READ_SOURCE_TYPE_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Value
- *        "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
 /**
  *  Optional. A sync token, received from a previous `ListConnections` call.
  *  Provide this to retrieve only the resources changed since the last request.
- *  Sync requests that specify `sync_token` have an additional rate limit.
- *  When syncing, all other parameters provided to `ListConnections`
- *  must match the call that provided the sync token.
+ *  Sync requests that specify `sync_token` have an additional rate limit. When
+ *  syncing, all other parameters provided to `ListConnections` must match the
+ *  call that provided the sync token.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
 /**
  *  Fetches a @c GTLRPeopleService_ListConnectionsResponse.
  *
- *  Provides a list of the authenticated user's contacts.
- *  The request throws a 400 error if 'personFields' is not specified.
+ *  Provides a list of the authenticated user's contacts. The request throws a
+ *  400 error if 'personFields' is not specified.
  *
  *  @param resourceName Required. The resource name to return connections for.
  *    Only `people/me` is valid.
@@ -613,7 +633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Create a new contact and return the person resource for that contact.
+ *  Create a new contact and return the person resource for that contact. The
+ *  request throws a 400 error if more than one field is specified on a field
+ *  that is a singleton for contact sources: * biographies * birthdays * genders
+ *  * names
  *
  *  Method: people.people.createContact
  *
@@ -626,34 +649,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Defaults to all
- *  fields if not set. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Defaults to
+ *  all fields if not set. Valid values are: * addresses * ageRanges *
+ *  biographies * birthdays * calendarUrls * coverPhotos * emailAddresses *
+ *  events * externalIds * genders * imClients * interests * locales *
+ *  memberships * metadata * miscKeywords * names * nicknames * occupations *
+ *  organizations * phoneNumbers * photos * relations * residences *
+ *  sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -661,26 +663,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and
- *  ReadSourceType.PROFILE if not
- *  set.
+ *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Value
- *        "READ_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Value
- *        "READ_SOURCE_TYPE_PROFILE"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Value
- *        "READ_SOURCE_TYPE_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Value
- *        "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
 /**
  *  Fetches a @c GTLRPeopleService_Person.
  *
- *  Create a new contact and return the person resource for that contact.
+ *  Create a new contact and return the person resource for that contact. The
+ *  request throws a 400 error if more than one field is specified on a field
+ *  that is a singleton for contact sources: * biographies * birthdays * genders
+ *  * names
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *
@@ -732,34 +736,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A field mask to restrict which fields on the person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Defaults to empty
- *  if not set, which will skip the post mutate get. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Defaults to
+ *  empty if not set, which will skip the post mutate get. Valid values are: *
+ *  addresses * ageRanges * biographies * birthdays * calendarUrls * coverPhotos
+ *  * emailAddresses * events * externalIds * genders * imClients * interests *
+ *  locales * memberships * metadata * miscKeywords * names * nicknames *
+ *  occupations * organizations * phoneNumbers * photos * relations * residences
+ *  * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -770,19 +753,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and
- *  ReadSourceType.PROFILE if not
- *  set.
+ *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Value
- *        "READ_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Value
- *        "READ_SOURCE_TYPE_PROFILE"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Value
- *        "READ_SOURCE_TYPE_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Value
- *        "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -802,8 +784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Provides information about a person by specifying a resource name. Use
- *  `people/me` to indicate the authenticated user.
- *  The request throws a 400 error if 'personFields' is not specified.
+ *  `people/me` to indicate the authenticated user. The request throws a 400
+ *  error if 'personFields' is not specified.
  *
  *  Method: people.people.get
  *
@@ -826,33 +808,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. A field mask to restrict which fields on the person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * residences * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -860,41 +821,37 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. Comma-separated list of person fields to be included in the
- *  response. Each
- *  path should start with `person.`: for example, `person.names` or
- *  `person.photos`.
+ *  response. Each path should start with `person.`: for example, `person.names`
+ *  or `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  Required. The resource name of the person to provide information about.
- *  - To get information about the authenticated user, specify `people/me`.
- *  - To get information about a google account, specify
- *  `people/{account_id}`.
- *  - To get information about a contact, specify the resource name that
- *  identifies the contact as returned by
+ *  Required. The resource name of the person to provide information about. - To
+ *  get information about the authenticated user, specify `people/me`. - To get
+ *  information about a google account, specify `people/{account_id}`. - To get
+ *  information about a contact, specify the resource name that identifies the
+ *  contact as returned by
  *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.PROFILE
- *  and
- *  ReadSourceType.CONTACT
- *  if not set.
+ *  ReadSourceType.PROFILE and ReadSourceType.CONTACT if not set.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Value
- *        "READ_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Value
- *        "READ_SOURCE_TYPE_PROFILE"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Value
- *        "READ_SOURCE_TYPE_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Value
- *        "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -902,16 +859,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_Person.
  *
  *  Provides information about a person by specifying a resource name. Use
- *  `people/me` to indicate the authenticated user.
- *  The request throws a 400 error if 'personFields' is not specified.
+ *  `people/me` to indicate the authenticated user. The request throws a 400
+ *  error if 'personFields' is not specified.
  *
  *  @param resourceName Required. The resource name of the person to provide
- *    information about.
- *    - To get information about the authenticated user, specify `people/me`.
- *    - To get information about a google account, specify
- *    `people/{account_id}`.
- *    - To get information about a contact, specify the resource name that
- *    identifies the contact as returned by
+ *    information about. - To get information about the authenticated user,
+ *    specify `people/me`. - To get information about a google account, specify
+ *    `people/{account_id}`. - To get information about a contact, specify the
+ *    resource name that identifies the contact as returned by
  *    [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  *
  *  @return GTLRPeopleServiceQuery_PeopleGet
@@ -921,10 +876,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Provides information about a list of specific people by specifying a list
- *  of requested resource names. Use `people/me` to indicate the authenticated
- *  user.
- *  The request throws a 400 error if 'personFields' is not specified.
+ *  Provides information about a list of specific people by specifying a list of
+ *  requested resource names. Use `people/me` to indicate the authenticated
+ *  user. The request throws a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.getBatchGet
  *
@@ -947,33 +901,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * residences * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -981,21 +914,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. Comma-separated list of person fields to be included in the
- *  response. Each
- *  path should start with `person.`: for example, `person.names` or
- *  `person.photos`.
+ *  response. Each path should start with `person.`: for example, `person.names`
+ *  or `person.photos`.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  Required. The resource names of the people to provide information about.
- *  - To get information about the authenticated user, specify `people/me`.
- *  - To get information about a google account, specify
- *  `people/{account_id}`.
- *  - To get information about a contact, specify the resource name that
- *  identifies the contact as returned by
+ *  Required. The resource names of the people to provide information about. -
+ *  To get information about the authenticated user, specify `people/me`. - To
+ *  get information about a google account, specify `people/{account_id}`. - To
+ *  get information about a contact, specify the resource name that identifies
+ *  the contact as returned by
  *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  *  You can include up to 50 resource names in one request.
  */
@@ -1003,30 +934,27 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT
- *  and
- *  ReadSourceType.PROFILE
- *  if not set.
+ *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Value
- *        "READ_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Value
- *        "READ_SOURCE_TYPE_PROFILE"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Value
- *        "READ_SOURCE_TYPE_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Value
- *        "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
 /**
  *  Fetches a @c GTLRPeopleService_GetPeopleResponse.
  *
- *  Provides information about a list of specific people by specifying a list
- *  of requested resource names. Use `people/me` to indicate the authenticated
- *  user.
- *  The request throws a 400 error if 'personFields' is not specified.
+ *  Provides information about a list of specific people by specifying a list of
+ *  requested resource names. Use `people/me` to indicate the authenticated
+ *  user. The request throws a 400 error if 'personFields' is not specified.
  *
  *  @return GTLRPeopleServiceQuery_PeopleGetBatchGet
  */
@@ -1049,14 +977,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Additional data to merge into the directory sources if they are
- *  connected
- *  through verified join keys such as email addresses or phone numbers.
+ *  connected through verified join keys such as email addresses or phone
+ *  numbers.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeUnspecified
- *        Value "DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeContact
- *        Value "DIRECTORY_MERGE_SOURCE_TYPE_CONTACT"
+ *        Unspecified. (Value: "DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeContact User
+ *        owned contact. (Value: "DIRECTORY_MERGE_SOURCE_TYPE_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mergeSources;
 
@@ -1068,41 +996,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A page token, received from a previous `ListDirectoryPeople` call.
- *  Provide this to retrieve the subsequent page.
- *  When paginating, all other parameters provided to `ListDirectoryPeople`
- *  must match the call that provided the page token.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListDirectoryPeople` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * residences * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1110,9 +1017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Whether the response should include `next_sync_token`, which can
- *  be used to
- *  get all changes since the last request. For subsequent sync requests use
- *  the `sync_token` param instead.
+ *  be used to get all changes since the last request. For subsequent sync
+ *  requests use the `sync_token` param instead.
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
 
@@ -1120,20 +1026,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. Directory sources to return.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified Value
- *        "DIRECTORY_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact Value
- *        "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile Value
- *        "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE"
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified
+ *        Unspecified. (Value: "DIRECTORY_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact G Suite
+ *        domain shared contact. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile G Suite
+ *        domain profile. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
 /**
  *  Optional. A sync token, received from a previous `ListDirectoryPeople` call.
  *  Provide this to retrieve only the resources changed since the last request.
- *  When syncing, all other parameters provided to `ListDirectoryPeople`
- *  must match the call that provided the sync token.
+ *  When syncing, all other parameters provided to `ListDirectoryPeople` must
+ *  match the call that provided the sync token.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
@@ -1168,14 +1074,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. Additional data to merge into the directory sources if they are
- *  connected
- *  through verified join keys such as email addresses or phone numbers.
+ *  connected through verified join keys such as email addresses or phone
+ *  numbers.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeUnspecified
- *        Value "DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeContact
- *        Value "DIRECTORY_MERGE_SOURCE_TYPE_CONTACT"
+ *        Unspecified. (Value: "DIRECTORY_MERGE_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceMergeSourcesDirectoryMergeSourceTypeContact User
+ *        owned contact. (Value: "DIRECTORY_MERGE_SOURCE_TYPE_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mergeSources;
 
@@ -1187,10 +1093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A page token, received from a previous `SearchDirectoryPeople`
- *  call.
- *  Provide this to retrieve the subsequent page.
- *  When paginating, all other parameters provided to `SearchDirectoryPeople`
- *  must match the call that provided the page token.
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `SearchDirectoryPeople` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1202,33 +1107,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * residences * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1238,12 +1122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. Directory sources to return.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified Value
- *        "DIRECTORY_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact Value
- *        "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile Value
- *        "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE"
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified
+ *        Unspecified. (Value: "DIRECTORY_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact G Suite
+ *        domain shared contact. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile G Suite
+ *        domain profile. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1265,15 +1149,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Update contact data for an existing contact person. Any non-contact data
- *  will not be modified.
- *  The request throws a 400 error if `updatePersonFields` is not specified.
- *  The request throws a 400 error if `person.metadata.sources` is not
- *  specified for the contact to be updated.
- *  The request throws a 400 error with an error with reason
- *  `"failedPrecondition"` if `person.metadata.sources.etag` is different than
- *  the contact's etag, which indicates the contact has changed since its data
- *  was read. Clients should get the latest person and re-apply their updates
- *  to the latest person.
+ *  will not be modified. Any non-contact data in the person to update will be
+ *  ignored. All fields specified in the `update_mask` will be replaced. The
+ *  server returns a 400 error if `person.metadata.sources` is not specified for
+ *  the contact to be updated or if there is no contact source. The server
+ *  returns a 400 error with reason `"failedPrecondition"` if
+ *  `person.metadata.sources.etag` is different than the contact's etag, which
+ *  indicates the contact has changed since its data was read. Clients should
+ *  get the latest person and merge their updates into the latest person. The
+ *  server returns a 400 error if `memberships` are being updated and there are
+ *  no contact group memberships specified on the person. The server returns a
+ *  400 error if more than one field is specified on a field that is a singleton
+ *  for contact sources: * biographies * birthdays * genders * names
  *
  *  Method: people.people.updateContact
  *
@@ -1286,34 +1173,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A field mask to restrict which fields on each person are returned.
- *  Multiple
- *  fields can be specified by separating them with commas. Defaults to all
- *  fields if not set. Valid values are:
- *  * addresses
- *  * ageRanges
- *  * biographies
- *  * birthdays
- *  * coverPhotos
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * metadata
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * photos
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * skills
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. Defaults to
+ *  all fields if not set. Valid values are: * addresses * ageRanges *
+ *  biographies * birthdays * calendarUrls * coverPhotos * emailAddresses *
+ *  events * externalIds * genders * imClients * interests * locales *
+ *  memberships * metadata * miscKeywords * names * nicknames * occupations *
+ *  organizations * phoneNumbers * photos * relations * residences *
+ *  sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1321,54 +1187,35 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  The resource name for the person, assigned by the server. An ASCII string
- *  with a max length of 27 characters, in the form of
- *  `people/{person_id}`.
+ *  with a max length of 27 characters, in the form of `people/{person_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and
- *  ReadSourceType.PROFILE if not
- *  set.
+ *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
  *
  *  Likely values:
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Value
- *        "READ_SOURCE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Value
- *        "READ_SOURCE_TYPE_PROFILE"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Value
- *        "READ_SOURCE_TYPE_CONTACT"
- *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Value
- *        "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
 /**
  *  Required. A field mask to restrict which fields on the person are updated.
- *  Multiple
- *  fields can be specified by separating them with commas.
- *  All updated fields will be replaced. Valid values are:
- *  * addresses
- *  * biographies
- *  * birthdays
- *  * emailAddresses
- *  * events
- *  * genders
- *  * imClients
- *  * interests
- *  * locales
- *  * memberships
- *  * names
- *  * nicknames
- *  * occupations
- *  * organizations
- *  * phoneNumbers
- *  * relations
- *  * residences
- *  * sipAddresses
- *  * urls
- *  * userDefined
+ *  Multiple fields can be specified by separating them with commas. All updated
+ *  fields will be replaced. Valid values are: * addresses * biographies *
+ *  birthdays * calendarUrls * emailAddresses * events * externalIds * genders *
+ *  imClients * interests * locales * memberships * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * relations *
+ *  residences * sipAddresses * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1378,20 +1225,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_Person.
  *
  *  Update contact data for an existing contact person. Any non-contact data
- *  will not be modified.
- *  The request throws a 400 error if `updatePersonFields` is not specified.
- *  The request throws a 400 error if `person.metadata.sources` is not
- *  specified for the contact to be updated.
- *  The request throws a 400 error with an error with reason
- *  `"failedPrecondition"` if `person.metadata.sources.etag` is different than
- *  the contact's etag, which indicates the contact has changed since its data
- *  was read. Clients should get the latest person and re-apply their updates
- *  to the latest person.
+ *  will not be modified. Any non-contact data in the person to update will be
+ *  ignored. All fields specified in the `update_mask` will be replaced. The
+ *  server returns a 400 error if `person.metadata.sources` is not specified for
+ *  the contact to be updated or if there is no contact source. The server
+ *  returns a 400 error with reason `"failedPrecondition"` if
+ *  `person.metadata.sources.etag` is different than the contact's etag, which
+ *  indicates the contact has changed since its data was read. Clients should
+ *  get the latest person and merge their updates into the latest person. The
+ *  server returns a 400 error if `memberships` are being updated and there are
+ *  no contact group memberships specified on the person. The server returns a
+ *  400 error if more than one field is specified on a field that is a singleton
+ *  for contact sources: * biographies * birthdays * genders * names
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *  @param resourceName The resource name for the person, assigned by the
- *    server. An ASCII string
- *    with a max length of 27 characters, in the form of
+ *    server. An ASCII string with a max length of 27 characters, in the form of
  *    `people/{person_id}`.
  *
  *  @return GTLRPeopleServiceQuery_PeopleUpdateContact

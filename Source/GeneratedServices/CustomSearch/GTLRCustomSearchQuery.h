@@ -33,115 +33,287 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // imgColorType
 
-/** Value: "color" */
+/**
+ *  Color images only.
+ *
+ *  Value: "color"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgColorTypeColor;
-/** Value: "gray" */
+/**
+ *  Grayscale images only.
+ *
+ *  Value: "gray"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgColorTypeGray;
-/** Value: "imgColorTypeUndefined" */
+/**
+ *  No image color type specified.
+ *
+ *  Value: "imgColorTypeUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgColorTypeImgColorTypeUndefined;
-/** Value: "mono" */
+/**
+ *  Black and white images only.
+ *
+ *  Value: "mono"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgColorTypeMono;
-/** Value: "trans" */
+/**
+ *  Images with transparent background
+ *
+ *  Value: "trans"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgColorTypeTrans;
 
 // ----------------------------------------------------------------------------
 // imgDominantColor
 
-/** Value: "black" */
+/**
+ *  Predominantly black images only.
+ *
+ *  Value: "black"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorBlack;
-/** Value: "blue" */
+/**
+ *  Predominantly blue images only.
+ *
+ *  Value: "blue"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorBlue;
-/** Value: "brown" */
+/**
+ *  Predominantly brown images only.
+ *
+ *  Value: "brown"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorBrown;
-/** Value: "gray" */
+/**
+ *  Predominantly gray images only.
+ *
+ *  Value: "gray"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorGray;
-/** Value: "green" */
+/**
+ *  Predominantly green images only.
+ *
+ *  Value: "green"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorGreen;
-/** Value: "imgDominantColorUndefined" */
+/**
+ *  No dominant color specified.
+ *
+ *  Value: "imgDominantColorUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorImgDominantColorUndefined;
-/** Value: "orange" */
+/**
+ *  Predominantly orange images only.
+ *
+ *  Value: "orange"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorOrange;
-/** Value: "pink" */
+/**
+ *  Predominantly pink images only.
+ *
+ *  Value: "pink"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorPink;
-/** Value: "purple" */
+/**
+ *  Predominantly purple images only.
+ *
+ *  Value: "purple"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorPurple;
-/** Value: "red" */
+/**
+ *  Predominantly red images only.
+ *
+ *  Value: "red"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorRed;
-/** Value: "teal" */
+/**
+ *  Predominantly teal images only.
+ *
+ *  Value: "teal"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorTeal;
-/** Value: "white" */
+/**
+ *  Predominantly white images only.
+ *
+ *  Value: "white"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorWhite;
-/** Value: "yellow" */
+/**
+ *  Predominantly yellow images only.
+ *
+ *  Value: "yellow"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgDominantColorYellow;
 
 // ----------------------------------------------------------------------------
 // imgSize
 
-/** Value: "HUGE" */
+/**
+ *  Only the largest possible images.
+ *
+ *  Value: "HUGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeHuge;
-/** Value: "ICON" */
+/**
+ *  Only very small icon-sized images.
+ *
+ *  Value: "ICON"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeIcon;
-/** Value: "imgSizeUndefined" */
+/**
+ *  No image size specified.
+ *
+ *  Value: "imgSizeUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeImgSizeUndefined;
-/** Value: "LARGE" */
+/**
+ *  Only large images.
+ *
+ *  Value: "LARGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeLarge;
-/** Value: "MEDIUM" */
+/**
+ *  Only medium images.
+ *
+ *  Value: "MEDIUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeMedium;
-/** Value: "SMALL" */
+/**
+ *  Only small images.
+ *
+ *  Value: "SMALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeSmall;
-/** Value: "XLARGE" */
+/**
+ *  Only very large images.
+ *
+ *  Value: "XLARGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeXlarge;
-/** Value: "XXLARGE" */
+/**
+ *  Only extremely large images.
+ *
+ *  Value: "XXLARGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgSizeXxlarge;
 
 // ----------------------------------------------------------------------------
 // imgType
 
-/** Value: "animated" */
+/**
+ *  Animated images only.
+ *
+ *  Value: "animated"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypeAnimated;
-/** Value: "clipart" */
+/**
+ *  Clipart-style images only.
+ *
+ *  Value: "clipart"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypeClipart;
-/** Value: "face" */
+/**
+ *  Images of faces only.
+ *
+ *  Value: "face"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypeFace;
-/** Value: "imgTypeUndefined" */
+/**
+ *  No image type specified.
+ *
+ *  Value: "imgTypeUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypeImgTypeUndefined;
-/** Value: "lineart" */
+/**
+ *  Line art images only.
+ *
+ *  Value: "lineart"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypeLineart;
-/** Value: "photo" */
+/**
+ *  Photo images only.
+ *
+ *  Value: "photo"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypePhoto;
-/** Value: "stock" */
+/**
+ *  Stock images only.
+ *
+ *  Value: "stock"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchImgTypeStock;
 
 // ----------------------------------------------------------------------------
 // safe
 
-/** Value: "active" */
+/**
+ *  Turn SafeSearch on.
+ *
+ *  Value: "active"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSafeActive;
-/** Value: "high" */
+/**
+ *  Deprecated, equivalent to "active".
+ *
+ *  Value: "high"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSafeHigh;
-/** Value: "medium" */
+/**
+ *  Deprecated, equivalent to "active".
+ *
+ *  Value: "medium"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSafeMedium;
-/** Value: "off" */
+/**
+ *  Turn SafeSearch off.
+ *
+ *  Value: "off"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSafeOff;
-/** Value: "safeUndefined" */
+/**
+ *  SafeSearch mode unspecified. (Falls back to engine's configuration.)
+ *
+ *  Value: "safeUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSafeSafeUndefined;
 
 // ----------------------------------------------------------------------------
 // searchType
 
-/** Value: "image" */
+/**
+ *  Image search.
+ *
+ *  Value: "image"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSearchTypeImage;
-/** Value: "searchTypeUndefined" */
+/**
+ *  Search type unspecified (defaults to web search).
+ *
+ *  Value: "searchTypeUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSearchTypeSearchTypeUndefined;
 
 // ----------------------------------------------------------------------------
 // siteSearchFilter
 
-/** Value: "e" */
+/**
+ *  Exclude results from the listed sites.
+ *
+ *  Value: "e"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterE;
-/** Value: "i" */
+/**
+ *  Include only results from the listed sites.
+ *
+ *  Value: "i"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterI;
-/** Value: "siteSearchFilterUndefined" */
+/**
+ *  Filter mode unspecified.
+ *
+ *  Value: "siteSearchFilterUndefined"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFilterUndefined;
 
 // ----------------------------------------------------------------------------
@@ -159,8 +331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @end
 
 /**
- *  Returns metadata about the search performed, metadata about the custom
- *  search engine used for the search, and the search results.
+ *  Returns metadata about the search performed, metadata about the engine used
+ *  for the search, and the search results.
  *
  *  Method: search.cse.list
  */
@@ -172,9 +344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
  *  Enables or disables [Simplified and Traditional Chinese
  *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch).
  *  The default value for this parameter is 0 (zero), meaning that the feature
- *  is enabled. Supported values are:
- *  * `1`: Disabled
- *  * `0`: Enabled (default)
+ *  is enabled. Supported values are: * `1`: Disabled * `0`: Enabled (default)
  */
 @property(nonatomic, copy, nullable) NSString *c2coff;
 
@@ -182,25 +352,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
  *  operators](https://developers.google.com/custom-search/docs/xml_results_appendices#booleanOperators)
- *  in the cr parameter's value.
- *  Google Search determines the country of a document by analyzing:
- *  * the top-level domain (TLD) of the document's URL
- *  * the geographic location of the Web server's IP address
- *  See the [Country Parameter
+ *  in the cr parameter's value. Google Search determines the country of a
+ *  document by analyzing: * the top-level domain (TLD) of the document's URL *
+ *  the geographic location of the Web server's IP address See the [Country
+ *  Parameter
  *  Values](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCollections)
  *  page for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
 
-/** The custom search engine ID to use for this request. */
+/** The Programmable Search Engine ID to use for this request. */
 @property(nonatomic, copy, nullable) NSString *cx;
 
 /**
- *  Restricts results to URLs based on date. Supported values include:
- *  * `d[number]`: requests results from the specified number of past days.
- *  * `w[number]`: requests results from the specified number of past weeks.
- *  * `m[number]`: requests results from the specified number of past months.
- *  * `y[number]`: requests results from the specified number of past years.
+ *  Restricts results to URLs based on date. Supported values include: *
+ *  `d[number]`: requests results from the specified number of past days. *
+ *  `w[number]`: requests results from the specified number of past weeks. *
+ *  `m[number]`: requests results from the specified number of past months. *
+ *  `y[number]`: requests results from the specified number of past years.
  */
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
@@ -223,52 +392,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  Controls turning on or off the duplicate content filter.
- *  * See [Automatic
+ *  Controls turning on or off the duplicate content filter. * See [Automatic
  *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
  *  for more information about Google's search results filters. Note that host
- *  crowding filtering applies only to multi-site searches.
- *  * By default, Google applies filtering to all search results to improve the
- *  quality of those results.
- *  Acceptable values are:
- *  * `0`: Turns off duplicate content filter.
- *  * `1`: Turns on duplicate content filter.
+ *  crowding filtering applies only to multi-site searches. * By default, Google
+ *  applies filtering to all search results to improve the quality of those
+ *  results. Acceptable values are: * `0`: Turns off duplicate content filter. *
+ *  `1`: Turns on duplicate content filter.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Geolocation of end user.
- *  * The `gl` parameter value is a two-letter country code. The `gl` parameter
- *  boosts search results whose country of origin matches the parameter value.
- *  See the [Country
+ *  Geolocation of end user. * The `gl` parameter value is a two-letter country
+ *  code. The `gl` parameter boosts search results whose country of origin
+ *  matches the parameter value. See the [Country
  *  Codes](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes)
- *  page for a list of valid values.
- *  * Specifying a `gl` parameter value should lead to more relevant results.
- *  This is particularly true for international customers and, even more
- *  specifically, for customers in English- speaking countries other than the
- *  United States.
+ *  page for a list of valid values. * Specifying a `gl` parameter value should
+ *  lead to more relevant results. This is particularly true for international
+ *  customers and, even more specifically, for customers in English- speaking
+ *  countries other than the United States.
  */
 @property(nonatomic, copy, nullable) NSString *gl;
 
 /**
- *  **Deprecated**. Use the `gl` parameter for a similar effect.
- *  The local Google domain (for example, google.com, google.de, or
- *  google.fr) to use to perform the search.
+ *  **Deprecated**. Use the `gl` parameter for a similar effect. The local
+ *  Google domain (for example, google.com, google.de, or google.fr) to use to
+ *  perform the search.
  */
 @property(nonatomic, copy, nullable) NSString *googlehost;
 
 /**
- *  Specifies the ending value for a search range.
- *  * Use `lowRange` and `highRange` to append an inclusive search range of
- *  `lowRange...highRange` to the query.
+ *  Specifies the ending value for a search range. * Use `lowRange` and
+ *  `highRange` to append an inclusive search range of `lowRange...highRange` to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *highRange;
 
 /**
- *  Sets the user interface language.
- *  * Explicitly setting this parameter improves the performance and the
- *  quality of your search results.
- *  * See the [Interface
+ *  Sets the user interface language. * Explicitly setting this parameter
+ *  improves the performance and the quality of your search results. * See the
+ *  [Interface
  *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
  *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
@@ -285,156 +448,133 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @property(nonatomic, copy, nullable) NSString *hq;
 
 /**
- *  Returns black and white, grayscale, transparent, or color images.
- *  Acceptable values are:
- *  * `"color"`
- *  * `"gray"`
- *  * `"mono"`: black and white
- *  * `"trans"`: transparent background
+ *  Returns black and white, grayscale, transparent, or color images. Acceptable
+ *  values are: * `"color"` * `"gray"` * `"mono"`: black and white * `"trans"`:
+ *  transparent background
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgColorTypeImgColorTypeUndefined Value
- *        "imgColorTypeUndefined"
- *    @arg @c kGTLRCustomSearchImgColorTypeMono Value "mono"
- *    @arg @c kGTLRCustomSearchImgColorTypeGray Value "gray"
- *    @arg @c kGTLRCustomSearchImgColorTypeColor Value "color"
- *    @arg @c kGTLRCustomSearchImgColorTypeTrans Value "trans"
+ *    @arg @c kGTLRCustomSearchImgColorTypeImgColorTypeUndefined No image color
+ *        type specified. (Value: "imgColorTypeUndefined")
+ *    @arg @c kGTLRCustomSearchImgColorTypeMono Black and white images only.
+ *        (Value: "mono")
+ *    @arg @c kGTLRCustomSearchImgColorTypeGray Grayscale images only. (Value:
+ *        "gray")
+ *    @arg @c kGTLRCustomSearchImgColorTypeColor Color images only. (Value:
+ *        "color")
+ *    @arg @c kGTLRCustomSearchImgColorTypeTrans Images with transparent
+ *        background (Value: "trans")
  */
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Returns images of a specific dominant color. Acceptable values are:
- *  * `"black"`
- *  * `"blue"`
- *  * `"brown"`
- *  * `"gray"`
- *  * `"green"`
- *  * `"orange"`
- *  * `"pink"`
- *  * `"purple"`
- *  * `"red"`
- *  * `"teal"`
- *  * `"white"`
- *  * `"yellow"`
+ *  Returns images of a specific dominant color. Acceptable values are: *
+ *  `"black"` * `"blue"` * `"brown"` * `"gray"` * `"green"` * `"orange"` *
+ *  `"pink"` * `"purple"` * `"red"` * `"teal"` * `"white"` * `"yellow"`
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgDominantColorImgDominantColorUndefined Value
- *        "imgDominantColorUndefined"
- *    @arg @c kGTLRCustomSearchImgDominantColorBlack Value "black"
- *    @arg @c kGTLRCustomSearchImgDominantColorBlue Value "blue"
- *    @arg @c kGTLRCustomSearchImgDominantColorBrown Value "brown"
- *    @arg @c kGTLRCustomSearchImgDominantColorGray Value "gray"
- *    @arg @c kGTLRCustomSearchImgDominantColorGreen Value "green"
- *    @arg @c kGTLRCustomSearchImgDominantColorOrange Value "orange"
- *    @arg @c kGTLRCustomSearchImgDominantColorPink Value "pink"
- *    @arg @c kGTLRCustomSearchImgDominantColorPurple Value "purple"
- *    @arg @c kGTLRCustomSearchImgDominantColorRed Value "red"
- *    @arg @c kGTLRCustomSearchImgDominantColorTeal Value "teal"
- *    @arg @c kGTLRCustomSearchImgDominantColorWhite Value "white"
- *    @arg @c kGTLRCustomSearchImgDominantColorYellow Value "yellow"
+ *    @arg @c kGTLRCustomSearchImgDominantColorImgDominantColorUndefined No
+ *        dominant color specified. (Value: "imgDominantColorUndefined")
+ *    @arg @c kGTLRCustomSearchImgDominantColorBlack Predominantly black images
+ *        only. (Value: "black")
+ *    @arg @c kGTLRCustomSearchImgDominantColorBlue Predominantly blue images
+ *        only. (Value: "blue")
+ *    @arg @c kGTLRCustomSearchImgDominantColorBrown Predominantly brown images
+ *        only. (Value: "brown")
+ *    @arg @c kGTLRCustomSearchImgDominantColorGray Predominantly gray images
+ *        only. (Value: "gray")
+ *    @arg @c kGTLRCustomSearchImgDominantColorGreen Predominantly green images
+ *        only. (Value: "green")
+ *    @arg @c kGTLRCustomSearchImgDominantColorOrange Predominantly orange
+ *        images only. (Value: "orange")
+ *    @arg @c kGTLRCustomSearchImgDominantColorPink Predominantly pink images
+ *        only. (Value: "pink")
+ *    @arg @c kGTLRCustomSearchImgDominantColorPurple Predominantly purple
+ *        images only. (Value: "purple")
+ *    @arg @c kGTLRCustomSearchImgDominantColorRed Predominantly red images
+ *        only. (Value: "red")
+ *    @arg @c kGTLRCustomSearchImgDominantColorTeal Predominantly teal images
+ *        only. (Value: "teal")
+ *    @arg @c kGTLRCustomSearchImgDominantColorWhite Predominantly white images
+ *        only. (Value: "white")
+ *    @arg @c kGTLRCustomSearchImgDominantColorYellow Predominantly yellow
+ *        images only. (Value: "yellow")
  */
 @property(nonatomic, copy, nullable) NSString *imgDominantColor;
 
 /**
- *  Returns images of a specified size. Acceptable values are:
- *  * `"huge"`
- *  * `"icon"`
- *  * `"large"`
- *  * `"medium"`
- *  * `"small"`
- *  * `"xlarge"`
- *  * `"xxlarge"`
+ *  Returns images of a specified size. Acceptable values are: * `"huge"` *
+ *  `"icon"` * `"large"` * `"medium"` * `"small"` * `"xlarge"` * `"xxlarge"`
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgSizeImgSizeUndefined Value "imgSizeUndefined"
- *    @arg @c kGTLRCustomSearchImgSizeHuge Value "HUGE"
- *    @arg @c kGTLRCustomSearchImgSizeIcon Value "ICON"
- *    @arg @c kGTLRCustomSearchImgSizeLarge Value "LARGE"
- *    @arg @c kGTLRCustomSearchImgSizeMedium Value "MEDIUM"
- *    @arg @c kGTLRCustomSearchImgSizeSmall Value "SMALL"
- *    @arg @c kGTLRCustomSearchImgSizeXlarge Value "XLARGE"
- *    @arg @c kGTLRCustomSearchImgSizeXxlarge Value "XXLARGE"
+ *    @arg @c kGTLRCustomSearchImgSizeImgSizeUndefined No image size specified.
+ *        (Value: "imgSizeUndefined")
+ *    @arg @c kGTLRCustomSearchImgSizeHuge Only the largest possible images.
+ *        (Value: "HUGE")
+ *    @arg @c kGTLRCustomSearchImgSizeIcon Only very small icon-sized images.
+ *        (Value: "ICON")
+ *    @arg @c kGTLRCustomSearchImgSizeLarge Only large images. (Value: "LARGE")
+ *    @arg @c kGTLRCustomSearchImgSizeMedium Only medium images. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRCustomSearchImgSizeSmall Only small images. (Value: "SMALL")
+ *    @arg @c kGTLRCustomSearchImgSizeXlarge Only very large images. (Value:
+ *        "XLARGE")
+ *    @arg @c kGTLRCustomSearchImgSizeXxlarge Only extremely large images.
+ *        (Value: "XXLARGE")
  */
 @property(nonatomic, copy, nullable) NSString *imgSize;
 
 /**
- *  Returns images of a type. Acceptable values are:
- *  * `"clipart"`
- *  * `"face"`
- *  * `"lineart"`
- *  * `"stock"`
- *  * `"photo"`
- *  * `"animated"`
+ *  Returns images of a type. Acceptable values are: * `"clipart"` * `"face"` *
+ *  `"lineart"` * `"stock"` * `"photo"` * `"animated"`
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgTypeImgTypeUndefined Value "imgTypeUndefined"
- *    @arg @c kGTLRCustomSearchImgTypeClipart Value "clipart"
- *    @arg @c kGTLRCustomSearchImgTypeFace Value "face"
- *    @arg @c kGTLRCustomSearchImgTypeLineart Value "lineart"
- *    @arg @c kGTLRCustomSearchImgTypeStock Value "stock"
- *    @arg @c kGTLRCustomSearchImgTypePhoto Value "photo"
- *    @arg @c kGTLRCustomSearchImgTypeAnimated Value "animated"
+ *    @arg @c kGTLRCustomSearchImgTypeImgTypeUndefined No image type specified.
+ *        (Value: "imgTypeUndefined")
+ *    @arg @c kGTLRCustomSearchImgTypeClipart Clipart-style images only. (Value:
+ *        "clipart")
+ *    @arg @c kGTLRCustomSearchImgTypeFace Images of faces only. (Value: "face")
+ *    @arg @c kGTLRCustomSearchImgTypeLineart Line art images only. (Value:
+ *        "lineart")
+ *    @arg @c kGTLRCustomSearchImgTypeStock Stock images only. (Value: "stock")
+ *    @arg @c kGTLRCustomSearchImgTypePhoto Photo images only. (Value: "photo")
+ *    @arg @c kGTLRCustomSearchImgTypeAnimated Animated images only. (Value:
+ *        "animated")
  */
 @property(nonatomic, copy, nullable) NSString *imgType;
 
 /**
- *  Specifies that all search results should contain a link to a particular
- *  URL.
+ *  Specifies that all search results should contain a link to a particular URL.
  */
 @property(nonatomic, copy, nullable) NSString *linkSite;
 
 /**
  *  Specifies the starting value for a search range. Use `lowRange` and
- *  `highRange` to append an inclusive search range of `lowRange...highRange`
- *  to the query.
+ *  `highRange` to append an inclusive search range of `lowRange...highRange` to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *lowRange;
 
 /**
  *  Restricts the search to documents written in a particular language (e.g.,
- *  `lr=lang_ja`).
- *  Acceptable values are:
- *  * `"lang_ar"`: Arabic
- *  * `"lang_bg"`: Bulgarian
- *  * `"lang_ca"`: Catalan
- *  * `"lang_cs"`: Czech
- *  * `"lang_da"`: Danish
- *  * `"lang_de"`: German
- *  * `"lang_el"`: Greek
- *  * `"lang_en"`: English
- *  * `"lang_es"`: Spanish
- *  * `"lang_et"`: Estonian
- *  * `"lang_fi"`: Finnish
- *  * `"lang_fr"`: French
- *  * `"lang_hr"`: Croatian
- *  * `"lang_hu"`: Hungarian
- *  * `"lang_id"`: Indonesian
- *  * `"lang_is"`: Icelandic
- *  * `"lang_it"`: Italian
- *  * `"lang_iw"`: Hebrew
- *  * `"lang_ja"`: Japanese
- *  * `"lang_ko"`: Korean
- *  * `"lang_lt"`: Lithuanian
- *  * `"lang_lv"`: Latvian
- *  * `"lang_nl"`: Dutch
- *  * `"lang_no"`: Norwegian
- *  * `"lang_pl"`: Polish
- *  * `"lang_pt"`: Portuguese
- *  * `"lang_ro"`: Romanian
- *  * `"lang_ru"`: Russian
- *  * `"lang_sk"`: Slovak
- *  * `"lang_sl"`: Slovenian
- *  * `"lang_sr"`: Serbian
- *  * `"lang_sv"`: Swedish
- *  * `"lang_tr"`: Turkish
- *  * `"lang_zh-CN"`: Chinese (Simplified)
- *  * `"lang_zh-TW"`: Chinese (Traditional)
+ *  `lr=lang_ja`). Acceptable values are: * `"lang_ar"`: Arabic * `"lang_bg"`:
+ *  Bulgarian * `"lang_ca"`: Catalan * `"lang_cs"`: Czech * `"lang_da"`: Danish
+ *  * `"lang_de"`: German * `"lang_el"`: Greek * `"lang_en"`: English *
+ *  `"lang_es"`: Spanish * `"lang_et"`: Estonian * `"lang_fi"`: Finnish *
+ *  `"lang_fr"`: French * `"lang_hr"`: Croatian * `"lang_hu"`: Hungarian *
+ *  `"lang_id"`: Indonesian * `"lang_is"`: Icelandic * `"lang_it"`: Italian *
+ *  `"lang_iw"`: Hebrew * `"lang_ja"`: Japanese * `"lang_ko"`: Korean *
+ *  `"lang_lt"`: Lithuanian * `"lang_lv"`: Latvian * `"lang_nl"`: Dutch *
+ *  `"lang_no"`: Norwegian * `"lang_pl"`: Polish * `"lang_pt"`: Portuguese *
+ *  `"lang_ro"`: Romanian * `"lang_ru"`: Russian * `"lang_sk"`: Slovak *
+ *  `"lang_sl"`: Slovenian * `"lang_sr"`: Serbian * `"lang_sv"`: Swedish *
+ *  `"lang_tr"`: Turkish * `"lang_zh-CN"`: Chinese (Simplified) *
+ *  `"lang_zh-TW"`: Chinese (Traditional)
  */
 @property(nonatomic, copy, nullable) NSString *lr;
 
 /**
- *  Number of search results to return.
- *  * Valid values are integers between 1 and 10, inclusive.
+ *  Number of search results to return. * Valid values are integers between 1
+ *  and 10, inclusive.
  */
 @property(nonatomic, assign) NSInteger num;
 
@@ -463,29 +603,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @property(nonatomic, copy, nullable) NSString *rights;
 
 /**
- *  Search safety level. Acceptable values are:
- *  * `"active"`: Enables SafeSearch filtering.
- *  * `"off"`: Disables SafeSearch filtering. (default)
+ *  Search safety level. Acceptable values are: * `"active"`: Enables SafeSearch
+ *  filtering. * `"off"`: Disables SafeSearch filtering. (default)
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchSafeSafeUndefined Value "safeUndefined"
- *    @arg @c kGTLRCustomSearchSafeActive Value "active"
- *    @arg @c kGTLRCustomSearchSafeHigh Value "high"
- *    @arg @c kGTLRCustomSearchSafeMedium Value "medium"
- *    @arg @c kGTLRCustomSearchSafeOff Value "off"
+ *    @arg @c kGTLRCustomSearchSafeSafeUndefined SafeSearch mode unspecified.
+ *        (Falls back to engine's configuration.) (Value: "safeUndefined")
+ *    @arg @c kGTLRCustomSearchSafeActive Turn SafeSearch on. (Value: "active")
+ *    @arg @c kGTLRCustomSearchSafeHigh Deprecated, equivalent to "active".
+ *        (Value: "high")
+ *    @arg @c kGTLRCustomSearchSafeMedium Deprecated, equivalent to "active".
+ *        (Value: "medium")
+ *    @arg @c kGTLRCustomSearchSafeOff Turn SafeSearch off. (Value: "off")
  */
 @property(nonatomic, copy, nullable) NSString *safe;
 
 /**
  *  Specifies the search type: `image`. If unspecified, results are limited to
- *  webpages.
- *  Acceptable values are:
- *  * `"image"`: custom image search.
+ *  webpages. Acceptable values are: * `"image"`: custom image search.
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchSearchTypeSearchTypeUndefined Value
- *        "searchTypeUndefined"
- *    @arg @c kGTLRCustomSearchSearchTypeImage Value "image"
+ *    @arg @c kGTLRCustomSearchSearchTypeSearchTypeUndefined Search type
+ *        unspecified (defaults to web search). (Value: "searchTypeUndefined")
+ *    @arg @c kGTLRCustomSearchSearchTypeImage Image search. (Value: "image")
  */
 @property(nonatomic, copy, nullable) NSString *searchType;
 
@@ -497,24 +637,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 
 /**
  *  Controls whether to include or exclude results from the site named in the
- *  `siteSearch` parameter.
- *  Acceptable values are:
- *  * `"e"`: exclude
- *  * `"i"`: include
+ *  `siteSearch` parameter. Acceptable values are: * `"e"`: exclude * `"i"`:
+ *  include
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchSiteSearchFilterSiteSearchFilterUndefined Value
- *        "siteSearchFilterUndefined"
- *    @arg @c kGTLRCustomSearchSiteSearchFilterE Value "e"
- *    @arg @c kGTLRCustomSearchSiteSearchFilterI Value "i"
+ *    @arg @c kGTLRCustomSearchSiteSearchFilterSiteSearchFilterUndefined Filter
+ *        mode unspecified. (Value: "siteSearchFilterUndefined")
+ *    @arg @c kGTLRCustomSearchSiteSearchFilterE Exclude results from the listed
+ *        sites. (Value: "e")
+ *    @arg @c kGTLRCustomSearchSiteSearchFilterI Include only results from the
+ *        listed sites. (Value: "i")
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
 /**
  *  The sort expression to apply to the results. The sort parameter specifies
  *  that the results be sorted according to the specified expression i.e. sort
- *  by date.
- *  [Example:
+ *  by date. [Example:
  *  sort=date](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute).
  */
 @property(nonatomic, copy, nullable) NSString *sort;
@@ -532,8 +671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 /**
  *  Fetches a @c GTLRCustomSearch_Search.
  *
- *  Returns metadata about the search performed, metadata about the custom
- *  search engine used for the search, and the search results.
+ *  Returns metadata about the search performed, metadata about the engine used
+ *  for the search, and the search results.
  *
  *  @return GTLRCustomSearchQuery_CseList
  */
@@ -542,9 +681,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @end
 
 /**
- *  Returns metadata about the search performed, metadata about the custom
- *  search engine used for the search, and the search results. Uses a small set
- *  of url patterns.
+ *  Returns metadata about the search performed, metadata about the engine used
+ *  for the search, and the search results. Uses a small set of url patterns.
  *
  *  Method: search.cse.siterestrict.list
  */
@@ -556,9 +694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
  *  Enables or disables [Simplified and Traditional Chinese
  *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch).
  *  The default value for this parameter is 0 (zero), meaning that the feature
- *  is enabled. Supported values are:
- *  * `1`: Disabled
- *  * `0`: Enabled (default)
+ *  is enabled. Supported values are: * `1`: Disabled * `0`: Enabled (default)
  */
 @property(nonatomic, copy, nullable) NSString *c2coff;
 
@@ -566,25 +702,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
  *  operators](https://developers.google.com/custom-search/docs/xml_results_appendices#booleanOperators)
- *  in the cr parameter's value.
- *  Google Search determines the country of a document by analyzing:
- *  * the top-level domain (TLD) of the document's URL
- *  * the geographic location of the Web server's IP address
- *  See the [Country Parameter
+ *  in the cr parameter's value. Google Search determines the country of a
+ *  document by analyzing: * the top-level domain (TLD) of the document's URL *
+ *  the geographic location of the Web server's IP address See the [Country
+ *  Parameter
  *  Values](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCollections)
  *  page for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
 
-/** The custom search engine ID to use for this request. */
+/** The Programmable Search Engine ID to use for this request. */
 @property(nonatomic, copy, nullable) NSString *cx;
 
 /**
- *  Restricts results to URLs based on date. Supported values include:
- *  * `d[number]`: requests results from the specified number of past days.
- *  * `w[number]`: requests results from the specified number of past weeks.
- *  * `m[number]`: requests results from the specified number of past months.
- *  * `y[number]`: requests results from the specified number of past years.
+ *  Restricts results to URLs based on date. Supported values include: *
+ *  `d[number]`: requests results from the specified number of past days. *
+ *  `w[number]`: requests results from the specified number of past weeks. *
+ *  `m[number]`: requests results from the specified number of past months. *
+ *  `y[number]`: requests results from the specified number of past years.
  */
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
@@ -607,52 +742,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @property(nonatomic, copy, nullable) NSString *fileType;
 
 /**
- *  Controls turning on or off the duplicate content filter.
- *  * See [Automatic
+ *  Controls turning on or off the duplicate content filter. * See [Automatic
  *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
  *  for more information about Google's search results filters. Note that host
- *  crowding filtering applies only to multi-site searches.
- *  * By default, Google applies filtering to all search results to improve the
- *  quality of those results.
- *  Acceptable values are:
- *  * `0`: Turns off duplicate content filter.
- *  * `1`: Turns on duplicate content filter.
+ *  crowding filtering applies only to multi-site searches. * By default, Google
+ *  applies filtering to all search results to improve the quality of those
+ *  results. Acceptable values are: * `0`: Turns off duplicate content filter. *
+ *  `1`: Turns on duplicate content filter.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Geolocation of end user.
- *  * The `gl` parameter value is a two-letter country code. The `gl` parameter
- *  boosts search results whose country of origin matches the parameter value.
- *  See the [Country
+ *  Geolocation of end user. * The `gl` parameter value is a two-letter country
+ *  code. The `gl` parameter boosts search results whose country of origin
+ *  matches the parameter value. See the [Country
  *  Codes](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes)
- *  page for a list of valid values.
- *  * Specifying a `gl` parameter value should lead to more relevant results.
- *  This is particularly true for international customers and, even more
- *  specifically, for customers in English- speaking countries other than the
- *  United States.
+ *  page for a list of valid values. * Specifying a `gl` parameter value should
+ *  lead to more relevant results. This is particularly true for international
+ *  customers and, even more specifically, for customers in English- speaking
+ *  countries other than the United States.
  */
 @property(nonatomic, copy, nullable) NSString *gl;
 
 /**
- *  **Deprecated**. Use the `gl` parameter for a similar effect.
- *  The local Google domain (for example, google.com, google.de, or
- *  google.fr) to use to perform the search.
+ *  **Deprecated**. Use the `gl` parameter for a similar effect. The local
+ *  Google domain (for example, google.com, google.de, or google.fr) to use to
+ *  perform the search.
  */
 @property(nonatomic, copy, nullable) NSString *googlehost;
 
 /**
- *  Specifies the ending value for a search range.
- *  * Use `lowRange` and `highRange` to append an inclusive search range of
- *  `lowRange...highRange` to the query.
+ *  Specifies the ending value for a search range. * Use `lowRange` and
+ *  `highRange` to append an inclusive search range of `lowRange...highRange` to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *highRange;
 
 /**
- *  Sets the user interface language.
- *  * Explicitly setting this parameter improves the performance and the
- *  quality of your search results.
- *  * See the [Interface
+ *  Sets the user interface language. * Explicitly setting this parameter
+ *  improves the performance and the quality of your search results. * See the
+ *  [Interface
  *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
  *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
@@ -669,156 +798,133 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @property(nonatomic, copy, nullable) NSString *hq;
 
 /**
- *  Returns black and white, grayscale, transparent, or color images.
- *  Acceptable values are:
- *  * `"color"`
- *  * `"gray"`
- *  * `"mono"`: black and white
- *  * `"trans"`: transparent background
+ *  Returns black and white, grayscale, transparent, or color images. Acceptable
+ *  values are: * `"color"` * `"gray"` * `"mono"`: black and white * `"trans"`:
+ *  transparent background
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgColorTypeImgColorTypeUndefined Value
- *        "imgColorTypeUndefined"
- *    @arg @c kGTLRCustomSearchImgColorTypeMono Value "mono"
- *    @arg @c kGTLRCustomSearchImgColorTypeGray Value "gray"
- *    @arg @c kGTLRCustomSearchImgColorTypeColor Value "color"
- *    @arg @c kGTLRCustomSearchImgColorTypeTrans Value "trans"
+ *    @arg @c kGTLRCustomSearchImgColorTypeImgColorTypeUndefined No image color
+ *        type specified. (Value: "imgColorTypeUndefined")
+ *    @arg @c kGTLRCustomSearchImgColorTypeMono Black and white images only.
+ *        (Value: "mono")
+ *    @arg @c kGTLRCustomSearchImgColorTypeGray Grayscale images only. (Value:
+ *        "gray")
+ *    @arg @c kGTLRCustomSearchImgColorTypeColor Color images only. (Value:
+ *        "color")
+ *    @arg @c kGTLRCustomSearchImgColorTypeTrans Images with transparent
+ *        background (Value: "trans")
  */
 @property(nonatomic, copy, nullable) NSString *imgColorType;
 
 /**
- *  Returns images of a specific dominant color. Acceptable values are:
- *  * `"black"`
- *  * `"blue"`
- *  * `"brown"`
- *  * `"gray"`
- *  * `"green"`
- *  * `"orange"`
- *  * `"pink"`
- *  * `"purple"`
- *  * `"red"`
- *  * `"teal"`
- *  * `"white"`
- *  * `"yellow"`
+ *  Returns images of a specific dominant color. Acceptable values are: *
+ *  `"black"` * `"blue"` * `"brown"` * `"gray"` * `"green"` * `"orange"` *
+ *  `"pink"` * `"purple"` * `"red"` * `"teal"` * `"white"` * `"yellow"`
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgDominantColorImgDominantColorUndefined Value
- *        "imgDominantColorUndefined"
- *    @arg @c kGTLRCustomSearchImgDominantColorBlack Value "black"
- *    @arg @c kGTLRCustomSearchImgDominantColorBlue Value "blue"
- *    @arg @c kGTLRCustomSearchImgDominantColorBrown Value "brown"
- *    @arg @c kGTLRCustomSearchImgDominantColorGray Value "gray"
- *    @arg @c kGTLRCustomSearchImgDominantColorGreen Value "green"
- *    @arg @c kGTLRCustomSearchImgDominantColorOrange Value "orange"
- *    @arg @c kGTLRCustomSearchImgDominantColorPink Value "pink"
- *    @arg @c kGTLRCustomSearchImgDominantColorPurple Value "purple"
- *    @arg @c kGTLRCustomSearchImgDominantColorRed Value "red"
- *    @arg @c kGTLRCustomSearchImgDominantColorTeal Value "teal"
- *    @arg @c kGTLRCustomSearchImgDominantColorWhite Value "white"
- *    @arg @c kGTLRCustomSearchImgDominantColorYellow Value "yellow"
+ *    @arg @c kGTLRCustomSearchImgDominantColorImgDominantColorUndefined No
+ *        dominant color specified. (Value: "imgDominantColorUndefined")
+ *    @arg @c kGTLRCustomSearchImgDominantColorBlack Predominantly black images
+ *        only. (Value: "black")
+ *    @arg @c kGTLRCustomSearchImgDominantColorBlue Predominantly blue images
+ *        only. (Value: "blue")
+ *    @arg @c kGTLRCustomSearchImgDominantColorBrown Predominantly brown images
+ *        only. (Value: "brown")
+ *    @arg @c kGTLRCustomSearchImgDominantColorGray Predominantly gray images
+ *        only. (Value: "gray")
+ *    @arg @c kGTLRCustomSearchImgDominantColorGreen Predominantly green images
+ *        only. (Value: "green")
+ *    @arg @c kGTLRCustomSearchImgDominantColorOrange Predominantly orange
+ *        images only. (Value: "orange")
+ *    @arg @c kGTLRCustomSearchImgDominantColorPink Predominantly pink images
+ *        only. (Value: "pink")
+ *    @arg @c kGTLRCustomSearchImgDominantColorPurple Predominantly purple
+ *        images only. (Value: "purple")
+ *    @arg @c kGTLRCustomSearchImgDominantColorRed Predominantly red images
+ *        only. (Value: "red")
+ *    @arg @c kGTLRCustomSearchImgDominantColorTeal Predominantly teal images
+ *        only. (Value: "teal")
+ *    @arg @c kGTLRCustomSearchImgDominantColorWhite Predominantly white images
+ *        only. (Value: "white")
+ *    @arg @c kGTLRCustomSearchImgDominantColorYellow Predominantly yellow
+ *        images only. (Value: "yellow")
  */
 @property(nonatomic, copy, nullable) NSString *imgDominantColor;
 
 /**
- *  Returns images of a specified size. Acceptable values are:
- *  * `"huge"`
- *  * `"icon"`
- *  * `"large"`
- *  * `"medium"`
- *  * `"small"`
- *  * `"xlarge"`
- *  * `"xxlarge"`
+ *  Returns images of a specified size. Acceptable values are: * `"huge"` *
+ *  `"icon"` * `"large"` * `"medium"` * `"small"` * `"xlarge"` * `"xxlarge"`
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgSizeImgSizeUndefined Value "imgSizeUndefined"
- *    @arg @c kGTLRCustomSearchImgSizeHuge Value "HUGE"
- *    @arg @c kGTLRCustomSearchImgSizeIcon Value "ICON"
- *    @arg @c kGTLRCustomSearchImgSizeLarge Value "LARGE"
- *    @arg @c kGTLRCustomSearchImgSizeMedium Value "MEDIUM"
- *    @arg @c kGTLRCustomSearchImgSizeSmall Value "SMALL"
- *    @arg @c kGTLRCustomSearchImgSizeXlarge Value "XLARGE"
- *    @arg @c kGTLRCustomSearchImgSizeXxlarge Value "XXLARGE"
+ *    @arg @c kGTLRCustomSearchImgSizeImgSizeUndefined No image size specified.
+ *        (Value: "imgSizeUndefined")
+ *    @arg @c kGTLRCustomSearchImgSizeHuge Only the largest possible images.
+ *        (Value: "HUGE")
+ *    @arg @c kGTLRCustomSearchImgSizeIcon Only very small icon-sized images.
+ *        (Value: "ICON")
+ *    @arg @c kGTLRCustomSearchImgSizeLarge Only large images. (Value: "LARGE")
+ *    @arg @c kGTLRCustomSearchImgSizeMedium Only medium images. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRCustomSearchImgSizeSmall Only small images. (Value: "SMALL")
+ *    @arg @c kGTLRCustomSearchImgSizeXlarge Only very large images. (Value:
+ *        "XLARGE")
+ *    @arg @c kGTLRCustomSearchImgSizeXxlarge Only extremely large images.
+ *        (Value: "XXLARGE")
  */
 @property(nonatomic, copy, nullable) NSString *imgSize;
 
 /**
- *  Returns images of a type. Acceptable values are:
- *  * `"clipart"`
- *  * `"face"`
- *  * `"lineart"`
- *  * `"stock"`
- *  * `"photo"`
- *  * `"animated"`
+ *  Returns images of a type. Acceptable values are: * `"clipart"` * `"face"` *
+ *  `"lineart"` * `"stock"` * `"photo"` * `"animated"`
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchImgTypeImgTypeUndefined Value "imgTypeUndefined"
- *    @arg @c kGTLRCustomSearchImgTypeClipart Value "clipart"
- *    @arg @c kGTLRCustomSearchImgTypeFace Value "face"
- *    @arg @c kGTLRCustomSearchImgTypeLineart Value "lineart"
- *    @arg @c kGTLRCustomSearchImgTypeStock Value "stock"
- *    @arg @c kGTLRCustomSearchImgTypePhoto Value "photo"
- *    @arg @c kGTLRCustomSearchImgTypeAnimated Value "animated"
+ *    @arg @c kGTLRCustomSearchImgTypeImgTypeUndefined No image type specified.
+ *        (Value: "imgTypeUndefined")
+ *    @arg @c kGTLRCustomSearchImgTypeClipart Clipart-style images only. (Value:
+ *        "clipart")
+ *    @arg @c kGTLRCustomSearchImgTypeFace Images of faces only. (Value: "face")
+ *    @arg @c kGTLRCustomSearchImgTypeLineart Line art images only. (Value:
+ *        "lineart")
+ *    @arg @c kGTLRCustomSearchImgTypeStock Stock images only. (Value: "stock")
+ *    @arg @c kGTLRCustomSearchImgTypePhoto Photo images only. (Value: "photo")
+ *    @arg @c kGTLRCustomSearchImgTypeAnimated Animated images only. (Value:
+ *        "animated")
  */
 @property(nonatomic, copy, nullable) NSString *imgType;
 
 /**
- *  Specifies that all search results should contain a link to a particular
- *  URL.
+ *  Specifies that all search results should contain a link to a particular URL.
  */
 @property(nonatomic, copy, nullable) NSString *linkSite;
 
 /**
  *  Specifies the starting value for a search range. Use `lowRange` and
- *  `highRange` to append an inclusive search range of `lowRange...highRange`
- *  to the query.
+ *  `highRange` to append an inclusive search range of `lowRange...highRange` to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *lowRange;
 
 /**
  *  Restricts the search to documents written in a particular language (e.g.,
- *  `lr=lang_ja`).
- *  Acceptable values are:
- *  * `"lang_ar"`: Arabic
- *  * `"lang_bg"`: Bulgarian
- *  * `"lang_ca"`: Catalan
- *  * `"lang_cs"`: Czech
- *  * `"lang_da"`: Danish
- *  * `"lang_de"`: German
- *  * `"lang_el"`: Greek
- *  * `"lang_en"`: English
- *  * `"lang_es"`: Spanish
- *  * `"lang_et"`: Estonian
- *  * `"lang_fi"`: Finnish
- *  * `"lang_fr"`: French
- *  * `"lang_hr"`: Croatian
- *  * `"lang_hu"`: Hungarian
- *  * `"lang_id"`: Indonesian
- *  * `"lang_is"`: Icelandic
- *  * `"lang_it"`: Italian
- *  * `"lang_iw"`: Hebrew
- *  * `"lang_ja"`: Japanese
- *  * `"lang_ko"`: Korean
- *  * `"lang_lt"`: Lithuanian
- *  * `"lang_lv"`: Latvian
- *  * `"lang_nl"`: Dutch
- *  * `"lang_no"`: Norwegian
- *  * `"lang_pl"`: Polish
- *  * `"lang_pt"`: Portuguese
- *  * `"lang_ro"`: Romanian
- *  * `"lang_ru"`: Russian
- *  * `"lang_sk"`: Slovak
- *  * `"lang_sl"`: Slovenian
- *  * `"lang_sr"`: Serbian
- *  * `"lang_sv"`: Swedish
- *  * `"lang_tr"`: Turkish
- *  * `"lang_zh-CN"`: Chinese (Simplified)
- *  * `"lang_zh-TW"`: Chinese (Traditional)
+ *  `lr=lang_ja`). Acceptable values are: * `"lang_ar"`: Arabic * `"lang_bg"`:
+ *  Bulgarian * `"lang_ca"`: Catalan * `"lang_cs"`: Czech * `"lang_da"`: Danish
+ *  * `"lang_de"`: German * `"lang_el"`: Greek * `"lang_en"`: English *
+ *  `"lang_es"`: Spanish * `"lang_et"`: Estonian * `"lang_fi"`: Finnish *
+ *  `"lang_fr"`: French * `"lang_hr"`: Croatian * `"lang_hu"`: Hungarian *
+ *  `"lang_id"`: Indonesian * `"lang_is"`: Icelandic * `"lang_it"`: Italian *
+ *  `"lang_iw"`: Hebrew * `"lang_ja"`: Japanese * `"lang_ko"`: Korean *
+ *  `"lang_lt"`: Lithuanian * `"lang_lv"`: Latvian * `"lang_nl"`: Dutch *
+ *  `"lang_no"`: Norwegian * `"lang_pl"`: Polish * `"lang_pt"`: Portuguese *
+ *  `"lang_ro"`: Romanian * `"lang_ru"`: Russian * `"lang_sk"`: Slovak *
+ *  `"lang_sl"`: Slovenian * `"lang_sr"`: Serbian * `"lang_sv"`: Swedish *
+ *  `"lang_tr"`: Turkish * `"lang_zh-CN"`: Chinese (Simplified) *
+ *  `"lang_zh-TW"`: Chinese (Traditional)
  */
 @property(nonatomic, copy, nullable) NSString *lr;
 
 /**
- *  Number of search results to return.
- *  * Valid values are integers between 1 and 10, inclusive.
+ *  Number of search results to return. * Valid values are integers between 1
+ *  and 10, inclusive.
  */
 @property(nonatomic, assign) NSInteger num;
 
@@ -847,29 +953,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 @property(nonatomic, copy, nullable) NSString *rights;
 
 /**
- *  Search safety level. Acceptable values are:
- *  * `"active"`: Enables SafeSearch filtering.
- *  * `"off"`: Disables SafeSearch filtering. (default)
+ *  Search safety level. Acceptable values are: * `"active"`: Enables SafeSearch
+ *  filtering. * `"off"`: Disables SafeSearch filtering. (default)
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchSafeSafeUndefined Value "safeUndefined"
- *    @arg @c kGTLRCustomSearchSafeActive Value "active"
- *    @arg @c kGTLRCustomSearchSafeHigh Value "high"
- *    @arg @c kGTLRCustomSearchSafeMedium Value "medium"
- *    @arg @c kGTLRCustomSearchSafeOff Value "off"
+ *    @arg @c kGTLRCustomSearchSafeSafeUndefined SafeSearch mode unspecified.
+ *        (Falls back to engine's configuration.) (Value: "safeUndefined")
+ *    @arg @c kGTLRCustomSearchSafeActive Turn SafeSearch on. (Value: "active")
+ *    @arg @c kGTLRCustomSearchSafeHigh Deprecated, equivalent to "active".
+ *        (Value: "high")
+ *    @arg @c kGTLRCustomSearchSafeMedium Deprecated, equivalent to "active".
+ *        (Value: "medium")
+ *    @arg @c kGTLRCustomSearchSafeOff Turn SafeSearch off. (Value: "off")
  */
 @property(nonatomic, copy, nullable) NSString *safe;
 
 /**
  *  Specifies the search type: `image`. If unspecified, results are limited to
- *  webpages.
- *  Acceptable values are:
- *  * `"image"`: custom image search.
+ *  webpages. Acceptable values are: * `"image"`: custom image search.
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchSearchTypeSearchTypeUndefined Value
- *        "searchTypeUndefined"
- *    @arg @c kGTLRCustomSearchSearchTypeImage Value "image"
+ *    @arg @c kGTLRCustomSearchSearchTypeSearchTypeUndefined Search type
+ *        unspecified (defaults to web search). (Value: "searchTypeUndefined")
+ *    @arg @c kGTLRCustomSearchSearchTypeImage Image search. (Value: "image")
  */
 @property(nonatomic, copy, nullable) NSString *searchType;
 
@@ -881,24 +987,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 
 /**
  *  Controls whether to include or exclude results from the site named in the
- *  `siteSearch` parameter.
- *  Acceptable values are:
- *  * `"e"`: exclude
- *  * `"i"`: include
+ *  `siteSearch` parameter. Acceptable values are: * `"e"`: exclude * `"i"`:
+ *  include
  *
  *  Likely values:
- *    @arg @c kGTLRCustomSearchSiteSearchFilterSiteSearchFilterUndefined Value
- *        "siteSearchFilterUndefined"
- *    @arg @c kGTLRCustomSearchSiteSearchFilterE Value "e"
- *    @arg @c kGTLRCustomSearchSiteSearchFilterI Value "i"
+ *    @arg @c kGTLRCustomSearchSiteSearchFilterSiteSearchFilterUndefined Filter
+ *        mode unspecified. (Value: "siteSearchFilterUndefined")
+ *    @arg @c kGTLRCustomSearchSiteSearchFilterE Exclude results from the listed
+ *        sites. (Value: "e")
+ *    @arg @c kGTLRCustomSearchSiteSearchFilterI Include only results from the
+ *        listed sites. (Value: "i")
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
 
 /**
  *  The sort expression to apply to the results. The sort parameter specifies
  *  that the results be sorted according to the specified expression i.e. sort
- *  by date.
- *  [Example:
+ *  by date. [Example:
  *  sort=date](https://developers.google.com/custom-search/docs/structured_search#sort-by-attribute).
  */
 @property(nonatomic, copy, nullable) NSString *sort;
@@ -916,9 +1021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchSiteSearchFilterSiteSearchFi
 /**
  *  Fetches a @c GTLRCustomSearch_Search.
  *
- *  Returns metadata about the search performed, metadata about the custom
- *  search engine used for the search, and the search results. Uses a small set
- *  of url patterns.
+ *  Returns metadata about the search performed, metadata about the engine used
+ *  for the search, and the search results. Uses a small set of url patterns.
  *
  *  @return GTLRCustomSearchQuery_CseSiterestrictList
  */

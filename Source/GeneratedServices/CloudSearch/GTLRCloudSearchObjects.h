@@ -4239,7 +4239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  The raw query string.
  *  See supported search operators in the [Cloud search
  *  Cheat
- *  Sheet](https://gsuite.google.com/learning-center/products/cloudsearch/cheat-sheet/)
+ *  Sheet](https://support.google.com/a/users/answer/9299929)
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

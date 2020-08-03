@@ -139,6 +139,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @interface GTLRChromeUXReport_Key : GTLRObject
 
 /**
+ *  The effective connection type is the general connection class that all
+ *  users experienced for this record. This field uses the values ["offline",
+ *  "slow-2G", "2G", "3G", "4G"] as specified in:
+ *  https://wicg.github.io/netinfo/#effective-connection-types
+ *  If the effective connection type is unspecified, then aggregated data
+ *  over all effective connection types will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveConnectionType;
+
+/**
  *  The form factor is the device class that all users used to access the
  *  site for this record.
  *  If the form factor is unspecified, then aggregated data over all form
@@ -220,6 +230,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  user experience record.
  */
 @interface GTLRChromeUXReport_QueryRequest : GTLRObject
+
+/**
+ *  The effective connection type is a query dimension that specifies the
+ *  effective network class that the record's data should belong to. This field
+ *  uses the values ["offline", "slow-2G", "2G", "3G", "4G"] as specified in:
+ *  https://wicg.github.io/netinfo/#effective-connection-types
+ *  Note: If no effective connection type is specified, then a special record
+ *  with aggregated data over all effective connection types will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveConnectionType;
 
 /**
  *  The form factor is a query dimension that specifies the device class that

@@ -2,11 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud DNS API (dns/v1)
-// Description:
-//   Configures and serves authoritative DNS records.
+//   Cloud DNS API (dns/v1)
 // Documentation:
-//   https://developers.google.com/cloud-dns
+//   http://developers.google.com/cloud-dns
 
 #import "GTLRDnsObjects.h"
 #import "GTLRDnsQuery.h"

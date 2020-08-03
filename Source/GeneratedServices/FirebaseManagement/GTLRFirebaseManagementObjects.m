@@ -21,6 +21,11 @@ NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Ios = @"IOS";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
 NSString * const kGTLRFirebaseManagement_FirebaseAppInfo_Platform_Web = @"WEB";
 
+// GTLRFirebaseManagement_FirebaseProject.state
+NSString * const kGTLRFirebaseManagement_FirebaseProject_State_Active = @"ACTIVE";
+NSString * const kGTLRFirebaseManagement_FirebaseProject_State_Deleted = @"DELETED";
+NSString * const kGTLRFirebaseManagement_FirebaseProject_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRFirebaseManagement_Location.features
 NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage = @"DEFAULT_STORAGE";
 NSString * const kGTLRFirebaseManagement_Location_Features_Firestore = @"FIRESTORE";
@@ -165,7 +170,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_FirebaseProject
-@dynamic displayName, name, projectId, projectNumber, resources;
+@dynamic displayName, name, projectId, projectNumber, resources, state;
 @end
 
 

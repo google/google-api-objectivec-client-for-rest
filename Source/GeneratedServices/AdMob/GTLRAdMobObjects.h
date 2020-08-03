@@ -1567,7 +1567,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @interface GTLRAdMob_ReportFooter : GTLRObject
 
 /**
- *  Total number of rows that did match the request.
+ *  Total number of rows that matched the request.
+ *  Warning: This count does NOT always match the number of rows in the
+ *  response. Do not make that assumption when processing the response.
  *
  *  Uses NSNumber of longLongValue.
  */

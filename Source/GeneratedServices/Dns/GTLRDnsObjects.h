@@ -2,11 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud DNS API (dns/v1)
-// Description:
-//   Configures and serves authoritative DNS records.
+//   Cloud DNS API (dns/v1)
 // Documentation:
-//   https://developers.google.com/cloud-dns
+//   http://developers.google.com/cloud-dns
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -136,19 +134,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneDnsSecConfig.state
 
-/** Value: "off" */
+/**
+ *  DNSSEC is disabled; the zone is not signed.
+ *
+ *  Value: "off"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off;
-/** Value: "on" */
+/**
+ *  DNSSEC is enabled; the zone is signed and fully managed.
+ *
+ *  Value: "on"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On;
-/** Value: "transfer" */
+/**
+ *  DNSSEC is enabled, but in a "transfer" mode.
+ *
+ *  Value: "transfer"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneForwardingConfigNameServerTarget.forwardingPath
 
-/** Value: "default" */
+/**
+ *  Cloud DNS will make forwarding decision based on address ranges,
+ *  i.e. RFC1918 addresses forward to the target through the VPC and
+ *  non-RFC1918 addresses will forward to the target through the
+ *  Internet
+ *
+ *  Value: "default"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default;
-/** Value: "private" */
+/**
+ *  Cloud DNS will always forward to this target through the VPC.
+ *
+ *  Value: "private"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private;
 
 // ----------------------------------------------------------------------------
@@ -162,43 +183,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 // ----------------------------------------------------------------------------
 // GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer.forwardingPath
 
-/** Value: "default" */
+/**
+ *  Cloud DNS will make forwarding decision based on address ranges,
+ *  i.e. RFC1918 addresses forward to the target through the VPC and
+ *  non-RFC1918 addresses will forward to the target through the
+ *  Internet
+ *
+ *  Value: "default"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default;
-/** Value: "private" */
+/**
+ *  Cloud DNS will always forward to this target through the VPC.
+ *
+ *  Value: "private"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private;
 
 /**
- *  GTLRDns_Change
+ *  A Change represents a set of ResourceRecordSet additions and deletions
+ *  applied atomically to a ManagedZone. ResourceRecordSets within a
+ *  ManagedZone are modified by creating a new Change element in the Changes
+ *  collection. In turn the Changes collection also records the past
+ *  modifications to the ResourceRecordSets in a ManagedZone. The current
+ *  state of the ManagedZone is the sum effect of applying all Change
+ *  elements in the Changes collection in sequence.
  */
 @interface GTLRDns_Change : GTLRObject
 
+/** Which ResourceRecordSets to add? */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *additions;
+
+/** Which ResourceRecordSets to remove? Must match existing data exactly. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *deletions;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  isServing
+ *  If the DNS queries for the zone will be served.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isServing;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#change".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The time that this operation was started by the server (output only). This
+ *  is in RFC3339 text format.
+ */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  status
+ *  Status of the operation (output only). A status of "done" means that the
+ *  request to update the authoritative servers has been sent but the
+ *  servers might not be updated yet.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_Change_Status_Done Value "done"
@@ -210,7 +253,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  GTLRDns_ChangesListResponse
+ *  The response to a request to enumerate Changes to a ResourceRecordSets
+ *  collection.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "changes" property. If returned as the result of a query, it
@@ -220,7 +264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_ChangesListResponse : GTLRCollectionObject
 
 /**
- *  changes
+ *  The requested changes.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -232,18 +276,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results
+ *  following your last page of results in pagination order. To fetch them,
+ *  make another list request using this value as your pagination token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a "snapshot" of collections larger than the maximum
+ *  page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  GTLRDns_DnsKey
+ *  A DNSSEC key pair.
  */
 @interface GTLRDns_DnsKey : GTLRObject
 
 /**
- *  algorithm
+ *  String mnemonic specifying the DNSSEC algorithm of this key. Immutable
+ *  after creation time.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256 Value "ecdsap256sha256"
@@ -254,55 +310,73 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
+/**
+ *  The time that this resource was created in the control plane. This is in
+ *  RFC3339 text format. Output only.
+ */
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
- *  descriptionProperty
+ *  A mutable string of at most 1024 characters associated with this resource
+ *  for the user's convenience. Has no effect on the resource's function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Cryptographic hashes of the DNSKEY resource record associated with this
+ *  DnsKey. These digests are needed to construct a DS record that points at
+ *  this DNS key. Output only.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_KeyDigest *> *digests;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  isActive
+ *  Active keys will be used to sign subsequent changes to the ManagedZone.
+ *  Inactive keys will still be present as DNSKEY Resource Records for the use
+ *  of resolvers validating existing signatures.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isActive;
 
 /**
- *  keyLength
+ *  Length of the key in bits. Specified at creation time then immutable.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *keyLength;
 
 /**
- *  keyTag
+ *  The key tag is a non-cryptographic hash of the a DNSKEY resource record
+ *  associated with this DnsKey. The key tag can be used to identify a DNSKEY
+ *  more quickly (but it is not a unique identifier). In particular, the key
+ *  tag is used in a parent zone's DS record to point at the DNSKEY in this
+ *  child ManagedZone. The key tag is a number in the range [0, 65535] and the
+ *  algorithm to calculate it is specified in RFC4034 Appendix B. Output only.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *keyTag;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#dnsKey".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Base64 encoded public half of this key. Output only. */
 @property(nonatomic, copy, nullable) NSString *publicKey;
 
 /**
- *  type
+ *  One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the
+ *  Secure Entry Point flag set and, when active, will be used to sign only
+ *  resource record sets of type DNSKEY. Otherwise, the Secure Entry Point
+ *  flag will be cleared and this key will be used to sign only resource
+ *  record sets of other types. Immutable after creation time.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKey_Type_KeySigning Value "keySigning"
@@ -314,7 +388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  GTLRDns_DnsKeysListResponse
+ *  The response to a request to enumerate DnsKeys in a ManagedZone.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "dnsKeys" property. If returned as the result of a query, it
@@ -324,7 +398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_DnsKeysListResponse : GTLRCollectionObject
 
 /**
- *  dnsKeys
+ *  The requested resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -336,18 +410,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results
+ *  following your last page of results in pagination order. To fetch them,
+ *  make another list request using this value as your pagination token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a "snapshot" of collections larger than the maximum
+ *  page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  GTLRDns_DnsKeySpec
+ *  Parameters for DnsKey key generation. Used for generating initial keys
+ *  for a new ManagedZone and as default when adding a new DnsKey.
  */
 @interface GTLRDns_DnsKeySpec : GTLRObject
 
 /**
- *  algorithm
+ *  String mnemonic specifying the DNSSEC algorithm of this key.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256 Value
@@ -361,14 +447,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
 /**
- *  keyLength
+ *  Length of the keys in bits.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *keyLength;
 
 /**
- *  keyType
+ *  Specifies whether this is a key signing key (KSK) or a zone signing key
+ *  (ZSK). Key signing keys have the Secure Entry Point flag set and, when
+ *  active, will only be used to sign resource record sets of type DNSKEY.
+ *  Zone signing keys do not have the Secure Entry Point flag set and will be
+ *  used to sign all other types of resource record sets.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKeySpec_KeyType_KeySigning Value "keySigning"
@@ -376,10 +466,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @property(nonatomic, copy, nullable) NSString *keyType;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#dnsKeySpec".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -390,10 +476,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_KeyDigest : GTLRObject
 
+/**
+ *  The base-16 encoded bytes of this digest. Suitable for use in a DS
+ *  resource record.
+ */
 @property(nonatomic, copy, nullable) NSString *digest;
 
 /**
- *  type
+ *  Specifies the algorithm used to calculate this digest.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_KeyDigest_Type_Sha1 Value "sha1"
@@ -406,25 +496,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  GTLRDns_ManagedZone
+ *  A zone is a subtree of the DNS namespace under one administrative
+ *  responsibility. A ManagedZone is a resource that represents a DNS zone
+ *  hosted by the Cloud DNS service.
  */
 @interface GTLRDns_ManagedZone : GTLRObject
 
+/**
+ *  The time that this resource was created on the server. This is in RFC3339
+ *  text format. Output only.
+ */
 @property(nonatomic, copy, nullable) NSString *creationTime;
 
 /**
- *  descriptionProperty
+ *  A mutable string of at most 1024 characters associated with this resource
+ *  for the user's convenience. Has no effect on the managed zone's function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** The DNS name of this managed zone, for instance "example.com.". */
 @property(nonatomic, copy, nullable) NSString *dnsName;
+
+/** DNSSEC configuration. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneDnsSecConfig *dnssecConfig;
+
+/**
+ *  The presence for this field indicates that outbound forwarding is enabled
+ *  for this zone. The value of this field contains the set of destinations
+ *  to forward to.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneForwardingConfig *forwardingConfig;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -432,22 +538,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZone".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** User labels. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZone_Labels *labels;
+
+/**
+ *  User assigned name for this resource. Must be unique within the project.
+ *  The name must be 1-63 characters long, must begin with a letter, end with
+ *  a letter or digit, and only contain lowercase letters, digits or dashes.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Delegate your managed_zone to these virtual name servers; defined by the
+ *  server (output only)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
+
+/**
+ *  Optionally specifies the NameServerSet for this ManagedZone. A
+ *  NameServerSet is a set of DNS name servers that all host the same
+ *  ManagedZones. Most users will leave this field unset.
+ */
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
+
+/**
+ *  The presence of this field indicates that DNS Peering is enabled for this
+ *  zone. The value of this field contains the network to peer with.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZonePeeringConfig *peeringConfig;
+
+/**
+ *  For privately visible zones, the set of Virtual Private Cloud resources
+ *  that the zone is visible from.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZonePrivateVisibilityConfig *privateVisibilityConfig;
+
+/**
+ *  The presence of this field indicates that this is a managed reverse
+ *  lookup zone and Cloud DNS will resolve reverse lookup queries using
+ *  automatically configured records for VPC resources. This only applies
+ *  to networks listed under private_visibility_config.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneReverseLookupConfig *reverseLookupConfig;
 
 /**
- *  visibility
+ *  The zone's visibility: public zones are exposed to the Internet, while
+ *  private zones are visible only to Virtual Private Cloud resources.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Value "private"
@@ -459,7 +597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  GTLRDns_ManagedZone_Labels
+ *  User labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -475,16 +613,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZoneDnsSecConfig : GTLRObject
 
+/**
+ *  Specifies parameters for generating initial DnsKeys for this
+ *  ManagedZone. Can only be changed while the state is OFF.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKeySpec *> *defaultKeySpecs;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZoneDnsSecConfig".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  nonExistence
+ *  Specifies the mechanism for authenticated denial-of-existence responses.
+ *  Can only be changed while the state is OFF.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "nsec"
@@ -493,12 +632,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *nonExistence;
 
 /**
- *  state
+ *  Specifies whether DNSSEC is enabled, and what mode it is in.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Off Value "off"
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_On Value "on"
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer Value "transfer"
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Off DNSSEC is disabled; the
+ *        zone is not signed. (Value: "off")
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_On DNSSEC is enabled; the
+ *        zone is signed and fully managed. (Value: "on")
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer DNSSEC is enabled,
+ *        but in a "transfer" mode. (Value: "transfer")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -510,12 +652,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZoneForwardingConfig : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZoneForwardingConfig".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  List of target name servers to forward to.
+ *  Cloud DNS will select the best available name server if more than one
+ *  target is given.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZoneForwardingConfigNameServerTarget *> *targetNameServers;
 
 @end
@@ -527,22 +670,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_ManagedZoneForwardingConfigNameServerTarget : GTLRObject
 
 /**
- *  forwardingPath
+ *  Forwarding path for this NameServerTarget. If unset or set to DEFAULT,
+ *  Cloud DNS will make forwarding decision based on address ranges,
+ *  i.e. RFC1918 addresses go to the VPC, non-RFC1918 addresses go to the
+ *  Internet. When set to PRIVATE, Cloud DNS will always send queries
+ *  through VPC for this target.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default
- *        Value "default"
+ *        Cloud DNS will make forwarding decision based on address ranges,
+ *        i.e. RFC1918 addresses forward to the target through the VPC and
+ *        non-RFC1918 addresses will forward to the target through the
+ *        Internet (Value: "default")
  *    @arg @c kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private
- *        Value "private"
+ *        Cloud DNS will always forward to this target through the VPC. (Value:
+ *        "private")
  */
 @property(nonatomic, copy, nullable) NSString *forwardingPath;
 
+/** IPv4 address of a target name server. */
 @property(nonatomic, copy, nullable) NSString *ipv4Address;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZoneForwardingConfigNameServerTarget".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -559,14 +707,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_ManagedZoneOperationsListResponse : GTLRCollectionObject
 
 @property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
-/** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results
+ *  following your last page of results in pagination order. To fetch them,
+ *  make another list request using this value as your page token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  operations
+ *  The operation resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -581,12 +738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZonePeeringConfig : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZonePeeringConfig".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The network with which to peer. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZonePeeringConfigTargetNetwork *targetNetwork;
 
 @end
@@ -597,14 +751,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZonePeeringConfigTargetNetwork : GTLRObject
 
+/**
+ *  The time at which the zone was deactivated, in RFC 3339 date-time
+ *  format. An empty string indicates that the peering connection is
+ *  active. The producer network can deactivate a zone. The zone is
+ *  automatically deactivated if the producer network that the zone
+ *  targeted is deleted. Output only.
+ */
 @property(nonatomic, copy, nullable) NSString *deactivateTime;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZonePeeringConfigTargetNetwork".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The fully qualified URL of the VPC network to forward queries to.
+ *  This should be formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
 @end
@@ -615,12 +777,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZonePrivateVisibilityConfig : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZonePrivateVisibilityConfig".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The list of VPC networks that can see this zone. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigNetwork *> *networks;
 
 @end
@@ -631,12 +790,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZonePrivateVisibilityConfigNetwork : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZonePrivateVisibilityConfigNetwork".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The fully qualified URL of the VPC network to bind to.
+ *  This should be formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
 @end
@@ -647,10 +807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZoneReverseLookupConfig : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#managedZoneReverseLookupConfig".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -672,42 +828,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  managedZones
+ *  The managed zone resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZone *> *managedZones;
 
+/**
+ *  The presence of this field indicates that there exist more results
+ *  following your last page of results in pagination order. To fetch them,
+ *  make another list request using this value as your page token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
 
 /**
- *  GTLRDns_Operation
+ *  An operation represents a successful mutation performed on a Cloud DNS
+ *  resource.
+ *  Operations provide:
+ *  - An audit log of server resource mutations.
+ *  - A way to recover/retry API calls in the case where the response is never
+ *  received by the caller. Use the caller specified client_operation_id.
  */
 @interface GTLRDns_Operation : GTLRObject
 
+/** Only populated if the operation targeted a DnsKey (output only). */
 @property(nonatomic, strong, nullable) GTLRDns_OperationDnsKeyContext *dnsKeyContext;
 
 /**
- *  identifier
+ *  Unique identifier for the resource. This is the client_operation_id if
+ *  the client specified it when the mutation was initiated, otherwise,
+ *  it is generated by the server. The name must be 1-63 characters long
+ *  and match the regular expression [-a-z0-9]? (output only)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#operation".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The time that this operation was started by the server. This is in RFC3339
+ *  text format (output only).
+ */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  status
+ *  Status of the operation. Can be one of the following: "PENDING" or "DONE"
+ *  (output only). A status of "DONE" means that the
+ *  request to update the authoritative servers has been sent, but the
+ *  servers might not be updated yet.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_Operation_Status_Done Value "done"
@@ -715,8 +894,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
+/**
+ *  Type of the operation. Operations include insert, update, and delete
+ *  (output only).
+ */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  User who requested the operation, for example: user\@example.com.
+ *  cloud-dns-system for operations automatically done by the system.
+ *  (output only)
+ */
 @property(nonatomic, copy, nullable) NSString *user;
+
+/** Only populated if the operation targeted a ManagedZone (output only). */
 @property(nonatomic, strong, nullable) GTLRDns_OperationManagedZoneContext *zoneContext;
 
 @end
@@ -727,7 +918,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_OperationDnsKeyContext : GTLRObject
 
+/** The post-operation DnsKey resource. */
 @property(nonatomic, strong, nullable) GTLRDns_DnsKey *newValue NS_RETURNS_NOT_RETAINED;
+
+/** The pre-operation DnsKey resource. */
 @property(nonatomic, strong, nullable) GTLRDns_DnsKey *oldValue;
 
 @end
@@ -738,7 +932,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_OperationManagedZoneContext : GTLRObject
 
+/** The post-operation ManagedZone resource. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZone *newValue NS_RETURNS_NOT_RETAINED;
+
+/** The pre-operation ManagedZone resource. */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZone *oldValue;
 
 @end
@@ -759,10 +956,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results
+ *  following your last page of results in pagination order. To fetch them,
+ *  make another list request using this value as your page token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  policies
+ *  The policy resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -795,35 +1003,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  GTLRDns_Policy
+ *  A policy is a collection of DNS rules applied to one or more Virtual Private
+ *  Cloud resources.
  */
 @interface GTLRDns_Policy : GTLRObject
 
+/**
+ *  Sets an alternative name server for the associated networks. When
+ *  specified, all DNS queries are forwarded to a name server that you
+ *  choose. Names such as .internal are not available when an alternative
+ *  name server is specified.
+ */
 @property(nonatomic, strong, nullable) GTLRDns_PolicyAlternativeNameServerConfig *alternativeNameServerConfig;
 
 /**
- *  descriptionProperty
+ *  A mutable string of at most 1024 characters associated with this resource
+ *  for the user's convenience. Has no effect on the policy's function.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  enableInboundForwarding
+ *  Allows networks bound to this policy to receive DNS queries sent by VMs or
+ *  applications over VPN connections. When enabled, a virtual IP address will
+ *  be allocated from each of the sub-networks that are bound to this policy.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableInboundForwarding;
 
 /**
- *  enableLogging
+ *  Controls whether logging is enabled for the networks bound to this policy.
+ *  Defaults to no logging if not set.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableLogging;
 
 /**
- *  identifier
+ *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -831,13 +1050,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#policy".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** User assigned name for this policy. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of network names specifying networks to which this policy is applied.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_PolicyNetwork *> *networks;
 
 @end
@@ -848,12 +1068,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_PolicyAlternativeNameServerConfig : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#policyAlternativeNameServerConfig".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  Sets an alternative name server for the associated networks. When
+ *  specified, all DNS queries are forwarded to a name server that you
+ *  choose. Names such as .internal are not available when an alternative
+ *  name server is specified.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer *> *targetNameServers;
 
 @end
@@ -865,22 +1087,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer : GTLRObject
 
 /**
- *  forwardingPath
+ *  Forwarding path for this TargetNameServer. If unset or set to DEFAULT,
+ *  Cloud DNS will make forwarding decision based on address ranges,
+ *  i.e. RFC1918 addresses go to the VPC, non-RFC1918 addresses go to the
+ *  Internet. When set to PRIVATE, Cloud DNS will always send queries
+ *  through VPC for this target.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default
- *        Value "default"
+ *        Cloud DNS will make forwarding decision based on address ranges,
+ *        i.e. RFC1918 addresses forward to the target through the VPC and
+ *        non-RFC1918 addresses will forward to the target through the
+ *        Internet (Value: "default")
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private
- *        Value "private"
+ *        Cloud DNS will always forward to this target through the VPC. (Value:
+ *        "private")
  */
 @property(nonatomic, copy, nullable) NSString *forwardingPath;
 
+/** IPv4 address to forward to. */
 @property(nonatomic, copy, nullable) NSString *ipv4Address;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#policyAlternativeNameServerConfigTargetNameServer".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -891,176 +1118,188 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_PolicyNetwork : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#policyNetwork".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The fully qualified URL of the VPC network to bind to.
+ *  This should be formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
 
 @end
 
 
 /**
- *  GTLRDns_Project
+ *  A project resource. The project is a top level container for resources
+ *  including Cloud DNS ManagedZones. Projects can be created only in the APIs
+ *  console.
  */
 @interface GTLRDns_Project : GTLRObject
 
 /**
- *  identifier
+ *  User assigned unique identifier for the resource (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#project".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  number
+ *  Unique numeric identifier for the resource; defined by the server (output
+ *  only).
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *number;
 
+/** Quotas assigned to this project (output only). */
 @property(nonatomic, strong, nullable) GTLRDns_Quota *quota;
 
 @end
 
 
 /**
- *  GTLRDns_Quota
+ *  Limits associated with a Project.
  */
 @interface GTLRDns_Quota : GTLRObject
 
 /**
- *  dnsKeysPerManagedZone
+ *  Maximum allowed number of DnsKeys per ManagedZone.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dnsKeysPerManagedZone;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#quota".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  managedZones
+ *  Maximum allowed number of managed zones in the project.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *managedZones;
 
 /**
- *  managedZonesPerNetwork
+ *  Maximum allowed number of managed zones which can be attached to a
+ *  network.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *managedZonesPerNetwork;
 
 /**
- *  networksPerManagedZone
+ *  Maximum allowed number of networks to which a privately scoped zone can be
+ *  attached.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *networksPerManagedZone;
 
 /**
- *  networksPerPolicy
+ *  Maximum allowed number of networks per policy.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *networksPerPolicy;
 
 /**
- *  policies
+ *  Maximum allowed number of policies per project.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *policies;
 
 /**
- *  resourceRecordsPerRrset
+ *  Maximum allowed number of ResourceRecords per ResourceRecordSet.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resourceRecordsPerRrset;
 
 /**
- *  rrsetAdditionsPerChange
+ *  Maximum allowed number of ResourceRecordSets to add per
+ *  ChangesCreateRequest.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetAdditionsPerChange;
 
 /**
- *  rrsetDeletionsPerChange
+ *  Maximum allowed number of ResourceRecordSets to delete per
+ *  ChangesCreateRequest.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetDeletionsPerChange;
 
 /**
- *  rrsetsPerManagedZone
+ *  Maximum allowed number of ResourceRecordSets per zone in the project.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *rrsetsPerManagedZone;
 
 /**
- *  targetNameServersPerManagedZone
+ *  Maximum allowed number of target name servers per managed forwarding zone.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetNameServersPerManagedZone;
 
 /**
- *  targetNameServersPerPolicy
+ *  Maximum allowed number of alternative target name servers per policy.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetNameServersPerPolicy;
 
 /**
- *  totalRrdataSizePerChange
+ *  Maximum allowed size for total rrdata in one ChangesCreateRequest in
+ *  bytes.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalRrdataSizePerChange;
 
+/** DNSSEC algorithm and key length types that can be used for DnsKeys. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_DnsKeySpec *> *whitelistedKeySpecs;
 
 @end
 
 
 /**
- *  GTLRDns_ResourceRecordSet
+ *  A unit of data that will be returned by the DNS servers.
  */
 @interface GTLRDns_ResourceRecordSet : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dns#resourceRecordSet".
- */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** For example, www.example.com. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see
+ *  <a href="/dns/records/json-record">examples</a>.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
+
+/** As defined in RFC 4034 (section 3.2). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
 
 /**
- *  ttl
+ *  Number of seconds that this ResourceRecordSet can be cached by resolvers.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ttl;
 
+/**
+ *  The identifier of a supported record type. See the list of
+ *  <a href="/dns/docs/overview#supported_dns_record_types">Supported
+ *  DNS record types</a>.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -1081,10 +1320,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  The presence of this field indicates that there exist more results
+ *  following your last page of results in pagination order. To fetch them,
+ *  make another list request using this value as your pagination token.
+ *  In this way you can retrieve the complete contents of even very large
+ *  collections one page at a time. However, if the contents of the collection
+ *  change between the first and last paginated list request, the set of all
+ *  elements returned will be an inconsistent view of the collection. There is
+ *  no way to retrieve a consistent snapshot of a collection larger than the
+ *  maximum page size.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  rrsets
+ *  The resource record set resources.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1095,10 +1345,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  GTLRDns_ResponseHeader
+ *  Elements common to every response.
  */
 @interface GTLRDns_ResponseHeader : GTLRObject
 
+/**
+ *  For mutating operation requests that completed successfully.
+ *  This is the client_operation_id if the client specified it,
+ *  otherwise it is generated by the server (output only).
+ */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
 @end

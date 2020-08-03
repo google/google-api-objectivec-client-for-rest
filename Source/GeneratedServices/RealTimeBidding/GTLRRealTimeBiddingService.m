@@ -14,9 +14,8 @@
 #import "GTLRRealTimeBidding.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scopes
+// Authorization scope
 
-NSString * const kGTLRAuthScopeRealTimeBiddingAdexchangeBuyer = @"https://www.googleapis.com/auth/adexchange.buyer";
 NSString * const kGTLRAuthScopeRealTimeBiddingRealtimeBidding = @"https://www.googleapis.com/auth/realtime-bidding";
 
 // ----------------------------------------------------------------------------

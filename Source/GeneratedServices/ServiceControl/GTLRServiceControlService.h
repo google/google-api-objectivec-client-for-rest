@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Control API (servicecontrol/v1)
+//   Service Control API (servicecontrol/v2)
 // Description:
 //   Provides control plane functionality to managed services, such as logging,
 //   monitoring, and status checks.

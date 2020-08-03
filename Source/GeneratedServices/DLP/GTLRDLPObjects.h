@@ -2205,6 +2205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Number of characters must be in the range [2, 95].
  *  This must be encoded as ASCII.
  *  The order of characters does not matter.
+ *  The full list of allowed characters is:
+ *  <code>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+ *  ~`!\@#$%^&*()_-+={[}]|\\:;"'<,>.?/</code>
  */
 @property(nonatomic, copy, nullable) NSString *customAlphabet;
 
@@ -3510,8 +3513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Name of the information type. Either a name of your choosing when
  *  creating a CustomInfoType, or one of the names listed
  *  at https://cloud.google.com/dlp/docs/infotypes-reference when specifying
- *  a built-in type. InfoType names should conform to the pattern
- *  `[a-zA-Z0-9_]{1,64}`.
+ *  a built-in type. When sending Cloud DLP results to Data Catalog, infoType
+ *  names should conform to the pattern `[A-Za-z0-9$-_]{1,64}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5259,10 +5262,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Template to use. References an instance of `DeidentifyTemplate`.
  *  Any configuration directly specified in `reidentify_config` or
- *  `inspect_config` will override those set in the template. Singular fields
- *  that are set in this request will replace their corresponding fields in the
- *  template. Repeated fields are appended. Singular sub-messages and groups
- *  are recursively merged.
+ *  `inspect_config` will override those set in the template. The
+ *  `DeidentifyTemplate` used must include only reversible transformations.
+ *  Singular fields that are set in this request will replace their
+ *  corresponding fields in the template. Repeated fields are appended.
+ *  Singular sub-messages and groups are recursively merged.
  */
 @property(nonatomic, copy, nullable) NSString *reidentifyTemplateName;
 

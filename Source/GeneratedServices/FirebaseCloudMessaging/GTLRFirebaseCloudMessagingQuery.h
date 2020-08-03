@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Send a message to specified target (a registration token, topic
- *  or condition).
+ *  Send a message to specified target (a registration token, topic or
+ *  condition).
  *
  *  Method: fcm.projects.messages.send
  *
@@ -55,25 +55,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. It contains the Firebase project id (i.e. the unique identifier
- *  for your Firebase project), in the format of `projects/{project_id}`.
- *  For legacy support, the numeric project number with no padding is also
- *  supported in the format of `projects/{project_number}`.
+ *  for your Firebase project), in the format of `projects/{project_id}`. For
+ *  legacy support, the numeric project number with no padding is also supported
+ *  in the format of `projects/{project_number}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRFirebaseCloudMessaging_Message.
  *
- *  Send a message to specified target (a registration token, topic
- *  or condition).
+ *  Send a message to specified target (a registration token, topic or
+ *  condition).
  *
  *  @param object The @c GTLRFirebaseCloudMessaging_SendMessageRequest to
  *    include in the query.
  *  @param parent Required. It contains the Firebase project id (i.e. the unique
- *    identifier
- *    for your Firebase project), in the format of `projects/{project_id}`.
- *    For legacy support, the numeric project number with no padding is also
- *    supported in the format of `projects/{project_number}`.
+ *    identifier for your Firebase project), in the format of
+ *    `projects/{project_id}`. For legacy support, the numeric project number
+ *    with no padding is also supported in the format of
+ *    `projects/{project_number}`.
  *
  *  @return GTLRFirebaseCloudMessagingQuery_ProjectsMessagesSend
  */

@@ -41,15 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // filter
 
-/** Value: "CPU" */
+/** Value: "cpu" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterCpu;
-/** Value: "GRAPHICS" */
+/** Value: "graphics" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterGraphics;
-/** Value: "MEMORY" */
+/** Value: "memory" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterMemory;
-/** Value: "NETWORK" */
+/** Value: "network" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterNetwork;
-/** Value: "PERF_METRIC_TYPE_UNSPECIFIED" */
+/** Value: "perfMetricTypeUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -67,16 +67,103 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
 @end
 
 /**
- *  Retrieves a single screenshot cluster by its ID
+ *  Gets the Tool Results settings for a project.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read from project
  *
- *  Method: toolresults.clusters.get
+ *  Method: toolresults.projects.getSettings
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_ClustersGet : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsGetSettings : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForClustersGetWithprojectId:historyId:executionId:clusterId:]
+//   +[GTLQueryToolResults queryForProjectsGetSettingsWithprojectId:]
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ProjectSettings.
+ *
+ *  Gets the Tool Results settings for a project.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read from project
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsGetSettings
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId;
+
+@end
+
+/**
+ *  Creates a History.
+ *  The returned History will have the id set.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing project does not exist
+ *
+ *  Method: toolresults.projects.histories.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesCreate : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesCreateWithObject:projectId:]
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A unique request ID for server to detect duplicated requests.
+ *  For example, a UUID.
+ *  Optional, but strongly recommended.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRToolResults_History.
+ *
+ *  Creates a History.
+ *  The returned History will have the id set.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing project does not exist
+ *
+ *  @param object The @c GTLRToolResults_History to include in the query.
+ *  @param projectId A Project id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_History *)object
+                      projectId:(NSString *)projectId;
+
+@end
+
+/**
+ *  Retrieves a single screenshot cluster by its ID
+ *
+ *  Method: toolresults.projects.histories.executions.clusters.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsClustersGetWithprojectId:historyId:executionId:clusterId:]
 
 /**
  *  A Cluster id
@@ -116,7 +203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param clusterId A Cluster id
  *    Required.
  *
- *  @return GTLRToolResultsQuery_ClustersGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -135,14 +222,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  in the cluster that has screens which have the highest matching
  *  scores.
  *
- *  Method: toolresults.clusters.list
+ *  Method: toolresults.projects.histories.executions.clusters.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_ClustersList : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForClustersListWithprojectId:historyId:executionId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsClustersListWithprojectId:historyId:executionId:]
 
 /**
  *  An Execution id.
@@ -181,120 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param executionId An Execution id.
  *    Required.
  *
- *  @return GTLRToolResultsQuery_ClustersList
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId;
-
-@end
-
-/**
- *  Gets an Environment.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the Environment does not exist
- *
- *  Method: toolresults.environments.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_EnvironmentsGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForEnvironmentsGetWithprojectId:historyId:executionId:environmentId:]
-
-/** Required. An Environment id. */
-@property(nonatomic, copy, nullable) NSString *environmentId;
-
-/** Required. An Execution id. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** Required. A History id. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** Required. A Project id. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRToolResults_Environment.
- *
- *  Gets an Environment.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the Environment does not exist
- *
- *  @param projectId Required. A Project id.
- *  @param historyId Required. A History id.
- *  @param executionId Required. An Execution id.
- *  @param environmentId Required. An Environment id.
- *
- *  @return GTLRToolResultsQuery_EnvironmentsGet
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                     environmentId:(NSString *)environmentId;
-
-@end
-
-/**
- *  Lists Environments for a given Execution.
- *  The Environments are sorted by display name.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  Method: toolresults.environments.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_EnvironmentsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForEnvironmentsListWithprojectId:historyId:executionId:]
-
-/** Required. An Execution id. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** Required. A History id. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  The maximum number of Environments to fetch.
- *  Default value: 25. The server will use this default if the field is not set
- *  or has a value of 0.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** A continuation token to resume the query at the next item. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. A Project id. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRToolResults_ListEnvironmentsResponse.
- *
- *  Lists Environments for a given Execution.
- *  The Environments are sorted by display name.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  @param projectId Required. A Project id.
- *  @param historyId Required. A History id.
- *  @param executionId Required. An Execution id.
- *
- *  @return GTLRToolResultsQuery_EnvironmentsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -310,14 +284,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the containing History does not exist
  *
- *  Method: toolresults.executions.create
+ *  Method: toolresults.projects.histories.executions.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_ExecutionsCreate : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsCreate : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForExecutionsCreateWithObject:projectId:historyId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsCreateWithObject:projectId:historyId:]
 
 /**
  *  A History id.
@@ -354,11 +328,124 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param historyId A History id.
  *    Required.
  *
- *  @return GTLRToolResultsQuery_ExecutionsCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsCreate
  */
 + (instancetype)queryWithObject:(GTLRToolResults_Execution *)object
                       projectId:(NSString *)projectId
                       historyId:(NSString *)historyId;
+
+@end
+
+/**
+ *  Gets an Environment.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the Environment does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.environments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsEnvironmentsGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsEnvironmentsGetWithprojectId:historyId:executionId:environmentId:]
+
+/** Required. An Environment id. */
+@property(nonatomic, copy, nullable) NSString *environmentId;
+
+/** Required. An Execution id. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** Required. A History id. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** Required. A Project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRToolResults_Environment.
+ *
+ *  Gets an Environment.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the Environment does not exist
+ *
+ *  @param projectId Required. A Project id.
+ *  @param historyId Required. A History id.
+ *  @param executionId Required. An Execution id.
+ *  @param environmentId Required. An Environment id.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsEnvironmentsGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                     environmentId:(NSString *)environmentId;
+
+@end
+
+/**
+ *  Lists Environments for a given Execution.
+ *  The Environments are sorted by display name.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.environments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsEnvironmentsList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsEnvironmentsListWithprojectId:historyId:executionId:]
+
+/** Required. An Execution id. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** Required. A History id. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  The maximum number of Environments to fetch.
+ *  Default value: 25. The server will use this default if the field is not set
+ *  or has a value of 0.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A continuation token to resume the query at the next item. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. A Project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListEnvironmentsResponse.
+ *
+ *  Lists Environments for a given Execution.
+ *  The Environments are sorted by display name.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  @param projectId Required. A Project id.
+ *  @param historyId Required. A History id.
+ *  @param executionId Required. An Execution id.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId;
 
 @end
 
@@ -369,14 +456,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the Execution does not exist
  *
- *  Method: toolresults.executions.get
+ *  Method: toolresults.projects.histories.executions.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_ExecutionsGet : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsGet : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForExecutionsGetWithprojectId:historyId:executionId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsGetWithprojectId:historyId:executionId:]
 
 /**
  *  An Execution id.
@@ -412,7 +499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param executionId An Execution id.
  *    Required.
  *
- *  @return GTLRToolResultsQuery_ExecutionsGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId
@@ -430,14 +517,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the containing History does not exist
  *
- *  Method: toolresults.executions.list
+ *  Method: toolresults.projects.histories.executions.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_ExecutionsList : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsList : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForExecutionsListWithprojectId:historyId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsListWithprojectId:historyId:]
 
 /**
  *  A History id.
@@ -482,7 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param historyId A History id.
  *    Required.
  *
- *  @return GTLRToolResultsQuery_ExecutionsList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -501,14 +588,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  - FAILED_PRECONDITION - if the requested state transition is illegal
  *  - NOT_FOUND - if the containing History does not exist
  *
- *  Method: toolresults.executions.patch
+ *  Method: toolresults.projects.histories.executions.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_ExecutionsPatch : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsPatch : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForExecutionsPatchWithObject:projectId:historyId:executionId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsPatchWithObject:projectId:historyId:executionId:]
 
 /** Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -545,7 +632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param historyId Required.
  *  @param executionId Required.
  *
- *  @return GTLRToolResultsQuery_ExecutionsPatch
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsPatch
  */
 + (instancetype)queryWithObject:(GTLRToolResults_Execution *)object
                       projectId:(NSString *)projectId
@@ -555,21 +642,354 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
 @end
 
 /**
- *  Creates a History.
- *  The returned History will have the id set.
+ *  Lists accessibility clusters for a given Step
  *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
  *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing project does not exist
+ *  - FAILED_PRECONDITION - if an argument in the request happens to be
+ *  invalid; e.g. if the locale format is incorrect
+ *  - NOT_FOUND - if the containing Step does not exist
  *
- *  Method: toolresults.histories.create
+ *  Method: toolresults.projects.histories.executions.steps.accessibilityClusters
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_HistoriesCreate : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsAccessibilityClusters : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForHistoriesCreateWithObject:projectId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsAccessibilityClustersWithname:]
+
+/**
+ *  The accepted format is the canonical Unicode format with hyphen as a
+ *  delimiter. Language must be lowercase, Language Script - Capitalized,
+ *  Region - UPPERCASE.
+ *  See http://www.unicode.org/reports/tr35/#Unicode_locale_identifier for
+ *  details.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/**
+ *  A full resource name of the step.
+ *  For example, projects/my-project/histories/bh.1234567890abcdef/executions/
+ *  1234567890123456789/steps/bs.1234567890abcdef
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListStepAccessibilityClustersResponse.
+ *
+ *  Lists accessibility clusters for a given Step
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if an argument in the request happens to be
+ *  invalid; e.g. if the locale format is incorrect
+ *  - NOT_FOUND - if the containing Step does not exist
+ *
+ *  @param name A full resource name of the step.
+ *    For example, projects/my-project/histories/bh.1234567890abcdef/executions/
+ *    1234567890123456789/steps/bs.1234567890abcdef
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsAccessibilityClusters
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Step.
+ *  The returned Step will have the id set.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if the step is too large (more than 10Mib)
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsCreate : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsCreateWithObject:projectId:historyId:executionId:]
+
+/** Required. An Execution id. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** Required. A History id. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** Required. A Project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A unique request ID for server to detect duplicated requests.
+ *  For example, a UUID.
+ *  Optional, but strongly recommended.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRToolResults_Step.
+ *
+ *  Creates a Step.
+ *  The returned Step will have the id set.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if the step is too large (more than 10Mib)
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  @param object The @c GTLRToolResults_Step to include in the query.
+ *  @param projectId Required. A Project id.
+ *  @param historyId Required. A History id.
+ *  @param executionId Required. An Execution id.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsCreate
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_Step *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId;
+
+@end
+
+/**
+ *  Gets a Step.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the Step does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsGetWithprojectId:historyId:executionId:stepId:]
+
+/**
+ *  A Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_Step.
+ *
+ *  Gets a Step.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the Step does not exist
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id.
+ *    Required.
+ *  @param stepId A Step id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Retrieves a PerfMetricsSummary.
+ *  May return any of the following error code(s):
+ *  - NOT_FOUND - The specified PerfMetricsSummary does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.getPerfMetricsSummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsGetPerfMetricsSummaryWithprojectId:historyId:executionId:stepId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_PerfMetricsSummary.
+ *
+ *  Retrieves a PerfMetricsSummary.
+ *  May return any of the following error code(s):
+ *  - NOT_FOUND - The specified PerfMetricsSummary does not exist
+ *
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Lists Steps for a given Execution.
+ *  The steps are sorted by creation_time in descending order. The
+ *  step_id key will be used to order the steps with the same
+ *  creation_time.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if an argument in the request happens to be
+ *  invalid; e.g. if an attempt is made to list the
+ *  children of a nonexistent Step
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsListWithprojectId:historyId:executionId:]
+
+/**
+ *  A Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  The maximum number of Steps to fetch.
+ *  Default value: 25. The server will use this default if the field is not set
+ *  or has a value of 0.
+ *  Optional.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A continuation token to resume the query at the next item.
+ *  Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListStepsResponse.
+ *
+ *  Lists Steps for a given Execution.
+ *  The steps are sorted by creation_time in descending order. The
+ *  step_id key will be used to order the steps with the same
+ *  creation_time.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if an argument in the request happens to be
+ *  invalid; e.g. if an attempt is made to list the
+ *  children of a nonexistent Step
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId;
+
+@end
+
+/**
+ *  Updates an existing Step with the supplied partial entity.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if the requested state transition is illegal
+ *  (e.g try to upload a duplicate xml file), if the
+ *  updated step is too large (more than 10Mib)
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPatch : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPatchWithObject:projectId:historyId:executionId:stepId:]
+
+/**
+ *  A Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
  *  A Project id.
@@ -585,23 +1005,742 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Fetches a @c GTLRToolResults_History.
+ *  A Step id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_Step.
  *
- *  Creates a History.
- *  The returned History will have the id set.
+ *  Updates an existing Step with the supplied partial entity.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if the requested state transition is illegal
+ *  (e.g try to upload a duplicate xml file), if the
+ *  updated step is too large (more than 10Mib)
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  @param object The @c GTLRToolResults_Step to include in the query.
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id.
+ *    Required.
+ *  @param stepId A Step id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPatch
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_Step *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Creates a PerfMetricsSummary resource. Returns the existing one if it has
+ *  already been created.
+ *  May return any of the following error code(s):
+ *  - NOT_FOUND - The containing Step does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.perfMetricsSummary.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreateWithObject:projectId:historyId:executionId:stepId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_PerfMetricsSummary.
+ *
+ *  Creates a PerfMetricsSummary resource. Returns the existing one if it has
+ *  already been created.
+ *  May return any of the following error code(s):
+ *  - NOT_FOUND - The containing Step does not exist
+ *
+ *  @param object The @c GTLRToolResults_PerfMetricsSummary to include in the
+ *    query.
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_PerfMetricsSummary *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Creates a PerfSampleSeries.
+ *  May return any of the following error code(s):
+ *  - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step
+ *  - NOT_FOUND - The containing Step does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.perfSampleSeries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesCreateWithObject:projectId:historyId:executionId:stepId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_PerfSampleSeries.
+ *
+ *  Creates a PerfSampleSeries.
+ *  May return any of the following error code(s):
+ *  - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step
+ *  - NOT_FOUND - The containing Step does not exist
+ *
+ *  @param object The @c GTLRToolResults_PerfSampleSeries to include in the
+ *    query.
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_PerfSampleSeries *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Gets a PerfSampleSeries.
+ *  May return any of the following error code(s):
+ *  - NOT_FOUND - The specified PerfSampleSeries does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.perfSampleSeries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesGetWithprojectId:historyId:executionId:stepId:sampleSeriesId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A sample series id */
+@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_PerfSampleSeries.
+ *
+ *  Gets a PerfSampleSeries.
+ *  May return any of the following error code(s):
+ *  - NOT_FOUND - The specified PerfSampleSeries does not exist
+ *
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *  @param sampleSeriesId A sample series id
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                    sampleSeriesId:(NSString *)sampleSeriesId;
+
+@end
+
+/**
+ *  Lists PerfSampleSeries for a given Step.
+ *  The request provides an optional filter which specifies one or more
+ *  PerfMetricsType to include in the result; if none returns all.
+ *  The resulting PerfSampleSeries are sorted by ids.
+ *  May return any of the following canonical error codes:
+ *  - NOT_FOUND - The containing Step does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.perfSampleSeries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesListWithprojectId:historyId:executionId:stepId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  Specify one or more PerfMetricType values such as CPU to filter the result
+ *
+ *  Likely values:
+ *    @arg @c kGTLRToolResultsFilterPerfMetricTypeUnspecified Value
+ *        "perfMetricTypeUnspecified"
+ *    @arg @c kGTLRToolResultsFilterMemory Value "memory"
+ *    @arg @c kGTLRToolResultsFilterCpu Value "cpu"
+ *    @arg @c kGTLRToolResultsFilterNetwork Value "network"
+ *    @arg @c kGTLRToolResultsFilterGraphics Value "graphics"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filter;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListPerfSampleSeriesResponse.
+ *
+ *  Lists PerfSampleSeries for a given Step.
+ *  The request provides an optional filter which specifies one or more
+ *  PerfMetricsType to include in the result; if none returns all.
+ *  The resulting PerfSampleSeries are sorted by ids.
+ *  May return any of the following canonical error codes:
+ *  - NOT_FOUND - The containing Step does not exist
+ *
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Creates a batch of PerfSamples
+ *  - a client can submit multiple batches of Perf Samples through repeated
+ *  calls to this method in order to split up a large request payload
+ *  - duplicates and existing timestamp entries will be ignored.
+ *  - the batch operation may partially succeed
+ *  - the set of elements successfully inserted is returned in the response
+ *  (omits items which already existed in the database).
+ *  May return any of the following canonical error codes:
+ *  - NOT_FOUND - The containing PerfSampleSeries does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.perfSampleSeries.samples.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreateWithObject:projectId:historyId:executionId:stepId:sampleSeriesId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A sample series id */
+@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_BatchCreatePerfSamplesResponse.
+ *
+ *  Creates a batch of PerfSamples
+ *  - a client can submit multiple batches of Perf Samples through repeated
+ *  calls to this method in order to split up a large request payload
+ *  - duplicates and existing timestamp entries will be ignored.
+ *  - the batch operation may partially succeed
+ *  - the set of elements successfully inserted is returned in the response
+ *  (omits items which already existed in the database).
+ *  May return any of the following canonical error codes:
+ *  - NOT_FOUND - The containing PerfSampleSeries does not exist
+ *
+ *  @param object The @c GTLRToolResults_BatchCreatePerfSamplesRequest to
+ *    include in the query.
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *  @param sampleSeriesId A sample series id
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_BatchCreatePerfSamplesRequest *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId
+                 sampleSeriesId:(NSString *)sampleSeriesId;
+
+@end
+
+/**
+ *  Lists the Performance Samples of a given Sample Series
+ *  - The list results are sorted by timestamps ascending
+ *  - The default page size is 500 samples; and maximum size allowed 5000
+ *  - The response token indicates the last returned PerfSample timestamp
+ *  - When the results size exceeds the page size, submit a subsequent request
+ *  including the page token to return the rest of the samples up to the
+ *  page limit
+ *  May return any of the following canonical error codes:
+ *  - OUT_OF_RANGE - The specified request page_token is out of valid range
+ *  - NOT_FOUND - The containing PerfSampleSeries does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.perfSampleSeries.samples.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesListWithprojectId:historyId:executionId:stepId:sampleSeriesId:]
+
+/** A tool results execution ID. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** A tool results history ID. */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  The default page size is 500 samples, and the maximum size is 5000. If
+ *  the page_size is greater than 5000, the effective page size will be 5000
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional, the next_page_token returned in the previous response */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The cloud project */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** A sample series id */
+@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
+
+/** A tool results step ID. */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListPerfSamplesResponse.
+ *
+ *  Lists the Performance Samples of a given Sample Series
+ *  - The list results are sorted by timestamps ascending
+ *  - The default page size is 500 samples; and maximum size allowed 5000
+ *  - The response token indicates the last returned PerfSample timestamp
+ *  - When the results size exceeds the page size, submit a subsequent request
+ *  including the page token to return the rest of the samples up to the
+ *  page limit
+ *  May return any of the following canonical error codes:
+ *  - OUT_OF_RANGE - The specified request page_token is out of valid range
+ *  - NOT_FOUND - The containing PerfSampleSeries does not exist
+ *
+ *  @param projectId The cloud project
+ *  @param historyId A tool results history ID.
+ *  @param executionId A tool results execution ID.
+ *  @param stepId A tool results step ID.
+ *  @param sampleSeriesId A sample series id
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                    sampleSeriesId:(NSString *)sampleSeriesId;
+
+@end
+
+/**
+ *  Publish xml files to an existing Step.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if the requested state transition is illegal,
+ *  e.g try to upload a duplicate xml file or a file too large.
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.publishXunitXmlFiles
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPublishXunitXmlFiles : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPublishXunitXmlFilesWithObject:projectId:historyId:executionId:stepId:]
+
+/**
+ *  A Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id.
+ *  Note: This step must include a TestExecutionStep.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_Step.
+ *
+ *  Publish xml files to an existing Step.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - FAILED_PRECONDITION - if the requested state transition is illegal,
+ *  e.g try to upload a duplicate xml file or a file too large.
+ *  - NOT_FOUND - if the containing Execution does not exist
+ *
+ *  @param object The @c GTLRToolResults_PublishXunitXmlFilesRequest to include
+ *    in the query.
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id.
+ *    Required.
+ *  @param stepId A Step id.
+ *    Note: This step must include a TestExecutionStep.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPublishXunitXmlFiles
+ */
++ (instancetype)queryWithObject:(GTLRToolResults_PublishXunitXmlFilesRequest *)object
+                      projectId:(NSString *)projectId
+                      historyId:(NSString *)historyId
+                    executionId:(NSString *)executionId
+                         stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Gets details of a Test Case for a Step.
+ *  Experimental test cases API. Still in active development.
  *  May return any of the following canonical error codes:
  *  - PERMISSION_DENIED - if the user is not authorized to write to project
  *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing project does not exist
+ *  - NOT_FOUND - if the containing Test Case does not exist
  *
- *  @param object The @c GTLRToolResults_History to include in the query.
+ *  Method: toolresults.projects.histories.executions.steps.testCases.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsTestCasesGetWithprojectId:historyId:executionId:stepId:testCaseId:]
+
+/**
+ *  A Execution id
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id.
+ *  Note: This step must include a TestExecutionStep.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  A Test Case id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *testCaseId;
+
+/**
+ *  Fetches a @c GTLRToolResults_TestCase.
+ *
+ *  Gets details of a Test Case for a Step.
+ *  Experimental test cases API. Still in active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing Test Case does not exist
+ *
  *  @param projectId A Project id.
  *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id
+ *    Required.
+ *  @param stepId A Step id.
+ *    Note: This step must include a TestExecutionStep.
+ *    Required.
+ *  @param testCaseId A Test Case id.
+ *    Required.
  *
- *  @return GTLRToolResultsQuery_HistoriesCreate
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet
  */
-+ (instancetype)queryWithObject:(GTLRToolResults_History *)object
-                      projectId:(NSString *)projectId;
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId
+                        testCaseId:(NSString *)testCaseId;
+
+@end
+
+/**
+ *  Lists Test Cases attached to a Step.
+ *  Experimental test cases API. Still in active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing Step does not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.testCases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsTestCasesListWithprojectId:historyId:executionId:stepId:]
+
+/**
+ *  A Execution id
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  The maximum number of TestCases to fetch.
+ *  Default value: 100. The server will use this default if the field is not
+ *  set or has a value of 0.
+ *  Optional.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A continuation token to resume the query at the next item.
+ *  Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id.
+ *  Note: This step must include a TestExecutionStep.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListTestCasesResponse.
+ *
+ *  Lists Test Cases attached to a Step.
+ *  Experimental test cases API. Still in active development.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to write to project
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the containing Step does not exist
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId A Execution id
+ *    Required.
+ *  @param stepId A Step id.
+ *    Note: This step must include a TestExecutionStep.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId;
+
+@end
+
+/**
+ *  Lists thumbnails of images attached to a step.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read from the
+ *  project, or from any of the images
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the step does not exist, or if any of the images
+ *  do not exist
+ *
+ *  Method: toolresults.projects.histories.executions.steps.thumbnails.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeToolResultsCloudPlatform
+ */
+@interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsThumbnailsList : GTLRToolResultsQuery
+// Previous library name was
+//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsThumbnailsListWithprojectId:historyId:executionId:stepId:]
+
+/**
+ *  An Execution id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/**
+ *  A History id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *historyId;
+
+/**
+ *  The maximum number of thumbnails to fetch.
+ *  Default value: 50. The server will use this default if the field is not set
+ *  or has a value of 0.
+ *  Optional.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A continuation token to resume the query at the next item.
+ *  Optional.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  A Project id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  A Step id.
+ *  Required.
+ */
+@property(nonatomic, copy, nullable) NSString *stepId;
+
+/**
+ *  Fetches a @c GTLRToolResults_ListStepThumbnailsResponse.
+ *
+ *  Lists thumbnails of images attached to a step.
+ *  May return any of the following canonical error codes:
+ *  - PERMISSION_DENIED - if the user is not authorized to read from the
+ *  project, or from any of the images
+ *  - INVALID_ARGUMENT - if the request is malformed
+ *  - NOT_FOUND - if the step does not exist, or if any of the images
+ *  do not exist
+ *
+ *  @param projectId A Project id.
+ *    Required.
+ *  @param historyId A History id.
+ *    Required.
+ *  @param executionId An Execution id.
+ *    Required.
+ *  @param stepId A Step id.
+ *    Required.
+ *
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsThumbnailsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         historyId:(NSString *)historyId
+                       executionId:(NSString *)executionId
+                            stepId:(NSString *)stepId;
 
 @end
 
@@ -612,14 +1751,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the History does not exist
  *
- *  Method: toolresults.histories.get
+ *  Method: toolresults.projects.histories.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_HistoriesGet : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesGet : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForHistoriesGetWithprojectId:historyId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesGetWithprojectId:historyId:]
 
 /**
  *  A History id.
@@ -647,7 +1786,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param historyId A History id.
  *    Required.
  *
- *  @return GTLRToolResultsQuery_HistoriesGet
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesGet
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          historyId:(NSString *)historyId;
@@ -664,14 +1803,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the History does not exist
  *
- *  Method: toolresults.histories.list
+ *  Method: toolresults.projects.histories.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
-@interface GTLRToolResultsQuery_HistoriesList : GTLRToolResultsQuery
+@interface GTLRToolResultsQuery_ProjectsHistoriesList : GTLRToolResultsQuery
 // Previous library name was
-//   +[GTLQueryToolResults queryForHistoriesListWithprojectId:]
+//   +[GTLQueryToolResults queryForProjectsHistoriesListWithprojectId:]
 
 /**
  *  If set, only return histories with the given name.
@@ -714,269 +1853,11 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @param projectId A Project id.
  *    Required.
  *
- *  @return GTLRToolResultsQuery_HistoriesList
+ *  @return GTLRToolResultsQuery_ProjectsHistoriesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId;
-
-@end
-
-/**
- *  Creates a PerfMetricsSummary resource. Returns the existing one if it has
- *  already been created.
- *  May return any of the following error code(s):
- *  - NOT_FOUND - The containing Step does not exist
- *
- *  Method: toolresults.perfMetricsSummary.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_PerfMetricsSummaryCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForPerfMetricsSummaryCreateWithObject:projectId:historyId:executionId:stepId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_PerfMetricsSummary.
- *
- *  Creates a PerfMetricsSummary resource. Returns the existing one if it has
- *  already been created.
- *  May return any of the following error code(s):
- *  - NOT_FOUND - The containing Step does not exist
- *
- *  @param object The @c GTLRToolResults_PerfMetricsSummary to include in the
- *    query.
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *
- *  @return GTLRToolResultsQuery_PerfMetricsSummaryCreate
- */
-+ (instancetype)queryWithObject:(GTLRToolResults_PerfMetricsSummary *)object
-                      projectId:(NSString *)projectId
-                      historyId:(NSString *)historyId
-                    executionId:(NSString *)executionId
-                         stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Creates a PerfSampleSeries.
- *  May return any of the following error code(s):
- *  - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step
- *  - NOT_FOUND - The containing Step does not exist
- *
- *  Method: toolresults.perfSampleSeries.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_PerfSampleSeriesCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForPerfSampleSeriesCreateWithObject:projectId:historyId:executionId:stepId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_PerfSampleSeries.
- *
- *  Creates a PerfSampleSeries.
- *  May return any of the following error code(s):
- *  - ALREADY_EXISTS - PerfMetricSummary already exists for the given Step
- *  - NOT_FOUND - The containing Step does not exist
- *
- *  @param object The @c GTLRToolResults_PerfSampleSeries to include in the
- *    query.
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *
- *  @return GTLRToolResultsQuery_PerfSampleSeriesCreate
- */
-+ (instancetype)queryWithObject:(GTLRToolResults_PerfSampleSeries *)object
-                      projectId:(NSString *)projectId
-                      historyId:(NSString *)historyId
-                    executionId:(NSString *)executionId
-                         stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Gets a PerfSampleSeries.
- *  May return any of the following error code(s):
- *  - NOT_FOUND - The specified PerfSampleSeries does not exist
- *
- *  Method: toolresults.perfSampleSeries.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_PerfSampleSeriesGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForPerfSampleSeriesGetWithprojectId:historyId:executionId:stepId:sampleSeriesId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A sample series id */
-@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_PerfSampleSeries.
- *
- *  Gets a PerfSampleSeries.
- *  May return any of the following error code(s):
- *  - NOT_FOUND - The specified PerfSampleSeries does not exist
- *
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *  @param sampleSeriesId A sample series id
- *
- *  @return GTLRToolResultsQuery_PerfSampleSeriesGet
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId
-                    sampleSeriesId:(NSString *)sampleSeriesId;
-
-@end
-
-/**
- *  Lists PerfSampleSeries for a given Step.
- *  The request provides an optional filter which specifies one or more
- *  PerfMetricsType to include in the result; if none returns all.
- *  The resulting PerfSampleSeries are sorted by ids.
- *  May return any of the following canonical error codes:
- *  - NOT_FOUND - The containing Step does not exist
- *
- *  Method: toolresults.perfSampleSeries.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_PerfSampleSeriesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForPerfSampleSeriesListWithprojectId:historyId:executionId:stepId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  Specify one or more PerfMetricType values such as CPU to filter the result
- *
- *  Likely values:
- *    @arg @c kGTLRToolResultsFilterPerfMetricTypeUnspecified Value
- *        "PERF_METRIC_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRToolResultsFilterMemory Value "MEMORY"
- *    @arg @c kGTLRToolResultsFilterCpu Value "CPU"
- *    @arg @c kGTLRToolResultsFilterNetwork Value "NETWORK"
- *    @arg @c kGTLRToolResultsFilterGraphics Value "GRAPHICS"
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *filter;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_ListPerfSampleSeriesResponse.
- *
- *  Lists PerfSampleSeries for a given Step.
- *  The request provides an optional filter which specifies one or more
- *  PerfMetricsType to include in the result; if none returns all.
- *  The resulting PerfSampleSeries are sorted by ids.
- *  May return any of the following canonical error codes:
- *  - NOT_FOUND - The containing Step does not exist
- *
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *
- *  @return GTLRToolResultsQuery_PerfSampleSeriesList
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Gets the Tool Results settings for a project.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read from project
- *
- *  Method: toolresults.projects.getSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_ProjectsGetSettings : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsGetSettingsWithprojectId:]
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRToolResults_ProjectSettings.
- *
- *  Gets the Tool Results settings for a project.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read from project
- *
- *  @param projectId A Project id.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_ProjectsGetSettings
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
 
@@ -1053,887 +1934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  @return GTLRToolResultsQuery_ProjectsInitializeSettings
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId;
-
-@end
-
-/**
- *  Creates a batch of PerfSamples
- *  - a client can submit multiple batches of Perf Samples through repeated
- *  calls to this method in order to split up a large request payload
- *  - duplicates and existing timestamp entries will be ignored.
- *  - the batch operation may partially succeed
- *  - the set of elements successfully inserted is returned in the response
- *  (omits items which already existed in the database).
- *  May return any of the following canonical error codes:
- *  - NOT_FOUND - The containing PerfSampleSeries does not exist
- *
- *  Method: toolresults.samples.batchCreate
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_SamplesBatchCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForSamplesBatchCreateWithObject:projectId:historyId:executionId:stepId:sampleSeriesId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A sample series id */
-@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_BatchCreatePerfSamplesResponse.
- *
- *  Creates a batch of PerfSamples
- *  - a client can submit multiple batches of Perf Samples through repeated
- *  calls to this method in order to split up a large request payload
- *  - duplicates and existing timestamp entries will be ignored.
- *  - the batch operation may partially succeed
- *  - the set of elements successfully inserted is returned in the response
- *  (omits items which already existed in the database).
- *  May return any of the following canonical error codes:
- *  - NOT_FOUND - The containing PerfSampleSeries does not exist
- *
- *  @param object The @c GTLRToolResults_BatchCreatePerfSamplesRequest to
- *    include in the query.
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *  @param sampleSeriesId A sample series id
- *
- *  @return GTLRToolResultsQuery_SamplesBatchCreate
- */
-+ (instancetype)queryWithObject:(GTLRToolResults_BatchCreatePerfSamplesRequest *)object
-                      projectId:(NSString *)projectId
-                      historyId:(NSString *)historyId
-                    executionId:(NSString *)executionId
-                         stepId:(NSString *)stepId
-                 sampleSeriesId:(NSString *)sampleSeriesId;
-
-@end
-
-/**
- *  Lists the Performance Samples of a given Sample Series
- *  - The list results are sorted by timestamps ascending
- *  - The default page size is 500 samples; and maximum size allowed 5000
- *  - The response token indicates the last returned PerfSample timestamp
- *  - When the results size exceeds the page size, submit a subsequent request
- *  including the page token to return the rest of the samples up to the
- *  page limit
- *  May return any of the following canonical error codes:
- *  - OUT_OF_RANGE - The specified request page_token is out of valid range
- *  - NOT_FOUND - The containing PerfSampleSeries does not exist
- *
- *  Method: toolresults.samples.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_SamplesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForSamplesListWithprojectId:historyId:executionId:stepId:sampleSeriesId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  The default page size is 500 samples, and the maximum size is 5000. If
- *  the page_size is greater than 5000, the effective page size will be 5000
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Optional, the next_page_token returned in the previous response */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A sample series id */
-@property(nonatomic, copy, nullable) NSString *sampleSeriesId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_ListPerfSamplesResponse.
- *
- *  Lists the Performance Samples of a given Sample Series
- *  - The list results are sorted by timestamps ascending
- *  - The default page size is 500 samples; and maximum size allowed 5000
- *  - The response token indicates the last returned PerfSample timestamp
- *  - When the results size exceeds the page size, submit a subsequent request
- *  including the page token to return the rest of the samples up to the
- *  page limit
- *  May return any of the following canonical error codes:
- *  - OUT_OF_RANGE - The specified request page_token is out of valid range
- *  - NOT_FOUND - The containing PerfSampleSeries does not exist
- *
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *  @param sampleSeriesId A sample series id
- *
- *  @return GTLRToolResultsQuery_SamplesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId
-                    sampleSeriesId:(NSString *)sampleSeriesId;
-
-@end
-
-/**
- *  Lists accessibility clusters for a given Step
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if an argument in the request happens to be
- *  invalid; e.g. if the locale format is incorrect
- *  - NOT_FOUND - if the containing Step does not exist
- *
- *  Method: toolresults.steps.accessibilityClusters
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsAccessibilityClusters : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsAccessibilityClustersWithname:]
-
-/**
- *  The accepted format is the canonical Unicode format with hyphen as a
- *  delimiter. Language must be lowercase, Language Script - Capitalized,
- *  Region - UPPERCASE.
- *  See http://www.unicode.org/reports/tr35/#Unicode_locale_identifier for
- *  details.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *locale;
-
-/**
- *  A full resource name of the step.
- *  For example, projects/my-project/histories/bh.1234567890abcdef/executions/
- *  1234567890123456789/steps/bs.1234567890abcdef
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRToolResults_ListStepAccessibilityClustersResponse.
- *
- *  Lists accessibility clusters for a given Step
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if an argument in the request happens to be
- *  invalid; e.g. if the locale format is incorrect
- *  - NOT_FOUND - if the containing Step does not exist
- *
- *  @param name A full resource name of the step.
- *    For example, projects/my-project/histories/bh.1234567890abcdef/executions/
- *    1234567890123456789/steps/bs.1234567890abcdef
- *    Required.
- *
- *  @return GTLRToolResultsQuery_StepsAccessibilityClusters
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Creates a Step.
- *  The returned Step will have the id set.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if the step is too large (more than 10Mib)
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  Method: toolresults.steps.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsCreateWithObject:projectId:historyId:executionId:]
-
-/** Required. An Execution id. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** Required. A History id. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** Required. A Project id. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A unique request ID for server to detect duplicated requests.
- *  For example, a UUID.
- *  Optional, but strongly recommended.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Fetches a @c GTLRToolResults_Step.
- *
- *  Creates a Step.
- *  The returned Step will have the id set.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if the step is too large (more than 10Mib)
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  @param object The @c GTLRToolResults_Step to include in the query.
- *  @param projectId Required. A Project id.
- *  @param historyId Required. A History id.
- *  @param executionId Required. An Execution id.
- *
- *  @return GTLRToolResultsQuery_StepsCreate
- */
-+ (instancetype)queryWithObject:(GTLRToolResults_Step *)object
-                      projectId:(NSString *)projectId
-                      historyId:(NSString *)historyId
-                    executionId:(NSString *)executionId;
-
-@end
-
-/**
- *  Gets a Step.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the Step does not exist
- *
- *  Method: toolresults.steps.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsGetWithprojectId:historyId:executionId:stepId:]
-
-/**
- *  A Execution id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A Step id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_Step.
- *
- *  Gets a Step.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the Step does not exist
- *
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id.
- *    Required.
- *  @param stepId A Step id.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_StepsGet
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Retrieves a PerfMetricsSummary.
- *  May return any of the following error code(s):
- *  - NOT_FOUND - The specified PerfMetricsSummary does not exist
- *
- *  Method: toolresults.steps.getPerfMetricsSummary
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsGetPerfMetricsSummary : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsGetPerfMetricsSummaryWithprojectId:historyId:executionId:stepId:]
-
-/** A tool results execution ID. */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/** A tool results history ID. */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/** The cloud project */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** A tool results step ID. */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_PerfMetricsSummary.
- *
- *  Retrieves a PerfMetricsSummary.
- *  May return any of the following error code(s):
- *  - NOT_FOUND - The specified PerfMetricsSummary does not exist
- *
- *  @param projectId The cloud project
- *  @param historyId A tool results history ID.
- *  @param executionId A tool results execution ID.
- *  @param stepId A tool results step ID.
- *
- *  @return GTLRToolResultsQuery_StepsGetPerfMetricsSummary
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Lists Steps for a given Execution.
- *  The steps are sorted by creation_time in descending order. The
- *  step_id key will be used to order the steps with the same
- *  creation_time.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if an argument in the request happens to be
- *  invalid; e.g. if an attempt is made to list the
- *  children of a nonexistent Step
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  Method: toolresults.steps.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsListWithprojectId:historyId:executionId:]
-
-/**
- *  A Execution id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  The maximum number of Steps to fetch.
- *  Default value: 25. The server will use this default if the field is not set
- *  or has a value of 0.
- *  Optional.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A continuation token to resume the query at the next item.
- *  Optional.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  Fetches a @c GTLRToolResults_ListStepsResponse.
- *
- *  Lists Steps for a given Execution.
- *  The steps are sorted by creation_time in descending order. The
- *  step_id key will be used to order the steps with the same
- *  creation_time.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if an argument in the request happens to be
- *  invalid; e.g. if an attempt is made to list the
- *  children of a nonexistent Step
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_StepsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId;
-
-@end
-
-/**
- *  Updates an existing Step with the supplied partial entity.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if the requested state transition is illegal
- *  (e.g try to upload a duplicate xml file), if the
- *  updated step is too large (more than 10Mib)
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  Method: toolresults.steps.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsPatch : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsPatchWithObject:projectId:historyId:executionId:stepId:]
-
-/**
- *  A Execution id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A unique request ID for server to detect duplicated requests.
- *  For example, a UUID.
- *  Optional, but strongly recommended.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  A Step id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_Step.
- *
- *  Updates an existing Step with the supplied partial entity.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if the requested state transition is illegal
- *  (e.g try to upload a duplicate xml file), if the
- *  updated step is too large (more than 10Mib)
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  @param object The @c GTLRToolResults_Step to include in the query.
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id.
- *    Required.
- *  @param stepId A Step id.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_StepsPatch
- */
-+ (instancetype)queryWithObject:(GTLRToolResults_Step *)object
-                      projectId:(NSString *)projectId
-                      historyId:(NSString *)historyId
-                    executionId:(NSString *)executionId
-                         stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Publish xml files to an existing Step.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if the requested state transition is illegal,
- *  e.g try to upload a duplicate xml file or a file too large.
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  Method: toolresults.steps.publishXunitXmlFiles
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_StepsPublishXunitXmlFiles : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForStepsPublishXunitXmlFilesWithObject:projectId:historyId:executionId:stepId:]
-
-/**
- *  A Execution id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A Step id.
- *  Note: This step must include a TestExecutionStep.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_Step.
- *
- *  Publish xml files to an existing Step.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - FAILED_PRECONDITION - if the requested state transition is illegal,
- *  e.g try to upload a duplicate xml file or a file too large.
- *  - NOT_FOUND - if the containing Execution does not exist
- *
- *  @param object The @c GTLRToolResults_PublishXunitXmlFilesRequest to include
- *    in the query.
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id.
- *    Required.
- *  @param stepId A Step id.
- *    Note: This step must include a TestExecutionStep.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_StepsPublishXunitXmlFiles
- */
-+ (instancetype)queryWithObject:(GTLRToolResults_PublishXunitXmlFilesRequest *)object
-                      projectId:(NSString *)projectId
-                      historyId:(NSString *)historyId
-                    executionId:(NSString *)executionId
-                         stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Gets details of a Test Case for a Step.
- *  Experimental test cases API. Still in active development.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing Test Case does not exist
- *
- *  Method: toolresults.testCases.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_TestCasesGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForTestCasesGetWithprojectId:historyId:executionId:stepId:testCaseId:]
-
-/**
- *  A Execution id
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A Step id.
- *  Note: This step must include a TestExecutionStep.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  A Test Case id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *testCaseId;
-
-/**
- *  Fetches a @c GTLRToolResults_TestCase.
- *
- *  Gets details of a Test Case for a Step.
- *  Experimental test cases API. Still in active development.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing Test Case does not exist
- *
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id
- *    Required.
- *  @param stepId A Step id.
- *    Note: This step must include a TestExecutionStep.
- *    Required.
- *  @param testCaseId A Test Case id.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_TestCasesGet
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId
-                        testCaseId:(NSString *)testCaseId;
-
-@end
-
-/**
- *  Lists Test Cases attached to a Step.
- *  Experimental test cases API. Still in active development.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing Step does not exist
- *
- *  Method: toolresults.testCases.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_TestCasesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForTestCasesListWithprojectId:historyId:executionId:stepId:]
-
-/**
- *  A Execution id
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  The maximum number of TestCases to fetch.
- *  Default value: 100. The server will use this default if the field is not
- *  set or has a value of 0.
- *  Optional.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A continuation token to resume the query at the next item.
- *  Optional.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A Step id.
- *  Note: This step must include a TestExecutionStep.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_ListTestCasesResponse.
- *
- *  Lists Test Cases attached to a Step.
- *  Experimental test cases API. Still in active development.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the containing Step does not exist
- *
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId A Execution id
- *    Required.
- *  @param stepId A Step id.
- *    Note: This step must include a TestExecutionStep.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_TestCasesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId;
-
-@end
-
-/**
- *  Lists thumbnails of images attached to a step.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read from the
- *  project, or from any of the images
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the step does not exist, or if any of the images
- *  do not exist
- *
- *  Method: toolresults.thumbnails.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeToolResultsCloudPlatform
- */
-@interface GTLRToolResultsQuery_ThumbnailsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForThumbnailsListWithprojectId:historyId:executionId:stepId:]
-
-/**
- *  An Execution id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *executionId;
-
-/**
- *  A History id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *historyId;
-
-/**
- *  The maximum number of thumbnails to fetch.
- *  Default value: 50. The server will use this default if the field is not set
- *  or has a value of 0.
- *  Optional.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A continuation token to resume the query at the next item.
- *  Optional.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  A Project id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/**
- *  A Step id.
- *  Required.
- */
-@property(nonatomic, copy, nullable) NSString *stepId;
-
-/**
- *  Fetches a @c GTLRToolResults_ListStepThumbnailsResponse.
- *
- *  Lists thumbnails of images attached to a step.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read from the
- *  project, or from any of the images
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the step does not exist, or if any of the images
- *  do not exist
- *
- *  @param projectId A Project id.
- *    Required.
- *  @param historyId A History id.
- *    Required.
- *  @param executionId An Execution id.
- *    Required.
- *  @param stepId A Step id.
- *    Required.
- *
- *  @return GTLRToolResultsQuery_ThumbnailsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithProjectId:(NSString *)projectId
-                         historyId:(NSString *)historyId
-                       executionId:(NSString *)executionId
-                            stepId:(NSString *)stepId;
 
 @end
 

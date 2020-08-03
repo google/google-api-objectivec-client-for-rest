@@ -77,8 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidProvisioningPartner_Configuration to include
  *    in the query.
  *  @param parent Required. The customer that manages the configuration. An API
- *    resource name
- *    in the format `customers/[CUSTOMER_ID]`.
+ *    resource name in the format `customers/[CUSTOMER_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsCreate
  */
@@ -111,9 +110,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  devices with the configuration applied.
  *
  *  @param name Required. The configuration to delete. An API resource name in
- *    the format
- *    `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. If the
- *    configuration is applied to any devices, the API call fails.
+ *    the format `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. If
+ *    the configuration is applied to any devices, the API call fails.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsDelete
  */
@@ -142,8 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a configuration.
  *
  *  @param name Required. The configuration to get. An API resource name in the
- *    format
- *    `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`.
+ *    format `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsGet
  */
@@ -173,8 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists a customer's configurations.
  *
  *  @param parent Required. The customer that manages the listed configurations.
- *    An API
- *    resource name in the format `customers/[CUSTOMER_ID]`.
+ *    An API resource name in the format `customers/[CUSTOMER_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsList
  */
@@ -193,8 +189,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The API resource name in the format
- *  `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by
- *  the server.
+ *  `customers/[CUSTOMER_ID]/configurations/[CONFIGURATION_ID]`. Assigned by the
+ *  server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -254,8 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRAndroidProvisioningPartner_CustomerApplyConfigurationRequest to
  *    include in the query.
  *  @param parent Required. The customer managing the device. An API resource
- *    name in the
- *    format `customers/[CUSTOMER_ID]`.
+ *    name in the format `customers/[CUSTOMER_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesApplyConfiguration
  */
@@ -303,8 +298,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesListWithparent:]
 
 /**
- *  The maximum number of devices to show in a page of results.
- *  Must be between 1 and 100 inclusive.
+ *  The maximum number of devices to show in a page of results. Must be between
+ *  1 and 100 inclusive.
  */
 @property(nonatomic, assign) long long pageSize;
 
@@ -323,8 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists a customer's devices.
  *
  *  @param parent Required. The customer managing the devices. An API resource
- *    name in the
- *    format `customers/[CUSTOMER_ID]`.
+ *    name in the format `customers/[CUSTOMER_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesList
  *
@@ -370,8 +364,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Unclaims a device from a customer and removes it from zero-touch
- *  enrollment.
+ *  Unclaims a device from a customer and removes it from zero-touch enrollment.
  *  After removing a device, a customer must contact their reseller to register
  *  the device into zero-touch enrollment again.
  *
@@ -390,8 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Empty.
  *
- *  Unclaims a device from a customer and removes it from zero-touch
- *  enrollment.
+ *  Unclaims a device from a customer and removes it from zero-touch enrollment.
  *  After removing a device, a customer must contact their reseller to register
  *  the device into zero-touch enrollment again.
  *
@@ -399,8 +391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRAndroidProvisioningPartner_CustomerUnclaimDeviceRequest to include in
  *    the query.
  *  @param parent Required. The customer managing the device. An API resource
- *    name in the
- *    format `customers/[CUSTOMER_ID]`.
+ *    name in the format `customers/[CUSTOMER_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDevicesUnclaim
  */
@@ -432,8 +423,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  enrollment.
  *
  *  @param parent Required. The customer that can use the DPCs in
- *    configurations. An API
- *    resource name in the format `customers/[CUSTOMER_ID]`.
+ *    configurations. An API resource name in the format
+ *    `customers/[CUSTOMER_ID]`.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersDpcsList
  */
@@ -451,8 +442,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidProvisioningPartner queryForCustomersList]
 
 /**
- *  The maximum number of customers to show in a page of results.
- *  A number between 1 and 100 (inclusive).
+ *  The maximum number of customers to show in a page of results. A number
+ *  between 1 and 100 (inclusive).
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -505,10 +496,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a customer for zero-touch enrollment. After the method returns
- *  successfully, admin and owner roles can manage devices and EMM configs
- *  by calling API methods or using their zero-touch enrollment portal.
- *  The customer receives an email that welcomes them to zero-touch enrollment
- *  and explains how to sign into the portal.
+ *  successfully, admin and owner roles can manage devices and EMM configs by
+ *  calling API methods or using their zero-touch enrollment portal. The
+ *  customer receives an email that welcomes them to zero-touch enrollment and
+ *  explains how to sign into the portal.
  *
  *  Method: androiddeviceprovisioning.partners.customers.create
  */
@@ -526,16 +517,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAndroidProvisioningPartner_Company.
  *
  *  Creates a customer for zero-touch enrollment. After the method returns
- *  successfully, admin and owner roles can manage devices and EMM configs
- *  by calling API methods or using their zero-touch enrollment portal.
- *  The customer receives an email that welcomes them to zero-touch enrollment
- *  and explains how to sign into the portal.
+ *  successfully, admin and owner roles can manage devices and EMM configs by
+ *  calling API methods or using their zero-touch enrollment portal. The
+ *  customer receives an email that welcomes them to zero-touch enrollment and
+ *  explains how to sign into the portal.
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_CreateCustomerRequest to
  *    include in the query.
  *  @param parent Required. The parent resource ID in the format
- *    `partners/[PARTNER_ID]` that
- *    identifies the reseller.
+ *    `partners/[PARTNER_ID]` that identifies the reseller.
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate
  */
@@ -546,8 +536,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the customers that are enrolled to the reseller identified by the
- *  `partnerId` argument. This list includes customers that the reseller
- *  created and customers that enrolled themselves using the portal.
+ *  `partnerId` argument. This list includes customers that the reseller created
+ *  and customers that enrolled themselves using the portal.
  *
  *  Method: androiddeviceprovisioning.partners.customers.list
  */
@@ -556,8 +546,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersListWithpartnerId:]
 
 /**
- *  The maximum number of results to be returned. If not specified or 0, all
- *  the records are returned.
+ *  The maximum number of results to be returned. If not specified or 0, all the
+ *  records are returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -571,8 +561,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAndroidProvisioningPartner_ListCustomersResponse.
  *
  *  Lists the customers that are enrolled to the reseller identified by the
- *  `partnerId` argument. This list includes customers that the reseller
- *  created and customers that enrolled themselves using the portal.
+ *  `partnerId` argument. This list includes customers that the reseller created
+ *  and customers that enrolled themselves using the portal.
  *
  *  @param partnerId Required. The ID of the reseller partner.
  *
@@ -617,8 +607,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Claims a batch of devices for a customer asynchronously. Adds the devices
- *  to zero-touch enrollment. To learn more, read [Long‑running batch
+ *  Claims a batch of devices for a customer asynchronously. Adds the devices to
+ *  zero-touch enrollment. To learn more, read [Long‑running batch
  *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  Method: androiddeviceprovisioning.partners.devices.claimAsync
@@ -633,8 +623,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Operation.
  *
- *  Claims a batch of devices for a customer asynchronously. Adds the devices
- *  to zero-touch enrollment. To learn more, read [Long‑running batch
+ *  Claims a batch of devices for a customer asynchronously. Adds the devices to
+ *  zero-touch enrollment. To learn more, read [Long‑running batch
  *  operations](/zero-touch/guides/how-it-works#operations).
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_ClaimDevicesRequest to
@@ -780,8 +770,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Unclaims a device from a customer and removes it from zero-touch
- *  enrollment.
+ *  Unclaims a device from a customer and removes it from zero-touch enrollment.
  *
  *  Method: androiddeviceprovisioning.partners.devices.unclaim
  */
@@ -795,8 +784,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAndroidProvisioningPartner_Empty.
  *
- *  Unclaims a device from a customer and removes it from zero-touch
- *  enrollment.
+ *  Unclaims a device from a customer and removes it from zero-touch enrollment.
  *
  *  @param object The @c GTLRAndroidProvisioningPartner_UnclaimDeviceRequest to
  *    include in the query.

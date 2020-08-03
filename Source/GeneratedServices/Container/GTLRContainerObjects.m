@@ -144,8 +144,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AddonsConfig
-@dynamic cloudRunConfig, dnsCacheConfig, horizontalPodAutoscaling,
-         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
+@dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
+         horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
+         networkPolicyConfig;
 @end
 
 
@@ -371,6 +372,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ConfigConnectorConfig
+//
+
+@implementation GTLRContainer_ConfigConnectorConfig
+@dynamic enabled;
 @end
 
 
@@ -788,9 +799,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, imageType, labels,
-         localSsdCount, machineType, metadata, minCpuPlatform, oauthScopes,
-         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
-         shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
+         localSsdCount, machineType, metadata, minCpuPlatform, nodeGroup,
+         oauthScopes, preemptible, reservationAffinity, sandboxConfig,
+         serviceAccount, shieldedInstanceConfig, tags, taints,
+         workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

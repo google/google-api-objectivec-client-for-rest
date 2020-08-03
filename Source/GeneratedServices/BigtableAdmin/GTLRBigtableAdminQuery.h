@@ -719,7 +719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  The expression must specify the field name, a comparison operator,
  *  and the value that you want to use for filtering. The value must be a
  *  string, a number, or a boolean. The comparison operator must be
- *  <, >, <=, >=, !=, =, or :. Colon ‘:’ represents a HAS operator which is
+ *  <, >, <=, >=, !=, =, or :. Colon ':' represents a HAS operator which is
  *  roughly synonymous with equality. Filter rules are case insensitive.
  *  The fields eligible for filtering are:
  *  * `name`

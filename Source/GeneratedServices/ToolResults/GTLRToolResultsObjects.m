@@ -14,54 +14,59 @@
 // Constants
 
 // GTLRToolResults_BasicPerfSampleSeries.perfMetricType
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu = @"CPU";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics = @"GRAPHICS";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory = @"MEMORY";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network = @"NETWORK";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified = @"PERF_METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Cpu = @"cpu";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Graphics = @"graphics";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Memory = @"memory";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_Network = @"network";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfMetricType_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
 
 // GTLRToolResults_BasicPerfSampleSeries.perfUnit
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte = @"BYTE";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond = @"BYTES_PER_SECOND";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond = @"FRAMES_PER_SECOND";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte = @"KIBIBYTE";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent = @"PERCENT";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified = @"PERF_UNIT_UNSPECIFIED";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Byte = @"byte";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_BytesPerSecond = @"bytesPerSecond";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_FramesPerSecond = @"framesPerSecond";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Kibibyte = @"kibibyte";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_Percent = @"percent";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_PerfUnit_PerfUnitUnspecified = @"perfUnitUnspecified";
 
 // GTLRToolResults_BasicPerfSampleSeries.sampleSeriesLabel
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel = @"CPU_KERNEL";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal = @"CPU_TOTAL";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser = @"CPU_USER";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate = @"GRAPHICS_FRAME_RATE";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate = @"MEMORY_RSS_PRIVATE";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared = @"MEMORY_RSS_SHARED";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal = @"MEMORY_RSS_TOTAL";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal = @"MEMORY_TOTAL";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived = @"NETWORK_RECEIVED";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent = @"NETWORK_SENT";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived = @"NT_BYTES_RECEIVED";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred = @"NT_BYTES_TRANSFERRED";
-NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified = @"SAMPLE_SERIES_TYPE_UNSPECIFIED";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuKernel = @"cpuKernel";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuTotal = @"cpuTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_CpuUser = @"cpuUser";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_GraphicsFrameRate = @"graphicsFrameRate";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssPrivate = @"memoryRssPrivate";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssShared = @"memoryRssShared";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryRssTotal = @"memoryRssTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_MemoryTotal = @"memoryTotal";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkReceived = @"networkReceived";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NetworkSent = @"networkSent";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesReceived = @"ntBytesReceived";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_NtBytesTransferred = @"ntBytesTransferred";
+NSString * const kGTLRToolResults_BasicPerfSampleSeries_SampleSeriesLabel_SampleSeriesTypeUnspecified = @"sampleSeriesTypeUnspecified";
 
 // GTLRToolResults_Execution.state
-NSString * const kGTLRToolResults_Execution_State_Complete     = @"COMPLETE";
-NSString * const kGTLRToolResults_Execution_State_InProgress   = @"IN_PROGRESS";
-NSString * const kGTLRToolResults_Execution_State_Pending      = @"PENDING";
-NSString * const kGTLRToolResults_Execution_State_UnknownState = @"UNKNOWN_STATE";
+NSString * const kGTLRToolResults_Execution_State_Complete     = @"complete";
+NSString * const kGTLRToolResults_Execution_State_InProgress   = @"inProgress";
+NSString * const kGTLRToolResults_Execution_State_Pending      = @"pending";
+NSString * const kGTLRToolResults_Execution_State_UnknownState = @"unknownState";
+
+// GTLRToolResults_History.testPlatform
+NSString * const kGTLRToolResults_History_TestPlatform_Android = @"android";
+NSString * const kGTLRToolResults_History_TestPlatform_Ios     = @"ios";
+NSString * const kGTLRToolResults_History_TestPlatform_UnknownPlatform = @"unknownPlatform";
 
 // GTLRToolResults_IndividualOutcome.outcomeSummary
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure = @"FAILURE";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky = @"FLAKY";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive = @"INCONCLUSIVE";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped = @"SKIPPED";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success = @"SUCCESS";
-NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset = @"UNSET";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure = @"failure";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky = @"flaky";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive = @"inconclusive";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped = @"skipped";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success = @"success";
+NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset = @"unset";
 
 // GTLRToolResults_MergedResult.state
-NSString * const kGTLRToolResults_MergedResult_State_Complete  = @"COMPLETE";
-NSString * const kGTLRToolResults_MergedResult_State_InProgress = @"IN_PROGRESS";
-NSString * const kGTLRToolResults_MergedResult_State_Pending   = @"PENDING";
-NSString * const kGTLRToolResults_MergedResult_State_UnknownState = @"UNKNOWN_STATE";
+NSString * const kGTLRToolResults_MergedResult_State_Complete  = @"complete";
+NSString * const kGTLRToolResults_MergedResult_State_InProgress = @"inProgress";
+NSString * const kGTLRToolResults_MergedResult_State_Pending   = @"pending";
+NSString * const kGTLRToolResults_MergedResult_State_UnknownState = @"unknownState";
 
 // GTLRToolResults_NonSdkApi.list
 NSString * const kGTLRToolResults_NonSdkApi_List_Black    = @"BLACK";
@@ -73,95 +78,96 @@ NSString * const kGTLRToolResults_NonSdkApi_List_None     = @"NONE";
 NSString * const kGTLRToolResults_NonSdkApi_List_White    = @"WHITE";
 
 // GTLRToolResults_Outcome.summary
-NSString * const kGTLRToolResults_Outcome_Summary_Failure      = @"FAILURE";
-NSString * const kGTLRToolResults_Outcome_Summary_Flaky        = @"FLAKY";
-NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive = @"INCONCLUSIVE";
-NSString * const kGTLRToolResults_Outcome_Summary_Skipped      = @"SKIPPED";
-NSString * const kGTLRToolResults_Outcome_Summary_Success      = @"SUCCESS";
-NSString * const kGTLRToolResults_Outcome_Summary_Unset        = @"UNSET";
+NSString * const kGTLRToolResults_Outcome_Summary_Failure      = @"failure";
+NSString * const kGTLRToolResults_Outcome_Summary_Flaky        = @"flaky";
+NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive = @"inconclusive";
+NSString * const kGTLRToolResults_Outcome_Summary_Skipped      = @"skipped";
+NSString * const kGTLRToolResults_Outcome_Summary_Success      = @"success";
+NSString * const kGTLRToolResults_Outcome_Summary_Unset        = @"unset";
 
 // GTLRToolResults_PerfMetricsSummary.perfMetrics
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu = @"CPU";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics = @"GRAPHICS";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory = @"MEMORY";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network = @"NETWORK";
-NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified = @"PERF_METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Cpu = @"cpu";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Graphics = @"graphics";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Memory = @"memory";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_Network = @"network";
+NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetrics_PerfMetricTypeUnspecified = @"perfMetricTypeUnspecified";
 
 // GTLRToolResults_PrimaryStep.rollUp
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure   = @"FAILURE";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky     = @"FLAKY";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive = @"INCONCLUSIVE";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped   = @"SKIPPED";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success   = @"SUCCESS";
-NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset     = @"UNSET";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure   = @"failure";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky     = @"flaky";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive = @"inconclusive";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped   = @"skipped";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Success   = @"success";
+NSString * const kGTLRToolResults_PrimaryStep_RollUp_Unset     = @"unset";
 
 // GTLRToolResults_Step.state
-NSString * const kGTLRToolResults_Step_State_Complete     = @"COMPLETE";
-NSString * const kGTLRToolResults_Step_State_InProgress   = @"IN_PROGRESS";
-NSString * const kGTLRToolResults_Step_State_Pending      = @"PENDING";
-NSString * const kGTLRToolResults_Step_State_UnknownState = @"UNKNOWN_STATE";
+NSString * const kGTLRToolResults_Step_State_Complete     = @"complete";
+NSString * const kGTLRToolResults_Step_State_InProgress   = @"inProgress";
+NSString * const kGTLRToolResults_Step_State_Pending      = @"pending";
+NSString * const kGTLRToolResults_Step_State_UnknownState = @"unknownState";
 
 // GTLRToolResults_SuggestionClusterProto.category
-NSString * const kGTLRToolResults_SuggestionClusterProto_Category_ContentLabeling = @"CONTENT_LABELING";
-NSString * const kGTLRToolResults_SuggestionClusterProto_Category_Implementation = @"IMPLEMENTATION";
-NSString * const kGTLRToolResults_SuggestionClusterProto_Category_LowContrast = @"LOW_CONTRAST";
-NSString * const kGTLRToolResults_SuggestionClusterProto_Category_TouchTargetSize = @"TOUCH_TARGET_SIZE";
-NSString * const kGTLRToolResults_SuggestionClusterProto_Category_UnknownCategory = @"UNKNOWN_CATEGORY";
+NSString * const kGTLRToolResults_SuggestionClusterProto_Category_ContentLabeling = @"contentLabeling";
+NSString * const kGTLRToolResults_SuggestionClusterProto_Category_Implementation = @"implementation";
+NSString * const kGTLRToolResults_SuggestionClusterProto_Category_LowContrast = @"lowContrast";
+NSString * const kGTLRToolResults_SuggestionClusterProto_Category_TouchTargetSize = @"touchTargetSize";
+NSString * const kGTLRToolResults_SuggestionClusterProto_Category_UnknownCategory = @"unknownCategory";
 
 // GTLRToolResults_SuggestionProto.priority
-NSString * const kGTLRToolResults_SuggestionProto_Priority_Error = @"ERROR";
-NSString * const kGTLRToolResults_SuggestionProto_Priority_Info = @"INFO";
-NSString * const kGTLRToolResults_SuggestionProto_Priority_UnknownPriority = @"UNKNOWN_PRIORITY";
-NSString * const kGTLRToolResults_SuggestionProto_Priority_Warning = @"WARNING";
+NSString * const kGTLRToolResults_SuggestionProto_Priority_Error = @"error";
+NSString * const kGTLRToolResults_SuggestionProto_Priority_Info = @"info";
+NSString * const kGTLRToolResults_SuggestionProto_Priority_UnknownPriority = @"unknownPriority";
+NSString * const kGTLRToolResults_SuggestionProto_Priority_Warning = @"warning";
 
 // GTLRToolResults_TestCase.status
-NSString * const kGTLRToolResults_TestCase_Status_Error   = @"ERROR";
-NSString * const kGTLRToolResults_TestCase_Status_Failed  = @"FAILED";
-NSString * const kGTLRToolResults_TestCase_Status_Flaky   = @"FLAKY";
-NSString * const kGTLRToolResults_TestCase_Status_Passed  = @"PASSED";
-NSString * const kGTLRToolResults_TestCase_Status_Skipped = @"SKIPPED";
+NSString * const kGTLRToolResults_TestCase_Status_Error   = @"error";
+NSString * const kGTLRToolResults_TestCase_Status_Failed  = @"failed";
+NSString * const kGTLRToolResults_TestCase_Status_Flaky   = @"flaky";
+NSString * const kGTLRToolResults_TestCase_Status_Passed  = @"passed";
+NSString * const kGTLRToolResults_TestCase_Status_Skipped = @"skipped";
 
 // GTLRToolResults_TestIssue.category
-NSString * const kGTLRToolResults_TestIssue_Category_Common    = @"COMMON";
-NSString * const kGTLRToolResults_TestIssue_Category_Robo      = @"ROBO";
-NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory = @"UNSPECIFIED_CATEGORY";
+NSString * const kGTLRToolResults_TestIssue_Category_Common    = @"common";
+NSString * const kGTLRToolResults_TestIssue_Category_Robo      = @"robo";
+NSString * const kGTLRToolResults_TestIssue_Category_UnspecifiedCategory = @"unspecifiedCategory";
 
 // GTLRToolResults_TestIssue.severity
-NSString * const kGTLRToolResults_TestIssue_Severity_Info      = @"INFO";
-NSString * const kGTLRToolResults_TestIssue_Severity_Severe    = @"SEVERE";
-NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion = @"SUGGESTION";
-NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity = @"UNSPECIFIED_SEVERITY";
-NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"WARNING";
+NSString * const kGTLRToolResults_TestIssue_Severity_Info      = @"info";
+NSString * const kGTLRToolResults_TestIssue_Severity_Severe    = @"severe";
+NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion = @"suggestion";
+NSString * const kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity = @"unspecifiedSeverity";
+NSString * const kGTLRToolResults_TestIssue_Severity_Warning   = @"warning";
 
 // GTLRToolResults_TestIssue.type
-NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"ANR";
-NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks = @"AVAILABLE_DEEP_LINKS";
-NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen   = @"BLANK_SCREEN";
-NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"COMPATIBLE_WITH_ORCHESTRATOR";
-NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"COMPLETE_ROBO_SCRIPT_EXECUTION";
-NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError = @"CRASH_DIALOG_ERROR";
-NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"ENCOUNTERED_LOGIN_SCREEN";
-NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"ENCOUNTERED_NON_ANDROID_UI_WIDGET_SCREEN";
-NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"FAILED_TO_INSTALL";
-NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"FATAL_EXCEPTION";
-NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases = @"IN_APP_PURCHASES";
-NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution = @"INCOMPLETE_ROBO_SCRIPT_EXECUTION";
-NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage = @"INSUFFICIENT_COVERAGE";
-NSString * const kGTLRToolResults_TestIssue_Type_IosCrash      = @"IOS_CRASH";
-NSString * const kGTLRToolResults_TestIssue_Type_IosException  = @"IOS_EXCEPTION";
-NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"LAUNCHER_ACTIVITY_NOT_FOUND";
-NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"NATIVE_CRASH";
-NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport = @"NON_SDK_API_USAGE_REPORT";
-NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation = @"NON_SDK_API_USAGE_VIOLATION";
-NSString * const kGTLRToolResults_TestIssue_Type_OverlappingUiElements = @"OVERLAPPING_UI_ELEMENTS";
-NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin = @"PERFORMED_GOOGLE_LOGIN";
-NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions = @"PERFORMED_MONKEY_ACTIONS";
-NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound = @"START_ACTIVITY_NOT_FOUND";
-NSString * const kGTLRToolResults_TestIssue_Type_UiElementsTooDeep = @"UI_ELEMENTS_TOO_DEEP";
-NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"UNSPECIFIED_TYPE";
-NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"UNUSED_ROBO_DIRECTIVE";
-NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"USED_ROBO_DIRECTIVE";
-NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"USED_ROBO_IGNORE_DIRECTIVE";
+NSString * const kGTLRToolResults_TestIssue_Type_Anr           = @"anr";
+NSString * const kGTLRToolResults_TestIssue_Type_AvailableDeepLinks = @"availableDeepLinks";
+NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen   = @"blankScreen";
+NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
+NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"completeRoboScriptExecution";
+NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError = @"crashDialogError";
+NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"encounteredLoginScreen";
+NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"encounteredNonAndroidUiWidgetScreen";
+NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToInstall";
+NSString * const kGTLRToolResults_TestIssue_Type_FatalException = @"fatalException";
+NSString * const kGTLRToolResults_TestIssue_Type_InAppPurchases = @"inAppPurchases";
+NSString * const kGTLRToolResults_TestIssue_Type_IncompleteRoboScriptExecution = @"incompleteRoboScriptExecution";
+NSString * const kGTLRToolResults_TestIssue_Type_InsufficientCoverage = @"insufficientCoverage";
+NSString * const kGTLRToolResults_TestIssue_Type_IosCrash      = @"iosCrash";
+NSString * const kGTLRToolResults_TestIssue_Type_IosException  = @"iosException";
+NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound = @"launcherActivityNotFound";
+NSString * const kGTLRToolResults_TestIssue_Type_NativeCrash   = @"nativeCrash";
+NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport = @"nonSdkApiUsageReport";
+NSString * const kGTLRToolResults_TestIssue_Type_NonSdkApiUsageViolation = @"nonSdkApiUsageViolation";
+NSString * const kGTLRToolResults_TestIssue_Type_OverlappingUiElements = @"overlappingUiElements";
+NSString * const kGTLRToolResults_TestIssue_Type_PerformedGoogleLogin = @"performedGoogleLogin";
+NSString * const kGTLRToolResults_TestIssue_Type_PerformedMonkeyActions = @"performedMonkeyActions";
+NSString * const kGTLRToolResults_TestIssue_Type_StartActivityNotFound = @"startActivityNotFound";
+NSString * const kGTLRToolResults_TestIssue_Type_UiElementsTooDeep = @"uiElementsTooDeep";
+NSString * const kGTLRToolResults_TestIssue_Type_UnityException = @"unityException";
+NSString * const kGTLRToolResults_TestIssue_Type_UnspecifiedType = @"unspecifiedType";
+NSString * const kGTLRToolResults_TestIssue_Type_UnusedRoboDirective = @"unusedRoboDirective";
+NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboDirective = @"usedRoboDirective";
+NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"usedRoboIgnoreDirective";
 
 // ----------------------------------------------------------------------------
 //
@@ -448,7 +454,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"USE
 //
 
 @implementation GTLRToolResults_FailureDetail
-@dynamic crashed, notInstalled, otherNativeCrash, timedOut, unableToCrawl;
+@dynamic crashed, failedRoboscript, notInstalled, otherNativeCrash, timedOut,
+         unableToCrawl;
 @end
 
 
@@ -508,7 +515,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"USE
 //
 
 @implementation GTLRToolResults_History
-@dynamic displayName, historyId, name;
+@dynamic displayName, historyId, name, testPlatform;
 @end
 
 
@@ -568,6 +575,55 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"USE
 
 @implementation GTLRToolResults_IosAppCrashed
 @dynamic stackTrace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_IosAppInfo
+//
+
+@implementation GTLRToolResults_IosAppInfo
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_IosRoboTest
+//
+
+@implementation GTLRToolResults_IosRoboTest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_IosTest
+//
+
+@implementation GTLRToolResults_IosTest
+@dynamic iosAppInfo, iosRoboTest, iosTestLoop, iosXcTest, testTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_IosTestLoop
+//
+
+@implementation GTLRToolResults_IosTestLoop
+@dynamic bundleId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_IosXcTest
+//
+
+@implementation GTLRToolResults_IosXcTest
+@dynamic bundleId, xcodeVersion;
 @end
 
 
@@ -1175,7 +1231,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"USE
 //
 
 @implementation GTLRToolResults_Specification
-@dynamic androidTest;
+@dynamic androidTest, iosTest;
 @end
 
 

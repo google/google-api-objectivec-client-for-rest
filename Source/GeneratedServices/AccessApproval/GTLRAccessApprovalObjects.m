@@ -90,7 +90,7 @@ NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentL
 //
 
 @implementation GTLRAccessApproval_DismissDecision
-@dynamic dismissTime;
+@dynamic dismissTime, implicit;
 @end
 
 

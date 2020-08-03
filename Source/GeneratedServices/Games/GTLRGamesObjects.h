@@ -884,7 +884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
- *  GTLRGames_AchievementUpdateMultipleResponse
+ *  Response message for UpdateMultipleAchievements rpc.
  */
 @interface GTLRGames_AchievementUpdateMultipleResponse : GTLRObject
 

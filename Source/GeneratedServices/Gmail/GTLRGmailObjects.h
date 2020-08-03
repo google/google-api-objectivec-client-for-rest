@@ -196,27 +196,55 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_ImapSettings_ExpungeBehavior_Trash
 // ----------------------------------------------------------------------------
 // GTLRGmail_Label.labelListVisibility
 
-/** Value: "labelHide" */
+/**
+ *  Do not show the label in the label list.
+ *
+ *  Value: "labelHide"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelHide;
-/** Value: "labelShow" */
+/**
+ *  Show the label in the label list.
+ *
+ *  Value: "labelShow"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShow;
-/** Value: "labelShowIfUnread" */
+/**
+ *  Show the label if there are any unread messages with that label.
+ *
+ *  Value: "labelShowIfUnread"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_LabelListVisibility_LabelShowIfUnread;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_Label.messageListVisibility
 
-/** Value: "hide" */
+/**
+ *  Do not show the label in the message list.
+ *
+ *  Value: "hide"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_MessageListVisibility_Hide;
-/** Value: "show" */
+/**
+ *  Show the label in the message list.
+ *
+ *  Value: "show"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_MessageListVisibility_Show;
 
 // ----------------------------------------------------------------------------
 // GTLRGmail_Label.type
 
-/** Value: "system" */
+/**
+ *  Labels created by Gmail.
+ *
+ *  Value: "system"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_Type_System;
-/** Value: "user" */
+/**
+ *  Custom labels created by the user or application.
+ *
+ *  Value: "user"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGmail_Label_Type_User;
 
 // ----------------------------------------------------------------------------
@@ -774,21 +802,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
  *  \@mutable gmail.users.labels.create gmail.users.labels.update
  *
  *  Likely values:
- *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelHide Value "labelHide"
- *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelShow Value "labelShow"
- *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelShowIfUnread Value
- *        "labelShowIfUnread"
+ *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelHide Do not show the
+ *        label in the label list. (Value: "labelHide")
+ *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelShow Show the label in
+ *        the label list. (Value: "labelShow")
+ *    @arg @c kGTLRGmail_Label_LabelListVisibility_LabelShowIfUnread Show the
+ *        label if there are any unread messages with that label. (Value:
+ *        "labelShowIfUnread")
  */
 @property(nonatomic, copy, nullable) NSString *labelListVisibility;
 
 /**
- *  The visibility of the label in the message list in the
- *  Gmail web interface.
+ *  The visibility of messages with this label in the message list
+ *  in the Gmail web interface.
  *  \@mutable gmail.users.labels.create gmail.users.labels.update
  *
  *  Likely values:
- *    @arg @c kGTLRGmail_Label_MessageListVisibility_Hide Value "hide"
- *    @arg @c kGTLRGmail_Label_MessageListVisibility_Show Value "show"
+ *    @arg @c kGTLRGmail_Label_MessageListVisibility_Hide Do not show the label
+ *        in the message list. (Value: "hide")
+ *    @arg @c kGTLRGmail_Label_MessageListVisibility_Show Show the label in the
+ *        message list. (Value: "show")
  */
 @property(nonatomic, copy, nullable) NSString *messageListVisibility;
 
@@ -838,8 +871,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
  *  `SENT` labels from messages or threads.
  *
  *  Likely values:
- *    @arg @c kGTLRGmail_Label_Type_System Value "system"
- *    @arg @c kGTLRGmail_Label_Type_User Value "user"
+ *    @arg @c kGTLRGmail_Label_Type_System Labels created by Gmail. (Value:
+ *        "system")
+ *    @arg @c kGTLRGmail_Label_Type_User Custom labels created by the user or
+ *        application. (Value: "user")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

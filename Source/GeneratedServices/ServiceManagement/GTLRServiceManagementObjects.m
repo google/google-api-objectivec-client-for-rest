@@ -1387,6 +1387,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceManagement_ResourceReference
+//
+
+@implementation GTLRServiceManagement_ResourceReference
+@dynamic childType, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceManagement_Rollout
 //
 

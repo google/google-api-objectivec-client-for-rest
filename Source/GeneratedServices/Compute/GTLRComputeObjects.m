@@ -575,6 +575,7 @@ NSString * const kGTLRCompute_Condition_Iam_Approver          = @"APPROVER";
 NSString * const kGTLRCompute_Condition_Iam_Attribution       = @"ATTRIBUTION";
 NSString * const kGTLRCompute_Condition_Iam_Authority         = @"AUTHORITY";
 NSString * const kGTLRCompute_Condition_Iam_CredentialsType   = @"CREDENTIALS_TYPE";
+NSString * const kGTLRCompute_Condition_Iam_CredsAssertion    = @"CREDS_ASSERTION";
 NSString * const kGTLRCompute_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
 NSString * const kGTLRCompute_Condition_Iam_NoAttr            = @"NO_ATTR";
 NSString * const kGTLRCompute_Condition_Iam_SecurityRealm     = @"SECURITY_REALM";
@@ -859,6 +860,10 @@ NSString * const kGTLRCompute_FirewallList_Warning_Code_SchemaValidationIgnored 
 NSString * const kGTLRCompute_FirewallList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_FirewallLogConfig.metadata
+NSString * const kGTLRCompute_FirewallLogConfig_Metadata_ExcludeAllMetadata = @"EXCLUDE_ALL_METADATA";
+NSString * const kGTLRCompute_FirewallLogConfig_Metadata_IncludeAllMetadata = @"INCLUDE_ALL_METADATA";
 
 // GTLRCompute_ForwardingRule.IPProtocol
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Ah   = @"AH";
@@ -2645,6 +2650,7 @@ NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus = @"COMMITTED
 NSString * const kGTLRCompute_Quota_Metric_Cpus                = @"CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions      = @"CPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb        = @"DISKS_TOTAL_GB";
+NSString * const kGTLRCompute_Quota_Metric_ExternalNetworkLbForwardingRules = @"EXTERNAL_NETWORK_LB_FORWARDING_RULES";
 NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways = @"EXTERNAL_VPN_GATEWAYS";
 NSString * const kGTLRCompute_Quota_Metric_Firewalls           = @"FIREWALLS";
 NSString * const kGTLRCompute_Quota_Metric_ForwardingRules     = @"FORWARDING_RULES";
@@ -2662,6 +2668,7 @@ NSString * const kGTLRCompute_Quota_Metric_InterconnectAttachmentsTotalMbps = @"
 NSString * const kGTLRCompute_Quota_Metric_Interconnects       = @"INTERCONNECTS";
 NSString * const kGTLRCompute_Quota_Metric_InterconnectTotalGbps = @"INTERCONNECT_TOTAL_GBPS";
 NSString * const kGTLRCompute_Quota_Metric_InternalAddresses   = @"INTERNAL_ADDRESSES";
+NSString * const kGTLRCompute_Quota_Metric_InternalTrafficDirectorForwardingRules = @"INTERNAL_TRAFFIC_DIRECTOR_FORWARDING_RULES";
 NSString * const kGTLRCompute_Quota_Metric_InUseAddresses      = @"IN_USE_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_InUseBackupSchedules = @"IN_USE_BACKUP_SCHEDULES";
 NSString * const kGTLRCompute_Quota_Metric_InUseSnapshotSchedules = @"IN_USE_SNAPSHOT_SCHEDULES";
@@ -5184,7 +5191,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_AutoscalingPolicy
 @dynamic coolDownPeriodSec, cpuUtilization, customMetricUtilizations,
-         loadBalancingUtilization, maxNumReplicas, minNumReplicas, mode;
+         loadBalancingUtilization, maxNumReplicas, minNumReplicas, mode,
+         scaleInControl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5223,6 +5231,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_AutoscalingPolicyLoadBalancingUtilization
 @dynamic utilizationTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AutoscalingPolicyScaleInControl
+//
+
+@implementation GTLRCompute_AutoscalingPolicyScaleInControl
+@dynamic maxScaledInReplicas, timeWindowSec;
 @end
 
 
@@ -6773,7 +6791,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_FirewallLogConfig
-@dynamic enable;
+@dynamic enable, metadata;
 @end
 
 
@@ -7134,7 +7152,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_HealthCheck
 @dynamic checkIntervalSec, creationTimestamp, descriptionProperty,
          grpcHealthCheck, healthyThreshold, http2HealthCheck, httpHealthCheck,
-         httpsHealthCheck, identifier, kind, logConfig, name, region, selfLink,
+         httpsHealthCheck, identifier, kind, name, region, selfLink,
          sslHealthCheck, tcpHealthCheck, timeoutSec, type, unhealthyThreshold;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -7195,16 +7213,6 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_HealthCheckList_Warning_Data_Item
 @dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_HealthCheckLogConfig
-//
-
-@implementation GTLRCompute_HealthCheckLogConfig
-@dynamic enable;
 @end
 
 

@@ -40,6 +40,45 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRClouderrorreporting_ErrorGroup.resolutionStatus
+
+/**
+ *  Error Group manually acknowledged, it can have an issue link attached.
+ *
+ *  Value: "ACKNOWLEDGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Acknowledged;
+/**
+ *  The error group is muted and excluded by default on group stats requests.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Muted;
+/**
+ *  The error group is not being addressed. This is the default for
+ *  new groups. It is also used for errors re-occuring after marked RESOLVED.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Open;
+/**
+ *  Status is unknown.
+ *
+ *  Value: "RESOLUTION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_ResolutionStatusUnspecified;
+/**
+ *  Error Group manually resolved, more events for this group are not expected
+ *  to occur.
+ *
+ *  Value: "RESOLVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Resolved;
+
 /**
  *  Response message for deleting error events.
  */
@@ -131,6 +170,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Error group's resolution status.
+ *  An unspecified resolution status will be interpreted as OPEN
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Acknowledged
+ *        Error Group manually acknowledged, it can have an issue link attached.
+ *        (Value: "ACKNOWLEDGED")
+ *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Muted The
+ *        error group is muted and excluded by default on group stats requests.
+ *        (Value: "MUTED")
+ *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Open The
+ *        error group is not being addressed. This is the default for
+ *        new groups. It is also used for errors re-occuring after marked
+ *        RESOLVED. (Value: "OPEN")
+ *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_ResolutionStatusUnspecified
+ *        Status is unknown. (Value: "RESOLUTION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Resolved
+ *        Error Group manually resolved, more events for this group are not
+ *        expected
+ *        to occur. (Value: "RESOLVED")
+ */
+@property(nonatomic, copy, nullable) NSString *resolutionStatus;
 
 /** Associated tracking issues. */
 @property(nonatomic, strong, nullable) NSArray<GTLRClouderrorreporting_TrackingIssue *> *trackingIssues;

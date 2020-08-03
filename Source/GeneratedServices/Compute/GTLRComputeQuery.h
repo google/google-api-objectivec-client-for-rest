@@ -2642,6 +2642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForDisksGetIamPolicyWithproject:zoneProperty:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -6912,6 +6915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForImagesGetIamPolicyWithproject:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -9349,8 +9355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 //   +[GTLQueryCompute queryForInstancesAttachDiskWithObject:project:zoneProperty:instance:]
 
 /**
- *  Whether to force attach the disk even if it's currently attached to another
- *  instance.
+ *  Whether to force attach the regional disk even if it's currently attached to
+ *  another instance.
  */
 @property(nonatomic, assign) BOOL forceAttach;
 
@@ -9706,6 +9712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForInstancesGetIamPolicyWithproject:zoneProperty:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -9751,7 +9760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForInstancesGetSerialPortOutputWithproject:zoneProperty:instance:]
 
-/** Name of the instance scoping this request. */
+/** Name of the instance for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /**
@@ -9766,10 +9775,19 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Returns output starting from a specific byte position. Use this to page
- *  through output when the output is too large to return in a single request.
- *  For the initial request, leave this field unspecified. For subsequent calls,
- *  this field should be set to the next value returned in the previous call.
+ *  Specifies the starting byte position of the output to return. To start with
+ *  the first byte of output to the specified port, omit this field or set it to
+ *  `0`.
+ *  If the output for that byte position is available, this field matches the
+ *  `start` parameter sent with the request. If the amount of serial console
+ *  output exceeds the size of the buffer (1 MB), the oldest output is discarded
+ *  and is no longer available. If the requested start position refers to
+ *  discarded output, the start position is adjusted to the oldest output still
+ *  available, and the adjusted start position is returned as the `start`
+ *  property value.
+ *  You can also provide a negative start position, which translates to the most
+ *  recent number of bytes written to the serial port. For example, -3 is
+ *  interpreted as the most recent 3 bytes written to the serial console.
  */
 @property(nonatomic, assign) long long start;
 
@@ -9787,7 +9805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
- *  @param instance Name of the instance scoping this request.
+ *  @param instance Name of the instance for this request.
  *
  *  @return GTLRComputeQuery_InstancesGetSerialPortOutput
  */
@@ -11707,6 +11725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForInstanceTemplatesGetIamPolicyWithproject:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -12945,6 +12966,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_LicensesGetIamPolicy : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForLicensesGetIamPolicyWithproject:resource:]
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -14991,6 +15015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForNodeGroupsGetIamPolicyWithproject:zoneProperty:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -15688,6 +15715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_NodeTemplatesGetIamPolicy : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForNodeTemplatesGetIamPolicyWithproject:region:resource:]
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18496,6 +18526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_RegionDisksGetIamPolicy : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForRegionDisksGetIamPolicyWithproject:region:resource:]
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -23105,6 +23138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForReservationsGetIamPolicyWithproject:zoneProperty:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -23640,6 +23676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_ResourcePoliciesGetIamPolicy : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForResourcePoliciesGetIamPolicyWithproject:region:resource:]
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25339,6 +25378,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 // Previous library name was
 //   +[GTLQueryCompute queryForSnapshotsGetIamPolicyWithproject:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -26488,6 +26530,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @interface GTLRComputeQuery_SubnetworksGetIamPolicy : GTLRComputeQuery
 // Previous library name was
 //   +[GTLQueryCompute queryForSubnetworksGetIamPolicyWithproject:region:resource:]
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;

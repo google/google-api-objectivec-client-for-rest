@@ -29,6 +29,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: See email traffic metrics for the domains you have
+ *  registered in Gmail Postmaster Tools
+ *
+ *  Value "https://www.googleapis.com/auth/postmaster.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterReadonly;
+
+// ----------------------------------------------------------------------------
+//   GTLRPostmasterToolsService
+//
+
 /**
  *  Service for executing Gmail Postmaster Tools API queries.
  *

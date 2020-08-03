@@ -18,6 +18,7 @@
 
 // environmentType
 NSString * const kGTLRTestingEnvironmentTypeAndroid            = @"ANDROID";
+NSString * const kGTLRTestingEnvironmentTypeDeviceIpBlocks     = @"DEVICE_IP_BLOCKS";
 NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRTestingEnvironmentTypeIos                = @"IOS";
 NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration = @"NETWORK_CONFIGURATION";

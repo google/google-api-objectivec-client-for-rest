@@ -132,7 +132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_InvalidArgumen
 /**
  *  Some requested entity (e.g., file or directory) was not found.
  *  Note to server developers: if a request is denied for an entire class
- *  of users, such as gradual feature rollout or undocumented whitelist,
+ *  of users, such as gradual feature rollout or undocumented allowlist,
  *  `NOT_FOUND` may be used. If a request is denied for some users within
  *  a class of users, such as user-based access control, `PERMISSION_DENIED`
  *  must be used.
@@ -494,7 +494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
  *    @arg @c kGTLRGenomics_FailedEvent_Code_NotFound Some requested entity
  *        (e.g., file or directory) was not found.
  *        Note to server developers: if a request is denied for an entire class
- *        of users, such as gradual feature rollout or undocumented whitelist,
+ *        of users, such as gradual feature rollout or undocumented allowlist,
  *        `NOT_FOUND` may be used. If a request is denied for some users within
  *        a class of users, such as user-based access control,
  *        `PERMISSION_DENIED`

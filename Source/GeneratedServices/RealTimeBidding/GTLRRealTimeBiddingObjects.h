@@ -90,177 +90,501 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_CreativeFormat_
 // ----------------------------------------------------------------------------
 // GTLRRealTimeBidding_Creative.declaredAttributes
 
-/** Value: "ADOBE_FLASH_FLV" */
+/**
+ *  The creative is of video type Adobe Flash FLV. For pretargeting.
+ *
+ *  Value: "ADOBE_FLASH_FLV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_AdobeFlashFlv;
-/** Value: "ANY_INTERSTITIAL" */
+/**
+ *  The creative has an interstitial size of any interstitial. For pretargeting.
+ *
+ *  Value: "ANY_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_AnyInterstitial;
-/** Value: "ATTRIBUTE_UNSPECIFIED" */
+/**
+ *  Do not use. This is a placeholder value only.
+ *
+ *  Value: "ATTRIBUTE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_AttributeUnspecified;
-/** Value: "CREATIVE_TYPE_HTML" */
+/**
+ *  The creative type is HTML.
+ *
+ *  Value: "CREATIVE_TYPE_HTML"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_CreativeTypeHtml;
-/** Value: "CREATIVE_TYPE_VAST_VIDEO" */
+/**
+ *  The creative type is VAST video.
+ *
+ *  Value: "CREATIVE_TYPE_VAST_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_CreativeTypeVastVideo;
-/** Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND" */
+/**
+ *  The creative expands when rolled over.
+ *
+ *  Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingActionRolloverToExpand;
-/** Value: "EXPANDING_DIRECTION_ANY_DIAGONAL" */
+/**
+ *  The creative expands on any diagonal.
+ *
+ *  Value: "EXPANDING_DIRECTION_ANY_DIAGONAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionAnyDiagonal;
-/** Value: "EXPANDING_DIRECTION_DOWN" */
+/**
+ *  The creative expands down.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionDown;
-/** Value: "EXPANDING_DIRECTION_DOWN_LEFT" */
+/**
+ *  The creative expands down and left.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionDownLeft;
-/** Value: "EXPANDING_DIRECTION_DOWN_RIGHT" */
+/**
+ *  The creative expands down and right.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionDownRight;
-/** Value: "EXPANDING_DIRECTION_LEFT" */
+/**
+ *  The creative expands left.
+ *
+ *  Value: "EXPANDING_DIRECTION_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionLeft;
-/** Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT" */
+/**
+ *  The creative expands left or right.
+ *
+ *  Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionLeftOrRight;
-/** Value: "EXPANDING_DIRECTION_NONE" */
+/**
+ *  The creative does not expand.
+ *
+ *  Value: "EXPANDING_DIRECTION_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionNone;
-/** Value: "EXPANDING_DIRECTION_RIGHT" */
+/**
+ *  The creative expands right.
+ *
+ *  Value: "EXPANDING_DIRECTION_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionRight;
-/** Value: "EXPANDING_DIRECTION_UP" */
+/**
+ *  The creative expands up.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionUp;
-/** Value: "EXPANDING_DIRECTION_UP_LEFT" */
+/**
+ *  The creative expands up and left.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionUpLeft;
-/** Value: "EXPANDING_DIRECTION_UP_OR_DOWN" */
+/**
+ *  The creative expands up or down.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_OR_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionUpOrDown;
-/** Value: "EXPANDING_DIRECTION_UP_RIGHT" */
+/**
+ *  The creative expands up and right.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ExpandingDirectionUpRight;
-/** Value: "IMAGE_RICH_MEDIA" */
+/**
+ *  The creative is of type image/rich media. For pretargeting.
+ *
+ *  Value: "IMAGE_RICH_MEDIA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_ImageRichMedia;
-/** Value: "IN_BANNER_VIDEO" */
+/**
+ *  The video type is in-banner video.
+ *
+ *  Value: "IN_BANNER_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_InBannerVideo;
-/** Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH" */
+/**
+ *  The instream vast video type is vpaid flash.
+ *
+ *  Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_InstreamVastVideoTypeVpaidFlash;
-/** Value: "IS_COOKIE_TARGETED" */
+/**
+ *  The creative is cookie targeted.
+ *
+ *  Value: "IS_COOKIE_TARGETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_IsCookieTargeted;
-/** Value: "IS_TAGGED" */
+/**
+ *  The creative is tagged.
+ *
+ *  Value: "IS_TAGGED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_IsTagged;
-/** Value: "IS_USER_INTEREST_TARGETED" */
+/**
+ *  The creative is user interest targeted.
+ *
+ *  Value: "IS_USER_INTEREST_TARGETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_IsUserInterestTargeted;
-/** Value: "NATIVE_ELIGIBILITY_ELIGIBLE" */
+/**
+ *  The creative is eligible for native.
+ *
+ *  Value: "NATIVE_ELIGIBILITY_ELIGIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NativeEligibilityEligible;
-/** Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE" */
+/**
+ *  The creative is not eligible for native.
+ *
+ *  Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NativeEligibilityNotEligible;
-/** Value: "NON_INTERSTITIAL" */
+/**
+ *  The creative has an interstitial size of non interstitial. For pretargeting.
+ *
+ *  Value: "NON_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NonInterstitial;
-/** Value: "NON_SKIPPABLE_INSTREAM_VIDEO" */
+/**
+ *  The creative has an instream VAST video type of non-skippable instream
+ *  video. For pretargeting.
+ *
+ *  Value: "NON_SKIPPABLE_INSTREAM_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NonSkippableInstreamVideo;
-/** Value: "NON_VPAID" */
+/**
+ *  The creative has an instream VAST video type of non-VPAID. For pretargeting.
+ *
+ *  Value: "NON_VPAID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_NonVpaid;
-/** Value: "OMSDK_1_0" */
+/**
+ *  The open measurement SDK is supported.
+ *
+ *  Value: "OMSDK_1_0"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_Omsdk10;
-/** Value: "RENDERING_SIZELESS_ADX" */
+/**
+ *  The creative can dynamically resize to fill a variety of slot sizes.
+ *
+ *  Value: "RENDERING_SIZELESS_ADX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RenderingSizelessAdx;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH" */
+/**
+ *  The creative is Flash.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeFlash;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5" */
+/**
+ *  The creative is HTML5.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeHtml5;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL" */
+/**
+ *  The creative is an interstitial.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeInterstitial;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID" */
+/**
+ *  The creative is MRAID.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeMraid;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL" */
+/**
+ *  The creative is non-SSL.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeNonSsl;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL" */
+/**
+ *  The creative is SSL.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_RichMediaCapabilityTypeSsl;
-/** Value: "SKIPPABLE_INSTREAM_VIDEO" */
+/**
+ *  The creative has an instream VAST video type of skippable instream video.
+ *  For pretargeting.
+ *
+ *  Value: "SKIPPABLE_INSTREAM_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredAttributes_SkippableInstreamVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRRealTimeBidding_Creative.declaredRestrictedCategories
 
-/** Value: "ALCOHOL" */
+/**
+ *  The alcohol restricted category.
+ *
+ *  Value: "ALCOHOL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredRestrictedCategories_Alcohol;
-/** Value: "RESTRICTED_CATEGORY_UNSPECIFIED" */
+/**
+ *  Default value that should never be used.
+ *
+ *  Value: "RESTRICTED_CATEGORY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_DeclaredRestrictedCategories_RestrictedCategoryUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRealTimeBidding_Creative.restrictedCategories
 
-/** Value: "ALCOHOL" */
+/**
+ *  The alcohol restricted category.
+ *
+ *  Value: "ALCOHOL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_RestrictedCategories_Alcohol;
-/** Value: "RESTRICTED_CATEGORY_UNSPECIFIED" */
+/**
+ *  Default value that should never be used.
+ *
+ *  Value: "RESTRICTED_CATEGORY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_Creative_RestrictedCategories_RestrictedCategoryUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRealTimeBidding_CreativeServingDecision.detectedAttributes
 
-/** Value: "ADOBE_FLASH_FLV" */
+/**
+ *  The creative is of video type Adobe Flash FLV. For pretargeting.
+ *
+ *  Value: "ADOBE_FLASH_FLV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_AdobeFlashFlv;
-/** Value: "ANY_INTERSTITIAL" */
+/**
+ *  The creative has an interstitial size of any interstitial. For pretargeting.
+ *
+ *  Value: "ANY_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_AnyInterstitial;
-/** Value: "ATTRIBUTE_UNSPECIFIED" */
+/**
+ *  Do not use. This is a placeholder value only.
+ *
+ *  Value: "ATTRIBUTE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_AttributeUnspecified;
-/** Value: "CREATIVE_TYPE_HTML" */
+/**
+ *  The creative type is HTML.
+ *
+ *  Value: "CREATIVE_TYPE_HTML"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_CreativeTypeHtml;
-/** Value: "CREATIVE_TYPE_VAST_VIDEO" */
+/**
+ *  The creative type is VAST video.
+ *
+ *  Value: "CREATIVE_TYPE_VAST_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_CreativeTypeVastVideo;
-/** Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND" */
+/**
+ *  The creative expands when rolled over.
+ *
+ *  Value: "EXPANDING_ACTION_ROLLOVER_TO_EXPAND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingActionRolloverToExpand;
-/** Value: "EXPANDING_DIRECTION_ANY_DIAGONAL" */
+/**
+ *  The creative expands on any diagonal.
+ *
+ *  Value: "EXPANDING_DIRECTION_ANY_DIAGONAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionAnyDiagonal;
-/** Value: "EXPANDING_DIRECTION_DOWN" */
+/**
+ *  The creative expands down.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionDown;
-/** Value: "EXPANDING_DIRECTION_DOWN_LEFT" */
+/**
+ *  The creative expands down and left.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionDownLeft;
-/** Value: "EXPANDING_DIRECTION_DOWN_RIGHT" */
+/**
+ *  The creative expands down and right.
+ *
+ *  Value: "EXPANDING_DIRECTION_DOWN_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionDownRight;
-/** Value: "EXPANDING_DIRECTION_LEFT" */
+/**
+ *  The creative expands left.
+ *
+ *  Value: "EXPANDING_DIRECTION_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionLeft;
-/** Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT" */
+/**
+ *  The creative expands left or right.
+ *
+ *  Value: "EXPANDING_DIRECTION_LEFT_OR_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionLeftOrRight;
-/** Value: "EXPANDING_DIRECTION_NONE" */
+/**
+ *  The creative does not expand.
+ *
+ *  Value: "EXPANDING_DIRECTION_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionNone;
-/** Value: "EXPANDING_DIRECTION_RIGHT" */
+/**
+ *  The creative expands right.
+ *
+ *  Value: "EXPANDING_DIRECTION_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionRight;
-/** Value: "EXPANDING_DIRECTION_UP" */
+/**
+ *  The creative expands up.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionUp;
-/** Value: "EXPANDING_DIRECTION_UP_LEFT" */
+/**
+ *  The creative expands up and left.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_LEFT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionUpLeft;
-/** Value: "EXPANDING_DIRECTION_UP_OR_DOWN" */
+/**
+ *  The creative expands up or down.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_OR_DOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionUpOrDown;
-/** Value: "EXPANDING_DIRECTION_UP_RIGHT" */
+/**
+ *  The creative expands up and right.
+ *
+ *  Value: "EXPANDING_DIRECTION_UP_RIGHT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ExpandingDirectionUpRight;
-/** Value: "IMAGE_RICH_MEDIA" */
+/**
+ *  The creative is of type image/rich media. For pretargeting.
+ *
+ *  Value: "IMAGE_RICH_MEDIA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_ImageRichMedia;
-/** Value: "IN_BANNER_VIDEO" */
+/**
+ *  The video type is in-banner video.
+ *
+ *  Value: "IN_BANNER_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_InBannerVideo;
-/** Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH" */
+/**
+ *  The instream vast video type is vpaid flash.
+ *
+ *  Value: "INSTREAM_VAST_VIDEO_TYPE_VPAID_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_InstreamVastVideoTypeVpaidFlash;
-/** Value: "IS_COOKIE_TARGETED" */
+/**
+ *  The creative is cookie targeted.
+ *
+ *  Value: "IS_COOKIE_TARGETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_IsCookieTargeted;
-/** Value: "IS_TAGGED" */
+/**
+ *  The creative is tagged.
+ *
+ *  Value: "IS_TAGGED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_IsTagged;
-/** Value: "IS_USER_INTEREST_TARGETED" */
+/**
+ *  The creative is user interest targeted.
+ *
+ *  Value: "IS_USER_INTEREST_TARGETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_IsUserInterestTargeted;
-/** Value: "NATIVE_ELIGIBILITY_ELIGIBLE" */
+/**
+ *  The creative is eligible for native.
+ *
+ *  Value: "NATIVE_ELIGIBILITY_ELIGIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NativeEligibilityEligible;
-/** Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE" */
+/**
+ *  The creative is not eligible for native.
+ *
+ *  Value: "NATIVE_ELIGIBILITY_NOT_ELIGIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NativeEligibilityNotEligible;
-/** Value: "NON_INTERSTITIAL" */
+/**
+ *  The creative has an interstitial size of non interstitial. For pretargeting.
+ *
+ *  Value: "NON_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NonInterstitial;
-/** Value: "NON_SKIPPABLE_INSTREAM_VIDEO" */
+/**
+ *  The creative has an instream VAST video type of non-skippable instream
+ *  video. For pretargeting.
+ *
+ *  Value: "NON_SKIPPABLE_INSTREAM_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NonSkippableInstreamVideo;
-/** Value: "NON_VPAID" */
+/**
+ *  The creative has an instream VAST video type of non-VPAID. For pretargeting.
+ *
+ *  Value: "NON_VPAID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_NonVpaid;
-/** Value: "OMSDK_1_0" */
+/**
+ *  The open measurement SDK is supported.
+ *
+ *  Value: "OMSDK_1_0"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_Omsdk10;
-/** Value: "RENDERING_SIZELESS_ADX" */
+/**
+ *  The creative can dynamically resize to fill a variety of slot sizes.
+ *
+ *  Value: "RENDERING_SIZELESS_ADX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RenderingSizelessAdx;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH" */
+/**
+ *  The creative is Flash.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_FLASH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeFlash;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5" */
+/**
+ *  The creative is HTML5.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_HTML5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeHtml5;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL" */
+/**
+ *  The creative is an interstitial.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_INTERSTITIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeInterstitial;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID" */
+/**
+ *  The creative is MRAID.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_MRAID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeMraid;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL" */
+/**
+ *  The creative is non-SSL.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_NON_SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeNonSsl;
-/** Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL" */
+/**
+ *  The creative is SSL.
+ *
+ *  Value: "RICH_MEDIA_CAPABILITY_TYPE_SSL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeSsl;
-/** Value: "SKIPPABLE_INSTREAM_VIDEO" */
+/**
+ *  The creative has an instream VAST video type of skippable instream video.
+ *  For pretargeting.
+ *
+ *  Value: "SKIPPABLE_INSTREAM_VIDEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_SkippableInstreamVideo;
 
 // ----------------------------------------------------------------------------
@@ -314,9 +638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvi
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_DnsError_ErrorDns;
 /**
- *  An internal issue occurred when Google's crawler tried to resolve the
- *  DNS entry. This is a Google-internal issue and may not be the result
- *  of an issue with the landing page.
+ *  An internal issue occurred when Google's crawler tried to resolve the DNS
+ *  entry. This is a Google-internal issue and may not be the result of an issue
+ *  with the landing page.
  *
  *  Value: "GOOGLE_CRAWLER_DNS_ISSUE"
  */
@@ -415,6 +739,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvi
  *  Value: "MALFORMED_URL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_MalformedUrl;
+/**
+ *  URL rejected because of unknown reason.
+ *
+ *  Value: "URL_REJECTED_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnknown;
 /**
  *  Default value that should never be used.
  *
@@ -566,8 +896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_ServingStatus_Status_Sta
 // GTLRRealTimeBidding_UrlRestriction.restrictionType
 
 /**
- *  The tag URL (as recorded by the pixel callback) contains the specified
- *  URL.
+ *  The tag URL (as recorded by the pixel callback) contains the specified URL.
  *
  *  Value: "CONTAINS"
  */
@@ -587,8 +916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_UrlRestriction_Restricti
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_UrlRestriction_RestrictionType_DoesNotEndWith;
 /**
- *  The tag URL (as recorded by the pixel callback) does not equal the
- *  specified URL.
+ *  The tag URL (as recorded by the pixel callback) does not equal the specified
+ *  URL.
  *
  *  Value: "DOES_NOT_EQUAL"
  */
@@ -601,8 +930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_UrlRestriction_Restricti
  */
 FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_UrlRestriction_RestrictionType_DoesNotStartWith;
 /**
- *  The tag URL (as recorded by the pixel callback) ends with the specified
- *  URL.
+ *  The tag URL (as recorded by the pixel callback) ends with the specified URL.
  *
  *  Value: "ENDS_WITH"
  */
@@ -690,29 +1018,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_AdTechnologyProviders : GTLRObject
 
 /**
- *  The detected ad technology provider IDs for this creative.
- *  See https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for
- *  mapping of provider ID to provided name, a privacy policy URL, and a list
- *  of domains which can be attributed to the provider.
- *  If the creative contains provider IDs that are outside of those listed in
- *  the `BidRequest.adslot.consented_providers_settings.consented_providers`
- *  field on the [Google bid
+ *  The detected ad technology provider IDs for this creative. See
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv for
+ *  mapping of provider ID to provided name, a privacy policy URL, and a list of
+ *  domains which can be attributed to the provider. If the creative contains
+ *  provider IDs that are outside of those listed in the
+ *  `BidRequest.adslot.consented_providers_settings.consented_providers` field
+ *  on the [Google bid
  *  protocol](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto)
  *  and the
- *  `BidRequest.user.ext.consented_providers_settings.consented_providers`
- *  field on the [OpenRTB
+ *  `BidRequest.user.ext.consented_providers_settings.consented_providers` field
+ *  on the [OpenRTB
  *  protocol](https://developers.google.com/authorized-buyers/rtb/downloads/openrtb-adx-proto),
- *  and a bid is submitted with that creative for an impression
- *  that will serve to an EEA user, the bid will be filtered before the
- *  auction.
+ *  and a bid is submitted with that creative for an impression that will serve
+ *  to an EEA user, the bid will be filtered before the auction.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProviderIds;
 
 /**
- *  Whether the creative contains an unidentified ad technology provider.
- *  If true for a given creative, any bid submitted with that creative for an
+ *  Whether the creative contains an unidentified ad technology provider. If
+ *  true for a given creative, any bid submitted with that creative for an
  *  impression that will serve to an EEA user will be filtered before the
  *  auction.
  *
@@ -729,30 +1056,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_AdvertiserAndBrand : GTLRObject
 
 /**
- *  See https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt
- *  for the list of possible values.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  See https://storage.googleapis.com/adx-rtb-dictionaries/advertisers.txt for
+ *  the list of possible values. Can be used to filter the response of the
+ *  creatives.list method.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
 /**
- *  Advertiser name.
- *  Can be used to filter the response of the
- *  creatives.list
+ *  Advertiser name. Can be used to filter the response of the creatives.list
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *advertiserName;
 
 /**
- *  Detected brand ID or zero if no brand has been detected.
- *  See https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt for
- *  the list of possible values.
- *  Can be used to filter the response of the
- *  creatives.list
+ *  Detected brand ID or zero if no brand has been detected. See
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/brands.txt for the list
+ *  of possible values. Can be used to filter the response of the creatives.list
  *  method.
  *
  *  Uses NSNumber of longLongValue.
@@ -760,10 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSNumber *brandId;
 
 /**
- *  Brand name.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Brand name. Can be used to filter the response of the creatives.list method.
  */
 @property(nonatomic, copy, nullable) NSString *brandName;
 
@@ -783,10 +1101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_Creative : GTLRObject
 
 /**
- *  Output only. ID of the buyer account that this creative is owned by.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method with equality and inequality check.
+ *  Output only. ID of the buyer account that this creative is owned by. Can be
+ *  used to filter the response of the creatives.list method with equality and
+ *  inequality check.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -799,10 +1116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, copy, nullable) NSString *adChoicesDestinationUrl;
 
 /**
- *  The name of the company being advertised in the creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The name of the company being advertised in the creative. Can be used to
+ *  filter the response of the creatives.list method.
  */
 @property(nonatomic, copy, nullable) NSString *advertiserName;
 
@@ -817,10 +1132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) GTLRDateTime *apiUpdateTime;
 
 /**
- *  Output only. The format of this creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Output only. The format of this creative. Can be used to filter the response
+ *  of the creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRRealTimeBidding_Creative_CreativeFormat_CreativeFormatUnspecified
@@ -837,36 +1150,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 /**
  *  Buyer-specific creative ID that references this creative in bid responses.
  *  This field is Ignored in update operations. Can be used to filter the
- *  response of the
- *  creatives.list
- *  method.
- *  The maximum length of the creative ID is 128 bytes.
+ *  response of the creatives.list method. The maximum length of the creative ID
+ *  is 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *creativeId;
 
 /**
  *  Output only. Top level status and detected attributes of a creative (for
- *  example domain,
- *  language, advertiser, product category, etc.) that affect whether (status)
- *  and where (context) a creative will be allowed to serve.
+ *  example domain, language, advertiser, product category, etc.) that affect
+ *  whether (status) and where (context) a creative will be allowed to serve.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_CreativeServingDecision *creativeServingDecision;
 
 /**
  *  Output only. IDs of all of the deals with which this creative has been used
- *  in bidding.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  in bidding. Can be used to filter the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dealIds;
 
 /**
  *  All declared attributes for the ads that may be shown from this creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
- *  If the `excluded_attribute` field of a [bid
+ *  Can be used to filter the response of the creatives.list method. If the
+ *  `excluded_attribute` field of a [bid
  *  request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto")
  *  contains one of the attributes that were declared or detected for a given
  *  creative, and a bid is submitted with that creative, the bid will be
@@ -875,29 +1180,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *declaredAttributes;
 
 /**
- *  The set of declared destination URLs for the creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The set of declared destination URLs for the creative. Can be used to filter
+ *  the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *declaredClickThroughUrls;
 
 /**
  *  All declared restricted categories for the ads that may be shown from this
- *  creative. Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  creative. Can be used to filter the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *declaredRestrictedCategories;
 
 /**
  *  IDs for the declared ad technology vendors that may be used by this
  *  creative. See
- *  https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for
- *  possible values.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible
+ *  values. Can be used to filter the response of the creatives.list method.
  *
  *  Uses NSNumber of intValue.
  */
@@ -910,11 +1208,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *impressionTrackingUrls;
 
 /**
- *  Output only. Name of the creative.
- *  Follows the pattern `buyers/{buyer}/creatives/{creative}`, where
- *  `{buyer}` represents the account ID of the buyer who owns the creative,
- *  and `{creative}` is the buyer-specific creative ID that references this
- *  creative in the bid response.
+ *  Output only. Name of the creative. Follows the pattern
+ *  `buyers/{buyer}/creatives/{creative}`, where `{buyer}` represents the
+ *  account ID of the buyer who owns the creative, and `{creative}` is the
+ *  buyer-specific creative ID that references this creative in the bid
+ *  response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -927,9 +1225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedCategories;
 
 /**
- *  Output only. The version of this creative.
- *  Version for a new creative is 1 and it increments during subsequent
- *  creative updates.
+ *  Output only. The version of this creative. Version for a new creative is 1
+ *  and it increments during subsequent creative updates.
  *
  *  Uses NSNumber of intValue.
  */
@@ -950,16 +1247,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_AdTechnologyProviders *adTechnologyProviders;
 
 /**
- *  The serving status of this creative in China.
- *  When approved or disapproved, this status applies to both deals and open
- *  auction in China. When pending review, this creative is allowed to serve
- *  for deals but not for open auction.
+ *  The serving status of this creative in China. When approved or disapproved,
+ *  this status applies to both deals and open auction in China. When pending
+ *  review, this creative is allowed to serve for deals but not for open
+ *  auction.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_ServingStatus *chinaServingStatus;
 
 /**
- *  Status of this creative when bidding on PG and PD deals (outside of
- *  Russia and China).
+ *  Status of this creative when bidding on PG and PD deals (outside of Russia
+ *  and China).
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_ServingStatus *dealsServingStatus;
 
@@ -967,11 +1264,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<GTLRRealTimeBidding_AdvertiserAndBrand *> *detectedAdvertisers;
 
 /**
- *  Publisher-excludable attributes that were detected for this creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
- *  If the `excluded_attribute` field of a [bid
+ *  Publisher-excludable attributes that were detected for this creative. Can be
+ *  used to filter the response of the creatives.list method. If the
+ *  `excluded_attribute` field of a [bid
  *  request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto)
  *  contains one of the attributes that were declared or detected for a given
  *  creative, and a bid is submitted with that creative, the bid will be
@@ -980,10 +1275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedAttributes;
 
 /**
- *  The set of detected destination URLs for the creative.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The set of detected destination URLs for the creative. Can be used to filter
+ *  the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedClickThroughUrls;
 
@@ -991,63 +1284,51 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedDomains;
 
 /**
- *  The detected languages for this creative. The order is
- *  arbitrary. The codes are 2 or 5 characters and are documented at
- *  https://developers.google.com/adwords/api/docs/appendix/languagecodes.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The detected languages for this creative. The order is arbitrary. The codes
+ *  are 2 or 5 characters and are documented at
+ *  https://developers.google.com/adwords/api/docs/appendix/languagecodes. Can
+ *  be used to filter the response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *detectedLanguages;
 
 /**
- *  Detected product categories, if any.
- *  See the ad-product-categories.txt file in the technical documentation
- *  for a list of IDs.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Detected product categories, if any. See the ad-product-categories.txt file
+ *  in the technical documentation for a list of IDs. Can be used to filter the
+ *  response of the creatives.list method.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedProductCategories;
 
 /**
- *  Detected sensitive categories, if any.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
- *  See the ad-sensitive-categories.txt file in the technical documentation
- *  for a list of IDs. You should use these IDs along with the
- *  excluded-sensitive-category field in the bid request to filter your bids.
+ *  Detected sensitive categories, if any. Can be used to filter the response of
+ *  the creatives.list method. See the ad-sensitive-categories.txt file in the
+ *  technical documentation for a list of IDs. You should use these IDs along
+ *  with the excluded-sensitive-category field in the bid request to filter your
+ *  bids.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedSensitiveCategories;
 
 /**
- *  IDs of the ad technology vendors that were detected to be
- *  used by this creative. See
- *  https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for
- *  possible values.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
- *  If the `allowed_vendor_type` field of a [bid
+ *  IDs of the ad technology vendors that were detected to be used by this
+ *  creative. See
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/vendors.txt for possible
+ *  values. Can be used to filter the response of the creatives.list method. If
+ *  the `allowed_vendor_type` field of a [bid
  *  request](https://developers.google.com/authorized-buyers/rtb/downloads/realtime-bidding-proto)
- *  does not contain one of the vendor type IDs that were declared or
- *  detected for a given creative, and a bid is submitted with that creative,
- *  the bid will be filtered before the auction.
+ *  does not contain one of the vendor type IDs that were declared or detected
+ *  for a given creative, and a bid is submitted with that creative, the bid
+ *  will be filtered before the auction.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *detectedVendorIds;
 
 /**
- *  The last time the creative status was updated.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The last time the creative status was updated. Can be used to filter the
+ *  response of the creatives.list method.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastStatusUpdate;
 
@@ -1058,10 +1339,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_ServingStatus *openAuctionServingStatus;
 
 /**
- *  The serving status of this creative in Russia.
- *  When approved or disapproved, this status applies to both deals and open
- *  auction in Russia. When pending review, this creative is allowed to serve
- *  for deals but not for open auction.
+ *  The serving status of this creative in Russia. When approved or disapproved,
+ *  this status applies to both deals and open auction in Russia. When pending
+ *  review, this creative is allowed to serve for deals but not for open
+ *  auction.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_ServingStatus *russiaServingStatus;
 
@@ -1070,22 +1351,19 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day
- *  and time zone are either specified elsewhere or are not significant. The
- *  date
- *  is relative to the Proleptic Gregorian Calendar. This can represent:
- *  * A full date, with non-zero year, month and day values
- *  * A month and day value, with a zero year, e.g. an anniversary
- *  * A year on its own, with zero month and day values
- *  * A year and month value, with a zero day, e.g. a credit card expiration
- *  date
- *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  day and time zone are either specified elsewhere or are not significant. The
+ *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
+ *  A full date, with non-zero year, month and day values * A month and day
+ *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
+ *  month and day values * A year and month value, with a zero day, e.g. a
+ *  credit card expiration date Related types are google.type.TimeOfDay and
+ *  `google.protobuf.Timestamp`.
  */
 @interface GTLRRealTimeBidding_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -1101,8 +1379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1178,8 +1456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSNumber *httpError;
 
 /**
- *  Page was crawled successfully, but was detected as either a page with
- *  no content or an error page.
+ *  Page was crawled successfully, but was detected as either a page with no
+ *  content or an error page.
  *
  *  Likely values:
  *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_InvalidPage_EmptyOrErrorPage
@@ -1235,6 +1513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *        URL rejected because of a malformed request. (Value: "BAD_REQUEST")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_MalformedUrl
  *        URL rejected because of a malformed URL. (Value: "MALFORMED_URL")
+ *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnknown
+ *        URL rejected because of unknown reason. (Value:
+ *        "URL_REJECTED_UNKNOWN")
  *    @arg @c kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnspecified
  *        Default value that should never be used. (Value:
  *        "URL_REJECTED_UNSPECIFIED")
@@ -1293,8 +1574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 
 /**
- *  Total download size and URL-level download size breakdown for resources in
- *  a creative.
+ *  Total download size and URL-level download size breakdown for resources in a
+ *  creative.
  */
 @interface GTLRRealTimeBidding_DownloadSizeEvidence : GTLRObject
 
@@ -1333,10 +1614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_HtmlContent : GTLRObject
 
 /**
- *  The height of the HTML snippet in pixels.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The height of the HTML snippet in pixels. Can be used to filter the response
+ *  of the creatives.list method.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1346,10 +1625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, copy, nullable) NSString *snippet;
 
 /**
- *  The width of the HTML snippet in pixels.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The width of the HTML snippet in pixels. Can be used to filter the response
+ *  of the creatives.list method.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1375,18 +1652,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_HttpCookieEvidence : GTLRObject
 
 /**
- *  Names of cookies that violate Google policies.
- *  For TOO_MANY_COOKIES policy, this will be the cookie names of top domains
- *  with the largest number of cookies. For other policies, this will be all
- *  the cookie names that violate the policy.
+ *  Names of cookies that violate Google policies. For TOO_MANY_COOKIES policy,
+ *  this will be the cookie names of top domains with the largest number of
+ *  cookies. For other policies, this will be all the cookie names that violate
+ *  the policy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cookieNames;
 
 /**
  *  The largest number of cookies set by a creative. If this field is set,
- *  cookie_names above will be set to the cookie names of top domains with
- *  the largest number of cookies.
- *  This field will only be set for TOO_MANY_COOKIES policy.
+ *  cookie_names above will be set to the cookie names of top domains with the
+ *  largest number of cookies. This field will only be set for TOO_MANY_COOKIES
+ *  policy.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1396,8 +1673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 
 /**
- *  An image resource. You may provide a larger image than was requested,
- *  so long as the aspect ratio is preserved.
+ *  An image resource. You may provide a larger image than was requested, so
+ *  long as the aspect ratio is preserved.
  */
 @interface GTLRRealTimeBidding_Image : GTLRObject
 
@@ -1440,11 +1717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<GTLRRealTimeBidding_Creative *> *creatives;
 
 /**
- *  A token to retrieve the next page of results.
- *  Pass this value in the
- *  ListCreativesRequest.pageToken
- *  field in the subsequent call to the `ListCreatives` method to retrieve the
- *  next page of results.
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  ListCreativesRequest.pageToken field in the subsequent call to the
+ *  `ListCreatives` method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1463,10 +1738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  The continuation page token to send back to the server in a subsequent
- *  request.
- *  Due to a currently known issue, it is recommended that the caller keep
- *  invoking the list method till the time a next page token is not returned
- *  (even if the result set is empty).
+ *  request. Due to a currently known issue, it is recommended that the caller
+ *  keep invoking the list method till the time a next page token is not
+ *  returned (even if the result set is empty).
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1487,20 +1761,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_MediaFile : GTLRObject
 
 /**
- *  Bitrate of the video file, in Kbps.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Bitrate of the video file, in Kbps. Can be used to filter the response of
+ *  the creatives.list method.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bitrate;
 
 /**
- *  The MIME type of this media file.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The MIME type of this media file. Can be used to filter the response of the
+ *  creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRRealTimeBidding_MediaFile_MimeType_MimeApplicationJavascript
@@ -1623,10 +1893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  Policy topic this entry refers to. For example, "ALCOHOL",
  *  "TRADEMARKS_IN_AD_TEXT", or "DESTINATION_NOT_WORKING". The set of possible
  *  policy topics is not fixed for a particular API version and may change at
- *  any time.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method
+ *  any time. Can be used to filter the response of the creatives.list method
  */
 @property(nonatomic, copy, nullable) NSString *policyTopic;
 
@@ -1642,8 +1909,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_DestinationNotCrawlableEvidence *destinationNotCrawlable;
 
 /**
- *  The creative's destination URL did not function properly or was
- *  incorrectly set up.
+ *  The creative's destination URL did not function properly or was incorrectly
+ *  set up.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_DestinationNotWorkingEvidence *destinationNotWorking;
 
@@ -1654,8 +1921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_DomainCallEvidence *domainCall;
 
 /**
- *  Total download size and URL-level download size breakdown for resources
- *  in a creative.
+ *  Total download size and URL-level download size breakdown for resources in a
+ *  creative.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_DownloadSizeEvidence *downloadSize;
 
@@ -1674,11 +1941,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_ServingStatus : GTLRObject
 
 /**
- *  Serving status for the given transaction type (e.g., open auction,
- *  deals) or region (e.g., China, Russia).
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Serving status for the given transaction type (e.g., open auction, deals) or
+ *  region (e.g., China, Russia). Can be used to filter the response of the
+ *  creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRRealTimeBidding_ServingStatus_Status_Approved Creative is
@@ -1694,8 +1959,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  Policy topics related to the serving decision for this transaction type
- *  (e.g., open auction, deals) or region (e.g., China, Russia).
- *  Topics may be present only if status is DISAPPROVED.
+ *  (e.g., open auction, deals) or region (e.g., China, Russia). Topics may be
+ *  present only if status is DISAPPROVED.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRealTimeBidding_PolicyTopicEntry *> *topics;
 
@@ -1727,9 +1992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_UrlRestriction : GTLRObject
 
 /**
- *  End date (if specified) of the URL restriction.
- *  End date should be later than the start date for the date range to be
- *  valid.
+ *  End date (if specified) of the URL restriction. End date should be later
+ *  than the start date for the date range to be valid.
  */
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_Date *endDate;
 
@@ -1751,14 +2015,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *        specified URL. (Value: "DOES_NOT_EQUAL")
  *    @arg @c kGTLRRealTimeBidding_UrlRestriction_RestrictionType_DoesNotStartWith
  *        The tag URL (as recorded by the pixel callback) does not start with
- *        the
- *        specified URL. (Value: "DOES_NOT_START_WITH")
+ *        the specified URL. (Value: "DOES_NOT_START_WITH")
  *    @arg @c kGTLRRealTimeBidding_UrlRestriction_RestrictionType_EndsWith The
  *        tag URL (as recorded by the pixel callback) ends with the specified
  *        URL. (Value: "ENDS_WITH")
  *    @arg @c kGTLRRealTimeBidding_UrlRestriction_RestrictionType_Equals The tag
- *        URL (as recorded by the pixel callback) exactly matches the
- *        specified URL. (Value: "EQUALS")
+ *        URL (as recorded by the pixel callback) exactly matches the specified
+ *        URL. (Value: "EQUALS")
  *    @arg @c kGTLRRealTimeBidding_UrlRestriction_RestrictionType_RestrictionTypeUnspecified
  *        Default value that should never be used. (Value:
  *        "RESTRICTION_TYPE_UNSPECIFIED")
@@ -1779,10 +2042,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  Represents an Authorized Buyers user list. Authorized Buyers can
- *  create/update/list user lists. Once a user list is created
- *  in the system, Authorized Buyers can add users to the user list using
- *  the bulk uploader API. Alternatively, users can be added by hosting a
- *  tag on the advertiser's page.
+ *  create/update/list user lists. Once a user list is created in the system,
+ *  Authorized Buyers can add users to the user list using the bulk uploader
+ *  API. Alternatively, users can be added by hosting a tag on the advertiser's
+ *  page.
  */
 @interface GTLRRealTimeBidding_UserList : GTLRObject
 
@@ -1795,14 +2058,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  Required. Display name of the user list. This must be unique across all user
- *  lists
- *  for a given account.
+ *  lists for a given account.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. The number of days a user's cookie stays on the user list.
- *  The field must be between 0 and 540 inclusive.
+ *  Required. The number of days a user's cookie stays on the user list. The
+ *  field must be between 0 and 540 inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1810,11 +2072,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  Output only. Name of the user list that must follow the pattern
- *  `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents
- *  the account ID of the buyer who owns the user list. For a bidder accessing
- *  user lists on behalf of a child seat buyer, `{buyer}` represents
- *  the account ID of the child seat buyer. `{user_list}` is an int64
- *  identifier assigned by Google to uniquely identify a user list.
+ *  `buyers/{buyer}/userLists/{user_list}`, where `{buyer}` represents the
+ *  account ID of the buyer who owns the user list. For a bidder accessing user
+ *  lists on behalf of a child seat buyer, `{buyer}` represents the account ID
+ *  of the child seat buyer. `{user_list}` is an int64 identifier assigned by
+ *  Google to uniquely identify a user list.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1850,8 +2112,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, copy, nullable) NSString *videoUrl;
 
 /**
- *  The contents of a VAST document for a video ad.
- *  This document should conform to the VAST 2.0 or 3.0 standard.
+ *  The contents of a VAST document for a video ad. This document should conform
+ *  to the VAST 2.0 or 3.0 standard.
  */
 @property(nonatomic, copy, nullable) NSString *videoVastXml;
 
@@ -1864,27 +2126,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @interface GTLRRealTimeBidding_VideoMetadata : GTLRObject
 
 /**
- *  The duration of the ad.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The duration of the ad. Can be used to filter the response of the
+ *  creatives.list method.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  Is this a valid VAST ad?
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  Is this a valid VAST ad? Can be used to filter the response of the
+ *  creatives.list method.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isValidVast;
 
 /**
- *  Is this a VPAID ad?
- *  Can be used to filter the response of the
- *  creatives.list
+ *  Is this a VPAID ad? Can be used to filter the response of the creatives.list
  *  method.
  *
  *  Uses NSNumber of boolValue.
@@ -1893,26 +2149,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 
 /**
  *  The list of all media files declared in the VAST. If there are multiple
- *  VASTs in a wrapper chain, this includes the media files from the deepest
- *  one in the chain.
+ *  VASTs in a wrapper chain, this includes the media files from the deepest one
+ *  in the chain.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRealTimeBidding_MediaFile *> *mediaFiles;
 
 /**
- *  The minimum duration that the user has to watch before being able to
- *  skip this ad. If the field is not set, the ad is not skippable. If
- *  the field is set, the ad is skippable.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The minimum duration that the user has to watch before being able to skip
+ *  this ad. If the field is not set, the ad is not skippable. If the field is
+ *  set, the ad is skippable. Can be used to filter the response of the
+ *  creatives.list method.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *skipOffset;
 
 /**
- *  The maximum VAST version across all wrapped VAST documents.
- *  Can be used to filter the response of the
- *  creatives.list
- *  method.
+ *  The maximum VAST version across all wrapped VAST documents. Can be used to
+ *  filter the response of the creatives.list method.
  *
  *  Likely values:
  *    @arg @c kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersion10 VAST
@@ -1949,19 +2201,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 /**
  *  The Pub/Sub subscription that can be used to pull creative status
  *  notifications. This would be of the format
- *  `projects/{project_id}/subscriptions/{subscription_id}`.
- *  Subscription is created with pull delivery. All service accounts belonging
- *  to the bidder will have read access to this subscription.
- *  Subscriptions that are inactive for more than 90 days will be disabled.
- *  Please use
- *  watchCreatives to
+ *  `projects/{project_id}/subscriptions/{subscription_id}`. Subscription is
+ *  created with pull delivery. All service accounts belonging to the bidder
+ *  will have read access to this subscription. Subscriptions that are inactive
+ *  for more than 90 days will be disabled. Please use watchCreatives to
  *  re-enable the subscription.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
- *  The Pub/Sub topic that will be used to publish creative serving
- *  status notifications. This would be of the format
+ *  The Pub/Sub topic that will be used to publish creative serving status
+ *  notifications. This would be of the format
  *  `projects/{project_id}/topics/{topic_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;

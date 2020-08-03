@@ -1102,7 +1102,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_DisksGetIamPolicy
 
-@dynamic project, resource, zoneProperty;
+@dynamic optionsRequestedPolicyVersion, project, resource, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3060,7 +3060,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ImagesGetIamPolicy
 
-@dynamic project, resource;
+@dynamic optionsRequestedPolicyVersion, project, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource {
@@ -4320,7 +4320,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstancesGetIamPolicy
 
-@dynamic project, resource, zoneProperty;
+@dynamic optionsRequestedPolicyVersion, project, resource, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -5394,7 +5394,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstanceTemplatesGetIamPolicy
 
-@dynamic project, resource;
+@dynamic optionsRequestedPolicyVersion, project, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource {
@@ -5969,7 +5969,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_LicensesGetIamPolicy
 
-@dynamic project, resource;
+@dynamic optionsRequestedPolicyVersion, project, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource {
@@ -6877,7 +6877,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeGroupsGetIamPolicy
 
-@dynamic project, resource, zoneProperty;
+@dynamic optionsRequestedPolicyVersion, project, resource, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -7217,7 +7217,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeTemplatesGetIamPolicy
 
-@dynamic project, region, resource;
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -8520,7 +8520,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionDisksGetIamPolicy
 
-@dynamic project, region, resource;
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -10614,7 +10614,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ReservationsGetIamPolicy
 
-@dynamic project, resource, zoneProperty;
+@dynamic optionsRequestedPolicyVersion, project, resource, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -10885,7 +10885,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ResourcePoliciesGetIamPolicy
 
-@dynamic project, region, resource;
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -11690,7 +11690,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SnapshotsGetIamPolicy
 
-@dynamic project, resource;
+@dynamic optionsRequestedPolicyVersion, project, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource {
@@ -12180,7 +12180,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SubnetworksGetIamPolicy
 
-@dynamic project, region, resource;
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
